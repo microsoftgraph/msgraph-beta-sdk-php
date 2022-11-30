@@ -25,21 +25,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OutlookTaskItemRequestBuilder 
 {
     /**
-     * The attachments property
+     * Provides operations to manage the attachments property of the microsoft.graph.outlookTask entity.
     */
     public function attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The complete property
+     * Provides operations to call the complete method.
     */
     public function complete(): CompleteRequestBuilder {
         return new CompleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The multiValueExtendedProperties property
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.outlookTask entity.
     */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -56,7 +56,7 @@ class OutlookTaskItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The singleValueExtendedProperties property
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.outlookTask entity.
     */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -68,7 +68,7 @@ class OutlookTaskItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.outlook.tasks.item.attachments.item collection
+     * Provides operations to manage the attachments property of the microsoft.graph.outlookTask entity.
      * @param string $id Unique identifier of the item
      * @return AttachmentItemRequestBuilder
     */
@@ -198,7 +198,7 @@ class OutlookTaskItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.outlook.tasks.item.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.outlookTask entity.
      * @param string $id Unique identifier of the item
      * @return MultiValueLegacyExtendedPropertyItemRequestBuilder
     */
@@ -229,7 +229,7 @@ class OutlookTaskItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.outlook.tasks.item.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.outlookTask entity.
      * @param string $id Unique identifier of the item
      * @return SingleValueLegacyExtendedPropertyItemRequestBuilder
     */

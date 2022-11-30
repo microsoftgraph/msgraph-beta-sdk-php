@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NotificationChannelCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * @var array<NotificationChannel>|null $value The value property
-    */
-    private ?array $value = null;
-    
-    /**
      * Instantiates a new NotificationChannelCollectionResponse and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class NotificationChannelCollectionResponse extends BaseCollectionPaginationCoun
      * @return array<NotificationChannel>|null
     */
     public function getValue(): ?array {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +50,15 @@ class NotificationChannelCollectionResponse extends BaseCollectionPaginationCoun
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('value', $this->value);
+        $writer->writeCollectionOfObjectValues('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. The value property
      *  @param array<NotificationChannel>|null $value Value to set for the value property.
     */
-    public function setValue(?array $value ): void {
-        $this->value = $value;
+    public function setValue(?array $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

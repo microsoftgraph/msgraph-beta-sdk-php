@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RecordOperation extends CommsOperation implements Parsable 
 {
     /**
-     * @var RecordCompletionReason|null $completionReason Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
-    */
-    private ?RecordCompletionReason $completionReason = null;
-    
-    /**
-     * @var string|null $recordingAccessToken The access token required to retrieve the recording.
-    */
-    private ?string $recordingAccessToken = null;
-    
-    /**
-     * @var string|null $recordingLocation The location where the recording is located.
-    */
-    private ?string $recordingLocation = null;
-    
-    /**
      * Instantiates a new RecordOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.recordOperation');
     }
 
     /**
@@ -45,7 +29,7 @@ class RecordOperation extends CommsOperation implements Parsable
      * @return RecordCompletionReason|null
     */
     public function getCompletionReason(): ?RecordCompletionReason {
-        return $this->completionReason;
+        return $this->getBackingStore()->get('completionReason');
     }
 
     /**
@@ -66,7 +50,7 @@ class RecordOperation extends CommsOperation implements Parsable
      * @return string|null
     */
     public function getRecordingAccessToken(): ?string {
-        return $this->recordingAccessToken;
+        return $this->getBackingStore()->get('recordingAccessToken');
     }
 
     /**
@@ -74,7 +58,7 @@ class RecordOperation extends CommsOperation implements Parsable
      * @return string|null
     */
     public function getRecordingLocation(): ?string {
-        return $this->recordingLocation;
+        return $this->getBackingStore()->get('recordingLocation');
     }
 
     /**
@@ -83,33 +67,33 @@ class RecordOperation extends CommsOperation implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('completionReason', $this->completionReason);
-        $writer->writeStringValue('recordingAccessToken', $this->recordingAccessToken);
-        $writer->writeStringValue('recordingLocation', $this->recordingLocation);
+        $writer->writeEnumValue('completionReason', $this->getCompletionReason());
+        $writer->writeStringValue('recordingAccessToken', $this->getRecordingAccessToken());
+        $writer->writeStringValue('recordingLocation', $this->getRecordingLocation());
     }
 
     /**
      * Sets the completionReason property value. Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
      *  @param RecordCompletionReason|null $value Value to set for the completionReason property.
     */
-    public function setCompletionReason(?RecordCompletionReason $value ): void {
-        $this->completionReason = $value;
+    public function setCompletionReason(?RecordCompletionReason $value): void {
+        $this->getBackingStore()->set('completionReason', $value);
     }
 
     /**
      * Sets the recordingAccessToken property value. The access token required to retrieve the recording.
      *  @param string|null $value Value to set for the recordingAccessToken property.
     */
-    public function setRecordingAccessToken(?string $value ): void {
-        $this->recordingAccessToken = $value;
+    public function setRecordingAccessToken(?string $value): void {
+        $this->getBackingStore()->set('recordingAccessToken', $value);
     }
 
     /**
      * Sets the recordingLocation property value. The location where the recording is located.
      *  @param string|null $value Value to set for the recordingLocation property.
     */
-    public function setRecordingLocation(?string $value ): void {
-        $this->recordingLocation = $value;
+    public function setRecordingLocation(?string $value): void {
+        $this->getBackingStore()->set('recordingLocation', $value);
     }
 
 }

@@ -29,7 +29,7 @@ class CommandItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The responsepayload property
+     * Provides operations to manage the responsepayload property of the microsoft.graph.command entity.
     */
     public function responsepayload(): ResponsepayloadRequestBuilder {
         return new ResponsepayloadRequestBuilder($this->pathParameters, $this->requestAdapter);

@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Parsable 
 {
     /**
-     * @var array<UserExperienceAnalyticsWorkFromAnywhereDevice>|null $metricDevices The work from anywhere metric devices.
-    */
-    private ?array $metricDevices = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsWorkFromAnywhereMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric');
     }
 
     /**
@@ -46,7 +40,7 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Pa
      * @return array<UserExperienceAnalyticsWorkFromAnywhereDevice>|null
     */
     public function getMetricDevices(): ?array {
-        return $this->metricDevices;
+        return $this->getBackingStore()->get('metricDevices');
     }
 
     /**
@@ -55,15 +49,15 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('metricDevices', $this->metricDevices);
+        $writer->writeCollectionOfObjectValues('metricDevices', $this->getMetricDevices());
     }
 
     /**
      * Sets the metricDevices property value. The work from anywhere metric devices.
      *  @param array<UserExperienceAnalyticsWorkFromAnywhereDevice>|null $value Value to set for the metricDevices property.
     */
-    public function setMetricDevices(?array $value ): void {
-        $this->metricDevices = $value;
+    public function setMetricDevices(?array $value): void {
+        $this->getBackingStore()->set('metricDevices', $value);
     }
 
 }

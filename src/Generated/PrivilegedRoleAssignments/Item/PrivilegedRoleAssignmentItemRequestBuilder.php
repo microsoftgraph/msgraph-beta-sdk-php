@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PrivilegedRoleAssignmentItemRequestBuilder 
 {
     /**
-     * The makeEligible property
+     * Provides operations to call the makeEligible method.
     */
     public function makeEligible(): MakeEligibleRequestBuilder {
         return new MakeEligibleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The makePermanent property
+     * Provides operations to call the makePermanent method.
     */
     public function makePermanent(): MakePermanentRequestBuilder {
         return new MakePermanentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -45,7 +45,7 @@ class PrivilegedRoleAssignmentItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The roleInfo property
+     * Provides operations to manage the roleInfo property of the microsoft.graph.privilegedRoleAssignment entity.
     */
     public function roleInfo(): RoleInfoRequestBuilder {
         return new RoleInfoRequestBuilder($this->pathParameters, $this->requestAdapter);

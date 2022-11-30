@@ -25,21 +25,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceManagementTemplateItemRequestBuilder 
 {
     /**
-     * The categories property
+     * Provides operations to manage the categories property of the microsoft.graph.deviceManagementTemplate entity.
     */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The createInstance property
+     * Provides operations to call the createInstance method.
     */
     public function createInstance(): CreateInstanceRequestBuilder {
         return new CreateInstanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The migratableTo property
+     * Provides operations to manage the migratableTo property of the microsoft.graph.deviceManagementTemplate entity.
     */
     public function migratableTo(): MigratableToRequestBuilder {
         return new MigratableToRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -56,7 +56,7 @@ class DeviceManagementTemplateItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The settings property
+     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementTemplate entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -68,7 +68,7 @@ class DeviceManagementTemplateItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.templates.item.categories.item collection
+     * Provides operations to manage the categories property of the microsoft.graph.deviceManagementTemplate entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementTemplateSettingCategoryItemRequestBuilder
     */
@@ -207,7 +207,7 @@ class DeviceManagementTemplateItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.templates.item.migratableTo.item collection
+     * Provides operations to manage the migratableTo property of the microsoft.graph.deviceManagementTemplate entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementTemplateItemRequestBuilder
     */
@@ -238,7 +238,7 @@ class DeviceManagementTemplateItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.templates.item.settings.item collection
+     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementTemplate entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementSettingInstanceItemRequestBuilder
     */

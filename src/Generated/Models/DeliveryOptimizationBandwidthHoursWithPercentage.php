@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizationBandwidth implements Parsable 
 {
     /**
-     * @var DeliveryOptimizationBandwidthBusinessHoursLimit|null $bandwidthBackgroundPercentageHours Background download percentage hours.
-    */
-    private ?DeliveryOptimizationBandwidthBusinessHoursLimit $bandwidthBackgroundPercentageHours = null;
-    
-    /**
-     * @var DeliveryOptimizationBandwidthBusinessHoursLimit|null $bandwidthForegroundPercentageHours Foreground download percentage hours.
-    */
-    private ?DeliveryOptimizationBandwidthBusinessHoursLimit $bandwidthForegroundPercentageHours = null;
-    
-    /**
      * Instantiates a new DeliveryOptimizationBandwidthHoursWithPercentage and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
      * @return DeliveryOptimizationBandwidthBusinessHoursLimit|null
     */
     public function getBandwidthBackgroundPercentageHours(): ?DeliveryOptimizationBandwidthBusinessHoursLimit {
-        return $this->bandwidthBackgroundPercentageHours;
+        return $this->getBackingStore()->get('bandwidthBackgroundPercentageHours');
     }
 
     /**
@@ -48,7 +38,7 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
      * @return DeliveryOptimizationBandwidthBusinessHoursLimit|null
     */
     public function getBandwidthForegroundPercentageHours(): ?DeliveryOptimizationBandwidthBusinessHoursLimit {
-        return $this->bandwidthForegroundPercentageHours;
+        return $this->getBackingStore()->get('bandwidthForegroundPercentageHours');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('bandwidthBackgroundPercentageHours', $this->bandwidthBackgroundPercentageHours);
-        $writer->writeObjectValue('bandwidthForegroundPercentageHours', $this->bandwidthForegroundPercentageHours);
+        $writer->writeObjectValue('bandwidthBackgroundPercentageHours', $this->getBandwidthBackgroundPercentageHours());
+        $writer->writeObjectValue('bandwidthForegroundPercentageHours', $this->getBandwidthForegroundPercentageHours());
     }
 
     /**
      * Sets the bandwidthBackgroundPercentageHours property value. Background download percentage hours.
      *  @param DeliveryOptimizationBandwidthBusinessHoursLimit|null $value Value to set for the bandwidthBackgroundPercentageHours property.
     */
-    public function setBandwidthBackgroundPercentageHours(?DeliveryOptimizationBandwidthBusinessHoursLimit $value ): void {
-        $this->bandwidthBackgroundPercentageHours = $value;
+    public function setBandwidthBackgroundPercentageHours(?DeliveryOptimizationBandwidthBusinessHoursLimit $value): void {
+        $this->getBackingStore()->set('bandwidthBackgroundPercentageHours', $value);
     }
 
     /**
      * Sets the bandwidthForegroundPercentageHours property value. Foreground download percentage hours.
      *  @param DeliveryOptimizationBandwidthBusinessHoursLimit|null $value Value to set for the bandwidthForegroundPercentageHours property.
     */
-    public function setBandwidthForegroundPercentageHours(?DeliveryOptimizationBandwidthBusinessHoursLimit $value ): void {
-        $this->bandwidthForegroundPercentageHours = $value;
+    public function setBandwidthForegroundPercentageHours(?DeliveryOptimizationBandwidthBusinessHoursLimit $value): void {
+        $this->getBackingStore()->set('bandwidthForegroundPercentageHours', $value);
     }
 
 }

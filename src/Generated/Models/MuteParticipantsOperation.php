@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MuteParticipantsOperation extends CommsOperation implements Parsable 
 {
     /**
-     * @var array<string>|null $participants The participants property
-    */
-    private ?array $participants = null;
-    
-    /**
      * Instantiates a new MuteParticipantsOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.muteParticipantsOperation');
     }
 
     /**
@@ -46,7 +40,7 @@ class MuteParticipantsOperation extends CommsOperation implements Parsable
      * @return array<string>|null
     */
     public function getParticipants(): ?array {
-        return $this->participants;
+        return $this->getBackingStore()->get('participants');
     }
 
     /**
@@ -55,15 +49,15 @@ class MuteParticipantsOperation extends CommsOperation implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('participants', $this->participants);
+        $writer->writeCollectionOfPrimitiveValues('participants', $this->getParticipants());
     }
 
     /**
      * Sets the participants property value. The participants property
      *  @param array<string>|null $value Value to set for the participants property.
     */
-    public function setParticipants(?array $value ): void {
-        $this->participants = $value;
+    public function setParticipants(?array $value): void {
+        $this->getBackingStore()->set('participants', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPhone81AppXBundle extends WindowsPhone81AppX implements Parsable 
 {
     /**
-     * @var array<WindowsPackageInformation>|null $appXPackageInformationList The list of AppX Package Information.
-    */
-    private ?array $appXPackageInformationList = null;
-    
-    /**
      * Instantiates a new WindowsPhone81AppXBundle and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class WindowsPhone81AppXBundle extends WindowsPhone81AppX implements Parsable
      * @return array<WindowsPackageInformation>|null
     */
     public function getAppXPackageInformationList(): ?array {
-        return $this->appXPackageInformationList;
+        return $this->getBackingStore()->get('appXPackageInformationList');
     }
 
     /**
@@ -55,15 +50,15 @@ class WindowsPhone81AppXBundle extends WindowsPhone81AppX implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('appXPackageInformationList', $this->appXPackageInformationList);
+        $writer->writeCollectionOfObjectValues('appXPackageInformationList', $this->getAppXPackageInformationList());
     }
 
     /**
      * Sets the appXPackageInformationList property value. The list of AppX Package Information.
      *  @param array<WindowsPackageInformation>|null $value Value to set for the appXPackageInformationList property.
     */
-    public function setAppXPackageInformationList(?array $value ): void {
-        $this->appXPackageInformationList = $value;
+    public function setAppXPackageInformationList(?array $value): void {
+        $this->getBackingStore()->set('appXPackageInformationList', $value);
     }
 
 }

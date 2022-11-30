@@ -6,60 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RegionalFormatOverrides implements AdditionalDataHolder, Parsable 
+class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $calendar The calendar to use, e.g., Gregorian Calendar.Returned by default.
-    */
-    private ?string $calendar = null;
-    
-    /**
-     * @var string|null $firstDayOfWeek The first day of the week to use, e.g., Sunday.Returned by default.
-    */
-    private ?string $firstDayOfWeek = null;
-    
-    /**
-     * @var string|null $longDateFormat The long date time format to be used for displaying dates.Returned by default.
-    */
-    private ?string $longDateFormat = null;
-    
-    /**
-     * @var string|null $longTimeFormat The long time format to be used for displaying time.Returned by default.
-    */
-    private ?string $longTimeFormat = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $shortDateFormat The short date time format to be used for displaying dates.Returned by default.
-    */
-    private ?string $shortDateFormat = null;
-    
-    /**
-     * @var string|null $shortTimeFormat The short time format to be used for displaying time.Returned by default.
-    */
-    private ?string $shortTimeFormat = null;
-    
-    /**
-     * @var string|null $timeZone The timezone to be used for displaying time.Returned by default.
-    */
-    private ?string $timeZone = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new regionalFormatOverrides and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.regionalFormatOverrides');
     }
 
     /**
@@ -75,8 +38,16 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -84,7 +55,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCalendar(): ?string {
-        return $this->calendar;
+        return $this->getBackingStore()->get('calendar');
     }
 
     /**
@@ -110,7 +81,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getFirstDayOfWeek(): ?string {
-        return $this->firstDayOfWeek;
+        return $this->getBackingStore()->get('firstDayOfWeek');
     }
 
     /**
@@ -118,7 +89,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getLongDateFormat(): ?string {
-        return $this->longDateFormat;
+        return $this->getBackingStore()->get('longDateFormat');
     }
 
     /**
@@ -126,7 +97,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getLongTimeFormat(): ?string {
-        return $this->longTimeFormat;
+        return $this->getBackingStore()->get('longTimeFormat');
     }
 
     /**
@@ -134,7 +105,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -142,7 +113,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getShortDateFormat(): ?string {
-        return $this->shortDateFormat;
+        return $this->getBackingStore()->get('shortDateFormat');
     }
 
     /**
@@ -150,7 +121,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getShortTimeFormat(): ?string {
-        return $this->shortTimeFormat;
+        return $this->getBackingStore()->get('shortTimeFormat');
     }
 
     /**
@@ -158,7 +129,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTimeZone(): ?string {
-        return $this->timeZone;
+        return $this->getBackingStore()->get('timeZone');
     }
 
     /**
@@ -166,87 +137,95 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('calendar', $this->calendar);
-        $writer->writeStringValue('firstDayOfWeek', $this->firstDayOfWeek);
-        $writer->writeStringValue('longDateFormat', $this->longDateFormat);
-        $writer->writeStringValue('longTimeFormat', $this->longTimeFormat);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('shortDateFormat', $this->shortDateFormat);
-        $writer->writeStringValue('shortTimeFormat', $this->shortTimeFormat);
-        $writer->writeStringValue('timeZone', $this->timeZone);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('calendar', $this->getCalendar());
+        $writer->writeStringValue('firstDayOfWeek', $this->getFirstDayOfWeek());
+        $writer->writeStringValue('longDateFormat', $this->getLongDateFormat());
+        $writer->writeStringValue('longTimeFormat', $this->getLongTimeFormat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('shortDateFormat', $this->getShortDateFormat());
+        $writer->writeStringValue('shortTimeFormat', $this->getShortTimeFormat());
+        $writer->writeStringValue('timeZone', $this->getTimeZone());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the calendar property value. The calendar to use, e.g., Gregorian Calendar.Returned by default.
      *  @param string|null $value Value to set for the calendar property.
     */
-    public function setCalendar(?string $value ): void {
-        $this->calendar = $value;
+    public function setCalendar(?string $value): void {
+        $this->getBackingStore()->set('calendar', $value);
     }
 
     /**
      * Sets the firstDayOfWeek property value. The first day of the week to use, e.g., Sunday.Returned by default.
      *  @param string|null $value Value to set for the firstDayOfWeek property.
     */
-    public function setFirstDayOfWeek(?string $value ): void {
-        $this->firstDayOfWeek = $value;
+    public function setFirstDayOfWeek(?string $value): void {
+        $this->getBackingStore()->set('firstDayOfWeek', $value);
     }
 
     /**
      * Sets the longDateFormat property value. The long date time format to be used for displaying dates.Returned by default.
      *  @param string|null $value Value to set for the longDateFormat property.
     */
-    public function setLongDateFormat(?string $value ): void {
-        $this->longDateFormat = $value;
+    public function setLongDateFormat(?string $value): void {
+        $this->getBackingStore()->set('longDateFormat', $value);
     }
 
     /**
      * Sets the longTimeFormat property value. The long time format to be used for displaying time.Returned by default.
      *  @param string|null $value Value to set for the longTimeFormat property.
     */
-    public function setLongTimeFormat(?string $value ): void {
-        $this->longTimeFormat = $value;
+    public function setLongTimeFormat(?string $value): void {
+        $this->getBackingStore()->set('longTimeFormat', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the shortDateFormat property value. The short date time format to be used for displaying dates.Returned by default.
      *  @param string|null $value Value to set for the shortDateFormat property.
     */
-    public function setShortDateFormat(?string $value ): void {
-        $this->shortDateFormat = $value;
+    public function setShortDateFormat(?string $value): void {
+        $this->getBackingStore()->set('shortDateFormat', $value);
     }
 
     /**
      * Sets the shortTimeFormat property value. The short time format to be used for displaying time.Returned by default.
      *  @param string|null $value Value to set for the shortTimeFormat property.
     */
-    public function setShortTimeFormat(?string $value ): void {
-        $this->shortTimeFormat = $value;
+    public function setShortTimeFormat(?string $value): void {
+        $this->getBackingStore()->set('shortTimeFormat', $value);
     }
 
     /**
      * Sets the timeZone property value. The timezone to be used for displaying time.Returned by default.
      *  @param string|null $value Value to set for the timeZone property.
     */
-    public function setTimeZone(?string $value ): void {
-        $this->timeZone = $value;
+    public function setTimeZone(?string $value): void {
+        $this->getBackingStore()->set('timeZone', $value);
     }
 
 }

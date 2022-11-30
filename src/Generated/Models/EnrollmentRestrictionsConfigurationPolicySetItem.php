@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * @var int|null $limit Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.
-    */
-    private ?int $limit = null;
-    
-    /**
-     * @var int|null $priority Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
-    */
-    private ?int $priority = null;
-    
-    /**
      * Instantiates a new EnrollmentRestrictionsConfigurationPolicySetItem and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem imp
      * @return int|null
     */
     public function getLimit(): ?int {
-        return $this->limit;
+        return $this->getBackingStore()->get('limit');
     }
 
     /**
@@ -60,7 +50,7 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem imp
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -69,24 +59,24 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem imp
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('limit', $this->limit);
-        $writer->writeIntegerValue('priority', $this->priority);
+        $writer->writeIntegerValue('limit', $this->getLimit());
+        $writer->writeIntegerValue('priority', $this->getPriority());
     }
 
     /**
      * Sets the limit property value. Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.
      *  @param int|null $value Value to set for the limit property.
     */
-    public function setLimit(?int $value ): void {
-        $this->limit = $value;
+    public function setLimit(?int $value): void {
+        $this->getBackingStore()->set('limit', $value);
     }
 
     /**
      * Sets the priority property value. Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
 }

@@ -10,26 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantRelationship extends Entity implements Parsable 
 {
     /**
-     * @var array<DelegatedAdminCustomer>|null $delegatedAdminCustomers The customer who has a delegated admin relationship with a Microsoft partner.
-    */
-    private ?array $delegatedAdminCustomers = null;
-    
-    /**
-     * @var array<DelegatedAdminRelationship>|null $delegatedAdminRelationships The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
-    */
-    private ?array $delegatedAdminRelationships = null;
-    
-    /**
-     * @var ManagedTenant|null $managedTenants The operations available to interact with the multi-tenant management platform.
-    */
-    private ?ManagedTenant $managedTenants = null;
-    
-    /**
      * Instantiates a new TenantRelationship and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.tenantRelationship');
     }
 
     /**
@@ -46,7 +30,7 @@ class TenantRelationship extends Entity implements Parsable
      * @return array<DelegatedAdminCustomer>|null
     */
     public function getDelegatedAdminCustomers(): ?array {
-        return $this->delegatedAdminCustomers;
+        return $this->getBackingStore()->get('delegatedAdminCustomers');
     }
 
     /**
@@ -54,7 +38,7 @@ class TenantRelationship extends Entity implements Parsable
      * @return array<DelegatedAdminRelationship>|null
     */
     public function getDelegatedAdminRelationships(): ?array {
-        return $this->delegatedAdminRelationships;
+        return $this->getBackingStore()->get('delegatedAdminRelationships');
     }
 
     /**
@@ -75,7 +59,7 @@ class TenantRelationship extends Entity implements Parsable
      * @return ManagedTenant|null
     */
     public function getManagedTenants(): ?ManagedTenant {
-        return $this->managedTenants;
+        return $this->getBackingStore()->get('managedTenants');
     }
 
     /**
@@ -84,33 +68,33 @@ class TenantRelationship extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('delegatedAdminCustomers', $this->delegatedAdminCustomers);
-        $writer->writeCollectionOfObjectValues('delegatedAdminRelationships', $this->delegatedAdminRelationships);
-        $writer->writeObjectValue('managedTenants', $this->managedTenants);
+        $writer->writeCollectionOfObjectValues('delegatedAdminCustomers', $this->getDelegatedAdminCustomers());
+        $writer->writeCollectionOfObjectValues('delegatedAdminRelationships', $this->getDelegatedAdminRelationships());
+        $writer->writeObjectValue('managedTenants', $this->getManagedTenants());
     }
 
     /**
      * Sets the delegatedAdminCustomers property value. The customer who has a delegated admin relationship with a Microsoft partner.
      *  @param array<DelegatedAdminCustomer>|null $value Value to set for the delegatedAdminCustomers property.
     */
-    public function setDelegatedAdminCustomers(?array $value ): void {
-        $this->delegatedAdminCustomers = $value;
+    public function setDelegatedAdminCustomers(?array $value): void {
+        $this->getBackingStore()->set('delegatedAdminCustomers', $value);
     }
 
     /**
      * Sets the delegatedAdminRelationships property value. The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
      *  @param array<DelegatedAdminRelationship>|null $value Value to set for the delegatedAdminRelationships property.
     */
-    public function setDelegatedAdminRelationships(?array $value ): void {
-        $this->delegatedAdminRelationships = $value;
+    public function setDelegatedAdminRelationships(?array $value): void {
+        $this->getBackingStore()->set('delegatedAdminRelationships', $value);
     }
 
     /**
      * Sets the managedTenants property value. The operations available to interact with the multi-tenant management platform.
      *  @param ManagedTenant|null $value Value to set for the managedTenants property.
     */
-    public function setManagedTenants(?ManagedTenant $value ): void {
-        $this->managedTenants = $value;
+    public function setManagedTenants(?ManagedTenant $value): void {
+        $this->getBackingStore()->set('managedTenants', $value);
     }
 
 }

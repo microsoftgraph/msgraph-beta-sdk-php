@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosVppAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * @var bool|null $isRemovable Whether or not the app can be removed by the user.
-    */
-    private ?bool $isRemovable = null;
-    
-    /**
-     * @var bool|null $uninstallOnDeviceRemoval Whether or not to uninstall the app when device is removed from Intune.
-    */
-    private ?bool $uninstallOnDeviceRemoval = null;
-    
-    /**
-     * @var bool|null $useDeviceLicensing Whether or not to use device licensing.
-    */
-    private ?bool $useDeviceLicensing = null;
-    
-    /**
-     * @var string|null $vpnConfigurationId The VPN Configuration Id to apply for this app.
-    */
-    private ?string $vpnConfigurationId = null;
-    
-    /**
      * Instantiates a new IosVppAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
@@ -64,7 +44,7 @@ class IosVppAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return bool|null
     */
     public function getIsRemovable(): ?bool {
-        return $this->isRemovable;
+        return $this->getBackingStore()->get('isRemovable');
     }
 
     /**
@@ -72,7 +52,7 @@ class IosVppAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return bool|null
     */
     public function getUninstallOnDeviceRemoval(): ?bool {
-        return $this->uninstallOnDeviceRemoval;
+        return $this->getBackingStore()->get('uninstallOnDeviceRemoval');
     }
 
     /**
@@ -80,7 +60,7 @@ class IosVppAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return bool|null
     */
     public function getUseDeviceLicensing(): ?bool {
-        return $this->useDeviceLicensing;
+        return $this->getBackingStore()->get('useDeviceLicensing');
     }
 
     /**
@@ -88,7 +68,7 @@ class IosVppAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return string|null
     */
     public function getVpnConfigurationId(): ?string {
-        return $this->vpnConfigurationId;
+        return $this->getBackingStore()->get('vpnConfigurationId');
     }
 
     /**
@@ -97,42 +77,42 @@ class IosVppAppAssignmentSettings extends MobileAppAssignmentSettings implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isRemovable', $this->isRemovable);
-        $writer->writeBooleanValue('uninstallOnDeviceRemoval', $this->uninstallOnDeviceRemoval);
-        $writer->writeBooleanValue('useDeviceLicensing', $this->useDeviceLicensing);
-        $writer->writeStringValue('vpnConfigurationId', $this->vpnConfigurationId);
+        $writer->writeBooleanValue('isRemovable', $this->getIsRemovable());
+        $writer->writeBooleanValue('uninstallOnDeviceRemoval', $this->getUninstallOnDeviceRemoval());
+        $writer->writeBooleanValue('useDeviceLicensing', $this->getUseDeviceLicensing());
+        $writer->writeStringValue('vpnConfigurationId', $this->getVpnConfigurationId());
     }
 
     /**
      * Sets the isRemovable property value. Whether or not the app can be removed by the user.
      *  @param bool|null $value Value to set for the isRemovable property.
     */
-    public function setIsRemovable(?bool $value ): void {
-        $this->isRemovable = $value;
+    public function setIsRemovable(?bool $value): void {
+        $this->getBackingStore()->set('isRemovable', $value);
     }
 
     /**
      * Sets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
      *  @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
     */
-    public function setUninstallOnDeviceRemoval(?bool $value ): void {
-        $this->uninstallOnDeviceRemoval = $value;
+    public function setUninstallOnDeviceRemoval(?bool $value): void {
+        $this->getBackingStore()->set('uninstallOnDeviceRemoval', $value);
     }
 
     /**
      * Sets the useDeviceLicensing property value. Whether or not to use device licensing.
      *  @param bool|null $value Value to set for the useDeviceLicensing property.
     */
-    public function setUseDeviceLicensing(?bool $value ): void {
-        $this->useDeviceLicensing = $value;
+    public function setUseDeviceLicensing(?bool $value): void {
+        $this->getBackingStore()->set('useDeviceLicensing', $value);
     }
 
     /**
      * Sets the vpnConfigurationId property value. The VPN Configuration Id to apply for this app.
      *  @param string|null $value Value to set for the vpnConfigurationId property.
     */
-    public function setVpnConfigurationId(?string $value ): void {
-        $this->vpnConfigurationId = $value;
+    public function setVpnConfigurationId(?string $value): void {
+        $this->getBackingStore()->set('vpnConfigurationId', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationIdentityMatchingConfiguration extends EducationIdentitySynchronizationConfiguration implements Parsable 
 {
     /**
-     * @var array<EducationIdentityMatchingOptions>|null $matchingOptions Mapping between the user account and the options to use to uniquely identify the user to update.
-    */
-    private ?array $matchingOptions = null;
-    
-    /**
      * Instantiates a new EducationIdentityMatchingConfiguration and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class EducationIdentityMatchingConfiguration extends EducationIdentitySynchroniz
      * @return array<EducationIdentityMatchingOptions>|null
     */
     public function getMatchingOptions(): ?array {
-        return $this->matchingOptions;
+        return $this->getBackingStore()->get('matchingOptions');
     }
 
     /**
@@ -55,15 +50,15 @@ class EducationIdentityMatchingConfiguration extends EducationIdentitySynchroniz
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('matchingOptions', $this->matchingOptions);
+        $writer->writeCollectionOfObjectValues('matchingOptions', $this->getMatchingOptions());
     }
 
     /**
      * Sets the matchingOptions property value. Mapping between the user account and the options to use to uniquely identify the user to update.
      *  @param array<EducationIdentityMatchingOptions>|null $value Value to set for the matchingOptions property.
     */
-    public function setMatchingOptions(?array $value ): void {
-        $this->matchingOptions = $value;
+    public function setMatchingOptions(?array $value): void {
+        $this->getBackingStore()->set('matchingOptions', $value);
     }
 
 }

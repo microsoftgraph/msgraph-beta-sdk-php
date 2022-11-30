@@ -11,71 +11,10 @@ use Psr\Http\Message\StreamInterface;
 class UserPFXCertificate extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime Date/time when this PFX certificate was imported.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var StreamInterface|null $encryptedPfxBlob Encrypted PFX blob.
-    */
-    private ?StreamInterface $encryptedPfxBlob = null;
-    
-    /**
-     * @var string|null $encryptedPfxPassword Encrypted PFX password.
-    */
-    private ?string $encryptedPfxPassword = null;
-    
-    /**
-     * @var DateTime|null $expirationDateTime Certificate's validity expiration date/time.
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var UserPfxIntendedPurpose|null $intendedPurpose Supported values for the intended purpose of a user PFX certificate.
-    */
-    private ?UserPfxIntendedPurpose $intendedPurpose = null;
-    
-    /**
-     * @var string|null $keyName Name of the key (within the provider) used to encrypt the blob.
-    */
-    private ?string $keyName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Date/time when this PFX certificate was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var UserPfxPaddingScheme|null $paddingScheme Supported values for the padding scheme used by encryption provider.
-    */
-    private ?UserPfxPaddingScheme $paddingScheme = null;
-    
-    /**
-     * @var string|null $providerName Crypto provider used to encrypt this blob.
-    */
-    private ?string $providerName = null;
-    
-    /**
-     * @var DateTime|null $startDateTime Certificate's validity start date/time.
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var string|null $thumbprint SHA-1 thumbprint of the PFX certificate.
-    */
-    private ?string $thumbprint = null;
-    
-    /**
-     * @var string|null $userPrincipalName User Principal Name of the PFX certificate.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
-     * Instantiates a new UserPFXCertificate and sets the default values.
+     * Instantiates a new userPFXCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userPFXCertificate');
     }
 
     /**
@@ -92,15 +31,15 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
      * Gets the encryptedPfxBlob property value. Encrypted PFX blob.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getEncryptedPfxBlob(): StreamInterface {
-        return $this->encryptedPfxBlob;
+    public function getEncryptedPfxBlob(): ?StreamInterface {
+        return $this->getBackingStore()->get('encryptedPfxBlob');
     }
 
     /**
@@ -108,7 +47,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getEncryptedPfxPassword(): ?string {
-        return $this->encryptedPfxPassword;
+        return $this->getBackingStore()->get('encryptedPfxPassword');
     }
 
     /**
@@ -116,7 +55,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -146,7 +85,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return UserPfxIntendedPurpose|null
     */
     public function getIntendedPurpose(): ?UserPfxIntendedPurpose {
-        return $this->intendedPurpose;
+        return $this->getBackingStore()->get('intendedPurpose');
     }
 
     /**
@@ -154,7 +93,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getKeyName(): ?string {
-        return $this->keyName;
+        return $this->getBackingStore()->get('keyName');
     }
 
     /**
@@ -162,7 +101,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -170,7 +109,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return UserPfxPaddingScheme|null
     */
     public function getPaddingScheme(): ?UserPfxPaddingScheme {
-        return $this->paddingScheme;
+        return $this->getBackingStore()->get('paddingScheme');
     }
 
     /**
@@ -178,7 +117,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getProviderName(): ?string {
-        return $this->providerName;
+        return $this->getBackingStore()->get('providerName');
     }
 
     /**
@@ -186,7 +125,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -194,7 +133,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getThumbprint(): ?string {
-        return $this->thumbprint;
+        return $this->getBackingStore()->get('thumbprint');
     }
 
     /**
@@ -202,7 +141,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -211,114 +150,114 @@ class UserPFXCertificate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeBinaryContent('encryptedPfxBlob', $this->encryptedPfxBlob);
-        $writer->writeStringValue('encryptedPfxPassword', $this->encryptedPfxPassword);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeEnumValue('intendedPurpose', $this->intendedPurpose);
-        $writer->writeStringValue('keyName', $this->keyName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('paddingScheme', $this->paddingScheme);
-        $writer->writeStringValue('providerName', $this->providerName);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeStringValue('thumbprint', $this->thumbprint);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeBinaryContent('encryptedPfxBlob', $this->getEncryptedPfxBlob());
+        $writer->writeStringValue('encryptedPfxPassword', $this->getEncryptedPfxPassword());
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeEnumValue('intendedPurpose', $this->getIntendedPurpose());
+        $writer->writeStringValue('keyName', $this->getKeyName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('paddingScheme', $this->getPaddingScheme());
+        $writer->writeStringValue('providerName', $this->getProviderName());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeStringValue('thumbprint', $this->getThumbprint());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the createdDateTime property value. Date/time when this PFX certificate was imported.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the encryptedPfxBlob property value. Encrypted PFX blob.
      *  @param StreamInterface|null $value Value to set for the encryptedPfxBlob property.
     */
-    public function setEncryptedPfxBlob(?StreamInterface $value ): void {
-        $this->encryptedPfxBlob = $value;
+    public function setEncryptedPfxBlob(?StreamInterface $value): void {
+        $this->getBackingStore()->set('encryptedPfxBlob', $value);
     }
 
     /**
      * Sets the encryptedPfxPassword property value. Encrypted PFX password.
      *  @param string|null $value Value to set for the encryptedPfxPassword property.
     */
-    public function setEncryptedPfxPassword(?string $value ): void {
-        $this->encryptedPfxPassword = $value;
+    public function setEncryptedPfxPassword(?string $value): void {
+        $this->getBackingStore()->set('encryptedPfxPassword', $value);
     }
 
     /**
      * Sets the expirationDateTime property value. Certificate's validity expiration date/time.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the intendedPurpose property value. Supported values for the intended purpose of a user PFX certificate.
      *  @param UserPfxIntendedPurpose|null $value Value to set for the intendedPurpose property.
     */
-    public function setIntendedPurpose(?UserPfxIntendedPurpose $value ): void {
-        $this->intendedPurpose = $value;
+    public function setIntendedPurpose(?UserPfxIntendedPurpose $value): void {
+        $this->getBackingStore()->set('intendedPurpose', $value);
     }
 
     /**
      * Sets the keyName property value. Name of the key (within the provider) used to encrypt the blob.
      *  @param string|null $value Value to set for the keyName property.
     */
-    public function setKeyName(?string $value ): void {
-        $this->keyName = $value;
+    public function setKeyName(?string $value): void {
+        $this->getBackingStore()->set('keyName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Date/time when this PFX certificate was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the paddingScheme property value. Supported values for the padding scheme used by encryption provider.
      *  @param UserPfxPaddingScheme|null $value Value to set for the paddingScheme property.
     */
-    public function setPaddingScheme(?UserPfxPaddingScheme $value ): void {
-        $this->paddingScheme = $value;
+    public function setPaddingScheme(?UserPfxPaddingScheme $value): void {
+        $this->getBackingStore()->set('paddingScheme', $value);
     }
 
     /**
      * Sets the providerName property value. Crypto provider used to encrypt this blob.
      *  @param string|null $value Value to set for the providerName property.
     */
-    public function setProviderName(?string $value ): void {
-        $this->providerName = $value;
+    public function setProviderName(?string $value): void {
+        $this->getBackingStore()->set('providerName', $value);
     }
 
     /**
      * Sets the startDateTime property value. Certificate's validity start date/time.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the thumbprint property value. SHA-1 thumbprint of the PFX certificate.
      *  @param string|null $value Value to set for the thumbprint property.
     */
-    public function setThumbprint(?string $value ): void {
-        $this->thumbprint = $value;
+    public function setThumbprint(?string $value): void {
+        $this->getBackingStore()->set('thumbprint', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User Principal Name of the PFX certificate.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

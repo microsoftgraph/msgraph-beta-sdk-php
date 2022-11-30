@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementScriptUserState extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceManagementScriptDeviceState>|null $deviceRunStates List of run states for this script across all devices of specific user.
-    */
-    private ?array $deviceRunStates = null;
-    
-    /**
-     * @var int|null $errorDeviceCount Error device count for specific user.
-    */
-    private ?int $errorDeviceCount = null;
-    
-    /**
-     * @var int|null $successDeviceCount Success device count for specific user.
-    */
-    private ?int $successDeviceCount = null;
-    
-    /**
-     * @var string|null $userPrincipalName User principle name of specific user.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new deviceManagementScriptUserState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementScriptUserState');
     }
 
     /**
@@ -50,7 +29,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
      * @return array<DeviceManagementScriptDeviceState>|null
     */
     public function getDeviceRunStates(): ?array {
-        return $this->deviceRunStates;
+        return $this->getBackingStore()->get('deviceRunStates');
     }
 
     /**
@@ -58,7 +37,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorDeviceCount(): ?int {
-        return $this->errorDeviceCount;
+        return $this->getBackingStore()->get('errorDeviceCount');
     }
 
     /**
@@ -80,7 +59,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessDeviceCount(): ?int {
-        return $this->successDeviceCount;
+        return $this->getBackingStore()->get('successDeviceCount');
     }
 
     /**
@@ -88,7 +67,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -97,42 +76,42 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('deviceRunStates', $this->deviceRunStates);
-        $writer->writeIntegerValue('errorDeviceCount', $this->errorDeviceCount);
-        $writer->writeIntegerValue('successDeviceCount', $this->successDeviceCount);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeCollectionOfObjectValues('deviceRunStates', $this->getDeviceRunStates());
+        $writer->writeIntegerValue('errorDeviceCount', $this->getErrorDeviceCount());
+        $writer->writeIntegerValue('successDeviceCount', $this->getSuccessDeviceCount());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the deviceRunStates property value. List of run states for this script across all devices of specific user.
      *  @param array<DeviceManagementScriptDeviceState>|null $value Value to set for the deviceRunStates property.
     */
-    public function setDeviceRunStates(?array $value ): void {
-        $this->deviceRunStates = $value;
+    public function setDeviceRunStates(?array $value): void {
+        $this->getBackingStore()->set('deviceRunStates', $value);
     }
 
     /**
      * Sets the errorDeviceCount property value. Error device count for specific user.
      *  @param int|null $value Value to set for the errorDeviceCount property.
     */
-    public function setErrorDeviceCount(?int $value ): void {
-        $this->errorDeviceCount = $value;
+    public function setErrorDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('errorDeviceCount', $value);
     }
 
     /**
      * Sets the successDeviceCount property value. Success device count for specific user.
      *  @param int|null $value Value to set for the successDeviceCount property.
     */
-    public function setSuccessDeviceCount(?int $value ): void {
-        $this->successDeviceCount = $value;
+    public function setSuccessDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('successDeviceCount', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User principle name of specific user.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $advancedThreatProtectionAutoPopulateOnboardingBlob Auto populate onboarding blob programmatically from Advanced Threat protection service
-    */
-    private ?bool $advancedThreatProtectionAutoPopulateOnboardingBlob = null;
-    
-    /**
-     * @var string|null $advancedThreatProtectionOffboardingBlob Windows Defender AdvancedThreatProtection Offboarding Blob.
-    */
-    private ?string $advancedThreatProtectionOffboardingBlob = null;
-    
-    /**
-     * @var string|null $advancedThreatProtectionOffboardingFilename Name of the file from which AdvancedThreatProtectionOffboardingBlob was obtained.
-    */
-    private ?string $advancedThreatProtectionOffboardingFilename = null;
-    
-    /**
-     * @var string|null $advancedThreatProtectionOnboardingBlob Windows Defender AdvancedThreatProtection Onboarding Blob.
-    */
-    private ?string $advancedThreatProtectionOnboardingBlob = null;
-    
-    /**
-     * @var string|null $advancedThreatProtectionOnboardingFilename Name of the file from which AdvancedThreatProtectionOnboardingBlob was obtained.
-    */
-    private ?string $advancedThreatProtectionOnboardingFilename = null;
-    
-    /**
-     * @var bool|null $allowSampleSharing Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
-    */
-    private ?bool $allowSampleSharing = null;
-    
-    /**
-     * @var bool|null $enableExpeditedTelemetryReporting Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
-    */
-    private ?bool $enableExpeditedTelemetryReporting = null;
-    
-    /**
      * Instantiates a new WindowsDefenderAdvancedThreatProtectionConfiguration and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return bool|null
     */
     public function getAdvancedThreatProtectionAutoPopulateOnboardingBlob(): ?bool {
-        return $this->advancedThreatProtectionAutoPopulateOnboardingBlob;
+        return $this->getBackingStore()->get('advancedThreatProtectionAutoPopulateOnboardingBlob');
     }
 
     /**
@@ -73,7 +38,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return string|null
     */
     public function getAdvancedThreatProtectionOffboardingBlob(): ?string {
-        return $this->advancedThreatProtectionOffboardingBlob;
+        return $this->getBackingStore()->get('advancedThreatProtectionOffboardingBlob');
     }
 
     /**
@@ -81,7 +46,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return string|null
     */
     public function getAdvancedThreatProtectionOffboardingFilename(): ?string {
-        return $this->advancedThreatProtectionOffboardingFilename;
+        return $this->getBackingStore()->get('advancedThreatProtectionOffboardingFilename');
     }
 
     /**
@@ -89,7 +54,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return string|null
     */
     public function getAdvancedThreatProtectionOnboardingBlob(): ?string {
-        return $this->advancedThreatProtectionOnboardingBlob;
+        return $this->getBackingStore()->get('advancedThreatProtectionOnboardingBlob');
     }
 
     /**
@@ -97,7 +62,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return string|null
     */
     public function getAdvancedThreatProtectionOnboardingFilename(): ?string {
-        return $this->advancedThreatProtectionOnboardingFilename;
+        return $this->getBackingStore()->get('advancedThreatProtectionOnboardingFilename');
     }
 
     /**
@@ -105,7 +70,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return bool|null
     */
     public function getAllowSampleSharing(): ?bool {
-        return $this->allowSampleSharing;
+        return $this->getBackingStore()->get('allowSampleSharing');
     }
 
     /**
@@ -113,7 +78,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
      * @return bool|null
     */
     public function getEnableExpeditedTelemetryReporting(): ?bool {
-        return $this->enableExpeditedTelemetryReporting;
+        return $this->getBackingStore()->get('enableExpeditedTelemetryReporting');
     }
 
     /**
@@ -139,69 +104,69 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('advancedThreatProtectionAutoPopulateOnboardingBlob', $this->advancedThreatProtectionAutoPopulateOnboardingBlob);
-        $writer->writeStringValue('advancedThreatProtectionOffboardingBlob', $this->advancedThreatProtectionOffboardingBlob);
-        $writer->writeStringValue('advancedThreatProtectionOffboardingFilename', $this->advancedThreatProtectionOffboardingFilename);
-        $writer->writeStringValue('advancedThreatProtectionOnboardingBlob', $this->advancedThreatProtectionOnboardingBlob);
-        $writer->writeStringValue('advancedThreatProtectionOnboardingFilename', $this->advancedThreatProtectionOnboardingFilename);
-        $writer->writeBooleanValue('allowSampleSharing', $this->allowSampleSharing);
-        $writer->writeBooleanValue('enableExpeditedTelemetryReporting', $this->enableExpeditedTelemetryReporting);
+        $writer->writeBooleanValue('advancedThreatProtectionAutoPopulateOnboardingBlob', $this->getAdvancedThreatProtectionAutoPopulateOnboardingBlob());
+        $writer->writeStringValue('advancedThreatProtectionOffboardingBlob', $this->getAdvancedThreatProtectionOffboardingBlob());
+        $writer->writeStringValue('advancedThreatProtectionOffboardingFilename', $this->getAdvancedThreatProtectionOffboardingFilename());
+        $writer->writeStringValue('advancedThreatProtectionOnboardingBlob', $this->getAdvancedThreatProtectionOnboardingBlob());
+        $writer->writeStringValue('advancedThreatProtectionOnboardingFilename', $this->getAdvancedThreatProtectionOnboardingFilename());
+        $writer->writeBooleanValue('allowSampleSharing', $this->getAllowSampleSharing());
+        $writer->writeBooleanValue('enableExpeditedTelemetryReporting', $this->getEnableExpeditedTelemetryReporting());
     }
 
     /**
      * Sets the advancedThreatProtectionAutoPopulateOnboardingBlob property value. Auto populate onboarding blob programmatically from Advanced Threat protection service
      *  @param bool|null $value Value to set for the advancedThreatProtectionAutoPopulateOnboardingBlob property.
     */
-    public function setAdvancedThreatProtectionAutoPopulateOnboardingBlob(?bool $value ): void {
-        $this->advancedThreatProtectionAutoPopulateOnboardingBlob = $value;
+    public function setAdvancedThreatProtectionAutoPopulateOnboardingBlob(?bool $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionAutoPopulateOnboardingBlob', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionOffboardingBlob property value. Windows Defender AdvancedThreatProtection Offboarding Blob.
      *  @param string|null $value Value to set for the advancedThreatProtectionOffboardingBlob property.
     */
-    public function setAdvancedThreatProtectionOffboardingBlob(?string $value ): void {
-        $this->advancedThreatProtectionOffboardingBlob = $value;
+    public function setAdvancedThreatProtectionOffboardingBlob(?string $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionOffboardingBlob', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionOffboardingFilename property value. Name of the file from which AdvancedThreatProtectionOffboardingBlob was obtained.
      *  @param string|null $value Value to set for the advancedThreatProtectionOffboardingFilename property.
     */
-    public function setAdvancedThreatProtectionOffboardingFilename(?string $value ): void {
-        $this->advancedThreatProtectionOffboardingFilename = $value;
+    public function setAdvancedThreatProtectionOffboardingFilename(?string $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionOffboardingFilename', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionOnboardingBlob property value. Windows Defender AdvancedThreatProtection Onboarding Blob.
      *  @param string|null $value Value to set for the advancedThreatProtectionOnboardingBlob property.
     */
-    public function setAdvancedThreatProtectionOnboardingBlob(?string $value ): void {
-        $this->advancedThreatProtectionOnboardingBlob = $value;
+    public function setAdvancedThreatProtectionOnboardingBlob(?string $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionOnboardingBlob', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionOnboardingFilename property value. Name of the file from which AdvancedThreatProtectionOnboardingBlob was obtained.
      *  @param string|null $value Value to set for the advancedThreatProtectionOnboardingFilename property.
     */
-    public function setAdvancedThreatProtectionOnboardingFilename(?string $value ): void {
-        $this->advancedThreatProtectionOnboardingFilename = $value;
+    public function setAdvancedThreatProtectionOnboardingFilename(?string $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionOnboardingFilename', $value);
     }
 
     /**
      * Sets the allowSampleSharing property value. Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
      *  @param bool|null $value Value to set for the allowSampleSharing property.
     */
-    public function setAllowSampleSharing(?bool $value ): void {
-        $this->allowSampleSharing = $value;
+    public function setAllowSampleSharing(?bool $value): void {
+        $this->getBackingStore()->set('allowSampleSharing', $value);
     }
 
     /**
      * Sets the enableExpeditedTelemetryReporting property value. Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
      *  @param bool|null $value Value to set for the enableExpeditedTelemetryReporting property.
     */
-    public function setEnableExpeditedTelemetryReporting(?bool $value ): void {
-        $this->enableExpeditedTelemetryReporting = $value;
+    public function setEnableExpeditedTelemetryReporting(?bool $value): void {
+        $this->getBackingStore()->set('enableExpeditedTelemetryReporting', $value);
     }
 
 }

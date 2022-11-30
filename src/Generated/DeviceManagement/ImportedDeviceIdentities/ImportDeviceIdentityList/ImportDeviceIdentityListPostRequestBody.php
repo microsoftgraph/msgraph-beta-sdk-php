@@ -7,28 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, Parsable 
+class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<ImportedDeviceIdentity>|null $importedDeviceIdentities The importedDeviceIdentities property
-    */
-    private ?array $importedDeviceIdentities = null;
-    
-    /**
-     * @var bool|null $overwriteImportedDeviceIdentities The overwriteImportedDeviceIdentities property
-    */
-    private ?bool $overwriteImportedDeviceIdentities = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new importDeviceIdentityListPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -45,8 +39,16 @@ class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, P
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -66,7 +68,7 @@ class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, P
      * @return array<ImportedDeviceIdentity>|null
     */
     public function getImportedDeviceIdentities(): ?array {
-        return $this->importedDeviceIdentities;
+        return $this->getBackingStore()->get('importedDeviceIdentities');
     }
 
     /**
@@ -74,7 +76,7 @@ class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, P
      * @return bool|null
     */
     public function getOverwriteImportedDeviceIdentities(): ?bool {
-        return $this->overwriteImportedDeviceIdentities;
+        return $this->getBackingStore()->get('overwriteImportedDeviceIdentities');
     }
 
     /**
@@ -82,33 +84,41 @@ class ImportDeviceIdentityListPostRequestBody implements AdditionalDataHolder, P
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('importedDeviceIdentities', $this->importedDeviceIdentities);
-        $writer->writeBooleanValue('overwriteImportedDeviceIdentities', $this->overwriteImportedDeviceIdentities);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('importedDeviceIdentities', $this->getImportedDeviceIdentities());
+        $writer->writeBooleanValue('overwriteImportedDeviceIdentities', $this->getOverwriteImportedDeviceIdentities());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the importedDeviceIdentities property value. The importedDeviceIdentities property
      *  @param array<ImportedDeviceIdentity>|null $value Value to set for the importedDeviceIdentities property.
     */
-    public function setImportedDeviceIdentities(?array $value ): void {
-        $this->importedDeviceIdentities = $value;
+    public function setImportedDeviceIdentities(?array $value): void {
+        $this->getBackingStore()->set('importedDeviceIdentities', $value);
     }
 
     /**
      * Sets the overwriteImportedDeviceIdentities property value. The overwriteImportedDeviceIdentities property
      *  @param bool|null $value Value to set for the overwriteImportedDeviceIdentities property.
     */
-    public function setOverwriteImportedDeviceIdentities(?bool $value ): void {
-        $this->overwriteImportedDeviceIdentities = $value;
+    public function setOverwriteImportedDeviceIdentities(?bool $value): void {
+        $this->getBackingStore()->set('overwriteImportedDeviceIdentities', $value);
     }
 
 }

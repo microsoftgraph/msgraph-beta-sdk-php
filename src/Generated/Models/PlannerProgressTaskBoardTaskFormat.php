@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerProgressTaskBoardTaskFormat extends PlannerDelta implements Parsable 
 {
     /**
-     * @var string|null $orderHint Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
-    */
-    private ?string $orderHint = null;
-    
-    /**
      * Instantiates a new plannerProgressTaskBoardTaskFormat and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.plannerProgressTaskBoardTaskFormat');
     }
 
     /**
@@ -42,11 +36,11 @@ class PlannerProgressTaskBoardTaskFormat extends PlannerDelta implements Parsabl
     }
 
     /**
-     * Gets the orderHint property value. Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
+     * Gets the orderHint property value. Hint value used to order the task on the progress view of the task board. For details about the supported format, see Using order hints in Planner.
      * @return string|null
     */
     public function getOrderHint(): ?string {
-        return $this->orderHint;
+        return $this->getBackingStore()->get('orderHint');
     }
 
     /**
@@ -55,15 +49,15 @@ class PlannerProgressTaskBoardTaskFormat extends PlannerDelta implements Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('orderHint', $this->orderHint);
+        $writer->writeStringValue('orderHint', $this->getOrderHint());
     }
 
     /**
-     * Sets the orderHint property value. Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
+     * Sets the orderHint property value. Hint value used to order the task on the progress view of the task board. For details about the supported format, see Using order hints in Planner.
      *  @param string|null $value Value to set for the orderHint property.
     */
-    public function setOrderHint(?string $value ): void {
-        $this->orderHint = $value;
+    public function setOrderHint(?string $value): void {
+        $this->getBackingStore()->set('orderHint', $value);
     }
 
 }

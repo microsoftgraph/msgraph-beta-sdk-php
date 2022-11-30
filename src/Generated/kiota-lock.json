@@ -1,0 +1,28 @@
+{
+  "descriptionHash": "9219BA9BA4ACCF6D4CF4E431F4A6E578F066B96492CA8E7BFE18A517E9560DE817229C5EB5EAA4FFE27333A6ACAA09CFDB116A59DFFF8A5686E4EB83E0B00E1B",
+  "descriptionLocation": "/home/vsts/work/1/s/msgraph-metadata/clean_beta_openapi/openapi.yaml",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "0.7.1.0",
+  "clientClassName": "BaseGraphClient",
+  "clientNamespaceName": "Microsoft\\Graph\\Beta\\Generated",
+  "language": "PHP",
+  "usesBackingStore": true,
+  "includeAdditionalData": true,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "application/xml",
+    "text/plain",
+    "text/xml",
+    "text/yaml"
+  ],
+  "includePatterns": [],
+  "excludePatterns": []
+}

@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwnerKioskModeHomeScreenItem implements Parsable 
 {
     /**
-     * @var string|null $folderIdentifier Unique identifier for the folder
-    */
-    private ?string $folderIdentifier = null;
-    
-    /**
-     * @var string|null $folderName Name of the folder
-    */
-    private ?string $folderName = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerKioskModeManagedFolderReference and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
      * @return string|null
     */
     public function getFolderIdentifier(): ?string {
-        return $this->folderIdentifier;
+        return $this->getBackingStore()->get('folderIdentifier');
     }
 
     /**
@@ -60,7 +50,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
      * @return string|null
     */
     public function getFolderName(): ?string {
-        return $this->folderName;
+        return $this->getBackingStore()->get('folderName');
     }
 
     /**
@@ -69,24 +59,24 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('folderIdentifier', $this->folderIdentifier);
-        $writer->writeStringValue('folderName', $this->folderName);
+        $writer->writeStringValue('folderIdentifier', $this->getFolderIdentifier());
+        $writer->writeStringValue('folderName', $this->getFolderName());
     }
 
     /**
      * Sets the folderIdentifier property value. Unique identifier for the folder
      *  @param string|null $value Value to set for the folderIdentifier property.
     */
-    public function setFolderIdentifier(?string $value ): void {
-        $this->folderIdentifier = $value;
+    public function setFolderIdentifier(?string $value): void {
+        $this->getBackingStore()->set('folderIdentifier', $value);
     }
 
     /**
      * Sets the folderName property value. Name of the folder
      *  @param string|null $value Value to set for the folderName property.
     */
-    public function setFolderName(?string $value ): void {
-        $this->folderName = $value;
+    public function setFolderName(?string $value): void {
+        $this->getBackingStore()->set('folderName', $value);
     }
 
 }

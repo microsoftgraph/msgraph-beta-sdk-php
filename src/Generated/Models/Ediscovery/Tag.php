@@ -12,46 +12,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Tag extends Entity implements Parsable 
 {
     /**
-     * @var ChildSelectability|null $childSelectability Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
-    */
-    private ?ChildSelectability $childSelectability = null;
-    
-    /**
-     * @var array<Tag>|null $childTags Returns the tags that are a child of a tag.
-    */
-    private ?array $childTags = null;
-    
-    /**
-     * @var IdentitySet|null $createdBy The user who created the tag.
-    */
-    private ?IdentitySet $createdBy = null;
-    
-    /**
-     * @var string|null $description The description for the tag.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Display name of the tag.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the tag was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var Tag|null $parent Returns the parent tag of the specified tag.
-    */
-    private ?Tag $parent = null;
-    
-    /**
      * Instantiates a new tag and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.ediscovery.tag');
     }
 
     /**
@@ -68,7 +32,7 @@ class Tag extends Entity implements Parsable
      * @return ChildSelectability|null
     */
     public function getChildSelectability(): ?ChildSelectability {
-        return $this->childSelectability;
+        return $this->getBackingStore()->get('childSelectability');
     }
 
     /**
@@ -76,7 +40,7 @@ class Tag extends Entity implements Parsable
      * @return array<Tag>|null
     */
     public function getChildTags(): ?array {
-        return $this->childTags;
+        return $this->getBackingStore()->get('childTags');
     }
 
     /**
@@ -84,7 +48,7 @@ class Tag extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -92,7 +56,7 @@ class Tag extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -100,7 +64,7 @@ class Tag extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -125,7 +89,7 @@ class Tag extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -133,7 +97,7 @@ class Tag extends Entity implements Parsable
      * @return Tag|null
     */
     public function getParent(): ?Tag {
-        return $this->parent;
+        return $this->getBackingStore()->get('parent');
     }
 
     /**
@@ -142,69 +106,69 @@ class Tag extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('childSelectability', $this->childSelectability);
-        $writer->writeCollectionOfObjectValues('childTags', $this->childTags);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeObjectValue('parent', $this->parent);
+        $writer->writeEnumValue('childSelectability', $this->getChildSelectability());
+        $writer->writeCollectionOfObjectValues('childTags', $this->getChildTags());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('parent', $this->getParent());
     }
 
     /**
      * Sets the childSelectability property value. Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
      *  @param ChildSelectability|null $value Value to set for the childSelectability property.
     */
-    public function setChildSelectability(?ChildSelectability $value ): void {
-        $this->childSelectability = $value;
+    public function setChildSelectability(?ChildSelectability $value): void {
+        $this->getBackingStore()->set('childSelectability', $value);
     }
 
     /**
      * Sets the childTags property value. Returns the tags that are a child of a tag.
      *  @param array<Tag>|null $value Value to set for the childTags property.
     */
-    public function setChildTags(?array $value ): void {
-        $this->childTags = $value;
+    public function setChildTags(?array $value): void {
+        $this->getBackingStore()->set('childTags', $value);
     }
 
     /**
      * Sets the createdBy property value. The user who created the tag.
      *  @param IdentitySet|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?IdentitySet $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the description property value. The description for the tag.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Display name of the tag.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the tag was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the parent property value. Returns the parent tag of the specified tag.
      *  @param Tag|null $value Value to set for the parent property.
     */
-    public function setParent(?Tag $value ): void {
-        $this->parent = $value;
+    public function setParent(?Tag $value): void {
+        $this->getBackingStore()->set('parent', $value);
     }
 
 }

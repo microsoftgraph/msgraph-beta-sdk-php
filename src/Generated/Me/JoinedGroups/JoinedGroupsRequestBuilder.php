@@ -23,21 +23,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class JoinedGroupsRequestBuilder 
 {
     /**
-     * The evaluateDynamicMembership property
+     * Provides operations to call the evaluateDynamicMembership method.
     */
     public function evaluateDynamicMembership(): EvaluateDynamicMembershipRequestBuilder {
         return new EvaluateDynamicMembershipRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getByIds property
+     * Provides operations to call the getByIds method.
     */
     public function getByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getUserOwnedObjects property
+     * Provides operations to call the getUserOwnedObjects method.
     */
     public function getUserOwnedObjects(): GetUserOwnedObjectsRequestBuilder {
         return new GetUserOwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -59,7 +59,7 @@ class JoinedGroupsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The validateProperties property
+     * Provides operations to call the validateProperties method.
     */
     public function validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);

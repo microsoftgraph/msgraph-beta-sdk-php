@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Parsable 
 {
     /**
-     * @var string|null $version The version of the feature update. Read-only.
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new FeatureUpdateCatalogEntry and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -55,15 +50,15 @@ class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the version property value. The version of the feature update. Read-only.
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

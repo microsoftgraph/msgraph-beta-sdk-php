@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class RecommendationResourceItemRequestBuilder 
 {
     /**
-     * The complete property
+     * Provides operations to call the complete method.
     */
     public function complete(): CompleteRequestBuilder {
         return new CompleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dismiss property
+     * Provides operations to call the dismiss method.
     */
     public function dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -41,14 +41,14 @@ class RecommendationResourceItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The postpone property
+     * Provides operations to call the postpone method.
     */
     public function postpone(): PostponeRequestBuilder {
         return new PostponeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The reactivate property
+     * Provides operations to call the reactivate method.
     */
     public function reactivate(): ReactivateRequestBuilder {
         return new ReactivateRequestBuilder($this->pathParameters, $this->requestAdapter);

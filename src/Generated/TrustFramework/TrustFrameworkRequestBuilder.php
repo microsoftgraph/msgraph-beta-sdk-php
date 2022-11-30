@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TrustFrameworkRequestBuilder 
 {
     /**
-     * The keySets property
+     * Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.
     */
     public function keySets(): KeySetsRequestBuilder {
         return new KeySetsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -34,7 +34,7 @@ class TrustFrameworkRequestBuilder
     private array $pathParameters;
     
     /**
-     * The policies property
+     * Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.
     */
     public function policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -130,7 +130,7 @@ class TrustFrameworkRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.trustFramework.keySets.item collection
+     * Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.
      * @param string $id Unique identifier of the item
      * @return TrustFrameworkKeySetItemRequestBuilder
     */
@@ -161,7 +161,7 @@ class TrustFrameworkRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.trustFramework.policies.item collection
+     * Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.
      * @param string $id Unique identifier of the item
      * @return TrustFrameworkPolicyItemRequestBuilder
     */

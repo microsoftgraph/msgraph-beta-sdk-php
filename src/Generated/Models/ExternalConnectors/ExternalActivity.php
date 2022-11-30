@@ -11,26 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalActivity extends Entity implements Parsable 
 {
     /**
-     * @var Identity|null $performedBy Represents an identity used to identify who is responsible for the activity.
-    */
-    private ?Identity $performedBy = null;
-    
-    /**
-     * @var DateTime|null $startDateTime When the particular activity occurred.
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var ExternalActivityType|null $type The type property
-    */
-    private ?ExternalActivityType $type = null;
-    
-    /**
-     * Instantiates a new ExternalActivity and sets the default values.
+     * Instantiates a new externalActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.externalConnectors.externalActivity');
     }
 
     /**
@@ -67,7 +51,7 @@ class ExternalActivity extends Entity implements Parsable
      * @return Identity|null
     */
     public function getPerformedBy(): ?Identity {
-        return $this->performedBy;
+        return $this->getBackingStore()->get('performedBy');
     }
 
     /**
@@ -75,7 +59,7 @@ class ExternalActivity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -83,7 +67,7 @@ class ExternalActivity extends Entity implements Parsable
      * @return ExternalActivityType|null
     */
     public function getType(): ?ExternalActivityType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -92,33 +76,33 @@ class ExternalActivity extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('performedBy', $this->performedBy);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeEnumValue('type', $this->type);
+        $writer->writeObjectValue('performedBy', $this->getPerformedBy());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeEnumValue('type', $this->getType());
     }
 
     /**
      * Sets the performedBy property value. Represents an identity used to identify who is responsible for the activity.
      *  @param Identity|null $value Value to set for the performedBy property.
     */
-    public function setPerformedBy(?Identity $value ): void {
-        $this->performedBy = $value;
+    public function setPerformedBy(?Identity $value): void {
+        $this->getBackingStore()->set('performedBy', $value);
     }
 
     /**
      * Sets the startDateTime property value. When the particular activity occurred.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param ExternalActivityType|null $value Value to set for the type property.
     */
-    public function setType(?ExternalActivityType $value ): void {
-        $this->type = $value;
+    public function setType(?ExternalActivityType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

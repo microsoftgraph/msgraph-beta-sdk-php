@@ -24,7 +24,7 @@ class TenantReferenceTenantItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The removePersonalData property
+     * Provides operations to call the removePersonalData method.
     */
     public function removePersonalData(): RemovePersonalDataRequestBuilder {
         return new RemovePersonalDataRequestBuilder($this->pathParameters, $this->requestAdapter);

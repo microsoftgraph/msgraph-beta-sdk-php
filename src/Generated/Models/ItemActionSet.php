@@ -6,75 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ItemActionSet implements AdditionalDataHolder, Parsable 
+class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var CommentAction|null $comment A comment was added to the item.
-    */
-    private ?CommentAction $comment = null;
-    
-    /**
-     * @var CreateAction|null $create An item was created.
-    */
-    private ?CreateAction $create = null;
-    
-    /**
-     * @var DeleteAction|null $delete An item was deleted.
-    */
-    private ?DeleteAction $delete = null;
-    
-    /**
-     * @var EditAction|null $edit An item was edited.
-    */
-    private ?EditAction $edit = null;
-    
-    /**
-     * @var MentionAction|null $mention A user was mentioned in the item.
-    */
-    private ?MentionAction $mention = null;
-    
-    /**
-     * @var MoveAction|null $move An item was moved.
-    */
-    private ?MoveAction $move = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var RenameAction|null $rename An item was renamed.
-    */
-    private ?RenameAction $rename = null;
-    
-    /**
-     * @var RestoreAction|null $restore An item was restored.
-    */
-    private ?RestoreAction $restore = null;
-    
-    /**
-     * @var ShareAction|null $share An item was shared.
-    */
-    private ?ShareAction $share = null;
-    
-    /**
-     * @var VersionAction|null $version An item was versioned.
-    */
-    private ?VersionAction $version = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new itemActionSet and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.itemActionSet');
     }
 
     /**
@@ -90,8 +38,16 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -99,7 +55,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return CommentAction|null
     */
     public function getComment(): ?CommentAction {
-        return $this->comment;
+        return $this->getBackingStore()->get('comment');
     }
 
     /**
@@ -107,7 +63,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return CreateAction|null
     */
     public function getCreate(): ?CreateAction {
-        return $this->create;
+        return $this->getBackingStore()->get('create');
     }
 
     /**
@@ -115,7 +71,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return DeleteAction|null
     */
     public function getDelete(): ?DeleteAction {
-        return $this->delete;
+        return $this->getBackingStore()->get('delete');
     }
 
     /**
@@ -123,7 +79,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return EditAction|null
     */
     public function getEdit(): ?EditAction {
-        return $this->edit;
+        return $this->getBackingStore()->get('edit');
     }
 
     /**
@@ -152,7 +108,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return MentionAction|null
     */
     public function getMention(): ?MentionAction {
-        return $this->mention;
+        return $this->getBackingStore()->get('mention');
     }
 
     /**
@@ -160,7 +116,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return MoveAction|null
     */
     public function getMove(): ?MoveAction {
-        return $this->move;
+        return $this->getBackingStore()->get('move');
     }
 
     /**
@@ -168,7 +124,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -176,7 +132,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return RenameAction|null
     */
     public function getRename(): ?RenameAction {
-        return $this->rename;
+        return $this->getBackingStore()->get('rename');
     }
 
     /**
@@ -184,7 +140,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return RestoreAction|null
     */
     public function getRestore(): ?RestoreAction {
-        return $this->restore;
+        return $this->getBackingStore()->get('restore');
     }
 
     /**
@@ -192,7 +148,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return ShareAction|null
     */
     public function getShare(): ?ShareAction {
-        return $this->share;
+        return $this->getBackingStore()->get('share');
     }
 
     /**
@@ -200,7 +156,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @return VersionAction|null
     */
     public function getVersion(): ?VersionAction {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -208,114 +164,122 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('comment', $this->comment);
-        $writer->writeObjectValue('create', $this->create);
-        $writer->writeObjectValue('delete', $this->delete);
-        $writer->writeObjectValue('edit', $this->edit);
-        $writer->writeObjectValue('mention', $this->mention);
-        $writer->writeObjectValue('move', $this->move);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('rename', $this->rename);
-        $writer->writeObjectValue('restore', $this->restore);
-        $writer->writeObjectValue('share', $this->share);
-        $writer->writeObjectValue('version', $this->version);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('comment', $this->getComment());
+        $writer->writeObjectValue('create', $this->getCreate());
+        $writer->writeObjectValue('delete', $this->getDelete());
+        $writer->writeObjectValue('edit', $this->getEdit());
+        $writer->writeObjectValue('mention', $this->getMention());
+        $writer->writeObjectValue('move', $this->getMove());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('rename', $this->getRename());
+        $writer->writeObjectValue('restore', $this->getRestore());
+        $writer->writeObjectValue('share', $this->getShare());
+        $writer->writeObjectValue('version', $this->getVersion());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the comment property value. A comment was added to the item.
      *  @param CommentAction|null $value Value to set for the comment property.
     */
-    public function setComment(?CommentAction $value ): void {
-        $this->comment = $value;
+    public function setComment(?CommentAction $value): void {
+        $this->getBackingStore()->set('comment', $value);
     }
 
     /**
      * Sets the create property value. An item was created.
      *  @param CreateAction|null $value Value to set for the create property.
     */
-    public function setCreate(?CreateAction $value ): void {
-        $this->create = $value;
+    public function setCreate(?CreateAction $value): void {
+        $this->getBackingStore()->set('create', $value);
     }
 
     /**
      * Sets the delete property value. An item was deleted.
      *  @param DeleteAction|null $value Value to set for the delete property.
     */
-    public function setDelete(?DeleteAction $value ): void {
-        $this->delete = $value;
+    public function setDelete(?DeleteAction $value): void {
+        $this->getBackingStore()->set('delete', $value);
     }
 
     /**
      * Sets the edit property value. An item was edited.
      *  @param EditAction|null $value Value to set for the edit property.
     */
-    public function setEdit(?EditAction $value ): void {
-        $this->edit = $value;
+    public function setEdit(?EditAction $value): void {
+        $this->getBackingStore()->set('edit', $value);
     }
 
     /**
      * Sets the mention property value. A user was mentioned in the item.
      *  @param MentionAction|null $value Value to set for the mention property.
     */
-    public function setMention(?MentionAction $value ): void {
-        $this->mention = $value;
+    public function setMention(?MentionAction $value): void {
+        $this->getBackingStore()->set('mention', $value);
     }
 
     /**
      * Sets the move property value. An item was moved.
      *  @param MoveAction|null $value Value to set for the move property.
     */
-    public function setMove(?MoveAction $value ): void {
-        $this->move = $value;
+    public function setMove(?MoveAction $value): void {
+        $this->getBackingStore()->set('move', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the rename property value. An item was renamed.
      *  @param RenameAction|null $value Value to set for the rename property.
     */
-    public function setRename(?RenameAction $value ): void {
-        $this->rename = $value;
+    public function setRename(?RenameAction $value): void {
+        $this->getBackingStore()->set('rename', $value);
     }
 
     /**
      * Sets the restore property value. An item was restored.
      *  @param RestoreAction|null $value Value to set for the restore property.
     */
-    public function setRestore(?RestoreAction $value ): void {
-        $this->restore = $value;
+    public function setRestore(?RestoreAction $value): void {
+        $this->getBackingStore()->set('restore', $value);
     }
 
     /**
      * Sets the share property value. An item was shared.
      *  @param ShareAction|null $value Value to set for the share property.
     */
-    public function setShare(?ShareAction $value ): void {
-        $this->share = $value;
+    public function setShare(?ShareAction $value): void {
+        $this->getBackingStore()->set('share', $value);
     }
 
     /**
      * Sets the version property value. An item was versioned.
      *  @param VersionAction|null $value Value to set for the version property.
     */
-    public function setVersion(?VersionAction $value ): void {
-        $this->version = $value;
+    public function setVersion(?VersionAction $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

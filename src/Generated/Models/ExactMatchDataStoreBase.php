@@ -10,31 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchDataStoreBase extends Entity implements Parsable 
 {
     /**
-     * @var array<ExactDataMatchStoreColumn>|null $columns The columns property
-    */
-    private ?array $columns = null;
-    
-    /**
-     * @var DateTime|null $dataLastUpdatedDateTime The dataLastUpdatedDateTime property
-    */
-    private ?DateTime $dataLastUpdatedDateTime = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
      * Instantiates a new exactMatchDataStoreBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.exactMatchDataStoreBase');
     }
 
     /**
@@ -58,7 +37,7 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
      * @return array<ExactDataMatchStoreColumn>|null
     */
     public function getColumns(): ?array {
-        return $this->columns;
+        return $this->getBackingStore()->get('columns');
     }
 
     /**
@@ -66,7 +45,7 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDataLastUpdatedDateTime(): ?DateTime {
-        return $this->dataLastUpdatedDateTime;
+        return $this->getBackingStore()->get('dataLastUpdatedDateTime');
     }
 
     /**
@@ -74,7 +53,7 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -82,7 +61,7 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -105,42 +84,42 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('columns', $this->columns);
-        $writer->writeDateTimeValue('dataLastUpdatedDateTime', $this->dataLastUpdatedDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeCollectionOfObjectValues('columns', $this->getColumns());
+        $writer->writeDateTimeValue('dataLastUpdatedDateTime', $this->getDataLastUpdatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
     }
 
     /**
      * Sets the columns property value. The columns property
      *  @param array<ExactDataMatchStoreColumn>|null $value Value to set for the columns property.
     */
-    public function setColumns(?array $value ): void {
-        $this->columns = $value;
+    public function setColumns(?array $value): void {
+        $this->getBackingStore()->set('columns', $value);
     }
 
     /**
      * Sets the dataLastUpdatedDateTime property value. The dataLastUpdatedDateTime property
      *  @param DateTime|null $value Value to set for the dataLastUpdatedDateTime property.
     */
-    public function setDataLastUpdatedDateTime(?DateTime $value ): void {
-        $this->dataLastUpdatedDateTime = $value;
+    public function setDataLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('dataLastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
 }

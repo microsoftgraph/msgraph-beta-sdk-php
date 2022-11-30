@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RolePermission implements AdditionalDataHolder, Parsable 
+class RolePermission implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string>|null $actions Allowed Actions - Deprecated
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?array $actions = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<ResourceAction>|null $resourceActions Resource Actions each containing a set of allowed and not allowed permissions.
-    */
-    private ?array $resourceActions = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new rolePermission and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.rolePermission');
     }
 
     /**
@@ -51,15 +39,23 @@ class RolePermission implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getActions(): ?array {
-        return $this->actions;
+        return $this->getBackingStore()->get('actions');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -80,7 +76,7 @@ class RolePermission implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +84,7 @@ class RolePermission implements AdditionalDataHolder, Parsable
      * @return array<ResourceAction>|null
     */
     public function getResourceActions(): ?array {
-        return $this->resourceActions;
+        return $this->getBackingStore()->get('resourceActions');
     }
 
     /**
@@ -96,42 +92,50 @@ class RolePermission implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('actions', $this->actions);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfObjectValues('resourceActions', $this->resourceActions);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('actions', $this->getActions());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('resourceActions', $this->getResourceActions());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the actions property value. Allowed Actions - Deprecated
      *  @param array<string>|null $value Value to set for the actions property.
     */
-    public function setActions(?array $value ): void {
-        $this->actions = $value;
+    public function setActions(?array $value): void {
+        $this->getBackingStore()->set('actions', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the resourceActions property value. Resource Actions each containing a set of allowed and not allowed permissions.
      *  @param array<ResourceAction>|null $value Value to set for the resourceActions property.
     */
-    public function setResourceActions(?array $value ): void {
-        $this->resourceActions = $value;
+    public function setResourceActions(?array $value): void {
+        $this->getBackingStore()->set('resourceActions', $value);
     }
 
 }

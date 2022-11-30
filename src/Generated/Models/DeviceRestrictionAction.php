@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceRestrictionAction extends DlpActionInfo implements Parsable 
 {
     /**
-     * @var string|null $message The message property
-    */
-    private ?string $message = null;
-    
-    /**
-     * @var RestrictionAction|null $restrictionAction The restrictionAction property
-    */
-    private ?RestrictionAction $restrictionAction = null;
-    
-    /**
-     * @var array<RestrictionTrigger>|null $triggers The triggers property
-    */
-    private ?array $triggers = null;
-    
-    /**
      * Instantiates a new DeviceRestrictionAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceRestrictionAction');
     }
 
     /**
@@ -58,7 +42,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
      * @return string|null
     */
     public function getMessage(): ?string {
-        return $this->message;
+        return $this->getBackingStore()->get('message');
     }
 
     /**
@@ -66,7 +50,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
      * @return RestrictionAction|null
     */
     public function getRestrictionAction(): ?RestrictionAction {
-        return $this->restrictionAction;
+        return $this->getBackingStore()->get('restrictionAction');
     }
 
     /**
@@ -74,7 +58,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
      * @return array<RestrictionTrigger>|null
     */
     public function getTriggers(): ?array {
-        return $this->triggers;
+        return $this->getBackingStore()->get('triggers');
     }
 
     /**
@@ -83,33 +67,33 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('message', $this->message);
-        $writer->writeEnumValue('restrictionAction', $this->restrictionAction);
-        $writer->writeCollectionOfEnumValues('triggers', $this->triggers);
+        $writer->writeStringValue('message', $this->getMessage());
+        $writer->writeEnumValue('restrictionAction', $this->getRestrictionAction());
+        $writer->writeCollectionOfEnumValues('triggers', $this->getTriggers());
     }
 
     /**
      * Sets the message property value. The message property
      *  @param string|null $value Value to set for the message property.
     */
-    public function setMessage(?string $value ): void {
-        $this->message = $value;
+    public function setMessage(?string $value): void {
+        $this->getBackingStore()->set('message', $value);
     }
 
     /**
      * Sets the restrictionAction property value. The restrictionAction property
      *  @param RestrictionAction|null $value Value to set for the restrictionAction property.
     */
-    public function setRestrictionAction(?RestrictionAction $value ): void {
-        $this->restrictionAction = $value;
+    public function setRestrictionAction(?RestrictionAction $value): void {
+        $this->getBackingStore()->set('restrictionAction', $value);
     }
 
     /**
      * Sets the triggers property value. The triggers property
      *  @param array<RestrictionTrigger>|null $value Value to set for the triggers property.
     */
-    public function setTriggers(?array $value ): void {
-        $this->triggers = $value;
+    public function setTriggers(?array $value): void {
+        $this->getBackingStore()->set('triggers', $value);
     }
 
 }

@@ -10,36 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ItemPublication extends ItemFacet implements Parsable 
 {
     /**
-     * @var string|null $description Description of the publication.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Title of the publication.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var Date|null $publishedDate The date that the publication was published.
-    */
-    private ?Date $publishedDate = null;
-    
-    /**
-     * @var string|null $publisher Publication or publisher for the publication.
-    */
-    private ?string $publisher = null;
-    
-    /**
-     * @var string|null $thumbnailUrl URL referencing a thumbnail of the publication.
-    */
-    private ?string $thumbnailUrl = null;
-    
-    /**
-     * @var string|null $webUrl URL referencing the publication.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new ItemPublication and sets the default values.
     */
     public function __construct() {
@@ -61,7 +31,7 @@ class ItemPublication extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -69,7 +39,7 @@ class ItemPublication extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -93,7 +63,7 @@ class ItemPublication extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getPublishedDate(): ?Date {
-        return $this->publishedDate;
+        return $this->getBackingStore()->get('publishedDate');
     }
 
     /**
@@ -101,7 +71,7 @@ class ItemPublication extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -109,7 +79,7 @@ class ItemPublication extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->thumbnailUrl;
+        return $this->getBackingStore()->get('thumbnailUrl');
     }
 
     /**
@@ -117,7 +87,7 @@ class ItemPublication extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -126,60 +96,60 @@ class ItemPublication extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateValue('publishedDate', $this->publishedDate);
-        $writer->writeStringValue('publisher', $this->publisher);
-        $writer->writeStringValue('thumbnailUrl', $this->thumbnailUrl);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateValue('publishedDate', $this->getPublishedDate());
+        $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the description property value. Description of the publication.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Title of the publication.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the publishedDate property value. The date that the publication was published.
      *  @param Date|null $value Value to set for the publishedDate property.
     */
-    public function setPublishedDate(?Date $value ): void {
-        $this->publishedDate = $value;
+    public function setPublishedDate(?Date $value): void {
+        $this->getBackingStore()->set('publishedDate', $value);
     }
 
     /**
      * Sets the publisher property value. Publication or publisher for the publication.
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
     /**
      * Sets the thumbnailUrl property value. URL referencing a thumbnail of the publication.
      *  @param string|null $value Value to set for the thumbnailUrl property.
     */
-    public function setThumbnailUrl(?string $value ): void {
-        $this->thumbnailUrl = $value;
+    public function setThumbnailUrl(?string $value): void {
+        $this->getBackingStore()->set('thumbnailUrl', $value);
     }
 
     /**
      * Sets the webUrl property value. URL referencing the publication.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

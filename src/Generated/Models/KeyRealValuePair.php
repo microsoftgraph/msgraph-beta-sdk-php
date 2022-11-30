@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class KeyRealValuePair extends KeyTypedValuePair implements Parsable 
 {
     /**
-     * @var float|null $value The real (floating-point) value of the key-value pair.
-    */
-    private ?float $value = null;
-    
-    /**
      * Instantiates a new KeyRealValuePair and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class KeyRealValuePair extends KeyTypedValuePair implements Parsable
      * @return float|null
     */
     public function getValue(): ?float {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +50,15 @@ class KeyRealValuePair extends KeyTypedValuePair implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeFloatValue('value', $this->value);
+        $writer->writeFloatValue('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. The real (floating-point) value of the key-value pair.
      *  @param float|null $value Value to set for the value property.
     */
-    public function setValue(?float $value ): void {
-        $this->value = $value;
+    public function setValue(?float $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

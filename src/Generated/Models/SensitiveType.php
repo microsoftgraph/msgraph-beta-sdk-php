@@ -9,56 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SensitiveType extends Entity implements Parsable 
 {
     /**
-     * @var ClassificationMethod|null $classificationMethod The classificationMethod property
-    */
-    private ?ClassificationMethod $classificationMethod = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $name The name property
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var string|null $publisherName The publisherName property
-    */
-    private ?string $publisherName = null;
-    
-    /**
-     * @var string|null $rulePackageId The rulePackageId property
-    */
-    private ?string $rulePackageId = null;
-    
-    /**
-     * @var string|null $rulePackageType The rulePackageType property
-    */
-    private ?string $rulePackageType = null;
-    
-    /**
-     * @var SensitiveTypeScope|null $scope The scope property
-    */
-    private ?SensitiveTypeScope $scope = null;
-    
-    /**
-     * @var SensitiveTypeSource|null $sensitiveTypeSource The sensitiveTypeSource property
-    */
-    private ?SensitiveTypeSource $sensitiveTypeSource = null;
-    
-    /**
-     * @var string|null $state The state property
-    */
-    private ?string $state = null;
-    
-    /**
      * Instantiates a new sensitiveType and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.sensitiveType');
     }
 
     /**
@@ -75,7 +29,7 @@ class SensitiveType extends Entity implements Parsable
      * @return ClassificationMethod|null
     */
     public function getClassificationMethod(): ?ClassificationMethod {
-        return $this->classificationMethod;
+        return $this->getBackingStore()->get('classificationMethod');
     }
 
     /**
@@ -83,7 +37,7 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -110,7 +64,7 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -118,7 +72,7 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisherName(): ?string {
-        return $this->publisherName;
+        return $this->getBackingStore()->get('publisherName');
     }
 
     /**
@@ -126,7 +80,7 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getRulePackageId(): ?string {
-        return $this->rulePackageId;
+        return $this->getBackingStore()->get('rulePackageId');
     }
 
     /**
@@ -134,7 +88,7 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getRulePackageType(): ?string {
-        return $this->rulePackageType;
+        return $this->getBackingStore()->get('rulePackageType');
     }
 
     /**
@@ -142,7 +96,7 @@ class SensitiveType extends Entity implements Parsable
      * @return SensitiveTypeScope|null
     */
     public function getScope(): ?SensitiveTypeScope {
-        return $this->scope;
+        return $this->getBackingStore()->get('scope');
     }
 
     /**
@@ -150,7 +104,7 @@ class SensitiveType extends Entity implements Parsable
      * @return SensitiveTypeSource|null
     */
     public function getSensitiveTypeSource(): ?SensitiveTypeSource {
-        return $this->sensitiveTypeSource;
+        return $this->getBackingStore()->get('sensitiveTypeSource');
     }
 
     /**
@@ -158,7 +112,7 @@ class SensitiveType extends Entity implements Parsable
      * @return string|null
     */
     public function getState(): ?string {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -167,87 +121,87 @@ class SensitiveType extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('classificationMethod', $this->classificationMethod);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeStringValue('publisherName', $this->publisherName);
-        $writer->writeStringValue('rulePackageId', $this->rulePackageId);
-        $writer->writeStringValue('rulePackageType', $this->rulePackageType);
-        $writer->writeEnumValue('scope', $this->scope);
-        $writer->writeEnumValue('sensitiveTypeSource', $this->sensitiveTypeSource);
-        $writer->writeStringValue('state', $this->state);
+        $writer->writeEnumValue('classificationMethod', $this->getClassificationMethod());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('publisherName', $this->getPublisherName());
+        $writer->writeStringValue('rulePackageId', $this->getRulePackageId());
+        $writer->writeStringValue('rulePackageType', $this->getRulePackageType());
+        $writer->writeEnumValue('scope', $this->getScope());
+        $writer->writeEnumValue('sensitiveTypeSource', $this->getSensitiveTypeSource());
+        $writer->writeStringValue('state', $this->getState());
     }
 
     /**
      * Sets the classificationMethod property value. The classificationMethod property
      *  @param ClassificationMethod|null $value Value to set for the classificationMethod property.
     */
-    public function setClassificationMethod(?ClassificationMethod $value ): void {
-        $this->classificationMethod = $value;
+    public function setClassificationMethod(?ClassificationMethod $value): void {
+        $this->getBackingStore()->set('classificationMethod', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the publisherName property value. The publisherName property
      *  @param string|null $value Value to set for the publisherName property.
     */
-    public function setPublisherName(?string $value ): void {
-        $this->publisherName = $value;
+    public function setPublisherName(?string $value): void {
+        $this->getBackingStore()->set('publisherName', $value);
     }
 
     /**
      * Sets the rulePackageId property value. The rulePackageId property
      *  @param string|null $value Value to set for the rulePackageId property.
     */
-    public function setRulePackageId(?string $value ): void {
-        $this->rulePackageId = $value;
+    public function setRulePackageId(?string $value): void {
+        $this->getBackingStore()->set('rulePackageId', $value);
     }
 
     /**
      * Sets the rulePackageType property value. The rulePackageType property
      *  @param string|null $value Value to set for the rulePackageType property.
     */
-    public function setRulePackageType(?string $value ): void {
-        $this->rulePackageType = $value;
+    public function setRulePackageType(?string $value): void {
+        $this->getBackingStore()->set('rulePackageType', $value);
     }
 
     /**
      * Sets the scope property value. The scope property
      *  @param SensitiveTypeScope|null $value Value to set for the scope property.
     */
-    public function setScope(?SensitiveTypeScope $value ): void {
-        $this->scope = $value;
+    public function setScope(?SensitiveTypeScope $value): void {
+        $this->getBackingStore()->set('scope', $value);
     }
 
     /**
      * Sets the sensitiveTypeSource property value. The sensitiveTypeSource property
      *  @param SensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
     */
-    public function setSensitiveTypeSource(?SensitiveTypeSource $value ): void {
-        $this->sensitiveTypeSource = $value;
+    public function setSensitiveTypeSource(?SensitiveTypeSource $value): void {
+        $this->getBackingStore()->set('sensitiveTypeSource', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param string|null $value Value to set for the state property.
     */
-    public function setState(?string $value ): void {
-        $this->state = $value;
+    public function setState(?string $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }

@@ -10,126 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable 
 {
     /**
-     * @var WindowsManagedAppDataTransferLevel|null $allowedInboundDataTransferSources Data can be transferred from/to these classes of apps
-    */
-    private ?WindowsManagedAppDataTransferLevel $allowedInboundDataTransferSources = null;
-    
-    /**
-     * @var WindowsManagedAppClipboardSharingLevel|null $allowedOutboundClipboardSharingLevel Represents the level to which the device's clipboard may be shared between apps
-    */
-    private ?WindowsManagedAppClipboardSharingLevel $allowedOutboundClipboardSharingLevel = null;
-    
-    /**
-     * @var WindowsManagedAppDataTransferLevel|null $allowedOutboundDataTransferDestinations Data can be transferred from/to these classes of apps
-    */
-    private ?WindowsManagedAppDataTransferLevel $allowedOutboundDataTransferDestinations = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfUnableToAuthenticateUser If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Some possible values are block or wipe. If this property is not set, no action will be taken. Possible values are: block, wipe, warn.
-    */
-    private ?ManagedAppRemediationAction $appActionIfUnableToAuthenticateUser = null;
-    
-    /**
-     * @var array<ManagedMobileApp>|null $apps List of apps to which the policy is deployed.
-    */
-    private ?array $apps = null;
-    
-    /**
-     * @var array<TargetedManagedAppPolicyAssignment>|null $assignments Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var int|null $deployedAppCount Indicates the total number of applications for which the current policy is deployed.
-    */
-    private ?int $deployedAppCount = null;
-    
-    /**
-     * @var bool|null $isAssigned When TRUE, indicates that the policy is deployed to some inclusion groups. When FALSE, indicates that the policy is not deployed to any inclusion groups. Default value is FALSE.
-    */
-    private ?bool $isAssigned = null;
-    
-    /**
-     * @var ManagedAppDeviceThreatLevel|null $maximumAllowedDeviceThreatLevel The maxium threat level allowed for an app to be compliant.
-    */
-    private ?ManagedAppDeviceThreatLevel $maximumAllowedDeviceThreatLevel = null;
-    
-    /**
-     * @var string|null $maximumRequiredOsVersion Versions bigger than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $maximumRequiredOsVersion = null;
-    
-    /**
-     * @var string|null $maximumWarningOsVersion Versions bigger than the specified version will result in warning message on the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $maximumWarningOsVersion = null;
-    
-    /**
-     * @var string|null $maximumWipeOsVersion Versions bigger than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $maximumWipeOsVersion = null;
-    
-    /**
-     * @var string|null $minimumRequiredAppVersion Versions less than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $minimumRequiredAppVersion = null;
-    
-    /**
-     * @var string|null $minimumRequiredOsVersion Versions less than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $minimumRequiredOsVersion = null;
-    
-    /**
-     * @var string|null $minimumRequiredSdkVersion Versions less than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $minimumRequiredSdkVersion = null;
-    
-    /**
-     * @var string|null $minimumWarningAppVersion Versions less than the specified version will result in warning message on the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $minimumWarningAppVersion = null;
-    
-    /**
-     * @var string|null $minimumWarningOsVersion Versions less than the specified version will result in warning message on the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $minimumWarningOsVersion = null;
-    
-    /**
-     * @var string|null $minimumWipeAppVersion Versions less than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $minimumWipeAppVersion = null;
-    
-    /**
-     * @var string|null $minimumWipeOsVersion Versions less than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $minimumWipeOsVersion = null;
-    
-    /**
-     * @var string|null $minimumWipeSdkVersion Versions less than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
-    */
-    private ?string $minimumWipeSdkVersion = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $mobileThreatDefenseRemediationAction An admin initiated action to be applied on a managed app.
-    */
-    private ?ManagedAppRemediationAction $mobileThreatDefenseRemediationAction = null;
-    
-    /**
-     * @var DateInterval|null $periodOfflineBeforeAccessCheck The period after which access is checked when the device is not connected to the internet. For example, PT5M indicates that the interval is 5 minutes in duration. A timespan value of PT0S indicates that access will be blocked immediately when the device is not connected to the internet.
-    */
-    private ?DateInterval $periodOfflineBeforeAccessCheck = null;
-    
-    /**
-     * @var DateInterval|null $periodOfflineBeforeWipeIsEnforced The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped. For example, P5D indicates that the interval is 5 days in duration. A timespan value of PT0S indicates that managed data will never be wiped when the device is not connected to the internet.
-    */
-    private ?DateInterval $periodOfflineBeforeWipeIsEnforced = null;
-    
-    /**
-     * @var bool|null $printBlocked When TRUE, indicates that printing is blocked from managed apps. When FALSE, indicates that printing is allowed from managed apps. Default value is FALSE.
-    */
-    private ?bool $printBlocked = null;
-    
-    /**
      * Instantiates a new WindowsManagedAppProtection and sets the default values.
     */
     public function __construct() {
@@ -151,7 +31,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return WindowsManagedAppDataTransferLevel|null
     */
     public function getAllowedInboundDataTransferSources(): ?WindowsManagedAppDataTransferLevel {
-        return $this->allowedInboundDataTransferSources;
+        return $this->getBackingStore()->get('allowedInboundDataTransferSources');
     }
 
     /**
@@ -159,7 +39,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return WindowsManagedAppClipboardSharingLevel|null
     */
     public function getAllowedOutboundClipboardSharingLevel(): ?WindowsManagedAppClipboardSharingLevel {
-        return $this->allowedOutboundClipboardSharingLevel;
+        return $this->getBackingStore()->get('allowedOutboundClipboardSharingLevel');
     }
 
     /**
@@ -167,7 +47,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return WindowsManagedAppDataTransferLevel|null
     */
     public function getAllowedOutboundDataTransferDestinations(): ?WindowsManagedAppDataTransferLevel {
-        return $this->allowedOutboundDataTransferDestinations;
+        return $this->getBackingStore()->get('allowedOutboundDataTransferDestinations');
     }
 
     /**
@@ -175,7 +55,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfUnableToAuthenticateUser(): ?ManagedAppRemediationAction {
-        return $this->appActionIfUnableToAuthenticateUser;
+        return $this->getBackingStore()->get('appActionIfUnableToAuthenticateUser');
     }
 
     /**
@@ -183,7 +63,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return array<ManagedMobileApp>|null
     */
     public function getApps(): ?array {
-        return $this->apps;
+        return $this->getBackingStore()->get('apps');
     }
 
     /**
@@ -191,7 +71,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return array<TargetedManagedAppPolicyAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -199,7 +79,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return int|null
     */
     public function getDeployedAppCount(): ?int {
-        return $this->deployedAppCount;
+        return $this->getBackingStore()->get('deployedAppCount');
     }
 
     /**
@@ -241,7 +121,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return bool|null
     */
     public function getIsAssigned(): ?bool {
-        return $this->isAssigned;
+        return $this->getBackingStore()->get('isAssigned');
     }
 
     /**
@@ -249,7 +129,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return ManagedAppDeviceThreatLevel|null
     */
     public function getMaximumAllowedDeviceThreatLevel(): ?ManagedAppDeviceThreatLevel {
-        return $this->maximumAllowedDeviceThreatLevel;
+        return $this->getBackingStore()->get('maximumAllowedDeviceThreatLevel');
     }
 
     /**
@@ -257,7 +137,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMaximumRequiredOsVersion(): ?string {
-        return $this->maximumRequiredOsVersion;
+        return $this->getBackingStore()->get('maximumRequiredOsVersion');
     }
 
     /**
@@ -265,7 +145,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMaximumWarningOsVersion(): ?string {
-        return $this->maximumWarningOsVersion;
+        return $this->getBackingStore()->get('maximumWarningOsVersion');
     }
 
     /**
@@ -273,7 +153,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMaximumWipeOsVersion(): ?string {
-        return $this->maximumWipeOsVersion;
+        return $this->getBackingStore()->get('maximumWipeOsVersion');
     }
 
     /**
@@ -281,7 +161,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMinimumRequiredAppVersion(): ?string {
-        return $this->minimumRequiredAppVersion;
+        return $this->getBackingStore()->get('minimumRequiredAppVersion');
     }
 
     /**
@@ -289,7 +169,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMinimumRequiredOsVersion(): ?string {
-        return $this->minimumRequiredOsVersion;
+        return $this->getBackingStore()->get('minimumRequiredOsVersion');
     }
 
     /**
@@ -297,7 +177,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMinimumRequiredSdkVersion(): ?string {
-        return $this->minimumRequiredSdkVersion;
+        return $this->getBackingStore()->get('minimumRequiredSdkVersion');
     }
 
     /**
@@ -305,7 +185,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMinimumWarningAppVersion(): ?string {
-        return $this->minimumWarningAppVersion;
+        return $this->getBackingStore()->get('minimumWarningAppVersion');
     }
 
     /**
@@ -313,7 +193,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMinimumWarningOsVersion(): ?string {
-        return $this->minimumWarningOsVersion;
+        return $this->getBackingStore()->get('minimumWarningOsVersion');
     }
 
     /**
@@ -321,7 +201,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMinimumWipeAppVersion(): ?string {
-        return $this->minimumWipeAppVersion;
+        return $this->getBackingStore()->get('minimumWipeAppVersion');
     }
 
     /**
@@ -329,7 +209,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMinimumWipeOsVersion(): ?string {
-        return $this->minimumWipeOsVersion;
+        return $this->getBackingStore()->get('minimumWipeOsVersion');
     }
 
     /**
@@ -337,7 +217,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return string|null
     */
     public function getMinimumWipeSdkVersion(): ?string {
-        return $this->minimumWipeSdkVersion;
+        return $this->getBackingStore()->get('minimumWipeSdkVersion');
     }
 
     /**
@@ -345,7 +225,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return ManagedAppRemediationAction|null
     */
     public function getMobileThreatDefenseRemediationAction(): ?ManagedAppRemediationAction {
-        return $this->mobileThreatDefenseRemediationAction;
+        return $this->getBackingStore()->get('mobileThreatDefenseRemediationAction');
     }
 
     /**
@@ -353,7 +233,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return DateInterval|null
     */
     public function getPeriodOfflineBeforeAccessCheck(): ?DateInterval {
-        return $this->periodOfflineBeforeAccessCheck;
+        return $this->getBackingStore()->get('periodOfflineBeforeAccessCheck');
     }
 
     /**
@@ -361,7 +241,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return DateInterval|null
     */
     public function getPeriodOfflineBeforeWipeIsEnforced(): ?DateInterval {
-        return $this->periodOfflineBeforeWipeIsEnforced;
+        return $this->getBackingStore()->get('periodOfflineBeforeWipeIsEnforced');
     }
 
     /**
@@ -369,7 +249,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
      * @return bool|null
     */
     public function getPrintBlocked(): ?bool {
-        return $this->printBlocked;
+        return $this->getBackingStore()->get('printBlocked');
     }
 
     /**
@@ -378,222 +258,222 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('allowedInboundDataTransferSources', $this->allowedInboundDataTransferSources);
-        $writer->writeEnumValue('allowedOutboundClipboardSharingLevel', $this->allowedOutboundClipboardSharingLevel);
-        $writer->writeEnumValue('allowedOutboundDataTransferDestinations', $this->allowedOutboundDataTransferDestinations);
-        $writer->writeEnumValue('appActionIfUnableToAuthenticateUser', $this->appActionIfUnableToAuthenticateUser);
-        $writer->writeCollectionOfObjectValues('apps', $this->apps);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeIntegerValue('deployedAppCount', $this->deployedAppCount);
-        $writer->writeBooleanValue('isAssigned', $this->isAssigned);
-        $writer->writeEnumValue('maximumAllowedDeviceThreatLevel', $this->maximumAllowedDeviceThreatLevel);
-        $writer->writeStringValue('maximumRequiredOsVersion', $this->maximumRequiredOsVersion);
-        $writer->writeStringValue('maximumWarningOsVersion', $this->maximumWarningOsVersion);
-        $writer->writeStringValue('maximumWipeOsVersion', $this->maximumWipeOsVersion);
-        $writer->writeStringValue('minimumRequiredAppVersion', $this->minimumRequiredAppVersion);
-        $writer->writeStringValue('minimumRequiredOsVersion', $this->minimumRequiredOsVersion);
-        $writer->writeStringValue('minimumRequiredSdkVersion', $this->minimumRequiredSdkVersion);
-        $writer->writeStringValue('minimumWarningAppVersion', $this->minimumWarningAppVersion);
-        $writer->writeStringValue('minimumWarningOsVersion', $this->minimumWarningOsVersion);
-        $writer->writeStringValue('minimumWipeAppVersion', $this->minimumWipeAppVersion);
-        $writer->writeStringValue('minimumWipeOsVersion', $this->minimumWipeOsVersion);
-        $writer->writeStringValue('minimumWipeSdkVersion', $this->minimumWipeSdkVersion);
-        $writer->writeEnumValue('mobileThreatDefenseRemediationAction', $this->mobileThreatDefenseRemediationAction);
-        $writer->writeDateIntervalValue('periodOfflineBeforeAccessCheck', $this->periodOfflineBeforeAccessCheck);
-        $writer->writeDateIntervalValue('periodOfflineBeforeWipeIsEnforced', $this->periodOfflineBeforeWipeIsEnforced);
-        $writer->writeBooleanValue('printBlocked', $this->printBlocked);
+        $writer->writeEnumValue('allowedInboundDataTransferSources', $this->getAllowedInboundDataTransferSources());
+        $writer->writeEnumValue('allowedOutboundClipboardSharingLevel', $this->getAllowedOutboundClipboardSharingLevel());
+        $writer->writeEnumValue('allowedOutboundDataTransferDestinations', $this->getAllowedOutboundDataTransferDestinations());
+        $writer->writeEnumValue('appActionIfUnableToAuthenticateUser', $this->getAppActionIfUnableToAuthenticateUser());
+        $writer->writeCollectionOfObjectValues('apps', $this->getApps());
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeIntegerValue('deployedAppCount', $this->getDeployedAppCount());
+        $writer->writeBooleanValue('isAssigned', $this->getIsAssigned());
+        $writer->writeEnumValue('maximumAllowedDeviceThreatLevel', $this->getMaximumAllowedDeviceThreatLevel());
+        $writer->writeStringValue('maximumRequiredOsVersion', $this->getMaximumRequiredOsVersion());
+        $writer->writeStringValue('maximumWarningOsVersion', $this->getMaximumWarningOsVersion());
+        $writer->writeStringValue('maximumWipeOsVersion', $this->getMaximumWipeOsVersion());
+        $writer->writeStringValue('minimumRequiredAppVersion', $this->getMinimumRequiredAppVersion());
+        $writer->writeStringValue('minimumRequiredOsVersion', $this->getMinimumRequiredOsVersion());
+        $writer->writeStringValue('minimumRequiredSdkVersion', $this->getMinimumRequiredSdkVersion());
+        $writer->writeStringValue('minimumWarningAppVersion', $this->getMinimumWarningAppVersion());
+        $writer->writeStringValue('minimumWarningOsVersion', $this->getMinimumWarningOsVersion());
+        $writer->writeStringValue('minimumWipeAppVersion', $this->getMinimumWipeAppVersion());
+        $writer->writeStringValue('minimumWipeOsVersion', $this->getMinimumWipeOsVersion());
+        $writer->writeStringValue('minimumWipeSdkVersion', $this->getMinimumWipeSdkVersion());
+        $writer->writeEnumValue('mobileThreatDefenseRemediationAction', $this->getMobileThreatDefenseRemediationAction());
+        $writer->writeDateIntervalValue('periodOfflineBeforeAccessCheck', $this->getPeriodOfflineBeforeAccessCheck());
+        $writer->writeDateIntervalValue('periodOfflineBeforeWipeIsEnforced', $this->getPeriodOfflineBeforeWipeIsEnforced());
+        $writer->writeBooleanValue('printBlocked', $this->getPrintBlocked());
     }
 
     /**
      * Sets the allowedInboundDataTransferSources property value. Data can be transferred from/to these classes of apps
      *  @param WindowsManagedAppDataTransferLevel|null $value Value to set for the allowedInboundDataTransferSources property.
     */
-    public function setAllowedInboundDataTransferSources(?WindowsManagedAppDataTransferLevel $value ): void {
-        $this->allowedInboundDataTransferSources = $value;
+    public function setAllowedInboundDataTransferSources(?WindowsManagedAppDataTransferLevel $value): void {
+        $this->getBackingStore()->set('allowedInboundDataTransferSources', $value);
     }
 
     /**
      * Sets the allowedOutboundClipboardSharingLevel property value. Represents the level to which the device's clipboard may be shared between apps
      *  @param WindowsManagedAppClipboardSharingLevel|null $value Value to set for the allowedOutboundClipboardSharingLevel property.
     */
-    public function setAllowedOutboundClipboardSharingLevel(?WindowsManagedAppClipboardSharingLevel $value ): void {
-        $this->allowedOutboundClipboardSharingLevel = $value;
+    public function setAllowedOutboundClipboardSharingLevel(?WindowsManagedAppClipboardSharingLevel $value): void {
+        $this->getBackingStore()->set('allowedOutboundClipboardSharingLevel', $value);
     }
 
     /**
      * Sets the allowedOutboundDataTransferDestinations property value. Data can be transferred from/to these classes of apps
      *  @param WindowsManagedAppDataTransferLevel|null $value Value to set for the allowedOutboundDataTransferDestinations property.
     */
-    public function setAllowedOutboundDataTransferDestinations(?WindowsManagedAppDataTransferLevel $value ): void {
-        $this->allowedOutboundDataTransferDestinations = $value;
+    public function setAllowedOutboundDataTransferDestinations(?WindowsManagedAppDataTransferLevel $value): void {
+        $this->getBackingStore()->set('allowedOutboundDataTransferDestinations', $value);
     }
 
     /**
      * Sets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Some possible values are block or wipe. If this property is not set, no action will be taken. Possible values are: block, wipe, warn.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
     */
-    public function setAppActionIfUnableToAuthenticateUser(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfUnableToAuthenticateUser = $value;
+    public function setAppActionIfUnableToAuthenticateUser(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfUnableToAuthenticateUser', $value);
     }
 
     /**
      * Sets the apps property value. List of apps to which the policy is deployed.
      *  @param array<ManagedMobileApp>|null $value Value to set for the apps property.
     */
-    public function setApps(?array $value ): void {
-        $this->apps = $value;
+    public function setApps(?array $value): void {
+        $this->getBackingStore()->set('apps', $value);
     }
 
     /**
      * Sets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
      *  @param array<TargetedManagedAppPolicyAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the deployedAppCount property value. Indicates the total number of applications for which the current policy is deployed.
      *  @param int|null $value Value to set for the deployedAppCount property.
     */
-    public function setDeployedAppCount(?int $value ): void {
-        $this->deployedAppCount = $value;
+    public function setDeployedAppCount(?int $value): void {
+        $this->getBackingStore()->set('deployedAppCount', $value);
     }
 
     /**
      * Sets the isAssigned property value. When TRUE, indicates that the policy is deployed to some inclusion groups. When FALSE, indicates that the policy is not deployed to any inclusion groups. Default value is FALSE.
      *  @param bool|null $value Value to set for the isAssigned property.
     */
-    public function setIsAssigned(?bool $value ): void {
-        $this->isAssigned = $value;
+    public function setIsAssigned(?bool $value): void {
+        $this->getBackingStore()->set('isAssigned', $value);
     }
 
     /**
      * Sets the maximumAllowedDeviceThreatLevel property value. The maxium threat level allowed for an app to be compliant.
      *  @param ManagedAppDeviceThreatLevel|null $value Value to set for the maximumAllowedDeviceThreatLevel property.
     */
-    public function setMaximumAllowedDeviceThreatLevel(?ManagedAppDeviceThreatLevel $value ): void {
-        $this->maximumAllowedDeviceThreatLevel = $value;
+    public function setMaximumAllowedDeviceThreatLevel(?ManagedAppDeviceThreatLevel $value): void {
+        $this->getBackingStore()->set('maximumAllowedDeviceThreatLevel', $value);
     }
 
     /**
      * Sets the maximumRequiredOsVersion property value. Versions bigger than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the maximumRequiredOsVersion property.
     */
-    public function setMaximumRequiredOsVersion(?string $value ): void {
-        $this->maximumRequiredOsVersion = $value;
+    public function setMaximumRequiredOsVersion(?string $value): void {
+        $this->getBackingStore()->set('maximumRequiredOsVersion', $value);
     }
 
     /**
      * Sets the maximumWarningOsVersion property value. Versions bigger than the specified version will result in warning message on the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the maximumWarningOsVersion property.
     */
-    public function setMaximumWarningOsVersion(?string $value ): void {
-        $this->maximumWarningOsVersion = $value;
+    public function setMaximumWarningOsVersion(?string $value): void {
+        $this->getBackingStore()->set('maximumWarningOsVersion', $value);
     }
 
     /**
      * Sets the maximumWipeOsVersion property value. Versions bigger than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the maximumWipeOsVersion property.
     */
-    public function setMaximumWipeOsVersion(?string $value ): void {
-        $this->maximumWipeOsVersion = $value;
+    public function setMaximumWipeOsVersion(?string $value): void {
+        $this->getBackingStore()->set('maximumWipeOsVersion', $value);
     }
 
     /**
      * Sets the minimumRequiredAppVersion property value. Versions less than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the minimumRequiredAppVersion property.
     */
-    public function setMinimumRequiredAppVersion(?string $value ): void {
-        $this->minimumRequiredAppVersion = $value;
+    public function setMinimumRequiredAppVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumRequiredAppVersion', $value);
     }
 
     /**
      * Sets the minimumRequiredOsVersion property value. Versions less than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the minimumRequiredOsVersion property.
     */
-    public function setMinimumRequiredOsVersion(?string $value ): void {
-        $this->minimumRequiredOsVersion = $value;
+    public function setMinimumRequiredOsVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumRequiredOsVersion', $value);
     }
 
     /**
      * Sets the minimumRequiredSdkVersion property value. Versions less than the specified version will block the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the minimumRequiredSdkVersion property.
     */
-    public function setMinimumRequiredSdkVersion(?string $value ): void {
-        $this->minimumRequiredSdkVersion = $value;
+    public function setMinimumRequiredSdkVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumRequiredSdkVersion', $value);
     }
 
     /**
      * Sets the minimumWarningAppVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the minimumWarningAppVersion property.
     */
-    public function setMinimumWarningAppVersion(?string $value ): void {
-        $this->minimumWarningAppVersion = $value;
+    public function setMinimumWarningAppVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWarningAppVersion', $value);
     }
 
     /**
      * Sets the minimumWarningOsVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the minimumWarningOsVersion property.
     */
-    public function setMinimumWarningOsVersion(?string $value ): void {
-        $this->minimumWarningOsVersion = $value;
+    public function setMinimumWarningOsVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWarningOsVersion', $value);
     }
 
     /**
      * Sets the minimumWipeAppVersion property value. Versions less than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the minimumWipeAppVersion property.
     */
-    public function setMinimumWipeAppVersion(?string $value ): void {
-        $this->minimumWipeAppVersion = $value;
+    public function setMinimumWipeAppVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWipeAppVersion', $value);
     }
 
     /**
      * Sets the minimumWipeOsVersion property value. Versions less than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the minimumWipeOsVersion property.
     */
-    public function setMinimumWipeOsVersion(?string $value ): void {
-        $this->minimumWipeOsVersion = $value;
+    public function setMinimumWipeOsVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWipeOsVersion', $value);
     }
 
     /**
      * Sets the minimumWipeSdkVersion property value. Versions less than the specified version will wipe the managed app and the associated company data. For example: '8.1.0' or '13.1.1'.
      *  @param string|null $value Value to set for the minimumWipeSdkVersion property.
     */
-    public function setMinimumWipeSdkVersion(?string $value ): void {
-        $this->minimumWipeSdkVersion = $value;
+    public function setMinimumWipeSdkVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWipeSdkVersion', $value);
     }
 
     /**
      * Sets the mobileThreatDefenseRemediationAction property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the mobileThreatDefenseRemediationAction property.
     */
-    public function setMobileThreatDefenseRemediationAction(?ManagedAppRemediationAction $value ): void {
-        $this->mobileThreatDefenseRemediationAction = $value;
+    public function setMobileThreatDefenseRemediationAction(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('mobileThreatDefenseRemediationAction', $value);
     }
 
     /**
      * Sets the periodOfflineBeforeAccessCheck property value. The period after which access is checked when the device is not connected to the internet. For example, PT5M indicates that the interval is 5 minutes in duration. A timespan value of PT0S indicates that access will be blocked immediately when the device is not connected to the internet.
      *  @param DateInterval|null $value Value to set for the periodOfflineBeforeAccessCheck property.
     */
-    public function setPeriodOfflineBeforeAccessCheck(?DateInterval $value ): void {
-        $this->periodOfflineBeforeAccessCheck = $value;
+    public function setPeriodOfflineBeforeAccessCheck(?DateInterval $value): void {
+        $this->getBackingStore()->set('periodOfflineBeforeAccessCheck', $value);
     }
 
     /**
      * Sets the periodOfflineBeforeWipeIsEnforced property value. The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped. For example, P5D indicates that the interval is 5 days in duration. A timespan value of PT0S indicates that managed data will never be wiped when the device is not connected to the internet.
      *  @param DateInterval|null $value Value to set for the periodOfflineBeforeWipeIsEnforced property.
     */
-    public function setPeriodOfflineBeforeWipeIsEnforced(?DateInterval $value ): void {
-        $this->periodOfflineBeforeWipeIsEnforced = $value;
+    public function setPeriodOfflineBeforeWipeIsEnforced(?DateInterval $value): void {
+        $this->getBackingStore()->set('periodOfflineBeforeWipeIsEnforced', $value);
     }
 
     /**
      * Sets the printBlocked property value. When TRUE, indicates that printing is blocked from managed apps. When FALSE, indicates that printing is allowed from managed apps. Default value is FALSE.
      *  @param bool|null $value Value to set for the printBlocked property.
     */
-    public function setPrintBlocked(?bool $value ): void {
-        $this->printBlocked = $value;
+    public function setPrintBlocked(?bool $value): void {
+        $this->getBackingStore()->set('printBlocked', $value);
     }
 
 }

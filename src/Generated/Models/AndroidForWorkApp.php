@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkApp extends MobileApp implements Parsable 
 {
     /**
-     * @var string|null $appIdentifier The Identity Name.
-    */
-    private ?string $appIdentifier = null;
-    
-    /**
-     * @var string|null $appStoreUrl The Play for Work Store app URL.
-    */
-    private ?string $appStoreUrl = null;
-    
-    /**
-     * @var string|null $packageId The package identifier.
-    */
-    private ?string $packageId = null;
-    
-    /**
-     * @var int|null $totalLicenseCount The total number of VPP licenses.
-    */
-    private ?int $totalLicenseCount = null;
-    
-    /**
-     * @var int|null $usedLicenseCount The number of VPP licenses in use.
-    */
-    private ?int $usedLicenseCount = null;
-    
-    /**
      * Instantiates a new AndroidForWorkApp and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppIdentifier(): ?string {
-        return $this->appIdentifier;
+        return $this->getBackingStore()->get('appIdentifier');
     }
 
     /**
@@ -63,7 +38,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppStoreUrl(): ?string {
-        return $this->appStoreUrl;
+        return $this->getBackingStore()->get('appStoreUrl');
     }
 
     /**
@@ -86,7 +61,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getPackageId(): ?string {
-        return $this->packageId;
+        return $this->getBackingStore()->get('packageId');
     }
 
     /**
@@ -94,7 +69,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getTotalLicenseCount(): ?int {
-        return $this->totalLicenseCount;
+        return $this->getBackingStore()->get('totalLicenseCount');
     }
 
     /**
@@ -102,7 +77,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
-        return $this->usedLicenseCount;
+        return $this->getBackingStore()->get('usedLicenseCount');
     }
 
     /**
@@ -111,51 +86,51 @@ class AndroidForWorkApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appIdentifier', $this->appIdentifier);
-        $writer->writeStringValue('appStoreUrl', $this->appStoreUrl);
-        $writer->writeStringValue('packageId', $this->packageId);
-        $writer->writeIntegerValue('totalLicenseCount', $this->totalLicenseCount);
-        $writer->writeIntegerValue('usedLicenseCount', $this->usedLicenseCount);
+        $writer->writeStringValue('appIdentifier', $this->getAppIdentifier());
+        $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
+        $writer->writeStringValue('packageId', $this->getPackageId());
+        $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());
+        $writer->writeIntegerValue('usedLicenseCount', $this->getUsedLicenseCount());
     }
 
     /**
      * Sets the appIdentifier property value. The Identity Name.
      *  @param string|null $value Value to set for the appIdentifier property.
     */
-    public function setAppIdentifier(?string $value ): void {
-        $this->appIdentifier = $value;
+    public function setAppIdentifier(?string $value): void {
+        $this->getBackingStore()->set('appIdentifier', $value);
     }
 
     /**
      * Sets the appStoreUrl property value. The Play for Work Store app URL.
      *  @param string|null $value Value to set for the appStoreUrl property.
     */
-    public function setAppStoreUrl(?string $value ): void {
-        $this->appStoreUrl = $value;
+    public function setAppStoreUrl(?string $value): void {
+        $this->getBackingStore()->set('appStoreUrl', $value);
     }
 
     /**
      * Sets the packageId property value. The package identifier.
      *  @param string|null $value Value to set for the packageId property.
     */
-    public function setPackageId(?string $value ): void {
-        $this->packageId = $value;
+    public function setPackageId(?string $value): void {
+        $this->getBackingStore()->set('packageId', $value);
     }
 
     /**
      * Sets the totalLicenseCount property value. The total number of VPP licenses.
      *  @param int|null $value Value to set for the totalLicenseCount property.
     */
-    public function setTotalLicenseCount(?int $value ): void {
-        $this->totalLicenseCount = $value;
+    public function setTotalLicenseCount(?int $value): void {
+        $this->getBackingStore()->set('totalLicenseCount', $value);
     }
 
     /**
      * Sets the usedLicenseCount property value. The number of VPP licenses in use.
      *  @param int|null $value Value to set for the usedLicenseCount property.
     */
-    public function setUsedLicenseCount(?int $value ): void {
-        $this->usedLicenseCount = $value;
+    public function setUsedLicenseCount(?int $value): void {
+        $this->getBackingStore()->set('usedLicenseCount', $value);
     }
 
 }

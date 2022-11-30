@@ -10,171 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Team extends Entity implements Parsable 
 {
     /**
-     * @var array<Channel>|null $allChannels List of channels either hosted in or shared with the team (incoming channels).
-    */
-    private ?array $allChannels = null;
-    
-    /**
-     * @var array<Channel>|null $channels The collection of channels and messages associated with the team.
-    */
-    private ?array $channels = null;
-    
-    /**
-     * @var string|null $classification An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.
-    */
-    private ?string $classification = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Timestamp at which the team was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description An optional description for the team. Maximum length: 1024 characters.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var TeamDiscoverySettings|null $discoverySettings Settings to configure team discoverability by others.
-    */
-    private ?TeamDiscoverySettings $discoverySettings = null;
-    
-    /**
-     * @var string|null $displayName The name of the team.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var TeamFunSettings|null $funSettings Settings to configure use of Giphy, memes, and stickers in the team.
-    */
-    private ?TeamFunSettings $funSettings = null;
-    
-    /**
-     * @var Group|null $group The group property
-    */
-    private ?Group $group = null;
-    
-    /**
-     * @var TeamGuestSettings|null $guestSettings Settings to configure whether guests can create, update, or delete channels in the team.
-    */
-    private ?TeamGuestSettings $guestSettings = null;
-    
-    /**
-     * @var array<Channel>|null $incomingChannels List of channels shared with the team.
-    */
-    private ?array $incomingChannels = null;
-    
-    /**
-     * @var array<TeamsAppInstallation>|null $installedApps The apps installed in this team.
-    */
-    private ?array $installedApps = null;
-    
-    /**
-     * @var string|null $internalId A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.
-    */
-    private ?string $internalId = null;
-    
-    /**
-     * @var bool|null $isArchived Whether this team is in read-only mode.
-    */
-    private ?bool $isArchived = null;
-    
-    /**
-     * @var bool|null $isMembershipLimitedToOwners If set to true, the team is currently in the owner-only team membership state and not accessible by other team members, such as students.
-    */
-    private ?bool $isMembershipLimitedToOwners = null;
-    
-    /**
-     * @var array<ConversationMember>|null $members Members and owners of the team.
-    */
-    private ?array $members = null;
-    
-    /**
-     * @var TeamMemberSettings|null $memberSettings Settings to configure whether members can perform certain actions, for example, create channels and add bots, in the team.
-    */
-    private ?TeamMemberSettings $memberSettings = null;
-    
-    /**
-     * @var TeamMessagingSettings|null $messagingSettings Settings to configure messaging and mentions in the team.
-    */
-    private ?TeamMessagingSettings $messagingSettings = null;
-    
-    /**
-     * @var array<TeamsAsyncOperation>|null $operations The async operations that ran or are running on this team.
-    */
-    private ?array $operations = null;
-    
-    /**
-     * @var array<User>|null $owners The list of this team's owners. Currently, when creating a team using application permissions, exactly one owner must be specified. When using user delegated permissions, no owner can be specified (the current user is the owner). Owner must be specified as an object ID (GUID), not a UPN.
-    */
-    private ?array $owners = null;
-    
-    /**
-     * @var array<ResourceSpecificPermissionGrant>|null $permissionGrants A collection of permissions granted to apps to access the team.
-    */
-    private ?array $permissionGrants = null;
-    
-    /**
-     * @var ProfilePhoto|null $photo The team photo.
-    */
-    private ?ProfilePhoto $photo = null;
-    
-    /**
-     * @var Channel|null $primaryChannel The general channel for the team.
-    */
-    private ?Channel $primaryChannel = null;
-    
-    /**
-     * @var Schedule|null $schedule The schedule of shifts for this team.
-    */
-    private ?Schedule $schedule = null;
-    
-    /**
-     * @var TeamSpecialization|null $specialization Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case.
-    */
-    private ?TeamSpecialization $specialization = null;
-    
-    /**
-     * @var TeamSummary|null $summary Contains summary information about the team, including number of owners, members, and guests.
-    */
-    private ?TeamSummary $summary = null;
-    
-    /**
-     * @var array<TeamworkTag>|null $tags The tags associated with the team.
-    */
-    private ?array $tags = null;
-    
-    /**
-     * @var TeamsTemplate|null $template The template this team was created from. See available templates.
-    */
-    private ?TeamsTemplate $template = null;
-    
-    /**
-     * @var TeamTemplateDefinition|null $templateDefinition The templateDefinition property
-    */
-    private ?TeamTemplateDefinition $templateDefinition = null;
-    
-    /**
-     * @var string|null $tenantId The ID of the Azure Active Directory tenant.
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var TeamVisibilityType|null $visibility The visibility of the group and team. Defaults to Public.
-    */
-    private ?TeamVisibilityType $visibility = null;
-    
-    /**
-     * @var string|null $webUrl A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new team and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.team');
     }
 
     /**
@@ -191,7 +30,7 @@ class Team extends Entity implements Parsable
      * @return array<Channel>|null
     */
     public function getAllChannels(): ?array {
-        return $this->allChannels;
+        return $this->getBackingStore()->get('allChannels');
     }
 
     /**
@@ -199,7 +38,7 @@ class Team extends Entity implements Parsable
      * @return array<Channel>|null
     */
     public function getChannels(): ?array {
-        return $this->channels;
+        return $this->getBackingStore()->get('channels');
     }
 
     /**
@@ -207,7 +46,7 @@ class Team extends Entity implements Parsable
      * @return string|null
     */
     public function getClassification(): ?string {
-        return $this->classification;
+        return $this->getBackingStore()->get('classification');
     }
 
     /**
@@ -215,7 +54,7 @@ class Team extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -223,7 +62,7 @@ class Team extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -231,7 +70,7 @@ class Team extends Entity implements Parsable
      * @return TeamDiscoverySettings|null
     */
     public function getDiscoverySettings(): ?TeamDiscoverySettings {
-        return $this->discoverySettings;
+        return $this->getBackingStore()->get('discoverySettings');
     }
 
     /**
@@ -239,7 +78,7 @@ class Team extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -289,7 +128,7 @@ class Team extends Entity implements Parsable
      * @return TeamFunSettings|null
     */
     public function getFunSettings(): ?TeamFunSettings {
-        return $this->funSettings;
+        return $this->getBackingStore()->get('funSettings');
     }
 
     /**
@@ -297,7 +136,7 @@ class Team extends Entity implements Parsable
      * @return Group|null
     */
     public function getGroup(): ?Group {
-        return $this->group;
+        return $this->getBackingStore()->get('group');
     }
 
     /**
@@ -305,7 +144,7 @@ class Team extends Entity implements Parsable
      * @return TeamGuestSettings|null
     */
     public function getGuestSettings(): ?TeamGuestSettings {
-        return $this->guestSettings;
+        return $this->getBackingStore()->get('guestSettings');
     }
 
     /**
@@ -313,7 +152,7 @@ class Team extends Entity implements Parsable
      * @return array<Channel>|null
     */
     public function getIncomingChannels(): ?array {
-        return $this->incomingChannels;
+        return $this->getBackingStore()->get('incomingChannels');
     }
 
     /**
@@ -321,7 +160,7 @@ class Team extends Entity implements Parsable
      * @return array<TeamsAppInstallation>|null
     */
     public function getInstalledApps(): ?array {
-        return $this->installedApps;
+        return $this->getBackingStore()->get('installedApps');
     }
 
     /**
@@ -329,7 +168,7 @@ class Team extends Entity implements Parsable
      * @return string|null
     */
     public function getInternalId(): ?string {
-        return $this->internalId;
+        return $this->getBackingStore()->get('internalId');
     }
 
     /**
@@ -337,7 +176,7 @@ class Team extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsArchived(): ?bool {
-        return $this->isArchived;
+        return $this->getBackingStore()->get('isArchived');
     }
 
     /**
@@ -345,7 +184,7 @@ class Team extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMembershipLimitedToOwners(): ?bool {
-        return $this->isMembershipLimitedToOwners;
+        return $this->getBackingStore()->get('isMembershipLimitedToOwners');
     }
 
     /**
@@ -353,7 +192,7 @@ class Team extends Entity implements Parsable
      * @return array<ConversationMember>|null
     */
     public function getMembers(): ?array {
-        return $this->members;
+        return $this->getBackingStore()->get('members');
     }
 
     /**
@@ -361,7 +200,7 @@ class Team extends Entity implements Parsable
      * @return TeamMemberSettings|null
     */
     public function getMemberSettings(): ?TeamMemberSettings {
-        return $this->memberSettings;
+        return $this->getBackingStore()->get('memberSettings');
     }
 
     /**
@@ -369,7 +208,7 @@ class Team extends Entity implements Parsable
      * @return TeamMessagingSettings|null
     */
     public function getMessagingSettings(): ?TeamMessagingSettings {
-        return $this->messagingSettings;
+        return $this->getBackingStore()->get('messagingSettings');
     }
 
     /**
@@ -377,7 +216,7 @@ class Team extends Entity implements Parsable
      * @return array<TeamsAsyncOperation>|null
     */
     public function getOperations(): ?array {
-        return $this->operations;
+        return $this->getBackingStore()->get('operations');
     }
 
     /**
@@ -385,7 +224,7 @@ class Team extends Entity implements Parsable
      * @return array<User>|null
     */
     public function getOwners(): ?array {
-        return $this->owners;
+        return $this->getBackingStore()->get('owners');
     }
 
     /**
@@ -393,7 +232,7 @@ class Team extends Entity implements Parsable
      * @return array<ResourceSpecificPermissionGrant>|null
     */
     public function getPermissionGrants(): ?array {
-        return $this->permissionGrants;
+        return $this->getBackingStore()->get('permissionGrants');
     }
 
     /**
@@ -401,7 +240,7 @@ class Team extends Entity implements Parsable
      * @return ProfilePhoto|null
     */
     public function getPhoto(): ?ProfilePhoto {
-        return $this->photo;
+        return $this->getBackingStore()->get('photo');
     }
 
     /**
@@ -409,7 +248,7 @@ class Team extends Entity implements Parsable
      * @return Channel|null
     */
     public function getPrimaryChannel(): ?Channel {
-        return $this->primaryChannel;
+        return $this->getBackingStore()->get('primaryChannel');
     }
 
     /**
@@ -417,7 +256,7 @@ class Team extends Entity implements Parsable
      * @return Schedule|null
     */
     public function getSchedule(): ?Schedule {
-        return $this->schedule;
+        return $this->getBackingStore()->get('schedule');
     }
 
     /**
@@ -425,7 +264,7 @@ class Team extends Entity implements Parsable
      * @return TeamSpecialization|null
     */
     public function getSpecialization(): ?TeamSpecialization {
-        return $this->specialization;
+        return $this->getBackingStore()->get('specialization');
     }
 
     /**
@@ -433,7 +272,7 @@ class Team extends Entity implements Parsable
      * @return TeamSummary|null
     */
     public function getSummary(): ?TeamSummary {
-        return $this->summary;
+        return $this->getBackingStore()->get('summary');
     }
 
     /**
@@ -441,7 +280,7 @@ class Team extends Entity implements Parsable
      * @return array<TeamworkTag>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -449,7 +288,7 @@ class Team extends Entity implements Parsable
      * @return TeamsTemplate|null
     */
     public function getTemplate(): ?TeamsTemplate {
-        return $this->template;
+        return $this->getBackingStore()->get('template');
     }
 
     /**
@@ -457,7 +296,7 @@ class Team extends Entity implements Parsable
      * @return TeamTemplateDefinition|null
     */
     public function getTemplateDefinition(): ?TeamTemplateDefinition {
-        return $this->templateDefinition;
+        return $this->getBackingStore()->get('templateDefinition');
     }
 
     /**
@@ -465,7 +304,7 @@ class Team extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -473,7 +312,7 @@ class Team extends Entity implements Parsable
      * @return TeamVisibilityType|null
     */
     public function getVisibility(): ?TeamVisibilityType {
-        return $this->visibility;
+        return $this->getBackingStore()->get('visibility');
     }
 
     /**
@@ -481,7 +320,7 @@ class Team extends Entity implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -490,294 +329,294 @@ class Team extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('allChannels', $this->allChannels);
-        $writer->writeCollectionOfObjectValues('channels', $this->channels);
-        $writer->writeStringValue('classification', $this->classification);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeObjectValue('discoverySettings', $this->discoverySettings);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeObjectValue('funSettings', $this->funSettings);
-        $writer->writeObjectValue('group', $this->group);
-        $writer->writeObjectValue('guestSettings', $this->guestSettings);
-        $writer->writeCollectionOfObjectValues('incomingChannels', $this->incomingChannels);
-        $writer->writeCollectionOfObjectValues('installedApps', $this->installedApps);
-        $writer->writeStringValue('internalId', $this->internalId);
-        $writer->writeBooleanValue('isArchived', $this->isArchived);
-        $writer->writeBooleanValue('isMembershipLimitedToOwners', $this->isMembershipLimitedToOwners);
-        $writer->writeCollectionOfObjectValues('members', $this->members);
-        $writer->writeObjectValue('memberSettings', $this->memberSettings);
-        $writer->writeObjectValue('messagingSettings', $this->messagingSettings);
-        $writer->writeCollectionOfObjectValues('operations', $this->operations);
-        $writer->writeCollectionOfObjectValues('owners', $this->owners);
-        $writer->writeCollectionOfObjectValues('permissionGrants', $this->permissionGrants);
-        $writer->writeObjectValue('photo', $this->photo);
-        $writer->writeObjectValue('primaryChannel', $this->primaryChannel);
-        $writer->writeObjectValue('schedule', $this->schedule);
-        $writer->writeEnumValue('specialization', $this->specialization);
-        $writer->writeObjectValue('summary', $this->summary);
-        $writer->writeCollectionOfObjectValues('tags', $this->tags);
-        $writer->writeObjectValue('template', $this->template);
-        $writer->writeObjectValue('templateDefinition', $this->templateDefinition);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeEnumValue('visibility', $this->visibility);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeCollectionOfObjectValues('allChannels', $this->getAllChannels());
+        $writer->writeCollectionOfObjectValues('channels', $this->getChannels());
+        $writer->writeStringValue('classification', $this->getClassification());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeObjectValue('discoverySettings', $this->getDiscoverySettings());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('funSettings', $this->getFunSettings());
+        $writer->writeObjectValue('group', $this->getGroup());
+        $writer->writeObjectValue('guestSettings', $this->getGuestSettings());
+        $writer->writeCollectionOfObjectValues('incomingChannels', $this->getIncomingChannels());
+        $writer->writeCollectionOfObjectValues('installedApps', $this->getInstalledApps());
+        $writer->writeStringValue('internalId', $this->getInternalId());
+        $writer->writeBooleanValue('isArchived', $this->getIsArchived());
+        $writer->writeBooleanValue('isMembershipLimitedToOwners', $this->getIsMembershipLimitedToOwners());
+        $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeObjectValue('memberSettings', $this->getMemberSettings());
+        $writer->writeObjectValue('messagingSettings', $this->getMessagingSettings());
+        $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
+        $writer->writeCollectionOfObjectValues('owners', $this->getOwners());
+        $writer->writeCollectionOfObjectValues('permissionGrants', $this->getPermissionGrants());
+        $writer->writeObjectValue('photo', $this->getPhoto());
+        $writer->writeObjectValue('primaryChannel', $this->getPrimaryChannel());
+        $writer->writeObjectValue('schedule', $this->getSchedule());
+        $writer->writeEnumValue('specialization', $this->getSpecialization());
+        $writer->writeObjectValue('summary', $this->getSummary());
+        $writer->writeCollectionOfObjectValues('tags', $this->getTags());
+        $writer->writeObjectValue('template', $this->getTemplate());
+        $writer->writeObjectValue('templateDefinition', $this->getTemplateDefinition());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeEnumValue('visibility', $this->getVisibility());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the allChannels property value. List of channels either hosted in or shared with the team (incoming channels).
      *  @param array<Channel>|null $value Value to set for the allChannels property.
     */
-    public function setAllChannels(?array $value ): void {
-        $this->allChannels = $value;
+    public function setAllChannels(?array $value): void {
+        $this->getBackingStore()->set('allChannels', $value);
     }
 
     /**
      * Sets the channels property value. The collection of channels and messages associated with the team.
      *  @param array<Channel>|null $value Value to set for the channels property.
     */
-    public function setChannels(?array $value ): void {
-        $this->channels = $value;
+    public function setChannels(?array $value): void {
+        $this->getBackingStore()->set('channels', $value);
     }
 
     /**
      * Sets the classification property value. An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.
      *  @param string|null $value Value to set for the classification property.
     */
-    public function setClassification(?string $value ): void {
-        $this->classification = $value;
+    public function setClassification(?string $value): void {
+        $this->getBackingStore()->set('classification', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Timestamp at which the team was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. An optional description for the team. Maximum length: 1024 characters.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the discoverySettings property value. Settings to configure team discoverability by others.
      *  @param TeamDiscoverySettings|null $value Value to set for the discoverySettings property.
     */
-    public function setDiscoverySettings(?TeamDiscoverySettings $value ): void {
-        $this->discoverySettings = $value;
+    public function setDiscoverySettings(?TeamDiscoverySettings $value): void {
+        $this->getBackingStore()->set('discoverySettings', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the team.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the funSettings property value. Settings to configure use of Giphy, memes, and stickers in the team.
      *  @param TeamFunSettings|null $value Value to set for the funSettings property.
     */
-    public function setFunSettings(?TeamFunSettings $value ): void {
-        $this->funSettings = $value;
+    public function setFunSettings(?TeamFunSettings $value): void {
+        $this->getBackingStore()->set('funSettings', $value);
     }
 
     /**
      * Sets the group property value. The group property
      *  @param Group|null $value Value to set for the group property.
     */
-    public function setGroup(?Group $value ): void {
-        $this->group = $value;
+    public function setGroup(?Group $value): void {
+        $this->getBackingStore()->set('group', $value);
     }
 
     /**
      * Sets the guestSettings property value. Settings to configure whether guests can create, update, or delete channels in the team.
      *  @param TeamGuestSettings|null $value Value to set for the guestSettings property.
     */
-    public function setGuestSettings(?TeamGuestSettings $value ): void {
-        $this->guestSettings = $value;
+    public function setGuestSettings(?TeamGuestSettings $value): void {
+        $this->getBackingStore()->set('guestSettings', $value);
     }
 
     /**
      * Sets the incomingChannels property value. List of channels shared with the team.
      *  @param array<Channel>|null $value Value to set for the incomingChannels property.
     */
-    public function setIncomingChannels(?array $value ): void {
-        $this->incomingChannels = $value;
+    public function setIncomingChannels(?array $value): void {
+        $this->getBackingStore()->set('incomingChannels', $value);
     }
 
     /**
      * Sets the installedApps property value. The apps installed in this team.
      *  @param array<TeamsAppInstallation>|null $value Value to set for the installedApps property.
     */
-    public function setInstalledApps(?array $value ): void {
-        $this->installedApps = $value;
+    public function setInstalledApps(?array $value): void {
+        $this->getBackingStore()->set('installedApps', $value);
     }
 
     /**
      * Sets the internalId property value. A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.
      *  @param string|null $value Value to set for the internalId property.
     */
-    public function setInternalId(?string $value ): void {
-        $this->internalId = $value;
+    public function setInternalId(?string $value): void {
+        $this->getBackingStore()->set('internalId', $value);
     }
 
     /**
      * Sets the isArchived property value. Whether this team is in read-only mode.
      *  @param bool|null $value Value to set for the isArchived property.
     */
-    public function setIsArchived(?bool $value ): void {
-        $this->isArchived = $value;
+    public function setIsArchived(?bool $value): void {
+        $this->getBackingStore()->set('isArchived', $value);
     }
 
     /**
      * Sets the isMembershipLimitedToOwners property value. If set to true, the team is currently in the owner-only team membership state and not accessible by other team members, such as students.
      *  @param bool|null $value Value to set for the isMembershipLimitedToOwners property.
     */
-    public function setIsMembershipLimitedToOwners(?bool $value ): void {
-        $this->isMembershipLimitedToOwners = $value;
+    public function setIsMembershipLimitedToOwners(?bool $value): void {
+        $this->getBackingStore()->set('isMembershipLimitedToOwners', $value);
     }
 
     /**
      * Sets the members property value. Members and owners of the team.
      *  @param array<ConversationMember>|null $value Value to set for the members property.
     */
-    public function setMembers(?array $value ): void {
-        $this->members = $value;
+    public function setMembers(?array $value): void {
+        $this->getBackingStore()->set('members', $value);
     }
 
     /**
      * Sets the memberSettings property value. Settings to configure whether members can perform certain actions, for example, create channels and add bots, in the team.
      *  @param TeamMemberSettings|null $value Value to set for the memberSettings property.
     */
-    public function setMemberSettings(?TeamMemberSettings $value ): void {
-        $this->memberSettings = $value;
+    public function setMemberSettings(?TeamMemberSettings $value): void {
+        $this->getBackingStore()->set('memberSettings', $value);
     }
 
     /**
      * Sets the messagingSettings property value. Settings to configure messaging and mentions in the team.
      *  @param TeamMessagingSettings|null $value Value to set for the messagingSettings property.
     */
-    public function setMessagingSettings(?TeamMessagingSettings $value ): void {
-        $this->messagingSettings = $value;
+    public function setMessagingSettings(?TeamMessagingSettings $value): void {
+        $this->getBackingStore()->set('messagingSettings', $value);
     }
 
     /**
      * Sets the operations property value. The async operations that ran or are running on this team.
      *  @param array<TeamsAsyncOperation>|null $value Value to set for the operations property.
     */
-    public function setOperations(?array $value ): void {
-        $this->operations = $value;
+    public function setOperations(?array $value): void {
+        $this->getBackingStore()->set('operations', $value);
     }
 
     /**
      * Sets the owners property value. The list of this team's owners. Currently, when creating a team using application permissions, exactly one owner must be specified. When using user delegated permissions, no owner can be specified (the current user is the owner). Owner must be specified as an object ID (GUID), not a UPN.
      *  @param array<User>|null $value Value to set for the owners property.
     */
-    public function setOwners(?array $value ): void {
-        $this->owners = $value;
+    public function setOwners(?array $value): void {
+        $this->getBackingStore()->set('owners', $value);
     }
 
     /**
      * Sets the permissionGrants property value. A collection of permissions granted to apps to access the team.
      *  @param array<ResourceSpecificPermissionGrant>|null $value Value to set for the permissionGrants property.
     */
-    public function setPermissionGrants(?array $value ): void {
-        $this->permissionGrants = $value;
+    public function setPermissionGrants(?array $value): void {
+        $this->getBackingStore()->set('permissionGrants', $value);
     }
 
     /**
      * Sets the photo property value. The team photo.
      *  @param ProfilePhoto|null $value Value to set for the photo property.
     */
-    public function setPhoto(?ProfilePhoto $value ): void {
-        $this->photo = $value;
+    public function setPhoto(?ProfilePhoto $value): void {
+        $this->getBackingStore()->set('photo', $value);
     }
 
     /**
      * Sets the primaryChannel property value. The general channel for the team.
      *  @param Channel|null $value Value to set for the primaryChannel property.
     */
-    public function setPrimaryChannel(?Channel $value ): void {
-        $this->primaryChannel = $value;
+    public function setPrimaryChannel(?Channel $value): void {
+        $this->getBackingStore()->set('primaryChannel', $value);
     }
 
     /**
      * Sets the schedule property value. The schedule of shifts for this team.
      *  @param Schedule|null $value Value to set for the schedule property.
     */
-    public function setSchedule(?Schedule $value ): void {
-        $this->schedule = $value;
+    public function setSchedule(?Schedule $value): void {
+        $this->getBackingStore()->set('schedule', $value);
     }
 
     /**
      * Sets the specialization property value. Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case.
      *  @param TeamSpecialization|null $value Value to set for the specialization property.
     */
-    public function setSpecialization(?TeamSpecialization $value ): void {
-        $this->specialization = $value;
+    public function setSpecialization(?TeamSpecialization $value): void {
+        $this->getBackingStore()->set('specialization', $value);
     }
 
     /**
      * Sets the summary property value. Contains summary information about the team, including number of owners, members, and guests.
      *  @param TeamSummary|null $value Value to set for the summary property.
     */
-    public function setSummary(?TeamSummary $value ): void {
-        $this->summary = $value;
+    public function setSummary(?TeamSummary $value): void {
+        $this->getBackingStore()->set('summary', $value);
     }
 
     /**
      * Sets the tags property value. The tags associated with the team.
      *  @param array<TeamworkTag>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**
      * Sets the template property value. The template this team was created from. See available templates.
      *  @param TeamsTemplate|null $value Value to set for the template property.
     */
-    public function setTemplate(?TeamsTemplate $value ): void {
-        $this->template = $value;
+    public function setTemplate(?TeamsTemplate $value): void {
+        $this->getBackingStore()->set('template', $value);
     }
 
     /**
      * Sets the templateDefinition property value. The templateDefinition property
      *  @param TeamTemplateDefinition|null $value Value to set for the templateDefinition property.
     */
-    public function setTemplateDefinition(?TeamTemplateDefinition $value ): void {
-        $this->templateDefinition = $value;
+    public function setTemplateDefinition(?TeamTemplateDefinition $value): void {
+        $this->getBackingStore()->set('templateDefinition', $value);
     }
 
     /**
      * Sets the tenantId property value. The ID of the Azure Active Directory tenant.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the visibility property value. The visibility of the group and team. Defaults to Public.
      *  @param TeamVisibilityType|null $value Value to set for the visibility property.
     */
-    public function setVisibility(?TeamVisibilityType $value ): void {
-        $this->visibility = $value;
+    public function setVisibility(?TeamVisibilityType $value): void {
+        $this->getBackingStore()->set('visibility', $value);
     }
 
     /**
      * Sets the webUrl property value. A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

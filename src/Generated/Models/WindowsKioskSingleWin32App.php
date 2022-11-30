@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * @var WindowsKioskWin32App|null $win32App The win32App property
-    */
-    private ?WindowsKioskWin32App $win32App = null;
-    
-    /**
      * Instantiates a new WindowsKioskSingleWin32App and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
      * @return WindowsKioskWin32App|null
     */
     public function getWin32App(): ?WindowsKioskWin32App {
-        return $this->win32App;
+        return $this->getBackingStore()->get('win32App');
     }
 
     /**
@@ -55,15 +50,15 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('win32App', $this->win32App);
+        $writer->writeObjectValue('win32App', $this->getWin32App());
     }
 
     /**
      * Sets the win32App property value. The win32App property
      *  @param WindowsKioskWin32App|null $value Value to set for the win32App property.
     */
-    public function setWin32App(?WindowsKioskWin32App $value ): void {
-        $this->win32App = $value;
+    public function setWin32App(?WindowsKioskWin32App $value): void {
+        $this->getBackingStore()->set('win32App', $value);
     }
 
 }

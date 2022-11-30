@@ -9,51 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * @var string|null $minAndroidSecurityPatchLevel Minimum Android security patch level.
-    */
-    private ?string $minAndroidSecurityPatchLevel = null;
-    
-    /**
-     * @var string|null $osMaximumVersion Maximum Android version.
-    */
-    private ?string $osMaximumVersion = null;
-    
-    /**
-     * @var string|null $osMinimumVersion Minimum Android version.
-    */
-    private ?string $osMinimumVersion = null;
-    
-    /**
-     * @var int|null $passwordMinimumLength Minimum password length. Valid values 4 to 16
-    */
-    private ?int $passwordMinimumLength = null;
-    
-    /**
-     * @var int|null $passwordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required. Valid values 1 to 8640
-    */
-    private ?int $passwordMinutesOfInactivityBeforeLock = null;
-    
-    /**
-     * @var bool|null $passwordRequired Require a password to unlock device.
-    */
-    private ?bool $passwordRequired = null;
-    
-    /**
-     * @var AndroidDeviceOwnerRequiredPasswordType|null $passwordRequiredType Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-    */
-    private ?AndroidDeviceOwnerRequiredPasswordType $passwordRequiredType = null;
-    
-    /**
-     * @var bool|null $securityBlockJailbrokenDevices Devices must not be jailbroken or rooted.
-    */
-    private ?bool $securityBlockJailbrokenDevices = null;
-    
-    /**
-     * @var bool|null $storageRequireEncryption Require encryption on Android devices.
-    */
-    private ?bool $storageRequireEncryption = null;
-    
-    /**
      * Instantiates a new AospDeviceOwnerCompliancePolicy and sets the default values.
     */
     public function __construct() {
@@ -94,7 +49,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return string|null
     */
     public function getMinAndroidSecurityPatchLevel(): ?string {
-        return $this->minAndroidSecurityPatchLevel;
+        return $this->getBackingStore()->get('minAndroidSecurityPatchLevel');
     }
 
     /**
@@ -102,7 +57,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return string|null
     */
     public function getOsMaximumVersion(): ?string {
-        return $this->osMaximumVersion;
+        return $this->getBackingStore()->get('osMaximumVersion');
     }
 
     /**
@@ -110,7 +65,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return string|null
     */
     public function getOsMinimumVersion(): ?string {
-        return $this->osMinimumVersion;
+        return $this->getBackingStore()->get('osMinimumVersion');
     }
 
     /**
@@ -118,7 +73,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->passwordMinimumLength;
+        return $this->getBackingStore()->get('passwordMinimumLength');
     }
 
     /**
@@ -126,7 +81,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeLock(): ?int {
-        return $this->passwordMinutesOfInactivityBeforeLock;
+        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
     }
 
     /**
@@ -134,7 +89,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getPasswordRequired(): ?bool {
-        return $this->passwordRequired;
+        return $this->getBackingStore()->get('passwordRequired');
     }
 
     /**
@@ -142,7 +97,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return AndroidDeviceOwnerRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
-        return $this->passwordRequiredType;
+        return $this->getBackingStore()->get('passwordRequiredType');
     }
 
     /**
@@ -150,7 +105,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getSecurityBlockJailbrokenDevices(): ?bool {
-        return $this->securityBlockJailbrokenDevices;
+        return $this->getBackingStore()->get('securityBlockJailbrokenDevices');
     }
 
     /**
@@ -158,7 +113,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
      * @return bool|null
     */
     public function getStorageRequireEncryption(): ?bool {
-        return $this->storageRequireEncryption;
+        return $this->getBackingStore()->get('storageRequireEncryption');
     }
 
     /**
@@ -167,87 +122,87 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('minAndroidSecurityPatchLevel', $this->minAndroidSecurityPatchLevel);
-        $writer->writeStringValue('osMaximumVersion', $this->osMaximumVersion);
-        $writer->writeStringValue('osMinimumVersion', $this->osMinimumVersion);
-        $writer->writeIntegerValue('passwordMinimumLength', $this->passwordMinimumLength);
-        $writer->writeIntegerValue('passwordMinutesOfInactivityBeforeLock', $this->passwordMinutesOfInactivityBeforeLock);
-        $writer->writeBooleanValue('passwordRequired', $this->passwordRequired);
-        $writer->writeEnumValue('passwordRequiredType', $this->passwordRequiredType);
-        $writer->writeBooleanValue('securityBlockJailbrokenDevices', $this->securityBlockJailbrokenDevices);
-        $writer->writeBooleanValue('storageRequireEncryption', $this->storageRequireEncryption);
+        $writer->writeStringValue('minAndroidSecurityPatchLevel', $this->getMinAndroidSecurityPatchLevel());
+        $writer->writeStringValue('osMaximumVersion', $this->getOsMaximumVersion());
+        $writer->writeStringValue('osMinimumVersion', $this->getOsMinimumVersion());
+        $writer->writeIntegerValue('passwordMinimumLength', $this->getPasswordMinimumLength());
+        $writer->writeIntegerValue('passwordMinutesOfInactivityBeforeLock', $this->getPasswordMinutesOfInactivityBeforeLock());
+        $writer->writeBooleanValue('passwordRequired', $this->getPasswordRequired());
+        $writer->writeEnumValue('passwordRequiredType', $this->getPasswordRequiredType());
+        $writer->writeBooleanValue('securityBlockJailbrokenDevices', $this->getSecurityBlockJailbrokenDevices());
+        $writer->writeBooleanValue('storageRequireEncryption', $this->getStorageRequireEncryption());
     }
 
     /**
      * Sets the minAndroidSecurityPatchLevel property value. Minimum Android security patch level.
      *  @param string|null $value Value to set for the minAndroidSecurityPatchLevel property.
     */
-    public function setMinAndroidSecurityPatchLevel(?string $value ): void {
-        $this->minAndroidSecurityPatchLevel = $value;
+    public function setMinAndroidSecurityPatchLevel(?string $value): void {
+        $this->getBackingStore()->set('minAndroidSecurityPatchLevel', $value);
     }
 
     /**
      * Sets the osMaximumVersion property value. Maximum Android version.
      *  @param string|null $value Value to set for the osMaximumVersion property.
     */
-    public function setOsMaximumVersion(?string $value ): void {
-        $this->osMaximumVersion = $value;
+    public function setOsMaximumVersion(?string $value): void {
+        $this->getBackingStore()->set('osMaximumVersion', $value);
     }
 
     /**
      * Sets the osMinimumVersion property value. Minimum Android version.
      *  @param string|null $value Value to set for the osMinimumVersion property.
     */
-    public function setOsMinimumVersion(?string $value ): void {
-        $this->osMinimumVersion = $value;
+    public function setOsMinimumVersion(?string $value): void {
+        $this->getBackingStore()->set('osMinimumVersion', $value);
     }
 
     /**
      * Sets the passwordMinimumLength property value. Minimum password length. Valid values 4 to 16
      *  @param int|null $value Value to set for the passwordMinimumLength property.
     */
-    public function setPasswordMinimumLength(?int $value ): void {
-        $this->passwordMinimumLength = $value;
+    public function setPasswordMinimumLength(?int $value): void {
+        $this->getBackingStore()->set('passwordMinimumLength', $value);
     }
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a password is required. Valid values 1 to 8640
      *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeLock property.
     */
-    public function setPasswordMinutesOfInactivityBeforeLock(?int $value ): void {
-        $this->passwordMinutesOfInactivityBeforeLock = $value;
+    public function setPasswordMinutesOfInactivityBeforeLock(?int $value): void {
+        $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeLock', $value);
     }
 
     /**
      * Sets the passwordRequired property value. Require a password to unlock device.
      *  @param bool|null $value Value to set for the passwordRequired property.
     */
-    public function setPasswordRequired(?bool $value ): void {
-        $this->passwordRequired = $value;
+    public function setPasswordRequired(?bool $value): void {
+        $this->getBackingStore()->set('passwordRequired', $value);
     }
 
     /**
      * Sets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
      *  @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
-    public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value ): void {
-        $this->passwordRequiredType = $value;
+    public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
+        $this->getBackingStore()->set('passwordRequiredType', $value);
     }
 
     /**
      * Sets the securityBlockJailbrokenDevices property value. Devices must not be jailbroken or rooted.
      *  @param bool|null $value Value to set for the securityBlockJailbrokenDevices property.
     */
-    public function setSecurityBlockJailbrokenDevices(?bool $value ): void {
-        $this->securityBlockJailbrokenDevices = $value;
+    public function setSecurityBlockJailbrokenDevices(?bool $value): void {
+        $this->getBackingStore()->set('securityBlockJailbrokenDevices', $value);
     }
 
     /**
      * Sets the storageRequireEncryption property value. Require encryption on Android devices.
      *  @param bool|null $value Value to set for the storageRequireEncryption property.
     */
-    public function setStorageRequireEncryption(?bool $value ): void {
-        $this->storageRequireEncryption = $value;
+    public function setStorageRequireEncryption(?bool $value): void {
+        $this->getBackingStore()->set('storageRequireEncryption', $value);
     }
 
 }

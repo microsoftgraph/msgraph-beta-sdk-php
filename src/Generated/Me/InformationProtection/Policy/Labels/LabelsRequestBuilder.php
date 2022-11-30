@@ -24,35 +24,35 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class LabelsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The evaluateApplication property
+     * Provides operations to call the evaluateApplication method.
     */
     public function evaluateApplication(): EvaluateApplicationRequestBuilder {
         return new EvaluateApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The evaluateClassificationResults property
+     * Provides operations to call the evaluateClassificationResults method.
     */
     public function evaluateClassificationResults(): EvaluateClassificationResultsRequestBuilder {
         return new EvaluateClassificationResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The evaluateRemoval property
+     * Provides operations to call the evaluateRemoval method.
     */
     public function evaluateRemoval(): EvaluateRemovalRequestBuilder {
         return new EvaluateRemovalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The extractLabel property
+     * Provides operations to call the extractLabel method.
     */
     public function extractLabel(): ExtractLabelRequestBuilder {
         return new ExtractLabelRequestBuilder($this->pathParameters, $this->requestAdapter);

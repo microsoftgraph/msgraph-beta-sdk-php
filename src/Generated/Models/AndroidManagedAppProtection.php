@@ -9,211 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidManagedAppProtection extends TargetedManagedAppProtection implements Parsable 
 {
     /**
-     * @var string|null $allowedAndroidDeviceManufacturers Semicolon seperated list of device manufacturers allowed, as a string, for the managed app to work.
-    */
-    private ?string $allowedAndroidDeviceManufacturers = null;
-    
-    /**
-     * @var array<string>|null $allowedAndroidDeviceModels List of device models allowed, as a string, for the managed app to work.
-    */
-    private ?array $allowedAndroidDeviceModels = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfAndroidDeviceManufacturerNotAllowed An admin initiated action to be applied on a managed app.
-    */
-    private ?ManagedAppRemediationAction $appActionIfAndroidDeviceManufacturerNotAllowed = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfAndroidDeviceModelNotAllowed An admin initiated action to be applied on a managed app.
-    */
-    private ?ManagedAppRemediationAction $appActionIfAndroidDeviceModelNotAllowed = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfAndroidSafetyNetAppsVerificationFailed An admin initiated action to be applied on a managed app.
-    */
-    private ?ManagedAppRemediationAction $appActionIfAndroidSafetyNetAppsVerificationFailed = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfAndroidSafetyNetDeviceAttestationFailed An admin initiated action to be applied on a managed app.
-    */
-    private ?ManagedAppRemediationAction $appActionIfAndroidSafetyNetDeviceAttestationFailed = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfDeviceLockNotSet An admin initiated action to be applied on a managed app.
-    */
-    private ?ManagedAppRemediationAction $appActionIfDeviceLockNotSet = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfDevicePasscodeComplexityLessThanHigh If the device does not have a passcode of high complexity or higher, trigger the stored action.
-    */
-    private ?ManagedAppRemediationAction $appActionIfDevicePasscodeComplexityLessThanHigh = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfDevicePasscodeComplexityLessThanLow If the device does not have a passcode of low complexity or higher, trigger the stored action.
-    */
-    private ?ManagedAppRemediationAction $appActionIfDevicePasscodeComplexityLessThanLow = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfDevicePasscodeComplexityLessThanMedium If the device does not have a passcode of medium complexity or higher, trigger the stored action.
-    */
-    private ?ManagedAppRemediationAction $appActionIfDevicePasscodeComplexityLessThanMedium = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $approvedKeyboards If Keyboard Restriction is enabled, only keyboards in this approved list will be allowed. A key should be Android package id for a keyboard and value should be a friendly name
-    */
-    private ?array $approvedKeyboards = null;
-    
-    /**
-     * @var array<ManagedMobileApp>|null $apps List of apps to which the policy is deployed.
-    */
-    private ?array $apps = null;
-    
-    /**
-     * @var bool|null $biometricAuthenticationBlocked Indicates whether use of the biometric authentication is allowed in place of a pin if PinRequired is set to True.
-    */
-    private ?bool $biometricAuthenticationBlocked = null;
-    
-    /**
-     * @var int|null $blockAfterCompanyPortalUpdateDeferralInDays Maximum number of days Company Portal update can be deferred on the device or app access will be blocked.
-    */
-    private ?int $blockAfterCompanyPortalUpdateDeferralInDays = null;
-    
-    /**
-     * @var bool|null $connectToVpnOnLaunch Whether the app should connect to the configured VPN on launch.
-    */
-    private ?bool $connectToVpnOnLaunch = null;
-    
-    /**
-     * @var string|null $customBrowserDisplayName Friendly name of the preferred custom browser to open weblink on Android.
-    */
-    private ?string $customBrowserDisplayName = null;
-    
-    /**
-     * @var string|null $customBrowserPackageId Unique identifier of a custom browser to open weblink on Android.
-    */
-    private ?string $customBrowserPackageId = null;
-    
-    /**
-     * @var string|null $customDialerAppDisplayName Friendly name of a custom dialer app to click-to-open a phone number on Android.
-    */
-    private ?string $customDialerAppDisplayName = null;
-    
-    /**
-     * @var string|null $customDialerAppPackageId PackageId of a custom dialer app to click-to-open a phone number on Android.
-    */
-    private ?string $customDialerAppPackageId = null;
-    
-    /**
-     * @var int|null $deployedAppCount Count of apps to which the current policy is deployed.
-    */
-    private ?int $deployedAppCount = null;
-    
-    /**
-     * @var ManagedAppPolicyDeploymentSummary|null $deploymentSummary Navigation property to deployment summary of the configuration.
-    */
-    private ?ManagedAppPolicyDeploymentSummary $deploymentSummary = null;
-    
-    /**
-     * @var bool|null $deviceLockRequired Defines if any kind of lock must be required on android device
-    */
-    private ?bool $deviceLockRequired = null;
-    
-    /**
-     * @var bool|null $disableAppEncryptionIfDeviceEncryptionIsEnabled When this setting is enabled, app level encryption is disabled if device level encryption is enabled
-    */
-    private ?bool $disableAppEncryptionIfDeviceEncryptionIsEnabled = null;
-    
-    /**
-     * @var bool|null $encryptAppData Indicates whether application data for managed apps should be encrypted
-    */
-    private ?bool $encryptAppData = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $exemptedAppPackages App packages in this list will be exempt from the policy and will be able to receive data from managed apps.
-    */
-    private ?array $exemptedAppPackages = null;
-    
-    /**
-     * @var bool|null $fingerprintAndBiometricEnabled If null, this setting will be ignored. If false both fingerprints and biometrics will not be enabled. If true, both fingerprints and biometrics will be enabled.
-    */
-    private ?bool $fingerprintAndBiometricEnabled = null;
-    
-    /**
-     * @var bool|null $keyboardsRestricted Indicates if keyboard restriction is enabled. If enabled list of approved keyboards must be provided as well.
-    */
-    private ?bool $keyboardsRestricted = null;
-    
-    /**
-     * @var string|null $minimumRequiredCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or app access will be blocked
-    */
-    private ?string $minimumRequiredCompanyPortalVersion = null;
-    
-    /**
-     * @var string|null $minimumRequiredPatchVersion Define the oldest required Android security patch level a user can have to gain secure access to the app.
-    */
-    private ?string $minimumRequiredPatchVersion = null;
-    
-    /**
-     * @var string|null $minimumWarningCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the user will receive a warning
-    */
-    private ?string $minimumWarningCompanyPortalVersion = null;
-    
-    /**
-     * @var string|null $minimumWarningPatchVersion Define the oldest recommended Android security patch level a user can have for secure access to the app.
-    */
-    private ?string $minimumWarningPatchVersion = null;
-    
-    /**
-     * @var string|null $minimumWipeCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the company data on the app will be wiped
-    */
-    private ?string $minimumWipeCompanyPortalVersion = null;
-    
-    /**
-     * @var string|null $minimumWipePatchVersion Android security patch level  less than or equal to the specified value will wipe the managed app and the associated company data.
-    */
-    private ?string $minimumWipePatchVersion = null;
-    
-    /**
-     * @var bool|null $requireClass3Biometrics Require user to apply Class 3 Biometrics on their Android device.
-    */
-    private ?bool $requireClass3Biometrics = null;
-    
-    /**
-     * @var AndroidManagedAppSafetyNetAppsVerificationType|null $requiredAndroidSafetyNetAppsVerificationType An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
-    */
-    private ?AndroidManagedAppSafetyNetAppsVerificationType $requiredAndroidSafetyNetAppsVerificationType = null;
-    
-    /**
-     * @var AndroidManagedAppSafetyNetDeviceAttestationType|null $requiredAndroidSafetyNetDeviceAttestationType An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
-    */
-    private ?AndroidManagedAppSafetyNetDeviceAttestationType $requiredAndroidSafetyNetDeviceAttestationType = null;
-    
-    /**
-     * @var AndroidManagedAppSafetyNetEvaluationType|null $requiredAndroidSafetyNetEvaluationType An admin enforced Android SafetyNet evaluation type requirement on a managed app.
-    */
-    private ?AndroidManagedAppSafetyNetEvaluationType $requiredAndroidSafetyNetEvaluationType = null;
-    
-    /**
-     * @var bool|null $requirePinAfterBiometricChange A PIN prompt will override biometric prompts if class 3 biometrics are updated on the device.
-    */
-    private ?bool $requirePinAfterBiometricChange = null;
-    
-    /**
-     * @var bool|null $screenCaptureBlocked Indicates whether a managed user can take screen captures of managed apps
-    */
-    private ?bool $screenCaptureBlocked = null;
-    
-    /**
-     * @var int|null $warnAfterCompanyPortalUpdateDeferralInDays Maximum number of days Company Portal update can be deferred on the device or the user will receive the warning
-    */
-    private ?int $warnAfterCompanyPortalUpdateDeferralInDays = null;
-    
-    /**
-     * @var int|null $wipeAfterCompanyPortalUpdateDeferralInDays Maximum number of days Company Portal update can be deferred on the device or the company data on the app will be wiped
-    */
-    private ?int $wipeAfterCompanyPortalUpdateDeferralInDays = null;
-    
-    /**
      * Instantiates a new AndroidManagedAppProtection and sets the default values.
     */
     public function __construct() {
@@ -235,7 +30,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getAllowedAndroidDeviceManufacturers(): ?string {
-        return $this->allowedAndroidDeviceManufacturers;
+        return $this->getBackingStore()->get('allowedAndroidDeviceManufacturers');
     }
 
     /**
@@ -243,7 +38,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return array<string>|null
     */
     public function getAllowedAndroidDeviceModels(): ?array {
-        return $this->allowedAndroidDeviceModels;
+        return $this->getBackingStore()->get('allowedAndroidDeviceModels');
     }
 
     /**
@@ -251,7 +46,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidDeviceManufacturerNotAllowed(): ?ManagedAppRemediationAction {
-        return $this->appActionIfAndroidDeviceManufacturerNotAllowed;
+        return $this->getBackingStore()->get('appActionIfAndroidDeviceManufacturerNotAllowed');
     }
 
     /**
@@ -259,7 +54,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidDeviceModelNotAllowed(): ?ManagedAppRemediationAction {
-        return $this->appActionIfAndroidDeviceModelNotAllowed;
+        return $this->getBackingStore()->get('appActionIfAndroidDeviceModelNotAllowed');
     }
 
     /**
@@ -267,7 +62,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidSafetyNetAppsVerificationFailed(): ?ManagedAppRemediationAction {
-        return $this->appActionIfAndroidSafetyNetAppsVerificationFailed;
+        return $this->getBackingStore()->get('appActionIfAndroidSafetyNetAppsVerificationFailed');
     }
 
     /**
@@ -275,7 +70,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidSafetyNetDeviceAttestationFailed(): ?ManagedAppRemediationAction {
-        return $this->appActionIfAndroidSafetyNetDeviceAttestationFailed;
+        return $this->getBackingStore()->get('appActionIfAndroidSafetyNetDeviceAttestationFailed');
     }
 
     /**
@@ -283,7 +78,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDeviceLockNotSet(): ?ManagedAppRemediationAction {
-        return $this->appActionIfDeviceLockNotSet;
+        return $this->getBackingStore()->get('appActionIfDeviceLockNotSet');
     }
 
     /**
@@ -291,7 +86,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDevicePasscodeComplexityLessThanHigh(): ?ManagedAppRemediationAction {
-        return $this->appActionIfDevicePasscodeComplexityLessThanHigh;
+        return $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanHigh');
     }
 
     /**
@@ -299,7 +94,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDevicePasscodeComplexityLessThanLow(): ?ManagedAppRemediationAction {
-        return $this->appActionIfDevicePasscodeComplexityLessThanLow;
+        return $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanLow');
     }
 
     /**
@@ -307,7 +102,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDevicePasscodeComplexityLessThanMedium(): ?ManagedAppRemediationAction {
-        return $this->appActionIfDevicePasscodeComplexityLessThanMedium;
+        return $this->getBackingStore()->get('appActionIfDevicePasscodeComplexityLessThanMedium');
     }
 
     /**
@@ -315,7 +110,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return array<KeyValuePair>|null
     */
     public function getApprovedKeyboards(): ?array {
-        return $this->approvedKeyboards;
+        return $this->getBackingStore()->get('approvedKeyboards');
     }
 
     /**
@@ -323,7 +118,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return array<ManagedMobileApp>|null
     */
     public function getApps(): ?array {
-        return $this->apps;
+        return $this->getBackingStore()->get('apps');
     }
 
     /**
@@ -331,7 +126,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getBiometricAuthenticationBlocked(): ?bool {
-        return $this->biometricAuthenticationBlocked;
+        return $this->getBackingStore()->get('biometricAuthenticationBlocked');
     }
 
     /**
@@ -339,7 +134,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return int|null
     */
     public function getBlockAfterCompanyPortalUpdateDeferralInDays(): ?int {
-        return $this->blockAfterCompanyPortalUpdateDeferralInDays;
+        return $this->getBackingStore()->get('blockAfterCompanyPortalUpdateDeferralInDays');
     }
 
     /**
@@ -347,7 +142,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getConnectToVpnOnLaunch(): ?bool {
-        return $this->connectToVpnOnLaunch;
+        return $this->getBackingStore()->get('connectToVpnOnLaunch');
     }
 
     /**
@@ -355,7 +150,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getCustomBrowserDisplayName(): ?string {
-        return $this->customBrowserDisplayName;
+        return $this->getBackingStore()->get('customBrowserDisplayName');
     }
 
     /**
@@ -363,7 +158,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getCustomBrowserPackageId(): ?string {
-        return $this->customBrowserPackageId;
+        return $this->getBackingStore()->get('customBrowserPackageId');
     }
 
     /**
@@ -371,7 +166,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getCustomDialerAppDisplayName(): ?string {
-        return $this->customDialerAppDisplayName;
+        return $this->getBackingStore()->get('customDialerAppDisplayName');
     }
 
     /**
@@ -379,7 +174,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getCustomDialerAppPackageId(): ?string {
-        return $this->customDialerAppPackageId;
+        return $this->getBackingStore()->get('customDialerAppPackageId');
     }
 
     /**
@@ -387,7 +182,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return int|null
     */
     public function getDeployedAppCount(): ?int {
-        return $this->deployedAppCount;
+        return $this->getBackingStore()->get('deployedAppCount');
     }
 
     /**
@@ -395,7 +190,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return ManagedAppPolicyDeploymentSummary|null
     */
     public function getDeploymentSummary(): ?ManagedAppPolicyDeploymentSummary {
-        return $this->deploymentSummary;
+        return $this->getBackingStore()->get('deploymentSummary');
     }
 
     /**
@@ -403,7 +198,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getDeviceLockRequired(): ?bool {
-        return $this->deviceLockRequired;
+        return $this->getBackingStore()->get('deviceLockRequired');
     }
 
     /**
@@ -411,7 +206,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getDisableAppEncryptionIfDeviceEncryptionIsEnabled(): ?bool {
-        return $this->disableAppEncryptionIfDeviceEncryptionIsEnabled;
+        return $this->getBackingStore()->get('disableAppEncryptionIfDeviceEncryptionIsEnabled');
     }
 
     /**
@@ -419,7 +214,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getEncryptAppData(): ?bool {
-        return $this->encryptAppData;
+        return $this->getBackingStore()->get('encryptAppData');
     }
 
     /**
@@ -427,7 +222,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return array<KeyValuePair>|null
     */
     public function getExemptedAppPackages(): ?array {
-        return $this->exemptedAppPackages;
+        return $this->getBackingStore()->get('exemptedAppPackages');
     }
 
     /**
@@ -486,7 +281,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getFingerprintAndBiometricEnabled(): ?bool {
-        return $this->fingerprintAndBiometricEnabled;
+        return $this->getBackingStore()->get('fingerprintAndBiometricEnabled');
     }
 
     /**
@@ -494,7 +289,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getKeyboardsRestricted(): ?bool {
-        return $this->keyboardsRestricted;
+        return $this->getBackingStore()->get('keyboardsRestricted');
     }
 
     /**
@@ -502,7 +297,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getMinimumRequiredCompanyPortalVersion(): ?string {
-        return $this->minimumRequiredCompanyPortalVersion;
+        return $this->getBackingStore()->get('minimumRequiredCompanyPortalVersion');
     }
 
     /**
@@ -510,7 +305,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getMinimumRequiredPatchVersion(): ?string {
-        return $this->minimumRequiredPatchVersion;
+        return $this->getBackingStore()->get('minimumRequiredPatchVersion');
     }
 
     /**
@@ -518,7 +313,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getMinimumWarningCompanyPortalVersion(): ?string {
-        return $this->minimumWarningCompanyPortalVersion;
+        return $this->getBackingStore()->get('minimumWarningCompanyPortalVersion');
     }
 
     /**
@@ -526,7 +321,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getMinimumWarningPatchVersion(): ?string {
-        return $this->minimumWarningPatchVersion;
+        return $this->getBackingStore()->get('minimumWarningPatchVersion');
     }
 
     /**
@@ -534,7 +329,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getMinimumWipeCompanyPortalVersion(): ?string {
-        return $this->minimumWipeCompanyPortalVersion;
+        return $this->getBackingStore()->get('minimumWipeCompanyPortalVersion');
     }
 
     /**
@@ -542,7 +337,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return string|null
     */
     public function getMinimumWipePatchVersion(): ?string {
-        return $this->minimumWipePatchVersion;
+        return $this->getBackingStore()->get('minimumWipePatchVersion');
     }
 
     /**
@@ -550,7 +345,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getRequireClass3Biometrics(): ?bool {
-        return $this->requireClass3Biometrics;
+        return $this->getBackingStore()->get('requireClass3Biometrics');
     }
 
     /**
@@ -558,7 +353,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return AndroidManagedAppSafetyNetAppsVerificationType|null
     */
     public function getRequiredAndroidSafetyNetAppsVerificationType(): ?AndroidManagedAppSafetyNetAppsVerificationType {
-        return $this->requiredAndroidSafetyNetAppsVerificationType;
+        return $this->getBackingStore()->get('requiredAndroidSafetyNetAppsVerificationType');
     }
 
     /**
@@ -566,7 +361,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return AndroidManagedAppSafetyNetDeviceAttestationType|null
     */
     public function getRequiredAndroidSafetyNetDeviceAttestationType(): ?AndroidManagedAppSafetyNetDeviceAttestationType {
-        return $this->requiredAndroidSafetyNetDeviceAttestationType;
+        return $this->getBackingStore()->get('requiredAndroidSafetyNetDeviceAttestationType');
     }
 
     /**
@@ -574,7 +369,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return AndroidManagedAppSafetyNetEvaluationType|null
     */
     public function getRequiredAndroidSafetyNetEvaluationType(): ?AndroidManagedAppSafetyNetEvaluationType {
-        return $this->requiredAndroidSafetyNetEvaluationType;
+        return $this->getBackingStore()->get('requiredAndroidSafetyNetEvaluationType');
     }
 
     /**
@@ -582,7 +377,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getRequirePinAfterBiometricChange(): ?bool {
-        return $this->requirePinAfterBiometricChange;
+        return $this->getBackingStore()->get('requirePinAfterBiometricChange');
     }
 
     /**
@@ -590,7 +385,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return bool|null
     */
     public function getScreenCaptureBlocked(): ?bool {
-        return $this->screenCaptureBlocked;
+        return $this->getBackingStore()->get('screenCaptureBlocked');
     }
 
     /**
@@ -598,7 +393,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return int|null
     */
     public function getWarnAfterCompanyPortalUpdateDeferralInDays(): ?int {
-        return $this->warnAfterCompanyPortalUpdateDeferralInDays;
+        return $this->getBackingStore()->get('warnAfterCompanyPortalUpdateDeferralInDays');
     }
 
     /**
@@ -606,7 +401,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
      * @return int|null
     */
     public function getWipeAfterCompanyPortalUpdateDeferralInDays(): ?int {
-        return $this->wipeAfterCompanyPortalUpdateDeferralInDays;
+        return $this->getBackingStore()->get('wipeAfterCompanyPortalUpdateDeferralInDays');
     }
 
     /**
@@ -615,375 +410,375 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('allowedAndroidDeviceManufacturers', $this->allowedAndroidDeviceManufacturers);
-        $writer->writeCollectionOfPrimitiveValues('allowedAndroidDeviceModels', $this->allowedAndroidDeviceModels);
-        $writer->writeEnumValue('appActionIfAndroidDeviceManufacturerNotAllowed', $this->appActionIfAndroidDeviceManufacturerNotAllowed);
-        $writer->writeEnumValue('appActionIfAndroidDeviceModelNotAllowed', $this->appActionIfAndroidDeviceModelNotAllowed);
-        $writer->writeEnumValue('appActionIfAndroidSafetyNetAppsVerificationFailed', $this->appActionIfAndroidSafetyNetAppsVerificationFailed);
-        $writer->writeEnumValue('appActionIfAndroidSafetyNetDeviceAttestationFailed', $this->appActionIfAndroidSafetyNetDeviceAttestationFailed);
-        $writer->writeEnumValue('appActionIfDeviceLockNotSet', $this->appActionIfDeviceLockNotSet);
-        $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanHigh', $this->appActionIfDevicePasscodeComplexityLessThanHigh);
-        $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanLow', $this->appActionIfDevicePasscodeComplexityLessThanLow);
-        $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanMedium', $this->appActionIfDevicePasscodeComplexityLessThanMedium);
-        $writer->writeCollectionOfObjectValues('approvedKeyboards', $this->approvedKeyboards);
-        $writer->writeCollectionOfObjectValues('apps', $this->apps);
-        $writer->writeBooleanValue('biometricAuthenticationBlocked', $this->biometricAuthenticationBlocked);
-        $writer->writeIntegerValue('blockAfterCompanyPortalUpdateDeferralInDays', $this->blockAfterCompanyPortalUpdateDeferralInDays);
-        $writer->writeBooleanValue('connectToVpnOnLaunch', $this->connectToVpnOnLaunch);
-        $writer->writeStringValue('customBrowserDisplayName', $this->customBrowserDisplayName);
-        $writer->writeStringValue('customBrowserPackageId', $this->customBrowserPackageId);
-        $writer->writeStringValue('customDialerAppDisplayName', $this->customDialerAppDisplayName);
-        $writer->writeStringValue('customDialerAppPackageId', $this->customDialerAppPackageId);
-        $writer->writeIntegerValue('deployedAppCount', $this->deployedAppCount);
-        $writer->writeObjectValue('deploymentSummary', $this->deploymentSummary);
-        $writer->writeBooleanValue('deviceLockRequired', $this->deviceLockRequired);
-        $writer->writeBooleanValue('disableAppEncryptionIfDeviceEncryptionIsEnabled', $this->disableAppEncryptionIfDeviceEncryptionIsEnabled);
-        $writer->writeBooleanValue('encryptAppData', $this->encryptAppData);
-        $writer->writeCollectionOfObjectValues('exemptedAppPackages', $this->exemptedAppPackages);
-        $writer->writeBooleanValue('fingerprintAndBiometricEnabled', $this->fingerprintAndBiometricEnabled);
-        $writer->writeBooleanValue('keyboardsRestricted', $this->keyboardsRestricted);
-        $writer->writeStringValue('minimumRequiredCompanyPortalVersion', $this->minimumRequiredCompanyPortalVersion);
-        $writer->writeStringValue('minimumRequiredPatchVersion', $this->minimumRequiredPatchVersion);
-        $writer->writeStringValue('minimumWarningCompanyPortalVersion', $this->minimumWarningCompanyPortalVersion);
-        $writer->writeStringValue('minimumWarningPatchVersion', $this->minimumWarningPatchVersion);
-        $writer->writeStringValue('minimumWipeCompanyPortalVersion', $this->minimumWipeCompanyPortalVersion);
-        $writer->writeStringValue('minimumWipePatchVersion', $this->minimumWipePatchVersion);
-        $writer->writeBooleanValue('requireClass3Biometrics', $this->requireClass3Biometrics);
-        $writer->writeEnumValue('requiredAndroidSafetyNetAppsVerificationType', $this->requiredAndroidSafetyNetAppsVerificationType);
-        $writer->writeEnumValue('requiredAndroidSafetyNetDeviceAttestationType', $this->requiredAndroidSafetyNetDeviceAttestationType);
-        $writer->writeEnumValue('requiredAndroidSafetyNetEvaluationType', $this->requiredAndroidSafetyNetEvaluationType);
-        $writer->writeBooleanValue('requirePinAfterBiometricChange', $this->requirePinAfterBiometricChange);
-        $writer->writeBooleanValue('screenCaptureBlocked', $this->screenCaptureBlocked);
-        $writer->writeIntegerValue('warnAfterCompanyPortalUpdateDeferralInDays', $this->warnAfterCompanyPortalUpdateDeferralInDays);
-        $writer->writeIntegerValue('wipeAfterCompanyPortalUpdateDeferralInDays', $this->wipeAfterCompanyPortalUpdateDeferralInDays);
+        $writer->writeStringValue('allowedAndroidDeviceManufacturers', $this->getAllowedAndroidDeviceManufacturers());
+        $writer->writeCollectionOfPrimitiveValues('allowedAndroidDeviceModels', $this->getAllowedAndroidDeviceModels());
+        $writer->writeEnumValue('appActionIfAndroidDeviceManufacturerNotAllowed', $this->getAppActionIfAndroidDeviceManufacturerNotAllowed());
+        $writer->writeEnumValue('appActionIfAndroidDeviceModelNotAllowed', $this->getAppActionIfAndroidDeviceModelNotAllowed());
+        $writer->writeEnumValue('appActionIfAndroidSafetyNetAppsVerificationFailed', $this->getAppActionIfAndroidSafetyNetAppsVerificationFailed());
+        $writer->writeEnumValue('appActionIfAndroidSafetyNetDeviceAttestationFailed', $this->getAppActionIfAndroidSafetyNetDeviceAttestationFailed());
+        $writer->writeEnumValue('appActionIfDeviceLockNotSet', $this->getAppActionIfDeviceLockNotSet());
+        $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanHigh', $this->getAppActionIfDevicePasscodeComplexityLessThanHigh());
+        $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanLow', $this->getAppActionIfDevicePasscodeComplexityLessThanLow());
+        $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanMedium', $this->getAppActionIfDevicePasscodeComplexityLessThanMedium());
+        $writer->writeCollectionOfObjectValues('approvedKeyboards', $this->getApprovedKeyboards());
+        $writer->writeCollectionOfObjectValues('apps', $this->getApps());
+        $writer->writeBooleanValue('biometricAuthenticationBlocked', $this->getBiometricAuthenticationBlocked());
+        $writer->writeIntegerValue('blockAfterCompanyPortalUpdateDeferralInDays', $this->getBlockAfterCompanyPortalUpdateDeferralInDays());
+        $writer->writeBooleanValue('connectToVpnOnLaunch', $this->getConnectToVpnOnLaunch());
+        $writer->writeStringValue('customBrowserDisplayName', $this->getCustomBrowserDisplayName());
+        $writer->writeStringValue('customBrowserPackageId', $this->getCustomBrowserPackageId());
+        $writer->writeStringValue('customDialerAppDisplayName', $this->getCustomDialerAppDisplayName());
+        $writer->writeStringValue('customDialerAppPackageId', $this->getCustomDialerAppPackageId());
+        $writer->writeIntegerValue('deployedAppCount', $this->getDeployedAppCount());
+        $writer->writeObjectValue('deploymentSummary', $this->getDeploymentSummary());
+        $writer->writeBooleanValue('deviceLockRequired', $this->getDeviceLockRequired());
+        $writer->writeBooleanValue('disableAppEncryptionIfDeviceEncryptionIsEnabled', $this->getDisableAppEncryptionIfDeviceEncryptionIsEnabled());
+        $writer->writeBooleanValue('encryptAppData', $this->getEncryptAppData());
+        $writer->writeCollectionOfObjectValues('exemptedAppPackages', $this->getExemptedAppPackages());
+        $writer->writeBooleanValue('fingerprintAndBiometricEnabled', $this->getFingerprintAndBiometricEnabled());
+        $writer->writeBooleanValue('keyboardsRestricted', $this->getKeyboardsRestricted());
+        $writer->writeStringValue('minimumRequiredCompanyPortalVersion', $this->getMinimumRequiredCompanyPortalVersion());
+        $writer->writeStringValue('minimumRequiredPatchVersion', $this->getMinimumRequiredPatchVersion());
+        $writer->writeStringValue('minimumWarningCompanyPortalVersion', $this->getMinimumWarningCompanyPortalVersion());
+        $writer->writeStringValue('minimumWarningPatchVersion', $this->getMinimumWarningPatchVersion());
+        $writer->writeStringValue('minimumWipeCompanyPortalVersion', $this->getMinimumWipeCompanyPortalVersion());
+        $writer->writeStringValue('minimumWipePatchVersion', $this->getMinimumWipePatchVersion());
+        $writer->writeBooleanValue('requireClass3Biometrics', $this->getRequireClass3Biometrics());
+        $writer->writeEnumValue('requiredAndroidSafetyNetAppsVerificationType', $this->getRequiredAndroidSafetyNetAppsVerificationType());
+        $writer->writeEnumValue('requiredAndroidSafetyNetDeviceAttestationType', $this->getRequiredAndroidSafetyNetDeviceAttestationType());
+        $writer->writeEnumValue('requiredAndroidSafetyNetEvaluationType', $this->getRequiredAndroidSafetyNetEvaluationType());
+        $writer->writeBooleanValue('requirePinAfterBiometricChange', $this->getRequirePinAfterBiometricChange());
+        $writer->writeBooleanValue('screenCaptureBlocked', $this->getScreenCaptureBlocked());
+        $writer->writeIntegerValue('warnAfterCompanyPortalUpdateDeferralInDays', $this->getWarnAfterCompanyPortalUpdateDeferralInDays());
+        $writer->writeIntegerValue('wipeAfterCompanyPortalUpdateDeferralInDays', $this->getWipeAfterCompanyPortalUpdateDeferralInDays());
     }
 
     /**
      * Sets the allowedAndroidDeviceManufacturers property value. Semicolon seperated list of device manufacturers allowed, as a string, for the managed app to work.
      *  @param string|null $value Value to set for the allowedAndroidDeviceManufacturers property.
     */
-    public function setAllowedAndroidDeviceManufacturers(?string $value ): void {
-        $this->allowedAndroidDeviceManufacturers = $value;
+    public function setAllowedAndroidDeviceManufacturers(?string $value): void {
+        $this->getBackingStore()->set('allowedAndroidDeviceManufacturers', $value);
     }
 
     /**
      * Sets the allowedAndroidDeviceModels property value. List of device models allowed, as a string, for the managed app to work.
      *  @param array<string>|null $value Value to set for the allowedAndroidDeviceModels property.
     */
-    public function setAllowedAndroidDeviceModels(?array $value ): void {
-        $this->allowedAndroidDeviceModels = $value;
+    public function setAllowedAndroidDeviceModels(?array $value): void {
+        $this->getBackingStore()->set('allowedAndroidDeviceModels', $value);
     }
 
     /**
      * Sets the appActionIfAndroidDeviceManufacturerNotAllowed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidDeviceManufacturerNotAllowed property.
     */
-    public function setAppActionIfAndroidDeviceManufacturerNotAllowed(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfAndroidDeviceManufacturerNotAllowed = $value;
+    public function setAppActionIfAndroidDeviceManufacturerNotAllowed(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfAndroidDeviceManufacturerNotAllowed', $value);
     }
 
     /**
      * Sets the appActionIfAndroidDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidDeviceModelNotAllowed property.
     */
-    public function setAppActionIfAndroidDeviceModelNotAllowed(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfAndroidDeviceModelNotAllowed = $value;
+    public function setAppActionIfAndroidDeviceModelNotAllowed(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfAndroidDeviceModelNotAllowed', $value);
     }
 
     /**
      * Sets the appActionIfAndroidSafetyNetAppsVerificationFailed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidSafetyNetAppsVerificationFailed property.
     */
-    public function setAppActionIfAndroidSafetyNetAppsVerificationFailed(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfAndroidSafetyNetAppsVerificationFailed = $value;
+    public function setAppActionIfAndroidSafetyNetAppsVerificationFailed(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfAndroidSafetyNetAppsVerificationFailed', $value);
     }
 
     /**
      * Sets the appActionIfAndroidSafetyNetDeviceAttestationFailed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidSafetyNetDeviceAttestationFailed property.
     */
-    public function setAppActionIfAndroidSafetyNetDeviceAttestationFailed(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfAndroidSafetyNetDeviceAttestationFailed = $value;
+    public function setAppActionIfAndroidSafetyNetDeviceAttestationFailed(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfAndroidSafetyNetDeviceAttestationFailed', $value);
     }
 
     /**
      * Sets the appActionIfDeviceLockNotSet property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDeviceLockNotSet property.
     */
-    public function setAppActionIfDeviceLockNotSet(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfDeviceLockNotSet = $value;
+    public function setAppActionIfDeviceLockNotSet(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfDeviceLockNotSet', $value);
     }
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanHigh property.
     */
-    public function setAppActionIfDevicePasscodeComplexityLessThanHigh(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfDevicePasscodeComplexityLessThanHigh = $value;
+    public function setAppActionIfDevicePasscodeComplexityLessThanHigh(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanHigh', $value);
     }
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanLow property.
     */
-    public function setAppActionIfDevicePasscodeComplexityLessThanLow(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfDevicePasscodeComplexityLessThanLow = $value;
+    public function setAppActionIfDevicePasscodeComplexityLessThanLow(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanLow', $value);
     }
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanMedium property.
     */
-    public function setAppActionIfDevicePasscodeComplexityLessThanMedium(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfDevicePasscodeComplexityLessThanMedium = $value;
+    public function setAppActionIfDevicePasscodeComplexityLessThanMedium(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanMedium', $value);
     }
 
     /**
      * Sets the approvedKeyboards property value. If Keyboard Restriction is enabled, only keyboards in this approved list will be allowed. A key should be Android package id for a keyboard and value should be a friendly name
      *  @param array<KeyValuePair>|null $value Value to set for the approvedKeyboards property.
     */
-    public function setApprovedKeyboards(?array $value ): void {
-        $this->approvedKeyboards = $value;
+    public function setApprovedKeyboards(?array $value): void {
+        $this->getBackingStore()->set('approvedKeyboards', $value);
     }
 
     /**
      * Sets the apps property value. List of apps to which the policy is deployed.
      *  @param array<ManagedMobileApp>|null $value Value to set for the apps property.
     */
-    public function setApps(?array $value ): void {
-        $this->apps = $value;
+    public function setApps(?array $value): void {
+        $this->getBackingStore()->set('apps', $value);
     }
 
     /**
      * Sets the biometricAuthenticationBlocked property value. Indicates whether use of the biometric authentication is allowed in place of a pin if PinRequired is set to True.
      *  @param bool|null $value Value to set for the biometricAuthenticationBlocked property.
     */
-    public function setBiometricAuthenticationBlocked(?bool $value ): void {
-        $this->biometricAuthenticationBlocked = $value;
+    public function setBiometricAuthenticationBlocked(?bool $value): void {
+        $this->getBackingStore()->set('biometricAuthenticationBlocked', $value);
     }
 
     /**
      * Sets the blockAfterCompanyPortalUpdateDeferralInDays property value. Maximum number of days Company Portal update can be deferred on the device or app access will be blocked.
      *  @param int|null $value Value to set for the blockAfterCompanyPortalUpdateDeferralInDays property.
     */
-    public function setBlockAfterCompanyPortalUpdateDeferralInDays(?int $value ): void {
-        $this->blockAfterCompanyPortalUpdateDeferralInDays = $value;
+    public function setBlockAfterCompanyPortalUpdateDeferralInDays(?int $value): void {
+        $this->getBackingStore()->set('blockAfterCompanyPortalUpdateDeferralInDays', $value);
     }
 
     /**
      * Sets the connectToVpnOnLaunch property value. Whether the app should connect to the configured VPN on launch.
      *  @param bool|null $value Value to set for the connectToVpnOnLaunch property.
     */
-    public function setConnectToVpnOnLaunch(?bool $value ): void {
-        $this->connectToVpnOnLaunch = $value;
+    public function setConnectToVpnOnLaunch(?bool $value): void {
+        $this->getBackingStore()->set('connectToVpnOnLaunch', $value);
     }
 
     /**
      * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.
      *  @param string|null $value Value to set for the customBrowserDisplayName property.
     */
-    public function setCustomBrowserDisplayName(?string $value ): void {
-        $this->customBrowserDisplayName = $value;
+    public function setCustomBrowserDisplayName(?string $value): void {
+        $this->getBackingStore()->set('customBrowserDisplayName', $value);
     }
 
     /**
      * Sets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android.
      *  @param string|null $value Value to set for the customBrowserPackageId property.
     */
-    public function setCustomBrowserPackageId(?string $value ): void {
-        $this->customBrowserPackageId = $value;
+    public function setCustomBrowserPackageId(?string $value): void {
+        $this->getBackingStore()->set('customBrowserPackageId', $value);
     }
 
     /**
      * Sets the customDialerAppDisplayName property value. Friendly name of a custom dialer app to click-to-open a phone number on Android.
      *  @param string|null $value Value to set for the customDialerAppDisplayName property.
     */
-    public function setCustomDialerAppDisplayName(?string $value ): void {
-        $this->customDialerAppDisplayName = $value;
+    public function setCustomDialerAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('customDialerAppDisplayName', $value);
     }
 
     /**
      * Sets the customDialerAppPackageId property value. PackageId of a custom dialer app to click-to-open a phone number on Android.
      *  @param string|null $value Value to set for the customDialerAppPackageId property.
     */
-    public function setCustomDialerAppPackageId(?string $value ): void {
-        $this->customDialerAppPackageId = $value;
+    public function setCustomDialerAppPackageId(?string $value): void {
+        $this->getBackingStore()->set('customDialerAppPackageId', $value);
     }
 
     /**
      * Sets the deployedAppCount property value. Count of apps to which the current policy is deployed.
      *  @param int|null $value Value to set for the deployedAppCount property.
     */
-    public function setDeployedAppCount(?int $value ): void {
-        $this->deployedAppCount = $value;
+    public function setDeployedAppCount(?int $value): void {
+        $this->getBackingStore()->set('deployedAppCount', $value);
     }
 
     /**
      * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
      *  @param ManagedAppPolicyDeploymentSummary|null $value Value to set for the deploymentSummary property.
     */
-    public function setDeploymentSummary(?ManagedAppPolicyDeploymentSummary $value ): void {
-        $this->deploymentSummary = $value;
+    public function setDeploymentSummary(?ManagedAppPolicyDeploymentSummary $value): void {
+        $this->getBackingStore()->set('deploymentSummary', $value);
     }
 
     /**
      * Sets the deviceLockRequired property value. Defines if any kind of lock must be required on android device
      *  @param bool|null $value Value to set for the deviceLockRequired property.
     */
-    public function setDeviceLockRequired(?bool $value ): void {
-        $this->deviceLockRequired = $value;
+    public function setDeviceLockRequired(?bool $value): void {
+        $this->getBackingStore()->set('deviceLockRequired', $value);
     }
 
     /**
      * Sets the disableAppEncryptionIfDeviceEncryptionIsEnabled property value. When this setting is enabled, app level encryption is disabled if device level encryption is enabled
      *  @param bool|null $value Value to set for the disableAppEncryptionIfDeviceEncryptionIsEnabled property.
     */
-    public function setDisableAppEncryptionIfDeviceEncryptionIsEnabled(?bool $value ): void {
-        $this->disableAppEncryptionIfDeviceEncryptionIsEnabled = $value;
+    public function setDisableAppEncryptionIfDeviceEncryptionIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('disableAppEncryptionIfDeviceEncryptionIsEnabled', $value);
     }
 
     /**
      * Sets the encryptAppData property value. Indicates whether application data for managed apps should be encrypted
      *  @param bool|null $value Value to set for the encryptAppData property.
     */
-    public function setEncryptAppData(?bool $value ): void {
-        $this->encryptAppData = $value;
+    public function setEncryptAppData(?bool $value): void {
+        $this->getBackingStore()->set('encryptAppData', $value);
     }
 
     /**
      * Sets the exemptedAppPackages property value. App packages in this list will be exempt from the policy and will be able to receive data from managed apps.
      *  @param array<KeyValuePair>|null $value Value to set for the exemptedAppPackages property.
     */
-    public function setExemptedAppPackages(?array $value ): void {
-        $this->exemptedAppPackages = $value;
+    public function setExemptedAppPackages(?array $value): void {
+        $this->getBackingStore()->set('exemptedAppPackages', $value);
     }
 
     /**
      * Sets the fingerprintAndBiometricEnabled property value. If null, this setting will be ignored. If false both fingerprints and biometrics will not be enabled. If true, both fingerprints and biometrics will be enabled.
      *  @param bool|null $value Value to set for the fingerprintAndBiometricEnabled property.
     */
-    public function setFingerprintAndBiometricEnabled(?bool $value ): void {
-        $this->fingerprintAndBiometricEnabled = $value;
+    public function setFingerprintAndBiometricEnabled(?bool $value): void {
+        $this->getBackingStore()->set('fingerprintAndBiometricEnabled', $value);
     }
 
     /**
      * Sets the keyboardsRestricted property value. Indicates if keyboard restriction is enabled. If enabled list of approved keyboards must be provided as well.
      *  @param bool|null $value Value to set for the keyboardsRestricted property.
     */
-    public function setKeyboardsRestricted(?bool $value ): void {
-        $this->keyboardsRestricted = $value;
+    public function setKeyboardsRestricted(?bool $value): void {
+        $this->getBackingStore()->set('keyboardsRestricted', $value);
     }
 
     /**
      * Sets the minimumRequiredCompanyPortalVersion property value. Minimum version of the Company portal that must be installed on the device or app access will be blocked
      *  @param string|null $value Value to set for the minimumRequiredCompanyPortalVersion property.
     */
-    public function setMinimumRequiredCompanyPortalVersion(?string $value ): void {
-        $this->minimumRequiredCompanyPortalVersion = $value;
+    public function setMinimumRequiredCompanyPortalVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumRequiredCompanyPortalVersion', $value);
     }
 
     /**
      * Sets the minimumRequiredPatchVersion property value. Define the oldest required Android security patch level a user can have to gain secure access to the app.
      *  @param string|null $value Value to set for the minimumRequiredPatchVersion property.
     */
-    public function setMinimumRequiredPatchVersion(?string $value ): void {
-        $this->minimumRequiredPatchVersion = $value;
+    public function setMinimumRequiredPatchVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumRequiredPatchVersion', $value);
     }
 
     /**
      * Sets the minimumWarningCompanyPortalVersion property value. Minimum version of the Company portal that must be installed on the device or the user will receive a warning
      *  @param string|null $value Value to set for the minimumWarningCompanyPortalVersion property.
     */
-    public function setMinimumWarningCompanyPortalVersion(?string $value ): void {
-        $this->minimumWarningCompanyPortalVersion = $value;
+    public function setMinimumWarningCompanyPortalVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWarningCompanyPortalVersion', $value);
     }
 
     /**
      * Sets the minimumWarningPatchVersion property value. Define the oldest recommended Android security patch level a user can have for secure access to the app.
      *  @param string|null $value Value to set for the minimumWarningPatchVersion property.
     */
-    public function setMinimumWarningPatchVersion(?string $value ): void {
-        $this->minimumWarningPatchVersion = $value;
+    public function setMinimumWarningPatchVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWarningPatchVersion', $value);
     }
 
     /**
      * Sets the minimumWipeCompanyPortalVersion property value. Minimum version of the Company portal that must be installed on the device or the company data on the app will be wiped
      *  @param string|null $value Value to set for the minimumWipeCompanyPortalVersion property.
     */
-    public function setMinimumWipeCompanyPortalVersion(?string $value ): void {
-        $this->minimumWipeCompanyPortalVersion = $value;
+    public function setMinimumWipeCompanyPortalVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWipeCompanyPortalVersion', $value);
     }
 
     /**
      * Sets the minimumWipePatchVersion property value. Android security patch level  less than or equal to the specified value will wipe the managed app and the associated company data.
      *  @param string|null $value Value to set for the minimumWipePatchVersion property.
     */
-    public function setMinimumWipePatchVersion(?string $value ): void {
-        $this->minimumWipePatchVersion = $value;
+    public function setMinimumWipePatchVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWipePatchVersion', $value);
     }
 
     /**
      * Sets the requireClass3Biometrics property value. Require user to apply Class 3 Biometrics on their Android device.
      *  @param bool|null $value Value to set for the requireClass3Biometrics property.
     */
-    public function setRequireClass3Biometrics(?bool $value ): void {
-        $this->requireClass3Biometrics = $value;
+    public function setRequireClass3Biometrics(?bool $value): void {
+        $this->getBackingStore()->set('requireClass3Biometrics', $value);
     }
 
     /**
      * Sets the requiredAndroidSafetyNetAppsVerificationType property value. An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
      *  @param AndroidManagedAppSafetyNetAppsVerificationType|null $value Value to set for the requiredAndroidSafetyNetAppsVerificationType property.
     */
-    public function setRequiredAndroidSafetyNetAppsVerificationType(?AndroidManagedAppSafetyNetAppsVerificationType $value ): void {
-        $this->requiredAndroidSafetyNetAppsVerificationType = $value;
+    public function setRequiredAndroidSafetyNetAppsVerificationType(?AndroidManagedAppSafetyNetAppsVerificationType $value): void {
+        $this->getBackingStore()->set('requiredAndroidSafetyNetAppsVerificationType', $value);
     }
 
     /**
      * Sets the requiredAndroidSafetyNetDeviceAttestationType property value. An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
      *  @param AndroidManagedAppSafetyNetDeviceAttestationType|null $value Value to set for the requiredAndroidSafetyNetDeviceAttestationType property.
     */
-    public function setRequiredAndroidSafetyNetDeviceAttestationType(?AndroidManagedAppSafetyNetDeviceAttestationType $value ): void {
-        $this->requiredAndroidSafetyNetDeviceAttestationType = $value;
+    public function setRequiredAndroidSafetyNetDeviceAttestationType(?AndroidManagedAppSafetyNetDeviceAttestationType $value): void {
+        $this->getBackingStore()->set('requiredAndroidSafetyNetDeviceAttestationType', $value);
     }
 
     /**
      * Sets the requiredAndroidSafetyNetEvaluationType property value. An admin enforced Android SafetyNet evaluation type requirement on a managed app.
      *  @param AndroidManagedAppSafetyNetEvaluationType|null $value Value to set for the requiredAndroidSafetyNetEvaluationType property.
     */
-    public function setRequiredAndroidSafetyNetEvaluationType(?AndroidManagedAppSafetyNetEvaluationType $value ): void {
-        $this->requiredAndroidSafetyNetEvaluationType = $value;
+    public function setRequiredAndroidSafetyNetEvaluationType(?AndroidManagedAppSafetyNetEvaluationType $value): void {
+        $this->getBackingStore()->set('requiredAndroidSafetyNetEvaluationType', $value);
     }
 
     /**
      * Sets the requirePinAfterBiometricChange property value. A PIN prompt will override biometric prompts if class 3 biometrics are updated on the device.
      *  @param bool|null $value Value to set for the requirePinAfterBiometricChange property.
     */
-    public function setRequirePinAfterBiometricChange(?bool $value ): void {
-        $this->requirePinAfterBiometricChange = $value;
+    public function setRequirePinAfterBiometricChange(?bool $value): void {
+        $this->getBackingStore()->set('requirePinAfterBiometricChange', $value);
     }
 
     /**
      * Sets the screenCaptureBlocked property value. Indicates whether a managed user can take screen captures of managed apps
      *  @param bool|null $value Value to set for the screenCaptureBlocked property.
     */
-    public function setScreenCaptureBlocked(?bool $value ): void {
-        $this->screenCaptureBlocked = $value;
+    public function setScreenCaptureBlocked(?bool $value): void {
+        $this->getBackingStore()->set('screenCaptureBlocked', $value);
     }
 
     /**
      * Sets the warnAfterCompanyPortalUpdateDeferralInDays property value. Maximum number of days Company Portal update can be deferred on the device or the user will receive the warning
      *  @param int|null $value Value to set for the warnAfterCompanyPortalUpdateDeferralInDays property.
     */
-    public function setWarnAfterCompanyPortalUpdateDeferralInDays(?int $value ): void {
-        $this->warnAfterCompanyPortalUpdateDeferralInDays = $value;
+    public function setWarnAfterCompanyPortalUpdateDeferralInDays(?int $value): void {
+        $this->getBackingStore()->set('warnAfterCompanyPortalUpdateDeferralInDays', $value);
     }
 
     /**
      * Sets the wipeAfterCompanyPortalUpdateDeferralInDays property value. Maximum number of days Company Portal update can be deferred on the device or the company data on the app will be wiped
      *  @param int|null $value Value to set for the wipeAfterCompanyPortalUpdateDeferralInDays property.
     */
-    public function setWipeAfterCompanyPortalUpdateDeferralInDays(?int $value ): void {
-        $this->wipeAfterCompanyPortalUpdateDeferralInDays = $value;
+    public function setWipeAfterCompanyPortalUpdateDeferralInDays(?int $value): void {
+        $this->getBackingStore()->set('wipeAfterCompanyPortalUpdateDeferralInDays', $value);
     }
 
 }

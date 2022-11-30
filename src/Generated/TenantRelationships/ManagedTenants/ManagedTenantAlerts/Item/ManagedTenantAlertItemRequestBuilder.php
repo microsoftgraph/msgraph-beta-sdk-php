@@ -26,35 +26,35 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagedTenantAlertItemRequestBuilder 
 {
     /**
-     * The addUserInputLog property
+     * Provides operations to call the addUserInputLog method.
     */
     public function addUserInputLog(): AddUserInputLogRequestBuilder {
         return new AddUserInputLogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The alertLogs property
+     * Provides operations to manage the alertLogs property of the microsoft.graph.managedTenants.managedTenantAlert entity.
     */
     public function alertLogs(): AlertLogsRequestBuilder {
         return new AlertLogsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The alertRule property
+     * Provides operations to manage the alertRule property of the microsoft.graph.managedTenants.managedTenantAlert entity.
     */
     public function alertRule(): AlertRuleRequestBuilder {
         return new AlertRuleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The apiNotifications property
+     * Provides operations to manage the apiNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
     */
     public function apiNotifications(): ApiNotificationsRequestBuilder {
         return new ApiNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The emailNotifications property
+     * Provides operations to manage the emailNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
     */
     public function emailNotifications(): EmailNotificationsRequestBuilder {
         return new EmailNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -76,7 +76,7 @@ class ManagedTenantAlertItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlerts.item.alertLogs.item collection
+     * Provides operations to manage the alertLogs property of the microsoft.graph.managedTenants.managedTenantAlert entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantAlertLogItemRequestBuilder
     */
@@ -87,7 +87,7 @@ class ManagedTenantAlertItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlerts.item.apiNotifications.item collection
+     * Provides operations to manage the apiNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantApiNotificationItemRequestBuilder
     */
@@ -198,7 +198,7 @@ class ManagedTenantAlertItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlerts.item.emailNotifications.item collection
+     * Provides operations to manage the emailNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantEmailNotificationItemRequestBuilder
     */

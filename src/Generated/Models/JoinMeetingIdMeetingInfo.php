@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable 
 {
     /**
-     * @var string|null $joinMeetingId The ID used to join the meeting.
-    */
-    private ?string $joinMeetingId = null;
-    
-    /**
-     * @var string|null $passcode The passcode used to join the meeting. Optional.
-    */
-    private ?string $passcode = null;
-    
-    /**
      * Instantiates a new JoinMeetingIdMeetingInfo and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
      * @return string|null
     */
     public function getJoinMeetingId(): ?string {
-        return $this->joinMeetingId;
+        return $this->getBackingStore()->get('joinMeetingId');
     }
 
     /**
@@ -60,7 +50,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
      * @return string|null
     */
     public function getPasscode(): ?string {
-        return $this->passcode;
+        return $this->getBackingStore()->get('passcode');
     }
 
     /**
@@ -69,24 +59,24 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('joinMeetingId', $this->joinMeetingId);
-        $writer->writeStringValue('passcode', $this->passcode);
+        $writer->writeStringValue('joinMeetingId', $this->getJoinMeetingId());
+        $writer->writeStringValue('passcode', $this->getPasscode());
     }
 
     /**
      * Sets the joinMeetingId property value. The ID used to join the meeting.
      *  @param string|null $value Value to set for the joinMeetingId property.
     */
-    public function setJoinMeetingId(?string $value ): void {
-        $this->joinMeetingId = $value;
+    public function setJoinMeetingId(?string $value): void {
+        $this->getBackingStore()->set('joinMeetingId', $value);
     }
 
     /**
      * Sets the passcode property value. The passcode used to join the meeting. Optional.
      *  @param string|null $value Value to set for the passcode property.
     */
-    public function setPasscode(?string $value ): void {
-        $this->passcode = $value;
+    public function setPasscode(?string $value): void {
+        $this->getBackingStore()->set('passcode', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationIntegerSettingValue extends DeviceManagementConfigurationSimpleSettingValue implements Parsable 
 {
     /**
-     * @var int|null $value Value of the integer setting.
-    */
-    private ?int $value = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationIntegerSettingValue and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementConfigurationIntegerSettingValue extends DeviceManagementC
      * @return int|null
     */
     public function getValue(): ?int {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationIntegerSettingValue extends DeviceManagementC
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('value', $this->value);
+        $writer->writeIntegerValue('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. Value of the integer setting.
      *  @param int|null $value Value to set for the value property.
     */
-    public function setValue(?int $value ): void {
-        $this->value = $value;
+    public function setValue(?int $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

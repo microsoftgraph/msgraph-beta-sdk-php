@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RenameAction implements AdditionalDataHolder, Parsable 
+class RenameAction implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $newName The new name of the item.
-    */
-    private ?string $newName = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $oldName The previous name of the item.
-    */
-    private ?string $oldName = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new renameAction and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.renameAction');
     }
 
     /**
@@ -50,8 +38,16 @@ class RenameAction implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +68,7 @@ class RenameAction implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getNewName(): ?string {
-        return $this->newName;
+        return $this->getBackingStore()->get('newName');
     }
 
     /**
@@ -80,7 +76,7 @@ class RenameAction implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +84,7 @@ class RenameAction implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOldName(): ?string {
-        return $this->oldName;
+        return $this->getBackingStore()->get('oldName');
     }
 
     /**
@@ -96,42 +92,50 @@ class RenameAction implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('newName', $this->newName);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('oldName', $this->oldName);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('newName', $this->getNewName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('oldName', $this->getOldName());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the newName property value. The new name of the item.
      *  @param string|null $value Value to set for the newName property.
     */
-    public function setNewName(?string $value ): void {
-        $this->newName = $value;
+    public function setNewName(?string $value): void {
+        $this->getBackingStore()->set('newName', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the oldName property value. The previous name of the item.
      *  @param string|null $value Value to set for the oldName property.
     */
-    public function setOldName(?string $value ): void {
-        $this->oldName = $value;
+    public function setOldName(?string $value): void {
+        $this->getBackingStore()->set('oldName', $value);
     }
 
 }

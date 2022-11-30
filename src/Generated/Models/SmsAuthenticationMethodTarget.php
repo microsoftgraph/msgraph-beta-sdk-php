@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implements Parsable 
 {
     /**
-     * @var bool|null $isUsableForSignIn Determines if the users or groups can use this authentication method to sign in to Azure AD. The value is always true.
-    */
-    private ?bool $isUsableForSignIn = null;
-    
-    /**
      * Instantiates a new SmsAuthenticationMethodTarget and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.smsAuthenticationMethodTarget');
     }
 
     /**
@@ -46,7 +40,7 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implement
      * @return bool|null
     */
     public function getIsUsableForSignIn(): ?bool {
-        return $this->isUsableForSignIn;
+        return $this->getBackingStore()->get('isUsableForSignIn');
     }
 
     /**
@@ -55,15 +49,15 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isUsableForSignIn', $this->isUsableForSignIn);
+        $writer->writeBooleanValue('isUsableForSignIn', $this->getIsUsableForSignIn());
     }
 
     /**
      * Sets the isUsableForSignIn property value. Determines if the users or groups can use this authentication method to sign in to Azure AD. The value is always true.
      *  @param bool|null $value Value to set for the isUsableForSignIn property.
     */
-    public function setIsUsableForSignIn(?bool $value ): void {
-        $this->isUsableForSignIn = $value;
+    public function setIsUsableForSignIn(?bool $value): void {
+        $this->getBackingStore()->set('isUsableForSignIn', $value);
     }
 
 }

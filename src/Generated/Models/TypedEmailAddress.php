@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TypedEmailAddress extends EmailAddress implements Parsable 
 {
     /**
-     * @var string|null $otherLabel To specify a custom type of email address, set type to other, and assign otherLabel to a custom string. For example, you may use a specific email address for your volunteer activities. Set type to other, and set otherLabel to a custom string such as Volunteer work.
-    */
-    private ?string $otherLabel = null;
-    
-    /**
-     * @var EmailType|null $type The type of email address. Possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type.
-    */
-    private ?EmailType $type = null;
-    
-    /**
      * Instantiates a new TypedEmailAddress and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class TypedEmailAddress extends EmailAddress implements Parsable
      * @return string|null
     */
     public function getOtherLabel(): ?string {
-        return $this->otherLabel;
+        return $this->getBackingStore()->get('otherLabel');
     }
 
     /**
@@ -60,7 +50,7 @@ class TypedEmailAddress extends EmailAddress implements Parsable
      * @return EmailType|null
     */
     public function getType(): ?EmailType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -69,24 +59,24 @@ class TypedEmailAddress extends EmailAddress implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('otherLabel', $this->otherLabel);
-        $writer->writeEnumValue('type', $this->type);
+        $writer->writeStringValue('otherLabel', $this->getOtherLabel());
+        $writer->writeEnumValue('type', $this->getType());
     }
 
     /**
      * Sets the otherLabel property value. To specify a custom type of email address, set type to other, and assign otherLabel to a custom string. For example, you may use a specific email address for your volunteer activities. Set type to other, and set otherLabel to a custom string such as Volunteer work.
      *  @param string|null $value Value to set for the otherLabel property.
     */
-    public function setOtherLabel(?string $value ): void {
-        $this->otherLabel = $value;
+    public function setOtherLabel(?string $value): void {
+        $this->getBackingStore()->set('otherLabel', $value);
     }
 
     /**
      * Sets the type property value. The type of email address. Possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type.
      *  @param EmailType|null $value Value to set for the type property.
     */
-    public function setType(?EmailType $value ): void {
-        $this->type = $value;
+    public function setType(?EmailType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

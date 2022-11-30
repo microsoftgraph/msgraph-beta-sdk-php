@@ -20,14 +20,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CertificateConnectorDetailsItemRequestBuilder 
 {
     /**
-     * The getHealthMetrics property
+     * Provides operations to call the getHealthMetrics method.
     */
     public function getHealthMetrics(): GetHealthMetricsRequestBuilder {
         return new GetHealthMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getHealthMetricTimeSeries property
+     * Provides operations to call the getHealthMetricTimeSeries method.
     */
     public function getHealthMetricTimeSeries(): GetHealthMetricTimeSeriesRequestBuilder {
         return new GetHealthMetricTimeSeriesRequestBuilder($this->pathParameters, $this->requestAdapter);

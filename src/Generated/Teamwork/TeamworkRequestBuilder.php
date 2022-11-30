@@ -28,14 +28,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TeamworkRequestBuilder 
 {
     /**
-     * The deletedTeams property
+     * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
     */
     public function deletedTeams(): DeletedTeamsRequestBuilder {
         return new DeletedTeamsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The devices property
+     * Provides operations to manage the devices property of the microsoft.graph.teamwork entity.
     */
     public function devices(): DevicesRequestBuilder {
         return new DevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -52,21 +52,21 @@ class TeamworkRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The sendActivityNotificationToRecipients property
+     * Provides operations to call the sendActivityNotificationToRecipients method.
     */
     public function sendActivityNotificationToRecipients(): SendActivityNotificationToRecipientsRequestBuilder {
         return new SendActivityNotificationToRecipientsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The teamsAppSettings property
+     * Provides operations to manage the teamsAppSettings property of the microsoft.graph.teamwork entity.
     */
     public function teamsAppSettings(): TeamsAppSettingsRequestBuilder {
         return new TeamsAppSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The teamTemplates property
+     * Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
     */
     public function teamTemplates(): TeamTemplatesRequestBuilder {
         return new TeamTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -78,7 +78,7 @@ class TeamworkRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The workforceIntegrations property
+     * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
     */
     public function workforceIntegrations(): WorkforceIntegrationsRequestBuilder {
         return new WorkforceIntegrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -145,7 +145,7 @@ class TeamworkRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.teamwork.deletedTeams.item collection
+     * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
      * @param string $id Unique identifier of the item
      * @return DeletedTeamItemRequestBuilder
     */
@@ -156,7 +156,7 @@ class TeamworkRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.teamwork.devices.item collection
+     * Provides operations to manage the devices property of the microsoft.graph.teamwork entity.
      * @param string $id Unique identifier of the item
      * @return TeamworkDeviceItemRequestBuilder
     */
@@ -206,7 +206,7 @@ class TeamworkRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.teamwork.teamTemplates.item collection
+     * Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
      * @param string $id Unique identifier of the item
      * @return TeamTemplateItemRequestBuilder
     */
@@ -217,7 +217,7 @@ class TeamworkRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.teamwork.workforceIntegrations.item collection
+     * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
      * @param string $id Unique identifier of the item
      * @return WorkforceIntegrationItemRequestBuilder
     */

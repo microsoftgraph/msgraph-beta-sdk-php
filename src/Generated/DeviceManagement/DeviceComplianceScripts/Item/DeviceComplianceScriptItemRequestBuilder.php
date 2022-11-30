@@ -24,21 +24,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceComplianceScriptItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceComplianceScript entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceRunStates property
+     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceComplianceScript entity.
     */
     public function deviceRunStates(): DeviceRunStatesRequestBuilder {
         return new DeviceRunStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -55,7 +55,7 @@ class DeviceComplianceScriptItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The runSummary property
+     * Provides operations to manage the runSummary property of the microsoft.graph.deviceComplianceScript entity.
     */
     public function runSummary(): RunSummaryRequestBuilder {
         return new RunSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -67,7 +67,7 @@ class DeviceComplianceScriptItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceComplianceScripts.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceComplianceScript entity.
      * @param string $id Unique identifier of the item
      * @return DeviceHealthScriptAssignmentItemRequestBuilder
     */
@@ -178,7 +178,7 @@ class DeviceComplianceScriptItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceComplianceScripts.item.deviceRunStates.item collection
+     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceComplianceScript entity.
      * @param string $id Unique identifier of the item
      * @return DeviceComplianceScriptDeviceStateItemRequestBuilder
     */

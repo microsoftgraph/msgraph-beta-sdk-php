@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChannelMembersNotificationRecipient extends TeamworkNotificationRecipient implements Parsable 
 {
     /**
-     * @var string|null $channelId The channel's identifier.
-    */
-    private ?string $channelId = null;
-    
-    /**
-     * @var string|null $teamId The team's identifier under which the channel resides.
-    */
-    private ?string $teamId = null;
-    
-    /**
      * Instantiates a new ChannelMembersNotificationRecipient and sets the default values.
     */
     public function __construct() {
@@ -36,11 +26,11 @@ class ChannelMembersNotificationRecipient extends TeamworkNotificationRecipient 
     }
 
     /**
-     * Gets the channelId property value. The channel's identifier.
+     * Gets the channelId property value. The unique identifier for the channel whose members should receive the notification.
      * @return string|null
     */
     public function getChannelId(): ?string {
-        return $this->channelId;
+        return $this->getBackingStore()->get('channelId');
     }
 
     /**
@@ -56,11 +46,11 @@ class ChannelMembersNotificationRecipient extends TeamworkNotificationRecipient 
     }
 
     /**
-     * Gets the teamId property value. The team's identifier under which the channel resides.
+     * Gets the teamId property value. The unique identifier for the team under which the channel resides.
      * @return string|null
     */
     public function getTeamId(): ?string {
-        return $this->teamId;
+        return $this->getBackingStore()->get('teamId');
     }
 
     /**
@@ -69,24 +59,24 @@ class ChannelMembersNotificationRecipient extends TeamworkNotificationRecipient 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('channelId', $this->channelId);
-        $writer->writeStringValue('teamId', $this->teamId);
+        $writer->writeStringValue('channelId', $this->getChannelId());
+        $writer->writeStringValue('teamId', $this->getTeamId());
     }
 
     /**
-     * Sets the channelId property value. The channel's identifier.
+     * Sets the channelId property value. The unique identifier for the channel whose members should receive the notification.
      *  @param string|null $value Value to set for the channelId property.
     */
-    public function setChannelId(?string $value ): void {
-        $this->channelId = $value;
+    public function setChannelId(?string $value): void {
+        $this->getBackingStore()->set('channelId', $value);
     }
 
     /**
-     * Sets the teamId property value. The team's identifier under which the channel resides.
+     * Sets the teamId property value. The unique identifier for the team under which the channel resides.
      *  @param string|null $value Value to set for the teamId property.
     */
-    public function setTeamId(?string $value ): void {
-        $this->teamId = $value;
+    public function setTeamId(?string $value): void {
+        $this->getBackingStore()->set('teamId', $value);
     }
 
 }

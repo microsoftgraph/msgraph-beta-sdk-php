@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CallActivityStatistics extends ActivityStatistics implements Parsable 
 {
     /**
-     * @var DateInterval|null $afterHours Time spent on calls outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $afterHours = null;
-    
-    /**
      * Instantiates a new CallActivityStatistics and sets the default values.
     */
     public function __construct() {
@@ -36,7 +31,7 @@ class CallActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getAfterHours(): ?DateInterval {
-        return $this->afterHours;
+        return $this->getBackingStore()->get('afterHours');
     }
 
     /**
@@ -56,15 +51,15 @@ class CallActivityStatistics extends ActivityStatistics implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateIntervalValue('afterHours', $this->afterHours);
+        $writer->writeDateIntervalValue('afterHours', $this->getAfterHours());
     }
 
     /**
      * Sets the afterHours property value. Time spent on calls outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the afterHours property.
     */
-    public function setAfterHours(?DateInterval $value ): void {
-        $this->afterHours = $value;
+    public function setAfterHours(?DateInterval $value): void {
+        $this->getBackingStore()->set('afterHours', $value);
     }
 
 }

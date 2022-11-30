@@ -10,71 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamTemplateDefinition extends Entity implements Parsable 
 {
     /**
-     * @var TeamTemplateAudience|null $audience The audience property
-    */
-    private ?TeamTemplateAudience $audience = null;
-    
-    /**
-     * @var array<string>|null $categories The categories property
-    */
-    private ?array $categories = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $iconUrl The iconUrl property
-    */
-    private ?string $iconUrl = null;
-    
-    /**
-     * @var string|null $languageTag The languageTag property
-    */
-    private ?string $languageTag = null;
-    
-    /**
-     * @var IdentitySet|null $lastModifiedBy The lastModifiedBy property
-    */
-    private ?IdentitySet $lastModifiedBy = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $parentTemplateId The parentTemplateId property
-    */
-    private ?string $parentTemplateId = null;
-    
-    /**
-     * @var string|null $publisherName The publisherName property
-    */
-    private ?string $publisherName = null;
-    
-    /**
-     * @var string|null $shortDescription The shortDescription property
-    */
-    private ?string $shortDescription = null;
-    
-    /**
-     * @var Team|null $teamDefinition The teamDefinition property
-    */
-    private ?Team $teamDefinition = null;
-    
-    /**
      * Instantiates a new teamTemplateDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.teamTemplateDefinition');
     }
 
     /**
@@ -91,7 +30,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return TeamTemplateAudience|null
     */
     public function getAudience(): ?TeamTemplateAudience {
-        return $this->audience;
+        return $this->getBackingStore()->get('audience');
     }
 
     /**
@@ -99,7 +38,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getCategories(): ?array {
-        return $this->categories;
+        return $this->getBackingStore()->get('categories');
     }
 
     /**
@@ -107,7 +46,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -115,7 +54,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -145,7 +84,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getIconUrl(): ?string {
-        return $this->iconUrl;
+        return $this->getBackingStore()->get('iconUrl');
     }
 
     /**
@@ -153,7 +92,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getLanguageTag(): ?string {
-        return $this->languageTag;
+        return $this->getBackingStore()->get('languageTag');
     }
 
     /**
@@ -161,7 +100,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->lastModifiedBy;
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -169,7 +108,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -177,7 +116,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getParentTemplateId(): ?string {
-        return $this->parentTemplateId;
+        return $this->getBackingStore()->get('parentTemplateId');
     }
 
     /**
@@ -185,7 +124,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisherName(): ?string {
-        return $this->publisherName;
+        return $this->getBackingStore()->get('publisherName');
     }
 
     /**
@@ -193,7 +132,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getShortDescription(): ?string {
-        return $this->shortDescription;
+        return $this->getBackingStore()->get('shortDescription');
     }
 
     /**
@@ -201,7 +140,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
      * @return Team|null
     */
     public function getTeamDefinition(): ?Team {
-        return $this->teamDefinition;
+        return $this->getBackingStore()->get('teamDefinition');
     }
 
     /**
@@ -210,114 +149,114 @@ class TeamTemplateDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('audience', $this->audience);
-        $writer->writeCollectionOfPrimitiveValues('categories', $this->categories);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('iconUrl', $this->iconUrl);
-        $writer->writeStringValue('languageTag', $this->languageTag);
-        $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('parentTemplateId', $this->parentTemplateId);
-        $writer->writeStringValue('publisherName', $this->publisherName);
-        $writer->writeStringValue('shortDescription', $this->shortDescription);
-        $writer->writeObjectValue('teamDefinition', $this->teamDefinition);
+        $writer->writeEnumValue('audience', $this->getAudience());
+        $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('iconUrl', $this->getIconUrl());
+        $writer->writeStringValue('languageTag', $this->getLanguageTag());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('parentTemplateId', $this->getParentTemplateId());
+        $writer->writeStringValue('publisherName', $this->getPublisherName());
+        $writer->writeStringValue('shortDescription', $this->getShortDescription());
+        $writer->writeObjectValue('teamDefinition', $this->getTeamDefinition());
     }
 
     /**
      * Sets the audience property value. The audience property
      *  @param TeamTemplateAudience|null $value Value to set for the audience property.
     */
-    public function setAudience(?TeamTemplateAudience $value ): void {
-        $this->audience = $value;
+    public function setAudience(?TeamTemplateAudience $value): void {
+        $this->getBackingStore()->set('audience', $value);
     }
 
     /**
      * Sets the categories property value. The categories property
      *  @param array<string>|null $value Value to set for the categories property.
     */
-    public function setCategories(?array $value ): void {
-        $this->categories = $value;
+    public function setCategories(?array $value): void {
+        $this->getBackingStore()->set('categories', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the iconUrl property value. The iconUrl property
      *  @param string|null $value Value to set for the iconUrl property.
     */
-    public function setIconUrl(?string $value ): void {
-        $this->iconUrl = $value;
+    public function setIconUrl(?string $value): void {
+        $this->getBackingStore()->set('iconUrl', $value);
     }
 
     /**
      * Sets the languageTag property value. The languageTag property
      *  @param string|null $value Value to set for the languageTag property.
     */
-    public function setLanguageTag(?string $value ): void {
-        $this->languageTag = $value;
+    public function setLanguageTag(?string $value): void {
+        $this->getBackingStore()->set('languageTag', $value);
     }
 
     /**
      * Sets the lastModifiedBy property value. The lastModifiedBy property
      *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
-    public function setLastModifiedBy(?IdentitySet $value ): void {
-        $this->lastModifiedBy = $value;
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the parentTemplateId property value. The parentTemplateId property
      *  @param string|null $value Value to set for the parentTemplateId property.
     */
-    public function setParentTemplateId(?string $value ): void {
-        $this->parentTemplateId = $value;
+    public function setParentTemplateId(?string $value): void {
+        $this->getBackingStore()->set('parentTemplateId', $value);
     }
 
     /**
      * Sets the publisherName property value. The publisherName property
      *  @param string|null $value Value to set for the publisherName property.
     */
-    public function setPublisherName(?string $value ): void {
-        $this->publisherName = $value;
+    public function setPublisherName(?string $value): void {
+        $this->getBackingStore()->set('publisherName', $value);
     }
 
     /**
      * Sets the shortDescription property value. The shortDescription property
      *  @param string|null $value Value to set for the shortDescription property.
     */
-    public function setShortDescription(?string $value ): void {
-        $this->shortDescription = $value;
+    public function setShortDescription(?string $value): void {
+        $this->getBackingStore()->set('shortDescription', $value);
     }
 
     /**
      * Sets the teamDefinition property value. The teamDefinition property
      *  @param Team|null $value Value to set for the teamDefinition property.
     */
-    public function setTeamDefinition(?Team $value ): void {
-        $this->teamDefinition = $value;
+    public function setTeamDefinition(?Team $value): void {
+        $this->getBackingStore()->set('teamDefinition', $value);
     }
 
 }

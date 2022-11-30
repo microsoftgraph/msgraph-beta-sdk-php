@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable 
 {
     /**
-     * @var array<LookupResultRow>|null $matchingRows The matchingRows property
-    */
-    private ?array $matchingRows = null;
-    
-    /**
-     * @var string|null $state The state property
-    */
-    private ?string $state = null;
-    
-    /**
      * Instantiates a new ExactMatchLookupJob and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
      * @return array<LookupResultRow>|null
     */
     public function getMatchingRows(): ?array {
-        return $this->matchingRows;
+        return $this->getBackingStore()->get('matchingRows');
     }
 
     /**
@@ -60,7 +50,7 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
      * @return string|null
     */
     public function getState(): ?string {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -69,24 +59,24 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('matchingRows', $this->matchingRows);
-        $writer->writeStringValue('state', $this->state);
+        $writer->writeCollectionOfObjectValues('matchingRows', $this->getMatchingRows());
+        $writer->writeStringValue('state', $this->getState());
     }
 
     /**
      * Sets the matchingRows property value. The matchingRows property
      *  @param array<LookupResultRow>|null $value Value to set for the matchingRows property.
     */
-    public function setMatchingRows(?array $value ): void {
-        $this->matchingRows = $value;
+    public function setMatchingRows(?array $value): void {
+        $this->getBackingStore()->set('matchingRows', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param string|null $value Value to set for the state property.
     */
-    public function setState(?string $value ): void {
-        $this->state = $value;
+    public function setState(?string $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }

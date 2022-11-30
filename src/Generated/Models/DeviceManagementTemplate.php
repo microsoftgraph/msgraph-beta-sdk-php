@@ -10,71 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementTemplate extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceManagementTemplateSettingCategory>|null $categories Collection of setting categories within the template
-    */
-    private ?array $categories = null;
-    
-    /**
-     * @var string|null $description The template's description
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The template's display name
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $intentCount Number of Intents created from this template.
-    */
-    private ?int $intentCount = null;
-    
-    /**
-     * @var bool|null $isDeprecated The template is deprecated or not. Intents cannot be created from a deprecated template.
-    */
-    private ?bool $isDeprecated = null;
-    
-    /**
-     * @var array<DeviceManagementTemplate>|null $migratableTo Collection of templates this template can migrate to
-    */
-    private ?array $migratableTo = null;
-    
-    /**
-     * @var PolicyPlatformType|null $platformType Supported platform types for policies.
-    */
-    private ?PolicyPlatformType $platformType = null;
-    
-    /**
-     * @var DateTime|null $publishedDateTime When the template was published
-    */
-    private ?DateTime $publishedDateTime = null;
-    
-    /**
-     * @var array<DeviceManagementSettingInstance>|null $settings Collection of all settings this template has
-    */
-    private ?array $settings = null;
-    
-    /**
-     * @var DeviceManagementTemplateSubtype|null $templateSubtype Template subtype
-    */
-    private ?DeviceManagementTemplateSubtype $templateSubtype = null;
-    
-    /**
-     * @var DeviceManagementTemplateType|null $templateType Template type
-    */
-    private ?DeviceManagementTemplateType $templateType = null;
-    
-    /**
-     * @var string|null $versionInfo The template's version information
-    */
-    private ?string $versionInfo = null;
-    
-    /**
      * Instantiates a new deviceManagementTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementTemplate');
     }
 
     /**
@@ -98,7 +37,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return array<DeviceManagementTemplateSettingCategory>|null
     */
     public function getCategories(): ?array {
-        return $this->categories;
+        return $this->getBackingStore()->get('categories');
     }
 
     /**
@@ -106,7 +45,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -114,7 +53,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -144,7 +83,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return int|null
     */
     public function getIntentCount(): ?int {
-        return $this->intentCount;
+        return $this->getBackingStore()->get('intentCount');
     }
 
     /**
@@ -152,7 +91,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDeprecated(): ?bool {
-        return $this->isDeprecated;
+        return $this->getBackingStore()->get('isDeprecated');
     }
 
     /**
@@ -160,7 +99,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return array<DeviceManagementTemplate>|null
     */
     public function getMigratableTo(): ?array {
-        return $this->migratableTo;
+        return $this->getBackingStore()->get('migratableTo');
     }
 
     /**
@@ -168,7 +107,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return PolicyPlatformType|null
     */
     public function getPlatformType(): ?PolicyPlatformType {
-        return $this->platformType;
+        return $this->getBackingStore()->get('platformType');
     }
 
     /**
@@ -176,7 +115,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getPublishedDateTime(): ?DateTime {
-        return $this->publishedDateTime;
+        return $this->getBackingStore()->get('publishedDateTime');
     }
 
     /**
@@ -184,7 +123,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return array<DeviceManagementSettingInstance>|null
     */
     public function getSettings(): ?array {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -192,7 +131,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return DeviceManagementTemplateSubtype|null
     */
     public function getTemplateSubtype(): ?DeviceManagementTemplateSubtype {
-        return $this->templateSubtype;
+        return $this->getBackingStore()->get('templateSubtype');
     }
 
     /**
@@ -200,7 +139,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return DeviceManagementTemplateType|null
     */
     public function getTemplateType(): ?DeviceManagementTemplateType {
-        return $this->templateType;
+        return $this->getBackingStore()->get('templateType');
     }
 
     /**
@@ -208,7 +147,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getVersionInfo(): ?string {
-        return $this->versionInfo;
+        return $this->getBackingStore()->get('versionInfo');
     }
 
     /**
@@ -217,114 +156,114 @@ class DeviceManagementTemplate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('categories', $this->categories);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('intentCount', $this->intentCount);
-        $writer->writeBooleanValue('isDeprecated', $this->isDeprecated);
-        $writer->writeCollectionOfObjectValues('migratableTo', $this->migratableTo);
-        $writer->writeEnumValue('platformType', $this->platformType);
-        $writer->writeDateTimeValue('publishedDateTime', $this->publishedDateTime);
-        $writer->writeCollectionOfObjectValues('settings', $this->settings);
-        $writer->writeEnumValue('templateSubtype', $this->templateSubtype);
-        $writer->writeEnumValue('templateType', $this->templateType);
-        $writer->writeStringValue('versionInfo', $this->versionInfo);
+        $writer->writeCollectionOfObjectValues('categories', $this->getCategories());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeIntegerValue('intentCount', $this->getIntentCount());
+        $writer->writeBooleanValue('isDeprecated', $this->getIsDeprecated());
+        $writer->writeCollectionOfObjectValues('migratableTo', $this->getMigratableTo());
+        $writer->writeEnumValue('platformType', $this->getPlatformType());
+        $writer->writeDateTimeValue('publishedDateTime', $this->getPublishedDateTime());
+        $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
+        $writer->writeEnumValue('templateSubtype', $this->getTemplateSubtype());
+        $writer->writeEnumValue('templateType', $this->getTemplateType());
+        $writer->writeStringValue('versionInfo', $this->getVersionInfo());
     }
 
     /**
      * Sets the categories property value. Collection of setting categories within the template
      *  @param array<DeviceManagementTemplateSettingCategory>|null $value Value to set for the categories property.
     */
-    public function setCategories(?array $value ): void {
-        $this->categories = $value;
+    public function setCategories(?array $value): void {
+        $this->getBackingStore()->set('categories', $value);
     }
 
     /**
      * Sets the description property value. The template's description
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The template's display name
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the intentCount property value. Number of Intents created from this template.
      *  @param int|null $value Value to set for the intentCount property.
     */
-    public function setIntentCount(?int $value ): void {
-        $this->intentCount = $value;
+    public function setIntentCount(?int $value): void {
+        $this->getBackingStore()->set('intentCount', $value);
     }
 
     /**
      * Sets the isDeprecated property value. The template is deprecated or not. Intents cannot be created from a deprecated template.
      *  @param bool|null $value Value to set for the isDeprecated property.
     */
-    public function setIsDeprecated(?bool $value ): void {
-        $this->isDeprecated = $value;
+    public function setIsDeprecated(?bool $value): void {
+        $this->getBackingStore()->set('isDeprecated', $value);
     }
 
     /**
      * Sets the migratableTo property value. Collection of templates this template can migrate to
      *  @param array<DeviceManagementTemplate>|null $value Value to set for the migratableTo property.
     */
-    public function setMigratableTo(?array $value ): void {
-        $this->migratableTo = $value;
+    public function setMigratableTo(?array $value): void {
+        $this->getBackingStore()->set('migratableTo', $value);
     }
 
     /**
      * Sets the platformType property value. Supported platform types for policies.
      *  @param PolicyPlatformType|null $value Value to set for the platformType property.
     */
-    public function setPlatformType(?PolicyPlatformType $value ): void {
-        $this->platformType = $value;
+    public function setPlatformType(?PolicyPlatformType $value): void {
+        $this->getBackingStore()->set('platformType', $value);
     }
 
     /**
      * Sets the publishedDateTime property value. When the template was published
      *  @param DateTime|null $value Value to set for the publishedDateTime property.
     */
-    public function setPublishedDateTime(?DateTime $value ): void {
-        $this->publishedDateTime = $value;
+    public function setPublishedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('publishedDateTime', $value);
     }
 
     /**
      * Sets the settings property value. Collection of all settings this template has
      *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the settings property.
     */
-    public function setSettings(?array $value ): void {
-        $this->settings = $value;
+    public function setSettings(?array $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**
      * Sets the templateSubtype property value. Template subtype
      *  @param DeviceManagementTemplateSubtype|null $value Value to set for the templateSubtype property.
     */
-    public function setTemplateSubtype(?DeviceManagementTemplateSubtype $value ): void {
-        $this->templateSubtype = $value;
+    public function setTemplateSubtype(?DeviceManagementTemplateSubtype $value): void {
+        $this->getBackingStore()->set('templateSubtype', $value);
     }
 
     /**
      * Sets the templateType property value. Template type
      *  @param DeviceManagementTemplateType|null $value Value to set for the templateType property.
     */
-    public function setTemplateType(?DeviceManagementTemplateType $value ): void {
-        $this->templateType = $value;
+    public function setTemplateType(?DeviceManagementTemplateType $value): void {
+        $this->getBackingStore()->set('templateType', $value);
     }
 
     /**
      * Sets the versionInfo property value. The template's version information
      *  @param string|null $value Value to set for the versionInfo property.
     */
-    public function setVersionInfo(?string $value ): void {
-        $this->versionInfo = $value;
+    public function setVersionInfo(?string $value): void {
+        $this->getBackingStore()->set('versionInfo', $value);
     }
 
 }

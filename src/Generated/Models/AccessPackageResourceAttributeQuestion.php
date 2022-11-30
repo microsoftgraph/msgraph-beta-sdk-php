@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttributeSource implements Parsable 
 {
     /**
-     * @var AccessPackageQuestion|null $question The question asked in order to get the value of the attribute
-    */
-    private ?AccessPackageQuestion $question = null;
-    
-    /**
      * Instantiates a new AccessPackageResourceAttributeQuestion and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
      * @return AccessPackageQuestion|null
     */
     public function getQuestion(): ?AccessPackageQuestion {
-        return $this->question;
+        return $this->getBackingStore()->get('question');
     }
 
     /**
@@ -55,15 +50,15 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('question', $this->question);
+        $writer->writeObjectValue('question', $this->getQuestion());
     }
 
     /**
      * Sets the question property value. The question asked in order to get the value of the attribute
      *  @param AccessPackageQuestion|null $value Value to set for the question property.
     */
-    public function setQuestion(?AccessPackageQuestion $value ): void {
-        $this->question = $value;
+    public function setQuestion(?AccessPackageQuestion $value): void {
+        $this->getBackingStore()->set('question', $value);
     }
 
 }

@@ -23,14 +23,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OwnersRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The endpoint property
+     * Casts the previous resource to endpoint.
     */
     public function endpoint(): EndpointRequestBuilder {
         return new EndpointRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class OwnersRequestBuilder
     private array $pathParameters;
     
     /**
-     * The Ref property
+     * Provides operations to manage the collection of application entities.
     */
     public function ref(): RefRequestBuilder {
         return new RefRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -54,7 +54,7 @@ class OwnersRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The servicePrincipal property
+     * Casts the previous resource to servicePrincipal.
     */
     public function servicePrincipal(): ServicePrincipalRequestBuilder {
         return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -66,7 +66,7 @@ class OwnersRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The user property
+     * Casts the previous resource to user.
     */
     public function user(): UserRequestBuilder {
         return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -84,7 +84,7 @@ class OwnersRequestBuilder
     }
 
     /**
-     * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections).
+     * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param OwnersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,7 +109,7 @@ class OwnersRequestBuilder
     }
 
     /**
-     * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections).
+     * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param OwnersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName Human readable name of the software update
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Last date time the report for this device and product key was updated.
-    */
-    private ?DateTime $lastUpdatedDateTime = null;
-    
-    /**
-     * @var string|null $productKey Product key of the software update.
-    */
-    private ?string $productKey = null;
-    
-    /**
-     * @var MacOSSoftwareUpdateState|null $state MacOS Software Update State
-    */
-    private ?MacOSSoftwareUpdateState $state = null;
-    
-    /**
-     * @var MacOSSoftwareUpdateCategory|null $updateCategory MacOS Software Update Category
-    */
-    private ?MacOSSoftwareUpdateCategory $updateCategory = null;
-    
-    /**
-     * @var string|null $updateVersion Version of the software update
-    */
-    private ?string $updateVersion = null;
-    
-    /**
      * Instantiates a new macOSSoftwareUpdateStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.macOSSoftwareUpdateStateSummary');
     }
 
     /**
@@ -61,7 +30,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -85,7 +54,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -93,7 +62,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getProductKey(): ?string {
-        return $this->productKey;
+        return $this->getBackingStore()->get('productKey');
     }
 
     /**
@@ -101,7 +70,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return MacOSSoftwareUpdateState|null
     */
     public function getState(): ?MacOSSoftwareUpdateState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -109,7 +78,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return MacOSSoftwareUpdateCategory|null
     */
     public function getUpdateCategory(): ?MacOSSoftwareUpdateCategory {
-        return $this->updateCategory;
+        return $this->getBackingStore()->get('updateCategory');
     }
 
     /**
@@ -117,7 +86,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getUpdateVersion(): ?string {
-        return $this->updateVersion;
+        return $this->getBackingStore()->get('updateVersion');
     }
 
     /**
@@ -126,60 +95,60 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeStringValue('productKey', $this->productKey);
-        $writer->writeEnumValue('state', $this->state);
-        $writer->writeEnumValue('updateCategory', $this->updateCategory);
-        $writer->writeStringValue('updateVersion', $this->updateVersion);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('productKey', $this->getProductKey());
+        $writer->writeEnumValue('state', $this->getState());
+        $writer->writeEnumValue('updateCategory', $this->getUpdateCategory());
+        $writer->writeStringValue('updateVersion', $this->getUpdateVersion());
     }
 
     /**
      * Sets the displayName property value. Human readable name of the software update
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. Last date time the report for this device and product key was updated.
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?DateTime $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the productKey property value. Product key of the software update.
      *  @param string|null $value Value to set for the productKey property.
     */
-    public function setProductKey(?string $value ): void {
-        $this->productKey = $value;
+    public function setProductKey(?string $value): void {
+        $this->getBackingStore()->set('productKey', $value);
     }
 
     /**
      * Sets the state property value. MacOS Software Update State
      *  @param MacOSSoftwareUpdateState|null $value Value to set for the state property.
     */
-    public function setState(?MacOSSoftwareUpdateState $value ): void {
-        $this->state = $value;
+    public function setState(?MacOSSoftwareUpdateState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the updateCategory property value. MacOS Software Update Category
      *  @param MacOSSoftwareUpdateCategory|null $value Value to set for the updateCategory property.
     */
-    public function setUpdateCategory(?MacOSSoftwareUpdateCategory $value ): void {
-        $this->updateCategory = $value;
+    public function setUpdateCategory(?MacOSSoftwareUpdateCategory $value): void {
+        $this->getBackingStore()->set('updateCategory', $value);
     }
 
     /**
      * Sets the updateVersion property value. Version of the software update
      *  @param string|null $value Value to set for the updateVersion property.
     */
-    public function setUpdateVersion(?string $value ): void {
-        $this->updateVersion = $value;
+    public function setUpdateVersion(?string $value): void {
+        $this->getBackingStore()->set('updateVersion', $value);
     }
 
 }

@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApprovalWorkflowProvider extends Entity implements Parsable 
 {
     /**
-     * @var array<BusinessFlow>|null $businessFlows The businessFlows property
-    */
-    private ?array $businessFlows = null;
-    
-    /**
-     * @var array<BusinessFlow>|null $businessFlowsWithRequestsAwaitingMyDecision The businessFlowsWithRequestsAwaitingMyDecision property
-    */
-    private ?array $businessFlowsWithRequestsAwaitingMyDecision = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<GovernancePolicyTemplate>|null $policyTemplates The policyTemplates property
-    */
-    private ?array $policyTemplates = null;
-    
-    /**
-     * Instantiates a new ApprovalWorkflowProvider and sets the default values.
+     * Instantiates a new approvalWorkflowProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.approvalWorkflowProvider');
     }
 
     /**
@@ -50,7 +29,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
      * @return array<BusinessFlow>|null
     */
     public function getBusinessFlows(): ?array {
-        return $this->businessFlows;
+        return $this->getBackingStore()->get('businessFlows');
     }
 
     /**
@@ -58,7 +37,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
      * @return array<BusinessFlow>|null
     */
     public function getBusinessFlowsWithRequestsAwaitingMyDecision(): ?array {
-        return $this->businessFlowsWithRequestsAwaitingMyDecision;
+        return $this->getBackingStore()->get('businessFlowsWithRequestsAwaitingMyDecision');
     }
 
     /**
@@ -66,7 +45,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -88,7 +67,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
      * @return array<GovernancePolicyTemplate>|null
     */
     public function getPolicyTemplates(): ?array {
-        return $this->policyTemplates;
+        return $this->getBackingStore()->get('policyTemplates');
     }
 
     /**
@@ -97,42 +76,42 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('businessFlows', $this->businessFlows);
-        $writer->writeCollectionOfObjectValues('businessFlowsWithRequestsAwaitingMyDecision', $this->businessFlowsWithRequestsAwaitingMyDecision);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('policyTemplates', $this->policyTemplates);
+        $writer->writeCollectionOfObjectValues('businessFlows', $this->getBusinessFlows());
+        $writer->writeCollectionOfObjectValues('businessFlowsWithRequestsAwaitingMyDecision', $this->getBusinessFlowsWithRequestsAwaitingMyDecision());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('policyTemplates', $this->getPolicyTemplates());
     }
 
     /**
      * Sets the businessFlows property value. The businessFlows property
      *  @param array<BusinessFlow>|null $value Value to set for the businessFlows property.
     */
-    public function setBusinessFlows(?array $value ): void {
-        $this->businessFlows = $value;
+    public function setBusinessFlows(?array $value): void {
+        $this->getBackingStore()->set('businessFlows', $value);
     }
 
     /**
      * Sets the businessFlowsWithRequestsAwaitingMyDecision property value. The businessFlowsWithRequestsAwaitingMyDecision property
      *  @param array<BusinessFlow>|null $value Value to set for the businessFlowsWithRequestsAwaitingMyDecision property.
     */
-    public function setBusinessFlowsWithRequestsAwaitingMyDecision(?array $value ): void {
-        $this->businessFlowsWithRequestsAwaitingMyDecision = $value;
+    public function setBusinessFlowsWithRequestsAwaitingMyDecision(?array $value): void {
+        $this->getBackingStore()->set('businessFlowsWithRequestsAwaitingMyDecision', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the policyTemplates property value. The policyTemplates property
      *  @param array<GovernancePolicyTemplate>|null $value Value to set for the policyTemplates property.
     */
-    public function setPolicyTemplates(?array $value ): void {
-        $this->policyTemplates = $value;
+    public function setPolicyTemplates(?array $value): void {
+        $this->getBackingStore()->set('policyTemplates', $value);
     }
 
 }

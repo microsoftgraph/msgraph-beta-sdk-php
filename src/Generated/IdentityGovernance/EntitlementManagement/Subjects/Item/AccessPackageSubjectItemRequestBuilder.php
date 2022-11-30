@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageSubjectItemRequestBuilder 
 {
     /**
-     * The connectedOrganization property
+     * Provides operations to manage the connectedOrganization property of the microsoft.graph.accessPackageSubject entity.
     */
     public function connectedOrganization(): ConnectedOrganizationRequestBuilder {
         return new ConnectedOrganizationRequestBuilder($this->pathParameters, $this->requestAdapter);

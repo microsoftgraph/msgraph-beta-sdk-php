@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceManagementScriptDeviceStateItemRequestBuilder 
 {
     /**
-     * The managedDevice property
+     * Provides operations to manage the managedDevice property of the microsoft.graph.deviceManagementScriptDeviceState entity.
     */
     public function managedDevice(): ManagedDeviceRequestBuilder {
         return new ManagedDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);

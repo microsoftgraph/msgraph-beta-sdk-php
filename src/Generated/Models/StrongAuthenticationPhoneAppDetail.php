@@ -10,86 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable 
 {
     /**
-     * @var string|null $authenticationType The authenticationType property
-    */
-    private ?string $authenticationType = null;
-    
-    /**
-     * @var string|null $authenticatorFlavor The authenticatorFlavor property
-    */
-    private ?string $authenticatorFlavor = null;
-    
-    /**
-     * @var string|null $deviceId The deviceId property
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $deviceName The deviceName property
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $deviceTag The deviceTag property
-    */
-    private ?string $deviceTag = null;
-    
-    /**
-     * @var string|null $deviceToken The deviceToken property
-    */
-    private ?string $deviceToken = null;
-    
-    /**
-     * @var string|null $hashFunction The hashFunction property
-    */
-    private ?string $hashFunction = null;
-    
-    /**
-     * @var DateTime|null $lastAuthenticatedDateTime The lastAuthenticatedDateTime property
-    */
-    private ?DateTime $lastAuthenticatedDateTime = null;
-    
-    /**
-     * @var string|null $notificationType The notificationType property
-    */
-    private ?string $notificationType = null;
-    
-    /**
-     * @var string|null $oathSecretKey The oathSecretKey property
-    */
-    private ?string $oathSecretKey = null;
-    
-    /**
-     * @var OathTokenMetadata|null $oathTokenMetadata The oathTokenMetadata property
-    */
-    private ?OathTokenMetadata $oathTokenMetadata = null;
-    
-    /**
-     * @var int|null $oathTokenTimeDriftInSeconds The oathTokenTimeDriftInSeconds property
-    */
-    private ?int $oathTokenTimeDriftInSeconds = null;
-    
-    /**
-     * @var string|null $phoneAppVersion The phoneAppVersion property
-    */
-    private ?string $phoneAppVersion = null;
-    
-    /**
-     * @var string|null $tenantDeviceId The tenantDeviceId property
-    */
-    private ?string $tenantDeviceId = null;
-    
-    /**
-     * @var int|null $tokenGenerationIntervalInSeconds The tokenGenerationIntervalInSeconds property
-    */
-    private ?int $tokenGenerationIntervalInSeconds = null;
-    
-    /**
      * Instantiates a new StrongAuthenticationPhoneAppDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.strongAuthenticationPhoneAppDetail');
     }
 
     /**
@@ -106,7 +30,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getAuthenticationType(): ?string {
-        return $this->authenticationType;
+        return $this->getBackingStore()->get('authenticationType');
     }
 
     /**
@@ -114,7 +38,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getAuthenticatorFlavor(): ?string {
-        return $this->authenticatorFlavor;
+        return $this->getBackingStore()->get('authenticatorFlavor');
     }
 
     /**
@@ -122,7 +46,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -130,7 +54,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -138,7 +62,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceTag(): ?string {
-        return $this->deviceTag;
+        return $this->getBackingStore()->get('deviceTag');
     }
 
     /**
@@ -146,7 +70,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceToken(): ?string {
-        return $this->deviceToken;
+        return $this->getBackingStore()->get('deviceToken');
     }
 
     /**
@@ -179,7 +103,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getHashFunction(): ?string {
-        return $this->hashFunction;
+        return $this->getBackingStore()->get('hashFunction');
     }
 
     /**
@@ -187,7 +111,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastAuthenticatedDateTime(): ?DateTime {
-        return $this->lastAuthenticatedDateTime;
+        return $this->getBackingStore()->get('lastAuthenticatedDateTime');
     }
 
     /**
@@ -195,7 +119,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getNotificationType(): ?string {
-        return $this->notificationType;
+        return $this->getBackingStore()->get('notificationType');
     }
 
     /**
@@ -203,7 +127,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getOathSecretKey(): ?string {
-        return $this->oathSecretKey;
+        return $this->getBackingStore()->get('oathSecretKey');
     }
 
     /**
@@ -211,7 +135,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return OathTokenMetadata|null
     */
     public function getOathTokenMetadata(): ?OathTokenMetadata {
-        return $this->oathTokenMetadata;
+        return $this->getBackingStore()->get('oathTokenMetadata');
     }
 
     /**
@@ -219,7 +143,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getOathTokenTimeDriftInSeconds(): ?int {
-        return $this->oathTokenTimeDriftInSeconds;
+        return $this->getBackingStore()->get('oathTokenTimeDriftInSeconds');
     }
 
     /**
@@ -227,7 +151,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getPhoneAppVersion(): ?string {
-        return $this->phoneAppVersion;
+        return $this->getBackingStore()->get('phoneAppVersion');
     }
 
     /**
@@ -235,7 +159,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDeviceId(): ?string {
-        return $this->tenantDeviceId;
+        return $this->getBackingStore()->get('tenantDeviceId');
     }
 
     /**
@@ -243,7 +167,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getTokenGenerationIntervalInSeconds(): ?int {
-        return $this->tokenGenerationIntervalInSeconds;
+        return $this->getBackingStore()->get('tokenGenerationIntervalInSeconds');
     }
 
     /**
@@ -252,141 +176,141 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('authenticationType', $this->authenticationType);
-        $writer->writeStringValue('authenticatorFlavor', $this->authenticatorFlavor);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('deviceTag', $this->deviceTag);
-        $writer->writeStringValue('deviceToken', $this->deviceToken);
-        $writer->writeStringValue('hashFunction', $this->hashFunction);
-        $writer->writeDateTimeValue('lastAuthenticatedDateTime', $this->lastAuthenticatedDateTime);
-        $writer->writeStringValue('notificationType', $this->notificationType);
-        $writer->writeStringValue('oathSecretKey', $this->oathSecretKey);
-        $writer->writeObjectValue('oathTokenMetadata', $this->oathTokenMetadata);
-        $writer->writeIntegerValue('oathTokenTimeDriftInSeconds', $this->oathTokenTimeDriftInSeconds);
-        $writer->writeStringValue('phoneAppVersion', $this->phoneAppVersion);
-        $writer->writeStringValue('tenantDeviceId', $this->tenantDeviceId);
-        $writer->writeIntegerValue('tokenGenerationIntervalInSeconds', $this->tokenGenerationIntervalInSeconds);
+        $writer->writeStringValue('authenticationType', $this->getAuthenticationType());
+        $writer->writeStringValue('authenticatorFlavor', $this->getAuthenticatorFlavor());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('deviceTag', $this->getDeviceTag());
+        $writer->writeStringValue('deviceToken', $this->getDeviceToken());
+        $writer->writeStringValue('hashFunction', $this->getHashFunction());
+        $writer->writeDateTimeValue('lastAuthenticatedDateTime', $this->getLastAuthenticatedDateTime());
+        $writer->writeStringValue('notificationType', $this->getNotificationType());
+        $writer->writeStringValue('oathSecretKey', $this->getOathSecretKey());
+        $writer->writeObjectValue('oathTokenMetadata', $this->getOathTokenMetadata());
+        $writer->writeIntegerValue('oathTokenTimeDriftInSeconds', $this->getOathTokenTimeDriftInSeconds());
+        $writer->writeStringValue('phoneAppVersion', $this->getPhoneAppVersion());
+        $writer->writeStringValue('tenantDeviceId', $this->getTenantDeviceId());
+        $writer->writeIntegerValue('tokenGenerationIntervalInSeconds', $this->getTokenGenerationIntervalInSeconds());
     }
 
     /**
      * Sets the authenticationType property value. The authenticationType property
      *  @param string|null $value Value to set for the authenticationType property.
     */
-    public function setAuthenticationType(?string $value ): void {
-        $this->authenticationType = $value;
+    public function setAuthenticationType(?string $value): void {
+        $this->getBackingStore()->set('authenticationType', $value);
     }
 
     /**
      * Sets the authenticatorFlavor property value. The authenticatorFlavor property
      *  @param string|null $value Value to set for the authenticatorFlavor property.
     */
-    public function setAuthenticatorFlavor(?string $value ): void {
-        $this->authenticatorFlavor = $value;
+    public function setAuthenticatorFlavor(?string $value): void {
+        $this->getBackingStore()->set('authenticatorFlavor', $value);
     }
 
     /**
      * Sets the deviceId property value. The deviceId property
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the deviceName property value. The deviceName property
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the deviceTag property value. The deviceTag property
      *  @param string|null $value Value to set for the deviceTag property.
     */
-    public function setDeviceTag(?string $value ): void {
-        $this->deviceTag = $value;
+    public function setDeviceTag(?string $value): void {
+        $this->getBackingStore()->set('deviceTag', $value);
     }
 
     /**
      * Sets the deviceToken property value. The deviceToken property
      *  @param string|null $value Value to set for the deviceToken property.
     */
-    public function setDeviceToken(?string $value ): void {
-        $this->deviceToken = $value;
+    public function setDeviceToken(?string $value): void {
+        $this->getBackingStore()->set('deviceToken', $value);
     }
 
     /**
      * Sets the hashFunction property value. The hashFunction property
      *  @param string|null $value Value to set for the hashFunction property.
     */
-    public function setHashFunction(?string $value ): void {
-        $this->hashFunction = $value;
+    public function setHashFunction(?string $value): void {
+        $this->getBackingStore()->set('hashFunction', $value);
     }
 
     /**
      * Sets the lastAuthenticatedDateTime property value. The lastAuthenticatedDateTime property
      *  @param DateTime|null $value Value to set for the lastAuthenticatedDateTime property.
     */
-    public function setLastAuthenticatedDateTime(?DateTime $value ): void {
-        $this->lastAuthenticatedDateTime = $value;
+    public function setLastAuthenticatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastAuthenticatedDateTime', $value);
     }
 
     /**
      * Sets the notificationType property value. The notificationType property
      *  @param string|null $value Value to set for the notificationType property.
     */
-    public function setNotificationType(?string $value ): void {
-        $this->notificationType = $value;
+    public function setNotificationType(?string $value): void {
+        $this->getBackingStore()->set('notificationType', $value);
     }
 
     /**
      * Sets the oathSecretKey property value. The oathSecretKey property
      *  @param string|null $value Value to set for the oathSecretKey property.
     */
-    public function setOathSecretKey(?string $value ): void {
-        $this->oathSecretKey = $value;
+    public function setOathSecretKey(?string $value): void {
+        $this->getBackingStore()->set('oathSecretKey', $value);
     }
 
     /**
      * Sets the oathTokenMetadata property value. The oathTokenMetadata property
      *  @param OathTokenMetadata|null $value Value to set for the oathTokenMetadata property.
     */
-    public function setOathTokenMetadata(?OathTokenMetadata $value ): void {
-        $this->oathTokenMetadata = $value;
+    public function setOathTokenMetadata(?OathTokenMetadata $value): void {
+        $this->getBackingStore()->set('oathTokenMetadata', $value);
     }
 
     /**
      * Sets the oathTokenTimeDriftInSeconds property value. The oathTokenTimeDriftInSeconds property
      *  @param int|null $value Value to set for the oathTokenTimeDriftInSeconds property.
     */
-    public function setOathTokenTimeDriftInSeconds(?int $value ): void {
-        $this->oathTokenTimeDriftInSeconds = $value;
+    public function setOathTokenTimeDriftInSeconds(?int $value): void {
+        $this->getBackingStore()->set('oathTokenTimeDriftInSeconds', $value);
     }
 
     /**
      * Sets the phoneAppVersion property value. The phoneAppVersion property
      *  @param string|null $value Value to set for the phoneAppVersion property.
     */
-    public function setPhoneAppVersion(?string $value ): void {
-        $this->phoneAppVersion = $value;
+    public function setPhoneAppVersion(?string $value): void {
+        $this->getBackingStore()->set('phoneAppVersion', $value);
     }
 
     /**
      * Sets the tenantDeviceId property value. The tenantDeviceId property
      *  @param string|null $value Value to set for the tenantDeviceId property.
     */
-    public function setTenantDeviceId(?string $value ): void {
-        $this->tenantDeviceId = $value;
+    public function setTenantDeviceId(?string $value): void {
+        $this->getBackingStore()->set('tenantDeviceId', $value);
     }
 
     /**
      * Sets the tokenGenerationIntervalInSeconds property value. The tokenGenerationIntervalInSeconds property
      *  @param int|null $value Value to set for the tokenGenerationIntervalInSeconds property.
     */
-    public function setTokenGenerationIntervalInSeconds(?int $value ): void {
-        $this->tokenGenerationIntervalInSeconds = $value;
+    public function setTokenGenerationIntervalInSeconds(?int $value): void {
+        $this->getBackingStore()->set('tokenGenerationIntervalInSeconds', $value);
     }
 
 }

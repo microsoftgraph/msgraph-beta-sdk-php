@@ -6,65 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class PortalNotification implements AdditionalDataHolder, Parsable 
+class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var AlertImpact|null $alertImpact The associated alert impact.
-    */
-    private ?AlertImpact $alertImpact = null;
-    
-    /**
-     * @var string|null $alertRecordId The associated alert record ID.
-    */
-    private ?string $alertRecordId = null;
-    
-    /**
-     * @var string|null $alertRuleId The associated alert rule ID.
-    */
-    private ?string $alertRuleId = null;
-    
-    /**
-     * @var string|null $alertRuleName The associated alert rule name.
-    */
-    private ?string $alertRuleName = null;
-    
-    /**
-     * @var AlertRuleTemplate|null $alertRuleTemplate The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
-    */
-    private ?AlertRuleTemplate $alertRuleTemplate = null;
-    
-    /**
-     * @var string|null $id The unique identifier for the portal notification.
-    */
-    private ?string $id = null;
-    
-    /**
-     * @var bool|null $isPortalNotificationSent If true, the portal notification has already been sent for the user; otherwise, the portal notification hasn't been sent yet.
-    */
-    private ?bool $isPortalNotificationSent = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var RuleSeverityType|null $severity The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-    */
-    private ?RuleSeverityType $severity = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new portalNotification and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.deviceManagement.portalNotification');
     }
 
     /**
@@ -80,8 +38,8 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -89,7 +47,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @return AlertImpact|null
     */
     public function getAlertImpact(): ?AlertImpact {
-        return $this->alertImpact;
+        return $this->getBackingStore()->get('alertImpact');
     }
 
     /**
@@ -97,7 +55,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAlertRecordId(): ?string {
-        return $this->alertRecordId;
+        return $this->getBackingStore()->get('alertRecordId');
     }
 
     /**
@@ -105,7 +63,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAlertRuleId(): ?string {
-        return $this->alertRuleId;
+        return $this->getBackingStore()->get('alertRuleId');
     }
 
     /**
@@ -113,7 +71,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAlertRuleName(): ?string {
-        return $this->alertRuleName;
+        return $this->getBackingStore()->get('alertRuleName');
     }
 
     /**
@@ -121,7 +79,15 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @return AlertRuleTemplate|null
     */
     public function getAlertRuleTemplate(): ?AlertRuleTemplate {
-        return $this->alertRuleTemplate;
+        return $this->getBackingStore()->get('alertRuleTemplate');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -148,7 +114,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -156,7 +122,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsPortalNotificationSent(): ?bool {
-        return $this->isPortalNotificationSent;
+        return $this->getBackingStore()->get('isPortalNotificationSent');
     }
 
     /**
@@ -164,7 +130,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -172,7 +138,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @return RuleSeverityType|null
     */
     public function getSeverity(): ?RuleSeverityType {
-        return $this->severity;
+        return $this->getBackingStore()->get('severity');
     }
 
     /**
@@ -180,96 +146,104 @@ class PortalNotification implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('alertImpact', $this->alertImpact);
-        $writer->writeStringValue('alertRecordId', $this->alertRecordId);
-        $writer->writeStringValue('alertRuleId', $this->alertRuleId);
-        $writer->writeStringValue('alertRuleName', $this->alertRuleName);
-        $writer->writeEnumValue('alertRuleTemplate', $this->alertRuleTemplate);
-        $writer->writeStringValue('id', $this->id);
-        $writer->writeBooleanValue('isPortalNotificationSent', $this->isPortalNotificationSent);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('severity', $this->severity);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('alertImpact', $this->getAlertImpact());
+        $writer->writeStringValue('alertRecordId', $this->getAlertRecordId());
+        $writer->writeStringValue('alertRuleId', $this->getAlertRuleId());
+        $writer->writeStringValue('alertRuleName', $this->getAlertRuleName());
+        $writer->writeEnumValue('alertRuleTemplate', $this->getAlertRuleTemplate());
+        $writer->writeStringValue('id', $this->getId());
+        $writer->writeBooleanValue('isPortalNotificationSent', $this->getIsPortalNotificationSent());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('severity', $this->getSeverity());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the alertImpact property value. The associated alert impact.
      *  @param AlertImpact|null $value Value to set for the alertImpact property.
     */
-    public function setAlertImpact(?AlertImpact $value ): void {
-        $this->alertImpact = $value;
+    public function setAlertImpact(?AlertImpact $value): void {
+        $this->getBackingStore()->set('alertImpact', $value);
     }
 
     /**
      * Sets the alertRecordId property value. The associated alert record ID.
      *  @param string|null $value Value to set for the alertRecordId property.
     */
-    public function setAlertRecordId(?string $value ): void {
-        $this->alertRecordId = $value;
+    public function setAlertRecordId(?string $value): void {
+        $this->getBackingStore()->set('alertRecordId', $value);
     }
 
     /**
      * Sets the alertRuleId property value. The associated alert rule ID.
      *  @param string|null $value Value to set for the alertRuleId property.
     */
-    public function setAlertRuleId(?string $value ): void {
-        $this->alertRuleId = $value;
+    public function setAlertRuleId(?string $value): void {
+        $this->getBackingStore()->set('alertRuleId', $value);
     }
 
     /**
      * Sets the alertRuleName property value. The associated alert rule name.
      *  @param string|null $value Value to set for the alertRuleName property.
     */
-    public function setAlertRuleName(?string $value ): void {
-        $this->alertRuleName = $value;
+    public function setAlertRuleName(?string $value): void {
+        $this->getBackingStore()->set('alertRuleName', $value);
     }
 
     /**
      * Sets the alertRuleTemplate property value. The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
      *  @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
-    public function setAlertRuleTemplate(?AlertRuleTemplate $value ): void {
-        $this->alertRuleTemplate = $value;
+    public function setAlertRuleTemplate(?AlertRuleTemplate $value): void {
+        $this->getBackingStore()->set('alertRuleTemplate', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the id property value. The unique identifier for the portal notification.
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
      * Sets the isPortalNotificationSent property value. If true, the portal notification has already been sent for the user; otherwise, the portal notification hasn't been sent yet.
      *  @param bool|null $value Value to set for the isPortalNotificationSent property.
     */
-    public function setIsPortalNotificationSent(?bool $value ): void {
-        $this->isPortalNotificationSent = $value;
+    public function setIsPortalNotificationSent(?bool $value): void {
+        $this->getBackingStore()->set('isPortalNotificationSent', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the severity property value. The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
      *  @param RuleSeverityType|null $value Value to set for the severity property.
     */
-    public function setSeverity(?RuleSeverityType $value ): void {
-        $this->severity = $value;
+    public function setSeverity(?RuleSeverityType $value): void {
+        $this->getBackingStore()->set('severity', $value);
     }
 
 }

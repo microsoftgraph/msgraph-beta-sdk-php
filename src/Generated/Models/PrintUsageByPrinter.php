@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrintUsageByPrinter extends PrintUsage implements Parsable 
 {
     /**
-     * @var string|null $printerId The printerId property
-    */
-    private ?string $printerId = null;
-    
-    /**
      * Instantiates a new PrintUsageByPrinter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.printUsageByPrinter');
     }
 
     /**
@@ -46,7 +40,7 @@ class PrintUsageByPrinter extends PrintUsage implements Parsable
      * @return string|null
     */
     public function getPrinterId(): ?string {
-        return $this->printerId;
+        return $this->getBackingStore()->get('printerId');
     }
 
     /**
@@ -55,15 +49,15 @@ class PrintUsageByPrinter extends PrintUsage implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('printerId', $this->printerId);
+        $writer->writeStringValue('printerId', $this->getPrinterId());
     }
 
     /**
      * Sets the printerId property value. The printerId property
      *  @param string|null $value Value to set for the printerId property.
     */
-    public function setPrinterId(?string $value ): void {
-        $this->printerId = $value;
+    public function setPrinterId(?string $value): void {
+        $this->getBackingStore()->set('printerId', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationGroupSettingInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationGroupSettingValueTemplate|null $groupSettingValueTemplate Group Setting Value Template
-    */
-    private ?DeviceManagementConfigurationGroupSettingValueTemplate $groupSettingValueTemplate = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationGroupSettingInstanceTemplate and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementConfigurationGroupSettingInstanceTemplate extends DeviceMa
      * @return DeviceManagementConfigurationGroupSettingValueTemplate|null
     */
     public function getGroupSettingValueTemplate(): ?DeviceManagementConfigurationGroupSettingValueTemplate {
-        return $this->groupSettingValueTemplate;
+        return $this->getBackingStore()->get('groupSettingValueTemplate');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationGroupSettingInstanceTemplate extends DeviceMa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('groupSettingValueTemplate', $this->groupSettingValueTemplate);
+        $writer->writeObjectValue('groupSettingValueTemplate', $this->getGroupSettingValueTemplate());
     }
 
     /**
      * Sets the groupSettingValueTemplate property value. Group Setting Value Template
      *  @param DeviceManagementConfigurationGroupSettingValueTemplate|null $value Value to set for the groupSettingValueTemplate property.
     */
-    public function setGroupSettingValueTemplate(?DeviceManagementConfigurationGroupSettingValueTemplate $value ): void {
-        $this->groupSettingValueTemplate = $value;
+    public function setGroupSettingValueTemplate(?DeviceManagementConfigurationGroupSettingValueTemplate $value): void {
+        $this->getBackingStore()->set('groupSettingValueTemplate', $value);
     }
 
 }

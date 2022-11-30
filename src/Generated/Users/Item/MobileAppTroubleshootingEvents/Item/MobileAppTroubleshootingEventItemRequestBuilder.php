@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MobileAppTroubleshootingEventItemRequestBuilder 
 {
     /**
-     * The appLogCollectionRequests property
+     * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
     */
     public function appLogCollectionRequests(): AppLogCollectionRequestsRequestBuilder {
         return new AppLogCollectionRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class MobileAppTroubleshootingEventItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.mobileAppTroubleshootingEvents.item.appLogCollectionRequests.item collection
+     * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
      * @param string $id Unique identifier of the item
      * @return AppLogCollectionRequestItemRequestBuilder
     */

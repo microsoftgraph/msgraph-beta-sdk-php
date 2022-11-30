@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RecordingInfo implements AdditionalDataHolder, Parsable 
+class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var ParticipantInfo|null $initiatedBy The participant who initiated the recording.
-    */
-    private ?ParticipantInfo $initiatedBy = null;
-    
-    /**
-     * @var IdentitySet|null $initiator The identities of recording initiator.
-    */
-    private ?IdentitySet $initiator = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var RecordingStatus|null $recordingStatus The recordingStatus property
-    */
-    private ?RecordingStatus $recordingStatus = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new recordingInfo and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.recordingInfo');
     }
 
     /**
@@ -55,8 +38,16 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +69,7 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
      * @return ParticipantInfo|null
     */
     public function getInitiatedBy(): ?ParticipantInfo {
-        return $this->initiatedBy;
+        return $this->getBackingStore()->get('initiatedBy');
     }
 
     /**
@@ -86,7 +77,7 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
      * @return IdentitySet|null
     */
     public function getInitiator(): ?IdentitySet {
-        return $this->initiator;
+        return $this->getBackingStore()->get('initiator');
     }
 
     /**
@@ -94,7 +85,7 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -102,7 +93,7 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
      * @return RecordingStatus|null
     */
     public function getRecordingStatus(): ?RecordingStatus {
-        return $this->recordingStatus;
+        return $this->getBackingStore()->get('recordingStatus');
     }
 
     /**
@@ -110,51 +101,59 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('initiatedBy', $this->initiatedBy);
-        $writer->writeObjectValue('initiator', $this->initiator);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('recordingStatus', $this->recordingStatus);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('initiatedBy', $this->getInitiatedBy());
+        $writer->writeObjectValue('initiator', $this->getInitiator());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('recordingStatus', $this->getRecordingStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the initiatedBy property value. The participant who initiated the recording.
      *  @param ParticipantInfo|null $value Value to set for the initiatedBy property.
     */
-    public function setInitiatedBy(?ParticipantInfo $value ): void {
-        $this->initiatedBy = $value;
+    public function setInitiatedBy(?ParticipantInfo $value): void {
+        $this->getBackingStore()->set('initiatedBy', $value);
     }
 
     /**
      * Sets the initiator property value. The identities of recording initiator.
      *  @param IdentitySet|null $value Value to set for the initiator property.
     */
-    public function setInitiator(?IdentitySet $value ): void {
-        $this->initiator = $value;
+    public function setInitiator(?IdentitySet $value): void {
+        $this->getBackingStore()->set('initiator', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the recordingStatus property value. The recordingStatus property
      *  @param RecordingStatus|null $value Value to set for the recordingStatus property.
     */
-    public function setRecordingStatus(?RecordingStatus $value ): void {
-        $this->recordingStatus = $value;
+    public function setRecordingStatus(?RecordingStatus $value): void {
+        $this->getBackingStore()->set('recordingStatus', $value);
     }
 
 }

@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GroupPolicyMigrationReportItemRequestBuilder 
 {
     /**
-     * The groupPolicySettingMappings property
+     * Provides operations to manage the groupPolicySettingMappings property of the microsoft.graph.groupPolicyMigrationReport entity.
     */
     public function groupPolicySettingMappings(): GroupPolicySettingMappingsRequestBuilder {
         return new GroupPolicySettingMappingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -39,7 +39,7 @@ class GroupPolicyMigrationReportItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The unsupportedGroupPolicyExtensions property
+     * Provides operations to manage the unsupportedGroupPolicyExtensions property of the microsoft.graph.groupPolicyMigrationReport entity.
     */
     public function unsupportedGroupPolicyExtensions(): UnsupportedGroupPolicyExtensionsRequestBuilder {
         return new UnsupportedGroupPolicyExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -170,7 +170,7 @@ class GroupPolicyMigrationReportItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyMigrationReports.item.groupPolicySettingMappings.item collection
+     * Provides operations to manage the groupPolicySettingMappings property of the microsoft.graph.groupPolicyMigrationReport entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicySettingMappingItemRequestBuilder
     */
@@ -201,7 +201,7 @@ class GroupPolicyMigrationReportItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyMigrationReports.item.unsupportedGroupPolicyExtensions.item collection
+     * Provides operations to manage the unsupportedGroupPolicyExtensions property of the microsoft.graph.groupPolicyMigrationReport entity.
      * @param string $id Unique identifier of the item
      * @return UnsupportedGroupPolicyExtensionItemRequestBuilder
     */

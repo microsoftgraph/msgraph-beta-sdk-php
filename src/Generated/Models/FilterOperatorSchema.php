@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FilterOperatorSchema extends Entity implements Parsable 
 {
     /**
-     * @var ScopeOperatorType|null $arity The arity property
-    */
-    private ?ScopeOperatorType $arity = null;
-    
-    /**
-     * @var ScopeOperatorMultiValuedComparisonType|null $multivaluedComparisonType The multivaluedComparisonType property
-    */
-    private ?ScopeOperatorMultiValuedComparisonType $multivaluedComparisonType = null;
-    
-    /**
-     * @var array<AttributeType>|null $supportedAttributeTypes Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
-    */
-    private ?array $supportedAttributeTypes = null;
-    
-    /**
      * Instantiates a new filterOperatorSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.filterOperatorSchema');
     }
 
     /**
@@ -45,7 +29,7 @@ class FilterOperatorSchema extends Entity implements Parsable
      * @return ScopeOperatorType|null
     */
     public function getArity(): ?ScopeOperatorType {
-        return $this->arity;
+        return $this->getBackingStore()->get('arity');
     }
 
     /**
@@ -66,7 +50,7 @@ class FilterOperatorSchema extends Entity implements Parsable
      * @return ScopeOperatorMultiValuedComparisonType|null
     */
     public function getMultivaluedComparisonType(): ?ScopeOperatorMultiValuedComparisonType {
-        return $this->multivaluedComparisonType;
+        return $this->getBackingStore()->get('multivaluedComparisonType');
     }
 
     /**
@@ -74,7 +58,7 @@ class FilterOperatorSchema extends Entity implements Parsable
      * @return array<AttributeType>|null
     */
     public function getSupportedAttributeTypes(): ?array {
-        return $this->supportedAttributeTypes;
+        return $this->getBackingStore()->get('supportedAttributeTypes');
     }
 
     /**
@@ -83,33 +67,33 @@ class FilterOperatorSchema extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('arity', $this->arity);
-        $writer->writeEnumValue('multivaluedComparisonType', $this->multivaluedComparisonType);
-        $writer->writeCollectionOfEnumValues('supportedAttributeTypes', $this->supportedAttributeTypes);
+        $writer->writeEnumValue('arity', $this->getArity());
+        $writer->writeEnumValue('multivaluedComparisonType', $this->getMultivaluedComparisonType());
+        $writer->writeCollectionOfEnumValues('supportedAttributeTypes', $this->getSupportedAttributeTypes());
     }
 
     /**
      * Sets the arity property value. The arity property
      *  @param ScopeOperatorType|null $value Value to set for the arity property.
     */
-    public function setArity(?ScopeOperatorType $value ): void {
-        $this->arity = $value;
+    public function setArity(?ScopeOperatorType $value): void {
+        $this->getBackingStore()->set('arity', $value);
     }
 
     /**
      * Sets the multivaluedComparisonType property value. The multivaluedComparisonType property
      *  @param ScopeOperatorMultiValuedComparisonType|null $value Value to set for the multivaluedComparisonType property.
     */
-    public function setMultivaluedComparisonType(?ScopeOperatorMultiValuedComparisonType $value ): void {
-        $this->multivaluedComparisonType = $value;
+    public function setMultivaluedComparisonType(?ScopeOperatorMultiValuedComparisonType $value): void {
+        $this->getBackingStore()->set('multivaluedComparisonType', $value);
     }
 
     /**
      * Sets the supportedAttributeTypes property value. Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
      *  @param array<AttributeType>|null $value Value to set for the supportedAttributeTypes property.
     */
-    public function setSupportedAttributeTypes(?array $value ): void {
-        $this->supportedAttributeTypes = $value;
+    public function setSupportedAttributeTypes(?array $value): void {
+        $this->getBackingStore()->set('supportedAttributeTypes', $value);
     }
 
 }

@@ -10,126 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var Enablement|null $advancedThreatProtectionAutomaticSampleSubmission Possible values of a property
-    */
-    private ?Enablement $advancedThreatProtectionAutomaticSampleSubmission = null;
-    
-    /**
-     * @var Enablement|null $advancedThreatProtectionCloudDelivered Possible values of a property
-    */
-    private ?Enablement $advancedThreatProtectionCloudDelivered = null;
-    
-    /**
-     * @var Enablement|null $advancedThreatProtectionDiagnosticDataCollection Possible values of a property
-    */
-    private ?Enablement $advancedThreatProtectionDiagnosticDataCollection = null;
-    
-    /**
-     * @var array<string>|null $advancedThreatProtectionExcludedExtensions A list of file extensions to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
-    */
-    private ?array $advancedThreatProtectionExcludedExtensions = null;
-    
-    /**
-     * @var array<string>|null $advancedThreatProtectionExcludedFiles A list of paths to files to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
-    */
-    private ?array $advancedThreatProtectionExcludedFiles = null;
-    
-    /**
-     * @var array<string>|null $advancedThreatProtectionExcludedFolders A list of paths to folders to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
-    */
-    private ?array $advancedThreatProtectionExcludedFolders = null;
-    
-    /**
-     * @var array<string>|null $advancedThreatProtectionExcludedProcesses A list of process names to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
-    */
-    private ?array $advancedThreatProtectionExcludedProcesses = null;
-    
-    /**
-     * @var Enablement|null $advancedThreatProtectionRealTime Possible values of a property
-    */
-    private ?Enablement $advancedThreatProtectionRealTime = null;
-    
-    /**
-     * @var bool|null $fileVaultAllowDeferralUntilSignOut Optional. If set to true, the user can defer the enabling of FileVault until they sign out.
-    */
-    private ?bool $fileVaultAllowDeferralUntilSignOut = null;
-    
-    /**
-     * @var bool|null $fileVaultDisablePromptAtSignOut Optional. When using the Defer option, if set to true, the user is not prompted to enable FileVault at sign-out.
-    */
-    private ?bool $fileVaultDisablePromptAtSignOut = null;
-    
-    /**
-     * @var bool|null $fileVaultEnabled Whether FileVault should be enabled or not.
-    */
-    private ?bool $fileVaultEnabled = null;
-    
-    /**
-     * @var bool|null $fileVaultHidePersonalRecoveryKey Optional. A hidden personal recovery key does not appear on the user's screen during FileVault encryption, reducing the risk of it ending up in the wrong hands.
-    */
-    private ?bool $fileVaultHidePersonalRecoveryKey = null;
-    
-    /**
-     * @var StreamInterface|null $fileVaultInstitutionalRecoveryKeyCertificate Required if selected recovery key type(s) include InstitutionalRecoveryKey. The DER Encoded certificate file used to set an institutional recovery key.
-    */
-    private ?StreamInterface $fileVaultInstitutionalRecoveryKeyCertificate = null;
-    
-    /**
-     * @var string|null $fileVaultInstitutionalRecoveryKeyCertificateFileName File name of the institutional recovery key certificate to display in UI. (.der).
-    */
-    private ?string $fileVaultInstitutionalRecoveryKeyCertificateFileName = null;
-    
-    /**
-     * @var int|null $fileVaultNumberOfTimesUserCanIgnore Optional. When using the Defer option, this is the maximum number of times the user can ignore prompts to enable FileVault before FileVault will be required for the user to sign in. If set to -1, it will always prompt to enable FileVault until FileVault is enabled, though it will allow the user to bypass enabling FileVault. Setting this to 0 will disable the feature.
-    */
-    private ?int $fileVaultNumberOfTimesUserCanIgnore = null;
-    
-    /**
-     * @var string|null $fileVaultPersonalRecoveryKeyHelpMessage Required if selected recovery key type(s) include PersonalRecoveryKey. A short message displayed to the user that explains how they can retrieve their personal recovery key.
-    */
-    private ?string $fileVaultPersonalRecoveryKeyHelpMessage = null;
-    
-    /**
-     * @var int|null $fileVaultPersonalRecoveryKeyRotationInMonths Optional. If selected recovery key type(s) include PersonalRecoveryKey, the frequency to rotate that key, in months.
-    */
-    private ?int $fileVaultPersonalRecoveryKeyRotationInMonths = null;
-    
-    /**
-     * @var MacOSFileVaultRecoveryKeyTypes|null $fileVaultSelectedRecoveryKeyTypes Recovery key types for macOS FileVault
-    */
-    private ?MacOSFileVaultRecoveryKeyTypes $fileVaultSelectedRecoveryKeyTypes = null;
-    
-    /**
-     * @var array<MacOSFirewallApplication>|null $firewallApplications List of applications with firewall settings. Firewall settings for applications not on this list are determined by the user. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $firewallApplications = null;
-    
-    /**
-     * @var bool|null $firewallBlockAllIncoming Corresponds to the 'Block all incoming connections' option.
-    */
-    private ?bool $firewallBlockAllIncoming = null;
-    
-    /**
-     * @var bool|null $firewallEnabled Whether the firewall should be enabled or not.
-    */
-    private ?bool $firewallEnabled = null;
-    
-    /**
-     * @var bool|null $firewallEnableStealthMode Corresponds to 'Enable stealth mode.'
-    */
-    private ?bool $firewallEnableStealthMode = null;
-    
-    /**
-     * @var MacOSGatekeeperAppSources|null $gatekeeperAllowedAppSource App source options for macOS Gatekeeper.
-    */
-    private ?MacOSGatekeeperAppSources $gatekeeperAllowedAppSource = null;
-    
-    /**
-     * @var bool|null $gatekeeperBlockOverride If set to true, the user override for Gatekeeper will be disabled.
-    */
-    private ?bool $gatekeeperBlockOverride = null;
-    
-    /**
      * Instantiates a new MacOSEndpointProtectionConfiguration and sets the default values.
     */
     public function __construct() {
@@ -151,7 +31,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAdvancedThreatProtectionAutomaticSampleSubmission(): ?Enablement {
-        return $this->advancedThreatProtectionAutomaticSampleSubmission;
+        return $this->getBackingStore()->get('advancedThreatProtectionAutomaticSampleSubmission');
     }
 
     /**
@@ -159,7 +39,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAdvancedThreatProtectionCloudDelivered(): ?Enablement {
-        return $this->advancedThreatProtectionCloudDelivered;
+        return $this->getBackingStore()->get('advancedThreatProtectionCloudDelivered');
     }
 
     /**
@@ -167,7 +47,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAdvancedThreatProtectionDiagnosticDataCollection(): ?Enablement {
-        return $this->advancedThreatProtectionDiagnosticDataCollection;
+        return $this->getBackingStore()->get('advancedThreatProtectionDiagnosticDataCollection');
     }
 
     /**
@@ -175,7 +55,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<string>|null
     */
     public function getAdvancedThreatProtectionExcludedExtensions(): ?array {
-        return $this->advancedThreatProtectionExcludedExtensions;
+        return $this->getBackingStore()->get('advancedThreatProtectionExcludedExtensions');
     }
 
     /**
@@ -183,7 +63,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<string>|null
     */
     public function getAdvancedThreatProtectionExcludedFiles(): ?array {
-        return $this->advancedThreatProtectionExcludedFiles;
+        return $this->getBackingStore()->get('advancedThreatProtectionExcludedFiles');
     }
 
     /**
@@ -191,7 +71,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<string>|null
     */
     public function getAdvancedThreatProtectionExcludedFolders(): ?array {
-        return $this->advancedThreatProtectionExcludedFolders;
+        return $this->getBackingStore()->get('advancedThreatProtectionExcludedFolders');
     }
 
     /**
@@ -199,7 +79,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<string>|null
     */
     public function getAdvancedThreatProtectionExcludedProcesses(): ?array {
-        return $this->advancedThreatProtectionExcludedProcesses;
+        return $this->getBackingStore()->get('advancedThreatProtectionExcludedProcesses');
     }
 
     /**
@@ -207,7 +87,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAdvancedThreatProtectionRealTime(): ?Enablement {
-        return $this->advancedThreatProtectionRealTime;
+        return $this->getBackingStore()->get('advancedThreatProtectionRealTime');
     }
 
     /**
@@ -249,7 +129,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFileVaultAllowDeferralUntilSignOut(): ?bool {
-        return $this->fileVaultAllowDeferralUntilSignOut;
+        return $this->getBackingStore()->get('fileVaultAllowDeferralUntilSignOut');
     }
 
     /**
@@ -257,7 +137,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFileVaultDisablePromptAtSignOut(): ?bool {
-        return $this->fileVaultDisablePromptAtSignOut;
+        return $this->getBackingStore()->get('fileVaultDisablePromptAtSignOut');
     }
 
     /**
@@ -265,7 +145,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFileVaultEnabled(): ?bool {
-        return $this->fileVaultEnabled;
+        return $this->getBackingStore()->get('fileVaultEnabled');
     }
 
     /**
@@ -273,15 +153,15 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFileVaultHidePersonalRecoveryKey(): ?bool {
-        return $this->fileVaultHidePersonalRecoveryKey;
+        return $this->getBackingStore()->get('fileVaultHidePersonalRecoveryKey');
     }
 
     /**
      * Gets the fileVaultInstitutionalRecoveryKeyCertificate property value. Required if selected recovery key type(s) include InstitutionalRecoveryKey. The DER Encoded certificate file used to set an institutional recovery key.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getFileVaultInstitutionalRecoveryKeyCertificate(): StreamInterface {
-        return $this->fileVaultInstitutionalRecoveryKeyCertificate;
+    public function getFileVaultInstitutionalRecoveryKeyCertificate(): ?StreamInterface {
+        return $this->getBackingStore()->get('fileVaultInstitutionalRecoveryKeyCertificate');
     }
 
     /**
@@ -289,7 +169,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return string|null
     */
     public function getFileVaultInstitutionalRecoveryKeyCertificateFileName(): ?string {
-        return $this->fileVaultInstitutionalRecoveryKeyCertificateFileName;
+        return $this->getBackingStore()->get('fileVaultInstitutionalRecoveryKeyCertificateFileName');
     }
 
     /**
@@ -297,7 +177,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return int|null
     */
     public function getFileVaultNumberOfTimesUserCanIgnore(): ?int {
-        return $this->fileVaultNumberOfTimesUserCanIgnore;
+        return $this->getBackingStore()->get('fileVaultNumberOfTimesUserCanIgnore');
     }
 
     /**
@@ -305,7 +185,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return string|null
     */
     public function getFileVaultPersonalRecoveryKeyHelpMessage(): ?string {
-        return $this->fileVaultPersonalRecoveryKeyHelpMessage;
+        return $this->getBackingStore()->get('fileVaultPersonalRecoveryKeyHelpMessage');
     }
 
     /**
@@ -313,7 +193,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return int|null
     */
     public function getFileVaultPersonalRecoveryKeyRotationInMonths(): ?int {
-        return $this->fileVaultPersonalRecoveryKeyRotationInMonths;
+        return $this->getBackingStore()->get('fileVaultPersonalRecoveryKeyRotationInMonths');
     }
 
     /**
@@ -321,7 +201,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return MacOSFileVaultRecoveryKeyTypes|null
     */
     public function getFileVaultSelectedRecoveryKeyTypes(): ?MacOSFileVaultRecoveryKeyTypes {
-        return $this->fileVaultSelectedRecoveryKeyTypes;
+        return $this->getBackingStore()->get('fileVaultSelectedRecoveryKeyTypes');
     }
 
     /**
@@ -329,7 +209,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return array<MacOSFirewallApplication>|null
     */
     public function getFirewallApplications(): ?array {
-        return $this->firewallApplications;
+        return $this->getBackingStore()->get('firewallApplications');
     }
 
     /**
@@ -337,7 +217,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFirewallBlockAllIncoming(): ?bool {
-        return $this->firewallBlockAllIncoming;
+        return $this->getBackingStore()->get('firewallBlockAllIncoming');
     }
 
     /**
@@ -345,7 +225,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFirewallEnabled(): ?bool {
-        return $this->firewallEnabled;
+        return $this->getBackingStore()->get('firewallEnabled');
     }
 
     /**
@@ -353,7 +233,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getFirewallEnableStealthMode(): ?bool {
-        return $this->firewallEnableStealthMode;
+        return $this->getBackingStore()->get('firewallEnableStealthMode');
     }
 
     /**
@@ -361,7 +241,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return MacOSGatekeeperAppSources|null
     */
     public function getGatekeeperAllowedAppSource(): ?MacOSGatekeeperAppSources {
-        return $this->gatekeeperAllowedAppSource;
+        return $this->getBackingStore()->get('gatekeeperAllowedAppSource');
     }
 
     /**
@@ -369,7 +249,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
      * @return bool|null
     */
     public function getGatekeeperBlockOverride(): ?bool {
-        return $this->gatekeeperBlockOverride;
+        return $this->getBackingStore()->get('gatekeeperBlockOverride');
     }
 
     /**
@@ -378,222 +258,222 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('advancedThreatProtectionAutomaticSampleSubmission', $this->advancedThreatProtectionAutomaticSampleSubmission);
-        $writer->writeEnumValue('advancedThreatProtectionCloudDelivered', $this->advancedThreatProtectionCloudDelivered);
-        $writer->writeEnumValue('advancedThreatProtectionDiagnosticDataCollection', $this->advancedThreatProtectionDiagnosticDataCollection);
-        $writer->writeCollectionOfPrimitiveValues('advancedThreatProtectionExcludedExtensions', $this->advancedThreatProtectionExcludedExtensions);
-        $writer->writeCollectionOfPrimitiveValues('advancedThreatProtectionExcludedFiles', $this->advancedThreatProtectionExcludedFiles);
-        $writer->writeCollectionOfPrimitiveValues('advancedThreatProtectionExcludedFolders', $this->advancedThreatProtectionExcludedFolders);
-        $writer->writeCollectionOfPrimitiveValues('advancedThreatProtectionExcludedProcesses', $this->advancedThreatProtectionExcludedProcesses);
-        $writer->writeEnumValue('advancedThreatProtectionRealTime', $this->advancedThreatProtectionRealTime);
-        $writer->writeBooleanValue('fileVaultAllowDeferralUntilSignOut', $this->fileVaultAllowDeferralUntilSignOut);
-        $writer->writeBooleanValue('fileVaultDisablePromptAtSignOut', $this->fileVaultDisablePromptAtSignOut);
-        $writer->writeBooleanValue('fileVaultEnabled', $this->fileVaultEnabled);
-        $writer->writeBooleanValue('fileVaultHidePersonalRecoveryKey', $this->fileVaultHidePersonalRecoveryKey);
-        $writer->writeBinaryContent('fileVaultInstitutionalRecoveryKeyCertificate', $this->fileVaultInstitutionalRecoveryKeyCertificate);
-        $writer->writeStringValue('fileVaultInstitutionalRecoveryKeyCertificateFileName', $this->fileVaultInstitutionalRecoveryKeyCertificateFileName);
-        $writer->writeIntegerValue('fileVaultNumberOfTimesUserCanIgnore', $this->fileVaultNumberOfTimesUserCanIgnore);
-        $writer->writeStringValue('fileVaultPersonalRecoveryKeyHelpMessage', $this->fileVaultPersonalRecoveryKeyHelpMessage);
-        $writer->writeIntegerValue('fileVaultPersonalRecoveryKeyRotationInMonths', $this->fileVaultPersonalRecoveryKeyRotationInMonths);
-        $writer->writeEnumValue('fileVaultSelectedRecoveryKeyTypes', $this->fileVaultSelectedRecoveryKeyTypes);
-        $writer->writeCollectionOfObjectValues('firewallApplications', $this->firewallApplications);
-        $writer->writeBooleanValue('firewallBlockAllIncoming', $this->firewallBlockAllIncoming);
-        $writer->writeBooleanValue('firewallEnabled', $this->firewallEnabled);
-        $writer->writeBooleanValue('firewallEnableStealthMode', $this->firewallEnableStealthMode);
-        $writer->writeEnumValue('gatekeeperAllowedAppSource', $this->gatekeeperAllowedAppSource);
-        $writer->writeBooleanValue('gatekeeperBlockOverride', $this->gatekeeperBlockOverride);
+        $writer->writeEnumValue('advancedThreatProtectionAutomaticSampleSubmission', $this->getAdvancedThreatProtectionAutomaticSampleSubmission());
+        $writer->writeEnumValue('advancedThreatProtectionCloudDelivered', $this->getAdvancedThreatProtectionCloudDelivered());
+        $writer->writeEnumValue('advancedThreatProtectionDiagnosticDataCollection', $this->getAdvancedThreatProtectionDiagnosticDataCollection());
+        $writer->writeCollectionOfPrimitiveValues('advancedThreatProtectionExcludedExtensions', $this->getAdvancedThreatProtectionExcludedExtensions());
+        $writer->writeCollectionOfPrimitiveValues('advancedThreatProtectionExcludedFiles', $this->getAdvancedThreatProtectionExcludedFiles());
+        $writer->writeCollectionOfPrimitiveValues('advancedThreatProtectionExcludedFolders', $this->getAdvancedThreatProtectionExcludedFolders());
+        $writer->writeCollectionOfPrimitiveValues('advancedThreatProtectionExcludedProcesses', $this->getAdvancedThreatProtectionExcludedProcesses());
+        $writer->writeEnumValue('advancedThreatProtectionRealTime', $this->getAdvancedThreatProtectionRealTime());
+        $writer->writeBooleanValue('fileVaultAllowDeferralUntilSignOut', $this->getFileVaultAllowDeferralUntilSignOut());
+        $writer->writeBooleanValue('fileVaultDisablePromptAtSignOut', $this->getFileVaultDisablePromptAtSignOut());
+        $writer->writeBooleanValue('fileVaultEnabled', $this->getFileVaultEnabled());
+        $writer->writeBooleanValue('fileVaultHidePersonalRecoveryKey', $this->getFileVaultHidePersonalRecoveryKey());
+        $writer->writeBinaryContent('fileVaultInstitutionalRecoveryKeyCertificate', $this->getFileVaultInstitutionalRecoveryKeyCertificate());
+        $writer->writeStringValue('fileVaultInstitutionalRecoveryKeyCertificateFileName', $this->getFileVaultInstitutionalRecoveryKeyCertificateFileName());
+        $writer->writeIntegerValue('fileVaultNumberOfTimesUserCanIgnore', $this->getFileVaultNumberOfTimesUserCanIgnore());
+        $writer->writeStringValue('fileVaultPersonalRecoveryKeyHelpMessage', $this->getFileVaultPersonalRecoveryKeyHelpMessage());
+        $writer->writeIntegerValue('fileVaultPersonalRecoveryKeyRotationInMonths', $this->getFileVaultPersonalRecoveryKeyRotationInMonths());
+        $writer->writeEnumValue('fileVaultSelectedRecoveryKeyTypes', $this->getFileVaultSelectedRecoveryKeyTypes());
+        $writer->writeCollectionOfObjectValues('firewallApplications', $this->getFirewallApplications());
+        $writer->writeBooleanValue('firewallBlockAllIncoming', $this->getFirewallBlockAllIncoming());
+        $writer->writeBooleanValue('firewallEnabled', $this->getFirewallEnabled());
+        $writer->writeBooleanValue('firewallEnableStealthMode', $this->getFirewallEnableStealthMode());
+        $writer->writeEnumValue('gatekeeperAllowedAppSource', $this->getGatekeeperAllowedAppSource());
+        $writer->writeBooleanValue('gatekeeperBlockOverride', $this->getGatekeeperBlockOverride());
     }
 
     /**
      * Sets the advancedThreatProtectionAutomaticSampleSubmission property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the advancedThreatProtectionAutomaticSampleSubmission property.
     */
-    public function setAdvancedThreatProtectionAutomaticSampleSubmission(?Enablement $value ): void {
-        $this->advancedThreatProtectionAutomaticSampleSubmission = $value;
+    public function setAdvancedThreatProtectionAutomaticSampleSubmission(?Enablement $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionAutomaticSampleSubmission', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionCloudDelivered property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the advancedThreatProtectionCloudDelivered property.
     */
-    public function setAdvancedThreatProtectionCloudDelivered(?Enablement $value ): void {
-        $this->advancedThreatProtectionCloudDelivered = $value;
+    public function setAdvancedThreatProtectionCloudDelivered(?Enablement $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionCloudDelivered', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionDiagnosticDataCollection property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the advancedThreatProtectionDiagnosticDataCollection property.
     */
-    public function setAdvancedThreatProtectionDiagnosticDataCollection(?Enablement $value ): void {
-        $this->advancedThreatProtectionDiagnosticDataCollection = $value;
+    public function setAdvancedThreatProtectionDiagnosticDataCollection(?Enablement $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionDiagnosticDataCollection', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionExcludedExtensions property value. A list of file extensions to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
      *  @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedExtensions property.
     */
-    public function setAdvancedThreatProtectionExcludedExtensions(?array $value ): void {
-        $this->advancedThreatProtectionExcludedExtensions = $value;
+    public function setAdvancedThreatProtectionExcludedExtensions(?array $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionExcludedExtensions', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionExcludedFiles property value. A list of paths to files to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
      *  @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedFiles property.
     */
-    public function setAdvancedThreatProtectionExcludedFiles(?array $value ): void {
-        $this->advancedThreatProtectionExcludedFiles = $value;
+    public function setAdvancedThreatProtectionExcludedFiles(?array $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionExcludedFiles', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionExcludedFolders property value. A list of paths to folders to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
      *  @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedFolders property.
     */
-    public function setAdvancedThreatProtectionExcludedFolders(?array $value ): void {
-        $this->advancedThreatProtectionExcludedFolders = $value;
+    public function setAdvancedThreatProtectionExcludedFolders(?array $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionExcludedFolders', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionExcludedProcesses property value. A list of process names to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
      *  @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedProcesses property.
     */
-    public function setAdvancedThreatProtectionExcludedProcesses(?array $value ): void {
-        $this->advancedThreatProtectionExcludedProcesses = $value;
+    public function setAdvancedThreatProtectionExcludedProcesses(?array $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionExcludedProcesses', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionRealTime property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the advancedThreatProtectionRealTime property.
     */
-    public function setAdvancedThreatProtectionRealTime(?Enablement $value ): void {
-        $this->advancedThreatProtectionRealTime = $value;
+    public function setAdvancedThreatProtectionRealTime(?Enablement $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionRealTime', $value);
     }
 
     /**
      * Sets the fileVaultAllowDeferralUntilSignOut property value. Optional. If set to true, the user can defer the enabling of FileVault until they sign out.
      *  @param bool|null $value Value to set for the fileVaultAllowDeferralUntilSignOut property.
     */
-    public function setFileVaultAllowDeferralUntilSignOut(?bool $value ): void {
-        $this->fileVaultAllowDeferralUntilSignOut = $value;
+    public function setFileVaultAllowDeferralUntilSignOut(?bool $value): void {
+        $this->getBackingStore()->set('fileVaultAllowDeferralUntilSignOut', $value);
     }
 
     /**
      * Sets the fileVaultDisablePromptAtSignOut property value. Optional. When using the Defer option, if set to true, the user is not prompted to enable FileVault at sign-out.
      *  @param bool|null $value Value to set for the fileVaultDisablePromptAtSignOut property.
     */
-    public function setFileVaultDisablePromptAtSignOut(?bool $value ): void {
-        $this->fileVaultDisablePromptAtSignOut = $value;
+    public function setFileVaultDisablePromptAtSignOut(?bool $value): void {
+        $this->getBackingStore()->set('fileVaultDisablePromptAtSignOut', $value);
     }
 
     /**
      * Sets the fileVaultEnabled property value. Whether FileVault should be enabled or not.
      *  @param bool|null $value Value to set for the fileVaultEnabled property.
     */
-    public function setFileVaultEnabled(?bool $value ): void {
-        $this->fileVaultEnabled = $value;
+    public function setFileVaultEnabled(?bool $value): void {
+        $this->getBackingStore()->set('fileVaultEnabled', $value);
     }
 
     /**
      * Sets the fileVaultHidePersonalRecoveryKey property value. Optional. A hidden personal recovery key does not appear on the user's screen during FileVault encryption, reducing the risk of it ending up in the wrong hands.
      *  @param bool|null $value Value to set for the fileVaultHidePersonalRecoveryKey property.
     */
-    public function setFileVaultHidePersonalRecoveryKey(?bool $value ): void {
-        $this->fileVaultHidePersonalRecoveryKey = $value;
+    public function setFileVaultHidePersonalRecoveryKey(?bool $value): void {
+        $this->getBackingStore()->set('fileVaultHidePersonalRecoveryKey', $value);
     }
 
     /**
      * Sets the fileVaultInstitutionalRecoveryKeyCertificate property value. Required if selected recovery key type(s) include InstitutionalRecoveryKey. The DER Encoded certificate file used to set an institutional recovery key.
      *  @param StreamInterface|null $value Value to set for the fileVaultInstitutionalRecoveryKeyCertificate property.
     */
-    public function setFileVaultInstitutionalRecoveryKeyCertificate(?StreamInterface $value ): void {
-        $this->fileVaultInstitutionalRecoveryKeyCertificate = $value;
+    public function setFileVaultInstitutionalRecoveryKeyCertificate(?StreamInterface $value): void {
+        $this->getBackingStore()->set('fileVaultInstitutionalRecoveryKeyCertificate', $value);
     }
 
     /**
      * Sets the fileVaultInstitutionalRecoveryKeyCertificateFileName property value. File name of the institutional recovery key certificate to display in UI. (.der).
      *  @param string|null $value Value to set for the fileVaultInstitutionalRecoveryKeyCertificateFileName property.
     */
-    public function setFileVaultInstitutionalRecoveryKeyCertificateFileName(?string $value ): void {
-        $this->fileVaultInstitutionalRecoveryKeyCertificateFileName = $value;
+    public function setFileVaultInstitutionalRecoveryKeyCertificateFileName(?string $value): void {
+        $this->getBackingStore()->set('fileVaultInstitutionalRecoveryKeyCertificateFileName', $value);
     }
 
     /**
      * Sets the fileVaultNumberOfTimesUserCanIgnore property value. Optional. When using the Defer option, this is the maximum number of times the user can ignore prompts to enable FileVault before FileVault will be required for the user to sign in. If set to -1, it will always prompt to enable FileVault until FileVault is enabled, though it will allow the user to bypass enabling FileVault. Setting this to 0 will disable the feature.
      *  @param int|null $value Value to set for the fileVaultNumberOfTimesUserCanIgnore property.
     */
-    public function setFileVaultNumberOfTimesUserCanIgnore(?int $value ): void {
-        $this->fileVaultNumberOfTimesUserCanIgnore = $value;
+    public function setFileVaultNumberOfTimesUserCanIgnore(?int $value): void {
+        $this->getBackingStore()->set('fileVaultNumberOfTimesUserCanIgnore', $value);
     }
 
     /**
      * Sets the fileVaultPersonalRecoveryKeyHelpMessage property value. Required if selected recovery key type(s) include PersonalRecoveryKey. A short message displayed to the user that explains how they can retrieve their personal recovery key.
      *  @param string|null $value Value to set for the fileVaultPersonalRecoveryKeyHelpMessage property.
     */
-    public function setFileVaultPersonalRecoveryKeyHelpMessage(?string $value ): void {
-        $this->fileVaultPersonalRecoveryKeyHelpMessage = $value;
+    public function setFileVaultPersonalRecoveryKeyHelpMessage(?string $value): void {
+        $this->getBackingStore()->set('fileVaultPersonalRecoveryKeyHelpMessage', $value);
     }
 
     /**
      * Sets the fileVaultPersonalRecoveryKeyRotationInMonths property value. Optional. If selected recovery key type(s) include PersonalRecoveryKey, the frequency to rotate that key, in months.
      *  @param int|null $value Value to set for the fileVaultPersonalRecoveryKeyRotationInMonths property.
     */
-    public function setFileVaultPersonalRecoveryKeyRotationInMonths(?int $value ): void {
-        $this->fileVaultPersonalRecoveryKeyRotationInMonths = $value;
+    public function setFileVaultPersonalRecoveryKeyRotationInMonths(?int $value): void {
+        $this->getBackingStore()->set('fileVaultPersonalRecoveryKeyRotationInMonths', $value);
     }
 
     /**
      * Sets the fileVaultSelectedRecoveryKeyTypes property value. Recovery key types for macOS FileVault
      *  @param MacOSFileVaultRecoveryKeyTypes|null $value Value to set for the fileVaultSelectedRecoveryKeyTypes property.
     */
-    public function setFileVaultSelectedRecoveryKeyTypes(?MacOSFileVaultRecoveryKeyTypes $value ): void {
-        $this->fileVaultSelectedRecoveryKeyTypes = $value;
+    public function setFileVaultSelectedRecoveryKeyTypes(?MacOSFileVaultRecoveryKeyTypes $value): void {
+        $this->getBackingStore()->set('fileVaultSelectedRecoveryKeyTypes', $value);
     }
 
     /**
      * Sets the firewallApplications property value. List of applications with firewall settings. Firewall settings for applications not on this list are determined by the user. This collection can contain a maximum of 500 elements.
      *  @param array<MacOSFirewallApplication>|null $value Value to set for the firewallApplications property.
     */
-    public function setFirewallApplications(?array $value ): void {
-        $this->firewallApplications = $value;
+    public function setFirewallApplications(?array $value): void {
+        $this->getBackingStore()->set('firewallApplications', $value);
     }
 
     /**
      * Sets the firewallBlockAllIncoming property value. Corresponds to the 'Block all incoming connections' option.
      *  @param bool|null $value Value to set for the firewallBlockAllIncoming property.
     */
-    public function setFirewallBlockAllIncoming(?bool $value ): void {
-        $this->firewallBlockAllIncoming = $value;
+    public function setFirewallBlockAllIncoming(?bool $value): void {
+        $this->getBackingStore()->set('firewallBlockAllIncoming', $value);
     }
 
     /**
      * Sets the firewallEnabled property value. Whether the firewall should be enabled or not.
      *  @param bool|null $value Value to set for the firewallEnabled property.
     */
-    public function setFirewallEnabled(?bool $value ): void {
-        $this->firewallEnabled = $value;
+    public function setFirewallEnabled(?bool $value): void {
+        $this->getBackingStore()->set('firewallEnabled', $value);
     }
 
     /**
      * Sets the firewallEnableStealthMode property value. Corresponds to 'Enable stealth mode.'
      *  @param bool|null $value Value to set for the firewallEnableStealthMode property.
     */
-    public function setFirewallEnableStealthMode(?bool $value ): void {
-        $this->firewallEnableStealthMode = $value;
+    public function setFirewallEnableStealthMode(?bool $value): void {
+        $this->getBackingStore()->set('firewallEnableStealthMode', $value);
     }
 
     /**
      * Sets the gatekeeperAllowedAppSource property value. App source options for macOS Gatekeeper.
      *  @param MacOSGatekeeperAppSources|null $value Value to set for the gatekeeperAllowedAppSource property.
     */
-    public function setGatekeeperAllowedAppSource(?MacOSGatekeeperAppSources $value ): void {
-        $this->gatekeeperAllowedAppSource = $value;
+    public function setGatekeeperAllowedAppSource(?MacOSGatekeeperAppSources $value): void {
+        $this->getBackingStore()->set('gatekeeperAllowedAppSource', $value);
     }
 
     /**
      * Sets the gatekeeperBlockOverride property value. If set to true, the user override for Gatekeeper will be disabled.
      *  @param bool|null $value Value to set for the gatekeeperBlockOverride property.
     */
-    public function setGatekeeperBlockOverride(?bool $value ): void {
-        $this->gatekeeperBlockOverride = $value;
+    public function setGatekeeperBlockOverride(?bool $value): void {
+        $this->getBackingStore()->set('gatekeeperBlockOverride', $value);
     }
 
 }

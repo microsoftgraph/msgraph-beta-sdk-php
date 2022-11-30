@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosDerivedCredentialAuthenticationConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var DeviceManagementDerivedCredentialSettings|null $derivedCredentialSettings Tenant level settings for the Derived Credentials to be used for authentication.
-    */
-    private ?DeviceManagementDerivedCredentialSettings $derivedCredentialSettings = null;
-    
-    /**
      * Instantiates a new IosDerivedCredentialAuthenticationConfiguration and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class IosDerivedCredentialAuthenticationConfiguration extends DeviceConfiguratio
      * @return DeviceManagementDerivedCredentialSettings|null
     */
     public function getDerivedCredentialSettings(): ?DeviceManagementDerivedCredentialSettings {
-        return $this->derivedCredentialSettings;
+        return $this->getBackingStore()->get('derivedCredentialSettings');
     }
 
     /**
@@ -55,15 +50,15 @@ class IosDerivedCredentialAuthenticationConfiguration extends DeviceConfiguratio
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('derivedCredentialSettings', $this->derivedCredentialSettings);
+        $writer->writeObjectValue('derivedCredentialSettings', $this->getDerivedCredentialSettings());
     }
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
      *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
-    public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value ): void {
-        $this->derivedCredentialSettings = $value;
+    public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
+        $this->getBackingStore()->set('derivedCredentialSettings', $value);
     }
 
 }

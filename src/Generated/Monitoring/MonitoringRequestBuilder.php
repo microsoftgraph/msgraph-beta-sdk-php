@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MonitoringRequestBuilder 
 {
     /**
-     * The alertRecords property
+     * Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.
     */
     public function alertRecords(): AlertRecordsRequestBuilder {
         return new AlertRecordsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The alertRules property
+     * Provides operations to manage the alertRules property of the microsoft.graph.deviceManagement.monitoring entity.
     */
     public function alertRules(): AlertRulesRequestBuilder {
         return new AlertRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -51,7 +51,7 @@ class MonitoringRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.monitoring.alertRecords.item collection
+     * Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.
      * @param string $id Unique identifier of the item
      * @return AlertRecordItemRequestBuilder
     */
@@ -62,7 +62,7 @@ class MonitoringRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.monitoring.alertRules.item collection
+     * Provides operations to manage the alertRules property of the microsoft.graph.deviceManagement.monitoring entity.
      * @param string $id Unique identifier of the item
      * @return AlertRuleItemRequestBuilder
     */

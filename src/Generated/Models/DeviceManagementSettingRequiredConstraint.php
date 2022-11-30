@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var string|null $notConfiguredValue List of value which means not configured for the setting
-    */
-    private ?string $notConfiguredValue = null;
-    
-    /**
      * Instantiates a new DeviceManagementSettingRequiredConstraint and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstrai
      * @return string|null
     */
     public function getNotConfiguredValue(): ?string {
-        return $this->notConfiguredValue;
+        return $this->getBackingStore()->get('notConfiguredValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstrai
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('notConfiguredValue', $this->notConfiguredValue);
+        $writer->writeStringValue('notConfiguredValue', $this->getNotConfiguredValue());
     }
 
     /**
      * Sets the notConfiguredValue property value. List of value which means not configured for the setting
      *  @param string|null $value Value to set for the notConfiguredValue property.
     */
-    public function setNotConfiguredValue(?string $value ): void {
-        $this->notConfiguredValue = $value;
+    public function setNotConfiguredValue(?string $value): void {
+        $this->getBackingStore()->set('notConfiguredValue', $value);
     }
 
 }

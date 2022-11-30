@@ -24,21 +24,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TermsAndConditionsItemRequestBuilder 
 {
     /**
-     * The acceptanceStatuses property
+     * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
     */
     public function acceptanceStatuses(): AcceptanceStatusesRequestBuilder {
         return new AcceptanceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupAssignments property
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.termsAndConditions entity.
     */
     public function groupAssignments(): GroupAssignmentsRequestBuilder {
         return new GroupAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -60,7 +60,7 @@ class TermsAndConditionsItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.termsAndConditions.item.acceptanceStatuses.item collection
+     * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
      * @param string $id Unique identifier of the item
      * @return TermsAndConditionsAcceptanceStatusItemRequestBuilder
     */
@@ -71,7 +71,7 @@ class TermsAndConditionsItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.termsAndConditions.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.
      * @param string $id Unique identifier of the item
      * @return TermsAndConditionsAssignmentItemRequestBuilder
     */
@@ -201,7 +201,7 @@ class TermsAndConditionsItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.termsAndConditions.item.groupAssignments.item collection
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.termsAndConditions entity.
      * @param string $id Unique identifier of the item
      * @return TermsAndConditionsGroupAssignmentItemRequestBuilder
     */

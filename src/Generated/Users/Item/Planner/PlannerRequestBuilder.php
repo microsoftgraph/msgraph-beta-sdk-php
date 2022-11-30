@@ -30,14 +30,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PlannerRequestBuilder 
 {
     /**
-     * The all property
+     * Provides operations to manage the all property of the microsoft.graph.plannerUser entity.
     */
     public function all(): AllRequestBuilder {
         return new AllRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The favoritePlans property
+     * Provides operations to manage the favoritePlans property of the microsoft.graph.plannerUser entity.
     */
     public function favoritePlans(): FavoritePlansRequestBuilder {
         return new FavoritePlansRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -49,14 +49,14 @@ class PlannerRequestBuilder
     private array $pathParameters;
     
     /**
-     * The plans property
+     * Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.
     */
     public function plans(): PlansRequestBuilder {
         return new PlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The recentPlans property
+     * Provides operations to manage the recentPlans property of the microsoft.graph.plannerUser entity.
     */
     public function recentPlans(): RecentPlansRequestBuilder {
         return new RecentPlansRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -68,14 +68,14 @@ class PlannerRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The rosterPlans property
+     * Provides operations to manage the rosterPlans property of the microsoft.graph.plannerUser entity.
     */
     public function rosterPlans(): RosterPlansRequestBuilder {
         return new RosterPlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tasks property
+     * Provides operations to manage the tasks property of the microsoft.graph.plannerUser entity.
     */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -87,7 +87,7 @@ class PlannerRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.planner.all.item collection
+     * Provides operations to manage the all property of the microsoft.graph.plannerUser entity.
      * @param string $id Unique identifier of the item
      * @return PlannerDeltaItemRequestBuilder
     */
@@ -198,7 +198,7 @@ class PlannerRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.planner.favoritePlans.item collection
+     * Provides operations to manage the favoritePlans property of the microsoft.graph.plannerUser entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedUsersItemPlannerFavoritePlansItemPlannerPlanItemRequestBuilder
     */
@@ -248,7 +248,7 @@ class PlannerRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.planner.plans.item collection
+     * Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedUsersItemPlannerPlansItemPlannerPlanItemRequestBuilder
     */
@@ -259,7 +259,7 @@ class PlannerRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.planner.recentPlans.item collection
+     * Provides operations to manage the recentPlans property of the microsoft.graph.plannerUser entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedUsersItemPlannerRecentPlansItemPlannerPlanItemRequestBuilder
     */
@@ -270,7 +270,7 @@ class PlannerRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.planner.rosterPlans.item collection
+     * Provides operations to manage the rosterPlans property of the microsoft.graph.plannerUser entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedUsersItemPlannerRosterPlansItemPlannerPlanItemRequestBuilder
     */
@@ -281,7 +281,7 @@ class PlannerRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.planner.tasks.item collection
+     * Provides operations to manage the tasks property of the microsoft.graph.plannerUser entity.
      * @param string $id Unique identifier of the item
      * @return PlannerTaskItemRequestBuilder
     */

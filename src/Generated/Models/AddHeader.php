@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddHeader extends MarkContent implements Parsable 
 {
     /**
-     * @var Alignment|null $alignment The alignment property
-    */
-    private ?Alignment $alignment = null;
-    
-    /**
-     * @var int|null $margin The margin property
-    */
-    private ?int $margin = null;
-    
-    /**
      * Instantiates a new AddHeader and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class AddHeader extends MarkContent implements Parsable
      * @return Alignment|null
     */
     public function getAlignment(): ?Alignment {
-        return $this->alignment;
+        return $this->getBackingStore()->get('alignment');
     }
 
     /**
@@ -60,7 +50,7 @@ class AddHeader extends MarkContent implements Parsable
      * @return int|null
     */
     public function getMargin(): ?int {
-        return $this->margin;
+        return $this->getBackingStore()->get('margin');
     }
 
     /**
@@ -69,24 +59,24 @@ class AddHeader extends MarkContent implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('alignment', $this->alignment);
-        $writer->writeIntegerValue('margin', $this->margin);
+        $writer->writeEnumValue('alignment', $this->getAlignment());
+        $writer->writeIntegerValue('margin', $this->getMargin());
     }
 
     /**
      * Sets the alignment property value. The alignment property
      *  @param Alignment|null $value Value to set for the alignment property.
     */
-    public function setAlignment(?Alignment $value ): void {
-        $this->alignment = $value;
+    public function setAlignment(?Alignment $value): void {
+        $this->getBackingStore()->set('alignment', $value);
     }
 
     /**
      * Sets the margin property value. The margin property
      *  @param int|null $value Value to set for the margin property.
     */
-    public function setMargin(?int $value ): void {
-        $this->margin = $value;
+    public function setMargin(?int $value): void {
+        $this->getBackingStore()->set('margin', $value);
     }
 
 }

@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserSignInInsight extends GovernanceInsight implements Parsable 
 {
     /**
-     * @var DateTime|null $lastSignInDateTime Indicates when the user last signed in
-    */
-    private ?DateTime $lastSignInDateTime = null;
-    
-    /**
      * Instantiates a new UserSignInInsight and sets the default values.
     */
     public function __construct() {
@@ -47,7 +42,7 @@ class UserSignInInsight extends GovernanceInsight implements Parsable
      * @return DateTime|null
     */
     public function getLastSignInDateTime(): ?DateTime {
-        return $this->lastSignInDateTime;
+        return $this->getBackingStore()->get('lastSignInDateTime');
     }
 
     /**
@@ -56,15 +51,15 @@ class UserSignInInsight extends GovernanceInsight implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('lastSignInDateTime', $this->lastSignInDateTime);
+        $writer->writeDateTimeValue('lastSignInDateTime', $this->getLastSignInDateTime());
     }
 
     /**
      * Sets the lastSignInDateTime property value. Indicates when the user last signed in
      *  @param DateTime|null $value Value to set for the lastSignInDateTime property.
     */
-    public function setLastSignInDateTime(?DateTime $value ): void {
-        $this->lastSignInDateTime = $value;
+    public function setLastSignInDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSignInDateTime', $value);
     }
 
 }

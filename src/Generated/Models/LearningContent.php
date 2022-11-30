@@ -11,101 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LearningContent extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $additionalTags Keywords, topics, and other tags associated with the learning content. Optional.
-    */
-    private ?array $additionalTags = null;
-    
-    /**
-     * @var string|null $contentWebUrl The content web URL for the learning content. Required.
-    */
-    private ?string $contentWebUrl = null;
-    
-    /**
-     * @var array<string>|null $contributors The authors, creators, or contributors of the learning content. Optional.
-    */
-    private ?array $contributors = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description The description or summary for the learning content. Optional.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var DateInterval|null $duration The duration of the learning content in seconds. The value is represented in ISO 8601 format for durations. Optional.
-    */
-    private ?DateInterval $duration = null;
-    
-    /**
-     * @var string|null $externalId Unique external content ID for the learning content. Required.
-    */
-    private ?string $externalId = null;
-    
-    /**
-     * @var string|null $format The format of the learning content. For example, Course, Video, Book, Book Summary, Audiobook Summary. Optional.
-    */
-    private ?string $format = null;
-    
-    /**
-     * @var bool|null $isActive Indicates whether the content is active or not. Inactive content will not show up in the UI. The default value is true. Optional.
-    */
-    private ?bool $isActive = null;
-    
-    /**
-     * @var bool|null $isPremium Indicates whether the learning content requires the user to sign-in on the learning provider platform or not. The default value is false. Optional.
-    */
-    private ?bool $isPremium = null;
-    
-    /**
-     * @var bool|null $isSearchable Indicates whether the learning content is searchable or not. The default value is true. Optional.
-    */
-    private ?bool $isSearchable = null;
-    
-    /**
-     * @var string|null $languageTag The language of the learning content, for example, en-us or fr-fr. Required.
-    */
-    private ?string $languageTag = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var int|null $numberOfPages The number of pages of the learning content, for example, 9. Optional.
-    */
-    private ?int $numberOfPages = null;
-    
-    /**
-     * @var array<string>|null $skillTags The skills tags associated with the learning content. Optional.
-    */
-    private ?array $skillTags = null;
-    
-    /**
-     * @var string|null $sourceName The source name of the learning content, such as LinkedIn Learning or Coursera. Optional.
-    */
-    private ?string $sourceName = null;
-    
-    /**
-     * @var string|null $thumbnailWebUrl The URL of learning content thumbnail image. Optional.
-    */
-    private ?string $thumbnailWebUrl = null;
-    
-    /**
-     * @var string|null $title The title of the learning content. Required.
-    */
-    private ?string $title = null;
-    
-    /**
      * Instantiates a new learningContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.learningContent');
     }
 
     /**
@@ -122,7 +31,7 @@ class LearningContent extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAdditionalTags(): ?array {
-        return $this->additionalTags;
+        return $this->getBackingStore()->get('additionalTags');
     }
 
     /**
@@ -130,7 +39,7 @@ class LearningContent extends Entity implements Parsable
      * @return string|null
     */
     public function getContentWebUrl(): ?string {
-        return $this->contentWebUrl;
+        return $this->getBackingStore()->get('contentWebUrl');
     }
 
     /**
@@ -138,7 +47,7 @@ class LearningContent extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getContributors(): ?array {
-        return $this->contributors;
+        return $this->getBackingStore()->get('contributors');
     }
 
     /**
@@ -146,7 +55,7 @@ class LearningContent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -154,7 +63,7 @@ class LearningContent extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -162,7 +71,7 @@ class LearningContent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDuration(): ?DateInterval {
-        return $this->duration;
+        return $this->getBackingStore()->get('duration');
     }
 
     /**
@@ -170,7 +79,7 @@ class LearningContent extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalId(): ?string {
-        return $this->externalId;
+        return $this->getBackingStore()->get('externalId');
     }
 
     /**
@@ -206,7 +115,7 @@ class LearningContent extends Entity implements Parsable
      * @return string|null
     */
     public function getFormat(): ?string {
-        return $this->format;
+        return $this->getBackingStore()->get('format');
     }
 
     /**
@@ -214,7 +123,7 @@ class LearningContent extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsActive(): ?bool {
-        return $this->isActive;
+        return $this->getBackingStore()->get('isActive');
     }
 
     /**
@@ -222,7 +131,7 @@ class LearningContent extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsPremium(): ?bool {
-        return $this->isPremium;
+        return $this->getBackingStore()->get('isPremium');
     }
 
     /**
@@ -230,7 +139,7 @@ class LearningContent extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSearchable(): ?bool {
-        return $this->isSearchable;
+        return $this->getBackingStore()->get('isSearchable');
     }
 
     /**
@@ -238,7 +147,7 @@ class LearningContent extends Entity implements Parsable
      * @return string|null
     */
     public function getLanguageTag(): ?string {
-        return $this->languageTag;
+        return $this->getBackingStore()->get('languageTag');
     }
 
     /**
@@ -246,7 +155,7 @@ class LearningContent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -254,7 +163,7 @@ class LearningContent extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfPages(): ?int {
-        return $this->numberOfPages;
+        return $this->getBackingStore()->get('numberOfPages');
     }
 
     /**
@@ -262,7 +171,7 @@ class LearningContent extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSkillTags(): ?array {
-        return $this->skillTags;
+        return $this->getBackingStore()->get('skillTags');
     }
 
     /**
@@ -270,7 +179,7 @@ class LearningContent extends Entity implements Parsable
      * @return string|null
     */
     public function getSourceName(): ?string {
-        return $this->sourceName;
+        return $this->getBackingStore()->get('sourceName');
     }
 
     /**
@@ -278,7 +187,7 @@ class LearningContent extends Entity implements Parsable
      * @return string|null
     */
     public function getThumbnailWebUrl(): ?string {
-        return $this->thumbnailWebUrl;
+        return $this->getBackingStore()->get('thumbnailWebUrl');
     }
 
     /**
@@ -286,7 +195,7 @@ class LearningContent extends Entity implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->title;
+        return $this->getBackingStore()->get('title');
     }
 
     /**
@@ -295,168 +204,168 @@ class LearningContent extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('additionalTags', $this->additionalTags);
-        $writer->writeStringValue('contentWebUrl', $this->contentWebUrl);
-        $writer->writeCollectionOfPrimitiveValues('contributors', $this->contributors);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeDateIntervalValue('duration', $this->duration);
-        $writer->writeStringValue('externalId', $this->externalId);
-        $writer->writeStringValue('format', $this->format);
-        $writer->writeBooleanValue('isActive', $this->isActive);
-        $writer->writeBooleanValue('isPremium', $this->isPremium);
-        $writer->writeBooleanValue('isSearchable', $this->isSearchable);
-        $writer->writeStringValue('languageTag', $this->languageTag);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeIntegerValue('numberOfPages', $this->numberOfPages);
-        $writer->writeCollectionOfPrimitiveValues('skillTags', $this->skillTags);
-        $writer->writeStringValue('sourceName', $this->sourceName);
-        $writer->writeStringValue('thumbnailWebUrl', $this->thumbnailWebUrl);
-        $writer->writeStringValue('title', $this->title);
+        $writer->writeCollectionOfPrimitiveValues('additionalTags', $this->getAdditionalTags());
+        $writer->writeStringValue('contentWebUrl', $this->getContentWebUrl());
+        $writer->writeCollectionOfPrimitiveValues('contributors', $this->getContributors());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeDateIntervalValue('duration', $this->getDuration());
+        $writer->writeStringValue('externalId', $this->getExternalId());
+        $writer->writeStringValue('format', $this->getFormat());
+        $writer->writeBooleanValue('isActive', $this->getIsActive());
+        $writer->writeBooleanValue('isPremium', $this->getIsPremium());
+        $writer->writeBooleanValue('isSearchable', $this->getIsSearchable());
+        $writer->writeStringValue('languageTag', $this->getLanguageTag());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeIntegerValue('numberOfPages', $this->getNumberOfPages());
+        $writer->writeCollectionOfPrimitiveValues('skillTags', $this->getSkillTags());
+        $writer->writeStringValue('sourceName', $this->getSourceName());
+        $writer->writeStringValue('thumbnailWebUrl', $this->getThumbnailWebUrl());
+        $writer->writeStringValue('title', $this->getTitle());
     }
 
     /**
      * Sets the additionalTags property value. Keywords, topics, and other tags associated with the learning content. Optional.
      *  @param array<string>|null $value Value to set for the additionalTags property.
     */
-    public function setAdditionalTags(?array $value ): void {
-        $this->additionalTags = $value;
+    public function setAdditionalTags(?array $value): void {
+        $this->getBackingStore()->set('additionalTags', $value);
     }
 
     /**
      * Sets the contentWebUrl property value. The content web URL for the learning content. Required.
      *  @param string|null $value Value to set for the contentWebUrl property.
     */
-    public function setContentWebUrl(?string $value ): void {
-        $this->contentWebUrl = $value;
+    public function setContentWebUrl(?string $value): void {
+        $this->getBackingStore()->set('contentWebUrl', $value);
     }
 
     /**
      * Sets the contributors property value. The authors, creators, or contributors of the learning content. Optional.
      *  @param array<string>|null $value Value to set for the contributors property.
     */
-    public function setContributors(?array $value ): void {
-        $this->contributors = $value;
+    public function setContributors(?array $value): void {
+        $this->getBackingStore()->set('contributors', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. The description or summary for the learning content. Optional.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the duration property value. The duration of the learning content in seconds. The value is represented in ISO 8601 format for durations. Optional.
      *  @param DateInterval|null $value Value to set for the duration property.
     */
-    public function setDuration(?DateInterval $value ): void {
-        $this->duration = $value;
+    public function setDuration(?DateInterval $value): void {
+        $this->getBackingStore()->set('duration', $value);
     }
 
     /**
      * Sets the externalId property value. Unique external content ID for the learning content. Required.
      *  @param string|null $value Value to set for the externalId property.
     */
-    public function setExternalId(?string $value ): void {
-        $this->externalId = $value;
+    public function setExternalId(?string $value): void {
+        $this->getBackingStore()->set('externalId', $value);
     }
 
     /**
      * Sets the format property value. The format of the learning content. For example, Course, Video, Book, Book Summary, Audiobook Summary. Optional.
      *  @param string|null $value Value to set for the format property.
     */
-    public function setFormat(?string $value ): void {
-        $this->format = $value;
+    public function setFormat(?string $value): void {
+        $this->getBackingStore()->set('format', $value);
     }
 
     /**
      * Sets the isActive property value. Indicates whether the content is active or not. Inactive content will not show up in the UI. The default value is true. Optional.
      *  @param bool|null $value Value to set for the isActive property.
     */
-    public function setIsActive(?bool $value ): void {
-        $this->isActive = $value;
+    public function setIsActive(?bool $value): void {
+        $this->getBackingStore()->set('isActive', $value);
     }
 
     /**
      * Sets the isPremium property value. Indicates whether the learning content requires the user to sign-in on the learning provider platform or not. The default value is false. Optional.
      *  @param bool|null $value Value to set for the isPremium property.
     */
-    public function setIsPremium(?bool $value ): void {
-        $this->isPremium = $value;
+    public function setIsPremium(?bool $value): void {
+        $this->getBackingStore()->set('isPremium', $value);
     }
 
     /**
      * Sets the isSearchable property value. Indicates whether the learning content is searchable or not. The default value is true. Optional.
      *  @param bool|null $value Value to set for the isSearchable property.
     */
-    public function setIsSearchable(?bool $value ): void {
-        $this->isSearchable = $value;
+    public function setIsSearchable(?bool $value): void {
+        $this->getBackingStore()->set('isSearchable', $value);
     }
 
     /**
      * Sets the languageTag property value. The language of the learning content, for example, en-us or fr-fr. Required.
      *  @param string|null $value Value to set for the languageTag property.
     */
-    public function setLanguageTag(?string $value ): void {
-        $this->languageTag = $value;
+    public function setLanguageTag(?string $value): void {
+        $this->getBackingStore()->set('languageTag', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the numberOfPages property value. The number of pages of the learning content, for example, 9. Optional.
      *  @param int|null $value Value to set for the numberOfPages property.
     */
-    public function setNumberOfPages(?int $value ): void {
-        $this->numberOfPages = $value;
+    public function setNumberOfPages(?int $value): void {
+        $this->getBackingStore()->set('numberOfPages', $value);
     }
 
     /**
      * Sets the skillTags property value. The skills tags associated with the learning content. Optional.
      *  @param array<string>|null $value Value to set for the skillTags property.
     */
-    public function setSkillTags(?array $value ): void {
-        $this->skillTags = $value;
+    public function setSkillTags(?array $value): void {
+        $this->getBackingStore()->set('skillTags', $value);
     }
 
     /**
      * Sets the sourceName property value. The source name of the learning content, such as LinkedIn Learning or Coursera. Optional.
      *  @param string|null $value Value to set for the sourceName property.
     */
-    public function setSourceName(?string $value ): void {
-        $this->sourceName = $value;
+    public function setSourceName(?string $value): void {
+        $this->getBackingStore()->set('sourceName', $value);
     }
 
     /**
      * Sets the thumbnailWebUrl property value. The URL of learning content thumbnail image. Optional.
      *  @param string|null $value Value to set for the thumbnailWebUrl property.
     */
-    public function setThumbnailWebUrl(?string $value ): void {
-        $this->thumbnailWebUrl = $value;
+    public function setThumbnailWebUrl(?string $value): void {
+        $this->getBackingStore()->set('thumbnailWebUrl', $value);
     }
 
     /**
      * Sets the title property value. The title of the learning content. Required.
      *  @param string|null $value Value to set for the title property.
     */
-    public function setTitle(?string $value ): void {
-        $this->title = $value;
+    public function setTitle(?string $value): void {
+        $this->getBackingStore()->set('title', $value);
     }
 
 }

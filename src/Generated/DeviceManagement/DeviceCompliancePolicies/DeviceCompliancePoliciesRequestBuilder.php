@@ -26,21 +26,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceCompliancePoliciesRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getNoncompliantDevicesToRetire property
+     * Provides operations to call the getNoncompliantDevicesToRetire method.
     */
     public function getNoncompliantDevicesToRetire(): GetNoncompliantDevicesToRetireRequestBuilder {
         return new GetNoncompliantDevicesToRetireRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The hasPayloadLinks property
+     * Provides operations to call the hasPayloadLinks method.
     */
     public function hasPayloadLinks(): HasPayloadLinksRequestBuilder {
         return new HasPayloadLinksRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -52,7 +52,7 @@ class DeviceCompliancePoliciesRequestBuilder
     private array $pathParameters;
     
     /**
-     * The refreshDeviceComplianceReportSummarization property
+     * Provides operations to call the refreshDeviceComplianceReportSummarization method.
     */
     public function refreshDeviceComplianceReportSummarization(): RefreshDeviceComplianceReportSummarizationRequestBuilder {
         return new RefreshDeviceComplianceReportSummarizationRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -64,7 +64,7 @@ class DeviceCompliancePoliciesRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The setScheduledRetireState property
+     * Provides operations to call the setScheduledRetireState method.
     */
     public function setScheduledRetireState(): SetScheduledRetireStateRequestBuilder {
         return new SetScheduledRetireStateRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -76,7 +76,7 @@ class DeviceCompliancePoliciesRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The validateComplianceScript property
+     * Provides operations to call the validateComplianceScript method.
     */
     public function validateComplianceScript(): ValidateComplianceScriptRequestBuilder {
         return new ValidateComplianceScriptRequestBuilder($this->pathParameters, $this->requestAdapter);

@@ -23,14 +23,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OfficeClientConfigurationItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.officeClientConfiguration entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class OfficeClientConfigurationItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The policyPayload property
+     * Provides operations to manage the media for the officeConfiguration entity.
     */
     public function policyPayload(): PolicyPayloadRequestBuilder {
         return new PolicyPayloadRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -59,14 +59,14 @@ class OfficeClientConfigurationItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userPreferencePayload property
+     * Provides operations to manage the media for the officeConfiguration entity.
     */
     public function userPreferencePayload(): UserPreferencePayloadRequestBuilder {
         return new UserPreferencePayloadRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.officeConfiguration.clientConfigurations.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.officeClientConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return OfficeClientConfigurationAssignmentItemRequestBuilder
     */

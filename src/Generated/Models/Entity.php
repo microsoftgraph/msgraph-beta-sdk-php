@@ -6,30 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class Entity implements AdditionalDataHolder, Parsable 
+class Entity implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $id The unique identifier for an entity. Read-only.
-    */
-    private ?string $id = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new entity and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.entity');
     }
 
     /**
@@ -178,6 +171,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.appleVpnConfiguration': return new AppleVpnConfiguration();
                 case '#microsoft.graph.appleVppTokenTroubleshootingEvent': return new AppleVppTokenTroubleshootingEvent();
                 case '#microsoft.graph.application': return new Application();
+                case '#microsoft.graph.applicationSegment': return new ApplicationSegment();
                 case '#microsoft.graph.applicationSignInDetailedSummary': return new ApplicationSignInDetailedSummary();
                 case '#microsoft.graph.applicationSignInSummary': return new ApplicationSignInSummary();
                 case '#microsoft.graph.applicationTemplate': return new ApplicationTemplate();
@@ -220,13 +214,12 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.authoredNote': return new AuthoredNote();
                 case '#microsoft.graph.authorizationPolicy': return new AuthorizationPolicy();
                 case '#microsoft.graph.azureADWindowsAutopilotDeploymentProfile': return new AzureADWindowsAutopilotDeploymentProfile();
+                case '#microsoft.graph.azureCommunicationServicesUserConversationMember': return new AzureCommunicationServicesUserConversationMember();
                 case '#microsoft.graph.b2cAuthenticationMethodsPolicy': return new B2cAuthenticationMethodsPolicy();
                 case '#microsoft.graph.b2cIdentityUserFlow': return new B2cIdentityUserFlow();
                 case '#microsoft.graph.b2xIdentityUserFlow': return new B2xIdentityUserFlow();
                 case '#microsoft.graph.baseItem': return new BaseItem();
                 case '#microsoft.graph.baseItemVersion': return new BaseItemVersion();
-                case '#microsoft.graph.baseTask': return new BaseTask();
-                case '#microsoft.graph.baseTaskList': return new BaseTaskList();
                 case '#microsoft.graph.bitlocker': return new Bitlocker();
                 case '#microsoft.graph.bitlockerRecoveryKey': return new BitlockerRecoveryKey();
                 case '#microsoft.graph.bookingAppointment': return new BookingAppointment();
@@ -238,9 +231,16 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.bookingPerson': return new BookingPerson();
                 case '#microsoft.graph.bookingService': return new BookingService();
                 case '#microsoft.graph.bookingStaffMember': return new BookingStaffMember();
+                case '#microsoft.graph.browserSharedCookie': return new BrowserSharedCookie();
+                case '#microsoft.graph.browserSite': return new BrowserSite();
+                case '#microsoft.graph.browserSiteList': return new BrowserSiteList();
                 case '#microsoft.graph.builtInIdentityProvider': return new BuiltInIdentityProvider();
                 case '#microsoft.graph.businessFlow': return new BusinessFlow();
                 case '#microsoft.graph.businessFlowTemplate': return new BusinessFlowTemplate();
+                case '#microsoft.graph.businessScenario': return new BusinessScenario();
+                case '#microsoft.graph.businessScenarioPlanner': return new BusinessScenarioPlanner();
+                case '#microsoft.graph.businessScenarioPlanReference': return new BusinessScenarioPlanReference();
+                case '#microsoft.graph.businessScenarioTask': return new BusinessScenarioTask();
                 case '#microsoft.graph.calendar': return new Calendar();
                 case '#microsoft.graph.calendarGroup': return new CalendarGroup();
                 case '#microsoft.graph.calendarPermission': return new CalendarPermission();
@@ -282,6 +282,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.cloudPcProvisioningPolicyAssignment': return new CloudPcProvisioningPolicyAssignment();
                 case '#microsoft.graph.cloudPcReports': return new CloudPcReports();
                 case '#microsoft.graph.cloudPcServicePlan': return new CloudPcServicePlan();
+                case '#microsoft.graph.cloudPcSharedUseServicePlan': return new CloudPcSharedUseServicePlan();
                 case '#microsoft.graph.cloudPcSnapshot': return new CloudPcSnapshot();
                 case '#microsoft.graph.cloudPcSupportedRegion': return new CloudPcSupportedRegion();
                 case '#microsoft.graph.cloudPcUserSetting': return new CloudPcUserSetting();
@@ -312,6 +313,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.conversation': return new Conversation();
                 case '#microsoft.graph.conversationMember': return new ConversationMember();
                 case '#microsoft.graph.conversationThread': return new ConversationThread();
+                case '#microsoft.graph.corsConfiguration_v2': return new CorsConfiguration_v2();
                 case '#microsoft.graph.countryNamedLocation': return new CountryNamedLocation();
                 case '#microsoft.graph.countryRegion': return new CountryRegion();
                 case '#microsoft.graph.credentialUsageSummary': return new CredentialUsageSummary();
@@ -498,6 +500,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.driveItemVersion': return new DriveItemVersion();
                 case '#microsoft.graph.easEmailProfileConfigurationBase': return new EasEmailProfileConfigurationBase();
                 case '#microsoft.graph.eBookInstallSummary': return new EBookInstallSummary();
+                case '#microsoft.graph.edge': return new Edge();
                 case '#microsoft.graph.ediscovery.addToReviewSetOperation': return new AddToReviewSetOperation();
                 case '#microsoft.graph.ediscovery.case': return new EscapedCase();
                 case '#microsoft.graph.ediscovery.caseExportOperation': return new CaseExportOperation();
@@ -676,6 +679,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.informationProtectionPolicy': return new InformationProtectionPolicy();
                 case '#microsoft.graph.insightsSettings': return new InsightsSettings();
                 case '#microsoft.graph.internalDomainFederation': return new InternalDomainFederation();
+                case '#microsoft.graph.internetExplorerMode': return new InternetExplorerMode();
                 case '#microsoft.graph.intuneBrandingProfile': return new IntuneBrandingProfile();
                 case '#microsoft.graph.intuneBrandingProfileAssignment': return new IntuneBrandingProfileAssignment();
                 case '#microsoft.graph.invitation': return new Invitation();
@@ -717,6 +721,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.iosVppEBook': return new IosVppEBook();
                 case '#microsoft.graph.iosVppEBookAssignment': return new IosVppEBookAssignment();
                 case '#microsoft.graph.iosWiFiConfiguration': return new IosWiFiConfiguration();
+                case '#microsoft.graph.ipApplicationSegment': return new IpApplicationSegment();
                 case '#microsoft.graph.ipNamedLocation': return new IpNamedLocation();
                 case '#microsoft.graph.ipSecurityProfile': return new IpSecurityProfile();
                 case '#microsoft.graph.item': return new Item();
@@ -741,7 +746,6 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.learningProvider': return new LearningProvider();
                 case '#microsoft.graph.licenseDetails': return new LicenseDetails();
                 case '#microsoft.graph.linkedResource': return new LinkedResource();
-                case '#microsoft.graph.linkedResource_v2': return new LinkedResource_v2();
                 case '#microsoft.graph.list': return new EscapedList();
                 case '#microsoft.graph.listItem': return new ListItem();
                 case '#microsoft.graph.listItemVersion': return new ListItemVersion();
@@ -761,6 +765,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.macOSImportedPFXCertificateProfile': return new MacOSImportedPFXCertificateProfile();
                 case '#microsoft.graph.macOSLobApp': return new MacOSLobApp();
                 case '#microsoft.graph.macOSMdatpApp': return new MacOSMdatpApp();
+                case '#microsoft.graph.macOSMicrosoftDefenderApp': return new MacOSMicrosoftDefenderApp();
                 case '#microsoft.graph.macOSMicrosoftEdgeApp': return new MacOSMicrosoftEdgeApp();
                 case '#microsoft.graph.macOSOfficeSuiteApp': return new MacOSOfficeSuiteApp();
                 case '#microsoft.graph.macOSPkcsCertificateProfile': return new MacOSPkcsCertificateProfile();
@@ -834,8 +839,10 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.managedTenants.managementIntent': return new ManagementIntent();
                 case '#microsoft.graph.managedTenants.managementTemplate': return new ManagementTemplate();
                 case '#microsoft.graph.managedTenants.managementTemplateCollection': return new ManagementTemplateCollection();
+                case '#microsoft.graph.managedTenants.managementTemplateCollectionTenantSummary': return new ManagementTemplateCollectionTenantSummary();
                 case '#microsoft.graph.managedTenants.managementTemplateStep': return new ManagementTemplateStep();
                 case '#microsoft.graph.managedTenants.managementTemplateStepDeployment': return new ManagementTemplateStepDeployment();
+                case '#microsoft.graph.managedTenants.managementTemplateStepTenantSummary': return new ManagementTemplateStepTenantSummary();
                 case '#microsoft.graph.managedTenants.managementTemplateStepVersion': return new ManagementTemplateStepVersion();
                 case '#microsoft.graph.managedTenants.tenant': return new Tenant();
                 case '#microsoft.graph.managedTenants.tenantCustomizedInformation': return new TenantCustomizedInformation();
@@ -926,6 +933,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.onPremisesAgent': return new OnPremisesAgent();
                 case '#microsoft.graph.onPremisesAgentGroup': return new OnPremisesAgentGroup();
                 case '#microsoft.graph.onPremisesConditionalAccessSettings': return new OnPremisesConditionalAccessSettings();
+                case '#microsoft.graph.onPremisesDirectorySynchronization': return new OnPremisesDirectorySynchronization();
                 case '#microsoft.graph.onPremisesPublishingProfile': return new OnPremisesPublishingProfile();
                 case '#microsoft.graph.onTokenIssuanceStartCustomExtension': return new OnTokenIssuanceStartCustomExtension();
                 case '#microsoft.graph.onTokenIssuanceStartListener': return new OnTokenIssuanceStartListener();
@@ -939,8 +947,6 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.organizationalBranding': return new OrganizationalBranding();
                 case '#microsoft.graph.organizationalBrandingLocalization': return new OrganizationalBrandingLocalization();
                 case '#microsoft.graph.organizationalBrandingProperties': return new OrganizationalBrandingProperties();
-                case '#microsoft.graph.organizationalMessageDetail': return new OrganizationalMessageDetail();
-                case '#microsoft.graph.organizationalMessageGuidedContent': return new OrganizationalMessageGuidedContent();
                 case '#microsoft.graph.organizationSettings': return new OrganizationSettings();
                 case '#microsoft.graph.orgContact': return new OrgContact();
                 case '#microsoft.graph.outlookCategory': return new OutlookCategory();
@@ -982,11 +988,14 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.plannerDelta': return new PlannerDelta();
                 case '#microsoft.graph.plannerGroup': return new PlannerGroup();
                 case '#microsoft.graph.plannerPlan': return new PlannerPlan();
+                case '#microsoft.graph.plannerPlanConfiguration': return new PlannerPlanConfiguration();
+                case '#microsoft.graph.plannerPlanConfigurationLocalization': return new PlannerPlanConfigurationLocalization();
                 case '#microsoft.graph.plannerPlanDetails': return new PlannerPlanDetails();
                 case '#microsoft.graph.plannerProgressTaskBoardTaskFormat': return new PlannerProgressTaskBoardTaskFormat();
                 case '#microsoft.graph.plannerRoster': return new PlannerRoster();
                 case '#microsoft.graph.plannerRosterMember': return new PlannerRosterMember();
                 case '#microsoft.graph.plannerTask': return new PlannerTask();
+                case '#microsoft.graph.plannerTaskConfiguration': return new PlannerTaskConfiguration();
                 case '#microsoft.graph.plannerTaskDetails': return new PlannerTaskDetails();
                 case '#microsoft.graph.plannerUser': return new PlannerUser();
                 case '#microsoft.graph.playPromptOperation': return new PlayPromptOperation();
@@ -1207,10 +1216,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.targetedManagedAppConfigurationPolicySetItem': return new TargetedManagedAppConfigurationPolicySetItem();
                 case '#microsoft.graph.targetedManagedAppPolicyAssignment': return new TargetedManagedAppPolicyAssignment();
                 case '#microsoft.graph.targetedManagedAppProtection': return new TargetedManagedAppProtection();
-                case '#microsoft.graph.task': return new Task();
                 case '#microsoft.graph.taskFileAttachment': return new TaskFileAttachment();
-                case '#microsoft.graph.taskList': return new TaskList();
-                case '#microsoft.graph.tasks': return new Tasks();
                 case '#microsoft.graph.taxArea': return new TaxArea();
                 case '#microsoft.graph.taxGroup': return new TaxGroup();
                 case '#microsoft.graph.team': return new Team();
@@ -1346,7 +1352,6 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.userExperienceAnalyticsModelScores': return new UserExperienceAnalyticsModelScores();
                 case '#microsoft.graph.userExperienceAnalyticsNotAutopilotReadyDevice': return new UserExperienceAnalyticsNotAutopilotReadyDevice();
                 case '#microsoft.graph.userExperienceAnalyticsOverview': return new UserExperienceAnalyticsOverview();
-                case '#microsoft.graph.userExperienceAnalyticsRegressionSummary': return new UserExperienceAnalyticsRegressionSummary();
                 case '#microsoft.graph.userExperienceAnalyticsRemoteConnection': return new UserExperienceAnalyticsRemoteConnection();
                 case '#microsoft.graph.userExperienceAnalyticsResourcePerformance': return new UserExperienceAnalyticsResourcePerformance();
                 case '#microsoft.graph.userExperienceAnalyticsScoreHistory': return new UserExperienceAnalyticsScoreHistory();
@@ -1373,7 +1378,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.vulnerableManagedDevice': return new VulnerableManagedDevice();
                 case '#microsoft.graph.webAccount': return new WebAccount();
                 case '#microsoft.graph.webApp': return new WebApp();
-                case '#microsoft.graph.wellKnownTaskList': return new WellKnownTaskList();
+                case '#microsoft.graph.webApplicationSegment': return new WebApplicationSegment();
                 case '#microsoft.graph.win32LobApp': return new Win32LobApp();
                 case '#microsoft.graph.windows10CertificateProfileBase': return new Windows10CertificateProfileBase();
                 case '#microsoft.graph.windows10CompliancePolicy': return new Windows10CompliancePolicy();
@@ -1554,8 +1559,16 @@ class Entity implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -1575,7 +1588,7 @@ class Entity implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -1583,7 +1596,7 @@ class Entity implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -1591,33 +1604,41 @@ class Entity implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('id', $this->id);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('id', $this->getId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the id property value. The unique identifier for an entity. Read-only.
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -10,396 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Group extends DirectoryObject implements Parsable 
 {
     /**
-     * @var array<DirectoryObject>|null $acceptedSenders The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.
-    */
-    private ?array $acceptedSenders = null;
-    
-    /**
-     * @var GroupAccessType|null $accessType The accessType property
-    */
-    private ?GroupAccessType $accessType = null;
-    
-    /**
-     * @var bool|null $allowExternalSenders Indicates if people external to the organization can send messages to the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-    */
-    private ?bool $allowExternalSenders = null;
-    
-    /**
-     * @var array<AppRoleAssignment>|null $appRoleAssignments Represents the app roles a group has been granted for an application. Supports $expand.
-    */
-    private ?array $appRoleAssignments = null;
-    
-    /**
-     * @var array<AssignedLabel>|null $assignedLabels The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.
-    */
-    private ?array $assignedLabels = null;
-    
-    /**
-     * @var array<AssignedLicense>|null $assignedLicenses The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.
-    */
-    private ?array $assignedLicenses = null;
-    
-    /**
-     * @var bool|null $autoSubscribeNewMembers Indicates if new members added to the group will be auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; do not set it in the initial POST request that creates the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-    */
-    private ?bool $autoSubscribeNewMembers = null;
-    
-    /**
-     * @var Calendar|null $calendar The group's calendar. Read-only.
-    */
-    private ?Calendar $calendar = null;
-    
-    /**
-     * @var array<Event>|null $calendarView The calendar view for the calendar. Read-only.
-    */
-    private ?array $calendarView = null;
-    
-    /**
-     * @var string|null $classification Describes a classification for the group (such as low, medium or high business impact). Valid values for this property are defined by creating a ClassificationList setting value, based on the template definition.Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith).
-    */
-    private ?string $classification = null;
-    
-    /**
-     * @var array<Conversation>|null $conversations The group's conversations.
-    */
-    private ?array $conversations = null;
-    
-    /**
-     * @var string|null $createdByAppId App ID of the app used to create the group. Can be null for some groups. Returned by default. Read-only. Supports $filter (eq, ne, not, in, startsWith).
-    */
-    private ?string $createdByAppId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DirectoryObject|null $createdOnBehalfOf The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
-    */
-    private ?DirectoryObject $createdOnBehalfOf = null;
-    
-    /**
-     * @var string|null $description An optional description for the group. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var Drive|null $drive The group's default drive. Read-only.
-    */
-    private ?Drive $drive = null;
-    
-    /**
-     * @var array<Drive>|null $drives The group's drives. Read-only.
-    */
-    private ?array $drives = null;
-    
-    /**
-     * @var array<Endpoint>|null $endpoints Endpoints for the group. Read-only. Nullable.
-    */
-    private ?array $endpoints = null;
-    
-    /**
-     * @var array<Event>|null $events The group's events.
-    */
-    private ?array $events = null;
-    
-    /**
-     * @var DateTime|null $expirationDateTime Timestamp of when the group is set to expire. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var array<Extension>|null $extensions The collection of open extensions defined for the group. Read-only. Nullable.
-    */
-    private ?array $extensions = null;
-    
-    /**
-     * @var array<GroupLifecyclePolicy>|null $groupLifecyclePolicies The collection of lifecycle policies for this group. Read-only. Nullable.
-    */
-    private ?array $groupLifecyclePolicies = null;
-    
-    /**
-     * @var array<string>|null $groupTypes Specifies the group type and its membership. If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static. Returned by default. Supports $filter (eq, not).
-    */
-    private ?array $groupTypes = null;
-    
-    /**
-     * @var bool|null $hasMembersWithLicenseErrors Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true).  Supports $filter (eq).
-    */
-    private ?bool $hasMembersWithLicenseErrors = null;
-    
-    /**
-     * @var bool|null $hideFromAddressLists true if the group is not displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups; false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-    */
-    private ?bool $hideFromAddressLists = null;
-    
-    /**
-     * @var bool|null $hideFromOutlookClients true if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web, false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-    */
-    private ?bool $hideFromOutlookClients = null;
-    
-    /**
-     * @var array<string>|null $infoCatalogs Identifies the info segments assigned to the group. Returned by default. Supports $filter (eq, not, ge, le, startsWith).
-    */
-    private ?array $infoCatalogs = null;
-    
-    /**
-     * @var bool|null $isArchived When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
-    */
-    private ?bool $isArchived = null;
-    
-    /**
-     * @var bool|null $isAssignableToRole Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).
-    */
-    private ?bool $isAssignableToRole = null;
-    
-    /**
-     * @var bool|null $isFavorite The isFavorite property
-    */
-    private ?bool $isFavorite = null;
-    
-    /**
-     * @var bool|null $isManagementRestricted The isManagementRestricted property
-    */
-    private ?bool $isManagementRestricted = null;
-    
-    /**
-     * @var bool|null $isSubscribedByMail Indicates whether the signed-in user is subscribed to receive email conversations. Default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-    */
-    private ?bool $isSubscribedByMail = null;
-    
-    /**
-     * @var LicenseProcessingState|null $licenseProcessingState Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.
-    */
-    private ?LicenseProcessingState $licenseProcessingState = null;
-    
-    /**
-     * @var string|null $mail The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-    */
-    private ?string $mail = null;
-    
-    /**
-     * @var bool|null $mailEnabled Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values).
-    */
-    private ?bool $mailEnabled = null;
-    
-    /**
-     * @var string|null $mailNickname The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).
-    */
-    private ?string $mailNickname = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $memberOf Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
-    */
-    private ?array $memberOf = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $members Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
-    */
-    private ?array $members = null;
-    
-    /**
-     * @var string|null $membershipRule The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith).
-    */
-    private ?string $membershipRule = null;
-    
-    /**
-     * @var string|null $membershipRuleProcessingState Indicates whether the dynamic membership processing is on or paused. Possible values are On or Paused. Returned by default. Supports $filter (eq, ne, not, in).
-    */
-    private ?string $membershipRuleProcessingState = null;
-    
-    /**
-     * @var MembershipRuleProcessingStatus|null $membershipRuleProcessingStatus Describes the processing status for rules-based dynamic groups. The property is null for non-rule based dynamic groups or if the dynamic group processing has been paused. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). Read-only.
-    */
-    private ?MembershipRuleProcessingStatus $membershipRuleProcessingStatus = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $membersWithLicenseErrors A list of group members with license errors from this group-based license assignment. Read-only.
-    */
-    private ?array $membersWithLicenseErrors = null;
-    
-    /**
-     * @var Onenote|null $onenote The onenote property
-    */
-    private ?Onenote $onenote = null;
-    
-    /**
-     * @var string|null $onPremisesDomainName Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
-    */
-    private ?string $onPremisesDomainName = null;
-    
-    /**
-     * @var DateTime|null $onPremisesLastSyncDateTime Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in).
-    */
-    private ?DateTime $onPremisesLastSyncDateTime = null;
-    
-    /**
-     * @var string|null $onPremisesNetBiosName Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
-    */
-    private ?string $onPremisesNetBiosName = null;
-    
-    /**
-     * @var array<OnPremisesProvisioningError>|null $onPremisesProvisioningErrors Errors when using Microsoft synchronization product during provisioning. Returned by default. Supports $filter (eq, not).
-    */
-    private ?array $onPremisesProvisioningErrors = null;
-    
-    /**
-     * @var string|null $onPremisesSamAccountName Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith). Read-only.
-    */
-    private ?string $onPremisesSamAccountName = null;
-    
-    /**
-     * @var string|null $onPremisesSecurityIdentifier Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Supports $filter (eq including on null values). Read-only.
-    */
-    private ?string $onPremisesSecurityIdentifier = null;
-    
-    /**
-     * @var bool|null $onPremisesSyncEnabled true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
-    */
-    private ?bool $onPremisesSyncEnabled = null;
-    
-    /**
-     * @var string|null $organizationId The organizationId property
-    */
-    private ?string $organizationId = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $owners The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
-    */
-    private ?array $owners = null;
-    
-    /**
-     * @var array<ResourceSpecificPermissionGrant>|null $permissionGrants The permissions that have been granted for a group to a specific application. Supports $expand.
-    */
-    private ?array $permissionGrants = null;
-    
-    /**
-     * @var ProfilePhoto|null $photo The group's profile photo.
-    */
-    private ?ProfilePhoto $photo = null;
-    
-    /**
-     * @var array<ProfilePhoto>|null $photos The profile photos owned by the group. Read-only. Nullable.
-    */
-    private ?array $photos = null;
-    
-    /**
-     * @var PlannerGroup|null $planner Selective Planner services available to the group. Read-only. Nullable.
-    */
-    private ?PlannerGroup $planner = null;
-    
-    /**
-     * @var string|null $preferredDataLocation The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling user must be assigned one of the following Azure AD roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo. Nullable. Returned by default.
-    */
-    private ?string $preferredDataLocation = null;
-    
-    /**
-     * @var string|null $preferredLanguage The preferred language for a Microsoft 365 group. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-    */
-    private ?string $preferredLanguage = null;
-    
-    /**
-     * @var array<string>|null $proxyAddresses Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).
-    */
-    private ?array $proxyAddresses = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $rejectedSenders The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable
-    */
-    private ?array $rejectedSenders = null;
-    
-    /**
-     * @var DateTime|null $renewedDateTime Timestamp of when the group was last renewed. This cannot be modified directly and is only updated via the renew service action. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
-    */
-    private ?DateTime $renewedDateTime = null;
-    
-    /**
-     * @var array<string>|null $resourceBehaviorOptions Specifies the group behaviors that can be set for a Microsoft 365 group during creation. This can be set only as part of creation (POST). Possible values are AllowOnlyMembersToPost, HideGroupInOutlook, SubscribeNewGroupMembers, WelcomeEmailDisabled. For more information, see Set Microsoft 365 group behaviors and provisioning options.
-    */
-    private ?array $resourceBehaviorOptions = null;
-    
-    /**
-     * @var array<string>|null $resourceProvisioningOptions Specifies the group resources that are provisioned as part of Microsoft 365 group creation, that are not normally part of default group creation. Possible value is Team. For more information, see Set Microsoft 365 group behaviors and provisioning options. Returned by default. Supports $filter (eq, not, startsWith.
-    */
-    private ?array $resourceProvisioningOptions = null;
-    
-    /**
-     * @var bool|null $securityEnabled Specifies whether the group is a security group. Required.Returned by default. Supports $filter (eq, ne, not, in).
-    */
-    private ?bool $securityEnabled = null;
-    
-    /**
-     * @var string|null $securityIdentifier Security identifier of the group, used in Windows scenarios. Returned by default.
-    */
-    private ?string $securityIdentifier = null;
-    
-    /**
-     * @var array<DirectorySetting>|null $settings Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
-    */
-    private ?array $settings = null;
-    
-    /**
-     * @var array<Site>|null $sites The list of SharePoint sites in this group. Access the default site with /sites/root.
-    */
-    private ?array $sites = null;
-    
-    /**
-     * @var Team|null $team The team associated with this group.
-    */
-    private ?Team $team = null;
-    
-    /**
-     * @var string|null $theme Specifies a Microsoft 365 group's color theme. Possible values are Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default.
-    */
-    private ?string $theme = null;
-    
-    /**
-     * @var array<ConversationThread>|null $threads The group's conversation threads. Nullable.
-    */
-    private ?array $threads = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $transitiveMemberOf The groups that a group is a member of, either directly and through nested membership. Nullable.
-    */
-    private ?array $transitiveMemberOf = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $transitiveMembers The direct and transitive members of a group. Nullable.
-    */
-    private ?array $transitiveMembers = null;
-    
-    /**
-     * @var int|null $unseenConversationsCount Count of conversations that have been delivered one or more new posts since the signed-in user's last visit to the group. This property is the same as unseenCount. Returned only on $select.
-    */
-    private ?int $unseenConversationsCount = null;
-    
-    /**
-     * @var int|null $unseenCount Count of conversations that have received new posts since the signed-in user last visited the group. This property is the same as unseenConversationsCount.Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-    */
-    private ?int $unseenCount = null;
-    
-    /**
-     * @var int|null $unseenMessagesCount Count of new posts that have been delivered to the group's conversations since the signed-in user's last visit to the group. Returned only on $select.
-    */
-    private ?int $unseenMessagesCount = null;
-    
-    /**
-     * @var string|null $visibility Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
-    */
-    private ?string $visibility = null;
-    
-    /**
-     * @var GroupWritebackConfiguration|null $writebackConfiguration Specifies whether or not a group is configured to write back group object properties to on-premise Active Directory. These properties are used when group writeback is configured in the Azure AD Connect sync client.
-    */
-    private ?GroupWritebackConfiguration $writebackConfiguration = null;
-    
-    /**
      * Instantiates a new group and sets the default values.
     */
     public function __construct() {
@@ -421,7 +31,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getAcceptedSenders(): ?array {
-        return $this->acceptedSenders;
+        return $this->getBackingStore()->get('acceptedSenders');
     }
 
     /**
@@ -429,7 +39,7 @@ class Group extends DirectoryObject implements Parsable
      * @return GroupAccessType|null
     */
     public function getAccessType(): ?GroupAccessType {
-        return $this->accessType;
+        return $this->getBackingStore()->get('accessType');
     }
 
     /**
@@ -437,7 +47,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getAllowExternalSenders(): ?bool {
-        return $this->allowExternalSenders;
+        return $this->getBackingStore()->get('allowExternalSenders');
     }
 
     /**
@@ -445,7 +55,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<AppRoleAssignment>|null
     */
     public function getAppRoleAssignments(): ?array {
-        return $this->appRoleAssignments;
+        return $this->getBackingStore()->get('appRoleAssignments');
     }
 
     /**
@@ -453,7 +63,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<AssignedLabel>|null
     */
     public function getAssignedLabels(): ?array {
-        return $this->assignedLabels;
+        return $this->getBackingStore()->get('assignedLabels');
     }
 
     /**
@@ -461,7 +71,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<AssignedLicense>|null
     */
     public function getAssignedLicenses(): ?array {
-        return $this->assignedLicenses;
+        return $this->getBackingStore()->get('assignedLicenses');
     }
 
     /**
@@ -469,7 +79,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getAutoSubscribeNewMembers(): ?bool {
-        return $this->autoSubscribeNewMembers;
+        return $this->getBackingStore()->get('autoSubscribeNewMembers');
     }
 
     /**
@@ -477,7 +87,7 @@ class Group extends DirectoryObject implements Parsable
      * @return Calendar|null
     */
     public function getCalendar(): ?Calendar {
-        return $this->calendar;
+        return $this->getBackingStore()->get('calendar');
     }
 
     /**
@@ -485,7 +95,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<Event>|null
     */
     public function getCalendarView(): ?array {
-        return $this->calendarView;
+        return $this->getBackingStore()->get('calendarView');
     }
 
     /**
@@ -493,7 +103,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getClassification(): ?string {
-        return $this->classification;
+        return $this->getBackingStore()->get('classification');
     }
 
     /**
@@ -501,7 +111,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<Conversation>|null
     */
     public function getConversations(): ?array {
-        return $this->conversations;
+        return $this->getBackingStore()->get('conversations');
     }
 
     /**
@@ -509,7 +119,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getCreatedByAppId(): ?string {
-        return $this->createdByAppId;
+        return $this->getBackingStore()->get('createdByAppId');
     }
 
     /**
@@ -517,7 +127,7 @@ class Group extends DirectoryObject implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -525,7 +135,7 @@ class Group extends DirectoryObject implements Parsable
      * @return DirectoryObject|null
     */
     public function getCreatedOnBehalfOf(): ?DirectoryObject {
-        return $this->createdOnBehalfOf;
+        return $this->getBackingStore()->get('createdOnBehalfOf');
     }
 
     /**
@@ -533,7 +143,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -541,7 +151,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -549,7 +159,7 @@ class Group extends DirectoryObject implements Parsable
      * @return Drive|null
     */
     public function getDrive(): ?Drive {
-        return $this->drive;
+        return $this->getBackingStore()->get('drive');
     }
 
     /**
@@ -557,7 +167,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<Drive>|null
     */
     public function getDrives(): ?array {
-        return $this->drives;
+        return $this->getBackingStore()->get('drives');
     }
 
     /**
@@ -565,7 +175,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<Endpoint>|null
     */
     public function getEndpoints(): ?array {
-        return $this->endpoints;
+        return $this->getBackingStore()->get('endpoints');
     }
 
     /**
@@ -573,7 +183,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<Event>|null
     */
     public function getEvents(): ?array {
-        return $this->events;
+        return $this->getBackingStore()->get('events');
     }
 
     /**
@@ -581,7 +191,7 @@ class Group extends DirectoryObject implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -589,7 +199,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<Extension>|null
     */
     public function getExtensions(): ?array {
-        return $this->extensions;
+        return $this->getBackingStore()->get('extensions');
     }
 
     /**
@@ -685,7 +295,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<GroupLifecyclePolicy>|null
     */
     public function getGroupLifecyclePolicies(): ?array {
-        return $this->groupLifecyclePolicies;
+        return $this->getBackingStore()->get('groupLifecyclePolicies');
     }
 
     /**
@@ -693,7 +303,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<string>|null
     */
     public function getGroupTypes(): ?array {
-        return $this->groupTypes;
+        return $this->getBackingStore()->get('groupTypes');
     }
 
     /**
@@ -701,7 +311,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getHasMembersWithLicenseErrors(): ?bool {
-        return $this->hasMembersWithLicenseErrors;
+        return $this->getBackingStore()->get('hasMembersWithLicenseErrors');
     }
 
     /**
@@ -709,7 +319,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getHideFromAddressLists(): ?bool {
-        return $this->hideFromAddressLists;
+        return $this->getBackingStore()->get('hideFromAddressLists');
     }
 
     /**
@@ -717,7 +327,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getHideFromOutlookClients(): ?bool {
-        return $this->hideFromOutlookClients;
+        return $this->getBackingStore()->get('hideFromOutlookClients');
     }
 
     /**
@@ -725,7 +335,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<string>|null
     */
     public function getInfoCatalogs(): ?array {
-        return $this->infoCatalogs;
+        return $this->getBackingStore()->get('infoCatalogs');
     }
 
     /**
@@ -733,7 +343,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getIsArchived(): ?bool {
-        return $this->isArchived;
+        return $this->getBackingStore()->get('isArchived');
     }
 
     /**
@@ -741,7 +351,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getIsAssignableToRole(): ?bool {
-        return $this->isAssignableToRole;
+        return $this->getBackingStore()->get('isAssignableToRole');
     }
 
     /**
@@ -749,7 +359,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getIsFavorite(): ?bool {
-        return $this->isFavorite;
+        return $this->getBackingStore()->get('isFavorite');
     }
 
     /**
@@ -757,7 +367,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getIsManagementRestricted(): ?bool {
-        return $this->isManagementRestricted;
+        return $this->getBackingStore()->get('isManagementRestricted');
     }
 
     /**
@@ -765,7 +375,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getIsSubscribedByMail(): ?bool {
-        return $this->isSubscribedByMail;
+        return $this->getBackingStore()->get('isSubscribedByMail');
     }
 
     /**
@@ -773,7 +383,7 @@ class Group extends DirectoryObject implements Parsable
      * @return LicenseProcessingState|null
     */
     public function getLicenseProcessingState(): ?LicenseProcessingState {
-        return $this->licenseProcessingState;
+        return $this->getBackingStore()->get('licenseProcessingState');
     }
 
     /**
@@ -781,7 +391,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getMail(): ?string {
-        return $this->mail;
+        return $this->getBackingStore()->get('mail');
     }
 
     /**
@@ -789,15 +399,15 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getMailEnabled(): ?bool {
-        return $this->mailEnabled;
+        return $this->getBackingStore()->get('mailEnabled');
     }
 
     /**
-     * Gets the mailNickname property value. The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Gets the mailNickname property value. The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : <> , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).
      * @return string|null
     */
     public function getMailNickname(): ?string {
-        return $this->mailNickname;
+        return $this->getBackingStore()->get('mailNickname');
     }
 
     /**
@@ -805,7 +415,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getMemberOf(): ?array {
-        return $this->memberOf;
+        return $this->getBackingStore()->get('memberOf');
     }
 
     /**
@@ -813,7 +423,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getMembers(): ?array {
-        return $this->members;
+        return $this->getBackingStore()->get('members');
     }
 
     /**
@@ -821,7 +431,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getMembershipRule(): ?string {
-        return $this->membershipRule;
+        return $this->getBackingStore()->get('membershipRule');
     }
 
     /**
@@ -829,7 +439,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getMembershipRuleProcessingState(): ?string {
-        return $this->membershipRuleProcessingState;
+        return $this->getBackingStore()->get('membershipRuleProcessingState');
     }
 
     /**
@@ -837,7 +447,7 @@ class Group extends DirectoryObject implements Parsable
      * @return MembershipRuleProcessingStatus|null
     */
     public function getMembershipRuleProcessingStatus(): ?MembershipRuleProcessingStatus {
-        return $this->membershipRuleProcessingStatus;
+        return $this->getBackingStore()->get('membershipRuleProcessingStatus');
     }
 
     /**
@@ -845,7 +455,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getMembersWithLicenseErrors(): ?array {
-        return $this->membersWithLicenseErrors;
+        return $this->getBackingStore()->get('membersWithLicenseErrors');
     }
 
     /**
@@ -853,7 +463,7 @@ class Group extends DirectoryObject implements Parsable
      * @return Onenote|null
     */
     public function getOnenote(): ?Onenote {
-        return $this->onenote;
+        return $this->getBackingStore()->get('onenote');
     }
 
     /**
@@ -861,7 +471,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getOnPremisesDomainName(): ?string {
-        return $this->onPremisesDomainName;
+        return $this->getBackingStore()->get('onPremisesDomainName');
     }
 
     /**
@@ -869,7 +479,7 @@ class Group extends DirectoryObject implements Parsable
      * @return DateTime|null
     */
     public function getOnPremisesLastSyncDateTime(): ?DateTime {
-        return $this->onPremisesLastSyncDateTime;
+        return $this->getBackingStore()->get('onPremisesLastSyncDateTime');
     }
 
     /**
@@ -877,7 +487,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getOnPremisesNetBiosName(): ?string {
-        return $this->onPremisesNetBiosName;
+        return $this->getBackingStore()->get('onPremisesNetBiosName');
     }
 
     /**
@@ -885,7 +495,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<OnPremisesProvisioningError>|null
     */
     public function getOnPremisesProvisioningErrors(): ?array {
-        return $this->onPremisesProvisioningErrors;
+        return $this->getBackingStore()->get('onPremisesProvisioningErrors');
     }
 
     /**
@@ -893,7 +503,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getOnPremisesSamAccountName(): ?string {
-        return $this->onPremisesSamAccountName;
+        return $this->getBackingStore()->get('onPremisesSamAccountName');
     }
 
     /**
@@ -901,7 +511,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getOnPremisesSecurityIdentifier(): ?string {
-        return $this->onPremisesSecurityIdentifier;
+        return $this->getBackingStore()->get('onPremisesSecurityIdentifier');
     }
 
     /**
@@ -909,7 +519,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getOnPremisesSyncEnabled(): ?bool {
-        return $this->onPremisesSyncEnabled;
+        return $this->getBackingStore()->get('onPremisesSyncEnabled');
     }
 
     /**
@@ -917,15 +527,15 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getOrganizationId(): ?string {
-        return $this->organizationId;
+        return $this->getBackingStore()->get('organizationId');
     }
 
     /**
-     * Gets the owners property value. The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
+     * Gets the owners property value. The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner.  Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1); Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
      * @return array<DirectoryObject>|null
     */
     public function getOwners(): ?array {
-        return $this->owners;
+        return $this->getBackingStore()->get('owners');
     }
 
     /**
@@ -933,7 +543,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<ResourceSpecificPermissionGrant>|null
     */
     public function getPermissionGrants(): ?array {
-        return $this->permissionGrants;
+        return $this->getBackingStore()->get('permissionGrants');
     }
 
     /**
@@ -941,7 +551,7 @@ class Group extends DirectoryObject implements Parsable
      * @return ProfilePhoto|null
     */
     public function getPhoto(): ?ProfilePhoto {
-        return $this->photo;
+        return $this->getBackingStore()->get('photo');
     }
 
     /**
@@ -949,7 +559,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<ProfilePhoto>|null
     */
     public function getPhotos(): ?array {
-        return $this->photos;
+        return $this->getBackingStore()->get('photos');
     }
 
     /**
@@ -957,7 +567,7 @@ class Group extends DirectoryObject implements Parsable
      * @return PlannerGroup|null
     */
     public function getPlanner(): ?PlannerGroup {
-        return $this->planner;
+        return $this->getBackingStore()->get('planner');
     }
 
     /**
@@ -965,7 +575,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getPreferredDataLocation(): ?string {
-        return $this->preferredDataLocation;
+        return $this->getBackingStore()->get('preferredDataLocation');
     }
 
     /**
@@ -973,15 +583,15 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getPreferredLanguage(): ?string {
-        return $this->preferredLanguage;
+        return $this->getBackingStore()->get('preferredLanguage');
     }
 
     /**
-     * Gets the proxyAddresses property value. Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).
+     * Gets the proxyAddresses property value. Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
      * @return array<string>|null
     */
     public function getProxyAddresses(): ?array {
-        return $this->proxyAddresses;
+        return $this->getBackingStore()->get('proxyAddresses');
     }
 
     /**
@@ -989,7 +599,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getRejectedSenders(): ?array {
-        return $this->rejectedSenders;
+        return $this->getBackingStore()->get('rejectedSenders');
     }
 
     /**
@@ -997,7 +607,7 @@ class Group extends DirectoryObject implements Parsable
      * @return DateTime|null
     */
     public function getRenewedDateTime(): ?DateTime {
-        return $this->renewedDateTime;
+        return $this->getBackingStore()->get('renewedDateTime');
     }
 
     /**
@@ -1005,7 +615,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<string>|null
     */
     public function getResourceBehaviorOptions(): ?array {
-        return $this->resourceBehaviorOptions;
+        return $this->getBackingStore()->get('resourceBehaviorOptions');
     }
 
     /**
@@ -1013,7 +623,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<string>|null
     */
     public function getResourceProvisioningOptions(): ?array {
-        return $this->resourceProvisioningOptions;
+        return $this->getBackingStore()->get('resourceProvisioningOptions');
     }
 
     /**
@@ -1021,7 +631,7 @@ class Group extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getSecurityEnabled(): ?bool {
-        return $this->securityEnabled;
+        return $this->getBackingStore()->get('securityEnabled');
     }
 
     /**
@@ -1029,7 +639,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getSecurityIdentifier(): ?string {
-        return $this->securityIdentifier;
+        return $this->getBackingStore()->get('securityIdentifier');
     }
 
     /**
@@ -1037,7 +647,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<DirectorySetting>|null
     */
     public function getSettings(): ?array {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -1045,7 +655,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<Site>|null
     */
     public function getSites(): ?array {
-        return $this->sites;
+        return $this->getBackingStore()->get('sites');
     }
 
     /**
@@ -1053,7 +663,7 @@ class Group extends DirectoryObject implements Parsable
      * @return Team|null
     */
     public function getTeam(): ?Team {
-        return $this->team;
+        return $this->getBackingStore()->get('team');
     }
 
     /**
@@ -1061,7 +671,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getTheme(): ?string {
-        return $this->theme;
+        return $this->getBackingStore()->get('theme');
     }
 
     /**
@@ -1069,7 +679,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<ConversationThread>|null
     */
     public function getThreads(): ?array {
-        return $this->threads;
+        return $this->getBackingStore()->get('threads');
     }
 
     /**
@@ -1077,7 +687,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMemberOf(): ?array {
-        return $this->transitiveMemberOf;
+        return $this->getBackingStore()->get('transitiveMemberOf');
     }
 
     /**
@@ -1085,7 +695,7 @@ class Group extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMembers(): ?array {
-        return $this->transitiveMembers;
+        return $this->getBackingStore()->get('transitiveMembers');
     }
 
     /**
@@ -1093,7 +703,7 @@ class Group extends DirectoryObject implements Parsable
      * @return int|null
     */
     public function getUnseenConversationsCount(): ?int {
-        return $this->unseenConversationsCount;
+        return $this->getBackingStore()->get('unseenConversationsCount');
     }
 
     /**
@@ -1101,7 +711,7 @@ class Group extends DirectoryObject implements Parsable
      * @return int|null
     */
     public function getUnseenCount(): ?int {
-        return $this->unseenCount;
+        return $this->getBackingStore()->get('unseenCount');
     }
 
     /**
@@ -1109,7 +719,7 @@ class Group extends DirectoryObject implements Parsable
      * @return int|null
     */
     public function getUnseenMessagesCount(): ?int {
-        return $this->unseenMessagesCount;
+        return $this->getBackingStore()->get('unseenMessagesCount');
     }
 
     /**
@@ -1117,7 +727,7 @@ class Group extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getVisibility(): ?string {
-        return $this->visibility;
+        return $this->getBackingStore()->get('visibility');
     }
 
     /**
@@ -1125,7 +735,7 @@ class Group extends DirectoryObject implements Parsable
      * @return GroupWritebackConfiguration|null
     */
     public function getWritebackConfiguration(): ?GroupWritebackConfiguration {
-        return $this->writebackConfiguration;
+        return $this->getBackingStore()->get('writebackConfiguration');
     }
 
     /**
@@ -1134,708 +744,708 @@ class Group extends DirectoryObject implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('acceptedSenders', $this->acceptedSenders);
-        $writer->writeEnumValue('accessType', $this->accessType);
-        $writer->writeBooleanValue('allowExternalSenders', $this->allowExternalSenders);
-        $writer->writeCollectionOfObjectValues('appRoleAssignments', $this->appRoleAssignments);
-        $writer->writeCollectionOfObjectValues('assignedLabels', $this->assignedLabels);
-        $writer->writeCollectionOfObjectValues('assignedLicenses', $this->assignedLicenses);
-        $writer->writeBooleanValue('autoSubscribeNewMembers', $this->autoSubscribeNewMembers);
-        $writer->writeObjectValue('calendar', $this->calendar);
-        $writer->writeCollectionOfObjectValues('calendarView', $this->calendarView);
-        $writer->writeStringValue('classification', $this->classification);
-        $writer->writeCollectionOfObjectValues('conversations', $this->conversations);
-        $writer->writeStringValue('createdByAppId', $this->createdByAppId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('createdOnBehalfOf', $this->createdOnBehalfOf);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeObjectValue('drive', $this->drive);
-        $writer->writeCollectionOfObjectValues('drives', $this->drives);
-        $writer->writeCollectionOfObjectValues('endpoints', $this->endpoints);
-        $writer->writeCollectionOfObjectValues('events', $this->events);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeCollectionOfObjectValues('extensions', $this->extensions);
-        $writer->writeCollectionOfObjectValues('groupLifecyclePolicies', $this->groupLifecyclePolicies);
-        $writer->writeCollectionOfPrimitiveValues('groupTypes', $this->groupTypes);
-        $writer->writeBooleanValue('hasMembersWithLicenseErrors', $this->hasMembersWithLicenseErrors);
-        $writer->writeBooleanValue('hideFromAddressLists', $this->hideFromAddressLists);
-        $writer->writeBooleanValue('hideFromOutlookClients', $this->hideFromOutlookClients);
-        $writer->writeCollectionOfPrimitiveValues('infoCatalogs', $this->infoCatalogs);
-        $writer->writeBooleanValue('isArchived', $this->isArchived);
-        $writer->writeBooleanValue('isAssignableToRole', $this->isAssignableToRole);
-        $writer->writeBooleanValue('isFavorite', $this->isFavorite);
-        $writer->writeBooleanValue('isManagementRestricted', $this->isManagementRestricted);
-        $writer->writeBooleanValue('isSubscribedByMail', $this->isSubscribedByMail);
-        $writer->writeObjectValue('licenseProcessingState', $this->licenseProcessingState);
-        $writer->writeStringValue('mail', $this->mail);
-        $writer->writeBooleanValue('mailEnabled', $this->mailEnabled);
-        $writer->writeStringValue('mailNickname', $this->mailNickname);
-        $writer->writeCollectionOfObjectValues('memberOf', $this->memberOf);
-        $writer->writeCollectionOfObjectValues('members', $this->members);
-        $writer->writeStringValue('membershipRule', $this->membershipRule);
-        $writer->writeStringValue('membershipRuleProcessingState', $this->membershipRuleProcessingState);
-        $writer->writeObjectValue('membershipRuleProcessingStatus', $this->membershipRuleProcessingStatus);
-        $writer->writeCollectionOfObjectValues('membersWithLicenseErrors', $this->membersWithLicenseErrors);
-        $writer->writeObjectValue('onenote', $this->onenote);
-        $writer->writeStringValue('onPremisesDomainName', $this->onPremisesDomainName);
-        $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->onPremisesLastSyncDateTime);
-        $writer->writeStringValue('onPremisesNetBiosName', $this->onPremisesNetBiosName);
-        $writer->writeCollectionOfObjectValues('onPremisesProvisioningErrors', $this->onPremisesProvisioningErrors);
-        $writer->writeStringValue('onPremisesSamAccountName', $this->onPremisesSamAccountName);
-        $writer->writeStringValue('onPremisesSecurityIdentifier', $this->onPremisesSecurityIdentifier);
-        $writer->writeBooleanValue('onPremisesSyncEnabled', $this->onPremisesSyncEnabled);
-        $writer->writeStringValue('organizationId', $this->organizationId);
-        $writer->writeCollectionOfObjectValues('owners', $this->owners);
-        $writer->writeCollectionOfObjectValues('permissionGrants', $this->permissionGrants);
-        $writer->writeObjectValue('photo', $this->photo);
-        $writer->writeCollectionOfObjectValues('photos', $this->photos);
-        $writer->writeObjectValue('planner', $this->planner);
-        $writer->writeStringValue('preferredDataLocation', $this->preferredDataLocation);
-        $writer->writeStringValue('preferredLanguage', $this->preferredLanguage);
-        $writer->writeCollectionOfPrimitiveValues('proxyAddresses', $this->proxyAddresses);
-        $writer->writeCollectionOfObjectValues('rejectedSenders', $this->rejectedSenders);
-        $writer->writeDateTimeValue('renewedDateTime', $this->renewedDateTime);
-        $writer->writeCollectionOfPrimitiveValues('resourceBehaviorOptions', $this->resourceBehaviorOptions);
-        $writer->writeCollectionOfPrimitiveValues('resourceProvisioningOptions', $this->resourceProvisioningOptions);
-        $writer->writeBooleanValue('securityEnabled', $this->securityEnabled);
-        $writer->writeStringValue('securityIdentifier', $this->securityIdentifier);
-        $writer->writeCollectionOfObjectValues('settings', $this->settings);
-        $writer->writeCollectionOfObjectValues('sites', $this->sites);
-        $writer->writeObjectValue('team', $this->team);
-        $writer->writeStringValue('theme', $this->theme);
-        $writer->writeCollectionOfObjectValues('threads', $this->threads);
-        $writer->writeCollectionOfObjectValues('transitiveMemberOf', $this->transitiveMemberOf);
-        $writer->writeCollectionOfObjectValues('transitiveMembers', $this->transitiveMembers);
-        $writer->writeIntegerValue('unseenConversationsCount', $this->unseenConversationsCount);
-        $writer->writeIntegerValue('unseenCount', $this->unseenCount);
-        $writer->writeIntegerValue('unseenMessagesCount', $this->unseenMessagesCount);
-        $writer->writeStringValue('visibility', $this->visibility);
-        $writer->writeObjectValue('writebackConfiguration', $this->writebackConfiguration);
+        $writer->writeCollectionOfObjectValues('acceptedSenders', $this->getAcceptedSenders());
+        $writer->writeEnumValue('accessType', $this->getAccessType());
+        $writer->writeBooleanValue('allowExternalSenders', $this->getAllowExternalSenders());
+        $writer->writeCollectionOfObjectValues('appRoleAssignments', $this->getAppRoleAssignments());
+        $writer->writeCollectionOfObjectValues('assignedLabels', $this->getAssignedLabels());
+        $writer->writeCollectionOfObjectValues('assignedLicenses', $this->getAssignedLicenses());
+        $writer->writeBooleanValue('autoSubscribeNewMembers', $this->getAutoSubscribeNewMembers());
+        $writer->writeObjectValue('calendar', $this->getCalendar());
+        $writer->writeCollectionOfObjectValues('calendarView', $this->getCalendarView());
+        $writer->writeStringValue('classification', $this->getClassification());
+        $writer->writeCollectionOfObjectValues('conversations', $this->getConversations());
+        $writer->writeStringValue('createdByAppId', $this->getCreatedByAppId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('createdOnBehalfOf', $this->getCreatedOnBehalfOf());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('drive', $this->getDrive());
+        $writer->writeCollectionOfObjectValues('drives', $this->getDrives());
+        $writer->writeCollectionOfObjectValues('endpoints', $this->getEndpoints());
+        $writer->writeCollectionOfObjectValues('events', $this->getEvents());
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
+        $writer->writeCollectionOfObjectValues('groupLifecyclePolicies', $this->getGroupLifecyclePolicies());
+        $writer->writeCollectionOfPrimitiveValues('groupTypes', $this->getGroupTypes());
+        $writer->writeBooleanValue('hasMembersWithLicenseErrors', $this->getHasMembersWithLicenseErrors());
+        $writer->writeBooleanValue('hideFromAddressLists', $this->getHideFromAddressLists());
+        $writer->writeBooleanValue('hideFromOutlookClients', $this->getHideFromOutlookClients());
+        $writer->writeCollectionOfPrimitiveValues('infoCatalogs', $this->getInfoCatalogs());
+        $writer->writeBooleanValue('isArchived', $this->getIsArchived());
+        $writer->writeBooleanValue('isAssignableToRole', $this->getIsAssignableToRole());
+        $writer->writeBooleanValue('isFavorite', $this->getIsFavorite());
+        $writer->writeBooleanValue('isManagementRestricted', $this->getIsManagementRestricted());
+        $writer->writeBooleanValue('isSubscribedByMail', $this->getIsSubscribedByMail());
+        $writer->writeObjectValue('licenseProcessingState', $this->getLicenseProcessingState());
+        $writer->writeStringValue('mail', $this->getMail());
+        $writer->writeBooleanValue('mailEnabled', $this->getMailEnabled());
+        $writer->writeStringValue('mailNickname', $this->getMailNickname());
+        $writer->writeCollectionOfObjectValues('memberOf', $this->getMemberOf());
+        $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeStringValue('membershipRule', $this->getMembershipRule());
+        $writer->writeStringValue('membershipRuleProcessingState', $this->getMembershipRuleProcessingState());
+        $writer->writeObjectValue('membershipRuleProcessingStatus', $this->getMembershipRuleProcessingStatus());
+        $writer->writeCollectionOfObjectValues('membersWithLicenseErrors', $this->getMembersWithLicenseErrors());
+        $writer->writeObjectValue('onenote', $this->getOnenote());
+        $writer->writeStringValue('onPremisesDomainName', $this->getOnPremisesDomainName());
+        $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->getOnPremisesLastSyncDateTime());
+        $writer->writeStringValue('onPremisesNetBiosName', $this->getOnPremisesNetBiosName());
+        $writer->writeCollectionOfObjectValues('onPremisesProvisioningErrors', $this->getOnPremisesProvisioningErrors());
+        $writer->writeStringValue('onPremisesSamAccountName', $this->getOnPremisesSamAccountName());
+        $writer->writeStringValue('onPremisesSecurityIdentifier', $this->getOnPremisesSecurityIdentifier());
+        $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());
+        $writer->writeStringValue('organizationId', $this->getOrganizationId());
+        $writer->writeCollectionOfObjectValues('owners', $this->getOwners());
+        $writer->writeCollectionOfObjectValues('permissionGrants', $this->getPermissionGrants());
+        $writer->writeObjectValue('photo', $this->getPhoto());
+        $writer->writeCollectionOfObjectValues('photos', $this->getPhotos());
+        $writer->writeObjectValue('planner', $this->getPlanner());
+        $writer->writeStringValue('preferredDataLocation', $this->getPreferredDataLocation());
+        $writer->writeStringValue('preferredLanguage', $this->getPreferredLanguage());
+        $writer->writeCollectionOfPrimitiveValues('proxyAddresses', $this->getProxyAddresses());
+        $writer->writeCollectionOfObjectValues('rejectedSenders', $this->getRejectedSenders());
+        $writer->writeDateTimeValue('renewedDateTime', $this->getRenewedDateTime());
+        $writer->writeCollectionOfPrimitiveValues('resourceBehaviorOptions', $this->getResourceBehaviorOptions());
+        $writer->writeCollectionOfPrimitiveValues('resourceProvisioningOptions', $this->getResourceProvisioningOptions());
+        $writer->writeBooleanValue('securityEnabled', $this->getSecurityEnabled());
+        $writer->writeStringValue('securityIdentifier', $this->getSecurityIdentifier());
+        $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
+        $writer->writeCollectionOfObjectValues('sites', $this->getSites());
+        $writer->writeObjectValue('team', $this->getTeam());
+        $writer->writeStringValue('theme', $this->getTheme());
+        $writer->writeCollectionOfObjectValues('threads', $this->getThreads());
+        $writer->writeCollectionOfObjectValues('transitiveMemberOf', $this->getTransitiveMemberOf());
+        $writer->writeCollectionOfObjectValues('transitiveMembers', $this->getTransitiveMembers());
+        $writer->writeIntegerValue('unseenConversationsCount', $this->getUnseenConversationsCount());
+        $writer->writeIntegerValue('unseenCount', $this->getUnseenCount());
+        $writer->writeIntegerValue('unseenMessagesCount', $this->getUnseenMessagesCount());
+        $writer->writeStringValue('visibility', $this->getVisibility());
+        $writer->writeObjectValue('writebackConfiguration', $this->getWritebackConfiguration());
     }
 
     /**
      * Sets the acceptedSenders property value. The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.
      *  @param array<DirectoryObject>|null $value Value to set for the acceptedSenders property.
     */
-    public function setAcceptedSenders(?array $value ): void {
-        $this->acceptedSenders = $value;
+    public function setAcceptedSenders(?array $value): void {
+        $this->getBackingStore()->set('acceptedSenders', $value);
     }
 
     /**
      * Sets the accessType property value. The accessType property
      *  @param GroupAccessType|null $value Value to set for the accessType property.
     */
-    public function setAccessType(?GroupAccessType $value ): void {
-        $this->accessType = $value;
+    public function setAccessType(?GroupAccessType $value): void {
+        $this->getBackingStore()->set('accessType', $value);
     }
 
     /**
      * Sets the allowExternalSenders property value. Indicates if people external to the organization can send messages to the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      *  @param bool|null $value Value to set for the allowExternalSenders property.
     */
-    public function setAllowExternalSenders(?bool $value ): void {
-        $this->allowExternalSenders = $value;
+    public function setAllowExternalSenders(?bool $value): void {
+        $this->getBackingStore()->set('allowExternalSenders', $value);
     }
 
     /**
      * Sets the appRoleAssignments property value. Represents the app roles a group has been granted for an application. Supports $expand.
      *  @param array<AppRoleAssignment>|null $value Value to set for the appRoleAssignments property.
     */
-    public function setAppRoleAssignments(?array $value ): void {
-        $this->appRoleAssignments = $value;
+    public function setAppRoleAssignments(?array $value): void {
+        $this->getBackingStore()->set('appRoleAssignments', $value);
     }
 
     /**
      * Sets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.
      *  @param array<AssignedLabel>|null $value Value to set for the assignedLabels property.
     */
-    public function setAssignedLabels(?array $value ): void {
-        $this->assignedLabels = $value;
+    public function setAssignedLabels(?array $value): void {
+        $this->getBackingStore()->set('assignedLabels', $value);
     }
 
     /**
      * Sets the assignedLicenses property value. The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.
      *  @param array<AssignedLicense>|null $value Value to set for the assignedLicenses property.
     */
-    public function setAssignedLicenses(?array $value ): void {
-        $this->assignedLicenses = $value;
+    public function setAssignedLicenses(?array $value): void {
+        $this->getBackingStore()->set('assignedLicenses', $value);
     }
 
     /**
      * Sets the autoSubscribeNewMembers property value. Indicates if new members added to the group will be auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; do not set it in the initial POST request that creates the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      *  @param bool|null $value Value to set for the autoSubscribeNewMembers property.
     */
-    public function setAutoSubscribeNewMembers(?bool $value ): void {
-        $this->autoSubscribeNewMembers = $value;
+    public function setAutoSubscribeNewMembers(?bool $value): void {
+        $this->getBackingStore()->set('autoSubscribeNewMembers', $value);
     }
 
     /**
      * Sets the calendar property value. The group's calendar. Read-only.
      *  @param Calendar|null $value Value to set for the calendar property.
     */
-    public function setCalendar(?Calendar $value ): void {
-        $this->calendar = $value;
+    public function setCalendar(?Calendar $value): void {
+        $this->getBackingStore()->set('calendar', $value);
     }
 
     /**
      * Sets the calendarView property value. The calendar view for the calendar. Read-only.
      *  @param array<Event>|null $value Value to set for the calendarView property.
     */
-    public function setCalendarView(?array $value ): void {
-        $this->calendarView = $value;
+    public function setCalendarView(?array $value): void {
+        $this->getBackingStore()->set('calendarView', $value);
     }
 
     /**
      * Sets the classification property value. Describes a classification for the group (such as low, medium or high business impact). Valid values for this property are defined by creating a ClassificationList setting value, based on the template definition.Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith).
      *  @param string|null $value Value to set for the classification property.
     */
-    public function setClassification(?string $value ): void {
-        $this->classification = $value;
+    public function setClassification(?string $value): void {
+        $this->getBackingStore()->set('classification', $value);
     }
 
     /**
      * Sets the conversations property value. The group's conversations.
      *  @param array<Conversation>|null $value Value to set for the conversations property.
     */
-    public function setConversations(?array $value ): void {
-        $this->conversations = $value;
+    public function setConversations(?array $value): void {
+        $this->getBackingStore()->set('conversations', $value);
     }
 
     /**
      * Sets the createdByAppId property value. App ID of the app used to create the group. Can be null for some groups. Returned by default. Read-only. Supports $filter (eq, ne, not, in, startsWith).
      *  @param string|null $value Value to set for the createdByAppId property.
     */
-    public function setCreatedByAppId(?string $value ): void {
-        $this->createdByAppId = $value;
+    public function setCreatedByAppId(?string $value): void {
+        $this->getBackingStore()->set('createdByAppId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the createdOnBehalfOf property value. The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
      *  @param DirectoryObject|null $value Value to set for the createdOnBehalfOf property.
     */
-    public function setCreatedOnBehalfOf(?DirectoryObject $value ): void {
-        $this->createdOnBehalfOf = $value;
+    public function setCreatedOnBehalfOf(?DirectoryObject $value): void {
+        $this->getBackingStore()->set('createdOnBehalfOf', $value);
     }
 
     /**
      * Sets the description property value. An optional description for the group. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the drive property value. The group's default drive. Read-only.
      *  @param Drive|null $value Value to set for the drive property.
     */
-    public function setDrive(?Drive $value ): void {
-        $this->drive = $value;
+    public function setDrive(?Drive $value): void {
+        $this->getBackingStore()->set('drive', $value);
     }
 
     /**
      * Sets the drives property value. The group's drives. Read-only.
      *  @param array<Drive>|null $value Value to set for the drives property.
     */
-    public function setDrives(?array $value ): void {
-        $this->drives = $value;
+    public function setDrives(?array $value): void {
+        $this->getBackingStore()->set('drives', $value);
     }
 
     /**
      * Sets the endpoints property value. Endpoints for the group. Read-only. Nullable.
      *  @param array<Endpoint>|null $value Value to set for the endpoints property.
     */
-    public function setEndpoints(?array $value ): void {
-        $this->endpoints = $value;
+    public function setEndpoints(?array $value): void {
+        $this->getBackingStore()->set('endpoints', $value);
     }
 
     /**
      * Sets the events property value. The group's events.
      *  @param array<Event>|null $value Value to set for the events property.
     */
-    public function setEvents(?array $value ): void {
-        $this->events = $value;
+    public function setEvents(?array $value): void {
+        $this->getBackingStore()->set('events', $value);
     }
 
     /**
      * Sets the expirationDateTime property value. Timestamp of when the group is set to expire. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the extensions property value. The collection of open extensions defined for the group. Read-only. Nullable.
      *  @param array<Extension>|null $value Value to set for the extensions property.
     */
-    public function setExtensions(?array $value ): void {
-        $this->extensions = $value;
+    public function setExtensions(?array $value): void {
+        $this->getBackingStore()->set('extensions', $value);
     }
 
     /**
      * Sets the groupLifecyclePolicies property value. The collection of lifecycle policies for this group. Read-only. Nullable.
      *  @param array<GroupLifecyclePolicy>|null $value Value to set for the groupLifecyclePolicies property.
     */
-    public function setGroupLifecyclePolicies(?array $value ): void {
-        $this->groupLifecyclePolicies = $value;
+    public function setGroupLifecyclePolicies(?array $value): void {
+        $this->getBackingStore()->set('groupLifecyclePolicies', $value);
     }
 
     /**
      * Sets the groupTypes property value. Specifies the group type and its membership. If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static. Returned by default. Supports $filter (eq, not).
      *  @param array<string>|null $value Value to set for the groupTypes property.
     */
-    public function setGroupTypes(?array $value ): void {
-        $this->groupTypes = $value;
+    public function setGroupTypes(?array $value): void {
+        $this->getBackingStore()->set('groupTypes', $value);
     }
 
     /**
      * Sets the hasMembersWithLicenseErrors property value. Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true).  Supports $filter (eq).
      *  @param bool|null $value Value to set for the hasMembersWithLicenseErrors property.
     */
-    public function setHasMembersWithLicenseErrors(?bool $value ): void {
-        $this->hasMembersWithLicenseErrors = $value;
+    public function setHasMembersWithLicenseErrors(?bool $value): void {
+        $this->getBackingStore()->set('hasMembersWithLicenseErrors', $value);
     }
 
     /**
      * Sets the hideFromAddressLists property value. true if the group is not displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups; false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      *  @param bool|null $value Value to set for the hideFromAddressLists property.
     */
-    public function setHideFromAddressLists(?bool $value ): void {
-        $this->hideFromAddressLists = $value;
+    public function setHideFromAddressLists(?bool $value): void {
+        $this->getBackingStore()->set('hideFromAddressLists', $value);
     }
 
     /**
      * Sets the hideFromOutlookClients property value. true if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web, false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      *  @param bool|null $value Value to set for the hideFromOutlookClients property.
     */
-    public function setHideFromOutlookClients(?bool $value ): void {
-        $this->hideFromOutlookClients = $value;
+    public function setHideFromOutlookClients(?bool $value): void {
+        $this->getBackingStore()->set('hideFromOutlookClients', $value);
     }
 
     /**
      * Sets the infoCatalogs property value. Identifies the info segments assigned to the group. Returned by default. Supports $filter (eq, not, ge, le, startsWith).
      *  @param array<string>|null $value Value to set for the infoCatalogs property.
     */
-    public function setInfoCatalogs(?array $value ): void {
-        $this->infoCatalogs = $value;
+    public function setInfoCatalogs(?array $value): void {
+        $this->getBackingStore()->set('infoCatalogs', $value);
     }
 
     /**
      * Sets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
      *  @param bool|null $value Value to set for the isArchived property.
     */
-    public function setIsArchived(?bool $value ): void {
-        $this->isArchived = $value;
+    public function setIsArchived(?bool $value): void {
+        $this->getBackingStore()->set('isArchived', $value);
     }
 
     /**
      * Sets the isAssignableToRole property value. Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).
      *  @param bool|null $value Value to set for the isAssignableToRole property.
     */
-    public function setIsAssignableToRole(?bool $value ): void {
-        $this->isAssignableToRole = $value;
+    public function setIsAssignableToRole(?bool $value): void {
+        $this->getBackingStore()->set('isAssignableToRole', $value);
     }
 
     /**
      * Sets the isFavorite property value. The isFavorite property
      *  @param bool|null $value Value to set for the isFavorite property.
     */
-    public function setIsFavorite(?bool $value ): void {
-        $this->isFavorite = $value;
+    public function setIsFavorite(?bool $value): void {
+        $this->getBackingStore()->set('isFavorite', $value);
     }
 
     /**
      * Sets the isManagementRestricted property value. The isManagementRestricted property
      *  @param bool|null $value Value to set for the isManagementRestricted property.
     */
-    public function setIsManagementRestricted(?bool $value ): void {
-        $this->isManagementRestricted = $value;
+    public function setIsManagementRestricted(?bool $value): void {
+        $this->getBackingStore()->set('isManagementRestricted', $value);
     }
 
     /**
      * Sets the isSubscribedByMail property value. Indicates whether the signed-in user is subscribed to receive email conversations. Default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      *  @param bool|null $value Value to set for the isSubscribedByMail property.
     */
-    public function setIsSubscribedByMail(?bool $value ): void {
-        $this->isSubscribedByMail = $value;
+    public function setIsSubscribedByMail(?bool $value): void {
+        $this->getBackingStore()->set('isSubscribedByMail', $value);
     }
 
     /**
      * Sets the licenseProcessingState property value. Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.
      *  @param LicenseProcessingState|null $value Value to set for the licenseProcessingState property.
     */
-    public function setLicenseProcessingState(?LicenseProcessingState $value ): void {
-        $this->licenseProcessingState = $value;
+    public function setLicenseProcessingState(?LicenseProcessingState $value): void {
+        $this->getBackingStore()->set('licenseProcessingState', $value);
     }
 
     /**
      * Sets the mail property value. The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      *  @param string|null $value Value to set for the mail property.
     */
-    public function setMail(?string $value ): void {
-        $this->mail = $value;
+    public function setMail(?string $value): void {
+        $this->getBackingStore()->set('mail', $value);
     }
 
     /**
      * Sets the mailEnabled property value. Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values).
      *  @param bool|null $value Value to set for the mailEnabled property.
     */
-    public function setMailEnabled(?bool $value ): void {
-        $this->mailEnabled = $value;
+    public function setMailEnabled(?bool $value): void {
+        $this->getBackingStore()->set('mailEnabled', $value);
     }
 
     /**
-     * Sets the mailNickname property value. The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Sets the mailNickname property value. The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : <> , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).
      *  @param string|null $value Value to set for the mailNickname property.
     */
-    public function setMailNickname(?string $value ): void {
-        $this->mailNickname = $value;
+    public function setMailNickname(?string $value): void {
+        $this->getBackingStore()->set('mailNickname', $value);
     }
 
     /**
      * Sets the memberOf property value. Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
      *  @param array<DirectoryObject>|null $value Value to set for the memberOf property.
     */
-    public function setMemberOf(?array $value ): void {
-        $this->memberOf = $value;
+    public function setMemberOf(?array $value): void {
+        $this->getBackingStore()->set('memberOf', $value);
     }
 
     /**
      * Sets the members property value. Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      *  @param array<DirectoryObject>|null $value Value to set for the members property.
     */
-    public function setMembers(?array $value ): void {
-        $this->members = $value;
+    public function setMembers(?array $value): void {
+        $this->getBackingStore()->set('members', $value);
     }
 
     /**
      * Sets the membershipRule property value. The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith).
      *  @param string|null $value Value to set for the membershipRule property.
     */
-    public function setMembershipRule(?string $value ): void {
-        $this->membershipRule = $value;
+    public function setMembershipRule(?string $value): void {
+        $this->getBackingStore()->set('membershipRule', $value);
     }
 
     /**
      * Sets the membershipRuleProcessingState property value. Indicates whether the dynamic membership processing is on or paused. Possible values are On or Paused. Returned by default. Supports $filter (eq, ne, not, in).
      *  @param string|null $value Value to set for the membershipRuleProcessingState property.
     */
-    public function setMembershipRuleProcessingState(?string $value ): void {
-        $this->membershipRuleProcessingState = $value;
+    public function setMembershipRuleProcessingState(?string $value): void {
+        $this->getBackingStore()->set('membershipRuleProcessingState', $value);
     }
 
     /**
      * Sets the membershipRuleProcessingStatus property value. Describes the processing status for rules-based dynamic groups. The property is null for non-rule based dynamic groups or if the dynamic group processing has been paused. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). Read-only.
      *  @param MembershipRuleProcessingStatus|null $value Value to set for the membershipRuleProcessingStatus property.
     */
-    public function setMembershipRuleProcessingStatus(?MembershipRuleProcessingStatus $value ): void {
-        $this->membershipRuleProcessingStatus = $value;
+    public function setMembershipRuleProcessingStatus(?MembershipRuleProcessingStatus $value): void {
+        $this->getBackingStore()->set('membershipRuleProcessingStatus', $value);
     }
 
     /**
      * Sets the membersWithLicenseErrors property value. A list of group members with license errors from this group-based license assignment. Read-only.
      *  @param array<DirectoryObject>|null $value Value to set for the membersWithLicenseErrors property.
     */
-    public function setMembersWithLicenseErrors(?array $value ): void {
-        $this->membersWithLicenseErrors = $value;
+    public function setMembersWithLicenseErrors(?array $value): void {
+        $this->getBackingStore()->set('membersWithLicenseErrors', $value);
     }
 
     /**
      * Sets the onenote property value. The onenote property
      *  @param Onenote|null $value Value to set for the onenote property.
     */
-    public function setOnenote(?Onenote $value ): void {
-        $this->onenote = $value;
+    public function setOnenote(?Onenote $value): void {
+        $this->getBackingStore()->set('onenote', $value);
     }
 
     /**
      * Sets the onPremisesDomainName property value. Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
      *  @param string|null $value Value to set for the onPremisesDomainName property.
     */
-    public function setOnPremisesDomainName(?string $value ): void {
-        $this->onPremisesDomainName = $value;
+    public function setOnPremisesDomainName(?string $value): void {
+        $this->getBackingStore()->set('onPremisesDomainName', $value);
     }
 
     /**
      * Sets the onPremisesLastSyncDateTime property value. Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in).
      *  @param DateTime|null $value Value to set for the onPremisesLastSyncDateTime property.
     */
-    public function setOnPremisesLastSyncDateTime(?DateTime $value ): void {
-        $this->onPremisesLastSyncDateTime = $value;
+    public function setOnPremisesLastSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('onPremisesLastSyncDateTime', $value);
     }
 
     /**
      * Sets the onPremisesNetBiosName property value. Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
      *  @param string|null $value Value to set for the onPremisesNetBiosName property.
     */
-    public function setOnPremisesNetBiosName(?string $value ): void {
-        $this->onPremisesNetBiosName = $value;
+    public function setOnPremisesNetBiosName(?string $value): void {
+        $this->getBackingStore()->set('onPremisesNetBiosName', $value);
     }
 
     /**
      * Sets the onPremisesProvisioningErrors property value. Errors when using Microsoft synchronization product during provisioning. Returned by default. Supports $filter (eq, not).
      *  @param array<OnPremisesProvisioningError>|null $value Value to set for the onPremisesProvisioningErrors property.
     */
-    public function setOnPremisesProvisioningErrors(?array $value ): void {
-        $this->onPremisesProvisioningErrors = $value;
+    public function setOnPremisesProvisioningErrors(?array $value): void {
+        $this->getBackingStore()->set('onPremisesProvisioningErrors', $value);
     }
 
     /**
      * Sets the onPremisesSamAccountName property value. Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith). Read-only.
      *  @param string|null $value Value to set for the onPremisesSamAccountName property.
     */
-    public function setOnPremisesSamAccountName(?string $value ): void {
-        $this->onPremisesSamAccountName = $value;
+    public function setOnPremisesSamAccountName(?string $value): void {
+        $this->getBackingStore()->set('onPremisesSamAccountName', $value);
     }
 
     /**
      * Sets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Supports $filter (eq including on null values). Read-only.
      *  @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
     */
-    public function setOnPremisesSecurityIdentifier(?string $value ): void {
-        $this->onPremisesSecurityIdentifier = $value;
+    public function setOnPremisesSecurityIdentifier(?string $value): void {
+        $this->getBackingStore()->set('onPremisesSecurityIdentifier', $value);
     }
 
     /**
      * Sets the onPremisesSyncEnabled property value. true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
      *  @param bool|null $value Value to set for the onPremisesSyncEnabled property.
     */
-    public function setOnPremisesSyncEnabled(?bool $value ): void {
-        $this->onPremisesSyncEnabled = $value;
+    public function setOnPremisesSyncEnabled(?bool $value): void {
+        $this->getBackingStore()->set('onPremisesSyncEnabled', $value);
     }
 
     /**
      * Sets the organizationId property value. The organizationId property
      *  @param string|null $value Value to set for the organizationId property.
     */
-    public function setOrganizationId(?string $value ): void {
-        $this->organizationId = $value;
+    public function setOrganizationId(?string $value): void {
+        $this->getBackingStore()->set('organizationId', $value);
     }
 
     /**
-     * Sets the owners property value. The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
+     * Sets the owners property value. The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner.  Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1); Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
      *  @param array<DirectoryObject>|null $value Value to set for the owners property.
     */
-    public function setOwners(?array $value ): void {
-        $this->owners = $value;
+    public function setOwners(?array $value): void {
+        $this->getBackingStore()->set('owners', $value);
     }
 
     /**
      * Sets the permissionGrants property value. The permissions that have been granted for a group to a specific application. Supports $expand.
      *  @param array<ResourceSpecificPermissionGrant>|null $value Value to set for the permissionGrants property.
     */
-    public function setPermissionGrants(?array $value ): void {
-        $this->permissionGrants = $value;
+    public function setPermissionGrants(?array $value): void {
+        $this->getBackingStore()->set('permissionGrants', $value);
     }
 
     /**
      * Sets the photo property value. The group's profile photo.
      *  @param ProfilePhoto|null $value Value to set for the photo property.
     */
-    public function setPhoto(?ProfilePhoto $value ): void {
-        $this->photo = $value;
+    public function setPhoto(?ProfilePhoto $value): void {
+        $this->getBackingStore()->set('photo', $value);
     }
 
     /**
      * Sets the photos property value. The profile photos owned by the group. Read-only. Nullable.
      *  @param array<ProfilePhoto>|null $value Value to set for the photos property.
     */
-    public function setPhotos(?array $value ): void {
-        $this->photos = $value;
+    public function setPhotos(?array $value): void {
+        $this->getBackingStore()->set('photos', $value);
     }
 
     /**
      * Sets the planner property value. Selective Planner services available to the group. Read-only. Nullable.
      *  @param PlannerGroup|null $value Value to set for the planner property.
     */
-    public function setPlanner(?PlannerGroup $value ): void {
-        $this->planner = $value;
+    public function setPlanner(?PlannerGroup $value): void {
+        $this->getBackingStore()->set('planner', $value);
     }
 
     /**
      * Sets the preferredDataLocation property value. The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling user must be assigned one of the following Azure AD roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo. Nullable. Returned by default.
      *  @param string|null $value Value to set for the preferredDataLocation property.
     */
-    public function setPreferredDataLocation(?string $value ): void {
-        $this->preferredDataLocation = $value;
+    public function setPreferredDataLocation(?string $value): void {
+        $this->getBackingStore()->set('preferredDataLocation', $value);
     }
 
     /**
      * Sets the preferredLanguage property value. The preferred language for a Microsoft 365 group. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      *  @param string|null $value Value to set for the preferredLanguage property.
     */
-    public function setPreferredLanguage(?string $value ): void {
-        $this->preferredLanguage = $value;
+    public function setPreferredLanguage(?string $value): void {
+        $this->getBackingStore()->set('preferredLanguage', $value);
     }
 
     /**
-     * Sets the proxyAddresses property value. Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).
+     * Sets the proxyAddresses property value. Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
      *  @param array<string>|null $value Value to set for the proxyAddresses property.
     */
-    public function setProxyAddresses(?array $value ): void {
-        $this->proxyAddresses = $value;
+    public function setProxyAddresses(?array $value): void {
+        $this->getBackingStore()->set('proxyAddresses', $value);
     }
 
     /**
      * Sets the rejectedSenders property value. The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable
      *  @param array<DirectoryObject>|null $value Value to set for the rejectedSenders property.
     */
-    public function setRejectedSenders(?array $value ): void {
-        $this->rejectedSenders = $value;
+    public function setRejectedSenders(?array $value): void {
+        $this->getBackingStore()->set('rejectedSenders', $value);
     }
 
     /**
      * Sets the renewedDateTime property value. Timestamp of when the group was last renewed. This cannot be modified directly and is only updated via the renew service action. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
      *  @param DateTime|null $value Value to set for the renewedDateTime property.
     */
-    public function setRenewedDateTime(?DateTime $value ): void {
-        $this->renewedDateTime = $value;
+    public function setRenewedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('renewedDateTime', $value);
     }
 
     /**
      * Sets the resourceBehaviorOptions property value. Specifies the group behaviors that can be set for a Microsoft 365 group during creation. This can be set only as part of creation (POST). Possible values are AllowOnlyMembersToPost, HideGroupInOutlook, SubscribeNewGroupMembers, WelcomeEmailDisabled. For more information, see Set Microsoft 365 group behaviors and provisioning options.
      *  @param array<string>|null $value Value to set for the resourceBehaviorOptions property.
     */
-    public function setResourceBehaviorOptions(?array $value ): void {
-        $this->resourceBehaviorOptions = $value;
+    public function setResourceBehaviorOptions(?array $value): void {
+        $this->getBackingStore()->set('resourceBehaviorOptions', $value);
     }
 
     /**
      * Sets the resourceProvisioningOptions property value. Specifies the group resources that are provisioned as part of Microsoft 365 group creation, that are not normally part of default group creation. Possible value is Team. For more information, see Set Microsoft 365 group behaviors and provisioning options. Returned by default. Supports $filter (eq, not, startsWith.
      *  @param array<string>|null $value Value to set for the resourceProvisioningOptions property.
     */
-    public function setResourceProvisioningOptions(?array $value ): void {
-        $this->resourceProvisioningOptions = $value;
+    public function setResourceProvisioningOptions(?array $value): void {
+        $this->getBackingStore()->set('resourceProvisioningOptions', $value);
     }
 
     /**
      * Sets the securityEnabled property value. Specifies whether the group is a security group. Required.Returned by default. Supports $filter (eq, ne, not, in).
      *  @param bool|null $value Value to set for the securityEnabled property.
     */
-    public function setSecurityEnabled(?bool $value ): void {
-        $this->securityEnabled = $value;
+    public function setSecurityEnabled(?bool $value): void {
+        $this->getBackingStore()->set('securityEnabled', $value);
     }
 
     /**
      * Sets the securityIdentifier property value. Security identifier of the group, used in Windows scenarios. Returned by default.
      *  @param string|null $value Value to set for the securityIdentifier property.
     */
-    public function setSecurityIdentifier(?string $value ): void {
-        $this->securityIdentifier = $value;
+    public function setSecurityIdentifier(?string $value): void {
+        $this->getBackingStore()->set('securityIdentifier', $value);
     }
 
     /**
      * Sets the settings property value. Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
      *  @param array<DirectorySetting>|null $value Value to set for the settings property.
     */
-    public function setSettings(?array $value ): void {
-        $this->settings = $value;
+    public function setSettings(?array $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**
      * Sets the sites property value. The list of SharePoint sites in this group. Access the default site with /sites/root.
      *  @param array<Site>|null $value Value to set for the sites property.
     */
-    public function setSites(?array $value ): void {
-        $this->sites = $value;
+    public function setSites(?array $value): void {
+        $this->getBackingStore()->set('sites', $value);
     }
 
     /**
      * Sets the team property value. The team associated with this group.
      *  @param Team|null $value Value to set for the team property.
     */
-    public function setTeam(?Team $value ): void {
-        $this->team = $value;
+    public function setTeam(?Team $value): void {
+        $this->getBackingStore()->set('team', $value);
     }
 
     /**
      * Sets the theme property value. Specifies a Microsoft 365 group's color theme. Possible values are Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default.
      *  @param string|null $value Value to set for the theme property.
     */
-    public function setTheme(?string $value ): void {
-        $this->theme = $value;
+    public function setTheme(?string $value): void {
+        $this->getBackingStore()->set('theme', $value);
     }
 
     /**
      * Sets the threads property value. The group's conversation threads. Nullable.
      *  @param array<ConversationThread>|null $value Value to set for the threads property.
     */
-    public function setThreads(?array $value ): void {
-        $this->threads = $value;
+    public function setThreads(?array $value): void {
+        $this->getBackingStore()->set('threads', $value);
     }
 
     /**
      * Sets the transitiveMemberOf property value. The groups that a group is a member of, either directly and through nested membership. Nullable.
      *  @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
-    public function setTransitiveMemberOf(?array $value ): void {
-        $this->transitiveMemberOf = $value;
+    public function setTransitiveMemberOf(?array $value): void {
+        $this->getBackingStore()->set('transitiveMemberOf', $value);
     }
 
     /**
      * Sets the transitiveMembers property value. The direct and transitive members of a group. Nullable.
      *  @param array<DirectoryObject>|null $value Value to set for the transitiveMembers property.
     */
-    public function setTransitiveMembers(?array $value ): void {
-        $this->transitiveMembers = $value;
+    public function setTransitiveMembers(?array $value): void {
+        $this->getBackingStore()->set('transitiveMembers', $value);
     }
 
     /**
      * Sets the unseenConversationsCount property value. Count of conversations that have been delivered one or more new posts since the signed-in user's last visit to the group. This property is the same as unseenCount. Returned only on $select.
      *  @param int|null $value Value to set for the unseenConversationsCount property.
     */
-    public function setUnseenConversationsCount(?int $value ): void {
-        $this->unseenConversationsCount = $value;
+    public function setUnseenConversationsCount(?int $value): void {
+        $this->getBackingStore()->set('unseenConversationsCount', $value);
     }
 
     /**
      * Sets the unseenCount property value. Count of conversations that have received new posts since the signed-in user last visited the group. This property is the same as unseenConversationsCount.Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      *  @param int|null $value Value to set for the unseenCount property.
     */
-    public function setUnseenCount(?int $value ): void {
-        $this->unseenCount = $value;
+    public function setUnseenCount(?int $value): void {
+        $this->getBackingStore()->set('unseenCount', $value);
     }
 
     /**
      * Sets the unseenMessagesCount property value. Count of new posts that have been delivered to the group's conversations since the signed-in user's last visit to the group. Returned only on $select.
      *  @param int|null $value Value to set for the unseenMessagesCount property.
     */
-    public function setUnseenMessagesCount(?int $value ): void {
-        $this->unseenMessagesCount = $value;
+    public function setUnseenMessagesCount(?int $value): void {
+        $this->getBackingStore()->set('unseenMessagesCount', $value);
     }
 
     /**
      * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
      *  @param string|null $value Value to set for the visibility property.
     */
-    public function setVisibility(?string $value ): void {
-        $this->visibility = $value;
+    public function setVisibility(?string $value): void {
+        $this->getBackingStore()->set('visibility', $value);
     }
 
     /**
      * Sets the writebackConfiguration property value. Specifies whether or not a group is configured to write back group object properties to on-premise Active Directory. These properties are used when group writeback is configured in the Azure AD Connect sync client.
      *  @param GroupWritebackConfiguration|null $value Value to set for the writebackConfiguration property.
     */
-    public function setWritebackConfiguration(?GroupWritebackConfiguration $value ): void {
-        $this->writebackConfiguration = $value;
+    public function setWritebackConfiguration(?GroupWritebackConfiguration $value): void {
+        $this->getBackingStore()->set('writebackConfiguration', $value);
     }
 
 }

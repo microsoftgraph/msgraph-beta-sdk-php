@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AppRequestBuilder 
 {
     /**
-     * The calls property
+     * Provides operations to manage the calls property of the microsoft.graph.commsApplication entity.
     */
     public function calls(): CallsRequestBuilder {
         return new CallsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The onlineMeetings property
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.commsApplication entity.
     */
     public function onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -51,7 +51,7 @@ class AppRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.app.calls.item collection
+     * Provides operations to manage the calls property of the microsoft.graph.commsApplication entity.
      * @param string $id Unique identifier of the item
      * @return CallItemRequestBuilder
     */
@@ -141,7 +141,7 @@ class AppRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.app.onlineMeetings.item collection
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.commsApplication entity.
      * @param string $id Unique identifier of the item
      * @return OnlineMeetingItemRequestBuilder
     */

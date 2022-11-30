@@ -31,56 +31,56 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageRequestBuilder 
 {
     /**
-     * The accessPackageAssignmentPolicies property
+     * Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.accessPackage entity.
     */
     public function accessPackageAssignmentPolicies(): AccessPackageAssignmentPoliciesRequestBuilder {
         return new AccessPackageAssignmentPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageCatalog property
+     * Provides operations to manage the accessPackageCatalog property of the microsoft.graph.accessPackage entity.
     */
     public function accessPackageCatalog(): AccessPackageCatalogRequestBuilder {
         return new AccessPackageCatalogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResourceRoleScopes property
+     * Provides operations to manage the accessPackageResourceRoleScopes property of the microsoft.graph.accessPackage entity.
     */
     public function accessPackageResourceRoleScopes(): AccessPackageResourceRoleScopesRequestBuilder {
         return new AccessPackageResourceRoleScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackagesIncompatibleWith property
+     * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
     */
     public function accessPackagesIncompatibleWith(): AccessPackagesIncompatibleWithRequestBuilder {
         return new AccessPackagesIncompatibleWithRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getApplicablePolicyRequirements property
+     * Provides operations to call the getApplicablePolicyRequirements method.
     */
     public function getApplicablePolicyRequirements(): GetApplicablePolicyRequirementsRequestBuilder {
         return new GetApplicablePolicyRequirementsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The incompatibleAccessPackages property
+     * Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity.
     */
     public function incompatibleAccessPackages(): IncompatibleAccessPackagesRequestBuilder {
         return new IncompatibleAccessPackagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The incompatibleGroups property
+     * Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity.
     */
     public function incompatibleGroups(): IncompatibleGroupsRequestBuilder {
         return new IncompatibleGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The moveToCatalog property
+     * Provides operations to call the moveToCatalog method.
     */
     public function moveToCatalog(): MoveToCatalogRequestBuilder {
         return new MoveToCatalogRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -102,7 +102,7 @@ class AccessPackageRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackage.accessPackageAssignmentPolicies.item collection
+     * Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.accessPackage entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageAssignmentPolicyItemRequestBuilder
     */
@@ -113,7 +113,7 @@ class AccessPackageRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackage.accessPackageResourceRoleScopes.item collection
+     * Provides operations to manage the accessPackageResourceRoleScopes property of the microsoft.graph.accessPackage entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceRoleScopeItemRequestBuilder
     */
@@ -124,7 +124,7 @@ class AccessPackageRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackage.accessPackagesIncompatibleWith.item collection
+     * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementAccessPackageAssignmentsItemAccessPackageAccessPackagesIncompatibleWithItemAccessPackageItemRequestBuilder
     */

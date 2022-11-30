@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsMobileMSI extends MobileLobApp implements Parsable 
 {
     /**
-     * @var string|null $commandLine The command line.
-    */
-    private ?string $commandLine = null;
-    
-    /**
-     * @var string|null $identityVersion The identity version.
-    */
-    private ?string $identityVersion = null;
-    
-    /**
-     * @var bool|null $ignoreVersionDetection A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.
-    */
-    private ?bool $ignoreVersionDetection = null;
-    
-    /**
-     * @var string|null $productCode The product code.
-    */
-    private ?string $productCode = null;
-    
-    /**
-     * @var string|null $productVersion The product version of Windows Mobile MSI Line of Business (LoB) app.
-    */
-    private ?string $productVersion = null;
-    
-    /**
-     * @var bool|null $useDeviceContext Indicates whether to install a dual-mode MSI in the device context. If true, app will be installed for all users. If false, app will be installed per-user. If null, service will use the MSI package's default install context. In case of dual-mode MSI, this default will be per-user.  Cannot be set for non-dual-mode apps.  Cannot be changed after initial creation of the application.
-    */
-    private ?bool $useDeviceContext = null;
-    
-    /**
      * Instantiates a new WindowsMobileMSI and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getCommandLine(): ?string {
-        return $this->commandLine;
+        return $this->getBackingStore()->get('commandLine');
     }
 
     /**
@@ -84,7 +54,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
-        return $this->identityVersion;
+        return $this->getBackingStore()->get('identityVersion');
     }
 
     /**
@@ -92,7 +62,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return bool|null
     */
     public function getIgnoreVersionDetection(): ?bool {
-        return $this->ignoreVersionDetection;
+        return $this->getBackingStore()->get('ignoreVersionDetection');
     }
 
     /**
@@ -100,7 +70,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getProductCode(): ?string {
-        return $this->productCode;
+        return $this->getBackingStore()->get('productCode');
     }
 
     /**
@@ -108,7 +78,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getProductVersion(): ?string {
-        return $this->productVersion;
+        return $this->getBackingStore()->get('productVersion');
     }
 
     /**
@@ -116,7 +86,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
      * @return bool|null
     */
     public function getUseDeviceContext(): ?bool {
-        return $this->useDeviceContext;
+        return $this->getBackingStore()->get('useDeviceContext');
     }
 
     /**
@@ -125,60 +95,60 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('commandLine', $this->commandLine);
-        $writer->writeStringValue('identityVersion', $this->identityVersion);
-        $writer->writeBooleanValue('ignoreVersionDetection', $this->ignoreVersionDetection);
-        $writer->writeStringValue('productCode', $this->productCode);
-        $writer->writeStringValue('productVersion', $this->productVersion);
-        $writer->writeBooleanValue('useDeviceContext', $this->useDeviceContext);
+        $writer->writeStringValue('commandLine', $this->getCommandLine());
+        $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
+        $writer->writeBooleanValue('ignoreVersionDetection', $this->getIgnoreVersionDetection());
+        $writer->writeStringValue('productCode', $this->getProductCode());
+        $writer->writeStringValue('productVersion', $this->getProductVersion());
+        $writer->writeBooleanValue('useDeviceContext', $this->getUseDeviceContext());
     }
 
     /**
      * Sets the commandLine property value. The command line.
      *  @param string|null $value Value to set for the commandLine property.
     */
-    public function setCommandLine(?string $value ): void {
-        $this->commandLine = $value;
+    public function setCommandLine(?string $value): void {
+        $this->getBackingStore()->set('commandLine', $value);
     }
 
     /**
      * Sets the identityVersion property value. The identity version.
      *  @param string|null $value Value to set for the identityVersion property.
     */
-    public function setIdentityVersion(?string $value ): void {
-        $this->identityVersion = $value;
+    public function setIdentityVersion(?string $value): void {
+        $this->getBackingStore()->set('identityVersion', $value);
     }
 
     /**
      * Sets the ignoreVersionDetection property value. A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.
      *  @param bool|null $value Value to set for the ignoreVersionDetection property.
     */
-    public function setIgnoreVersionDetection(?bool $value ): void {
-        $this->ignoreVersionDetection = $value;
+    public function setIgnoreVersionDetection(?bool $value): void {
+        $this->getBackingStore()->set('ignoreVersionDetection', $value);
     }
 
     /**
      * Sets the productCode property value. The product code.
      *  @param string|null $value Value to set for the productCode property.
     */
-    public function setProductCode(?string $value ): void {
-        $this->productCode = $value;
+    public function setProductCode(?string $value): void {
+        $this->getBackingStore()->set('productCode', $value);
     }
 
     /**
      * Sets the productVersion property value. The product version of Windows Mobile MSI Line of Business (LoB) app.
      *  @param string|null $value Value to set for the productVersion property.
     */
-    public function setProductVersion(?string $value ): void {
-        $this->productVersion = $value;
+    public function setProductVersion(?string $value): void {
+        $this->getBackingStore()->set('productVersion', $value);
     }
 
     /**
      * Sets the useDeviceContext property value. Indicates whether to install a dual-mode MSI in the device context. If true, app will be installed for all users. If false, app will be installed per-user. If null, service will use the MSI package's default install context. In case of dual-mode MSI, this default will be per-user.  Cannot be set for non-dual-mode apps.  Cannot be changed after initial creation of the application.
      *  @param bool|null $value Value to set for the useDeviceContext property.
     */
-    public function setUseDeviceContext(?bool $value ): void {
-        $this->useDeviceContext = $value;
+    public function setUseDeviceContext(?bool $value): void {
+        $this->getBackingStore()->set('useDeviceContext', $value);
     }
 
 }

@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * @var InstallIntent|null $intent Possible values for the install intent chosen by the admin.
-    */
-    private ?InstallIntent $intent = null;
-    
-    /**
-     * @var MobileAppAssignmentSettings|null $settings Settings of the MobileAppPolicySetItem.
-    */
-    private ?MobileAppAssignmentSettings $settings = null;
-    
-    /**
      * Instantiates a new MobileAppPolicySetItem and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class MobileAppPolicySetItem extends PolicySetItem implements Parsable
      * @return InstallIntent|null
     */
     public function getIntent(): ?InstallIntent {
-        return $this->intent;
+        return $this->getBackingStore()->get('intent');
     }
 
     /**
@@ -60,7 +50,7 @@ class MobileAppPolicySetItem extends PolicySetItem implements Parsable
      * @return MobileAppAssignmentSettings|null
     */
     public function getSettings(): ?MobileAppAssignmentSettings {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -69,24 +59,24 @@ class MobileAppPolicySetItem extends PolicySetItem implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('intent', $this->intent);
-        $writer->writeObjectValue('settings', $this->settings);
+        $writer->writeEnumValue('intent', $this->getIntent());
+        $writer->writeObjectValue('settings', $this->getSettings());
     }
 
     /**
      * Sets the intent property value. Possible values for the install intent chosen by the admin.
      *  @param InstallIntent|null $value Value to set for the intent property.
     */
-    public function setIntent(?InstallIntent $value ): void {
-        $this->intent = $value;
+    public function setIntent(?InstallIntent $value): void {
+        $this->getBackingStore()->set('intent', $value);
     }
 
     /**
      * Sets the settings property value. Settings of the MobileAppPolicySetItem.
      *  @param MobileAppAssignmentSettings|null $value Value to set for the settings property.
     */
-    public function setSettings(?MobileAppAssignmentSettings $value ): void {
-        $this->settings = $value;
+    public function setSettings(?MobileAppAssignmentSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
 }

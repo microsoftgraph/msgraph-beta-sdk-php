@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeletedTeam extends Entity implements Parsable 
 {
     /**
-     * @var array<Channel>|null $channels The channels those are either shared with this deleted team or created in this deleted team.
-    */
-    private ?array $channels = null;
-    
-    /**
      * Instantiates a new DeletedTeam and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deletedTeam');
     }
 
     /**
@@ -35,7 +29,7 @@ class DeletedTeam extends Entity implements Parsable
      * @return array<Channel>|null
     */
     public function getChannels(): ?array {
-        return $this->channels;
+        return $this->getBackingStore()->get('channels');
     }
 
     /**
@@ -55,15 +49,15 @@ class DeletedTeam extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('channels', $this->channels);
+        $writer->writeCollectionOfObjectValues('channels', $this->getChannels());
     }
 
     /**
      * Sets the channels property value. The channels those are either shared with this deleted team or created in this deleted team.
      *  @param array<Channel>|null $value Value to set for the channels property.
     */
-    public function setChannels(?array $value ): void {
-        $this->channels = $value;
+    public function setChannels(?array $value): void {
+        $this->getBackingStore()->set('channels', $value);
     }
 
 }

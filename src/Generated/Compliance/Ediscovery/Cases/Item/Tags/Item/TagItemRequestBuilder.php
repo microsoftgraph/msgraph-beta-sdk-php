@@ -20,14 +20,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TagItemRequestBuilder 
 {
     /**
-     * The childTags property
+     * Provides operations to manage the childTags property of the microsoft.graph.ediscovery.tag entity.
     */
     public function childTags(): ChildTagsRequestBuilder {
         return new ChildTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The parent property
+     * Provides operations to manage the parent property of the microsoft.graph.ediscovery.tag entity.
     */
     public function parent(): ParentRequestBuilder {
         return new ParentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -49,7 +49,7 @@ class TagItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.tags.item.childTags.item collection
+     * Provides operations to manage the childTags property of the microsoft.graph.ediscovery.tag entity.
      * @param string $id Unique identifier of the item
      * @return TagItemRequestBuilder
     */

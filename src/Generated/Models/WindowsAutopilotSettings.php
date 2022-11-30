@@ -10,26 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsAutopilotSettings extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $lastManualSyncTriggerDateTime Last data sync date time with DDS service.
-    */
-    private ?DateTime $lastManualSyncTriggerDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastSyncDateTime Last data sync date time with DDS service.
-    */
-    private ?DateTime $lastSyncDateTime = null;
-    
-    /**
-     * @var WindowsAutopilotSyncStatus|null $syncStatus The syncStatus property
-    */
-    private ?WindowsAutopilotSyncStatus $syncStatus = null;
-    
-    /**
-     * Instantiates a new WindowsAutopilotSettings and sets the default values.
+     * Instantiates a new windowsAutopilotSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsAutopilotSettings');
     }
 
     /**
@@ -59,7 +43,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastManualSyncTriggerDateTime(): ?DateTime {
-        return $this->lastManualSyncTriggerDateTime;
+        return $this->getBackingStore()->get('lastManualSyncTriggerDateTime');
     }
 
     /**
@@ -67,7 +51,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->lastSyncDateTime;
+        return $this->getBackingStore()->get('lastSyncDateTime');
     }
 
     /**
@@ -75,7 +59,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
      * @return WindowsAutopilotSyncStatus|null
     */
     public function getSyncStatus(): ?WindowsAutopilotSyncStatus {
-        return $this->syncStatus;
+        return $this->getBackingStore()->get('syncStatus');
     }
 
     /**
@@ -84,33 +68,33 @@ class WindowsAutopilotSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('lastManualSyncTriggerDateTime', $this->lastManualSyncTriggerDateTime);
-        $writer->writeDateTimeValue('lastSyncDateTime', $this->lastSyncDateTime);
-        $writer->writeEnumValue('syncStatus', $this->syncStatus);
+        $writer->writeDateTimeValue('lastManualSyncTriggerDateTime', $this->getLastManualSyncTriggerDateTime());
+        $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeEnumValue('syncStatus', $this->getSyncStatus());
     }
 
     /**
      * Sets the lastManualSyncTriggerDateTime property value. Last data sync date time with DDS service.
      *  @param DateTime|null $value Value to set for the lastManualSyncTriggerDateTime property.
     */
-    public function setLastManualSyncTriggerDateTime(?DateTime $value ): void {
-        $this->lastManualSyncTriggerDateTime = $value;
+    public function setLastManualSyncTriggerDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastManualSyncTriggerDateTime', $value);
     }
 
     /**
      * Sets the lastSyncDateTime property value. Last data sync date time with DDS service.
      *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
-    public function setLastSyncDateTime(?DateTime $value ): void {
-        $this->lastSyncDateTime = $value;
+    public function setLastSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSyncDateTime', $value);
     }
 
     /**
      * Sets the syncStatus property value. The syncStatus property
      *  @param WindowsAutopilotSyncStatus|null $value Value to set for the syncStatus property.
     */
-    public function setSyncStatus(?WindowsAutopilotSyncStatus $value ): void {
-        $this->syncStatus = $value;
+    public function setSyncStatus(?WindowsAutopilotSyncStatus $value): void {
+        $this->getBackingStore()->set('syncStatus', $value);
     }
 
 }

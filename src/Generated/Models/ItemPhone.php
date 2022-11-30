@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemPhone extends ItemFacet implements Parsable 
 {
     /**
-     * @var string|null $displayName Friendly name the user has assigned this phone number.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $number Phone number provided by the user.
-    */
-    private ?string $number = null;
-    
-    /**
-     * @var PhoneType|null $type The type property
-    */
-    private ?PhoneType $type = null;
-    
-    /**
      * Instantiates a new ItemPhone and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class ItemPhone extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -66,7 +51,7 @@ class ItemPhone extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->number;
+        return $this->getBackingStore()->get('number');
     }
 
     /**
@@ -74,7 +59,7 @@ class ItemPhone extends ItemFacet implements Parsable
      * @return PhoneType|null
     */
     public function getType(): ?PhoneType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -83,33 +68,33 @@ class ItemPhone extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('number', $this->number);
-        $writer->writeEnumValue('type', $this->type);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('number', $this->getNumber());
+        $writer->writeEnumValue('type', $this->getType());
     }
 
     /**
      * Sets the displayName property value. Friendly name the user has assigned this phone number.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the number property value. Phone number provided by the user.
      *  @param string|null $value Value to set for the number property.
     */
-    public function setNumber(?string $value ): void {
-        $this->number = $value;
+    public function setNumber(?string $value): void {
+        $this->getBackingStore()->set('number', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param PhoneType|null $value Value to set for the type property.
     */
-    public function setType(?PhoneType $value ): void {
-        $this->type = $value;
+    public function setType(?PhoneType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

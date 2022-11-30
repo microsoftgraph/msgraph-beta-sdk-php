@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDefenderApplicationControlSupplementalPolicyAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DeviceAndAppManagementAssignmentTarget|null $target The target group assignment defined by the admin.
-    */
-    private ?DeviceAndAppManagementAssignmentTarget $target = null;
-    
-    /**
      * Instantiates a new windowsDefenderApplicationControlSupplementalPolicyAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsDefenderApplicationControlSupplementalPolicyAssignment');
     }
 
     /**
@@ -46,7 +40,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyAssignment extends Enti
      * @return DeviceAndAppManagementAssignmentTarget|null
     */
     public function getTarget(): ?DeviceAndAppManagementAssignmentTarget {
-        return $this->target;
+        return $this->getBackingStore()->get('target');
     }
 
     /**
@@ -55,15 +49,15 @@ class WindowsDefenderApplicationControlSupplementalPolicyAssignment extends Enti
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('target', $this->target);
+        $writer->writeObjectValue('target', $this->getTarget());
     }
 
     /**
      * Sets the target property value. The target group assignment defined by the admin.
      *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
-    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value ): void {
-        $this->target = $value;
+    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
+        $this->getBackingStore()->set('target', $value);
     }
 
 }

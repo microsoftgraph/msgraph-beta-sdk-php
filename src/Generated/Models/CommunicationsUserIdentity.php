@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommunicationsUserIdentity extends Identity implements Parsable 
 {
     /**
-     * @var string|null $tenantId The user's tenant ID.
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new CommunicationsUserIdentity and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class CommunicationsUserIdentity extends Identity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -55,15 +50,15 @@ class CommunicationsUserIdentity extends Identity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the tenantId property value. The user's tenant ID.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

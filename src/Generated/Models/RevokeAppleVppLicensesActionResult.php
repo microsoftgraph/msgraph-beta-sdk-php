@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RevokeAppleVppLicensesActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * @var int|null $failedLicensesCount Total number of Apple Vpp licenses that failed to revoke
-    */
-    private ?int $failedLicensesCount = null;
-    
-    /**
-     * @var int|null $totalLicensesCount Total number of Apple Vpp licenses associated
-    */
-    private ?int $totalLicensesCount = null;
-    
-    /**
      * Instantiates a new RevokeAppleVppLicensesActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.revokeAppleVppLicensesActionResult');
     }
 
     /**
@@ -40,7 +29,7 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult implements P
      * @return int|null
     */
     public function getFailedLicensesCount(): ?int {
-        return $this->failedLicensesCount;
+        return $this->getBackingStore()->get('failedLicensesCount');
     }
 
     /**
@@ -60,7 +49,7 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult implements P
      * @return int|null
     */
     public function getTotalLicensesCount(): ?int {
-        return $this->totalLicensesCount;
+        return $this->getBackingStore()->get('totalLicensesCount');
     }
 
     /**
@@ -69,24 +58,24 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('failedLicensesCount', $this->failedLicensesCount);
-        $writer->writeIntegerValue('totalLicensesCount', $this->totalLicensesCount);
+        $writer->writeIntegerValue('failedLicensesCount', $this->getFailedLicensesCount());
+        $writer->writeIntegerValue('totalLicensesCount', $this->getTotalLicensesCount());
     }
 
     /**
      * Sets the failedLicensesCount property value. Total number of Apple Vpp licenses that failed to revoke
      *  @param int|null $value Value to set for the failedLicensesCount property.
     */
-    public function setFailedLicensesCount(?int $value ): void {
-        $this->failedLicensesCount = $value;
+    public function setFailedLicensesCount(?int $value): void {
+        $this->getBackingStore()->set('failedLicensesCount', $value);
     }
 
     /**
      * Sets the totalLicensesCount property value. Total number of Apple Vpp licenses associated
      *  @param int|null $value Value to set for the totalLicensesCount property.
     */
-    public function setTotalLicensesCount(?int $value ): void {
-        $this->totalLicensesCount = $value;
+    public function setTotalLicensesCount(?int $value): void {
+        $this->getBackingStore()->set('totalLicensesCount', $value);
     }
 
 }

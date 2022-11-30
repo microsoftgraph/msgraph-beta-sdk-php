@@ -133,7 +133,6 @@ use Microsoft\Graph\Beta\Generated\Me\ScopedRoleMemberOf\ScopedRoleMemberOfReque
 use Microsoft\Graph\Beta\Generated\Me\Security\SecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\SendMail\SendMailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Teamwork\TeamworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Todo\TodoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeTransitiveMemberOfItemDirectoryObjectItemRequestBuilder;
@@ -163,406 +162,406 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MeRequestBuilder 
 {
     /**
-     * The activateServicePlan property
+     * Provides operations to call the activateServicePlan method.
     */
     public function activateServicePlan(): ActivateServicePlanRequestBuilder {
         return new ActivateServicePlanRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The activities property
+     * Provides operations to manage the activities property of the microsoft.graph.user entity.
     */
     public function activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The agreementAcceptances property
+     * Provides operations to manage the agreementAcceptances property of the microsoft.graph.user entity.
     */
     public function agreementAcceptances(): AgreementAcceptancesRequestBuilder {
         return new AgreementAcceptancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The analytics property
+     * Provides operations to manage the analytics property of the microsoft.graph.user entity.
     */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The appConsentRequestsForApproval property
+     * Provides operations to manage the appConsentRequestsForApproval property of the microsoft.graph.user entity.
     */
     public function appConsentRequestsForApproval(): AppConsentRequestsForApprovalRequestBuilder {
         return new AppConsentRequestsForApprovalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The appRoleAssignedResources property
+     * Provides operations to manage the appRoleAssignedResources property of the microsoft.graph.user entity.
     */
     public function appRoleAssignedResources(): AppRoleAssignedResourcesRequestBuilder {
         return new AppRoleAssignedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The appRoleAssignments property
+     * Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity.
     */
     public function appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The approvals property
+     * Provides operations to manage the approvals property of the microsoft.graph.user entity.
     */
     public function approvals(): ApprovalsRequestBuilder {
         return new ApprovalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignLicense property
+     * Provides operations to call the assignLicense method.
     */
     public function assignLicense(): AssignLicenseRequestBuilder {
         return new AssignLicenseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The authentication property
+     * Provides operations to manage the authentication property of the microsoft.graph.user entity.
     */
     public function authentication(): AuthenticationRequestBuilder {
         return new AuthenticationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The calendar property
+     * Provides operations to manage the calendar property of the microsoft.graph.user entity.
     */
     public function calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The calendarGroups property
+     * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
     */
     public function calendarGroups(): CalendarGroupsRequestBuilder {
         return new CalendarGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The calendars property
+     * Provides operations to manage the calendars property of the microsoft.graph.user entity.
     */
     public function calendars(): CalendarsRequestBuilder {
         return new CalendarsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The calendarView property
+     * Provides operations to manage the calendarView property of the microsoft.graph.user entity.
     */
     public function calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The changePassword property
+     * Provides operations to call the changePassword method.
     */
     public function changePassword(): ChangePasswordRequestBuilder {
         return new ChangePasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The chats property
+     * Provides operations to manage the chats property of the microsoft.graph.user entity.
     */
     public function chats(): ChatsRequestBuilder {
         return new ChatsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The checkMemberGroups property
+     * Provides operations to call the checkMemberGroups method.
     */
     public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The checkMemberObjects property
+     * Provides operations to call the checkMemberObjects method.
     */
     public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The cloudPCs property
+     * Provides operations to manage the cloudPCs property of the microsoft.graph.user entity.
     */
     public function cloudPCs(): CloudPCsRequestBuilder {
         return new CloudPCsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The contactFolders property
+     * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
     */
     public function contactFolders(): ContactFoldersRequestBuilder {
         return new ContactFoldersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The contacts property
+     * Provides operations to manage the contacts property of the microsoft.graph.user entity.
     */
     public function contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The createdObjects property
+     * Provides operations to manage the createdObjects property of the microsoft.graph.user entity.
     */
     public function createdObjects(): CreatedObjectsRequestBuilder {
         return new CreatedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceEnrollmentConfigurations property
+     * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.user entity.
     */
     public function deviceEnrollmentConfigurations(): DeviceEnrollmentConfigurationsRequestBuilder {
         return new DeviceEnrollmentConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceManagementTroubleshootingEvents property
+     * Provides operations to manage the deviceManagementTroubleshootingEvents property of the microsoft.graph.user entity.
     */
     public function deviceManagementTroubleshootingEvents(): DeviceManagementTroubleshootingEventsRequestBuilder {
         return new DeviceManagementTroubleshootingEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The devices property
+     * Provides operations to manage the devices property of the microsoft.graph.user entity.
     */
     public function devices(): DevicesRequestBuilder {
         return new DevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The directReports property
+     * Provides operations to manage the directReports property of the microsoft.graph.user entity.
     */
     public function directReports(): DirectReportsRequestBuilder {
         return new DirectReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The drive property
+     * Provides operations to manage the drive property of the microsoft.graph.user entity.
     */
     public function drive(): DriveRequestBuilder {
         return new DriveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The drives property
+     * Provides operations to manage the drives property of the microsoft.graph.user entity.
     */
     public function drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The events property
+     * Provides operations to manage the events property of the microsoft.graph.user entity.
     */
     public function events(): EventsRequestBuilder {
         return new EventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The exportPersonalData property
+     * Provides operations to call the exportPersonalData method.
     */
     public function exportPersonalData(): ExportPersonalDataRequestBuilder {
         return new ExportPersonalDataRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The extensions property
+     * Provides operations to manage the extensions property of the microsoft.graph.user entity.
     */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The findMeetingTimes property
+     * Provides operations to call the findMeetingTimes method.
     */
     public function findMeetingTimes(): FindMeetingTimesRequestBuilder {
         return new FindMeetingTimesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The followedSites property
+     * Provides operations to manage the followedSites property of the microsoft.graph.user entity.
     */
     public function followedSites(): FollowedSitesRequestBuilder {
         return new FollowedSitesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getMailTips property
+     * Provides operations to call the getMailTips method.
     */
     public function getMailTips(): GetMailTipsRequestBuilder {
         return new GetMailTipsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getMemberGroups property
+     * Provides operations to call the getMemberGroups method.
     */
     public function getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getMemberObjects property
+     * Provides operations to call the getMemberObjects method.
     */
     public function getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The inferenceClassification property
+     * Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity.
     */
     public function inferenceClassification(): InferenceClassificationRequestBuilder {
         return new InferenceClassificationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The informationProtection property
+     * Provides operations to manage the informationProtection property of the microsoft.graph.user entity.
     */
     public function informationProtection(): InformationProtectionRequestBuilder {
         return new InformationProtectionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The insights property
+     * Provides operations to manage the insights property of the microsoft.graph.user entity.
     */
     public function insights(): InsightsRequestBuilder {
         return new InsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The invalidateAllRefreshTokens property
+     * Provides operations to call the invalidateAllRefreshTokens method.
     */
     public function invalidateAllRefreshTokens(): InvalidateAllRefreshTokensRequestBuilder {
         return new InvalidateAllRefreshTokensRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The joinedGroups property
+     * Provides operations to manage the joinedGroups property of the microsoft.graph.user entity.
     */
     public function joinedGroups(): JoinedGroupsRequestBuilder {
         return new JoinedGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The joinedTeams property
+     * Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.
     */
     public function joinedTeams(): JoinedTeamsRequestBuilder {
         return new JoinedTeamsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The licenseDetails property
+     * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
     */
     public function licenseDetails(): LicenseDetailsRequestBuilder {
         return new LicenseDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mailFolders property
+     * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
     */
     public function mailFolders(): MailFoldersRequestBuilder {
         return new MailFoldersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedAppRegistrations property
+     * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.user entity.
     */
     public function managedAppRegistrations(): ManagedAppRegistrationsRequestBuilder {
         return new ManagedAppRegistrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedDevices property
+     * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.
     */
     public function managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The manager property
+     * Provides operations to manage the manager property of the microsoft.graph.user entity.
     */
     public function manager(): ManagerRequestBuilder {
         return new ManagerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The memberOf property
+     * Provides operations to manage the memberOf property of the microsoft.graph.user entity.
     */
     public function memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The messages property
+     * Provides operations to manage the messages property of the microsoft.graph.user entity.
     */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mobileAppIntentAndStates property
+     * Provides operations to manage the mobileAppIntentAndStates property of the microsoft.graph.user entity.
     */
     public function mobileAppIntentAndStates(): MobileAppIntentAndStatesRequestBuilder {
         return new MobileAppIntentAndStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mobileAppTroubleshootingEvents property
+     * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.user entity.
     */
     public function mobileAppTroubleshootingEvents(): MobileAppTroubleshootingEventsRequestBuilder {
         return new MobileAppTroubleshootingEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The notifications property
+     * Provides operations to manage the notifications property of the microsoft.graph.user entity.
     */
     public function notifications(): NotificationsRequestBuilder {
         return new NotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The oauth2PermissionGrants property
+     * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity.
     */
     public function oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The onenote property
+     * Provides operations to manage the onenote property of the microsoft.graph.user entity.
     */
     public function onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The onlineMeetings property
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
     */
     public function onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The outlook property
+     * Provides operations to manage the outlook property of the microsoft.graph.user entity.
     */
     public function outlook(): OutlookRequestBuilder {
         return new OutlookRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The ownedDevices property
+     * Provides operations to manage the ownedDevices property of the microsoft.graph.user entity.
     */
     public function ownedDevices(): OwnedDevicesRequestBuilder {
         return new OwnedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The ownedObjects property
+     * Provides operations to manage the ownedObjects property of the microsoft.graph.user entity.
     */
     public function ownedObjects(): OwnedObjectsRequestBuilder {
         return new OwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -574,70 +573,70 @@ class MeRequestBuilder
     private array $pathParameters;
     
     /**
-     * The pendingAccessReviewInstances property
+     * Provides operations to manage the pendingAccessReviewInstances property of the microsoft.graph.user entity.
     */
     public function pendingAccessReviewInstances(): PendingAccessReviewInstancesRequestBuilder {
         return new PendingAccessReviewInstancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The people property
+     * Provides operations to manage the people property of the microsoft.graph.user entity.
     */
     public function people(): PeopleRequestBuilder {
         return new PeopleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The photo property
+     * Provides operations to manage the photo property of the microsoft.graph.user entity.
     */
     public function photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The photos property
+     * Provides operations to manage the photos property of the microsoft.graph.user entity.
     */
     public function photos(): PhotosRequestBuilder {
         return new PhotosRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The planner property
+     * Provides operations to manage the planner property of the microsoft.graph.user entity.
     */
     public function planner(): PlannerRequestBuilder {
         return new PlannerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The presence property
+     * Provides operations to manage the presence property of the microsoft.graph.user entity.
     */
     public function presence(): PresenceRequestBuilder {
         return new PresenceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The profile property
+     * Provides operations to manage the profile property of the microsoft.graph.user entity.
     */
     public function profile(): ProfileRequestBuilder {
         return new ProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The registeredDevices property
+     * Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.
     */
     public function registeredDevices(): RegisteredDevicesRequestBuilder {
         return new RegisteredDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The removeAllDevicesFromManagement property
+     * Provides operations to call the removeAllDevicesFromManagement method.
     */
     public function removeAllDevicesFromManagement(): RemoveAllDevicesFromManagementRequestBuilder {
         return new RemoveAllDevicesFromManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The reprocessLicenseAssignment property
+     * Provides operations to call the reprocessLicenseAssignment method.
     */
     public function reprocessLicenseAssignment(): ReprocessLicenseAssignmentRequestBuilder {
         return new ReprocessLicenseAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -649,91 +648,84 @@ class MeRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The restore property
+     * Provides operations to call the restore method.
     */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The revokeSignInSessions property
+     * Provides operations to call the revokeSignInSessions method.
     */
     public function revokeSignInSessions(): RevokeSignInSessionsRequestBuilder {
         return new RevokeSignInSessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The scopedRoleMemberOf property
+     * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
     */
     public function scopedRoleMemberOf(): ScopedRoleMemberOfRequestBuilder {
         return new ScopedRoleMemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The security property
+     * Provides operations to manage the security property of the microsoft.graph.user entity.
     */
     public function security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The sendMail property
+     * Provides operations to call the sendMail method.
     */
     public function sendMail(): SendMailRequestBuilder {
         return new SendMailRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The settings property
+     * Provides operations to manage the settings property of the microsoft.graph.user entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tasks property
-    */
-    public function tasks(): TasksRequestBuilder {
-        return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * The teamwork property
+     * Provides operations to manage the teamwork property of the microsoft.graph.user entity.
     */
     public function teamwork(): TeamworkRequestBuilder {
         return new TeamworkRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The todo property
+     * Provides operations to manage the todo property of the microsoft.graph.user entity.
     */
     public function todo(): TodoRequestBuilder {
         return new TodoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The transitiveMemberOf property
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.user entity.
     */
     public function transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The transitiveReports property
+     * Provides operations to manage the transitiveReports property of the microsoft.graph.user entity.
     */
     public function transitiveReports(): TransitiveReportsRequestBuilder {
         return new TransitiveReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The translateExchangeIds property
+     * Provides operations to call the translateExchangeIds method.
     */
     public function translateExchangeIds(): TranslateExchangeIdsRequestBuilder {
         return new TranslateExchangeIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unblockManagedApps property
+     * Provides operations to call the unblockManagedApps method.
     */
     public function unblockManagedApps(): UnblockManagedAppsRequestBuilder {
         return new UnblockManagedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -745,49 +737,49 @@ class MeRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The usageRights property
+     * Provides operations to manage the usageRights property of the microsoft.graph.user entity.
     */
     public function usageRights(): UsageRightsRequestBuilder {
         return new UsageRightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsInformationProtectionDeviceRegistrations property
+     * Provides operations to manage the windowsInformationProtectionDeviceRegistrations property of the microsoft.graph.user entity.
     */
     public function windowsInformationProtectionDeviceRegistrations(): WindowsInformationProtectionDeviceRegistrationsRequestBuilder {
         return new WindowsInformationProtectionDeviceRegistrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The wipeAndBlockManagedApps property
+     * Provides operations to call the wipeAndBlockManagedApps method.
     */
     public function wipeAndBlockManagedApps(): WipeAndBlockManagedAppsRequestBuilder {
         return new WipeAndBlockManagedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The wipeManagedAppRegistrationByDeviceTag property
+     * Provides operations to call the wipeManagedAppRegistrationByDeviceTag method.
     */
     public function wipeManagedAppRegistrationByDeviceTag(): WipeManagedAppRegistrationByDeviceTagRequestBuilder {
         return new WipeManagedAppRegistrationByDeviceTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The wipeManagedAppRegistrationsByAzureAdDeviceId property
+     * Provides operations to call the wipeManagedAppRegistrationsByAzureAdDeviceId method.
     */
     public function wipeManagedAppRegistrationsByAzureAdDeviceId(): WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder {
         return new WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The wipeManagedAppRegistrationsByDeviceTag property
+     * Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method.
     */
     public function wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
         return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.activities.item collection
+     * Provides operations to manage the activities property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return UserActivityItemRequestBuilder
     */
@@ -798,7 +790,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.agreementAcceptances.item collection
+     * Provides operations to manage the agreementAcceptances property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return AgreementAcceptanceItemRequestBuilder
     */
@@ -809,7 +801,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.appConsentRequestsForApproval.item collection
+     * Provides operations to manage the appConsentRequestsForApproval property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return AppConsentRequestItemRequestBuilder
     */
@@ -820,7 +812,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.appRoleAssignedResources.item collection
+     * Provides operations to manage the appRoleAssignedResources property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ServicePrincipalItemRequestBuilder
     */
@@ -831,7 +823,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.appRoleAssignments.item collection
+     * Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return AppRoleAssignmentItemRequestBuilder
     */
@@ -842,7 +834,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.approvals.item collection
+     * Provides operations to manage the approvals property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ApprovalItemRequestBuilder
     */
@@ -853,7 +845,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.calendarGroups.item collection
+     * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return CalendarGroupItemRequestBuilder
     */
@@ -864,7 +856,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.calendars.item collection
+     * Provides operations to manage the calendars property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return CalendarItemRequestBuilder
     */
@@ -875,7 +867,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.calendarView.item collection
+     * Provides operations to manage the calendarView property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeCalendarViewItemEventItemRequestBuilder
     */
@@ -886,7 +878,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.chats.item collection
+     * Provides operations to manage the chats property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ChatItemRequestBuilder
     */
@@ -897,7 +889,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.cloudPCs.item collection
+     * Provides operations to manage the cloudPCs property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return CloudPCItemRequestBuilder
     */
@@ -919,7 +911,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.contactFolders.item collection
+     * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ContactFolderItemRequestBuilder
     */
@@ -930,7 +922,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.contacts.item collection
+     * Provides operations to manage the contacts property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ContactItemRequestBuilder
     */
@@ -941,7 +933,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.createdObjects.item collection
+     * Provides operations to manage the createdObjects property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeCreatedObjectsItemDirectoryObjectItemRequestBuilder
     */
@@ -1001,7 +993,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.deviceEnrollmentConfigurations.item collection
+     * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return DeviceEnrollmentConfigurationItemRequestBuilder
     */
@@ -1012,7 +1004,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.deviceManagementTroubleshootingEvents.item collection
+     * Provides operations to manage the deviceManagementTroubleshootingEvents property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementTroubleshootingEventItemRequestBuilder
     */
@@ -1023,7 +1015,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.devices.item collection
+     * Provides operations to manage the devices property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return DeviceItemRequestBuilder
     */
@@ -1034,7 +1026,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.directReports.item collection
+     * Provides operations to manage the directReports property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeDirectReportsItemDirectoryObjectItemRequestBuilder
     */
@@ -1045,7 +1037,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.drives.item collection
+     * Provides operations to manage the drives property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return DriveItemRequestBuilder
     */
@@ -1056,7 +1048,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.events.item collection
+     * Provides operations to manage the events property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeEventsItemEventItemRequestBuilder
     */
@@ -1085,7 +1077,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ExtensionItemRequestBuilder
     */
@@ -1121,7 +1113,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.followedSites.item collection
+     * Provides operations to manage the followedSites property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return SiteItemRequestBuilder
     */
@@ -1207,7 +1199,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.joinedTeams.item collection
+     * Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return TeamItemRequestBuilder
     */
@@ -1218,7 +1210,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.licenseDetails.item collection
+     * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return LicenseDetailsItemRequestBuilder
     */
@@ -1229,7 +1221,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item collection
+     * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MailFolderItemRequestBuilder
     */
@@ -1240,7 +1232,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.managedAppRegistrations.item collection
+     * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ManagedAppRegistrationItemRequestBuilder
     */
@@ -1251,7 +1243,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.managedDevices.item collection
+     * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ManagedDeviceItemRequestBuilder
     */
@@ -1262,7 +1254,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.memberOf.item collection
+     * Provides operations to manage the memberOf property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeMemberOfItemDirectoryObjectItemRequestBuilder
     */
@@ -1273,7 +1265,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.messages.item collection
+     * Provides operations to manage the messages property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MessageItemRequestBuilder
     */
@@ -1284,7 +1276,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mobileAppIntentAndStates.item collection
+     * Provides operations to manage the mobileAppIntentAndStates property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MobileAppIntentAndStateItemRequestBuilder
     */
@@ -1295,7 +1287,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mobileAppTroubleshootingEvents.item collection
+     * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MobileAppTroubleshootingEventItemRequestBuilder
     */
@@ -1306,7 +1298,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.notifications.item collection
+     * Provides operations to manage the notifications property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return NotificationItemRequestBuilder
     */
@@ -1317,7 +1309,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.oauth2PermissionGrants.item collection
+     * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return OAuth2PermissionGrantItemRequestBuilder
     */
@@ -1328,7 +1320,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.onlineMeetings.item collection
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return OnlineMeetingItemRequestBuilder
     */
@@ -1339,7 +1331,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.ownedDevices.item collection
+     * Provides operations to manage the ownedDevices property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeOwnedDevicesItemDirectoryObjectItemRequestBuilder
     */
@@ -1350,7 +1342,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.ownedObjects.item collection
+     * Provides operations to manage the ownedObjects property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeOwnedObjectsItemDirectoryObjectItemRequestBuilder
     */
@@ -1381,7 +1373,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.pendingAccessReviewInstances.item collection
+     * Provides operations to manage the pendingAccessReviewInstances property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return AccessReviewInstanceItemRequestBuilder
     */
@@ -1392,7 +1384,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.people.item collection
+     * Provides operations to manage the people property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return PersonItemRequestBuilder
     */
@@ -1403,7 +1395,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.photos.item collection
+     * Provides operations to manage the photos property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ProfilePhotoItemRequestBuilder
     */
@@ -1414,7 +1406,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.registeredDevices.item collection
+     * Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeRegisteredDevicesItemDirectoryObjectItemRequestBuilder
     */
@@ -1435,7 +1427,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.scopedRoleMemberOf.item collection
+     * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ScopedRoleMembershipItemRequestBuilder
     */
@@ -1446,7 +1438,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.transitiveMemberOf.item collection
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeTransitiveMemberOfItemDirectoryObjectItemRequestBuilder
     */
@@ -1457,7 +1449,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.transitiveReports.item collection
+     * Provides operations to manage the transitiveReports property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedMeTransitiveReportsItemDirectoryObjectItemRequestBuilder
     */
@@ -1468,7 +1460,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.usageRights.item collection
+     * Provides operations to manage the usageRights property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return UsageRightItemRequestBuilder
     */
@@ -1479,7 +1471,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.windowsInformationProtectionDeviceRegistrations.item collection
+     * Provides operations to manage the windowsInformationProtectionDeviceRegistrations property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return WindowsInformationProtectionDeviceRegistrationItemRequestBuilder
     */

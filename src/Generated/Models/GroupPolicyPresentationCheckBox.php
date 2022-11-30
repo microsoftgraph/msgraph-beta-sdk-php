@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * @var bool|null $defaultChecked Default value for the check box. The default value is false.
-    */
-    private ?bool $defaultChecked = null;
-    
-    /**
      * Instantiates a new GroupPolicyPresentationCheckBox and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation im
      * @return bool|null
     */
     public function getDefaultChecked(): ?bool {
-        return $this->defaultChecked;
+        return $this->getBackingStore()->get('defaultChecked');
     }
 
     /**
@@ -55,15 +50,15 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('defaultChecked', $this->defaultChecked);
+        $writer->writeBooleanValue('defaultChecked', $this->getDefaultChecked());
     }
 
     /**
      * Sets the defaultChecked property value. Default value for the check box. The default value is false.
      *  @param bool|null $value Value to set for the defaultChecked property.
     */
-    public function setDefaultChecked(?bool $value ): void {
-        $this->defaultChecked = $value;
+    public function setDefaultChecked(?bool $value): void {
+        $this->getBackingStore()->set('defaultChecked', $value);
     }
 
 }

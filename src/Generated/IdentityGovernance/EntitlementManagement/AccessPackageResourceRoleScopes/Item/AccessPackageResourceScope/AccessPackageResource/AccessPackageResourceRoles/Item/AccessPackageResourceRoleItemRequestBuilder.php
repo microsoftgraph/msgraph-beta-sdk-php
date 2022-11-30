@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageResourceRoleItemRequestBuilder 
 {
     /**
-     * The accessPackageResource property
+     * Provides operations to manage the accessPackageResource property of the microsoft.graph.accessPackageResourceRole entity.
     */
     public function accessPackageResource(): AccessPackageResourceRequestBuilder {
         return new AccessPackageResourceRequestBuilder($this->pathParameters, $this->requestAdapter);

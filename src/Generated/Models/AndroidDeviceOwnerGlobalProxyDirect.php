@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy implements Parsable 
 {
     /**
-     * @var array<string>|null $excludedHosts The excluded hosts
-    */
-    private ?array $excludedHosts = null;
-    
-    /**
-     * @var string|null $host The host name
-    */
-    private ?string $host = null;
-    
-    /**
-     * @var int|null $port The port
-    */
-    private ?int $port = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerGlobalProxyDirect and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
      * @return array<string>|null
     */
     public function getExcludedHosts(): ?array {
-        return $this->excludedHosts;
+        return $this->getBackingStore()->get('excludedHosts');
     }
 
     /**
@@ -66,7 +51,7 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
      * @return string|null
     */
     public function getHost(): ?string {
-        return $this->host;
+        return $this->getBackingStore()->get('host');
     }
 
     /**
@@ -74,7 +59,7 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
      * @return int|null
     */
     public function getPort(): ?int {
-        return $this->port;
+        return $this->getBackingStore()->get('port');
     }
 
     /**
@@ -83,33 +68,33 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('excludedHosts', $this->excludedHosts);
-        $writer->writeStringValue('host', $this->host);
-        $writer->writeIntegerValue('port', $this->port);
+        $writer->writeCollectionOfPrimitiveValues('excludedHosts', $this->getExcludedHosts());
+        $writer->writeStringValue('host', $this->getHost());
+        $writer->writeIntegerValue('port', $this->getPort());
     }
 
     /**
      * Sets the excludedHosts property value. The excluded hosts
      *  @param array<string>|null $value Value to set for the excludedHosts property.
     */
-    public function setExcludedHosts(?array $value ): void {
-        $this->excludedHosts = $value;
+    public function setExcludedHosts(?array $value): void {
+        $this->getBackingStore()->set('excludedHosts', $value);
     }
 
     /**
      * Sets the host property value. The host name
      *  @param string|null $value Value to set for the host property.
     */
-    public function setHost(?string $value ): void {
-        $this->host = $value;
+    public function setHost(?string $value): void {
+        $this->getBackingStore()->set('host', $value);
     }
 
     /**
      * Sets the port property value. The port
      *  @param int|null $value Value to set for the port property.
     */
-    public function setPort(?int $value ): void {
-        $this->port = $value;
+    public function setPort(?int $value): void {
+        $this->getBackingStore()->set('port', $value);
     }
 
 }

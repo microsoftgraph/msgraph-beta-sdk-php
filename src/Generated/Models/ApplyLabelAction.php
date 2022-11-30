@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplyLabelAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var array<InformationProtectionAction>|null $actions The collection of specific actions that should be taken by the consuming application to label the document. See  informationProtectionAction for the full list.
-    */
-    private ?array $actions = null;
-    
-    /**
-     * @var ActionSource|null $actionSource The actionSource property
-    */
-    private ?ActionSource $actionSource = null;
-    
-    /**
-     * @var LabelDetails|null $label Object that describes the details of the label to apply.
-    */
-    private ?LabelDetails $label = null;
-    
-    /**
-     * @var array<string>|null $responsibleSensitiveTypeIds If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
-    */
-    private ?array $responsibleSensitiveTypeIds = null;
-    
-    /**
      * Instantiates a new ApplyLabelAction and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
      * @return array<InformationProtectionAction>|null
     */
     public function getActions(): ?array {
-        return $this->actions;
+        return $this->getBackingStore()->get('actions');
     }
 
     /**
@@ -58,7 +38,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
      * @return ActionSource|null
     */
     public function getActionSource(): ?ActionSource {
-        return $this->actionSource;
+        return $this->getBackingStore()->get('actionSource');
     }
 
     /**
@@ -80,7 +60,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
      * @return LabelDetails|null
     */
     public function getLabel(): ?LabelDetails {
-        return $this->label;
+        return $this->getBackingStore()->get('label');
     }
 
     /**
@@ -88,7 +68,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
      * @return array<string>|null
     */
     public function getResponsibleSensitiveTypeIds(): ?array {
-        return $this->responsibleSensitiveTypeIds;
+        return $this->getBackingStore()->get('responsibleSensitiveTypeIds');
     }
 
     /**
@@ -97,42 +77,42 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('actions', $this->actions);
-        $writer->writeEnumValue('actionSource', $this->actionSource);
-        $writer->writeObjectValue('label', $this->label);
-        $writer->writeCollectionOfPrimitiveValues('responsibleSensitiveTypeIds', $this->responsibleSensitiveTypeIds);
+        $writer->writeCollectionOfObjectValues('actions', $this->getActions());
+        $writer->writeEnumValue('actionSource', $this->getActionSource());
+        $writer->writeObjectValue('label', $this->getLabel());
+        $writer->writeCollectionOfPrimitiveValues('responsibleSensitiveTypeIds', $this->getResponsibleSensitiveTypeIds());
     }
 
     /**
      * Sets the actions property value. The collection of specific actions that should be taken by the consuming application to label the document. See  informationProtectionAction for the full list.
      *  @param array<InformationProtectionAction>|null $value Value to set for the actions property.
     */
-    public function setActions(?array $value ): void {
-        $this->actions = $value;
+    public function setActions(?array $value): void {
+        $this->getBackingStore()->set('actions', $value);
     }
 
     /**
      * Sets the actionSource property value. The actionSource property
      *  @param ActionSource|null $value Value to set for the actionSource property.
     */
-    public function setActionSource(?ActionSource $value ): void {
-        $this->actionSource = $value;
+    public function setActionSource(?ActionSource $value): void {
+        $this->getBackingStore()->set('actionSource', $value);
     }
 
     /**
      * Sets the label property value. Object that describes the details of the label to apply.
      *  @param LabelDetails|null $value Value to set for the label property.
     */
-    public function setLabel(?LabelDetails $value ): void {
-        $this->label = $value;
+    public function setLabel(?LabelDetails $value): void {
+        $this->getBackingStore()->set('label', $value);
     }
 
     /**
      * Sets the responsibleSensitiveTypeIds property value. If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
      *  @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
     */
-    public function setResponsibleSensitiveTypeIds(?array $value ): void {
-        $this->responsibleSensitiveTypeIds = $value;
+    public function setResponsibleSensitiveTypeIds(?array $value): void {
+        $this->getBackingStore()->set('responsibleSensitiveTypeIds', $value);
     }
 
 }

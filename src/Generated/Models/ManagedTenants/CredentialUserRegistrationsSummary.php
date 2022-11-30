@@ -11,66 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUserRegistrationsSummary extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-    */
-    private ?DateTime $lastRefreshedDateTime = null;
-    
-    /**
-     * @var int|null $mfaAndSsprCapableUserCount The number of users that are capable of performing multi-factor authentication or self service password reset. Optional. Read-only.
-    */
-    private ?int $mfaAndSsprCapableUserCount = null;
-    
-    /**
-     * @var string|null $mfaConditionalAccessPolicyState The state of a conditional access policy that enforces multi-factor authentication. Optional. Read-only.
-    */
-    private ?string $mfaConditionalAccessPolicyState = null;
-    
-    /**
-     * @var int|null $mfaExcludedUserCount The number of users in the multi-factor authentication exclusion security group (Microsoft 365 Lighthouse - MFA exclusions). Optional. Read-only.
-    */
-    private ?int $mfaExcludedUserCount = null;
-    
-    /**
-     * @var int|null $mfaRegisteredUserCount The number of users registered for multi-factor authentication. Optional. Read-only.
-    */
-    private ?int $mfaRegisteredUserCount = null;
-    
-    /**
-     * @var bool|null $securityDefaultsEnabled A flag indicating whether Identity Security Defaults is enabled. Optional. Read-only.
-    */
-    private ?bool $securityDefaultsEnabled = null;
-    
-    /**
-     * @var int|null $ssprEnabledUserCount The number of users enabled for self service password reset. Optional. Read-only.
-    */
-    private ?int $ssprEnabledUserCount = null;
-    
-    /**
-     * @var int|null $ssprRegisteredUserCount The number of users registered for self service password reset. Optional. Read-only.
-    */
-    private ?int $ssprRegisteredUserCount = null;
-    
-    /**
-     * @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only.
-    */
-    private ?string $tenantDisplayName = null;
-    
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var int|null $totalUserCount The total number of users in the given managed tenant. Optional. Read-only.
-    */
-    private ?int $totalUserCount = null;
-    
-    /**
      * Instantiates a new credentialUserRegistrationsSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.credentialUserRegistrationsSummary');
     }
 
     /**
@@ -108,7 +52,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->lastRefreshedDateTime;
+        return $this->getBackingStore()->get('lastRefreshedDateTime');
     }
 
     /**
@@ -116,7 +60,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getMfaAndSsprCapableUserCount(): ?int {
-        return $this->mfaAndSsprCapableUserCount;
+        return $this->getBackingStore()->get('mfaAndSsprCapableUserCount');
     }
 
     /**
@@ -124,7 +68,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getMfaConditionalAccessPolicyState(): ?string {
-        return $this->mfaConditionalAccessPolicyState;
+        return $this->getBackingStore()->get('mfaConditionalAccessPolicyState');
     }
 
     /**
@@ -132,7 +76,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getMfaExcludedUserCount(): ?int {
-        return $this->mfaExcludedUserCount;
+        return $this->getBackingStore()->get('mfaExcludedUserCount');
     }
 
     /**
@@ -140,7 +84,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getMfaRegisteredUserCount(): ?int {
-        return $this->mfaRegisteredUserCount;
+        return $this->getBackingStore()->get('mfaRegisteredUserCount');
     }
 
     /**
@@ -148,7 +92,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return bool|null
     */
     public function getSecurityDefaultsEnabled(): ?bool {
-        return $this->securityDefaultsEnabled;
+        return $this->getBackingStore()->get('securityDefaultsEnabled');
     }
 
     /**
@@ -156,7 +100,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSsprEnabledUserCount(): ?int {
-        return $this->ssprEnabledUserCount;
+        return $this->getBackingStore()->get('ssprEnabledUserCount');
     }
 
     /**
@@ -164,7 +108,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSsprRegisteredUserCount(): ?int {
-        return $this->ssprRegisteredUserCount;
+        return $this->getBackingStore()->get('ssprRegisteredUserCount');
     }
 
     /**
@@ -172,7 +116,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->tenantDisplayName;
+        return $this->getBackingStore()->get('tenantDisplayName');
     }
 
     /**
@@ -180,7 +124,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -188,7 +132,7 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalUserCount(): ?int {
-        return $this->totalUserCount;
+        return $this->getBackingStore()->get('totalUserCount');
     }
 
     /**
@@ -197,105 +141,105 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->lastRefreshedDateTime);
-        $writer->writeIntegerValue('mfaAndSsprCapableUserCount', $this->mfaAndSsprCapableUserCount);
-        $writer->writeStringValue('mfaConditionalAccessPolicyState', $this->mfaConditionalAccessPolicyState);
-        $writer->writeIntegerValue('mfaExcludedUserCount', $this->mfaExcludedUserCount);
-        $writer->writeIntegerValue('mfaRegisteredUserCount', $this->mfaRegisteredUserCount);
-        $writer->writeBooleanValue('securityDefaultsEnabled', $this->securityDefaultsEnabled);
-        $writer->writeIntegerValue('ssprEnabledUserCount', $this->ssprEnabledUserCount);
-        $writer->writeIntegerValue('ssprRegisteredUserCount', $this->ssprRegisteredUserCount);
-        $writer->writeStringValue('tenantDisplayName', $this->tenantDisplayName);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeIntegerValue('totalUserCount', $this->totalUserCount);
+        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
+        $writer->writeIntegerValue('mfaAndSsprCapableUserCount', $this->getMfaAndSsprCapableUserCount());
+        $writer->writeStringValue('mfaConditionalAccessPolicyState', $this->getMfaConditionalAccessPolicyState());
+        $writer->writeIntegerValue('mfaExcludedUserCount', $this->getMfaExcludedUserCount());
+        $writer->writeIntegerValue('mfaRegisteredUserCount', $this->getMfaRegisteredUserCount());
+        $writer->writeBooleanValue('securityDefaultsEnabled', $this->getSecurityDefaultsEnabled());
+        $writer->writeIntegerValue('ssprEnabledUserCount', $this->getSsprEnabledUserCount());
+        $writer->writeIntegerValue('ssprRegisteredUserCount', $this->getSsprRegisteredUserCount());
+        $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeIntegerValue('totalUserCount', $this->getTotalUserCount());
     }
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
-    public function setLastRefreshedDateTime(?DateTime $value ): void {
-        $this->lastRefreshedDateTime = $value;
+    public function setLastRefreshedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastRefreshedDateTime', $value);
     }
 
     /**
      * Sets the mfaAndSsprCapableUserCount property value. The number of users that are capable of performing multi-factor authentication or self service password reset. Optional. Read-only.
      *  @param int|null $value Value to set for the mfaAndSsprCapableUserCount property.
     */
-    public function setMfaAndSsprCapableUserCount(?int $value ): void {
-        $this->mfaAndSsprCapableUserCount = $value;
+    public function setMfaAndSsprCapableUserCount(?int $value): void {
+        $this->getBackingStore()->set('mfaAndSsprCapableUserCount', $value);
     }
 
     /**
      * Sets the mfaConditionalAccessPolicyState property value. The state of a conditional access policy that enforces multi-factor authentication. Optional. Read-only.
      *  @param string|null $value Value to set for the mfaConditionalAccessPolicyState property.
     */
-    public function setMfaConditionalAccessPolicyState(?string $value ): void {
-        $this->mfaConditionalAccessPolicyState = $value;
+    public function setMfaConditionalAccessPolicyState(?string $value): void {
+        $this->getBackingStore()->set('mfaConditionalAccessPolicyState', $value);
     }
 
     /**
      * Sets the mfaExcludedUserCount property value. The number of users in the multi-factor authentication exclusion security group (Microsoft 365 Lighthouse - MFA exclusions). Optional. Read-only.
      *  @param int|null $value Value to set for the mfaExcludedUserCount property.
     */
-    public function setMfaExcludedUserCount(?int $value ): void {
-        $this->mfaExcludedUserCount = $value;
+    public function setMfaExcludedUserCount(?int $value): void {
+        $this->getBackingStore()->set('mfaExcludedUserCount', $value);
     }
 
     /**
      * Sets the mfaRegisteredUserCount property value. The number of users registered for multi-factor authentication. Optional. Read-only.
      *  @param int|null $value Value to set for the mfaRegisteredUserCount property.
     */
-    public function setMfaRegisteredUserCount(?int $value ): void {
-        $this->mfaRegisteredUserCount = $value;
+    public function setMfaRegisteredUserCount(?int $value): void {
+        $this->getBackingStore()->set('mfaRegisteredUserCount', $value);
     }
 
     /**
      * Sets the securityDefaultsEnabled property value. A flag indicating whether Identity Security Defaults is enabled. Optional. Read-only.
      *  @param bool|null $value Value to set for the securityDefaultsEnabled property.
     */
-    public function setSecurityDefaultsEnabled(?bool $value ): void {
-        $this->securityDefaultsEnabled = $value;
+    public function setSecurityDefaultsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('securityDefaultsEnabled', $value);
     }
 
     /**
      * Sets the ssprEnabledUserCount property value. The number of users enabled for self service password reset. Optional. Read-only.
      *  @param int|null $value Value to set for the ssprEnabledUserCount property.
     */
-    public function setSsprEnabledUserCount(?int $value ): void {
-        $this->ssprEnabledUserCount = $value;
+    public function setSsprEnabledUserCount(?int $value): void {
+        $this->getBackingStore()->set('ssprEnabledUserCount', $value);
     }
 
     /**
      * Sets the ssprRegisteredUserCount property value. The number of users registered for self service password reset. Optional. Read-only.
      *  @param int|null $value Value to set for the ssprRegisteredUserCount property.
     */
-    public function setSsprRegisteredUserCount(?int $value ): void {
-        $this->ssprRegisteredUserCount = $value;
+    public function setSsprRegisteredUserCount(?int $value): void {
+        $this->getBackingStore()->set('ssprRegisteredUserCount', $value);
     }
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Required. Read-only.
      *  @param string|null $value Value to set for the tenantDisplayName property.
     */
-    public function setTenantDisplayName(?string $value ): void {
-        $this->tenantDisplayName = $value;
+    public function setTenantDisplayName(?string $value): void {
+        $this->getBackingStore()->set('tenantDisplayName', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the totalUserCount property value. The total number of users in the given managed tenant. Optional. Read-only.
      *  @param int|null $value Value to set for the totalUserCount property.
     */
-    public function setTotalUserCount(?int $value ): void {
-        $this->totalUserCount = $value;
+    public function setTotalUserCount(?int $value): void {
+        $this->getBackingStore()->set('totalUserCount', $value);
     }
 
 }

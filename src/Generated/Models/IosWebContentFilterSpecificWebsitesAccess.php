@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase implements Parsable 
 {
     /**
-     * @var array<IosBookmark>|null $specificWebsitesOnly URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $specificWebsitesOnly = null;
-    
-    /**
-     * @var array<IosBookmark>|null $websiteList URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $websiteList = null;
-    
-    /**
      * Instantiates a new IosWebContentFilterSpecificWebsitesAccess and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase 
      * @return array<IosBookmark>|null
     */
     public function getSpecificWebsitesOnly(): ?array {
-        return $this->specificWebsitesOnly;
+        return $this->getBackingStore()->get('specificWebsitesOnly');
     }
 
     /**
@@ -60,7 +50,7 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase 
      * @return array<IosBookmark>|null
     */
     public function getWebsiteList(): ?array {
-        return $this->websiteList;
+        return $this->getBackingStore()->get('websiteList');
     }
 
     /**
@@ -69,24 +59,24 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('specificWebsitesOnly', $this->specificWebsitesOnly);
-        $writer->writeCollectionOfObjectValues('websiteList', $this->websiteList);
+        $writer->writeCollectionOfObjectValues('specificWebsitesOnly', $this->getSpecificWebsitesOnly());
+        $writer->writeCollectionOfObjectValues('websiteList', $this->getWebsiteList());
     }
 
     /**
      * Sets the specificWebsitesOnly property value. URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
      *  @param array<IosBookmark>|null $value Value to set for the specificWebsitesOnly property.
     */
-    public function setSpecificWebsitesOnly(?array $value ): void {
-        $this->specificWebsitesOnly = $value;
+    public function setSpecificWebsitesOnly(?array $value): void {
+        $this->getBackingStore()->set('specificWebsitesOnly', $value);
     }
 
     /**
      * Sets the websiteList property value. URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
      *  @param array<IosBookmark>|null $value Value to set for the websiteList property.
     */
-    public function setWebsiteList(?array $value ): void {
-        $this->websiteList = $value;
+    public function setWebsiteList(?array $value): void {
+        $this->getBackingStore()->set('websiteList', $value);
     }
 
 }

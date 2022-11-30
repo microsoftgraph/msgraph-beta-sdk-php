@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows81VpnProxyServer extends VpnProxyServer implements Parsable 
 {
     /**
-     * @var bool|null $automaticallyDetectProxySettings Automatically detect proxy settings.
-    */
-    private ?bool $automaticallyDetectProxySettings = null;
-    
-    /**
-     * @var bool|null $bypassProxyServerForLocalAddress Bypass proxy server for local address.
-    */
-    private ?bool $bypassProxyServerForLocalAddress = null;
-    
-    /**
      * Instantiates a new Windows81VpnProxyServer and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class Windows81VpnProxyServer extends VpnProxyServer implements Parsable
      * @return bool|null
     */
     public function getAutomaticallyDetectProxySettings(): ?bool {
-        return $this->automaticallyDetectProxySettings;
+        return $this->getBackingStore()->get('automaticallyDetectProxySettings');
     }
 
     /**
@@ -48,7 +38,7 @@ class Windows81VpnProxyServer extends VpnProxyServer implements Parsable
      * @return bool|null
     */
     public function getBypassProxyServerForLocalAddress(): ?bool {
-        return $this->bypassProxyServerForLocalAddress;
+        return $this->getBackingStore()->get('bypassProxyServerForLocalAddress');
     }
 
     /**
@@ -69,24 +59,24 @@ class Windows81VpnProxyServer extends VpnProxyServer implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('automaticallyDetectProxySettings', $this->automaticallyDetectProxySettings);
-        $writer->writeBooleanValue('bypassProxyServerForLocalAddress', $this->bypassProxyServerForLocalAddress);
+        $writer->writeBooleanValue('automaticallyDetectProxySettings', $this->getAutomaticallyDetectProxySettings());
+        $writer->writeBooleanValue('bypassProxyServerForLocalAddress', $this->getBypassProxyServerForLocalAddress());
     }
 
     /**
      * Sets the automaticallyDetectProxySettings property value. Automatically detect proxy settings.
      *  @param bool|null $value Value to set for the automaticallyDetectProxySettings property.
     */
-    public function setAutomaticallyDetectProxySettings(?bool $value ): void {
-        $this->automaticallyDetectProxySettings = $value;
+    public function setAutomaticallyDetectProxySettings(?bool $value): void {
+        $this->getBackingStore()->set('automaticallyDetectProxySettings', $value);
     }
 
     /**
      * Sets the bypassProxyServerForLocalAddress property value. Bypass proxy server for local address.
      *  @param bool|null $value Value to set for the bypassProxyServerForLocalAddress property.
     */
-    public function setBypassProxyServerForLocalAddress(?bool $value ): void {
-        $this->bypassProxyServerForLocalAddress = $value;
+    public function setBypassProxyServerForLocalAddress(?bool $value): void {
+        $this->getBackingStore()->set('bypassProxyServerForLocalAddress', $value);
     }
 
 }

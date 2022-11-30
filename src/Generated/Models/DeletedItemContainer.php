@@ -10,16 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeletedItemContainer extends Entity implements Parsable 
 {
     /**
-     * @var array<Workflow>|null $workflows Deleted workflows that end up in the deletedItemsContainer.
-    */
-    private ?array $workflows = null;
-    
-    /**
      * Instantiates a new deletedItemContainer and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deletedItemContainer');
     }
 
     /**
@@ -47,7 +41,7 @@ class DeletedItemContainer extends Entity implements Parsable
      * @return array<Workflow>|null
     */
     public function getWorkflows(): ?array {
-        return $this->workflows;
+        return $this->getBackingStore()->get('workflows');
     }
 
     /**
@@ -56,15 +50,15 @@ class DeletedItemContainer extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('workflows', $this->workflows);
+        $writer->writeCollectionOfObjectValues('workflows', $this->getWorkflows());
     }
 
     /**
      * Sets the workflows property value. Deleted workflows that end up in the deletedItemsContainer.
      *  @param array<Workflow>|null $value Value to set for the workflows property.
     */
-    public function setWorkflows(?array $value ): void {
-        $this->workflows = $value;
+    public function setWorkflows(?array $value): void {
+        $this->getBackingStore()->set('workflows', $value);
     }
 
 }

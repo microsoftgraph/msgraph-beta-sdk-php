@@ -10,102 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OrgContact extends DirectoryObject implements Parsable 
 {
     /**
-     * @var array<PhysicalOfficeAddress>|null $addresses Postal addresses for this organizational contact. For now a contact can only have one physical address.
-    */
-    private ?array $addresses = null;
-    
-    /**
-     * @var string|null $companyName Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-    */
-    private ?string $companyName = null;
-    
-    /**
-     * @var string|null $department The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-    */
-    private ?string $department = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $directReports The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
-    */
-    private ?array $directReports = null;
-    
-    /**
-     * @var string|null $displayName Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $givenName First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-    */
-    private ?string $givenName = null;
-    
-    /**
-     * @var string|null $jobTitle Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-    */
-    private ?string $jobTitle = null;
-    
-    /**
-     * @var string|null $mail The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-    */
-    private ?string $mail = null;
-    
-    /**
-     * @var string|null $mailNickname Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-    */
-    private ?string $mailNickname = null;
-    
-    /**
-     * @var DirectoryObject|null $manager The user or contact that is this contact's manager. Read-only. Supports $expand.
-    */
-    private ?DirectoryObject $manager = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $memberOf Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
-    */
-    private ?array $memberOf = null;
-    
-    /**
-     * @var DateTime|null $onPremisesLastSyncDateTime Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in).
-    */
-    private ?DateTime $onPremisesLastSyncDateTime = null;
-    
-    /**
-     * @var array<OnPremisesProvisioningError>|null $onPremisesProvisioningErrors List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).
-    */
-    private ?array $onPremisesProvisioningErrors = null;
-    
-    /**
-     * @var bool|null $onPremisesSyncEnabled true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values).
-    */
-    private ?bool $onPremisesSyncEnabled = null;
-    
-    /**
-     * @var array<Phone>|null $phones List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in).
-    */
-    private ?array $phones = null;
-    
-    /**
-     * @var array<string>|null $proxyAddresses For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
-    */
-    private ?array $proxyAddresses = null;
-    
-    /**
-     * @var string|null $surname Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
-    */
-    private ?string $surname = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $transitiveMemberOf The transitiveMemberOf property
-    */
-    private ?array $transitiveMemberOf = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $transitiveReports The transitive reports for a contact. Read-only.
-    */
-    private ?array $transitiveReports = null;
-    
-    /**
-     * Instantiates a new OrgContact and sets the default values.
+     * Instantiates a new orgContact and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -126,23 +31,23 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<PhysicalOfficeAddress>|null
     */
     public function getAddresses(): ?array {
-        return $this->addresses;
+        return $this->getBackingStore()->get('addresses');
     }
 
     /**
-     * Gets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      * @return string|null
     */
     public function getCompanyName(): ?string {
-        return $this->companyName;
+        return $this->getBackingStore()->get('companyName');
     }
 
     /**
-     * Gets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      * @return string|null
     */
     public function getDepartment(): ?string {
-        return $this->department;
+        return $this->getBackingStore()->get('department');
     }
 
     /**
@@ -150,15 +55,15 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getDirectReports(): ?array {
-        return $this->directReports;
+        return $this->getBackingStore()->get('directReports');
     }
 
     /**
-     * Gets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Gets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values), $search, and $orderBy.
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -191,43 +96,43 @@ class OrgContact extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      * @return string|null
     */
     public function getGivenName(): ?string {
-        return $this->givenName;
+        return $this->getBackingStore()->get('givenName');
     }
 
     /**
-     * Gets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      * @return string|null
     */
     public function getJobTitle(): ?string {
-        return $this->jobTitle;
+        return $this->getBackingStore()->get('jobTitle');
     }
 
     /**
-     * Gets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      * @return string|null
     */
     public function getMail(): ?string {
-        return $this->mail;
+        return $this->getBackingStore()->get('mail');
     }
 
     /**
-     * Gets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Gets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      * @return string|null
     */
     public function getMailNickname(): ?string {
-        return $this->mailNickname;
+        return $this->getBackingStore()->get('mailNickname');
     }
 
     /**
-     * Gets the manager property value. The user or contact that is this contact's manager. Read-only. Supports $expand.
+     * Gets the manager property value. The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
      * @return DirectoryObject|null
     */
     public function getManager(): ?DirectoryObject {
-        return $this->manager;
+        return $this->getBackingStore()->get('manager');
     }
 
     /**
@@ -235,7 +140,7 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getMemberOf(): ?array {
-        return $this->memberOf;
+        return $this->getBackingStore()->get('memberOf');
     }
 
     /**
@@ -243,23 +148,23 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return DateTime|null
     */
     public function getOnPremisesLastSyncDateTime(): ?DateTime {
-        return $this->onPremisesLastSyncDateTime;
+        return $this->getBackingStore()->get('onPremisesLastSyncDateTime');
     }
 
     /**
-     * Gets the onPremisesProvisioningErrors property value. List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).
+     * Gets the onPremisesProvisioningErrors property value. List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not for category and propertyCausingError), /$count eq 0, /$count ne 0.
      * @return array<OnPremisesProvisioningError>|null
     */
     public function getOnPremisesProvisioningErrors(): ?array {
-        return $this->onPremisesProvisioningErrors;
+        return $this->getBackingStore()->get('onPremisesProvisioningErrors');
     }
 
     /**
-     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values).
+     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq for null values).
      * @return bool|null
     */
     public function getOnPremisesSyncEnabled(): ?bool {
-        return $this->onPremisesSyncEnabled;
+        return $this->getBackingStore()->get('onPremisesSyncEnabled');
     }
 
     /**
@@ -267,23 +172,23 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<Phone>|null
     */
     public function getPhones(): ?array {
-        return $this->phones;
+        return $this->getBackingStore()->get('phones');
     }
 
     /**
-     * Gets the proxyAddresses property value. For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+     * Gets the proxyAddresses property value. For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0).
      * @return array<string>|null
     */
     public function getProxyAddresses(): ?array {
-        return $this->proxyAddresses;
+        return $this->getBackingStore()->get('proxyAddresses');
     }
 
     /**
-     * Gets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
+     * Gets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values)
      * @return string|null
     */
     public function getSurname(): ?string {
-        return $this->surname;
+        return $this->getBackingStore()->get('surname');
     }
 
     /**
@@ -291,7 +196,7 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMemberOf(): ?array {
-        return $this->transitiveMemberOf;
+        return $this->getBackingStore()->get('transitiveMemberOf');
     }
 
     /**
@@ -299,7 +204,7 @@ class OrgContact extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveReports(): ?array {
-        return $this->transitiveReports;
+        return $this->getBackingStore()->get('transitiveReports');
     }
 
     /**
@@ -308,177 +213,177 @@ class OrgContact extends DirectoryObject implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('addresses', $this->addresses);
-        $writer->writeStringValue('companyName', $this->companyName);
-        $writer->writeStringValue('department', $this->department);
-        $writer->writeCollectionOfObjectValues('directReports', $this->directReports);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('givenName', $this->givenName);
-        $writer->writeStringValue('jobTitle', $this->jobTitle);
-        $writer->writeStringValue('mail', $this->mail);
-        $writer->writeStringValue('mailNickname', $this->mailNickname);
-        $writer->writeObjectValue('manager', $this->manager);
-        $writer->writeCollectionOfObjectValues('memberOf', $this->memberOf);
-        $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->onPremisesLastSyncDateTime);
-        $writer->writeCollectionOfObjectValues('onPremisesProvisioningErrors', $this->onPremisesProvisioningErrors);
-        $writer->writeBooleanValue('onPremisesSyncEnabled', $this->onPremisesSyncEnabled);
-        $writer->writeCollectionOfObjectValues('phones', $this->phones);
-        $writer->writeCollectionOfPrimitiveValues('proxyAddresses', $this->proxyAddresses);
-        $writer->writeStringValue('surname', $this->surname);
-        $writer->writeCollectionOfObjectValues('transitiveMemberOf', $this->transitiveMemberOf);
-        $writer->writeCollectionOfObjectValues('transitiveReports', $this->transitiveReports);
+        $writer->writeCollectionOfObjectValues('addresses', $this->getAddresses());
+        $writer->writeStringValue('companyName', $this->getCompanyName());
+        $writer->writeStringValue('department', $this->getDepartment());
+        $writer->writeCollectionOfObjectValues('directReports', $this->getDirectReports());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('givenName', $this->getGivenName());
+        $writer->writeStringValue('jobTitle', $this->getJobTitle());
+        $writer->writeStringValue('mail', $this->getMail());
+        $writer->writeStringValue('mailNickname', $this->getMailNickname());
+        $writer->writeObjectValue('manager', $this->getManager());
+        $writer->writeCollectionOfObjectValues('memberOf', $this->getMemberOf());
+        $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->getOnPremisesLastSyncDateTime());
+        $writer->writeCollectionOfObjectValues('onPremisesProvisioningErrors', $this->getOnPremisesProvisioningErrors());
+        $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());
+        $writer->writeCollectionOfObjectValues('phones', $this->getPhones());
+        $writer->writeCollectionOfPrimitiveValues('proxyAddresses', $this->getProxyAddresses());
+        $writer->writeStringValue('surname', $this->getSurname());
+        $writer->writeCollectionOfObjectValues('transitiveMemberOf', $this->getTransitiveMemberOf());
+        $writer->writeCollectionOfObjectValues('transitiveReports', $this->getTransitiveReports());
     }
 
     /**
      * Sets the addresses property value. Postal addresses for this organizational contact. For now a contact can only have one physical address.
      *  @param array<PhysicalOfficeAddress>|null $value Value to set for the addresses property.
     */
-    public function setAddresses(?array $value ): void {
-        $this->addresses = $value;
+    public function setAddresses(?array $value): void {
+        $this->getBackingStore()->set('addresses', $value);
     }
 
     /**
-     * Sets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      *  @param string|null $value Value to set for the companyName property.
     */
-    public function setCompanyName(?string $value ): void {
-        $this->companyName = $value;
+    public function setCompanyName(?string $value): void {
+        $this->getBackingStore()->set('companyName', $value);
     }
 
     /**
-     * Sets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      *  @param string|null $value Value to set for the department property.
     */
-    public function setDepartment(?string $value ): void {
-        $this->department = $value;
+    public function setDepartment(?string $value): void {
+        $this->getBackingStore()->set('department', $value);
     }
 
     /**
      * Sets the directReports property value. The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
      *  @param array<DirectoryObject>|null $value Value to set for the directReports property.
     */
-    public function setDirectReports(?array $value ): void {
-        $this->directReports = $value;
+    public function setDirectReports(?array $value): void {
+        $this->getBackingStore()->set('directReports', $value);
     }
 
     /**
-     * Sets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Sets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values), $search, and $orderBy.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      *  @param string|null $value Value to set for the givenName property.
     */
-    public function setGivenName(?string $value ): void {
-        $this->givenName = $value;
+    public function setGivenName(?string $value): void {
+        $this->getBackingStore()->set('givenName', $value);
     }
 
     /**
-     * Sets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      *  @param string|null $value Value to set for the jobTitle property.
     */
-    public function setJobTitle(?string $value ): void {
-        $this->jobTitle = $value;
+    public function setJobTitle(?string $value): void {
+        $this->getBackingStore()->set('jobTitle', $value);
     }
 
     /**
-     * Sets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      *  @param string|null $value Value to set for the mail property.
     */
-    public function setMail(?string $value ): void {
-        $this->mail = $value;
+    public function setMail(?string $value): void {
+        $this->getBackingStore()->set('mail', $value);
     }
 
     /**
-     * Sets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * Sets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      *  @param string|null $value Value to set for the mailNickname property.
     */
-    public function setMailNickname(?string $value ): void {
-        $this->mailNickname = $value;
+    public function setMailNickname(?string $value): void {
+        $this->getBackingStore()->set('mailNickname', $value);
     }
 
     /**
-     * Sets the manager property value. The user or contact that is this contact's manager. Read-only. Supports $expand.
+     * Sets the manager property value. The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
      *  @param DirectoryObject|null $value Value to set for the manager property.
     */
-    public function setManager(?DirectoryObject $value ): void {
-        $this->manager = $value;
+    public function setManager(?DirectoryObject $value): void {
+        $this->getBackingStore()->set('manager', $value);
     }
 
     /**
      * Sets the memberOf property value. Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
      *  @param array<DirectoryObject>|null $value Value to set for the memberOf property.
     */
-    public function setMemberOf(?array $value ): void {
-        $this->memberOf = $value;
+    public function setMemberOf(?array $value): void {
+        $this->getBackingStore()->set('memberOf', $value);
     }
 
     /**
      * Sets the onPremisesLastSyncDateTime property value. Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in).
      *  @param DateTime|null $value Value to set for the onPremisesLastSyncDateTime property.
     */
-    public function setOnPremisesLastSyncDateTime(?DateTime $value ): void {
-        $this->onPremisesLastSyncDateTime = $value;
+    public function setOnPremisesLastSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('onPremisesLastSyncDateTime', $value);
     }
 
     /**
-     * Sets the onPremisesProvisioningErrors property value. List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).
+     * Sets the onPremisesProvisioningErrors property value. List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not for category and propertyCausingError), /$count eq 0, /$count ne 0.
      *  @param array<OnPremisesProvisioningError>|null $value Value to set for the onPremisesProvisioningErrors property.
     */
-    public function setOnPremisesProvisioningErrors(?array $value ): void {
-        $this->onPremisesProvisioningErrors = $value;
+    public function setOnPremisesProvisioningErrors(?array $value): void {
+        $this->getBackingStore()->set('onPremisesProvisioningErrors', $value);
     }
 
     /**
-     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values).
+     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq for null values).
      *  @param bool|null $value Value to set for the onPremisesSyncEnabled property.
     */
-    public function setOnPremisesSyncEnabled(?bool $value ): void {
-        $this->onPremisesSyncEnabled = $value;
+    public function setOnPremisesSyncEnabled(?bool $value): void {
+        $this->getBackingStore()->set('onPremisesSyncEnabled', $value);
     }
 
     /**
      * Sets the phones property value. List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in).
      *  @param array<Phone>|null $value Value to set for the phones property.
     */
-    public function setPhones(?array $value ): void {
-        $this->phones = $value;
+    public function setPhones(?array $value): void {
+        $this->getBackingStore()->set('phones', $value);
     }
 
     /**
-     * Sets the proxyAddresses property value. For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+     * Sets the proxyAddresses property value. For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0).
      *  @param array<string>|null $value Value to set for the proxyAddresses property.
     */
-    public function setProxyAddresses(?array $value ): void {
-        $this->proxyAddresses = $value;
+    public function setProxyAddresses(?array $value): void {
+        $this->getBackingStore()->set('proxyAddresses', $value);
     }
 
     /**
-     * Sets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
+     * Sets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values)
      *  @param string|null $value Value to set for the surname property.
     */
-    public function setSurname(?string $value ): void {
-        $this->surname = $value;
+    public function setSurname(?string $value): void {
+        $this->getBackingStore()->set('surname', $value);
     }
 
     /**
      * Sets the transitiveMemberOf property value. The transitiveMemberOf property
      *  @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
-    public function setTransitiveMemberOf(?array $value ): void {
-        $this->transitiveMemberOf = $value;
+    public function setTransitiveMemberOf(?array $value): void {
+        $this->getBackingStore()->set('transitiveMemberOf', $value);
     }
 
     /**
      * Sets the transitiveReports property value. The transitive reports for a contact. Read-only.
      *  @param array<DirectoryObject>|null $value Value to set for the transitiveReports property.
     */
-    public function setTransitiveReports(?array $value ): void {
-        $this->transitiveReports = $value;
+    public function setTransitiveReports(?array $value): void {
+        $this->getBackingStore()->set('transitiveReports', $value);
     }
 
 }

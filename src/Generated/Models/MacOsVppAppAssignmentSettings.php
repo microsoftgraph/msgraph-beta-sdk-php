@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOsVppAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * @var bool|null $uninstallOnDeviceRemoval Whether or not to uninstall the app when device is removed from Intune.
-    */
-    private ?bool $uninstallOnDeviceRemoval = null;
-    
-    /**
-     * @var bool|null $useDeviceLicensing Whether or not to use device licensing.
-    */
-    private ?bool $useDeviceLicensing = null;
-    
-    /**
      * Instantiates a new MacOsVppAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class MacOsVppAppAssignmentSettings extends MobileAppAssignmentSettings implemen
      * @return bool|null
     */
     public function getUninstallOnDeviceRemoval(): ?bool {
-        return $this->uninstallOnDeviceRemoval;
+        return $this->getBackingStore()->get('uninstallOnDeviceRemoval');
     }
 
     /**
@@ -60,7 +50,7 @@ class MacOsVppAppAssignmentSettings extends MobileAppAssignmentSettings implemen
      * @return bool|null
     */
     public function getUseDeviceLicensing(): ?bool {
-        return $this->useDeviceLicensing;
+        return $this->getBackingStore()->get('useDeviceLicensing');
     }
 
     /**
@@ -69,24 +59,24 @@ class MacOsVppAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('uninstallOnDeviceRemoval', $this->uninstallOnDeviceRemoval);
-        $writer->writeBooleanValue('useDeviceLicensing', $this->useDeviceLicensing);
+        $writer->writeBooleanValue('uninstallOnDeviceRemoval', $this->getUninstallOnDeviceRemoval());
+        $writer->writeBooleanValue('useDeviceLicensing', $this->getUseDeviceLicensing());
     }
 
     /**
      * Sets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
      *  @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
     */
-    public function setUninstallOnDeviceRemoval(?bool $value ): void {
-        $this->uninstallOnDeviceRemoval = $value;
+    public function setUninstallOnDeviceRemoval(?bool $value): void {
+        $this->getBackingStore()->set('uninstallOnDeviceRemoval', $value);
     }
 
     /**
      * Sets the useDeviceLicensing property value. Whether or not to use device licensing.
      *  @param bool|null $value Value to set for the useDeviceLicensing property.
     */
-    public function setUseDeviceLicensing(?bool $value ): void {
-        $this->useDeviceLicensing = $value;
+    public function setUseDeviceLicensing(?bool $value): void {
+        $this->getBackingStore()->set('useDeviceLicensing', $value);
     }
 
 }

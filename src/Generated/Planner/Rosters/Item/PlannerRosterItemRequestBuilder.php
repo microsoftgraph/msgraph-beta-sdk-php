@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PlannerRosterItemRequestBuilder 
 {
     /**
-     * The members property
+     * Provides operations to manage the members property of the microsoft.graph.plannerRoster entity.
     */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -34,7 +34,7 @@ class PlannerRosterItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The plans property
+     * Provides operations to manage the plans property of the microsoft.graph.plannerRoster entity.
     */
     public function plans(): PlansRequestBuilder {
         return new PlansRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -170,7 +170,7 @@ class PlannerRosterItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.planner.rosters.item.members.item collection
+     * Provides operations to manage the members property of the microsoft.graph.plannerRoster entity.
      * @param string $id Unique identifier of the item
      * @return PlannerRosterMemberItemRequestBuilder
     */
@@ -201,7 +201,7 @@ class PlannerRosterItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.planner.rosters.item.plans.item collection
+     * Provides operations to manage the plans property of the microsoft.graph.plannerRoster entity.
      * @param string $id Unique identifier of the item
      * @return PlannerPlanItemRequestBuilder
     */

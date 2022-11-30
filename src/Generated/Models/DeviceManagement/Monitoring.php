@@ -10,21 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Monitoring extends Entity implements Parsable 
 {
     /**
-     * @var array<AlertRecord>|null $alertRecords The collection of records of alert events.
-    */
-    private ?array $alertRecords = null;
-    
-    /**
-     * @var array<AlertRule>|null $alertRules The collection of alert rules.
-    */
-    private ?array $alertRules = null;
-    
-    /**
      * Instantiates a new monitoring and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagement.monitoring');
     }
 
     /**
@@ -41,7 +30,7 @@ class Monitoring extends Entity implements Parsable
      * @return array<AlertRecord>|null
     */
     public function getAlertRecords(): ?array {
-        return $this->alertRecords;
+        return $this->getBackingStore()->get('alertRecords');
     }
 
     /**
@@ -49,7 +38,7 @@ class Monitoring extends Entity implements Parsable
      * @return array<AlertRule>|null
     */
     public function getAlertRules(): ?array {
-        return $this->alertRules;
+        return $this->getBackingStore()->get('alertRules');
     }
 
     /**
@@ -70,24 +59,24 @@ class Monitoring extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('alertRecords', $this->alertRecords);
-        $writer->writeCollectionOfObjectValues('alertRules', $this->alertRules);
+        $writer->writeCollectionOfObjectValues('alertRecords', $this->getAlertRecords());
+        $writer->writeCollectionOfObjectValues('alertRules', $this->getAlertRules());
     }
 
     /**
      * Sets the alertRecords property value. The collection of records of alert events.
      *  @param array<AlertRecord>|null $value Value to set for the alertRecords property.
     */
-    public function setAlertRecords(?array $value ): void {
-        $this->alertRecords = $value;
+    public function setAlertRecords(?array $value): void {
+        $this->getBackingStore()->set('alertRecords', $value);
     }
 
     /**
      * Sets the alertRules property value. The collection of alert rules.
      *  @param array<AlertRule>|null $value Value to set for the alertRules property.
     */
-    public function setAlertRules(?array $value ): void {
-        $this->alertRules = $value;
+    public function setAlertRules(?array $value): void {
+        $this->getBackingStore()->set('alertRules', $value);
     }
 
 }

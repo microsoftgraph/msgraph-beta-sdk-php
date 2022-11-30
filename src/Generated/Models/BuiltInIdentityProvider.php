@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BuiltInIdentityProvider extends IdentityProviderBase implements Parsable 
 {
     /**
-     * @var string|null $identityProviderType The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.
-    */
-    private ?string $identityProviderType = null;
-    
-    /**
      * Instantiates a new BuiltInIdentityProvider and sets the default values.
     */
     public function __construct() {
@@ -38,6 +33,7 @@ class BuiltInIdentityProvider extends IdentityProviderBase implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'identityProviderType' => fn(ParseNode $n) => $o->setIdentityProviderType($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(IdentityProviderState::class)),
         ]);
     }
 
@@ -46,7 +42,15 @@ class BuiltInIdentityProvider extends IdentityProviderBase implements Parsable
      * @return string|null
     */
     public function getIdentityProviderType(): ?string {
-        return $this->identityProviderType;
+        return $this->getBackingStore()->get('identityProviderType');
+    }
+
+    /**
+     * Gets the state property value. The state property
+     * @return IdentityProviderState|null
+    */
+    public function getState(): ?IdentityProviderState {
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -55,15 +59,24 @@ class BuiltInIdentityProvider extends IdentityProviderBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('identityProviderType', $this->identityProviderType);
+        $writer->writeStringValue('identityProviderType', $this->getIdentityProviderType());
+        $writer->writeEnumValue('state', $this->getState());
     }
 
     /**
      * Sets the identityProviderType property value. The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.
      *  @param string|null $value Value to set for the identityProviderType property.
     */
-    public function setIdentityProviderType(?string $value ): void {
-        $this->identityProviderType = $value;
+    public function setIdentityProviderType(?string $value): void {
+        $this->getBackingStore()->set('identityProviderType', $value);
+    }
+
+    /**
+     * Sets the state property value. The state property
+     *  @param IdentityProviderState|null $value Value to set for the state property.
+    */
+    public function setState(?IdentityProviderState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }

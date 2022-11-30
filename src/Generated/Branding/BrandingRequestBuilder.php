@@ -7,7 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Branding\BackgroundImage\BackgroundImageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\BannerLogo\BannerLogoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Branding\CustomCSS\CustomCSSRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\Favicon\FaviconRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Branding\HeaderLogo\HeaderLogoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\Localizations\Item\OrganizationalBrandingLocalizationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\Localizations\LocalizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\SquareLogo\SquareLogoRequestBuilder;
@@ -25,28 +27,42 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class BrandingRequestBuilder 
 {
     /**
-     * The backgroundImage property
+     * Provides operations to manage the media for the organizationalBranding entity.
     */
     public function backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The bannerLogo property
+     * Provides operations to manage the media for the organizationalBranding entity.
     */
     public function bannerLogo(): BannerLogoRequestBuilder {
         return new BannerLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The favicon property
+     * Provides operations to manage the media for the organizationalBranding entity.
+    */
+    public function customCSS(): CustomCSSRequestBuilder {
+        return new CustomCSSRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the organizationalBranding entity.
     */
     public function favicon(): FaviconRequestBuilder {
         return new FaviconRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The localizations property
+     * Provides operations to manage the media for the organizationalBranding entity.
+    */
+    public function headerLogo(): HeaderLogoRequestBuilder {
+        return new HeaderLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
     */
     public function localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -63,14 +79,14 @@ class BrandingRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The squareLogo property
+     * Provides operations to manage the media for the organizationalBranding entity.
     */
     public function squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The squareLogoDark property
+     * Provides operations to manage the media for the organizationalBranding entity.
     */
     public function squareLogoDark(): SquareLogoDarkRequestBuilder {
         return new SquareLogoDarkRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -161,7 +177,7 @@ class BrandingRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.branding.localizations.item collection
+     * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
      * @param string $id Unique identifier of the item
      * @return OrganizationalBrandingLocalizationItemRequestBuilder
     */

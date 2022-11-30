@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ZebraFotaDeployment extends Entity implements Parsable 
 {
     /**
-     * @var array<AndroidFotaDeploymentAssignment>|null $deploymentAssignments Collection of Android FOTA Assignment
-    */
-    private ?array $deploymentAssignments = null;
-    
-    /**
-     * @var ZebraFotaDeploymentSettings|null $deploymentSettings The Zebra FOTA deployment complex type that describes the settings required to create a FOTA deployment.
-    */
-    private ?ZebraFotaDeploymentSettings $deploymentSettings = null;
-    
-    /**
-     * @var ZebraFotaDeploymentStatus|null $deploymentStatus Represents the deployment status from Zebra. The status is a high level status of the deployment as opposed being a detailed status per device.
-    */
-    private ?ZebraFotaDeploymentStatus $deploymentStatus = null;
-    
-    /**
-     * @var string|null $description A human readable description of the deployment.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName A human readable name of the deployment.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * Instantiates a new ZebraFotaDeployment and sets the default values.
+     * Instantiates a new zebraFotaDeployment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.zebraFotaDeployment');
     }
 
     /**
@@ -55,7 +29,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return array<AndroidFotaDeploymentAssignment>|null
     */
     public function getDeploymentAssignments(): ?array {
-        return $this->deploymentAssignments;
+        return $this->getBackingStore()->get('deploymentAssignments');
     }
 
     /**
@@ -63,7 +37,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return ZebraFotaDeploymentSettings|null
     */
     public function getDeploymentSettings(): ?ZebraFotaDeploymentSettings {
-        return $this->deploymentSettings;
+        return $this->getBackingStore()->get('deploymentSettings');
     }
 
     /**
@@ -71,7 +45,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return ZebraFotaDeploymentStatus|null
     */
     public function getDeploymentStatus(): ?ZebraFotaDeploymentStatus {
-        return $this->deploymentStatus;
+        return $this->getBackingStore()->get('deploymentStatus');
     }
 
     /**
@@ -79,7 +53,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -87,7 +61,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -111,51 +85,51 @@ class ZebraFotaDeployment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('deploymentAssignments', $this->deploymentAssignments);
-        $writer->writeObjectValue('deploymentSettings', $this->deploymentSettings);
-        $writer->writeObjectValue('deploymentStatus', $this->deploymentStatus);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeCollectionOfObjectValues('deploymentAssignments', $this->getDeploymentAssignments());
+        $writer->writeObjectValue('deploymentSettings', $this->getDeploymentSettings());
+        $writer->writeObjectValue('deploymentStatus', $this->getDeploymentStatus());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
     }
 
     /**
      * Sets the deploymentAssignments property value. Collection of Android FOTA Assignment
      *  @param array<AndroidFotaDeploymentAssignment>|null $value Value to set for the deploymentAssignments property.
     */
-    public function setDeploymentAssignments(?array $value ): void {
-        $this->deploymentAssignments = $value;
+    public function setDeploymentAssignments(?array $value): void {
+        $this->getBackingStore()->set('deploymentAssignments', $value);
     }
 
     /**
      * Sets the deploymentSettings property value. The Zebra FOTA deployment complex type that describes the settings required to create a FOTA deployment.
      *  @param ZebraFotaDeploymentSettings|null $value Value to set for the deploymentSettings property.
     */
-    public function setDeploymentSettings(?ZebraFotaDeploymentSettings $value ): void {
-        $this->deploymentSettings = $value;
+    public function setDeploymentSettings(?ZebraFotaDeploymentSettings $value): void {
+        $this->getBackingStore()->set('deploymentSettings', $value);
     }
 
     /**
      * Sets the deploymentStatus property value. Represents the deployment status from Zebra. The status is a high level status of the deployment as opposed being a detailed status per device.
      *  @param ZebraFotaDeploymentStatus|null $value Value to set for the deploymentStatus property.
     */
-    public function setDeploymentStatus(?ZebraFotaDeploymentStatus $value ): void {
-        $this->deploymentStatus = $value;
+    public function setDeploymentStatus(?ZebraFotaDeploymentStatus $value): void {
+        $this->getBackingStore()->set('deploymentStatus', $value);
     }
 
     /**
      * Sets the description property value. A human readable description of the deployment.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. A human readable name of the deployment.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
 }

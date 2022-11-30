@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable 
+class TeamworkAccountConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var TeamworkOnPremisesCalendarSyncConfiguration|null $onPremisesCalendarSyncConfiguration The account used to sync the calendar.
-    */
-    private ?TeamworkOnPremisesCalendarSyncConfiguration $onPremisesCalendarSyncConfiguration = null;
-    
-    /**
-     * @var TeamworkSupportedClient|null $supportedClient The supported client for Teams Rooms devices. The possible values are: unknown, skypeDefaultAndTeams, teamsDefaultAndSkype, skypeOnly, teamsOnly, unknownFutureValue.
-    */
-    private ?TeamworkSupportedClient $supportedClient = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkAccountConfiguration and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.teamworkAccountConfiguration');
     }
 
     /**
@@ -50,8 +38,16 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +68,7 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -80,7 +76,7 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable
      * @return TeamworkOnPremisesCalendarSyncConfiguration|null
     */
     public function getOnPremisesCalendarSyncConfiguration(): ?TeamworkOnPremisesCalendarSyncConfiguration {
-        return $this->onPremisesCalendarSyncConfiguration;
+        return $this->getBackingStore()->get('onPremisesCalendarSyncConfiguration');
     }
 
     /**
@@ -88,7 +84,7 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable
      * @return TeamworkSupportedClient|null
     */
     public function getSupportedClient(): ?TeamworkSupportedClient {
-        return $this->supportedClient;
+        return $this->getBackingStore()->get('supportedClient');
     }
 
     /**
@@ -96,42 +92,50 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('onPremisesCalendarSyncConfiguration', $this->onPremisesCalendarSyncConfiguration);
-        $writer->writeEnumValue('supportedClient', $this->supportedClient);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('onPremisesCalendarSyncConfiguration', $this->getOnPremisesCalendarSyncConfiguration());
+        $writer->writeEnumValue('supportedClient', $this->getSupportedClient());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the onPremisesCalendarSyncConfiguration property value. The account used to sync the calendar.
      *  @param TeamworkOnPremisesCalendarSyncConfiguration|null $value Value to set for the onPremisesCalendarSyncConfiguration property.
     */
-    public function setOnPremisesCalendarSyncConfiguration(?TeamworkOnPremisesCalendarSyncConfiguration $value ): void {
-        $this->onPremisesCalendarSyncConfiguration = $value;
+    public function setOnPremisesCalendarSyncConfiguration(?TeamworkOnPremisesCalendarSyncConfiguration $value): void {
+        $this->getBackingStore()->set('onPremisesCalendarSyncConfiguration', $value);
     }
 
     /**
      * Sets the supportedClient property value. The supported client for Teams Rooms devices. The possible values are: unknown, skypeDefaultAndTeams, teamsDefaultAndSkype, skypeOnly, teamsOnly, unknownFutureValue.
      *  @param TeamworkSupportedClient|null $value Value to set for the supportedClient property.
     */
-    public function setSupportedClient(?TeamworkSupportedClient $value ): void {
-        $this->supportedClient = $value;
+    public function setSupportedClient(?TeamworkSupportedClient $value): void {
+        $this->getBackingStore()->set('supportedClient', $value);
     }
 
 }

@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthScriptAssignment extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $runRemediationScript Determine whether we want to run detection script only or run both detection script and remediation script
-    */
-    private ?bool $runRemediationScript = null;
-    
-    /**
-     * @var DeviceHealthScriptRunSchedule|null $runSchedule Script run schedule for the target group
-    */
-    private ?DeviceHealthScriptRunSchedule $runSchedule = null;
-    
-    /**
-     * @var DeviceAndAppManagementAssignmentTarget|null $target The Azure Active Directory group we are targeting the script to
-    */
-    private ?DeviceAndAppManagementAssignmentTarget $target = null;
-    
-    /**
      * Instantiates a new deviceHealthScriptAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceHealthScriptAssignment');
     }
 
     /**
@@ -58,7 +42,7 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
      * @return bool|null
     */
     public function getRunRemediationScript(): ?bool {
-        return $this->runRemediationScript;
+        return $this->getBackingStore()->get('runRemediationScript');
     }
 
     /**
@@ -66,7 +50,7 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
      * @return DeviceHealthScriptRunSchedule|null
     */
     public function getRunSchedule(): ?DeviceHealthScriptRunSchedule {
-        return $this->runSchedule;
+        return $this->getBackingStore()->get('runSchedule');
     }
 
     /**
@@ -74,7 +58,7 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
      * @return DeviceAndAppManagementAssignmentTarget|null
     */
     public function getTarget(): ?DeviceAndAppManagementAssignmentTarget {
-        return $this->target;
+        return $this->getBackingStore()->get('target');
     }
 
     /**
@@ -83,33 +67,33 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('runRemediationScript', $this->runRemediationScript);
-        $writer->writeObjectValue('runSchedule', $this->runSchedule);
-        $writer->writeObjectValue('target', $this->target);
+        $writer->writeBooleanValue('runRemediationScript', $this->getRunRemediationScript());
+        $writer->writeObjectValue('runSchedule', $this->getRunSchedule());
+        $writer->writeObjectValue('target', $this->getTarget());
     }
 
     /**
      * Sets the runRemediationScript property value. Determine whether we want to run detection script only or run both detection script and remediation script
      *  @param bool|null $value Value to set for the runRemediationScript property.
     */
-    public function setRunRemediationScript(?bool $value ): void {
-        $this->runRemediationScript = $value;
+    public function setRunRemediationScript(?bool $value): void {
+        $this->getBackingStore()->set('runRemediationScript', $value);
     }
 
     /**
      * Sets the runSchedule property value. Script run schedule for the target group
      *  @param DeviceHealthScriptRunSchedule|null $value Value to set for the runSchedule property.
     */
-    public function setRunSchedule(?DeviceHealthScriptRunSchedule $value ): void {
-        $this->runSchedule = $value;
+    public function setRunSchedule(?DeviceHealthScriptRunSchedule $value): void {
+        $this->getBackingStore()->set('runSchedule', $value);
     }
 
     /**
      * Sets the target property value. The Azure Active Directory group we are targeting the script to
      *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
-    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value ): void {
-        $this->target = $value;
+    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
+        $this->getBackingStore()->set('target', $value);
     }
 
 }

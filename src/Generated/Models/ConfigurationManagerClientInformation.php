@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ConfigurationManagerClientInformation implements AdditionalDataHolder, Parsable 
+class ConfigurationManagerClientInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $clientIdentifier Configuration Manager Client Id from SCCM
-    */
-    private ?string $clientIdentifier = null;
-    
-    /**
-     * @var string|null $clientVersion Configuration Manager Client version from SCCM
-    */
-    private ?string $clientVersion = null;
-    
-    /**
-     * @var bool|null $isBlocked Configuration Manager Client blocked status from SCCM
-    */
-    private ?bool $isBlocked = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new configurationManagerClientInformation and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.configurationManagerClientInformation');
     }
 
     /**
@@ -55,8 +38,16 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -64,7 +55,7 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getClientIdentifier(): ?string {
-        return $this->clientIdentifier;
+        return $this->getBackingStore()->get('clientIdentifier');
     }
 
     /**
@@ -72,7 +63,7 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getClientVersion(): ?string {
-        return $this->clientVersion;
+        return $this->getBackingStore()->get('clientVersion');
     }
 
     /**
@@ -94,7 +85,7 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
      * @return bool|null
     */
     public function getIsBlocked(): ?bool {
-        return $this->isBlocked;
+        return $this->getBackingStore()->get('isBlocked');
     }
 
     /**
@@ -102,7 +93,7 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -110,51 +101,59 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('clientIdentifier', $this->clientIdentifier);
-        $writer->writeStringValue('clientVersion', $this->clientVersion);
-        $writer->writeBooleanValue('isBlocked', $this->isBlocked);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('clientIdentifier', $this->getClientIdentifier());
+        $writer->writeStringValue('clientVersion', $this->getClientVersion());
+        $writer->writeBooleanValue('isBlocked', $this->getIsBlocked());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the clientIdentifier property value. Configuration Manager Client Id from SCCM
      *  @param string|null $value Value to set for the clientIdentifier property.
     */
-    public function setClientIdentifier(?string $value ): void {
-        $this->clientIdentifier = $value;
+    public function setClientIdentifier(?string $value): void {
+        $this->getBackingStore()->set('clientIdentifier', $value);
     }
 
     /**
      * Sets the clientVersion property value. Configuration Manager Client version from SCCM
      *  @param string|null $value Value to set for the clientVersion property.
     */
-    public function setClientVersion(?string $value ): void {
-        $this->clientVersion = $value;
+    public function setClientVersion(?string $value): void {
+        $this->getBackingStore()->set('clientVersion', $value);
     }
 
     /**
      * Sets the isBlocked property value. Configuration Manager Client blocked status from SCCM
      *  @param bool|null $value Value to set for the isBlocked property.
     */
-    public function setIsBlocked(?bool $value ): void {
-        $this->isBlocked = $value;
+    public function setIsBlocked(?bool $value): void {
+        $this->getBackingStore()->set('isBlocked', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnTokenIssuanceStartCustomExtensionHandler extends OnTokenIssuanceStartHandler implements Parsable 
 {
     /**
-     * @var OnTokenIssuanceStartCustomExtension|null $customExtension The customExtension property
-    */
-    private ?OnTokenIssuanceStartCustomExtension $customExtension = null;
-    
-    /**
      * Instantiates a new OnTokenIssuanceStartCustomExtensionHandler and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class OnTokenIssuanceStartCustomExtensionHandler extends OnTokenIssuanceStartHan
      * @return OnTokenIssuanceStartCustomExtension|null
     */
     public function getCustomExtension(): ?OnTokenIssuanceStartCustomExtension {
-        return $this->customExtension;
+        return $this->getBackingStore()->get('customExtension');
     }
 
     /**
@@ -55,15 +50,15 @@ class OnTokenIssuanceStartCustomExtensionHandler extends OnTokenIssuanceStartHan
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('customExtension', $this->customExtension);
+        $writer->writeObjectValue('customExtension', $this->getCustomExtension());
     }
 
     /**
      * Sets the customExtension property value. The customExtension property
      *  @param OnTokenIssuanceStartCustomExtension|null $value Value to set for the customExtension property.
     */
-    public function setCustomExtension(?OnTokenIssuanceStartCustomExtension $value ): void {
-        $this->customExtension = $value;
+    public function setCustomExtension(?OnTokenIssuanceStartCustomExtension $value): void {
+        $this->getBackingStore()->set('customExtension', $value);
     }
 
 }

@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Presence extends Entity implements Parsable 
 {
     /**
-     * @var string|null $activity The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
-    */
-    private ?string $activity = null;
-    
-    /**
-     * @var string|null $availability The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
-    */
-    private ?string $availability = null;
-    
-    /**
-     * @var OutOfOfficeSettings|null $outOfOfficeSettings The out of office settings for a user.
-    */
-    private ?OutOfOfficeSettings $outOfOfficeSettings = null;
-    
-    /**
-     * Instantiates a new Presence and sets the default values.
+     * Instantiates a new presence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.presence');
     }
 
     /**
@@ -45,7 +29,7 @@ class Presence extends Entity implements Parsable
      * @return string|null
     */
     public function getActivity(): ?string {
-        return $this->activity;
+        return $this->getBackingStore()->get('activity');
     }
 
     /**
@@ -53,7 +37,7 @@ class Presence extends Entity implements Parsable
      * @return string|null
     */
     public function getAvailability(): ?string {
-        return $this->availability;
+        return $this->getBackingStore()->get('availability');
     }
 
     /**
@@ -74,7 +58,7 @@ class Presence extends Entity implements Parsable
      * @return OutOfOfficeSettings|null
     */
     public function getOutOfOfficeSettings(): ?OutOfOfficeSettings {
-        return $this->outOfOfficeSettings;
+        return $this->getBackingStore()->get('outOfOfficeSettings');
     }
 
     /**
@@ -83,33 +67,33 @@ class Presence extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('activity', $this->activity);
-        $writer->writeStringValue('availability', $this->availability);
-        $writer->writeObjectValue('outOfOfficeSettings', $this->outOfOfficeSettings);
+        $writer->writeStringValue('activity', $this->getActivity());
+        $writer->writeStringValue('availability', $this->getAvailability());
+        $writer->writeObjectValue('outOfOfficeSettings', $this->getOutOfOfficeSettings());
     }
 
     /**
      * Sets the activity property value. The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
      *  @param string|null $value Value to set for the activity property.
     */
-    public function setActivity(?string $value ): void {
-        $this->activity = $value;
+    public function setActivity(?string $value): void {
+        $this->getBackingStore()->set('activity', $value);
     }
 
     /**
      * Sets the availability property value. The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
      *  @param string|null $value Value to set for the availability property.
     */
-    public function setAvailability(?string $value ): void {
-        $this->availability = $value;
+    public function setAvailability(?string $value): void {
+        $this->getBackingStore()->set('availability', $value);
     }
 
     /**
      * Sets the outOfOfficeSettings property value. The out of office settings for a user.
      *  @param OutOfOfficeSettings|null $value Value to set for the outOfOfficeSettings property.
     */
-    public function setOutOfOfficeSettings(?OutOfOfficeSettings $value ): void {
-        $this->outOfOfficeSettings = $value;
+    public function setOutOfOfficeSettings(?OutOfOfficeSettings $value): void {
+        $this->getBackingStore()->set('outOfOfficeSettings', $value);
     }
 
 }

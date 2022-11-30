@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AuthorizationPolicyItemRequestBuilder 
 {
     /**
-     * The defaultUserRoleOverrides property
+     * Provides operations to manage the defaultUserRoleOverrides property of the microsoft.graph.authorizationPolicy entity.
     */
     public function defaultUserRoleOverrides(): DefaultUserRoleOverridesRequestBuilder {
         return new DefaultUserRoleOverridesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -123,7 +123,7 @@ class AuthorizationPolicyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.authorizationPolicy.item.defaultUserRoleOverrides.item collection
+     * Provides operations to manage the defaultUserRoleOverrides property of the microsoft.graph.authorizationPolicy entity.
      * @param string $id Unique identifier of the item
      * @return DefaultUserRoleOverrideItemRequestBuilder
     */

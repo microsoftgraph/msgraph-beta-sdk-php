@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingAbstractImplementationConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var array<string>|null $allowedAbstractImplementationDefinitionIds List of value which means not configured for the setting
-    */
-    private ?array $allowedAbstractImplementationDefinitionIds = null;
-    
-    /**
      * Instantiates a new DeviceManagementSettingAbstractImplementationConstraint and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceManagementSettingAbstractImplementationConstraint extends DeviceMana
      * @return array<string>|null
     */
     public function getAllowedAbstractImplementationDefinitionIds(): ?array {
-        return $this->allowedAbstractImplementationDefinitionIds;
+        return $this->getBackingStore()->get('allowedAbstractImplementationDefinitionIds');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementSettingAbstractImplementationConstraint extends DeviceMana
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('allowedAbstractImplementationDefinitionIds', $this->allowedAbstractImplementationDefinitionIds);
+        $writer->writeCollectionOfPrimitiveValues('allowedAbstractImplementationDefinitionIds', $this->getAllowedAbstractImplementationDefinitionIds());
     }
 
     /**
      * Sets the allowedAbstractImplementationDefinitionIds property value. List of value which means not configured for the setting
      *  @param array<string>|null $value Value to set for the allowedAbstractImplementationDefinitionIds property.
     */
-    public function setAllowedAbstractImplementationDefinitionIds(?array $value ): void {
-        $this->allowedAbstractImplementationDefinitionIds = $value;
+    public function setAllowedAbstractImplementationDefinitionIds(?array $value): void {
+        $this->getBackingStore()->set('allowedAbstractImplementationDefinitionIds', $value);
     }
 
 }

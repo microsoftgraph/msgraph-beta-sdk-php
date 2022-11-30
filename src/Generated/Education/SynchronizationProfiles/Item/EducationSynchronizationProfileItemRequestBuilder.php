@@ -26,7 +26,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class EducationSynchronizationProfileItemRequestBuilder 
 {
     /**
-     * The errors property
+     * Provides operations to manage the errors property of the microsoft.graph.educationSynchronizationProfile entity.
     */
     public function errors(): ErrorsRequestBuilder {
         return new ErrorsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,14 +38,14 @@ class EducationSynchronizationProfileItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The pause property
+     * Provides operations to call the pause method.
     */
     public function pause(): PauseRequestBuilder {
         return new PauseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The profileStatus property
+     * Provides operations to manage the profileStatus property of the microsoft.graph.educationSynchronizationProfile entity.
     */
     public function profileStatus(): ProfileStatusRequestBuilder {
         return new ProfileStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -57,21 +57,21 @@ class EducationSynchronizationProfileItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The reset property
+     * Provides operations to call the reset method.
     */
     public function reset(): ResetRequestBuilder {
         return new ResetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The resume property
+     * Provides operations to call the resume method.
     */
     public function resume(): ResumeRequestBuilder {
         return new ResumeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The start property
+     * Provides operations to call the start method.
     */
     public function start(): StartRequestBuilder {
         return new StartRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -183,7 +183,7 @@ class EducationSynchronizationProfileItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.synchronizationProfiles.item.errors.item collection
+     * Provides operations to manage the errors property of the microsoft.graph.educationSynchronizationProfile entity.
      * @param string $id Unique identifier of the item
      * @return EducationSynchronizationErrorItemRequestBuilder
     */

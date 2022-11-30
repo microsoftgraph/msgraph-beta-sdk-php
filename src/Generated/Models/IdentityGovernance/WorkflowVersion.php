@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkflowVersion extends WorkflowBase implements Parsable 
 {
     /**
-     * @var int|null $versionNumber The version of the workflow.Supports $filter(eq, ne), orderby.
-    */
-    private ?int $versionNumber = null;
-    
-    /**
      * Instantiates a new workflowVersion and sets the default values.
     */
     public function __construct() {
@@ -42,11 +37,11 @@ class WorkflowVersion extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the versionNumber property value. The version of the workflow.Supports $filter(eq, ne), orderby.
+     * Gets the versionNumber property value. The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return int|null
     */
     public function getVersionNumber(): ?int {
-        return $this->versionNumber;
+        return $this->getBackingStore()->get('versionNumber');
     }
 
     /**
@@ -55,15 +50,15 @@ class WorkflowVersion extends WorkflowBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('versionNumber', $this->versionNumber);
+        $writer->writeIntegerValue('versionNumber', $this->getVersionNumber());
     }
 
     /**
-     * Sets the versionNumber property value. The version of the workflow.Supports $filter(eq, ne), orderby.
+     * Sets the versionNumber property value. The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param int|null $value Value to set for the versionNumber property.
     */
-    public function setVersionNumber(?int $value ): void {
-        $this->versionNumber = $value;
+    public function setVersionNumber(?int $value): void {
+        $this->getBackingStore()->set('versionNumber', $value);
     }
 
 }

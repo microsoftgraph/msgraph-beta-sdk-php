@@ -6,70 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, Parsable 
+class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var AndroidForWorkAppConfigurationSchemaItemDataType|null $dataType Data type for a configuration item inside an Android for Work application's custom configuration schema
-    */
-    private ?AndroidForWorkAppConfigurationSchemaItemDataType $dataType = null;
-    
-    /**
-     * @var bool|null $defaultBoolValue Default value for boolean type items, if specified by the app developer
-    */
-    private ?bool $defaultBoolValue = null;
-    
-    /**
-     * @var int|null $defaultIntValue Default value for integer type items, if specified by the app developer
-    */
-    private ?int $defaultIntValue = null;
-    
-    /**
-     * @var array<string>|null $defaultStringArrayValue Default value for string array type items, if specified by the app developer
-    */
-    private ?array $defaultStringArrayValue = null;
-    
-    /**
-     * @var string|null $defaultStringValue Default value for string type items, if specified by the app developer
-    */
-    private ?string $defaultStringValue = null;
-    
-    /**
-     * @var string|null $description Description of what the item controls within the application
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Human readable name
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $schemaItemKey Unique key the application uses to identify the item
-    */
-    private ?string $schemaItemKey = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $selections List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only)
-    */
-    private ?array $selections = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new androidForWorkAppConfigurationSchemaItem and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.androidForWorkAppConfigurationSchemaItem');
     }
 
     /**
@@ -85,8 +38,16 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -94,7 +55,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return AndroidForWorkAppConfigurationSchemaItemDataType|null
     */
     public function getDataType(): ?AndroidForWorkAppConfigurationSchemaItemDataType {
-        return $this->dataType;
+        return $this->getBackingStore()->get('dataType');
     }
 
     /**
@@ -102,7 +63,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return bool|null
     */
     public function getDefaultBoolValue(): ?bool {
-        return $this->defaultBoolValue;
+        return $this->getBackingStore()->get('defaultBoolValue');
     }
 
     /**
@@ -110,7 +71,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return int|null
     */
     public function getDefaultIntValue(): ?int {
-        return $this->defaultIntValue;
+        return $this->getBackingStore()->get('defaultIntValue');
     }
 
     /**
@@ -118,7 +79,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return array<string>|null
     */
     public function getDefaultStringArrayValue(): ?array {
-        return $this->defaultStringArrayValue;
+        return $this->getBackingStore()->get('defaultStringArrayValue');
     }
 
     /**
@@ -126,7 +87,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getDefaultStringValue(): ?string {
-        return $this->defaultStringValue;
+        return $this->getBackingStore()->get('defaultStringValue');
     }
 
     /**
@@ -134,7 +95,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -142,7 +103,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -170,7 +131,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -178,7 +139,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getSchemaItemKey(): ?string {
-        return $this->schemaItemKey;
+        return $this->getBackingStore()->get('schemaItemKey');
     }
 
     /**
@@ -186,7 +147,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return array<KeyValuePair>|null
     */
     public function getSelections(): ?array {
-        return $this->selections;
+        return $this->getBackingStore()->get('selections');
     }
 
     /**
@@ -194,105 +155,113 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('dataType', $this->dataType);
-        $writer->writeBooleanValue('defaultBoolValue', $this->defaultBoolValue);
-        $writer->writeIntegerValue('defaultIntValue', $this->defaultIntValue);
-        $writer->writeCollectionOfPrimitiveValues('defaultStringArrayValue', $this->defaultStringArrayValue);
-        $writer->writeStringValue('defaultStringValue', $this->defaultStringValue);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('schemaItemKey', $this->schemaItemKey);
-        $writer->writeCollectionOfObjectValues('selections', $this->selections);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('dataType', $this->getDataType());
+        $writer->writeBooleanValue('defaultBoolValue', $this->getDefaultBoolValue());
+        $writer->writeIntegerValue('defaultIntValue', $this->getDefaultIntValue());
+        $writer->writeCollectionOfPrimitiveValues('defaultStringArrayValue', $this->getDefaultStringArrayValue());
+        $writer->writeStringValue('defaultStringValue', $this->getDefaultStringValue());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('schemaItemKey', $this->getSchemaItemKey());
+        $writer->writeCollectionOfObjectValues('selections', $this->getSelections());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the dataType property value. Data type for a configuration item inside an Android for Work application's custom configuration schema
      *  @param AndroidForWorkAppConfigurationSchemaItemDataType|null $value Value to set for the dataType property.
     */
-    public function setDataType(?AndroidForWorkAppConfigurationSchemaItemDataType $value ): void {
-        $this->dataType = $value;
+    public function setDataType(?AndroidForWorkAppConfigurationSchemaItemDataType $value): void {
+        $this->getBackingStore()->set('dataType', $value);
     }
 
     /**
      * Sets the defaultBoolValue property value. Default value for boolean type items, if specified by the app developer
      *  @param bool|null $value Value to set for the defaultBoolValue property.
     */
-    public function setDefaultBoolValue(?bool $value ): void {
-        $this->defaultBoolValue = $value;
+    public function setDefaultBoolValue(?bool $value): void {
+        $this->getBackingStore()->set('defaultBoolValue', $value);
     }
 
     /**
      * Sets the defaultIntValue property value. Default value for integer type items, if specified by the app developer
      *  @param int|null $value Value to set for the defaultIntValue property.
     */
-    public function setDefaultIntValue(?int $value ): void {
-        $this->defaultIntValue = $value;
+    public function setDefaultIntValue(?int $value): void {
+        $this->getBackingStore()->set('defaultIntValue', $value);
     }
 
     /**
      * Sets the defaultStringArrayValue property value. Default value for string array type items, if specified by the app developer
      *  @param array<string>|null $value Value to set for the defaultStringArrayValue property.
     */
-    public function setDefaultStringArrayValue(?array $value ): void {
-        $this->defaultStringArrayValue = $value;
+    public function setDefaultStringArrayValue(?array $value): void {
+        $this->getBackingStore()->set('defaultStringArrayValue', $value);
     }
 
     /**
      * Sets the defaultStringValue property value. Default value for string type items, if specified by the app developer
      *  @param string|null $value Value to set for the defaultStringValue property.
     */
-    public function setDefaultStringValue(?string $value ): void {
-        $this->defaultStringValue = $value;
+    public function setDefaultStringValue(?string $value): void {
+        $this->getBackingStore()->set('defaultStringValue', $value);
     }
 
     /**
      * Sets the description property value. Description of what the item controls within the application
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Human readable name
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the schemaItemKey property value. Unique key the application uses to identify the item
      *  @param string|null $value Value to set for the schemaItemKey property.
     */
-    public function setSchemaItemKey(?string $value ): void {
-        $this->schemaItemKey = $value;
+    public function setSchemaItemKey(?string $value): void {
+        $this->getBackingStore()->set('schemaItemKey', $value);
     }
 
     /**
      * Sets the selections property value. List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only)
      *  @param array<KeyValuePair>|null $value Value to set for the selections property.
     */
-    public function setSelections(?array $value ): void {
-        $this->selections = $value;
+    public function setSelections(?array $value): void {
+        $this->getBackingStore()->set('selections', $value);
     }
 
 }

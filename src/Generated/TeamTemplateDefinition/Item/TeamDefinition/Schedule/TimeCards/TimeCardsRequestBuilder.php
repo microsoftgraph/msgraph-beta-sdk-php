@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TimeCardsRequestBuilder 
 {
     /**
-     * The clockIn property
+     * Provides operations to call the clockIn method.
     */
     public function clockIn(): ClockInRequestBuilder {
         return new ClockInRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);

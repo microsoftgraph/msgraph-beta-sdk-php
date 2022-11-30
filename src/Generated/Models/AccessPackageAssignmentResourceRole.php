@@ -9,46 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageAssignmentResourceRole extends Entity implements Parsable 
 {
     /**
-     * @var array<AccessPackageAssignment>|null $accessPackageAssignments The access package assignments resulting in this role assignment. Read-only. Nullable.
-    */
-    private ?array $accessPackageAssignments = null;
-    
-    /**
-     * @var AccessPackageResourceRole|null $accessPackageResourceRole The accessPackageResourceRole property
-    */
-    private ?AccessPackageResourceRole $accessPackageResourceRole = null;
-    
-    /**
-     * @var AccessPackageResourceScope|null $accessPackageResourceScope The accessPackageResourceScope property
-    */
-    private ?AccessPackageResourceScope $accessPackageResourceScope = null;
-    
-    /**
-     * @var AccessPackageSubject|null $accessPackageSubject Read-only. Nullable. Supports $filter (eq) on objectId and $expand query parameters.
-    */
-    private ?AccessPackageSubject $accessPackageSubject = null;
-    
-    /**
-     * @var string|null $originId A unique identifier relative to the origin system, corresponding to the originId property of the accessPackageResourceRole.
-    */
-    private ?string $originId = null;
-    
-    /**
-     * @var string|null $originSystem The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.
-    */
-    private ?string $originSystem = null;
-    
-    /**
-     * @var string|null $status The value is PendingFulfillment when the access package assignment has not yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
-    */
-    private ?string $status = null;
-    
-    /**
      * Instantiates a new accessPackageAssignmentResourceRole and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.accessPackageAssignmentResourceRole');
     }
 
     /**
@@ -65,7 +29,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
      * @return array<AccessPackageAssignment>|null
     */
     public function getAccessPackageAssignments(): ?array {
-        return $this->accessPackageAssignments;
+        return $this->getBackingStore()->get('accessPackageAssignments');
     }
 
     /**
@@ -73,7 +37,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
      * @return AccessPackageResourceRole|null
     */
     public function getAccessPackageResourceRole(): ?AccessPackageResourceRole {
-        return $this->accessPackageResourceRole;
+        return $this->getBackingStore()->get('accessPackageResourceRole');
     }
 
     /**
@@ -81,7 +45,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
      * @return AccessPackageResourceScope|null
     */
     public function getAccessPackageResourceScope(): ?AccessPackageResourceScope {
-        return $this->accessPackageResourceScope;
+        return $this->getBackingStore()->get('accessPackageResourceScope');
     }
 
     /**
@@ -89,7 +53,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
      * @return AccessPackageSubject|null
     */
     public function getAccessPackageSubject(): ?AccessPackageSubject {
-        return $this->accessPackageSubject;
+        return $this->getBackingStore()->get('accessPackageSubject');
     }
 
     /**
@@ -114,7 +78,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginId(): ?string {
-        return $this->originId;
+        return $this->getBackingStore()->get('originId');
     }
 
     /**
@@ -122,7 +86,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginSystem(): ?string {
-        return $this->originSystem;
+        return $this->getBackingStore()->get('originSystem');
     }
 
     /**
@@ -130,7 +94,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -139,69 +103,69 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('accessPackageAssignments', $this->accessPackageAssignments);
-        $writer->writeObjectValue('accessPackageResourceRole', $this->accessPackageResourceRole);
-        $writer->writeObjectValue('accessPackageResourceScope', $this->accessPackageResourceScope);
-        $writer->writeObjectValue('accessPackageSubject', $this->accessPackageSubject);
-        $writer->writeStringValue('originId', $this->originId);
-        $writer->writeStringValue('originSystem', $this->originSystem);
-        $writer->writeStringValue('status', $this->status);
+        $writer->writeCollectionOfObjectValues('accessPackageAssignments', $this->getAccessPackageAssignments());
+        $writer->writeObjectValue('accessPackageResourceRole', $this->getAccessPackageResourceRole());
+        $writer->writeObjectValue('accessPackageResourceScope', $this->getAccessPackageResourceScope());
+        $writer->writeObjectValue('accessPackageSubject', $this->getAccessPackageSubject());
+        $writer->writeStringValue('originId', $this->getOriginId());
+        $writer->writeStringValue('originSystem', $this->getOriginSystem());
+        $writer->writeStringValue('status', $this->getStatus());
     }
 
     /**
      * Sets the accessPackageAssignments property value. The access package assignments resulting in this role assignment. Read-only. Nullable.
      *  @param array<AccessPackageAssignment>|null $value Value to set for the accessPackageAssignments property.
     */
-    public function setAccessPackageAssignments(?array $value ): void {
-        $this->accessPackageAssignments = $value;
+    public function setAccessPackageAssignments(?array $value): void {
+        $this->getBackingStore()->set('accessPackageAssignments', $value);
     }
 
     /**
      * Sets the accessPackageResourceRole property value. The accessPackageResourceRole property
      *  @param AccessPackageResourceRole|null $value Value to set for the accessPackageResourceRole property.
     */
-    public function setAccessPackageResourceRole(?AccessPackageResourceRole $value ): void {
-        $this->accessPackageResourceRole = $value;
+    public function setAccessPackageResourceRole(?AccessPackageResourceRole $value): void {
+        $this->getBackingStore()->set('accessPackageResourceRole', $value);
     }
 
     /**
      * Sets the accessPackageResourceScope property value. The accessPackageResourceScope property
      *  @param AccessPackageResourceScope|null $value Value to set for the accessPackageResourceScope property.
     */
-    public function setAccessPackageResourceScope(?AccessPackageResourceScope $value ): void {
-        $this->accessPackageResourceScope = $value;
+    public function setAccessPackageResourceScope(?AccessPackageResourceScope $value): void {
+        $this->getBackingStore()->set('accessPackageResourceScope', $value);
     }
 
     /**
      * Sets the accessPackageSubject property value. Read-only. Nullable. Supports $filter (eq) on objectId and $expand query parameters.
      *  @param AccessPackageSubject|null $value Value to set for the accessPackageSubject property.
     */
-    public function setAccessPackageSubject(?AccessPackageSubject $value ): void {
-        $this->accessPackageSubject = $value;
+    public function setAccessPackageSubject(?AccessPackageSubject $value): void {
+        $this->getBackingStore()->set('accessPackageSubject', $value);
     }
 
     /**
      * Sets the originId property value. A unique identifier relative to the origin system, corresponding to the originId property of the accessPackageResourceRole.
      *  @param string|null $value Value to set for the originId property.
     */
-    public function setOriginId(?string $value ): void {
-        $this->originId = $value;
+    public function setOriginId(?string $value): void {
+        $this->getBackingStore()->set('originId', $value);
     }
 
     /**
      * Sets the originSystem property value. The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.
      *  @param string|null $value Value to set for the originSystem property.
     */
-    public function setOriginSystem(?string $value ): void {
-        $this->originSystem = $value;
+    public function setOriginSystem(?string $value): void {
+        $this->getBackingStore()->set('originSystem', $value);
     }
 
     /**
      * Sets the status property value. The value is PendingFulfillment when the access package assignment has not yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
      *  @param string|null $value Value to set for the status property.
     */
-    public function setStatus(?string $value ): void {
-        $this->status = $value;
+    public function setStatus(?string $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

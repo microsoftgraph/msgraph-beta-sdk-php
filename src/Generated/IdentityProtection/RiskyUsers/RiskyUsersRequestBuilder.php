@@ -22,21 +22,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class RiskyUsersRequestBuilder 
 {
     /**
-     * The confirmCompromised property
+     * Provides operations to call the confirmCompromised method.
     */
     public function confirmCompromised(): ConfirmCompromisedRequestBuilder {
         return new ConfirmCompromisedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dismiss property
+     * Provides operations to call the dismiss method.
     */
     public function dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -69,7 +69,7 @@ class RiskyUsersRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a collection of **riskyUser** objects.
+     * Retrieve the properties and relationships of a **riskyUser** object.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -118,7 +118,7 @@ class RiskyUsersRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a collection of **riskyUser** objects.
+     * Retrieve the properties and relationships of a **riskyUser** object.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

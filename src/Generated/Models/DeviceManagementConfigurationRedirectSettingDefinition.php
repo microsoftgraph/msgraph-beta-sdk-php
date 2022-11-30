@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
 {
     /**
-     * @var string|null $deepLink A deep link that points to the specific location in the Intune console where feature support must be managed from.
-    */
-    private ?string $deepLink = null;
-    
-    /**
-     * @var string|null $redirectMessage A message that explains that clicking the link will redirect the user to a supported page to manage the settings.
-    */
-    private ?string $redirectMessage = null;
-    
-    /**
-     * @var string|null $redirectReason Indicates the reason for redirecting the user to an alternative location in the console.  For example: WiFi profiles are not supported in the settings catalog and must be created with a template policy.
-    */
-    private ?string $redirectReason = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationRedirectSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationRedirectSettingDefinition');
     }
 
     /**
@@ -45,7 +29,7 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
      * @return string|null
     */
     public function getDeepLink(): ?string {
-        return $this->deepLink;
+        return $this->getBackingStore()->get('deepLink');
     }
 
     /**
@@ -66,7 +50,7 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
      * @return string|null
     */
     public function getRedirectMessage(): ?string {
-        return $this->redirectMessage;
+        return $this->getBackingStore()->get('redirectMessage');
     }
 
     /**
@@ -74,7 +58,7 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
      * @return string|null
     */
     public function getRedirectReason(): ?string {
-        return $this->redirectReason;
+        return $this->getBackingStore()->get('redirectReason');
     }
 
     /**
@@ -83,33 +67,33 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deepLink', $this->deepLink);
-        $writer->writeStringValue('redirectMessage', $this->redirectMessage);
-        $writer->writeStringValue('redirectReason', $this->redirectReason);
+        $writer->writeStringValue('deepLink', $this->getDeepLink());
+        $writer->writeStringValue('redirectMessage', $this->getRedirectMessage());
+        $writer->writeStringValue('redirectReason', $this->getRedirectReason());
     }
 
     /**
      * Sets the deepLink property value. A deep link that points to the specific location in the Intune console where feature support must be managed from.
      *  @param string|null $value Value to set for the deepLink property.
     */
-    public function setDeepLink(?string $value ): void {
-        $this->deepLink = $value;
+    public function setDeepLink(?string $value): void {
+        $this->getBackingStore()->set('deepLink', $value);
     }
 
     /**
      * Sets the redirectMessage property value. A message that explains that clicking the link will redirect the user to a supported page to manage the settings.
      *  @param string|null $value Value to set for the redirectMessage property.
     */
-    public function setRedirectMessage(?string $value ): void {
-        $this->redirectMessage = $value;
+    public function setRedirectMessage(?string $value): void {
+        $this->getBackingStore()->set('redirectMessage', $value);
     }
 
     /**
      * Sets the redirectReason property value. Indicates the reason for redirecting the user to an alternative location in the console.  For example: WiFi profiles are not supported in the settings catalog and must be created with a template policy.
      *  @param string|null $value Value to set for the redirectReason property.
     */
-    public function setRedirectReason(?string $value ): void {
-        $this->redirectReason = $value;
+    public function setRedirectReason(?string $value): void {
+        $this->getBackingStore()->set('redirectReason', $value);
     }
 
 }

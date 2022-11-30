@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SingleUser extends UserSet implements Parsable 
 {
     /**
-     * @var string|null $description The name of the user in Azure AD. Read only.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $id The ID of the user in Azure AD.
-    */
-    private ?string $id = null;
-    
-    /**
      * Instantiates a new SingleUser and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class SingleUser extends UserSet implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -60,7 +50,7 @@ class SingleUser extends UserSet implements Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -69,24 +59,24 @@ class SingleUser extends UserSet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('id', $this->getId());
     }
 
     /**
      * Sets the description property value. The name of the user in Azure AD. Read only.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the id property value. The ID of the user in Azure AD.
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
 }

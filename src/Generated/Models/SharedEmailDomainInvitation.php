@@ -10,26 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SharedEmailDomainInvitation extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $expiryTime The expiryTime property
-    */
-    private ?DateTime $expiryTime = null;
-    
-    /**
-     * @var string|null $invitationDomain The invitationDomain property
-    */
-    private ?string $invitationDomain = null;
-    
-    /**
-     * @var string|null $invitationStatus The invitationStatus property
-    */
-    private ?string $invitationStatus = null;
-    
-    /**
      * Instantiates a new sharedEmailDomainInvitation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.sharedEmailDomainInvitation');
     }
 
     /**
@@ -46,7 +30,7 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpiryTime(): ?DateTime {
-        return $this->expiryTime;
+        return $this->getBackingStore()->get('expiryTime');
     }
 
     /**
@@ -67,7 +51,7 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
      * @return string|null
     */
     public function getInvitationDomain(): ?string {
-        return $this->invitationDomain;
+        return $this->getBackingStore()->get('invitationDomain');
     }
 
     /**
@@ -75,7 +59,7 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
      * @return string|null
     */
     public function getInvitationStatus(): ?string {
-        return $this->invitationStatus;
+        return $this->getBackingStore()->get('invitationStatus');
     }
 
     /**
@@ -84,33 +68,33 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('expiryTime', $this->expiryTime);
-        $writer->writeStringValue('invitationDomain', $this->invitationDomain);
-        $writer->writeStringValue('invitationStatus', $this->invitationStatus);
+        $writer->writeDateTimeValue('expiryTime', $this->getExpiryTime());
+        $writer->writeStringValue('invitationDomain', $this->getInvitationDomain());
+        $writer->writeStringValue('invitationStatus', $this->getInvitationStatus());
     }
 
     /**
      * Sets the expiryTime property value. The expiryTime property
      *  @param DateTime|null $value Value to set for the expiryTime property.
     */
-    public function setExpiryTime(?DateTime $value ): void {
-        $this->expiryTime = $value;
+    public function setExpiryTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expiryTime', $value);
     }
 
     /**
      * Sets the invitationDomain property value. The invitationDomain property
      *  @param string|null $value Value to set for the invitationDomain property.
     */
-    public function setInvitationDomain(?string $value ): void {
-        $this->invitationDomain = $value;
+    public function setInvitationDomain(?string $value): void {
+        $this->getBackingStore()->set('invitationDomain', $value);
     }
 
     /**
      * Sets the invitationStatus property value. The invitationStatus property
      *  @param string|null $value Value to set for the invitationStatus property.
     */
-    public function setInvitationStatus(?string $value ): void {
-        $this->invitationStatus = $value;
+    public function setInvitationStatus(?string $value): void {
+        $this->getBackingStore()->set('invitationStatus', $value);
     }
 
 }

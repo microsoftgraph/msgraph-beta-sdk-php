@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask implements Parsable 
 {
     /**
-     * @var array<UnmanagedDevice>|null $unmanagedDevices Unmanaged devices discovered in the network.
-    */
-    private ?array $unmanagedDevices = null;
-    
-    /**
      * Instantiates a new UnmanagedDeviceDiscoveryTask and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask implements Pa
      * @return array<UnmanagedDevice>|null
     */
     public function getUnmanagedDevices(): ?array {
-        return $this->unmanagedDevices;
+        return $this->getBackingStore()->get('unmanagedDevices');
     }
 
     /**
@@ -55,15 +50,15 @@ class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('unmanagedDevices', $this->unmanagedDevices);
+        $writer->writeCollectionOfObjectValues('unmanagedDevices', $this->getUnmanagedDevices());
     }
 
     /**
      * Sets the unmanagedDevices property value. Unmanaged devices discovered in the network.
      *  @param array<UnmanagedDevice>|null $value Value to set for the unmanagedDevices property.
     */
-    public function setUnmanagedDevices(?array $value ): void {
-        $this->unmanagedDevices = $value;
+    public function setUnmanagedDevices(?array $value): void {
+        $this->getBackingStore()->set('unmanagedDevices', $value);
     }
 
 }

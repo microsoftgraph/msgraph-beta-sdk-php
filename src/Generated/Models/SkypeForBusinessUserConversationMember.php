@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SkypeForBusinessUserConversationMember extends ConversationMember implements Parsable 
 {
     /**
-     * @var string|null $tenantId ID of the tenant that the user belongs to.
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var string|null $userId ID of the user.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new SkypeForBusinessUserConversationMember and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class SkypeForBusinessUserConversationMember extends ConversationMember implemen
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -60,7 +50,7 @@ class SkypeForBusinessUserConversationMember extends ConversationMember implemen
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -69,24 +59,24 @@ class SkypeForBusinessUserConversationMember extends ConversationMember implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the tenantId property value. ID of the tenant that the user belongs to.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the userId property value. ID of the user.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

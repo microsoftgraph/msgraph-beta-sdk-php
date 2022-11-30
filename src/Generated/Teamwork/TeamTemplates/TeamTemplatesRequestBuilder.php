@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TeamTemplatesRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class TeamTemplatesRequestBuilder
     }
 
     /**
-     * Get the list of teamTemplate objects that are available for a tenant. 
+     * List the teamTemplateDefinition objects associated with a teamTemplate. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +102,7 @@ class TeamTemplatesRequestBuilder
     }
 
     /**
-     * Get the list of teamTemplate objects that are available for a tenant. 
+     * List the teamTemplateDefinition objects associated with a teamTemplate. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

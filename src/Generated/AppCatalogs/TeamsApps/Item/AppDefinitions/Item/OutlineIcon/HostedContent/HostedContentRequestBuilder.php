@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class HostedContentRequestBuilder 
 {
     /**
-     * The Content property
+     * Provides operations to manage the media for the appCatalogs entity.
     */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);

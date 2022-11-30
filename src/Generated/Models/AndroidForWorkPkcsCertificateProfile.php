@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProfileBase implements Parsable 
 {
     /**
-     * @var string|null $certificateTemplateName PKCS Certificate Template Name
-    */
-    private ?string $certificateTemplateName = null;
-    
-    /**
-     * @var string|null $certificationAuthority PKCS Certification Authority
-    */
-    private ?string $certificationAuthority = null;
-    
-    /**
-     * @var string|null $certificationAuthorityName PKCS Certification Authority Name
-    */
-    private ?string $certificationAuthorityName = null;
-    
-    /**
-     * @var array<ManagedDeviceCertificateState>|null $managedDeviceCertificateStates Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-    */
-    private ?array $managedDeviceCertificateStates = null;
-    
-    /**
-     * @var string|null $subjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
-    */
-    private ?string $subjectAlternativeNameFormatString = null;
-    
-    /**
      * Instantiates a new AndroidForWorkPkcsCertificateProfile and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
      * @return string|null
     */
     public function getCertificateTemplateName(): ?string {
-        return $this->certificateTemplateName;
+        return $this->getBackingStore()->get('certificateTemplateName');
     }
 
     /**
@@ -63,7 +38,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
      * @return string|null
     */
     public function getCertificationAuthority(): ?string {
-        return $this->certificationAuthority;
+        return $this->getBackingStore()->get('certificationAuthority');
     }
 
     /**
@@ -71,7 +46,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
      * @return string|null
     */
     public function getCertificationAuthorityName(): ?string {
-        return $this->certificationAuthorityName;
+        return $this->getBackingStore()->get('certificationAuthorityName');
     }
 
     /**
@@ -94,7 +69,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
      * @return array<ManagedDeviceCertificateState>|null
     */
     public function getManagedDeviceCertificateStates(): ?array {
-        return $this->managedDeviceCertificateStates;
+        return $this->getBackingStore()->get('managedDeviceCertificateStates');
     }
 
     /**
@@ -102,7 +77,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
      * @return string|null
     */
     public function getSubjectAlternativeNameFormatString(): ?string {
-        return $this->subjectAlternativeNameFormatString;
+        return $this->getBackingStore()->get('subjectAlternativeNameFormatString');
     }
 
     /**
@@ -111,51 +86,51 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('certificateTemplateName', $this->certificateTemplateName);
-        $writer->writeStringValue('certificationAuthority', $this->certificationAuthority);
-        $writer->writeStringValue('certificationAuthorityName', $this->certificationAuthorityName);
-        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->managedDeviceCertificateStates);
-        $writer->writeStringValue('subjectAlternativeNameFormatString', $this->subjectAlternativeNameFormatString);
+        $writer->writeStringValue('certificateTemplateName', $this->getCertificateTemplateName());
+        $writer->writeStringValue('certificationAuthority', $this->getCertificationAuthority());
+        $writer->writeStringValue('certificationAuthorityName', $this->getCertificationAuthorityName());
+        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->getManagedDeviceCertificateStates());
+        $writer->writeStringValue('subjectAlternativeNameFormatString', $this->getSubjectAlternativeNameFormatString());
     }
 
     /**
      * Sets the certificateTemplateName property value. PKCS Certificate Template Name
      *  @param string|null $value Value to set for the certificateTemplateName property.
     */
-    public function setCertificateTemplateName(?string $value ): void {
-        $this->certificateTemplateName = $value;
+    public function setCertificateTemplateName(?string $value): void {
+        $this->getBackingStore()->set('certificateTemplateName', $value);
     }
 
     /**
      * Sets the certificationAuthority property value. PKCS Certification Authority
      *  @param string|null $value Value to set for the certificationAuthority property.
     */
-    public function setCertificationAuthority(?string $value ): void {
-        $this->certificationAuthority = $value;
+    public function setCertificationAuthority(?string $value): void {
+        $this->getBackingStore()->set('certificationAuthority', $value);
     }
 
     /**
      * Sets the certificationAuthorityName property value. PKCS Certification Authority Name
      *  @param string|null $value Value to set for the certificationAuthorityName property.
     */
-    public function setCertificationAuthorityName(?string $value ): void {
-        $this->certificationAuthorityName = $value;
+    public function setCertificationAuthorityName(?string $value): void {
+        $this->getBackingStore()->set('certificationAuthorityName', $value);
     }
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
      *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
-    public function setManagedDeviceCertificateStates(?array $value ): void {
-        $this->managedDeviceCertificateStates = $value;
+    public function setManagedDeviceCertificateStates(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
     }
 
     /**
      * Sets the subjectAlternativeNameFormatString property value. Custom String that defines the AAD Attribute.
      *  @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
     */
-    public function setSubjectAlternativeNameFormatString(?string $value ): void {
-        $this->subjectAlternativeNameFormatString = $value;
+    public function setSubjectAlternativeNameFormatString(?string $value): void {
+        $this->getBackingStore()->set('subjectAlternativeNameFormatString', $value);
     }
 
 }

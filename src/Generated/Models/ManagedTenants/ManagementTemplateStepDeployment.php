@@ -11,51 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplateStepDeployment extends Entity implements Parsable 
 {
     /**
-     * @var string|null $createdByUserId The createdByUserId property
-    */
-    private ?string $createdByUserId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var GraphAPIErrorDetails|null $error The error property
-    */
-    private ?GraphAPIErrorDetails $error = null;
-    
-    /**
-     * @var string|null $lastActionByUserId The lastActionByUserId property
-    */
-    private ?string $lastActionByUserId = null;
-    
-    /**
-     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
-    */
-    private ?DateTime $lastActionDateTime = null;
-    
-    /**
-     * @var ManagementTemplateDeploymentStatus|null $status The status property
-    */
-    private ?ManagementTemplateDeploymentStatus $status = null;
-    
-    /**
-     * @var ManagementTemplateStepVersion|null $templateStepVersion The templateStepVersion property
-    */
-    private ?ManagementTemplateStepVersion $templateStepVersion = null;
-    
-    /**
-     * @var string|null $tenantId The tenantId property
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new managementTemplateStepDeployment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.managementTemplateStepDeployment');
     }
 
     /**
@@ -72,7 +31,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->createdByUserId;
+        return $this->getBackingStore()->get('createdByUserId');
     }
 
     /**
@@ -80,7 +39,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -88,7 +47,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
      * @return GraphAPIErrorDetails|null
     */
     public function getError(): ?GraphAPIErrorDetails {
-        return $this->error;
+        return $this->getBackingStore()->get('error');
     }
 
     /**
@@ -114,7 +73,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->lastActionByUserId;
+        return $this->getBackingStore()->get('lastActionByUserId');
     }
 
     /**
@@ -122,7 +81,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->lastActionDateTime;
+        return $this->getBackingStore()->get('lastActionDateTime');
     }
 
     /**
@@ -130,7 +89,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
      * @return ManagementTemplateDeploymentStatus|null
     */
     public function getStatus(): ?ManagementTemplateDeploymentStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -138,7 +97,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
      * @return ManagementTemplateStepVersion|null
     */
     public function getTemplateStepVersion(): ?ManagementTemplateStepVersion {
-        return $this->templateStepVersion;
+        return $this->getBackingStore()->get('templateStepVersion');
     }
 
     /**
@@ -146,7 +105,7 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -155,78 +114,78 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('createdByUserId', $this->createdByUserId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('error', $this->error);
-        $writer->writeStringValue('lastActionByUserId', $this->lastActionByUserId);
-        $writer->writeDateTimeValue('lastActionDateTime', $this->lastActionDateTime);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeObjectValue('templateStepVersion', $this->templateStepVersion);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeStringValue('createdByUserId', $this->getCreatedByUserId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('error', $this->getError());
+        $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
+        $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeObjectValue('templateStepVersion', $this->getTemplateStepVersion());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
      *  @param string|null $value Value to set for the createdByUserId property.
     */
-    public function setCreatedByUserId(?string $value ): void {
-        $this->createdByUserId = $value;
+    public function setCreatedByUserId(?string $value): void {
+        $this->getBackingStore()->set('createdByUserId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the error property value. The error property
      *  @param GraphAPIErrorDetails|null $value Value to set for the error property.
     */
-    public function setError(?GraphAPIErrorDetails $value ): void {
-        $this->error = $value;
+    public function setError(?GraphAPIErrorDetails $value): void {
+        $this->getBackingStore()->set('error', $value);
     }
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
      *  @param string|null $value Value to set for the lastActionByUserId property.
     */
-    public function setLastActionByUserId(?string $value ): void {
-        $this->lastActionByUserId = $value;
+    public function setLastActionByUserId(?string $value): void {
+        $this->getBackingStore()->set('lastActionByUserId', $value);
     }
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
      *  @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
-    public function setLastActionDateTime(?DateTime $value ): void {
-        $this->lastActionDateTime = $value;
+    public function setLastActionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastActionDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param ManagementTemplateDeploymentStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?ManagementTemplateDeploymentStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?ManagementTemplateDeploymentStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the templateStepVersion property value. The templateStepVersion property
      *  @param ManagementTemplateStepVersion|null $value Value to set for the templateStepVersion property.
     */
-    public function setTemplateStepVersion(?ManagementTemplateStepVersion $value ): void {
-        $this->templateStepVersion = $value;
+    public function setTemplateStepVersion(?ManagementTemplateStepVersion $value): void {
+        $this->getBackingStore()->set('templateStepVersion', $value);
     }
 
     /**
      * Sets the tenantId property value. The tenantId property
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

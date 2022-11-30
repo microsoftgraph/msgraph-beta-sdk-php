@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsable 
+class DeviceManagementSettingDependency implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<DeviceManagementConstraint>|null $constraints Collection of constraints for the dependency setting value
-    */
-    private ?array $constraints = null;
-    
-    /**
-     * @var string|null $definitionId The setting definition ID of the setting depended on
-    */
-    private ?string $definitionId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceManagementSettingDependency and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.deviceManagementSettingDependency');
     }
 
     /**
@@ -50,8 +38,16 @@ class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsabl
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -59,7 +55,7 @@ class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsabl
      * @return array<DeviceManagementConstraint>|null
     */
     public function getConstraints(): ?array {
-        return $this->constraints;
+        return $this->getBackingStore()->get('constraints');
     }
 
     /**
@@ -67,7 +63,7 @@ class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getDefinitionId(): ?string {
-        return $this->definitionId;
+        return $this->getBackingStore()->get('definitionId');
     }
 
     /**
@@ -88,7 +84,7 @@ class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -96,42 +92,50 @@ class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('constraints', $this->constraints);
-        $writer->writeStringValue('definitionId', $this->definitionId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('constraints', $this->getConstraints());
+        $writer->writeStringValue('definitionId', $this->getDefinitionId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the constraints property value. Collection of constraints for the dependency setting value
      *  @param array<DeviceManagementConstraint>|null $value Value to set for the constraints property.
     */
-    public function setConstraints(?array $value ): void {
-        $this->constraints = $value;
+    public function setConstraints(?array $value): void {
+        $this->getBackingStore()->set('constraints', $value);
     }
 
     /**
      * Sets the definitionId property value. The setting definition ID of the setting depended on
      *  @param string|null $value Value to set for the definitionId property.
     */
-    public function setDefinitionId(?string $value ): void {
-        $this->definitionId = $value;
+    public function setDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('definitionId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -37,56 +37,56 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceManagementIntentItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementIntent entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The categories property
+     * Provides operations to manage the categories property of the microsoft.graph.deviceManagementIntent entity.
     */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The createCopy property
+     * Provides operations to call the createCopy method.
     */
     public function createCopy(): CreateCopyRequestBuilder {
         return new CreateCopyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceSettingStateSummaries property
+     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceManagementIntent entity.
     */
     public function deviceSettingStateSummaries(): DeviceSettingStateSummariesRequestBuilder {
         return new DeviceSettingStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceStates property
+     * Provides operations to manage the deviceStates property of the microsoft.graph.deviceManagementIntent entity.
     */
     public function deviceStates(): DeviceStatesRequestBuilder {
         return new DeviceStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceStateSummary property
+     * Provides operations to manage the deviceStateSummary property of the microsoft.graph.deviceManagementIntent entity.
     */
     public function deviceStateSummary(): DeviceStateSummaryRequestBuilder {
         return new DeviceStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The migrateToTemplate property
+     * Provides operations to call the migrateToTemplate method.
     */
     public function migrateToTemplate(): MigrateToTemplateRequestBuilder {
         return new MigrateToTemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -103,14 +103,14 @@ class DeviceManagementIntentItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The settings property
+     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementIntent entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The updateSettings property
+     * Provides operations to call the updateSettings method.
     */
     public function updateSettings(): UpdateSettingsRequestBuilder {
         return new UpdateSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -122,21 +122,21 @@ class DeviceManagementIntentItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userStates property
+     * Provides operations to manage the userStates property of the microsoft.graph.deviceManagementIntent entity.
     */
     public function userStates(): UserStatesRequestBuilder {
         return new UserStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userStateSummary property
+     * Provides operations to manage the userStateSummary property of the microsoft.graph.deviceManagementIntent entity.
     */
     public function userStateSummary(): UserStateSummaryRequestBuilder {
         return new UserStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.intents.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementIntentAssignmentItemRequestBuilder
     */
@@ -147,7 +147,7 @@ class DeviceManagementIntentItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.intents.item.categories.item collection
+     * Provides operations to manage the categories property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementIntentSettingCategoryItemRequestBuilder
     */
@@ -267,7 +267,7 @@ class DeviceManagementIntentItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.intents.item.deviceSettingStateSummaries.item collection
+     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder
     */
@@ -278,7 +278,7 @@ class DeviceManagementIntentItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.intents.item.deviceStates.item collection
+     * Provides operations to manage the deviceStates property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementIntentDeviceStateItemRequestBuilder
     */
@@ -328,7 +328,7 @@ class DeviceManagementIntentItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.intents.item.settings.item collection
+     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementSettingInstanceItemRequestBuilder
     */
@@ -339,7 +339,7 @@ class DeviceManagementIntentItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.intents.item.userStates.item collection
+     * Provides operations to manage the userStates property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementIntentUserStateItemRequestBuilder
     */

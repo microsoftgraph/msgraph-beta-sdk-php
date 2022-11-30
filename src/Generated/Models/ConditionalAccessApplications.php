@@ -6,50 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ConditionalAccessApplications implements AdditionalDataHolder, Parsable 
+class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var ConditionalAccessFilter|null $applicationFilter The applicationFilter property
-    */
-    private ?ConditionalAccessFilter $applicationFilter = null;
-    
-    /**
-     * @var array<string>|null $excludeApplications Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
-    */
-    private ?array $excludeApplications = null;
-    
-    /**
-     * @var array<string>|null $includeApplications Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
-    */
-    private ?array $includeApplications = null;
-    
-    /**
-     * @var array<string>|null $includeAuthenticationContextClassReferences Authentication context class references include. Supported values are c1 through c25.
-    */
-    private ?array $includeAuthenticationContextClassReferences = null;
-    
-    /**
-     * @var array<string>|null $includeUserActions User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice
-    */
-    private ?array $includeUserActions = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new conditionalAccessApplications and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.conditionalAccessApplications');
     }
 
     /**
@@ -65,16 +38,24 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
-     * Gets the applicationFilter property value. The applicationFilter property
+     * Gets the applicationFilter property value. Filter that defines the dynamic-application-syntax rule to include/exclude cloud applications. A filter can use custom security attributes to include/exclude applications.
      * @return ConditionalAccessFilter|null
     */
     public function getApplicationFilter(): ?ConditionalAccessFilter {
-        return $this->applicationFilter;
+        return $this->getBackingStore()->get('applicationFilter');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -82,7 +63,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getExcludeApplications(): ?array {
-        return $this->excludeApplications;
+        return $this->getBackingStore()->get('excludeApplications');
     }
 
     /**
@@ -106,7 +87,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getIncludeApplications(): ?array {
-        return $this->includeApplications;
+        return $this->getBackingStore()->get('includeApplications');
     }
 
     /**
@@ -114,7 +95,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getIncludeAuthenticationContextClassReferences(): ?array {
-        return $this->includeAuthenticationContextClassReferences;
+        return $this->getBackingStore()->get('includeAuthenticationContextClassReferences');
     }
 
     /**
@@ -122,7 +103,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getIncludeUserActions(): ?array {
-        return $this->includeUserActions;
+        return $this->getBackingStore()->get('includeUserActions');
     }
 
     /**
@@ -130,7 +111,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -138,69 +119,77 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('applicationFilter', $this->applicationFilter);
-        $writer->writeCollectionOfPrimitiveValues('excludeApplications', $this->excludeApplications);
-        $writer->writeCollectionOfPrimitiveValues('includeApplications', $this->includeApplications);
-        $writer->writeCollectionOfPrimitiveValues('includeAuthenticationContextClassReferences', $this->includeAuthenticationContextClassReferences);
-        $writer->writeCollectionOfPrimitiveValues('includeUserActions', $this->includeUserActions);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('applicationFilter', $this->getApplicationFilter());
+        $writer->writeCollectionOfPrimitiveValues('excludeApplications', $this->getExcludeApplications());
+        $writer->writeCollectionOfPrimitiveValues('includeApplications', $this->getIncludeApplications());
+        $writer->writeCollectionOfPrimitiveValues('includeAuthenticationContextClassReferences', $this->getIncludeAuthenticationContextClassReferences());
+        $writer->writeCollectionOfPrimitiveValues('includeUserActions', $this->getIncludeUserActions());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the applicationFilter property value. The applicationFilter property
+     * Sets the applicationFilter property value. Filter that defines the dynamic-application-syntax rule to include/exclude cloud applications. A filter can use custom security attributes to include/exclude applications.
      *  @param ConditionalAccessFilter|null $value Value to set for the applicationFilter property.
     */
-    public function setApplicationFilter(?ConditionalAccessFilter $value ): void {
-        $this->applicationFilter = $value;
+    public function setApplicationFilter(?ConditionalAccessFilter $value): void {
+        $this->getBackingStore()->set('applicationFilter', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the excludeApplications property value. Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      *  @param array<string>|null $value Value to set for the excludeApplications property.
     */
-    public function setExcludeApplications(?array $value ): void {
-        $this->excludeApplications = $value;
+    public function setExcludeApplications(?array $value): void {
+        $this->getBackingStore()->set('excludeApplications', $value);
     }
 
     /**
      * Sets the includeApplications property value. Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      *  @param array<string>|null $value Value to set for the includeApplications property.
     */
-    public function setIncludeApplications(?array $value ): void {
-        $this->includeApplications = $value;
+    public function setIncludeApplications(?array $value): void {
+        $this->getBackingStore()->set('includeApplications', $value);
     }
 
     /**
      * Sets the includeAuthenticationContextClassReferences property value. Authentication context class references include. Supported values are c1 through c25.
      *  @param array<string>|null $value Value to set for the includeAuthenticationContextClassReferences property.
     */
-    public function setIncludeAuthenticationContextClassReferences(?array $value ): void {
-        $this->includeAuthenticationContextClassReferences = $value;
+    public function setIncludeAuthenticationContextClassReferences(?array $value): void {
+        $this->getBackingStore()->set('includeAuthenticationContextClassReferences', $value);
     }
 
     /**
      * Sets the includeUserActions property value. User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice
      *  @param array<string>|null $value Value to set for the includeUserActions property.
     */
-    public function setIncludeUserActions(?array $value ): void {
-        $this->includeUserActions = $value;
+    public function setIncludeUserActions(?array $value): void {
+        $this->getBackingStore()->set('includeUserActions', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

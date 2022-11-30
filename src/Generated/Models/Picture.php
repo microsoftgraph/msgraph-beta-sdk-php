@@ -10,31 +10,10 @@ use Psr\Http\Message\StreamInterface;
 class Picture extends Entity implements Parsable 
 {
     /**
-     * @var StreamInterface|null $content The content property
-    */
-    private ?StreamInterface $content = null;
-    
-    /**
-     * @var string|null $contentType The contentType property
-    */
-    private ?string $contentType = null;
-    
-    /**
-     * @var int|null $height The height property
-    */
-    private ?int $height = null;
-    
-    /**
-     * @var int|null $width The width property
-    */
-    private ?int $width = null;
-    
-    /**
      * Instantiates a new picture and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.picture');
     }
 
     /**
@@ -48,10 +27,10 @@ class Picture extends Entity implements Parsable
 
     /**
      * Gets the content property value. The content property
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getContent(): StreamInterface {
-        return $this->content;
+    public function getContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -59,7 +38,7 @@ class Picture extends Entity implements Parsable
      * @return string|null
     */
     public function getContentType(): ?string {
-        return $this->contentType;
+        return $this->getBackingStore()->get('contentType');
     }
 
     /**
@@ -81,7 +60,7 @@ class Picture extends Entity implements Parsable
      * @return int|null
     */
     public function getHeight(): ?int {
-        return $this->height;
+        return $this->getBackingStore()->get('height');
     }
 
     /**
@@ -89,7 +68,7 @@ class Picture extends Entity implements Parsable
      * @return int|null
     */
     public function getWidth(): ?int {
-        return $this->width;
+        return $this->getBackingStore()->get('width');
     }
 
     /**
@@ -98,42 +77,42 @@ class Picture extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('content', $this->content);
-        $writer->writeStringValue('contentType', $this->contentType);
-        $writer->writeIntegerValue('height', $this->height);
-        $writer->writeIntegerValue('width', $this->width);
+        $writer->writeBinaryContent('content', $this->getContent());
+        $writer->writeStringValue('contentType', $this->getContentType());
+        $writer->writeIntegerValue('height', $this->getHeight());
+        $writer->writeIntegerValue('width', $this->getWidth());
     }
 
     /**
      * Sets the content property value. The content property
      *  @param StreamInterface|null $value Value to set for the content property.
     */
-    public function setContent(?StreamInterface $value ): void {
-        $this->content = $value;
+    public function setContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the contentType property value. The contentType property
      *  @param string|null $value Value to set for the contentType property.
     */
-    public function setContentType(?string $value ): void {
-        $this->contentType = $value;
+    public function setContentType(?string $value): void {
+        $this->getBackingStore()->set('contentType', $value);
     }
 
     /**
      * Sets the height property value. The height property
      *  @param int|null $value Value to set for the height property.
     */
-    public function setHeight(?int $value ): void {
-        $this->height = $value;
+    public function setHeight(?int $value): void {
+        $this->getBackingStore()->set('height', $value);
     }
 
     /**
      * Sets the width property value. The width property
      *  @param int|null $value Value to set for the width property.
     */
-    public function setWidth(?int $value ): void {
-        $this->width = $value;
+    public function setWidth(?int $value): void {
+        $this->getBackingStore()->set('width', $value);
     }
 
 }

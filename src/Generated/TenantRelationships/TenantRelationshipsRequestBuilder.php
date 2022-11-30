@@ -25,21 +25,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TenantRelationshipsRequestBuilder 
 {
     /**
-     * The delegatedAdminCustomers property
+     * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
     */
     public function delegatedAdminCustomers(): DelegatedAdminCustomersRequestBuilder {
         return new DelegatedAdminCustomersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The delegatedAdminRelationships property
+     * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
     */
     public function delegatedAdminRelationships(): DelegatedAdminRelationshipsRequestBuilder {
         return new DelegatedAdminRelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedTenants property
+     * Provides operations to manage the managedTenants property of the microsoft.graph.tenantRelationship entity.
     */
     public function managedTenants(): ManagedTenantsRequestBuilder {
         return new ManagedTenantsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -121,7 +121,7 @@ class TenantRelationshipsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.delegatedAdminCustomers.item collection
+     * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
      * @param string $id Unique identifier of the item
      * @return DelegatedAdminCustomerItemRequestBuilder
     */
@@ -132,7 +132,7 @@ class TenantRelationshipsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.delegatedAdminRelationships.item collection
+     * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
      * @param string $id Unique identifier of the item
      * @return DelegatedAdminRelationshipItemRequestBuilder
     */

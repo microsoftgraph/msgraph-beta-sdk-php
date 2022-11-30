@@ -26,14 +26,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceManagementCompliancePolicyItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementCompliancePolicy entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,21 +50,21 @@ class DeviceManagementCompliancePolicyItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The scheduledActionsForRule property
+     * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceManagementCompliancePolicy entity.
     */
     public function scheduledActionsForRule(): ScheduledActionsForRuleRequestBuilder {
         return new ScheduledActionsForRuleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The setScheduledActions property
+     * Provides operations to call the setScheduledActions method.
     */
     public function setScheduledActions(): SetScheduledActionsRequestBuilder {
         return new SetScheduledActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The settings property
+     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementCompliancePolicy entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -76,7 +76,7 @@ class DeviceManagementCompliancePolicyItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.compliancePolicies.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementCompliancePolicy entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder
     */
@@ -226,7 +226,7 @@ class DeviceManagementCompliancePolicyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.compliancePolicies.item.scheduledActionsForRule.item collection
+     * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceManagementCompliancePolicy entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder
     */
@@ -237,7 +237,7 @@ class DeviceManagementCompliancePolicyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.compliancePolicies.item.settings.item collection
+     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementCompliancePolicy entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationSettingItemRequestBuilder
     */

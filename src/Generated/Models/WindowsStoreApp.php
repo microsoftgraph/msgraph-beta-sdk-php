@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsStoreApp extends MobileApp implements Parsable 
 {
     /**
-     * @var string|null $appStoreUrl The Windows app store URL.
-    */
-    private ?string $appStoreUrl = null;
-    
-    /**
      * Instantiates a new WindowsStoreApp and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class WindowsStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppStoreUrl(): ?string {
-        return $this->appStoreUrl;
+        return $this->getBackingStore()->get('appStoreUrl');
     }
 
     /**
@@ -55,15 +50,15 @@ class WindowsStoreApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appStoreUrl', $this->appStoreUrl);
+        $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
     }
 
     /**
      * Sets the appStoreUrl property value. The Windows app store URL.
      *  @param string|null $value Value to set for the appStoreUrl property.
     */
-    public function setAppStoreUrl(?string $value ): void {
-        $this->appStoreUrl = $value;
+    public function setAppStoreUrl(?string $value): void {
+        $this->getBackingStore()->set('appStoreUrl', $value);
     }
 
 }

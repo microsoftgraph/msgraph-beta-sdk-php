@@ -49,10 +49,14 @@ use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Management
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementIntents\ManagementIntentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollections\Item\ManagementTemplateCollectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollections\ManagementTemplateCollectionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollectionTenantSummaries\Item\ManagementTemplateCollectionTenantSummaryItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollectionTenantSummaries\ManagementTemplateCollectionTenantSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplates\Item\ManagementTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplates\ManagementTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\ManagementTemplateStepItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\ManagementTemplateStepsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepTenantSummaries\Item\ManagementTemplateStepTenantSummaryItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepTenantSummaries\ManagementTemplateStepTenantSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\ManagementTemplateStepVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\ManagementTemplateStepVersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\MyRoles\Item\MyRoleTenantItemRequestBuilder;
@@ -82,175 +86,189 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagedTenantsRequestBuilder 
 {
     /**
-     * The aggregatedPolicyCompliances property
+     * Provides operations to manage the aggregatedPolicyCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function aggregatedPolicyCompliances(): AggregatedPolicyCompliancesRequestBuilder {
         return new AggregatedPolicyCompliancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The auditEvents property
+     * Provides operations to manage the auditEvents property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function auditEvents(): AuditEventsRequestBuilder {
         return new AuditEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The cloudPcConnections property
+     * Provides operations to manage the cloudPcConnections property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function cloudPcConnections(): CloudPcConnectionsRequestBuilder {
         return new CloudPcConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The cloudPcDevices property
+     * Provides operations to manage the cloudPcDevices property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function cloudPcDevices(): CloudPcDevicesRequestBuilder {
         return new CloudPcDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The cloudPcsOverview property
+     * Provides operations to manage the cloudPcsOverview property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function cloudPcsOverview(): CloudPcsOverviewRequestBuilder {
         return new CloudPcsOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The conditionalAccessPolicyCoverages property
+     * Provides operations to manage the conditionalAccessPolicyCoverages property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function conditionalAccessPolicyCoverages(): ConditionalAccessPolicyCoveragesRequestBuilder {
         return new ConditionalAccessPolicyCoveragesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The credentialUserRegistrationsSummaries property
+     * Provides operations to manage the credentialUserRegistrationsSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function credentialUserRegistrationsSummaries(): CredentialUserRegistrationsSummariesRequestBuilder {
         return new CredentialUserRegistrationsSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceCompliancePolicySettingStateSummaries property
+     * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function deviceCompliancePolicySettingStateSummaries(): DeviceCompliancePolicySettingStateSummariesRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedDeviceCompliances property
+     * Provides operations to manage the managedDeviceCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managedDeviceCompliances(): ManagedDeviceCompliancesRequestBuilder {
         return new ManagedDeviceCompliancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedDeviceComplianceTrends property
+     * Provides operations to manage the managedDeviceComplianceTrends property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managedDeviceComplianceTrends(): ManagedDeviceComplianceTrendsRequestBuilder {
         return new ManagedDeviceComplianceTrendsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedTenantAlertLogs property
+     * Provides operations to manage the managedTenantAlertLogs property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managedTenantAlertLogs(): ManagedTenantAlertLogsRequestBuilder {
         return new ManagedTenantAlertLogsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedTenantAlertRuleDefinitions property
+     * Provides operations to manage the managedTenantAlertRuleDefinitions property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managedTenantAlertRuleDefinitions(): ManagedTenantAlertRuleDefinitionsRequestBuilder {
         return new ManagedTenantAlertRuleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedTenantAlertRules property
+     * Provides operations to manage the managedTenantAlertRules property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managedTenantAlertRules(): ManagedTenantAlertRulesRequestBuilder {
         return new ManagedTenantAlertRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedTenantAlerts property
+     * Provides operations to manage the managedTenantAlerts property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managedTenantAlerts(): ManagedTenantAlertsRequestBuilder {
         return new ManagedTenantAlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedTenantApiNotifications property
+     * Provides operations to manage the managedTenantApiNotifications property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managedTenantApiNotifications(): ManagedTenantApiNotificationsRequestBuilder {
         return new ManagedTenantApiNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedTenantEmailNotifications property
+     * Provides operations to manage the managedTenantEmailNotifications property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managedTenantEmailNotifications(): ManagedTenantEmailNotificationsRequestBuilder {
         return new ManagedTenantEmailNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedTenantTicketingEndpoints property
+     * Provides operations to manage the managedTenantTicketingEndpoints property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managedTenantTicketingEndpoints(): ManagedTenantTicketingEndpointsRequestBuilder {
         return new ManagedTenantTicketingEndpointsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managementActions property
+     * Provides operations to manage the managementActions property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managementActions(): ManagementActionsRequestBuilder {
         return new ManagementActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managementActionTenantDeploymentStatuses property
+     * Provides operations to manage the managementActionTenantDeploymentStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managementActionTenantDeploymentStatuses(): ManagementActionTenantDeploymentStatusesRequestBuilder {
         return new ManagementActionTenantDeploymentStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managementIntents property
+     * Provides operations to manage the managementIntents property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managementIntents(): ManagementIntentsRequestBuilder {
         return new ManagementIntentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managementTemplateCollections property
+     * Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managementTemplateCollections(): ManagementTemplateCollectionsRequestBuilder {
         return new ManagementTemplateCollectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managementTemplates property
+     * Provides operations to manage the managementTemplateCollectionTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+    */
+    public function managementTemplateCollectionTenantSummaries(): ManagementTemplateCollectionTenantSummariesRequestBuilder {
+        return new ManagementTemplateCollectionTenantSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managementTemplates(): ManagementTemplatesRequestBuilder {
         return new ManagementTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managementTemplateSteps property
+     * Provides operations to manage the managementTemplateSteps property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managementTemplateSteps(): ManagementTemplateStepsRequestBuilder {
         return new ManagementTemplateStepsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managementTemplateStepVersions property
+     * Provides operations to manage the managementTemplateStepTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+    */
+    public function managementTemplateStepTenantSummaries(): ManagementTemplateStepTenantSummariesRequestBuilder {
+        return new ManagementTemplateStepTenantSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the managementTemplateStepVersions property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managementTemplateStepVersions(): ManagementTemplateStepVersionsRequestBuilder {
         return new ManagementTemplateStepVersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The myRoles property
+     * Provides operations to manage the myRoles property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function myRoles(): MyRolesRequestBuilder {
         return new MyRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -267,35 +285,35 @@ class ManagedTenantsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The tenantGroups property
+     * Provides operations to manage the tenantGroups property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function tenantGroups(): TenantGroupsRequestBuilder {
         return new TenantGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tenants property
+     * Provides operations to manage the tenants property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function tenants(): TenantsRequestBuilder {
         return new TenantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tenantsCustomizedInformation property
+     * Provides operations to manage the tenantsCustomizedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function tenantsCustomizedInformation(): TenantsCustomizedInformationRequestBuilder {
         return new TenantsCustomizedInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tenantsDetailedInformation property
+     * Provides operations to manage the tenantsDetailedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function tenantsDetailedInformation(): TenantsDetailedInformationRequestBuilder {
         return new TenantsDetailedInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tenantTags property
+     * Provides operations to manage the tenantTags property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function tenantTags(): TenantTagsRequestBuilder {
         return new TenantTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -307,21 +325,21 @@ class ManagedTenantsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The windowsDeviceMalwareStates property
+     * Provides operations to manage the windowsDeviceMalwareStates property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function windowsDeviceMalwareStates(): WindowsDeviceMalwareStatesRequestBuilder {
         return new WindowsDeviceMalwareStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsProtectionStates property
+     * Provides operations to manage the windowsProtectionStates property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function windowsProtectionStates(): WindowsProtectionStatesRequestBuilder {
         return new WindowsProtectionStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.aggregatedPolicyCompliances.item collection
+     * Provides operations to manage the aggregatedPolicyCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return AggregatedPolicyComplianceItemRequestBuilder
     */
@@ -332,7 +350,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.auditEvents.item collection
+     * Provides operations to manage the auditEvents property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return AuditEventItemRequestBuilder
     */
@@ -343,7 +361,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.cloudPcConnections.item collection
+     * Provides operations to manage the cloudPcConnections property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcConnectionItemRequestBuilder
     */
@@ -354,7 +372,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.cloudPcDevices.item collection
+     * Provides operations to manage the cloudPcDevices property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcDeviceItemRequestBuilder
     */
@@ -365,7 +383,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.cloudPcsOverview.item collection
+     * Provides operations to manage the cloudPcsOverview property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcOverviewTenantItemRequestBuilder
     */
@@ -376,7 +394,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.conditionalAccessPolicyCoverages.item collection
+     * Provides operations to manage the conditionalAccessPolicyCoverages property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ConditionalAccessPolicyCoverageItemRequestBuilder
     */
@@ -468,7 +486,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.credentialUserRegistrationsSummaries.item collection
+     * Provides operations to manage the credentialUserRegistrationsSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return CredentialUserRegistrationsSummaryItemRequestBuilder
     */
@@ -498,7 +516,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.deviceCompliancePolicySettingStateSummaries.item collection
+     * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return DeviceCompliancePolicySettingStateSummaryItemRequestBuilder
     */
@@ -528,7 +546,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedDeviceCompliances.item collection
+     * Provides operations to manage the managedDeviceCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagedDeviceComplianceItemRequestBuilder
     */
@@ -539,7 +557,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedDeviceComplianceTrends.item collection
+     * Provides operations to manage the managedDeviceComplianceTrends property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagedDeviceComplianceTrendItemRequestBuilder
     */
@@ -550,7 +568,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlertLogs.item collection
+     * Provides operations to manage the managedTenantAlertLogs property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantAlertLogItemRequestBuilder
     */
@@ -561,7 +579,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlertRuleDefinitions.item collection
+     * Provides operations to manage the managedTenantAlertRuleDefinitions property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantAlertRuleDefinitionItemRequestBuilder
     */
@@ -572,7 +590,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlertRules.item collection
+     * Provides operations to manage the managedTenantAlertRules property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantAlertRuleItemRequestBuilder
     */
@@ -583,7 +601,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlerts.item collection
+     * Provides operations to manage the managedTenantAlerts property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantAlertItemRequestBuilder
     */
@@ -594,7 +612,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantApiNotifications.item collection
+     * Provides operations to manage the managedTenantApiNotifications property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantApiNotificationItemRequestBuilder
     */
@@ -605,7 +623,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantEmailNotifications.item collection
+     * Provides operations to manage the managedTenantEmailNotifications property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantEmailNotificationItemRequestBuilder
     */
@@ -616,7 +634,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantTicketingEndpoints.item collection
+     * Provides operations to manage the managedTenantTicketingEndpoints property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantTicketingEndpointItemRequestBuilder
     */
@@ -627,7 +645,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementActions.item collection
+     * Provides operations to manage the managementActions property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagementActionItemRequestBuilder
     */
@@ -638,7 +656,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementActionTenantDeploymentStatuses.item collection
+     * Provides operations to manage the managementActionTenantDeploymentStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagementActionTenantDeploymentStatusItemRequestBuilder
     */
@@ -649,7 +667,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementIntents.item collection
+     * Provides operations to manage the managementIntents property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagementIntentItemRequestBuilder
     */
@@ -660,7 +678,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementTemplateCollections.item collection
+     * Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateCollectionItemRequestBuilder
     */
@@ -671,7 +689,18 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementTemplates.item collection
+     * Provides operations to manage the managementTemplateCollectionTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $id Unique identifier of the item
+     * @return ManagementTemplateCollectionTenantSummaryItemRequestBuilder
+    */
+    public function managementTemplateCollectionTenantSummariesById(string $id): ManagementTemplateCollectionTenantSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managementTemplateCollectionTenantSummary%2Did'] = $id;
+        return new ManagementTemplateCollectionTenantSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateItemRequestBuilder
     */
@@ -682,7 +711,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementTemplateSteps.item collection
+     * Provides operations to manage the managementTemplateSteps property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateStepItemRequestBuilder
     */
@@ -693,7 +722,18 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementTemplateStepVersions.item collection
+     * Provides operations to manage the managementTemplateStepTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $id Unique identifier of the item
+     * @return ManagementTemplateStepTenantSummaryItemRequestBuilder
+    */
+    public function managementTemplateStepTenantSummariesById(string $id): ManagementTemplateStepTenantSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managementTemplateStepTenantSummary%2Did'] = $id;
+        return new ManagementTemplateStepTenantSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the managementTemplateStepVersions property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateStepVersionItemRequestBuilder
     */
@@ -704,7 +744,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.myRoles.item collection
+     * Provides operations to manage the myRoles property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return MyRoleTenantItemRequestBuilder
     */
@@ -735,7 +775,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.tenantGroups.item collection
+     * Provides operations to manage the tenantGroups property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return TenantGroupItemRequestBuilder
     */
@@ -746,7 +786,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.tenants.item collection
+     * Provides operations to manage the tenants property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return TenantItemRequestBuilder
     */
@@ -757,7 +797,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.tenantsCustomizedInformation.item collection
+     * Provides operations to manage the tenantsCustomizedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return TenantCustomizedInformationItemRequestBuilder
     */
@@ -768,7 +808,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.tenantsDetailedInformation.item collection
+     * Provides operations to manage the tenantsDetailedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return TenantDetailedInformationItemRequestBuilder
     */
@@ -779,7 +819,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.tenantTags.item collection
+     * Provides operations to manage the tenantTags property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return TenantTagItemRequestBuilder
     */
@@ -790,7 +830,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.windowsDeviceMalwareStates.item collection
+     * Provides operations to manage the windowsDeviceMalwareStates property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return WindowsDeviceMalwareStateItemRequestBuilder
     */
@@ -801,7 +841,7 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.windowsProtectionStates.item collection
+     * Provides operations to manage the windowsProtectionStates property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return WindowsProtectionStateItemRequestBuilder
     */

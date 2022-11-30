@@ -29,7 +29,7 @@ class DeviceAppManagementTaskItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updateStatus property
+     * Provides operations to call the updateStatus method.
     */
     public function updateStatus(): UpdateStatusRequestBuilder {
         return new UpdateStatusRequestBuilder($this->pathParameters, $this->requestAdapter);

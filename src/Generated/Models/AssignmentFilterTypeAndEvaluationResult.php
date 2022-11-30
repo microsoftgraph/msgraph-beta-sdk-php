@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, Parsable 
+class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Represents type of the assignment filter.
-    */
-    private ?DeviceAndAppManagementAssignmentFilterType $assignmentFilterType = null;
-    
-    /**
-     * @var AssignmentFilterEvaluationResult|null $evaluationResult Supported evaluation results for filter.
-    */
-    private ?AssignmentFilterEvaluationResult $evaluationResult = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new assignmentFilterTypeAndEvaluationResult and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.assignmentFilterTypeAndEvaluationResult');
     }
 
     /**
@@ -50,8 +38,8 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -59,7 +47,15 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
      * @return DeviceAndAppManagementAssignmentFilterType|null
     */
     public function getAssignmentFilterType(): ?DeviceAndAppManagementAssignmentFilterType {
-        return $this->assignmentFilterType;
+        return $this->getBackingStore()->get('assignmentFilterType');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -67,7 +63,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
      * @return AssignmentFilterEvaluationResult|null
     */
     public function getEvaluationResult(): ?AssignmentFilterEvaluationResult {
-        return $this->evaluationResult;
+        return $this->getBackingStore()->get('evaluationResult');
     }
 
     /**
@@ -88,7 +84,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -96,42 +92,50 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('assignmentFilterType', $this->assignmentFilterType);
-        $writer->writeEnumValue('evaluationResult', $this->evaluationResult);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('assignmentFilterType', $this->getAssignmentFilterType());
+        $writer->writeEnumValue('evaluationResult', $this->getEvaluationResult());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the assignmentFilterType property value. Represents type of the assignment filter.
      *  @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the assignmentFilterType property.
     */
-    public function setAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value ): void {
-        $this->assignmentFilterType = $value;
+    public function setAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value): void {
+        $this->getBackingStore()->set('assignmentFilterType', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the evaluationResult property value. Supported evaluation results for filter.
      *  @param AssignmentFilterEvaluationResult|null $value Value to set for the evaluationResult property.
     */
-    public function setEvaluationResult(?AssignmentFilterEvaluationResult $value ): void {
-        $this->evaluationResult = $value;
+    public function setEvaluationResult(?AssignmentFilterEvaluationResult $value): void {
+        $this->getBackingStore()->set('evaluationResult', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

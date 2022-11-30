@@ -25,14 +25,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UpdatesRequestBuilder 
 {
     /**
-     * The catalog property
+     * Provides operations to manage the catalog property of the microsoft.graph.windowsUpdates.updates entity.
     */
     public function catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deployments property
+     * Provides operations to manage the deployments property of the microsoft.graph.windowsUpdates.updates entity.
     */
     public function deployments(): DeploymentsRequestBuilder {
         return new DeploymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -49,14 +49,14 @@ class UpdatesRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resourceConnections property
+     * Provides operations to manage the resourceConnections property of the microsoft.graph.windowsUpdates.updates entity.
     */
     public function resourceConnections(): ResourceConnectionsRequestBuilder {
         return new ResourceConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The updatableAssets property
+     * Provides operations to manage the updatableAssets property of the microsoft.graph.windowsUpdates.updates entity.
     */
     public function updatableAssets(): UpdatableAssetsRequestBuilder {
         return new UpdatableAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -168,7 +168,7 @@ class UpdatesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.admin.windows.updates.deployments.item collection
+     * Provides operations to manage the deployments property of the microsoft.graph.windowsUpdates.updates entity.
      * @param string $id Unique identifier of the item
      * @return DeploymentItemRequestBuilder
     */
@@ -218,7 +218,7 @@ class UpdatesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.admin.windows.updates.resourceConnections.item collection
+     * Provides operations to manage the resourceConnections property of the microsoft.graph.windowsUpdates.updates entity.
      * @param string $id Unique identifier of the item
      * @return ResourceConnectionItemRequestBuilder
     */
@@ -229,7 +229,7 @@ class UpdatesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.admin.windows.updates.updatableAssets.item collection
+     * Provides operations to manage the updatableAssets property of the microsoft.graph.windowsUpdates.updates entity.
      * @param string $id Unique identifier of the item
      * @return UpdatableAssetItemRequestBuilder
     */

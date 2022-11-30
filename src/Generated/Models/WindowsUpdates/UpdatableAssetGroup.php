@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UpdatableAssetGroup extends UpdatableAsset implements Parsable 
 {
     /**
-     * @var array<UpdatableAsset>|null $members Members of the group. Read-only.
-    */
-    private ?array $members = null;
-    
-    /**
      * Instantiates a new UpdatableAssetGroup and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class UpdatableAssetGroup extends UpdatableAsset implements Parsable
      * @return array<UpdatableAsset>|null
     */
     public function getMembers(): ?array {
-        return $this->members;
+        return $this->getBackingStore()->get('members');
     }
 
     /**
@@ -55,15 +50,15 @@ class UpdatableAssetGroup extends UpdatableAsset implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('members', $this->members);
+        $writer->writeCollectionOfObjectValues('members', $this->getMembers());
     }
 
     /**
      * Sets the members property value. Members of the group. Read-only.
      *  @param array<UpdatableAsset>|null $value Value to set for the members property.
     */
-    public function setMembers(?array $value ): void {
-        $this->members = $value;
+    public function setMembers(?array $value): void {
+        $this->getBackingStore()->set('members', $value);
     }
 
 }

@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable 
 {
     /**
-     * @var string|null $appId This references an Intune App that will be target to the same assignments as Kiosk configuration
-    */
-    private ?string $appId = null;
-    
-    /**
-     * @var string|null $appUserModelId This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
-    */
-    private ?string $appUserModelId = null;
-    
-    /**
-     * @var string|null $containedAppId This references an contained App from an Intune App
-    */
-    private ?string $containedAppId = null;
-    
-    /**
      * Instantiates a new WindowsKioskUWPApp and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->appId;
+        return $this->getBackingStore()->get('appId');
     }
 
     /**
@@ -53,7 +38,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getAppUserModelId(): ?string {
-        return $this->appUserModelId;
+        return $this->getBackingStore()->get('appUserModelId');
     }
 
     /**
@@ -61,7 +46,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getContainedAppId(): ?string {
-        return $this->containedAppId;
+        return $this->getBackingStore()->get('containedAppId');
     }
 
     /**
@@ -83,33 +68,33 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appId', $this->appId);
-        $writer->writeStringValue('appUserModelId', $this->appUserModelId);
-        $writer->writeStringValue('containedAppId', $this->containedAppId);
+        $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('appUserModelId', $this->getAppUserModelId());
+        $writer->writeStringValue('containedAppId', $this->getContainedAppId());
     }
 
     /**
      * Sets the appId property value. This references an Intune App that will be target to the same assignments as Kiosk configuration
      *  @param string|null $value Value to set for the appId property.
     */
-    public function setAppId(?string $value ): void {
-        $this->appId = $value;
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
      * Sets the appUserModelId property value. This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
      *  @param string|null $value Value to set for the appUserModelId property.
     */
-    public function setAppUserModelId(?string $value ): void {
-        $this->appUserModelId = $value;
+    public function setAppUserModelId(?string $value): void {
+        $this->getBackingStore()->set('appUserModelId', $value);
     }
 
     /**
      * Sets the containedAppId property value. This references an contained App from an Intune App
      *  @param string|null $value Value to set for the containedAppId property.
     */
-    public function setContainedAppId(?string $value ): void {
-        $this->containedAppId = $value;
+    public function setContainedAppId(?string $value): void {
+        $this->getBackingStore()->set('containedAppId', $value);
     }
 
 }

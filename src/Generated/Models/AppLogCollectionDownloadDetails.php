@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable 
+class AppLogCollectionDownloadDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var AppLogDecryptionAlgorithm|null $appLogDecryptionAlgorithm The appLogDecryptionAlgorithm property
-    */
-    private ?AppLogDecryptionAlgorithm $appLogDecryptionAlgorithm = null;
-    
-    /**
-     * @var string|null $decryptionKey DecryptionKey as string
-    */
-    private ?string $decryptionKey = null;
-    
-    /**
-     * @var string|null $downloadUrl Download SAS Url for completed AppLogUploadRequest
-    */
-    private ?string $downloadUrl = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new appLogCollectionDownloadDetails and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.appLogCollectionDownloadDetails');
     }
 
     /**
@@ -55,8 +38,8 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -64,7 +47,15 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
      * @return AppLogDecryptionAlgorithm|null
     */
     public function getAppLogDecryptionAlgorithm(): ?AppLogDecryptionAlgorithm {
-        return $this->appLogDecryptionAlgorithm;
+        return $this->getBackingStore()->get('appLogDecryptionAlgorithm');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +63,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDecryptionKey(): ?string {
-        return $this->decryptionKey;
+        return $this->getBackingStore()->get('decryptionKey');
     }
 
     /**
@@ -80,7 +71,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDownloadUrl(): ?string {
-        return $this->downloadUrl;
+        return $this->getBackingStore()->get('downloadUrl');
     }
 
     /**
@@ -102,7 +93,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -110,51 +101,59 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('appLogDecryptionAlgorithm', $this->appLogDecryptionAlgorithm);
-        $writer->writeStringValue('decryptionKey', $this->decryptionKey);
-        $writer->writeStringValue('downloadUrl', $this->downloadUrl);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('appLogDecryptionAlgorithm', $this->getAppLogDecryptionAlgorithm());
+        $writer->writeStringValue('decryptionKey', $this->getDecryptionKey());
+        $writer->writeStringValue('downloadUrl', $this->getDownloadUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the appLogDecryptionAlgorithm property value. The appLogDecryptionAlgorithm property
      *  @param AppLogDecryptionAlgorithm|null $value Value to set for the appLogDecryptionAlgorithm property.
     */
-    public function setAppLogDecryptionAlgorithm(?AppLogDecryptionAlgorithm $value ): void {
-        $this->appLogDecryptionAlgorithm = $value;
+    public function setAppLogDecryptionAlgorithm(?AppLogDecryptionAlgorithm $value): void {
+        $this->getBackingStore()->set('appLogDecryptionAlgorithm', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the decryptionKey property value. DecryptionKey as string
      *  @param string|null $value Value to set for the decryptionKey property.
     */
-    public function setDecryptionKey(?string $value ): void {
-        $this->decryptionKey = $value;
+    public function setDecryptionKey(?string $value): void {
+        $this->getBackingStore()->set('decryptionKey', $value);
     }
 
     /**
      * Sets the downloadUrl property value. Download SAS Url for completed AppLogUploadRequest
      *  @param string|null $value Value to set for the downloadUrl property.
     */
-    public function setDownloadUrl(?string $value ): void {
-        $this->downloadUrl = $value;
+    public function setDownloadUrl(?string $value): void {
+        $this->getBackingStore()->set('downloadUrl', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

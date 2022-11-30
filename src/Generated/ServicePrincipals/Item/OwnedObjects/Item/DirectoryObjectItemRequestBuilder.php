@@ -22,21 +22,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DirectoryObjectItemRequestBuilder 
 {
     /**
-     * The application property
+     * Casts the previous resource to application.
     */
     public function application(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The endpoint property
+     * Casts the previous resource to endpoint.
     */
     public function endpoint(): EndpointRequestBuilder {
         return new EndpointRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The group property
+     * Casts the previous resource to group.
     */
     public function group(): GroupRequestBuilder {
         return new GroupRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class DirectoryObjectItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The servicePrincipal property
+     * Casts the previous resource to servicePrincipal.
     */
     public function servicePrincipal(): ServicePrincipalRequestBuilder {
         return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -76,7 +76,7 @@ class DirectoryObjectItemRequestBuilder
     }
 
     /**
-     * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand.
+     * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param DirectoryObjectItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -101,7 +101,7 @@ class DirectoryObjectItemRequestBuilder
     }
 
     /**
-     * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand.
+     * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param DirectoryObjectItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

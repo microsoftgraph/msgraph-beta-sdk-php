@@ -10,61 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extends Entity implements Parsable 
 {
     /**
-     * @var WindowsDefenderApplicationControlSupplementalPolicyStatuses|null $deploymentStatus Enum values for the various WindowsDefenderApplicationControl supplemental policy deployment statuses.
-    */
-    private ?WindowsDefenderApplicationControlSupplementalPolicyStatuses $deploymentStatus = null;
-    
-    /**
-     * @var string|null $deviceId Device ID.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $deviceName Device name.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var DateTime|null $lastSyncDateTime Last sync date time.
-    */
-    private ?DateTime $lastSyncDateTime = null;
-    
-    /**
-     * @var string|null $osDescription Windows OS Version Description.
-    */
-    private ?string $osDescription = null;
-    
-    /**
-     * @var string|null $osVersion Windows OS Version.
-    */
-    private ?string $osVersion = null;
-    
-    /**
-     * @var WindowsDefenderApplicationControlSupplementalPolicy|null $policy The navigation link to the WindowsDefenderApplicationControl supplemental policy.
-    */
-    private ?WindowsDefenderApplicationControlSupplementalPolicy $policy = null;
-    
-    /**
-     * @var string|null $policyVersion Human readable version of the WindowsDefenderApplicationControl supplemental policy.
-    */
-    private ?string $policyVersion = null;
-    
-    /**
-     * @var string|null $userName The name of the user of this device.
-    */
-    private ?string $userName = null;
-    
-    /**
-     * @var string|null $userPrincipalName User Principal Name.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus');
     }
 
     /**
@@ -81,7 +30,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return WindowsDefenderApplicationControlSupplementalPolicyStatuses|null
     */
     public function getDeploymentStatus(): ?WindowsDefenderApplicationControlSupplementalPolicyStatuses {
-        return $this->deploymentStatus;
+        return $this->getBackingStore()->get('deploymentStatus');
     }
 
     /**
@@ -89,7 +38,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -97,7 +46,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -125,7 +74,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->lastSyncDateTime;
+        return $this->getBackingStore()->get('lastSyncDateTime');
     }
 
     /**
@@ -133,7 +82,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getOsDescription(): ?string {
-        return $this->osDescription;
+        return $this->getBackingStore()->get('osDescription');
     }
 
     /**
@@ -141,7 +90,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -149,7 +98,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return WindowsDefenderApplicationControlSupplementalPolicy|null
     */
     public function getPolicy(): ?WindowsDefenderApplicationControlSupplementalPolicy {
-        return $this->policy;
+        return $this->getBackingStore()->get('policy');
     }
 
     /**
@@ -157,7 +106,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getPolicyVersion(): ?string {
-        return $this->policyVersion;
+        return $this->getBackingStore()->get('policyVersion');
     }
 
     /**
@@ -165,7 +114,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->getBackingStore()->get('userName');
     }
 
     /**
@@ -173,7 +122,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -182,96 +131,96 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('deploymentStatus', $this->deploymentStatus);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeDateTimeValue('lastSyncDateTime', $this->lastSyncDateTime);
-        $writer->writeStringValue('osDescription', $this->osDescription);
-        $writer->writeStringValue('osVersion', $this->osVersion);
-        $writer->writeObjectValue('policy', $this->policy);
-        $writer->writeStringValue('policyVersion', $this->policyVersion);
-        $writer->writeStringValue('userName', $this->userName);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeEnumValue('deploymentStatus', $this->getDeploymentStatus());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('osDescription', $this->getOsDescription());
+        $writer->writeStringValue('osVersion', $this->getOsVersion());
+        $writer->writeObjectValue('policy', $this->getPolicy());
+        $writer->writeStringValue('policyVersion', $this->getPolicyVersion());
+        $writer->writeStringValue('userName', $this->getUserName());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the deploymentStatus property value. Enum values for the various WindowsDefenderApplicationControl supplemental policy deployment statuses.
      *  @param WindowsDefenderApplicationControlSupplementalPolicyStatuses|null $value Value to set for the deploymentStatus property.
     */
-    public function setDeploymentStatus(?WindowsDefenderApplicationControlSupplementalPolicyStatuses $value ): void {
-        $this->deploymentStatus = $value;
+    public function setDeploymentStatus(?WindowsDefenderApplicationControlSupplementalPolicyStatuses $value): void {
+        $this->getBackingStore()->set('deploymentStatus', $value);
     }
 
     /**
      * Sets the deviceId property value. Device ID.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the deviceName property value. Device name.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the lastSyncDateTime property value. Last sync date time.
      *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
-    public function setLastSyncDateTime(?DateTime $value ): void {
-        $this->lastSyncDateTime = $value;
+    public function setLastSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSyncDateTime', $value);
     }
 
     /**
      * Sets the osDescription property value. Windows OS Version Description.
      *  @param string|null $value Value to set for the osDescription property.
     */
-    public function setOsDescription(?string $value ): void {
-        $this->osDescription = $value;
+    public function setOsDescription(?string $value): void {
+        $this->getBackingStore()->set('osDescription', $value);
     }
 
     /**
      * Sets the osVersion property value. Windows OS Version.
      *  @param string|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?string $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?string $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
     /**
      * Sets the policy property value. The navigation link to the WindowsDefenderApplicationControl supplemental policy.
      *  @param WindowsDefenderApplicationControlSupplementalPolicy|null $value Value to set for the policy property.
     */
-    public function setPolicy(?WindowsDefenderApplicationControlSupplementalPolicy $value ): void {
-        $this->policy = $value;
+    public function setPolicy(?WindowsDefenderApplicationControlSupplementalPolicy $value): void {
+        $this->getBackingStore()->set('policy', $value);
     }
 
     /**
      * Sets the policyVersion property value. Human readable version of the WindowsDefenderApplicationControl supplemental policy.
      *  @param string|null $value Value to set for the policyVersion property.
     */
-    public function setPolicyVersion(?string $value ): void {
-        $this->policyVersion = $value;
+    public function setPolicyVersion(?string $value): void {
+        $this->getBackingStore()->set('policyVersion', $value);
     }
 
     /**
      * Sets the userName property value. The name of the user of this device.
      *  @param string|null $value Value to set for the userName property.
     */
-    public function setUserName(?string $value ): void {
-        $this->userName = $value;
+    public function setUserName(?string $value): void {
+        $this->getBackingStore()->set('userName', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User Principal Name.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

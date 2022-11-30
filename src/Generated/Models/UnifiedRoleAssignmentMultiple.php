@@ -9,66 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRoleAssignmentMultiple extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $appScopeIds Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
-    */
-    private ?array $appScopeIds = null;
-    
-    /**
-     * @var array<AppScope>|null $appScopes Read-only collection with details of the app specific scopes when the assignment scopes are app specific. Containment entity. Read-only.
-    */
-    private ?array $appScopes = null;
-    
-    /**
-     * @var string|null $condition The condition property
-    */
-    private ?string $condition = null;
-    
-    /**
-     * @var string|null $description Description of the role assignment.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var array<string>|null $directoryScopeIds Ids of the directory objects representing the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
-    */
-    private ?array $directoryScopeIds = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $directoryScopes Read-only collection referencing the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
-    */
-    private ?array $directoryScopes = null;
-    
-    /**
-     * @var string|null $displayName Name of the role assignment. Required.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<string>|null $principalIds Identifiers of the principals to which the assignment is granted.  Supports $filter (any operator only).
-    */
-    private ?array $principalIds = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $principals Read-only collection referencing the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
-    */
-    private ?array $principals = null;
-    
-    /**
-     * @var UnifiedRoleDefinition|null $roleDefinition Specifies the roleDefinition that the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment.  Supports $filter (eq operator on id, isBuiltIn, and displayName, and startsWith operator on displayName)  and $expand.
-    */
-    private ?UnifiedRoleDefinition $roleDefinition = null;
-    
-    /**
-     * @var string|null $roleDefinitionId Identifier of the unifiedRoleDefinition the assignment is for.
-    */
-    private ?string $roleDefinitionId = null;
-    
-    /**
      * Instantiates a new unifiedRoleAssignmentMultiple and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.unifiedRoleAssignmentMultiple');
     }
 
     /**
@@ -85,7 +29,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAppScopeIds(): ?array {
-        return $this->appScopeIds;
+        return $this->getBackingStore()->get('appScopeIds');
     }
 
     /**
@@ -93,7 +37,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<AppScope>|null
     */
     public function getAppScopes(): ?array {
-        return $this->appScopes;
+        return $this->getBackingStore()->get('appScopes');
     }
 
     /**
@@ -101,7 +45,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return string|null
     */
     public function getCondition(): ?string {
-        return $this->condition;
+        return $this->getBackingStore()->get('condition');
     }
 
     /**
@@ -109,7 +53,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -117,7 +61,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getDirectoryScopeIds(): ?array {
-        return $this->directoryScopeIds;
+        return $this->getBackingStore()->get('directoryScopeIds');
     }
 
     /**
@@ -125,7 +69,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getDirectoryScopes(): ?array {
-        return $this->directoryScopes;
+        return $this->getBackingStore()->get('directoryScopes');
     }
 
     /**
@@ -133,7 +77,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -162,7 +106,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getPrincipalIds(): ?array {
-        return $this->principalIds;
+        return $this->getBackingStore()->get('principalIds');
     }
 
     /**
@@ -170,7 +114,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getPrincipals(): ?array {
-        return $this->principals;
+        return $this->getBackingStore()->get('principals');
     }
 
     /**
@@ -178,7 +122,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return UnifiedRoleDefinition|null
     */
     public function getRoleDefinition(): ?UnifiedRoleDefinition {
-        return $this->roleDefinition;
+        return $this->getBackingStore()->get('roleDefinition');
     }
 
     /**
@@ -186,7 +130,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleDefinitionId(): ?string {
-        return $this->roleDefinitionId;
+        return $this->getBackingStore()->get('roleDefinitionId');
     }
 
     /**
@@ -195,105 +139,105 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('appScopeIds', $this->appScopeIds);
-        $writer->writeCollectionOfObjectValues('appScopes', $this->appScopes);
-        $writer->writeStringValue('condition', $this->condition);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeCollectionOfPrimitiveValues('directoryScopeIds', $this->directoryScopeIds);
-        $writer->writeCollectionOfObjectValues('directoryScopes', $this->directoryScopes);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfPrimitiveValues('principalIds', $this->principalIds);
-        $writer->writeCollectionOfObjectValues('principals', $this->principals);
-        $writer->writeObjectValue('roleDefinition', $this->roleDefinition);
-        $writer->writeStringValue('roleDefinitionId', $this->roleDefinitionId);
+        $writer->writeCollectionOfPrimitiveValues('appScopeIds', $this->getAppScopeIds());
+        $writer->writeCollectionOfObjectValues('appScopes', $this->getAppScopes());
+        $writer->writeStringValue('condition', $this->getCondition());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeCollectionOfPrimitiveValues('directoryScopeIds', $this->getDirectoryScopeIds());
+        $writer->writeCollectionOfObjectValues('directoryScopes', $this->getDirectoryScopes());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfPrimitiveValues('principalIds', $this->getPrincipalIds());
+        $writer->writeCollectionOfObjectValues('principals', $this->getPrincipals());
+        $writer->writeObjectValue('roleDefinition', $this->getRoleDefinition());
+        $writer->writeStringValue('roleDefinitionId', $this->getRoleDefinitionId());
     }
 
     /**
      * Sets the appScopeIds property value. Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
      *  @param array<string>|null $value Value to set for the appScopeIds property.
     */
-    public function setAppScopeIds(?array $value ): void {
-        $this->appScopeIds = $value;
+    public function setAppScopeIds(?array $value): void {
+        $this->getBackingStore()->set('appScopeIds', $value);
     }
 
     /**
      * Sets the appScopes property value. Read-only collection with details of the app specific scopes when the assignment scopes are app specific. Containment entity. Read-only.
      *  @param array<AppScope>|null $value Value to set for the appScopes property.
     */
-    public function setAppScopes(?array $value ): void {
-        $this->appScopes = $value;
+    public function setAppScopes(?array $value): void {
+        $this->getBackingStore()->set('appScopes', $value);
     }
 
     /**
      * Sets the condition property value. The condition property
      *  @param string|null $value Value to set for the condition property.
     */
-    public function setCondition(?string $value ): void {
-        $this->condition = $value;
+    public function setCondition(?string $value): void {
+        $this->getBackingStore()->set('condition', $value);
     }
 
     /**
      * Sets the description property value. Description of the role assignment.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the directoryScopeIds property value. Ids of the directory objects representing the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
      *  @param array<string>|null $value Value to set for the directoryScopeIds property.
     */
-    public function setDirectoryScopeIds(?array $value ): void {
-        $this->directoryScopeIds = $value;
+    public function setDirectoryScopeIds(?array $value): void {
+        $this->getBackingStore()->set('directoryScopeIds', $value);
     }
 
     /**
      * Sets the directoryScopes property value. Read-only collection referencing the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
      *  @param array<DirectoryObject>|null $value Value to set for the directoryScopes property.
     */
-    public function setDirectoryScopes(?array $value ): void {
-        $this->directoryScopes = $value;
+    public function setDirectoryScopes(?array $value): void {
+        $this->getBackingStore()->set('directoryScopes', $value);
     }
 
     /**
      * Sets the displayName property value. Name of the role assignment. Required.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the principalIds property value. Identifiers of the principals to which the assignment is granted.  Supports $filter (any operator only).
      *  @param array<string>|null $value Value to set for the principalIds property.
     */
-    public function setPrincipalIds(?array $value ): void {
-        $this->principalIds = $value;
+    public function setPrincipalIds(?array $value): void {
+        $this->getBackingStore()->set('principalIds', $value);
     }
 
     /**
      * Sets the principals property value. Read-only collection referencing the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
      *  @param array<DirectoryObject>|null $value Value to set for the principals property.
     */
-    public function setPrincipals(?array $value ): void {
-        $this->principals = $value;
+    public function setPrincipals(?array $value): void {
+        $this->getBackingStore()->set('principals', $value);
     }
 
     /**
      * Sets the roleDefinition property value. Specifies the roleDefinition that the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment.  Supports $filter (eq operator on id, isBuiltIn, and displayName, and startsWith operator on displayName)  and $expand.
      *  @param UnifiedRoleDefinition|null $value Value to set for the roleDefinition property.
     */
-    public function setRoleDefinition(?UnifiedRoleDefinition $value ): void {
-        $this->roleDefinition = $value;
+    public function setRoleDefinition(?UnifiedRoleDefinition $value): void {
+        $this->getBackingStore()->set('roleDefinition', $value);
     }
 
     /**
      * Sets the roleDefinitionId property value. Identifier of the unifiedRoleDefinition the assignment is for.
      *  @param string|null $value Value to set for the roleDefinitionId property.
     */
-    public function setRoleDefinitionId(?string $value ): void {
-        $this->roleDefinitionId = $value;
+    public function setRoleDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('roleDefinitionId', $value);
     }
 
 }

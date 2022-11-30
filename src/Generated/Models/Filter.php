@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class Filter implements AdditionalDataHolder, Parsable 
+class Filter implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<FilterGroup>|null $categoryFilterGroups *Experimental* Filter group set used to decide whether given object belongs and should be processed as part of this object mapping. An object is considered in scope if ANY of the groups in the collection is evaluated to true.
-    */
-    private ?array $categoryFilterGroups = null;
-    
-    /**
-     * @var array<FilterGroup>|null $groups Filter group set used to decide whether given object is in scope for provisioning. This is the filter which should be used in most cases. If an object used to satisfy this filter at a given moment, and then the object or the filter was changed so that filter is not satisfied any longer, such object will get de-provisioned'. An object is considered in scope if ANY of the groups in the collection is evaluated to true.
-    */
-    private ?array $groups = null;
-    
-    /**
-     * @var array<FilterGroup>|null $inputFilterGroups *Experimental* Filter group set used to filter out objects at the early stage of reading them from the directory. If an object doesn't satisfy this filter it will not be processed further. Important to understand is that if an object used to satisfy this filter at a given moment, and then the object or the filter was changed so that filter is no longer satisfied, such object will NOT get de-provisioned. An object is considered in scope if ANY of the groups in the collection is evaluated to true.
-    */
-    private ?array $inputFilterGroups = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new filter and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.filter');
     }
 
     /**
@@ -55,8 +38,16 @@ class Filter implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -64,7 +55,7 @@ class Filter implements AdditionalDataHolder, Parsable
      * @return array<FilterGroup>|null
     */
     public function getCategoryFilterGroups(): ?array {
-        return $this->categoryFilterGroups;
+        return $this->getBackingStore()->get('categoryFilterGroups');
     }
 
     /**
@@ -86,7 +77,7 @@ class Filter implements AdditionalDataHolder, Parsable
      * @return array<FilterGroup>|null
     */
     public function getGroups(): ?array {
-        return $this->groups;
+        return $this->getBackingStore()->get('groups');
     }
 
     /**
@@ -94,7 +85,7 @@ class Filter implements AdditionalDataHolder, Parsable
      * @return array<FilterGroup>|null
     */
     public function getInputFilterGroups(): ?array {
-        return $this->inputFilterGroups;
+        return $this->getBackingStore()->get('inputFilterGroups');
     }
 
     /**
@@ -102,7 +93,7 @@ class Filter implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -110,51 +101,59 @@ class Filter implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('categoryFilterGroups', $this->categoryFilterGroups);
-        $writer->writeCollectionOfObjectValues('groups', $this->groups);
-        $writer->writeCollectionOfObjectValues('inputFilterGroups', $this->inputFilterGroups);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('categoryFilterGroups', $this->getCategoryFilterGroups());
+        $writer->writeCollectionOfObjectValues('groups', $this->getGroups());
+        $writer->writeCollectionOfObjectValues('inputFilterGroups', $this->getInputFilterGroups());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the categoryFilterGroups property value. *Experimental* Filter group set used to decide whether given object belongs and should be processed as part of this object mapping. An object is considered in scope if ANY of the groups in the collection is evaluated to true.
      *  @param array<FilterGroup>|null $value Value to set for the categoryFilterGroups property.
     */
-    public function setCategoryFilterGroups(?array $value ): void {
-        $this->categoryFilterGroups = $value;
+    public function setCategoryFilterGroups(?array $value): void {
+        $this->getBackingStore()->set('categoryFilterGroups', $value);
     }
 
     /**
      * Sets the groups property value. Filter group set used to decide whether given object is in scope for provisioning. This is the filter which should be used in most cases. If an object used to satisfy this filter at a given moment, and then the object or the filter was changed so that filter is not satisfied any longer, such object will get de-provisioned'. An object is considered in scope if ANY of the groups in the collection is evaluated to true.
      *  @param array<FilterGroup>|null $value Value to set for the groups property.
     */
-    public function setGroups(?array $value ): void {
-        $this->groups = $value;
+    public function setGroups(?array $value): void {
+        $this->getBackingStore()->set('groups', $value);
     }
 
     /**
      * Sets the inputFilterGroups property value. *Experimental* Filter group set used to filter out objects at the early stage of reading them from the directory. If an object doesn't satisfy this filter it will not be processed further. Important to understand is that if an object used to satisfy this filter at a given moment, and then the object or the filter was changed so that filter is no longer satisfied, such object will NOT get de-provisioned. An object is considered in scope if ANY of the groups in the collection is evaluated to true.
      *  @param array<FilterGroup>|null $value Value to set for the inputFilterGroups property.
     */
-    public function setInputFilterGroups(?array $value ): void {
-        $this->inputFilterGroups = $value;
+    public function setInputFilterGroups(?array $value): void {
+        $this->getBackingStore()->set('inputFilterGroups', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

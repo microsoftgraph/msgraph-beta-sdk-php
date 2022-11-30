@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OnPremisesAgentItemRequestBuilder 
 {
     /**
-     * The agentGroups property
+     * Provides operations to manage the agentGroups property of the microsoft.graph.onPremisesAgent entity.
     */
     public function agentGroups(): AgentGroupsRequestBuilder {
         return new AgentGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);

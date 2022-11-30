@@ -10,61 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsFeatureUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * @var array<WindowsFeatureUpdateProfileAssignment>|null $assignments The list of group assignments of the profile.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date time that the profile was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $deployableContentDisplayName Friendly display name of the quality update profile deployable content
-    */
-    private ?string $deployableContentDisplayName = null;
-    
-    /**
-     * @var string|null $description The description of the profile which is specified by the user.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name of the profile.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $endOfSupportDate The last supported date for a feature update
-    */
-    private ?DateTime $endOfSupportDate = null;
-    
-    /**
-     * @var string|null $featureUpdateVersion The feature update version that will be deployed to the devices targeted by this profile. The version could be any supported version for example 1709, 1803 or 1809 and so on.
-    */
-    private ?string $featureUpdateVersion = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date time that the profile was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Feature Update entity.
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
-     * @var WindowsUpdateRolloutSettings|null $rolloutSettings The windows update rollout settings, including offer start date time, offer end date time, and days between each set of offers.
-    */
-    private ?WindowsUpdateRolloutSettings $rolloutSettings = null;
-    
-    /**
-     * Instantiates a new WindowsFeatureUpdateProfile and sets the default values.
+     * Instantiates a new windowsFeatureUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsFeatureUpdateProfile');
     }
 
     /**
@@ -81,7 +30,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return array<WindowsFeatureUpdateProfileAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -89,7 +38,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -97,7 +46,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDeployableContentDisplayName(): ?string {
-        return $this->deployableContentDisplayName;
+        return $this->getBackingStore()->get('deployableContentDisplayName');
     }
 
     /**
@@ -105,7 +54,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -113,7 +62,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -121,7 +70,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndOfSupportDate(): ?DateTime {
-        return $this->endOfSupportDate;
+        return $this->getBackingStore()->get('endOfSupportDate');
     }
 
     /**
@@ -129,7 +78,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getFeatureUpdateVersion(): ?string {
-        return $this->featureUpdateVersion;
+        return $this->getBackingStore()->get('featureUpdateVersion');
     }
 
     /**
@@ -157,7 +106,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -165,7 +114,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -173,7 +122,7 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
      * @return WindowsUpdateRolloutSettings|null
     */
     public function getRolloutSettings(): ?WindowsUpdateRolloutSettings {
-        return $this->rolloutSettings;
+        return $this->getBackingStore()->get('rolloutSettings');
     }
 
     /**
@@ -182,96 +131,96 @@ class WindowsFeatureUpdateProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('deployableContentDisplayName', $this->deployableContentDisplayName);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('endOfSupportDate', $this->endOfSupportDate);
-        $writer->writeStringValue('featureUpdateVersion', $this->featureUpdateVersion);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeObjectValue('rolloutSettings', $this->rolloutSettings);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('deployableContentDisplayName', $this->getDeployableContentDisplayName());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('endOfSupportDate', $this->getEndOfSupportDate());
+        $writer->writeStringValue('featureUpdateVersion', $this->getFeatureUpdateVersion());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeObjectValue('rolloutSettings', $this->getRolloutSettings());
     }
 
     /**
      * Sets the assignments property value. The list of group assignments of the profile.
      *  @param array<WindowsFeatureUpdateProfileAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date time that the profile was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the deployableContentDisplayName property value. Friendly display name of the quality update profile deployable content
      *  @param string|null $value Value to set for the deployableContentDisplayName property.
     */
-    public function setDeployableContentDisplayName(?string $value ): void {
-        $this->deployableContentDisplayName = $value;
+    public function setDeployableContentDisplayName(?string $value): void {
+        $this->getBackingStore()->set('deployableContentDisplayName', $value);
     }
 
     /**
      * Sets the description property value. The description of the profile which is specified by the user.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the profile.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the endOfSupportDate property value. The last supported date for a feature update
      *  @param DateTime|null $value Value to set for the endOfSupportDate property.
     */
-    public function setEndOfSupportDate(?DateTime $value ): void {
-        $this->endOfSupportDate = $value;
+    public function setEndOfSupportDate(?DateTime $value): void {
+        $this->getBackingStore()->set('endOfSupportDate', $value);
     }
 
     /**
      * Sets the featureUpdateVersion property value. The feature update version that will be deployed to the devices targeted by this profile. The version could be any supported version for example 1709, 1803 or 1809 and so on.
      *  @param string|null $value Value to set for the featureUpdateVersion property.
     */
-    public function setFeatureUpdateVersion(?string $value ): void {
-        $this->featureUpdateVersion = $value;
+    public function setFeatureUpdateVersion(?string $value): void {
+        $this->getBackingStore()->set('featureUpdateVersion', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date time that the profile was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Feature Update entity.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**
      * Sets the rolloutSettings property value. The windows update rollout settings, including offer start date time, offer end date time, and days between each set of offers.
      *  @param WindowsUpdateRolloutSettings|null $value Value to set for the rolloutSettings property.
     */
-    public function setRolloutSettings(?WindowsUpdateRolloutSettings $value ): void {
-        $this->rolloutSettings = $value;
+    public function setRolloutSettings(?WindowsUpdateRolloutSettings $value): void {
+        $this->getBackingStore()->set('rolloutSettings', $value);
     }
 
 }

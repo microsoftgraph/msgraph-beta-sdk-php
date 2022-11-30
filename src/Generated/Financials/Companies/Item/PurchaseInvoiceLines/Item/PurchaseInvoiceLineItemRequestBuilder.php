@@ -20,14 +20,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PurchaseInvoiceLineItemRequestBuilder 
 {
     /**
-     * The account property
+     * Provides operations to manage the account property of the microsoft.graph.purchaseInvoiceLine entity.
     */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The item property
+     * Provides operations to manage the item property of the microsoft.graph.purchaseInvoiceLine entity.
     */
     public function item(): ItemRequestBuilder {
         return new ItemRequestBuilder($this->pathParameters, $this->requestAdapter);

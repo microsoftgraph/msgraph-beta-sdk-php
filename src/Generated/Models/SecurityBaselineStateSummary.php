@@ -9,41 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityBaselineStateSummary extends Entity implements Parsable 
 {
     /**
-     * @var int|null $conflictCount Number of conflict devices
-    */
-    private ?int $conflictCount = null;
-    
-    /**
-     * @var int|null $errorCount Number of error devices
-    */
-    private ?int $errorCount = null;
-    
-    /**
-     * @var int|null $notApplicableCount Number of not applicable devices
-    */
-    private ?int $notApplicableCount = null;
-    
-    /**
-     * @var int|null $notSecureCount Number of not secure devices
-    */
-    private ?int $notSecureCount = null;
-    
-    /**
-     * @var int|null $secureCount Number of secure devices
-    */
-    private ?int $secureCount = null;
-    
-    /**
-     * @var int|null $unknownCount Number of unknown devices
-    */
-    private ?int $unknownCount = null;
-    
-    /**
      * Instantiates a new securityBaselineStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.securityBaselineStateSummary');
     }
 
     /**
@@ -67,7 +36,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getConflictCount(): ?int {
-        return $this->conflictCount;
+        return $this->getBackingStore()->get('conflictCount');
     }
 
     /**
@@ -75,7 +44,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorCount(): ?int {
-        return $this->errorCount;
+        return $this->getBackingStore()->get('errorCount');
     }
 
     /**
@@ -99,7 +68,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotApplicableCount(): ?int {
-        return $this->notApplicableCount;
+        return $this->getBackingStore()->get('notApplicableCount');
     }
 
     /**
@@ -107,7 +76,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotSecureCount(): ?int {
-        return $this->notSecureCount;
+        return $this->getBackingStore()->get('notSecureCount');
     }
 
     /**
@@ -115,7 +84,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSecureCount(): ?int {
-        return $this->secureCount;
+        return $this->getBackingStore()->get('secureCount');
     }
 
     /**
@@ -123,7 +92,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUnknownCount(): ?int {
-        return $this->unknownCount;
+        return $this->getBackingStore()->get('unknownCount');
     }
 
     /**
@@ -132,60 +101,60 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('conflictCount', $this->conflictCount);
-        $writer->writeIntegerValue('errorCount', $this->errorCount);
-        $writer->writeIntegerValue('notApplicableCount', $this->notApplicableCount);
-        $writer->writeIntegerValue('notSecureCount', $this->notSecureCount);
-        $writer->writeIntegerValue('secureCount', $this->secureCount);
-        $writer->writeIntegerValue('unknownCount', $this->unknownCount);
+        $writer->writeIntegerValue('conflictCount', $this->getConflictCount());
+        $writer->writeIntegerValue('errorCount', $this->getErrorCount());
+        $writer->writeIntegerValue('notApplicableCount', $this->getNotApplicableCount());
+        $writer->writeIntegerValue('notSecureCount', $this->getNotSecureCount());
+        $writer->writeIntegerValue('secureCount', $this->getSecureCount());
+        $writer->writeIntegerValue('unknownCount', $this->getUnknownCount());
     }
 
     /**
      * Sets the conflictCount property value. Number of conflict devices
      *  @param int|null $value Value to set for the conflictCount property.
     */
-    public function setConflictCount(?int $value ): void {
-        $this->conflictCount = $value;
+    public function setConflictCount(?int $value): void {
+        $this->getBackingStore()->set('conflictCount', $value);
     }
 
     /**
      * Sets the errorCount property value. Number of error devices
      *  @param int|null $value Value to set for the errorCount property.
     */
-    public function setErrorCount(?int $value ): void {
-        $this->errorCount = $value;
+    public function setErrorCount(?int $value): void {
+        $this->getBackingStore()->set('errorCount', $value);
     }
 
     /**
      * Sets the notApplicableCount property value. Number of not applicable devices
      *  @param int|null $value Value to set for the notApplicableCount property.
     */
-    public function setNotApplicableCount(?int $value ): void {
-        $this->notApplicableCount = $value;
+    public function setNotApplicableCount(?int $value): void {
+        $this->getBackingStore()->set('notApplicableCount', $value);
     }
 
     /**
      * Sets the notSecureCount property value. Number of not secure devices
      *  @param int|null $value Value to set for the notSecureCount property.
     */
-    public function setNotSecureCount(?int $value ): void {
-        $this->notSecureCount = $value;
+    public function setNotSecureCount(?int $value): void {
+        $this->getBackingStore()->set('notSecureCount', $value);
     }
 
     /**
      * Sets the secureCount property value. Number of secure devices
      *  @param int|null $value Value to set for the secureCount property.
     */
-    public function setSecureCount(?int $value ): void {
-        $this->secureCount = $value;
+    public function setSecureCount(?int $value): void {
+        $this->getBackingStore()->set('secureCount', $value);
     }
 
     /**
      * Sets the unknownCount property value. Number of unknown devices
      *  @param int|null $value Value to set for the unknownCount property.
     */
-    public function setUnknownCount(?int $value ): void {
-        $this->unknownCount = $value;
+    public function setUnknownCount(?int $value): void {
+        $this->getBackingStore()->set('unknownCount', $value);
     }
 
 }

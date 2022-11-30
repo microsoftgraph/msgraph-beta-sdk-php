@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MembershipOutlierInsight extends GovernanceInsight implements Parsable 
 {
     /**
-     * @var DirectoryObject|null $container Navigation link to the container directory object. For example, to a group.
-    */
-    private ?DirectoryObject $container = null;
-    
-    /**
-     * @var string|null $containerId Indicates the identifier of the container, for example, a group ID.
-    */
-    private ?string $containerId = null;
-    
-    /**
-     * @var DirectoryObject|null $member Navigation link to a member object. For example, to a user.
-    */
-    private ?DirectoryObject $member = null;
-    
-    /**
-     * @var string|null $memberId Indicates the identifier of the user.
-    */
-    private ?string $memberId = null;
-    
-    /**
-     * @var OutlierContainerType|null $outlierContainerType The outlierContainerType property
-    */
-    private ?OutlierContainerType $outlierContainerType = null;
-    
-    /**
-     * @var OutlierMemberType|null $outlierMemberType The outlierMemberType property
-    */
-    private ?OutlierMemberType $outlierMemberType = null;
-    
-    /**
      * Instantiates a new MembershipOutlierInsight and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return DirectoryObject|null
     */
     public function getContainer(): ?DirectoryObject {
-        return $this->container;
+        return $this->getBackingStore()->get('container');
     }
 
     /**
@@ -68,7 +38,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return string|null
     */
     public function getContainerId(): ?string {
-        return $this->containerId;
+        return $this->getBackingStore()->get('containerId');
     }
 
     /**
@@ -92,7 +62,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return DirectoryObject|null
     */
     public function getMember(): ?DirectoryObject {
-        return $this->member;
+        return $this->getBackingStore()->get('member');
     }
 
     /**
@@ -100,7 +70,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return string|null
     */
     public function getMemberId(): ?string {
-        return $this->memberId;
+        return $this->getBackingStore()->get('memberId');
     }
 
     /**
@@ -108,7 +78,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return OutlierContainerType|null
     */
     public function getOutlierContainerType(): ?OutlierContainerType {
-        return $this->outlierContainerType;
+        return $this->getBackingStore()->get('outlierContainerType');
     }
 
     /**
@@ -116,7 +86,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
      * @return OutlierMemberType|null
     */
     public function getOutlierMemberType(): ?OutlierMemberType {
-        return $this->outlierMemberType;
+        return $this->getBackingStore()->get('outlierMemberType');
     }
 
     /**
@@ -125,60 +95,60 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('container', $this->container);
-        $writer->writeStringValue('containerId', $this->containerId);
-        $writer->writeObjectValue('member', $this->member);
-        $writer->writeStringValue('memberId', $this->memberId);
-        $writer->writeEnumValue('outlierContainerType', $this->outlierContainerType);
-        $writer->writeEnumValue('outlierMemberType', $this->outlierMemberType);
+        $writer->writeObjectValue('container', $this->getContainer());
+        $writer->writeStringValue('containerId', $this->getContainerId());
+        $writer->writeObjectValue('member', $this->getMember());
+        $writer->writeStringValue('memberId', $this->getMemberId());
+        $writer->writeEnumValue('outlierContainerType', $this->getOutlierContainerType());
+        $writer->writeEnumValue('outlierMemberType', $this->getOutlierMemberType());
     }
 
     /**
      * Sets the container property value. Navigation link to the container directory object. For example, to a group.
      *  @param DirectoryObject|null $value Value to set for the container property.
     */
-    public function setContainer(?DirectoryObject $value ): void {
-        $this->container = $value;
+    public function setContainer(?DirectoryObject $value): void {
+        $this->getBackingStore()->set('container', $value);
     }
 
     /**
      * Sets the containerId property value. Indicates the identifier of the container, for example, a group ID.
      *  @param string|null $value Value to set for the containerId property.
     */
-    public function setContainerId(?string $value ): void {
-        $this->containerId = $value;
+    public function setContainerId(?string $value): void {
+        $this->getBackingStore()->set('containerId', $value);
     }
 
     /**
      * Sets the member property value. Navigation link to a member object. For example, to a user.
      *  @param DirectoryObject|null $value Value to set for the member property.
     */
-    public function setMember(?DirectoryObject $value ): void {
-        $this->member = $value;
+    public function setMember(?DirectoryObject $value): void {
+        $this->getBackingStore()->set('member', $value);
     }
 
     /**
      * Sets the memberId property value. Indicates the identifier of the user.
      *  @param string|null $value Value to set for the memberId property.
     */
-    public function setMemberId(?string $value ): void {
-        $this->memberId = $value;
+    public function setMemberId(?string $value): void {
+        $this->getBackingStore()->set('memberId', $value);
     }
 
     /**
      * Sets the outlierContainerType property value. The outlierContainerType property
      *  @param OutlierContainerType|null $value Value to set for the outlierContainerType property.
     */
-    public function setOutlierContainerType(?OutlierContainerType $value ): void {
-        $this->outlierContainerType = $value;
+    public function setOutlierContainerType(?OutlierContainerType $value): void {
+        $this->getBackingStore()->set('outlierContainerType', $value);
     }
 
     /**
      * Sets the outlierMemberType property value. The outlierMemberType property
      *  @param OutlierMemberType|null $value Value to set for the outlierMemberType property.
     */
-    public function setOutlierMemberType(?OutlierMemberType $value ): void {
-        $this->outlierMemberType = $value;
+    public function setOutlierMemberType(?OutlierMemberType $value): void {
+        $this->getBackingStore()->set('outlierMemberType', $value);
     }
 
 }

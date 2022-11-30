@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ResetPasscodeActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * @var int|null $errorCode RotateBitLockerKeys action error code. Valid values 0 to 2147483647
-    */
-    private ?int $errorCode = null;
-    
-    /**
-     * @var string|null $passcode Newly generated passcode for the device
-    */
-    private ?string $passcode = null;
-    
-    /**
      * Instantiates a new ResetPasscodeActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.resetPasscodeActionResult');
     }
 
     /**
@@ -40,7 +29,7 @@ class ResetPasscodeActionResult extends DeviceActionResult implements Parsable
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -60,7 +49,7 @@ class ResetPasscodeActionResult extends DeviceActionResult implements Parsable
      * @return string|null
     */
     public function getPasscode(): ?string {
-        return $this->passcode;
+        return $this->getBackingStore()->get('passcode');
     }
 
     /**
@@ -69,24 +58,24 @@ class ResetPasscodeActionResult extends DeviceActionResult implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('errorCode', $this->errorCode);
-        $writer->writeStringValue('passcode', $this->passcode);
+        $writer->writeIntegerValue('errorCode', $this->getErrorCode());
+        $writer->writeStringValue('passcode', $this->getPasscode());
     }
 
     /**
      * Sets the errorCode property value. RotateBitLockerKeys action error code. Valid values 0 to 2147483647
      *  @param int|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?int $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?int $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the passcode property value. Newly generated passcode for the device
      *  @param string|null $value Value to set for the passcode property.
     */
-    public function setPasscode(?string $value ): void {
-        $this->passcode = $value;
+    public function setPasscode(?string $value): void {
+        $this->getBackingStore()->set('passcode', $value);
     }
 
 }

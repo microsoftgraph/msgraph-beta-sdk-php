@@ -10,56 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewDecision extends Entity implements Parsable 
 {
     /**
-     * @var string|null $accessRecommendation The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.
-    */
-    private ?string $accessRecommendation = null;
-    
-    /**
-     * @var string|null $accessReviewId The feature-generated id of the access review.
-    */
-    private ?string $accessReviewId = null;
-    
-    /**
-     * @var UserIdentity|null $appliedBy When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty.
-    */
-    private ?UserIdentity $appliedBy = null;
-    
-    /**
-     * @var DateTime|null $appliedDateTime The date and time when the review decision was applied.
-    */
-    private ?DateTime $appliedDateTime = null;
-    
-    /**
-     * @var string|null $applyResult The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported.
-    */
-    private ?string $applyResult = null;
-    
-    /**
-     * @var string|null $justification The reviewer's business justification, if supplied.
-    */
-    private ?string $justification = null;
-    
-    /**
-     * @var UserIdentity|null $reviewedBy The identity of the reviewer. If the recommendation was used as the review, the userPrincipalName is empty.
-    */
-    private ?UserIdentity $reviewedBy = null;
-    
-    /**
-     * @var DateTime|null $reviewedDateTime The reviewedDateTime property
-    */
-    private ?DateTime $reviewedDateTime = null;
-    
-    /**
-     * @var string|null $reviewResult The result of the review, one of NotReviewed, Deny, DontKnow or Approve.
-    */
-    private ?string $reviewResult = null;
-    
-    /**
      * Instantiates a new accessReviewDecision and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.accessReviewDecision');
     }
 
     /**
@@ -76,7 +30,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return string|null
     */
     public function getAccessRecommendation(): ?string {
-        return $this->accessRecommendation;
+        return $this->getBackingStore()->get('accessRecommendation');
     }
 
     /**
@@ -84,7 +38,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return string|null
     */
     public function getAccessReviewId(): ?string {
-        return $this->accessReviewId;
+        return $this->getBackingStore()->get('accessReviewId');
     }
 
     /**
@@ -92,7 +46,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return UserIdentity|null
     */
     public function getAppliedBy(): ?UserIdentity {
-        return $this->appliedBy;
+        return $this->getBackingStore()->get('appliedBy');
     }
 
     /**
@@ -100,7 +54,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAppliedDateTime(): ?DateTime {
-        return $this->appliedDateTime;
+        return $this->getBackingStore()->get('appliedDateTime');
     }
 
     /**
@@ -108,7 +62,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return string|null
     */
     public function getApplyResult(): ?string {
-        return $this->applyResult;
+        return $this->getBackingStore()->get('applyResult');
     }
 
     /**
@@ -135,7 +89,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return string|null
     */
     public function getJustification(): ?string {
-        return $this->justification;
+        return $this->getBackingStore()->get('justification');
     }
 
     /**
@@ -143,7 +97,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return UserIdentity|null
     */
     public function getReviewedBy(): ?UserIdentity {
-        return $this->reviewedBy;
+        return $this->getBackingStore()->get('reviewedBy');
     }
 
     /**
@@ -151,7 +105,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReviewedDateTime(): ?DateTime {
-        return $this->reviewedDateTime;
+        return $this->getBackingStore()->get('reviewedDateTime');
     }
 
     /**
@@ -159,7 +113,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return string|null
     */
     public function getReviewResult(): ?string {
-        return $this->reviewResult;
+        return $this->getBackingStore()->get('reviewResult');
     }
 
     /**
@@ -168,87 +122,87 @@ class AccessReviewDecision extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('accessRecommendation', $this->accessRecommendation);
-        $writer->writeStringValue('accessReviewId', $this->accessReviewId);
-        $writer->writeObjectValue('appliedBy', $this->appliedBy);
-        $writer->writeDateTimeValue('appliedDateTime', $this->appliedDateTime);
-        $writer->writeStringValue('applyResult', $this->applyResult);
-        $writer->writeStringValue('justification', $this->justification);
-        $writer->writeObjectValue('reviewedBy', $this->reviewedBy);
-        $writer->writeDateTimeValue('reviewedDateTime', $this->reviewedDateTime);
-        $writer->writeStringValue('reviewResult', $this->reviewResult);
+        $writer->writeStringValue('accessRecommendation', $this->getAccessRecommendation());
+        $writer->writeStringValue('accessReviewId', $this->getAccessReviewId());
+        $writer->writeObjectValue('appliedBy', $this->getAppliedBy());
+        $writer->writeDateTimeValue('appliedDateTime', $this->getAppliedDateTime());
+        $writer->writeStringValue('applyResult', $this->getApplyResult());
+        $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeObjectValue('reviewedBy', $this->getReviewedBy());
+        $writer->writeDateTimeValue('reviewedDateTime', $this->getReviewedDateTime());
+        $writer->writeStringValue('reviewResult', $this->getReviewResult());
     }
 
     /**
      * Sets the accessRecommendation property value. The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.
      *  @param string|null $value Value to set for the accessRecommendation property.
     */
-    public function setAccessRecommendation(?string $value ): void {
-        $this->accessRecommendation = $value;
+    public function setAccessRecommendation(?string $value): void {
+        $this->getBackingStore()->set('accessRecommendation', $value);
     }
 
     /**
      * Sets the accessReviewId property value. The feature-generated id of the access review.
      *  @param string|null $value Value to set for the accessReviewId property.
     */
-    public function setAccessReviewId(?string $value ): void {
-        $this->accessReviewId = $value;
+    public function setAccessReviewId(?string $value): void {
+        $this->getBackingStore()->set('accessReviewId', $value);
     }
 
     /**
      * Sets the appliedBy property value. When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty.
      *  @param UserIdentity|null $value Value to set for the appliedBy property.
     */
-    public function setAppliedBy(?UserIdentity $value ): void {
-        $this->appliedBy = $value;
+    public function setAppliedBy(?UserIdentity $value): void {
+        $this->getBackingStore()->set('appliedBy', $value);
     }
 
     /**
      * Sets the appliedDateTime property value. The date and time when the review decision was applied.
      *  @param DateTime|null $value Value to set for the appliedDateTime property.
     */
-    public function setAppliedDateTime(?DateTime $value ): void {
-        $this->appliedDateTime = $value;
+    public function setAppliedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('appliedDateTime', $value);
     }
 
     /**
      * Sets the applyResult property value. The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported.
      *  @param string|null $value Value to set for the applyResult property.
     */
-    public function setApplyResult(?string $value ): void {
-        $this->applyResult = $value;
+    public function setApplyResult(?string $value): void {
+        $this->getBackingStore()->set('applyResult', $value);
     }
 
     /**
      * Sets the justification property value. The reviewer's business justification, if supplied.
      *  @param string|null $value Value to set for the justification property.
     */
-    public function setJustification(?string $value ): void {
-        $this->justification = $value;
+    public function setJustification(?string $value): void {
+        $this->getBackingStore()->set('justification', $value);
     }
 
     /**
      * Sets the reviewedBy property value. The identity of the reviewer. If the recommendation was used as the review, the userPrincipalName is empty.
      *  @param UserIdentity|null $value Value to set for the reviewedBy property.
     */
-    public function setReviewedBy(?UserIdentity $value ): void {
-        $this->reviewedBy = $value;
+    public function setReviewedBy(?UserIdentity $value): void {
+        $this->getBackingStore()->set('reviewedBy', $value);
     }
 
     /**
      * Sets the reviewedDateTime property value. The reviewedDateTime property
      *  @param DateTime|null $value Value to set for the reviewedDateTime property.
     */
-    public function setReviewedDateTime(?DateTime $value ): void {
-        $this->reviewedDateTime = $value;
+    public function setReviewedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('reviewedDateTime', $value);
     }
 
     /**
      * Sets the reviewResult property value. The result of the review, one of NotReviewed, Deny, DontKnow or Approve.
      *  @param string|null $value Value to set for the reviewResult property.
     */
-    public function setReviewResult(?string $value ): void {
-        $this->reviewResult = $value;
+    public function setReviewResult(?string $value): void {
+        $this->getBackingStore()->set('reviewResult', $value);
     }
 
 }

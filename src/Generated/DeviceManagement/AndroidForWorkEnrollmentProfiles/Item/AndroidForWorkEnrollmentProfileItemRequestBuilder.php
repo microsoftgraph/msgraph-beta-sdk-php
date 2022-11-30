@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AndroidForWorkEnrollmentProfileItemRequestBuilder 
 {
     /**
-     * The createToken property
+     * Provides operations to call the createToken method.
     */
     public function createToken(): CreateTokenRequestBuilder {
         return new CreateTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -37,7 +37,7 @@ class AndroidForWorkEnrollmentProfileItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The revokeToken property
+     * Provides operations to call the revokeToken method.
     */
     public function revokeToken(): RevokeTokenRequestBuilder {
         return new RevokeTokenRequestBuilder($this->pathParameters, $this->requestAdapter);

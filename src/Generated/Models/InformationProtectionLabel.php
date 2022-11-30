@@ -9,46 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationProtectionLabel extends Entity implements Parsable 
 {
     /**
-     * @var string|null $color The color that the UI should display for the label, if configured.
-    */
-    private ?string $color = null;
-    
-    /**
-     * @var string|null $description The admin-defined description for the label.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var bool|null $isActive Indicates whether the label is active or not. Active labels should be hidden or disabled in UI.
-    */
-    private ?bool $isActive = null;
-    
-    /**
-     * @var string|null $name The plaintext name of the label.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var ParentLabelDetails|null $parent The parent label associated with a child label. Null if label has no parent.
-    */
-    private ?ParentLabelDetails $parent = null;
-    
-    /**
-     * @var int|null $sensitivity The sensitivity value of the label, where lower is less sensitive.
-    */
-    private ?int $sensitivity = null;
-    
-    /**
-     * @var string|null $tooltip The tooltip that should be displayed for the label in a UI.
-    */
-    private ?string $tooltip = null;
-    
-    /**
      * Instantiates a new informationProtectionLabel and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.informationProtectionLabel');
     }
 
     /**
@@ -65,7 +29,7 @@ class InformationProtectionLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getColor(): ?string {
-        return $this->color;
+        return $this->getBackingStore()->get('color');
     }
 
     /**
@@ -73,7 +37,7 @@ class InformationProtectionLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -98,7 +62,7 @@ class InformationProtectionLabel extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsActive(): ?bool {
-        return $this->isActive;
+        return $this->getBackingStore()->get('isActive');
     }
 
     /**
@@ -106,7 +70,7 @@ class InformationProtectionLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -114,7 +78,7 @@ class InformationProtectionLabel extends Entity implements Parsable
      * @return ParentLabelDetails|null
     */
     public function getParent(): ?ParentLabelDetails {
-        return $this->parent;
+        return $this->getBackingStore()->get('parent');
     }
 
     /**
@@ -122,7 +86,7 @@ class InformationProtectionLabel extends Entity implements Parsable
      * @return int|null
     */
     public function getSensitivity(): ?int {
-        return $this->sensitivity;
+        return $this->getBackingStore()->get('sensitivity');
     }
 
     /**
@@ -130,7 +94,7 @@ class InformationProtectionLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getTooltip(): ?string {
-        return $this->tooltip;
+        return $this->getBackingStore()->get('tooltip');
     }
 
     /**
@@ -139,69 +103,69 @@ class InformationProtectionLabel extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('color', $this->color);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('isActive', $this->isActive);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeObjectValue('parent', $this->parent);
-        $writer->writeIntegerValue('sensitivity', $this->sensitivity);
-        $writer->writeStringValue('tooltip', $this->tooltip);
+        $writer->writeStringValue('color', $this->getColor());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeBooleanValue('isActive', $this->getIsActive());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeObjectValue('parent', $this->getParent());
+        $writer->writeIntegerValue('sensitivity', $this->getSensitivity());
+        $writer->writeStringValue('tooltip', $this->getTooltip());
     }
 
     /**
      * Sets the color property value. The color that the UI should display for the label, if configured.
      *  @param string|null $value Value to set for the color property.
     */
-    public function setColor(?string $value ): void {
-        $this->color = $value;
+    public function setColor(?string $value): void {
+        $this->getBackingStore()->set('color', $value);
     }
 
     /**
      * Sets the description property value. The admin-defined description for the label.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the isActive property value. Indicates whether the label is active or not. Active labels should be hidden or disabled in UI.
      *  @param bool|null $value Value to set for the isActive property.
     */
-    public function setIsActive(?bool $value ): void {
-        $this->isActive = $value;
+    public function setIsActive(?bool $value): void {
+        $this->getBackingStore()->set('isActive', $value);
     }
 
     /**
      * Sets the name property value. The plaintext name of the label.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the parent property value. The parent label associated with a child label. Null if label has no parent.
      *  @param ParentLabelDetails|null $value Value to set for the parent property.
     */
-    public function setParent(?ParentLabelDetails $value ): void {
-        $this->parent = $value;
+    public function setParent(?ParentLabelDetails $value): void {
+        $this->getBackingStore()->set('parent', $value);
     }
 
     /**
      * Sets the sensitivity property value. The sensitivity value of the label, where lower is less sensitive.
      *  @param int|null $value Value to set for the sensitivity property.
     */
-    public function setSensitivity(?int $value ): void {
-        $this->sensitivity = $value;
+    public function setSensitivity(?int $value): void {
+        $this->getBackingStore()->set('sensitivity', $value);
     }
 
     /**
      * Sets the tooltip property value. The tooltip that should be displayed for the label in a UI.
      *  @param string|null $value Value to set for the tooltip property.
     */
-    public function setTooltip(?string $value ): void {
-        $this->tooltip = $value;
+    public function setTooltip(?string $value): void {
+        $this->getBackingStore()->set('tooltip', $value);
     }
 
 }

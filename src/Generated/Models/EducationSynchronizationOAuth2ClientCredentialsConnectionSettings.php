@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends EducationSynchronizationConnectionSettings implements Parsable 
 {
     /**
-     * @var string|null $scope The scope of the access request (see RFC6749).
-    */
-    private ?string $scope = null;
-    
-    /**
-     * @var string|null $tokenUrl The URL to get access tokens for the data provider.
-    */
-    private ?string $tokenUrl = null;
-    
-    /**
      * Instantiates a new EducationSynchronizationOAuth2ClientCredentialsConnectionSettings and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
      * @return string|null
     */
     public function getScope(): ?string {
-        return $this->scope;
+        return $this->getBackingStore()->get('scope');
     }
 
     /**
@@ -60,7 +50,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
      * @return string|null
     */
     public function getTokenUrl(): ?string {
-        return $this->tokenUrl;
+        return $this->getBackingStore()->get('tokenUrl');
     }
 
     /**
@@ -69,24 +59,24 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('scope', $this->scope);
-        $writer->writeStringValue('tokenUrl', $this->tokenUrl);
+        $writer->writeStringValue('scope', $this->getScope());
+        $writer->writeStringValue('tokenUrl', $this->getTokenUrl());
     }
 
     /**
      * Sets the scope property value. The scope of the access request (see RFC6749).
      *  @param string|null $value Value to set for the scope property.
     */
-    public function setScope(?string $value ): void {
-        $this->scope = $value;
+    public function setScope(?string $value): void {
+        $this->getBackingStore()->set('scope', $value);
     }
 
     /**
      * Sets the tokenUrl property value. The URL to get access tokens for the data provider.
      *  @param string|null $value Value to set for the tokenUrl property.
     */
-    public function setTokenUrl(?string $value ): void {
-        $this->tokenUrl = $value;
+    public function setTokenUrl(?string $value): void {
+        $this->getBackingStore()->set('tokenUrl', $value);
     }
 
 }

@@ -12,4 +12,5 @@ class AppManagementLevel extends Enum {
     public const ANDROID_ENTERPRISE_DEDICATED_DEVICES_WITH_AZURE_AD_SHARED_MODE = 'androidEnterpriseDedicatedDevicesWithAzureAdSharedMode';
     public const ANDROID_OPEN_SOURCE_PROJECT_USER_ASSOCIATED = 'androidOpenSourceProjectUserAssociated';
     public const ANDROID_OPEN_SOURCE_PROJECT_USERLESS = 'androidOpenSourceProjectUserless';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

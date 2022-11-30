@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TenantAttachRBACRequestBuilder 
 {
     /**
-     * The enable property
+     * Provides operations to call the enable method.
     */
     public function enable(): EnableRequestBuilder {
         return new EnableRequestBuilder($this->pathParameters, $this->requestAdapter);

@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable 
 {
     /**
-     * @var string|null $classicAppPath This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode
-    */
-    private ?string $classicAppPath = null;
-    
-    /**
-     * @var string|null $edgeKiosk Edge kiosk (url) for Edge kiosk mode
-    */
-    private ?string $edgeKiosk = null;
-    
-    /**
-     * @var int|null $edgeKioskIdleTimeoutMinutes Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440
-    */
-    private ?int $edgeKioskIdleTimeoutMinutes = null;
-    
-    /**
-     * @var WindowsEdgeKioskType|null $edgeKioskType Edge kiosk type
-    */
-    private ?WindowsEdgeKioskType $edgeKioskType = null;
-    
-    /**
-     * @var bool|null $edgeNoFirstRun Edge first run flag for Edge kiosk mode
-    */
-    private ?bool $edgeNoFirstRun = null;
-    
-    /**
      * Instantiates a new WindowsKioskWin32App and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getClassicAppPath(): ?string {
-        return $this->classicAppPath;
+        return $this->getBackingStore()->get('classicAppPath');
     }
 
     /**
@@ -63,7 +38,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getEdgeKiosk(): ?string {
-        return $this->edgeKiosk;
+        return $this->getBackingStore()->get('edgeKiosk');
     }
 
     /**
@@ -71,7 +46,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return int|null
     */
     public function getEdgeKioskIdleTimeoutMinutes(): ?int {
-        return $this->edgeKioskIdleTimeoutMinutes;
+        return $this->getBackingStore()->get('edgeKioskIdleTimeoutMinutes');
     }
 
     /**
@@ -79,7 +54,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return WindowsEdgeKioskType|null
     */
     public function getEdgeKioskType(): ?WindowsEdgeKioskType {
-        return $this->edgeKioskType;
+        return $this->getBackingStore()->get('edgeKioskType');
     }
 
     /**
@@ -87,7 +62,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
      * @return bool|null
     */
     public function getEdgeNoFirstRun(): ?bool {
-        return $this->edgeNoFirstRun;
+        return $this->getBackingStore()->get('edgeNoFirstRun');
     }
 
     /**
@@ -111,51 +86,51 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('classicAppPath', $this->classicAppPath);
-        $writer->writeStringValue('edgeKiosk', $this->edgeKiosk);
-        $writer->writeIntegerValue('edgeKioskIdleTimeoutMinutes', $this->edgeKioskIdleTimeoutMinutes);
-        $writer->writeEnumValue('edgeKioskType', $this->edgeKioskType);
-        $writer->writeBooleanValue('edgeNoFirstRun', $this->edgeNoFirstRun);
+        $writer->writeStringValue('classicAppPath', $this->getClassicAppPath());
+        $writer->writeStringValue('edgeKiosk', $this->getEdgeKiosk());
+        $writer->writeIntegerValue('edgeKioskIdleTimeoutMinutes', $this->getEdgeKioskIdleTimeoutMinutes());
+        $writer->writeEnumValue('edgeKioskType', $this->getEdgeKioskType());
+        $writer->writeBooleanValue('edgeNoFirstRun', $this->getEdgeNoFirstRun());
     }
 
     /**
      * Sets the classicAppPath property value. This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode
      *  @param string|null $value Value to set for the classicAppPath property.
     */
-    public function setClassicAppPath(?string $value ): void {
-        $this->classicAppPath = $value;
+    public function setClassicAppPath(?string $value): void {
+        $this->getBackingStore()->set('classicAppPath', $value);
     }
 
     /**
      * Sets the edgeKiosk property value. Edge kiosk (url) for Edge kiosk mode
      *  @param string|null $value Value to set for the edgeKiosk property.
     */
-    public function setEdgeKiosk(?string $value ): void {
-        $this->edgeKiosk = $value;
+    public function setEdgeKiosk(?string $value): void {
+        $this->getBackingStore()->set('edgeKiosk', $value);
     }
 
     /**
      * Sets the edgeKioskIdleTimeoutMinutes property value. Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440
      *  @param int|null $value Value to set for the edgeKioskIdleTimeoutMinutes property.
     */
-    public function setEdgeKioskIdleTimeoutMinutes(?int $value ): void {
-        $this->edgeKioskIdleTimeoutMinutes = $value;
+    public function setEdgeKioskIdleTimeoutMinutes(?int $value): void {
+        $this->getBackingStore()->set('edgeKioskIdleTimeoutMinutes', $value);
     }
 
     /**
      * Sets the edgeKioskType property value. Edge kiosk type
      *  @param WindowsEdgeKioskType|null $value Value to set for the edgeKioskType property.
     */
-    public function setEdgeKioskType(?WindowsEdgeKioskType $value ): void {
-        $this->edgeKioskType = $value;
+    public function setEdgeKioskType(?WindowsEdgeKioskType $value): void {
+        $this->getBackingStore()->set('edgeKioskType', $value);
     }
 
     /**
      * Sets the edgeNoFirstRun property value. Edge first run flag for Edge kiosk mode
      *  @param bool|null $value Value to set for the edgeNoFirstRun property.
     */
-    public function setEdgeNoFirstRun(?bool $value ): void {
-        $this->edgeNoFirstRun = $value;
+    public function setEdgeNoFirstRun(?bool $value): void {
+        $this->getBackingStore()->set('edgeNoFirstRun', $value);
     }
 
 }

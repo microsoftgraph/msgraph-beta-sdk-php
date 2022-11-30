@@ -10,71 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedRoleAssignmentRequest extends Entity implements Parsable 
 {
     /**
-     * @var string|null $assignmentState The state of the assignment. The value can be Eligible for eligible assignment Active - if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
-    */
-    private ?string $assignmentState = null;
-    
-    /**
-     * @var string|null $duration The duration of a role assignment.
-    */
-    private ?string $duration = null;
-    
-    /**
-     * @var string|null $reason The reason for the role assignment.
-    */
-    private ?string $reason = null;
-    
-    /**
-     * @var DateTime|null $requestedDateTime Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $requestedDateTime = null;
-    
-    /**
-     * @var string|null $roleId The id of the role.
-    */
-    private ?string $roleId = null;
-    
-    /**
-     * @var PrivilegedRole|null $roleInfo The roleInfo object of the role assignment request.
-    */
-    private ?PrivilegedRole $roleInfo = null;
-    
-    /**
-     * @var GovernanceSchedule|null $schedule The schedule object of the role assignment request.
-    */
-    private ?GovernanceSchedule $schedule = null;
-    
-    /**
-     * @var string|null $status Read-only.The status of the role assignment request. The value can be NotStarted,Completed,RequestedApproval,Scheduled,Approved,ApprovalDenied,ApprovalAborted,Cancelling,Cancelled,Revoked,RequestExpired.
-    */
-    private ?string $status = null;
-    
-    /**
-     * @var string|null $ticketNumber The ticketNumber for the role assignment.
-    */
-    private ?string $ticketNumber = null;
-    
-    /**
-     * @var string|null $ticketSystem The ticketSystem for the role assignment.
-    */
-    private ?string $ticketSystem = null;
-    
-    /**
-     * @var string|null $type Representing the type of the operation on the role assignment. The value can be AdminAdd: Administrators add users to roles;UserAdd: Users add role assignments.
-    */
-    private ?string $type = null;
-    
-    /**
-     * @var string|null $userId The id of the user.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new privilegedRoleAssignmentRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.privilegedRoleAssignmentRequest');
     }
 
     /**
@@ -91,7 +30,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getAssignmentState(): ?string {
-        return $this->assignmentState;
+        return $this->getBackingStore()->get('assignmentState');
     }
 
     /**
@@ -99,7 +38,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getDuration(): ?string {
-        return $this->duration;
+        return $this->getBackingStore()->get('duration');
     }
 
     /**
@@ -129,7 +68,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getReason(): ?string {
-        return $this->reason;
+        return $this->getBackingStore()->get('reason');
     }
 
     /**
@@ -137,7 +76,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRequestedDateTime(): ?DateTime {
-        return $this->requestedDateTime;
+        return $this->getBackingStore()->get('requestedDateTime');
     }
 
     /**
@@ -145,7 +84,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleId(): ?string {
-        return $this->roleId;
+        return $this->getBackingStore()->get('roleId');
     }
 
     /**
@@ -153,7 +92,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return PrivilegedRole|null
     */
     public function getRoleInfo(): ?PrivilegedRole {
-        return $this->roleInfo;
+        return $this->getBackingStore()->get('roleInfo');
     }
 
     /**
@@ -161,7 +100,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return GovernanceSchedule|null
     */
     public function getSchedule(): ?GovernanceSchedule {
-        return $this->schedule;
+        return $this->getBackingStore()->get('schedule');
     }
 
     /**
@@ -169,7 +108,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -177,7 +116,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getTicketNumber(): ?string {
-        return $this->ticketNumber;
+        return $this->getBackingStore()->get('ticketNumber');
     }
 
     /**
@@ -185,7 +124,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getTicketSystem(): ?string {
-        return $this->ticketSystem;
+        return $this->getBackingStore()->get('ticketSystem');
     }
 
     /**
@@ -193,7 +132,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -201,7 +140,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -210,114 +149,114 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('assignmentState', $this->assignmentState);
-        $writer->writeStringValue('duration', $this->duration);
-        $writer->writeStringValue('reason', $this->reason);
-        $writer->writeDateTimeValue('requestedDateTime', $this->requestedDateTime);
-        $writer->writeStringValue('roleId', $this->roleId);
-        $writer->writeObjectValue('roleInfo', $this->roleInfo);
-        $writer->writeObjectValue('schedule', $this->schedule);
-        $writer->writeStringValue('status', $this->status);
-        $writer->writeStringValue('ticketNumber', $this->ticketNumber);
-        $writer->writeStringValue('ticketSystem', $this->ticketSystem);
-        $writer->writeStringValue('type', $this->type);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeStringValue('assignmentState', $this->getAssignmentState());
+        $writer->writeStringValue('duration', $this->getDuration());
+        $writer->writeStringValue('reason', $this->getReason());
+        $writer->writeDateTimeValue('requestedDateTime', $this->getRequestedDateTime());
+        $writer->writeStringValue('roleId', $this->getRoleId());
+        $writer->writeObjectValue('roleInfo', $this->getRoleInfo());
+        $writer->writeObjectValue('schedule', $this->getSchedule());
+        $writer->writeStringValue('status', $this->getStatus());
+        $writer->writeStringValue('ticketNumber', $this->getTicketNumber());
+        $writer->writeStringValue('ticketSystem', $this->getTicketSystem());
+        $writer->writeStringValue('type', $this->getType());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the assignmentState property value. The state of the assignment. The value can be Eligible for eligible assignment Active - if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
      *  @param string|null $value Value to set for the assignmentState property.
     */
-    public function setAssignmentState(?string $value ): void {
-        $this->assignmentState = $value;
+    public function setAssignmentState(?string $value): void {
+        $this->getBackingStore()->set('assignmentState', $value);
     }
 
     /**
      * Sets the duration property value. The duration of a role assignment.
      *  @param string|null $value Value to set for the duration property.
     */
-    public function setDuration(?string $value ): void {
-        $this->duration = $value;
+    public function setDuration(?string $value): void {
+        $this->getBackingStore()->set('duration', $value);
     }
 
     /**
      * Sets the reason property value. The reason for the role assignment.
      *  @param string|null $value Value to set for the reason property.
     */
-    public function setReason(?string $value ): void {
-        $this->reason = $value;
+    public function setReason(?string $value): void {
+        $this->getBackingStore()->set('reason', $value);
     }
 
     /**
      * Sets the requestedDateTime property value. Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the requestedDateTime property.
     */
-    public function setRequestedDateTime(?DateTime $value ): void {
-        $this->requestedDateTime = $value;
+    public function setRequestedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('requestedDateTime', $value);
     }
 
     /**
      * Sets the roleId property value. The id of the role.
      *  @param string|null $value Value to set for the roleId property.
     */
-    public function setRoleId(?string $value ): void {
-        $this->roleId = $value;
+    public function setRoleId(?string $value): void {
+        $this->getBackingStore()->set('roleId', $value);
     }
 
     /**
      * Sets the roleInfo property value. The roleInfo object of the role assignment request.
      *  @param PrivilegedRole|null $value Value to set for the roleInfo property.
     */
-    public function setRoleInfo(?PrivilegedRole $value ): void {
-        $this->roleInfo = $value;
+    public function setRoleInfo(?PrivilegedRole $value): void {
+        $this->getBackingStore()->set('roleInfo', $value);
     }
 
     /**
      * Sets the schedule property value. The schedule object of the role assignment request.
      *  @param GovernanceSchedule|null $value Value to set for the schedule property.
     */
-    public function setSchedule(?GovernanceSchedule $value ): void {
-        $this->schedule = $value;
+    public function setSchedule(?GovernanceSchedule $value): void {
+        $this->getBackingStore()->set('schedule', $value);
     }
 
     /**
      * Sets the status property value. Read-only.The status of the role assignment request. The value can be NotStarted,Completed,RequestedApproval,Scheduled,Approved,ApprovalDenied,ApprovalAborted,Cancelling,Cancelled,Revoked,RequestExpired.
      *  @param string|null $value Value to set for the status property.
     */
-    public function setStatus(?string $value ): void {
-        $this->status = $value;
+    public function setStatus(?string $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the ticketNumber property value. The ticketNumber for the role assignment.
      *  @param string|null $value Value to set for the ticketNumber property.
     */
-    public function setTicketNumber(?string $value ): void {
-        $this->ticketNumber = $value;
+    public function setTicketNumber(?string $value): void {
+        $this->getBackingStore()->set('ticketNumber', $value);
     }
 
     /**
      * Sets the ticketSystem property value. The ticketSystem for the role assignment.
      *  @param string|null $value Value to set for the ticketSystem property.
     */
-    public function setTicketSystem(?string $value ): void {
-        $this->ticketSystem = $value;
+    public function setTicketSystem(?string $value): void {
+        $this->getBackingStore()->set('ticketSystem', $value);
     }
 
     /**
      * Sets the type property value. Representing the type of the operation on the role assignment. The value can be AdminAdd: Administrators add users to roles;UserAdd: Users add role assignments.
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
     /**
      * Sets the userId property value. The id of the user.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

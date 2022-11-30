@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalDataHolder, Parsable 
+class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $assignmentFilterIds The assignmentFilterIds property
-    */
-    private ?array $assignmentFilterIds = null;
-    
-    /**
-     * @var string|null $managedDeviceId The managedDeviceId property
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var string|null $payloadId The payloadId property
-    */
-    private ?string $payloadId = null;
-    
-    /**
-     * @var int|null $skip The skip property
-    */
-    private ?int $skip = null;
-    
-    /**
-     * @var int|null $top The top property
-    */
-    private ?int $top = null;
-    
-    /**
-     * @var string|null $userId The userId property
-    */
-    private ?string $userId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new getAssignmentFiltersStatusDetailsPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -64,8 +38,8 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -73,7 +47,15 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
      * @return array<string>|null
     */
     public function getAssignmentFilterIds(): ?array {
-        return $this->assignmentFilterIds;
+        return $this->getBackingStore()->get('assignmentFilterIds');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -97,7 +79,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -105,7 +87,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
      * @return string|null
     */
     public function getPayloadId(): ?string {
-        return $this->payloadId;
+        return $this->getBackingStore()->get('payloadId');
     }
 
     /**
@@ -113,7 +95,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
      * @return int|null
     */
     public function getSkip(): ?int {
-        return $this->skip;
+        return $this->getBackingStore()->get('skip');
     }
 
     /**
@@ -121,7 +103,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
      * @return int|null
     */
     public function getTop(): ?int {
-        return $this->top;
+        return $this->getBackingStore()->get('top');
     }
 
     /**
@@ -129,7 +111,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -137,69 +119,77 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('assignmentFilterIds', $this->assignmentFilterIds);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeStringValue('payloadId', $this->payloadId);
-        $writer->writeIntegerValue('skip', $this->skip);
-        $writer->writeIntegerValue('top', $this->top);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('assignmentFilterIds', $this->getAssignmentFilterIds());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('payloadId', $this->getPayloadId());
+        $writer->writeIntegerValue('skip', $this->getSkip());
+        $writer->writeIntegerValue('top', $this->getTop());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the assignmentFilterIds property value. The assignmentFilterIds property
      *  @param array<string>|null $value Value to set for the assignmentFilterIds property.
     */
-    public function setAssignmentFilterIds(?array $value ): void {
-        $this->assignmentFilterIds = $value;
+    public function setAssignmentFilterIds(?array $value): void {
+        $this->getBackingStore()->set('assignmentFilterIds', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the managedDeviceId property value. The managedDeviceId property
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the payloadId property value. The payloadId property
      *  @param string|null $value Value to set for the payloadId property.
     */
-    public function setPayloadId(?string $value ): void {
-        $this->payloadId = $value;
+    public function setPayloadId(?string $value): void {
+        $this->getBackingStore()->set('payloadId', $value);
     }
 
     /**
      * Sets the skip property value. The skip property
      *  @param int|null $value Value to set for the skip property.
     */
-    public function setSkip(?int $value ): void {
-        $this->skip = $value;
+    public function setSkip(?int $value): void {
+        $this->getBackingStore()->set('skip', $value);
     }
 
     /**
      * Sets the top property value. The top property
      *  @param int|null $value Value to set for the top property.
     */
-    public function setTop(?int $value ): void {
-        $this->top = $value;
+    public function setTop(?int $value): void {
+        $this->getBackingStore()->set('top', $value);
     }
 
     /**
      * Sets the userId property value. The userId property
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

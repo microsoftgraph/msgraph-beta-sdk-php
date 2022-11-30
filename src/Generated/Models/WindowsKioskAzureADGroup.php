@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable 
 {
     /**
-     * @var string|null $displayName The display name of the AzureAD group that will be locked to this kiosk configuration
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $groupId The ID of the AzureAD group that will be locked to this kiosk configuration
-    */
-    private ?string $groupId = null;
-    
-    /**
      * Instantiates a new WindowsKioskAzureADGroup and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -60,7 +50,7 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
      * @return string|null
     */
     public function getGroupId(): ?string {
-        return $this->groupId;
+        return $this->getBackingStore()->get('groupId');
     }
 
     /**
@@ -69,24 +59,24 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('groupId', $this->groupId);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('groupId', $this->getGroupId());
     }
 
     /**
      * Sets the displayName property value. The display name of the AzureAD group that will be locked to this kiosk configuration
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the groupId property value. The ID of the AzureAD group that will be locked to this kiosk configuration
      *  @param string|null $value Value to set for the groupId property.
     */
-    public function setGroupId(?string $value ): void {
-        $this->groupId = $value;
+    public function setGroupId(?string $value): void {
+        $this->getBackingStore()->set('groupId', $value);
     }
 
 }

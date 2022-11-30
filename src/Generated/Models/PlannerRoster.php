@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerRoster extends Entity implements Parsable 
 {
     /**
-     * @var array<PlannerRosterMember>|null $members Retrieves the members of the plannerRoster.
-    */
-    private ?array $members = null;
-    
-    /**
-     * @var array<PlannerPlan>|null $plans Retrieves the plans contained by the plannerRoster.
-    */
-    private ?array $plans = null;
-    
-    /**
      * Instantiates a new plannerRoster and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.plannerRoster');
     }
 
     /**
@@ -52,7 +41,7 @@ class PlannerRoster extends Entity implements Parsable
      * @return array<PlannerRosterMember>|null
     */
     public function getMembers(): ?array {
-        return $this->members;
+        return $this->getBackingStore()->get('members');
     }
 
     /**
@@ -60,7 +49,7 @@ class PlannerRoster extends Entity implements Parsable
      * @return array<PlannerPlan>|null
     */
     public function getPlans(): ?array {
-        return $this->plans;
+        return $this->getBackingStore()->get('plans');
     }
 
     /**
@@ -69,24 +58,24 @@ class PlannerRoster extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('members', $this->members);
-        $writer->writeCollectionOfObjectValues('plans', $this->plans);
+        $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeCollectionOfObjectValues('plans', $this->getPlans());
     }
 
     /**
      * Sets the members property value. Retrieves the members of the plannerRoster.
      *  @param array<PlannerRosterMember>|null $value Value to set for the members property.
     */
-    public function setMembers(?array $value ): void {
-        $this->members = $value;
+    public function setMembers(?array $value): void {
+        $this->getBackingStore()->set('members', $value);
     }
 
     /**
      * Sets the plans property value. Retrieves the plans contained by the plannerRoster.
      *  @param array<PlannerPlan>|null $value Value to set for the plans property.
     */
-    public function setPlans(?array $value ): void {
-        $this->plans = $value;
+    public function setPlans(?array $value): void {
+        $this->getBackingStore()->set('plans', $value);
     }
 
 }

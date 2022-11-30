@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Currency extends Entity implements Parsable 
 {
     /**
-     * @var string|null $amountDecimalPlaces The amountDecimalPlaces property
-    */
-    private ?string $amountDecimalPlaces = null;
-    
-    /**
-     * @var string|null $amountRoundingPrecision The amountRoundingPrecision property
-    */
-    private ?string $amountRoundingPrecision = null;
-    
-    /**
-     * @var string|null $code The code property
-    */
-    private ?string $code = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $symbol The symbol property
-    */
-    private ?string $symbol = null;
-    
-    /**
      * Instantiates a new currency and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.currency');
     }
 
     /**
@@ -61,7 +30,7 @@ class Currency extends Entity implements Parsable
      * @return string|null
     */
     public function getAmountDecimalPlaces(): ?string {
-        return $this->amountDecimalPlaces;
+        return $this->getBackingStore()->get('amountDecimalPlaces');
     }
 
     /**
@@ -69,7 +38,7 @@ class Currency extends Entity implements Parsable
      * @return string|null
     */
     public function getAmountRoundingPrecision(): ?string {
-        return $this->amountRoundingPrecision;
+        return $this->getBackingStore()->get('amountRoundingPrecision');
     }
 
     /**
@@ -77,7 +46,7 @@ class Currency extends Entity implements Parsable
      * @return string|null
     */
     public function getCode(): ?string {
-        return $this->code;
+        return $this->getBackingStore()->get('code');
     }
 
     /**
@@ -85,7 +54,7 @@ class Currency extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -109,7 +78,7 @@ class Currency extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -117,7 +86,7 @@ class Currency extends Entity implements Parsable
      * @return string|null
     */
     public function getSymbol(): ?string {
-        return $this->symbol;
+        return $this->getBackingStore()->get('symbol');
     }
 
     /**
@@ -126,60 +95,60 @@ class Currency extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('amountDecimalPlaces', $this->amountDecimalPlaces);
-        $writer->writeStringValue('amountRoundingPrecision', $this->amountRoundingPrecision);
-        $writer->writeStringValue('code', $this->code);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('symbol', $this->symbol);
+        $writer->writeStringValue('amountDecimalPlaces', $this->getAmountDecimalPlaces());
+        $writer->writeStringValue('amountRoundingPrecision', $this->getAmountRoundingPrecision());
+        $writer->writeStringValue('code', $this->getCode());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('symbol', $this->getSymbol());
     }
 
     /**
      * Sets the amountDecimalPlaces property value. The amountDecimalPlaces property
      *  @param string|null $value Value to set for the amountDecimalPlaces property.
     */
-    public function setAmountDecimalPlaces(?string $value ): void {
-        $this->amountDecimalPlaces = $value;
+    public function setAmountDecimalPlaces(?string $value): void {
+        $this->getBackingStore()->set('amountDecimalPlaces', $value);
     }
 
     /**
      * Sets the amountRoundingPrecision property value. The amountRoundingPrecision property
      *  @param string|null $value Value to set for the amountRoundingPrecision property.
     */
-    public function setAmountRoundingPrecision(?string $value ): void {
-        $this->amountRoundingPrecision = $value;
+    public function setAmountRoundingPrecision(?string $value): void {
+        $this->getBackingStore()->set('amountRoundingPrecision', $value);
     }
 
     /**
      * Sets the code property value. The code property
      *  @param string|null $value Value to set for the code property.
     */
-    public function setCode(?string $value ): void {
-        $this->code = $value;
+    public function setCode(?string $value): void {
+        $this->getBackingStore()->set('code', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the symbol property value. The symbol property
      *  @param string|null $value Value to set for the symbol property.
     */
-    public function setSymbol(?string $value ): void {
-        $this->symbol = $value;
+    public function setSymbol(?string $value): void {
+        $this->getBackingStore()->set('symbol', $value);
     }
 
 }

@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CollapseProperty implements AdditionalDataHolder, Parsable 
+class CollapseProperty implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $fields The fields property
-    */
-    private ?array $fields = null;
-    
-    /**
-     * @var int|null $limit The limit property
-    */
-    private ?int $limit = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new collapseProperty and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.collapseProperty');
     }
 
     /**
@@ -50,8 +38,16 @@ class CollapseProperty implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -68,19 +64,19 @@ class CollapseProperty implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the fields property value. The fields property
+     * Gets the fields property value. Defines the collapse group to trim results. The properties in this collection must be sortable/refinable properties. Required.
      * @return array<string>|null
     */
     public function getFields(): ?array {
-        return $this->fields;
+        return $this->getBackingStore()->get('fields');
     }
 
     /**
-     * Gets the limit property value. The limit property
+     * Gets the limit property value. Defines a maximum limit count for this field. This numeric value must be a positive integer. Required.
      * @return int|null
     */
     public function getLimit(): ?int {
-        return $this->limit;
+        return $this->getBackingStore()->get('limit');
     }
 
     /**
@@ -88,7 +84,7 @@ class CollapseProperty implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -96,42 +92,50 @@ class CollapseProperty implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('fields', $this->fields);
-        $writer->writeIntegerValue('limit', $this->limit);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('fields', $this->getFields());
+        $writer->writeIntegerValue('limit', $this->getLimit());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
-     * Sets the fields property value. The fields property
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the fields property value. Defines the collapse group to trim results. The properties in this collection must be sortable/refinable properties. Required.
      *  @param array<string>|null $value Value to set for the fields property.
     */
-    public function setFields(?array $value ): void {
-        $this->fields = $value;
+    public function setFields(?array $value): void {
+        $this->getBackingStore()->set('fields', $value);
     }
 
     /**
-     * Sets the limit property value. The limit property
+     * Sets the limit property value. Defines a maximum limit count for this field. This numeric value must be a positive integer. Required.
      *  @param int|null $value Value to set for the limit property.
     */
-    public function setLimit(?int $value ): void {
-        $this->limit = $value;
+    public function setLimit(?int $value): void {
+        $this->getBackingStore()->set('limit', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

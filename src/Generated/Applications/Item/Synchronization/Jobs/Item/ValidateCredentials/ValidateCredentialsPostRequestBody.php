@@ -7,38 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Parsable 
+class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $applicationIdentifier The applicationIdentifier property
-    */
-    private ?string $applicationIdentifier = null;
-    
-    /**
-     * @var array<SynchronizationSecretKeyStringValuePair>|null $credentials The credentials property
-    */
-    private ?array $credentials = null;
-    
-    /**
-     * @var string|null $templateId The templateId property
-    */
-    private ?string $templateId = null;
-    
-    /**
-     * @var bool|null $useSavedCredentials The useSavedCredentials property
-    */
-    private ?bool $useSavedCredentials = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new validateCredentialsPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -55,8 +39,8 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Parsab
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -64,7 +48,15 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Parsab
      * @return string|null
     */
     public function getApplicationIdentifier(): ?string {
-        return $this->applicationIdentifier;
+        return $this->getBackingStore()->get('applicationIdentifier');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +64,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Parsab
      * @return array<SynchronizationSecretKeyStringValuePair>|null
     */
     public function getCredentials(): ?array {
-        return $this->credentials;
+        return $this->getBackingStore()->get('credentials');
     }
 
     /**
@@ -94,7 +86,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Parsab
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->templateId;
+        return $this->getBackingStore()->get('templateId');
     }
 
     /**
@@ -102,7 +94,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Parsab
      * @return bool|null
     */
     public function getUseSavedCredentials(): ?bool {
-        return $this->useSavedCredentials;
+        return $this->getBackingStore()->get('useSavedCredentials');
     }
 
     /**
@@ -110,51 +102,59 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Parsab
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('applicationIdentifier', $this->applicationIdentifier);
-        $writer->writeCollectionOfObjectValues('credentials', $this->credentials);
-        $writer->writeStringValue('templateId', $this->templateId);
-        $writer->writeBooleanValue('useSavedCredentials', $this->useSavedCredentials);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('applicationIdentifier', $this->getApplicationIdentifier());
+        $writer->writeCollectionOfObjectValues('credentials', $this->getCredentials());
+        $writer->writeStringValue('templateId', $this->getTemplateId());
+        $writer->writeBooleanValue('useSavedCredentials', $this->getUseSavedCredentials());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the applicationIdentifier property value. The applicationIdentifier property
      *  @param string|null $value Value to set for the applicationIdentifier property.
     */
-    public function setApplicationIdentifier(?string $value ): void {
-        $this->applicationIdentifier = $value;
+    public function setApplicationIdentifier(?string $value): void {
+        $this->getBackingStore()->set('applicationIdentifier', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the credentials property value. The credentials property
      *  @param array<SynchronizationSecretKeyStringValuePair>|null $value Value to set for the credentials property.
     */
-    public function setCredentials(?array $value ): void {
-        $this->credentials = $value;
+    public function setCredentials(?array $value): void {
+        $this->getBackingStore()->set('credentials', $value);
     }
 
     /**
      * Sets the templateId property value. The templateId property
      *  @param string|null $value Value to set for the templateId property.
     */
-    public function setTemplateId(?string $value ): void {
-        $this->templateId = $value;
+    public function setTemplateId(?string $value): void {
+        $this->getBackingStore()->set('templateId', $value);
     }
 
     /**
      * Sets the useSavedCredentials property value. The useSavedCredentials property
      *  @param bool|null $value Value to set for the useSavedCredentials property.
     */
-    public function setUseSavedCredentials(?bool $value ): void {
-        $this->useSavedCredentials = $value;
+    public function setUseSavedCredentials(?bool $value): void {
+        $this->getBackingStore()->set('useSavedCredentials', $value);
     }
 
 }

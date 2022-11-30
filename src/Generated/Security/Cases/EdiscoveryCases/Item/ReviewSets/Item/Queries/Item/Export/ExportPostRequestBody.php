@@ -8,48 +8,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ExportPostRequestBody implements AdditionalDataHolder, Parsable 
+class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $azureBlobContainer The azureBlobContainer property
-    */
-    private ?string $azureBlobContainer = null;
-    
-    /**
-     * @var string|null $azureBlobToken The azureBlobToken property
-    */
-    private ?string $azureBlobToken = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var ExportOptions|null $exportOptions The exportOptions property
-    */
-    private ?ExportOptions $exportOptions = null;
-    
-    /**
-     * @var ExportFileStructure|null $exportStructure The exportStructure property
-    */
-    private ?ExportFileStructure $exportStructure = null;
-    
-    /**
-     * @var string|null $outputName The outputName property
-    */
-    private ?string $outputName = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new exportPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -66,8 +40,8 @@ class ExportPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -75,7 +49,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAzureBlobContainer(): ?string {
-        return $this->azureBlobContainer;
+        return $this->getBackingStore()->get('azureBlobContainer');
     }
 
     /**
@@ -83,7 +57,15 @@ class ExportPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAzureBlobToken(): ?string {
-        return $this->azureBlobToken;
+        return $this->getBackingStore()->get('azureBlobToken');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -91,7 +73,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -99,7 +81,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, Parsable
      * @return ExportOptions|null
     */
     public function getExportOptions(): ?ExportOptions {
-        return $this->exportOptions;
+        return $this->getBackingStore()->get('exportOptions');
     }
 
     /**
@@ -107,7 +89,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, Parsable
      * @return ExportFileStructure|null
     */
     public function getExportStructure(): ?ExportFileStructure {
-        return $this->exportStructure;
+        return $this->getBackingStore()->get('exportStructure');
     }
 
     /**
@@ -131,7 +113,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOutputName(): ?string {
-        return $this->outputName;
+        return $this->getBackingStore()->get('outputName');
     }
 
     /**
@@ -139,69 +121,77 @@ class ExportPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('azureBlobContainer', $this->azureBlobContainer);
-        $writer->writeStringValue('azureBlobToken', $this->azureBlobToken);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeEnumValue('exportOptions', $this->exportOptions);
-        $writer->writeEnumValue('exportStructure', $this->exportStructure);
-        $writer->writeStringValue('outputName', $this->outputName);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('azureBlobContainer', $this->getAzureBlobContainer());
+        $writer->writeStringValue('azureBlobToken', $this->getAzureBlobToken());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeEnumValue('exportOptions', $this->getExportOptions());
+        $writer->writeEnumValue('exportStructure', $this->getExportStructure());
+        $writer->writeStringValue('outputName', $this->getOutputName());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the azureBlobContainer property value. The azureBlobContainer property
      *  @param string|null $value Value to set for the azureBlobContainer property.
     */
-    public function setAzureBlobContainer(?string $value ): void {
-        $this->azureBlobContainer = $value;
+    public function setAzureBlobContainer(?string $value): void {
+        $this->getBackingStore()->set('azureBlobContainer', $value);
     }
 
     /**
      * Sets the azureBlobToken property value. The azureBlobToken property
      *  @param string|null $value Value to set for the azureBlobToken property.
     */
-    public function setAzureBlobToken(?string $value ): void {
-        $this->azureBlobToken = $value;
+    public function setAzureBlobToken(?string $value): void {
+        $this->getBackingStore()->set('azureBlobToken', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the exportOptions property value. The exportOptions property
      *  @param ExportOptions|null $value Value to set for the exportOptions property.
     */
-    public function setExportOptions(?ExportOptions $value ): void {
-        $this->exportOptions = $value;
+    public function setExportOptions(?ExportOptions $value): void {
+        $this->getBackingStore()->set('exportOptions', $value);
     }
 
     /**
      * Sets the exportStructure property value. The exportStructure property
      *  @param ExportFileStructure|null $value Value to set for the exportStructure property.
     */
-    public function setExportStructure(?ExportFileStructure $value ): void {
-        $this->exportStructure = $value;
+    public function setExportStructure(?ExportFileStructure $value): void {
+        $this->getBackingStore()->set('exportStructure', $value);
     }
 
     /**
      * Sets the outputName property value. The outputName property
      *  @param string|null $value Value to set for the outputName property.
     */
-    public function setOutputName(?string $value ): void {
-        $this->outputName = $value;
+    public function setOutputName(?string $value): void {
+        $this->getBackingStore()->set('outputName', $value);
     }
 
 }

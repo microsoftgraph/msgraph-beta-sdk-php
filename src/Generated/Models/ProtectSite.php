@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectSite extends LabelActionBase implements Parsable 
 {
     /**
-     * @var SiteAccessType|null $accessType The accessType property
-    */
-    private ?SiteAccessType $accessType = null;
-    
-    /**
-     * @var string|null $conditionalAccessProtectionLevelId The conditionalAccessProtectionLevelId property
-    */
-    private ?string $conditionalAccessProtectionLevelId = null;
-    
-    /**
      * Instantiates a new ProtectSite and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class ProtectSite extends LabelActionBase implements Parsable
      * @return SiteAccessType|null
     */
     public function getAccessType(): ?SiteAccessType {
-        return $this->accessType;
+        return $this->getBackingStore()->get('accessType');
     }
 
     /**
@@ -48,7 +38,7 @@ class ProtectSite extends LabelActionBase implements Parsable
      * @return string|null
     */
     public function getConditionalAccessProtectionLevelId(): ?string {
-        return $this->conditionalAccessProtectionLevelId;
+        return $this->getBackingStore()->get('conditionalAccessProtectionLevelId');
     }
 
     /**
@@ -69,24 +59,24 @@ class ProtectSite extends LabelActionBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('accessType', $this->accessType);
-        $writer->writeStringValue('conditionalAccessProtectionLevelId', $this->conditionalAccessProtectionLevelId);
+        $writer->writeEnumValue('accessType', $this->getAccessType());
+        $writer->writeStringValue('conditionalAccessProtectionLevelId', $this->getConditionalAccessProtectionLevelId());
     }
 
     /**
      * Sets the accessType property value. The accessType property
      *  @param SiteAccessType|null $value Value to set for the accessType property.
     */
-    public function setAccessType(?SiteAccessType $value ): void {
-        $this->accessType = $value;
+    public function setAccessType(?SiteAccessType $value): void {
+        $this->getBackingStore()->set('accessType', $value);
     }
 
     /**
      * Sets the conditionalAccessProtectionLevelId property value. The conditionalAccessProtectionLevelId property
      *  @param string|null $value Value to set for the conditionalAccessProtectionLevelId property.
     */
-    public function setConditionalAccessProtectionLevelId(?string $value ): void {
-        $this->conditionalAccessProtectionLevelId = $value;
+    public function setConditionalAccessProtectionLevelId(?string $value): void {
+        $this->getBackingStore()->set('conditionalAccessProtectionLevelId', $value);
     }
 
 }

@@ -9,51 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements Parsable 
 {
     /**
-     * @var bool|null $allowAllAppsAccess AllowAllAppsAccess setting
-    */
-    private ?bool $allowAllAppsAccess = null;
-    
-    /**
-     * @var CertificateStore|null $certificateStore Target store certificate. Possible values are: user, machine.
-    */
-    private ?CertificateStore $certificateStore = null;
-    
-    /**
-     * @var string|null $certificateTemplateName PKCS certificate template name.
-    */
-    private ?string $certificateTemplateName = null;
-    
-    /**
-     * @var string|null $certificationAuthority PKCS certification authority FQDN.
-    */
-    private ?string $certificationAuthority = null;
-    
-    /**
-     * @var string|null $certificationAuthorityName PKCS certification authority Name.
-    */
-    private ?string $certificationAuthorityName = null;
-    
-    /**
-     * @var array<CustomSubjectAlternativeName>|null $customSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $customSubjectAlternativeNames = null;
-    
-    /**
-     * @var array<ManagedDeviceCertificateState>|null $managedDeviceCertificateStates Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-    */
-    private ?array $managedDeviceCertificateStates = null;
-    
-    /**
-     * @var string|null $subjectAlternativeNameFormatString Format string that defines the subject alternative name.
-    */
-    private ?string $subjectAlternativeNameFormatString = null;
-    
-    /**
-     * @var string|null $subjectNameFormatString Format string that defines the subject name. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-    */
-    private ?string $subjectNameFormatString = null;
-    
-    /**
      * Instantiates a new MacOSPkcsCertificateProfile and sets the default values.
     */
     public function __construct() {
@@ -75,7 +30,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
      * @return bool|null
     */
     public function getAllowAllAppsAccess(): ?bool {
-        return $this->allowAllAppsAccess;
+        return $this->getBackingStore()->get('allowAllAppsAccess');
     }
 
     /**
@@ -83,7 +38,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
-        return $this->certificateStore;
+        return $this->getBackingStore()->get('certificateStore');
     }
 
     /**
@@ -91,7 +46,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
      * @return string|null
     */
     public function getCertificateTemplateName(): ?string {
-        return $this->certificateTemplateName;
+        return $this->getBackingStore()->get('certificateTemplateName');
     }
 
     /**
@@ -99,7 +54,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
      * @return string|null
     */
     public function getCertificationAuthority(): ?string {
-        return $this->certificationAuthority;
+        return $this->getBackingStore()->get('certificationAuthority');
     }
 
     /**
@@ -107,7 +62,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
      * @return string|null
     */
     public function getCertificationAuthorityName(): ?string {
-        return $this->certificationAuthorityName;
+        return $this->getBackingStore()->get('certificationAuthorityName');
     }
 
     /**
@@ -115,7 +70,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
      * @return array<CustomSubjectAlternativeName>|null
     */
     public function getCustomSubjectAlternativeNames(): ?array {
-        return $this->customSubjectAlternativeNames;
+        return $this->getBackingStore()->get('customSubjectAlternativeNames');
     }
 
     /**
@@ -142,7 +97,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
      * @return array<ManagedDeviceCertificateState>|null
     */
     public function getManagedDeviceCertificateStates(): ?array {
-        return $this->managedDeviceCertificateStates;
+        return $this->getBackingStore()->get('managedDeviceCertificateStates');
     }
 
     /**
@@ -150,7 +105,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
      * @return string|null
     */
     public function getSubjectAlternativeNameFormatString(): ?string {
-        return $this->subjectAlternativeNameFormatString;
+        return $this->getBackingStore()->get('subjectAlternativeNameFormatString');
     }
 
     /**
@@ -158,7 +113,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
      * @return string|null
     */
     public function getSubjectNameFormatString(): ?string {
-        return $this->subjectNameFormatString;
+        return $this->getBackingStore()->get('subjectNameFormatString');
     }
 
     /**
@@ -167,87 +122,87 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowAllAppsAccess', $this->allowAllAppsAccess);
-        $writer->writeEnumValue('certificateStore', $this->certificateStore);
-        $writer->writeStringValue('certificateTemplateName', $this->certificateTemplateName);
-        $writer->writeStringValue('certificationAuthority', $this->certificationAuthority);
-        $writer->writeStringValue('certificationAuthorityName', $this->certificationAuthorityName);
-        $writer->writeCollectionOfObjectValues('customSubjectAlternativeNames', $this->customSubjectAlternativeNames);
-        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->managedDeviceCertificateStates);
-        $writer->writeStringValue('subjectAlternativeNameFormatString', $this->subjectAlternativeNameFormatString);
-        $writer->writeStringValue('subjectNameFormatString', $this->subjectNameFormatString);
+        $writer->writeBooleanValue('allowAllAppsAccess', $this->getAllowAllAppsAccess());
+        $writer->writeEnumValue('certificateStore', $this->getCertificateStore());
+        $writer->writeStringValue('certificateTemplateName', $this->getCertificateTemplateName());
+        $writer->writeStringValue('certificationAuthority', $this->getCertificationAuthority());
+        $writer->writeStringValue('certificationAuthorityName', $this->getCertificationAuthorityName());
+        $writer->writeCollectionOfObjectValues('customSubjectAlternativeNames', $this->getCustomSubjectAlternativeNames());
+        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->getManagedDeviceCertificateStates());
+        $writer->writeStringValue('subjectAlternativeNameFormatString', $this->getSubjectAlternativeNameFormatString());
+        $writer->writeStringValue('subjectNameFormatString', $this->getSubjectNameFormatString());
     }
 
     /**
      * Sets the allowAllAppsAccess property value. AllowAllAppsAccess setting
      *  @param bool|null $value Value to set for the allowAllAppsAccess property.
     */
-    public function setAllowAllAppsAccess(?bool $value ): void {
-        $this->allowAllAppsAccess = $value;
+    public function setAllowAllAppsAccess(?bool $value): void {
+        $this->getBackingStore()->set('allowAllAppsAccess', $value);
     }
 
     /**
      * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
      *  @param CertificateStore|null $value Value to set for the certificateStore property.
     */
-    public function setCertificateStore(?CertificateStore $value ): void {
-        $this->certificateStore = $value;
+    public function setCertificateStore(?CertificateStore $value): void {
+        $this->getBackingStore()->set('certificateStore', $value);
     }
 
     /**
      * Sets the certificateTemplateName property value. PKCS certificate template name.
      *  @param string|null $value Value to set for the certificateTemplateName property.
     */
-    public function setCertificateTemplateName(?string $value ): void {
-        $this->certificateTemplateName = $value;
+    public function setCertificateTemplateName(?string $value): void {
+        $this->getBackingStore()->set('certificateTemplateName', $value);
     }
 
     /**
      * Sets the certificationAuthority property value. PKCS certification authority FQDN.
      *  @param string|null $value Value to set for the certificationAuthority property.
     */
-    public function setCertificationAuthority(?string $value ): void {
-        $this->certificationAuthority = $value;
+    public function setCertificationAuthority(?string $value): void {
+        $this->getBackingStore()->set('certificationAuthority', $value);
     }
 
     /**
      * Sets the certificationAuthorityName property value. PKCS certification authority Name.
      *  @param string|null $value Value to set for the certificationAuthorityName property.
     */
-    public function setCertificationAuthorityName(?string $value ): void {
-        $this->certificationAuthorityName = $value;
+    public function setCertificationAuthorityName(?string $value): void {
+        $this->getBackingStore()->set('certificationAuthorityName', $value);
     }
 
     /**
      * Sets the customSubjectAlternativeNames property value. Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
      *  @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
     */
-    public function setCustomSubjectAlternativeNames(?array $value ): void {
-        $this->customSubjectAlternativeNames = $value;
+    public function setCustomSubjectAlternativeNames(?array $value): void {
+        $this->getBackingStore()->set('customSubjectAlternativeNames', $value);
     }
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
      *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
-    public function setManagedDeviceCertificateStates(?array $value ): void {
-        $this->managedDeviceCertificateStates = $value;
+    public function setManagedDeviceCertificateStates(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
     }
 
     /**
      * Sets the subjectAlternativeNameFormatString property value. Format string that defines the subject alternative name.
      *  @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
     */
-    public function setSubjectAlternativeNameFormatString(?string $value ): void {
-        $this->subjectAlternativeNameFormatString = $value;
+    public function setSubjectAlternativeNameFormatString(?string $value): void {
+        $this->getBackingStore()->set('subjectAlternativeNameFormatString', $value);
     }
 
     /**
      * Sets the subjectNameFormatString property value. Format string that defines the subject name. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
      *  @param string|null $value Value to set for the subjectNameFormatString property.
     */
-    public function setSubjectNameFormatString(?string $value ): void {
-        $this->subjectNameFormatString = $value;
+    public function setSubjectNameFormatString(?string $value): void {
+        $this->getBackingStore()->set('subjectNameFormatString', $value);
     }
 
 }

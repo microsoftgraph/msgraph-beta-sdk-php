@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdgeHomeButtonOpensCustomURL extends EdgeHomeButtonConfiguration implements Parsable 
 {
     /**
-     * @var string|null $homeButtonCustomURL The specific URL to load.
-    */
-    private ?string $homeButtonCustomURL = null;
-    
-    /**
      * Instantiates a new EdgeHomeButtonOpensCustomURL and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class EdgeHomeButtonOpensCustomURL extends EdgeHomeButtonConfiguration implement
      * @return string|null
     */
     public function getHomeButtonCustomURL(): ?string {
-        return $this->homeButtonCustomURL;
+        return $this->getBackingStore()->get('homeButtonCustomURL');
     }
 
     /**
@@ -55,15 +50,15 @@ class EdgeHomeButtonOpensCustomURL extends EdgeHomeButtonConfiguration implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('homeButtonCustomURL', $this->homeButtonCustomURL);
+        $writer->writeStringValue('homeButtonCustomURL', $this->getHomeButtonCustomURL());
     }
 
     /**
      * Sets the homeButtonCustomURL property value. The specific URL to load.
      *  @param string|null $value Value to set for the homeButtonCustomURL property.
     */
-    public function setHomeButtonCustomURL(?string $value ): void {
-        $this->homeButtonCustomURL = $value;
+    public function setHomeButtonCustomURL(?string $value): void {
+        $this->getBackingStore()->set('homeButtonCustomURL', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationReferenceSettingValue extends DeviceManagementConfigurationStringSettingValue implements Parsable 
 {
     /**
-     * @var string|null $note A note that admin can use to put some contextual information
-    */
-    private ?string $note = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationReferenceSettingValue and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementConfigurationReferenceSettingValue extends DeviceManagemen
      * @return string|null
     */
     public function getNote(): ?string {
-        return $this->note;
+        return $this->getBackingStore()->get('note');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationReferenceSettingValue extends DeviceManagemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('note', $this->note);
+        $writer->writeStringValue('note', $this->getNote());
     }
 
     /**
      * Sets the note property value. A note that admin can use to put some contextual information
      *  @param string|null $value Value to set for the note property.
     */
-    public function setNote(?string $value ): void {
-        $this->note = $value;
+    public function setNote(?string $value): void {
+        $this->getBackingStore()->set('note', $value);
     }
 
 }

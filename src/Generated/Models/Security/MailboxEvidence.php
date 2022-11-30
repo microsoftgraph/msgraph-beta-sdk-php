@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MailboxEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $displayName The name associated with the mailbox.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $primaryAddress The primary email address of the mailbox.
-    */
-    private ?string $primaryAddress = null;
-    
-    /**
-     * @var UserAccount|null $userAccount The user account of the mailbox.
-    */
-    private ?UserAccount $userAccount = null;
-    
-    /**
      * Instantiates a new MailboxEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.mailboxEvidence');
     }
 
     /**
@@ -45,7 +29,7 @@ class MailboxEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -66,7 +50,7 @@ class MailboxEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getPrimaryAddress(): ?string {
-        return $this->primaryAddress;
+        return $this->getBackingStore()->get('primaryAddress');
     }
 
     /**
@@ -74,7 +58,7 @@ class MailboxEvidence extends AlertEvidence implements Parsable
      * @return UserAccount|null
     */
     public function getUserAccount(): ?UserAccount {
-        return $this->userAccount;
+        return $this->getBackingStore()->get('userAccount');
     }
 
     /**
@@ -83,33 +67,33 @@ class MailboxEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('primaryAddress', $this->primaryAddress);
-        $writer->writeObjectValue('userAccount', $this->userAccount);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('primaryAddress', $this->getPrimaryAddress());
+        $writer->writeObjectValue('userAccount', $this->getUserAccount());
     }
 
     /**
      * Sets the displayName property value. The name associated with the mailbox.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the primaryAddress property value. The primary email address of the mailbox.
      *  @param string|null $value Value to set for the primaryAddress property.
     */
-    public function setPrimaryAddress(?string $value ): void {
-        $this->primaryAddress = $value;
+    public function setPrimaryAddress(?string $value): void {
+        $this->getBackingStore()->set('primaryAddress', $value);
     }
 
     /**
      * Sets the userAccount property value. The user account of the mailbox.
      *  @param UserAccount|null $value Value to set for the userAccount property.
     */
-    public function setUserAccount(?UserAccount $value ): void {
-        $this->userAccount = $value;
+    public function setUserAccount(?UserAccount $value): void {
+        $this->getBackingStore()->set('userAccount', $value);
     }
 
 }

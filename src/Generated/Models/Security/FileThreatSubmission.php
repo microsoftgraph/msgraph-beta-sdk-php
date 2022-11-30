@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileThreatSubmission extends ThreatSubmission implements Parsable 
 {
     /**
-     * @var string|null $fileName It specifies the file name to be submitted.
-    */
-    private ?string $fileName = null;
-    
-    /**
      * Instantiates a new FileThreatSubmission and sets the default values.
     */
     public function __construct() {
@@ -54,7 +49,7 @@ class FileThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getFileName(): ?string {
-        return $this->fileName;
+        return $this->getBackingStore()->get('fileName');
     }
 
     /**
@@ -63,15 +58,15 @@ class FileThreatSubmission extends ThreatSubmission implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('fileName', $this->fileName);
+        $writer->writeStringValue('fileName', $this->getFileName());
     }
 
     /**
      * Sets the fileName property value. It specifies the file name to be submitted.
      *  @param string|null $value Value to set for the fileName property.
     */
-    public function setFileName(?string $value ): void {
-        $this->fileName = $value;
+    public function setFileName(?string $value): void {
+        $this->getBackingStore()->set('fileName', $value);
     }
 
 }

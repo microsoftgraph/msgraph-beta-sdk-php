@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemEmail extends ItemFacet implements Parsable 
 {
     /**
-     * @var string|null $address The email address itself.
-    */
-    private ?string $address = null;
-    
-    /**
-     * @var string|null $displayName The name or label a user has associated with a particular email address.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var EmailType|null $type The type property
-    */
-    private ?EmailType $type = null;
-    
-    /**
      * Instantiates a new ItemEmail and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class ItemEmail extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getAddress(): ?string {
-        return $this->address;
+        return $this->getBackingStore()->get('address');
     }
 
     /**
@@ -53,7 +38,7 @@ class ItemEmail extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -74,7 +59,7 @@ class ItemEmail extends ItemFacet implements Parsable
      * @return EmailType|null
     */
     public function getType(): ?EmailType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -83,33 +68,33 @@ class ItemEmail extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('address', $this->address);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('type', $this->type);
+        $writer->writeStringValue('address', $this->getAddress());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('type', $this->getType());
     }
 
     /**
      * Sets the address property value. The email address itself.
      *  @param string|null $value Value to set for the address property.
     */
-    public function setAddress(?string $value ): void {
-        $this->address = $value;
+    public function setAddress(?string $value): void {
+        $this->getBackingStore()->set('address', $value);
     }
 
     /**
      * Sets the displayName property value. The name or label a user has associated with a particular email address.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param EmailType|null $value Value to set for the type property.
     */
-    public function setType(?EmailType $value ): void {
-        $this->type = $value;
+    public function setType(?EmailType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

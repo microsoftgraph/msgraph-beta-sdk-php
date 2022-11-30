@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var string|null $name Name of the custom action.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $properties Properties, in key-value pair format, of the action.
-    */
-    private ?array $properties = null;
-    
-    /**
      * Instantiates a new CustomAction and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class CustomAction extends InformationProtectionAction implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -60,7 +50,7 @@ class CustomAction extends InformationProtectionAction implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getProperties(): ?array {
-        return $this->properties;
+        return $this->getBackingStore()->get('properties');
     }
 
     /**
@@ -69,24 +59,24 @@ class CustomAction extends InformationProtectionAction implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeCollectionOfObjectValues('properties', $this->properties);
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeCollectionOfObjectValues('properties', $this->getProperties());
     }
 
     /**
      * Sets the name property value. Name of the custom action.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the properties property value. Properties, in key-value pair format, of the action.
      *  @param array<KeyValuePair>|null $value Value to set for the properties property.
     */
-    public function setProperties(?array $value ): void {
-        $this->properties = $value;
+    public function setProperties(?array $value): void {
+        $this->getBackingStore()->set('properties', $value);
     }
 
 }

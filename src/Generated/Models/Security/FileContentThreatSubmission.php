@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileContentThreatSubmission extends FileThreatSubmission implements Parsable 
 {
     /**
-     * @var string|null $fileContent It specifies the file content in base 64 format.
-    */
-    private ?string $fileContent = null;
-    
-    /**
      * Instantiates a new FileContentThreatSubmission and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class FileContentThreatSubmission extends FileThreatSubmission implements Parsab
      * @return string|null
     */
     public function getFileContent(): ?string {
-        return $this->fileContent;
+        return $this->getBackingStore()->get('fileContent');
     }
 
     /**
@@ -55,15 +50,15 @@ class FileContentThreatSubmission extends FileThreatSubmission implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('fileContent', $this->fileContent);
+        $writer->writeStringValue('fileContent', $this->getFileContent());
     }
 
     /**
      * Sets the fileContent property value. It specifies the file content in base 64 format.
      *  @param string|null $value Value to set for the fileContent property.
     */
-    public function setFileContent(?string $value ): void {
-        $this->fileContent = $value;
+    public function setFileContent(?string $value): void {
+        $this->getBackingStore()->set('fileContent', $value);
     }
 
 }

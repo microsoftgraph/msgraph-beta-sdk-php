@@ -9,19 +9,9 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase implements Parsable 
 {
     /**
-     * @var array<string>|null $allowedCloudEndpoints Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
-    */
-    private ?array $allowedCloudEndpoints = null;
-    
-    /**
      * @var CrossTenantAccessPolicyConfigurationDefault|null $escapedDefault Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
     */
-    private ?CrossTenantAccessPolicyConfigurationDefault $escapedDefault = null;
-    
-    /**
-     * @var array<CrossTenantAccessPolicyConfigurationPartner>|null $partners Defines partner-specific configurations for external Azure Active Directory organizations.
-    */
-    private ?array $partners = null;
+    public ?CrossTenantAccessPolicyConfigurationDefault $escapedDefault = null;
     
     /**
      * Instantiates a new CrossTenantAccessPolicy and sets the default values.
@@ -45,7 +35,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
      * @return array<string>|null
     */
     public function getAllowedCloudEndpoints(): ?array {
-        return $this->allowedCloudEndpoints;
+        return $this->getBackingStore()->get('allowedCloudEndpoints');
     }
 
     /**
@@ -53,7 +43,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
      * @return CrossTenantAccessPolicyConfigurationDefault|null
     */
     public function getDefault(): ?CrossTenantAccessPolicyConfigurationDefault {
-        return $this->escapedDefault;
+        return $this->getBackingStore()->get('escapedDefault');
     }
 
     /**
@@ -74,7 +64,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
      * @return array<CrossTenantAccessPolicyConfigurationPartner>|null
     */
     public function getPartners(): ?array {
-        return $this->partners;
+        return $this->getBackingStore()->get('partners');
     }
 
     /**
@@ -83,33 +73,33 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('allowedCloudEndpoints', $this->allowedCloudEndpoints);
-        $writer->writeObjectValue('default', $this->escapedDefault);
-        $writer->writeCollectionOfObjectValues('partners', $this->partners);
+        $writer->writeCollectionOfPrimitiveValues('allowedCloudEndpoints', $this->getAllowedCloudEndpoints());
+        $writer->writeObjectValue('default', $this->getDefault());
+        $writer->writeCollectionOfObjectValues('partners', $this->getPartners());
     }
 
     /**
      * Sets the allowedCloudEndpoints property value. Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
      *  @param array<string>|null $value Value to set for the allowedCloudEndpoints property.
     */
-    public function setAllowedCloudEndpoints(?array $value ): void {
-        $this->allowedCloudEndpoints = $value;
+    public function setAllowedCloudEndpoints(?array $value): void {
+        $this->getBackingStore()->set('allowedCloudEndpoints', $value);
     }
 
     /**
      * Sets the default property value. Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
      *  @param CrossTenantAccessPolicyConfigurationDefault|null $value Value to set for the EscapedDefault property.
     */
-    public function setDefault(?CrossTenantAccessPolicyConfigurationDefault $value ): void {
-        $this->escapedDefault = $value;
+    public function setDefault(?CrossTenantAccessPolicyConfigurationDefault $value): void {
+        $this->getBackingStore()->set('escapedDefault', $value);
     }
 
     /**
      * Sets the partners property value. Defines partner-specific configurations for external Azure Active Directory organizations.
      *  @param array<CrossTenantAccessPolicyConfigurationPartner>|null $value Value to set for the partners property.
     */
-    public function setPartners(?array $value ): void {
-        $this->partners = $value;
+    public function setPartners(?array $value): void {
+        $this->getBackingStore()->set('partners', $value);
     }
 
 }

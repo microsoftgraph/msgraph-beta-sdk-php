@@ -9,51 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity implements Parsable 
 {
     /**
-     * @var int|null $deviceCount User experience analytics device startup process summarized count.
-    */
-    private ?int $deviceCount = null;
-    
-    /**
-     * @var int|null $medianImpactInMs User experience analytics device startup process median impact in milliseconds.
-    */
-    private ?int $medianImpactInMs = null;
-    
-    /**
-     * @var int|null $medianImpactInMs2 User experience analytics device startup process median impact in milliseconds.
-    */
-    private ?int $medianImpactInMs2 = null;
-    
-    /**
-     * @var string|null $processName User experience analytics device startup process name.
-    */
-    private ?string $processName = null;
-    
-    /**
-     * @var string|null $productName The user experience analytics device startup process product name.
-    */
-    private ?string $productName = null;
-    
-    /**
-     * @var string|null $publisher The User experience analytics device startup process publisher.
-    */
-    private ?string $publisher = null;
-    
-    /**
-     * @var int|null $totalImpactInMs User experience analytics device startup process total impact in milliseconds.
-    */
-    private ?int $totalImpactInMs = null;
-    
-    /**
-     * @var int|null $totalImpactInMs2 User experience analytics device startup process total impact in milliseconds.
-    */
-    private ?int $totalImpactInMs2 = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsDeviceStartupProcessPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDeviceStartupProcessPerformance');
     }
 
     /**
@@ -70,7 +29,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @return int|null
     */
     public function getDeviceCount(): ?int {
-        return $this->deviceCount;
+        return $this->getBackingStore()->get('deviceCount');
     }
 
     /**
@@ -96,7 +55,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @return int|null
     */
     public function getMedianImpactInMs(): ?int {
-        return $this->medianImpactInMs;
+        return $this->getBackingStore()->get('medianImpactInMs');
     }
 
     /**
@@ -104,7 +63,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @return int|null
     */
     public function getMedianImpactInMs2(): ?int {
-        return $this->medianImpactInMs2;
+        return $this->getBackingStore()->get('medianImpactInMs2');
     }
 
     /**
@@ -112,7 +71,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @return string|null
     */
     public function getProcessName(): ?string {
-        return $this->processName;
+        return $this->getBackingStore()->get('processName');
     }
 
     /**
@@ -120,7 +79,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @return string|null
     */
     public function getProductName(): ?string {
-        return $this->productName;
+        return $this->getBackingStore()->get('productName');
     }
 
     /**
@@ -128,7 +87,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -136,7 +95,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @return int|null
     */
     public function getTotalImpactInMs(): ?int {
-        return $this->totalImpactInMs;
+        return $this->getBackingStore()->get('totalImpactInMs');
     }
 
     /**
@@ -144,7 +103,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @return int|null
     */
     public function getTotalImpactInMs2(): ?int {
-        return $this->totalImpactInMs2;
+        return $this->getBackingStore()->get('totalImpactInMs2');
     }
 
     /**
@@ -153,78 +112,78 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('deviceCount', $this->deviceCount);
-        $writer->writeIntegerValue('medianImpactInMs', $this->medianImpactInMs);
-        $writer->writeIntegerValue('medianImpactInMs2', $this->medianImpactInMs2);
-        $writer->writeStringValue('processName', $this->processName);
-        $writer->writeStringValue('productName', $this->productName);
-        $writer->writeStringValue('publisher', $this->publisher);
-        $writer->writeIntegerValue('totalImpactInMs', $this->totalImpactInMs);
-        $writer->writeIntegerValue('totalImpactInMs2', $this->totalImpactInMs2);
+        $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
+        $writer->writeIntegerValue('medianImpactInMs', $this->getMedianImpactInMs());
+        $writer->writeIntegerValue('medianImpactInMs2', $this->getMedianImpactInMs2());
+        $writer->writeStringValue('processName', $this->getProcessName());
+        $writer->writeStringValue('productName', $this->getProductName());
+        $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeIntegerValue('totalImpactInMs', $this->getTotalImpactInMs());
+        $writer->writeIntegerValue('totalImpactInMs2', $this->getTotalImpactInMs2());
     }
 
     /**
      * Sets the deviceCount property value. User experience analytics device startup process summarized count.
      *  @param int|null $value Value to set for the deviceCount property.
     */
-    public function setDeviceCount(?int $value ): void {
-        $this->deviceCount = $value;
+    public function setDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('deviceCount', $value);
     }
 
     /**
      * Sets the medianImpactInMs property value. User experience analytics device startup process median impact in milliseconds.
      *  @param int|null $value Value to set for the medianImpactInMs property.
     */
-    public function setMedianImpactInMs(?int $value ): void {
-        $this->medianImpactInMs = $value;
+    public function setMedianImpactInMs(?int $value): void {
+        $this->getBackingStore()->set('medianImpactInMs', $value);
     }
 
     /**
      * Sets the medianImpactInMs2 property value. User experience analytics device startup process median impact in milliseconds.
      *  @param int|null $value Value to set for the medianImpactInMs2 property.
     */
-    public function setMedianImpactInMs2(?int $value ): void {
-        $this->medianImpactInMs2 = $value;
+    public function setMedianImpactInMs2(?int $value): void {
+        $this->getBackingStore()->set('medianImpactInMs2', $value);
     }
 
     /**
      * Sets the processName property value. User experience analytics device startup process name.
      *  @param string|null $value Value to set for the processName property.
     */
-    public function setProcessName(?string $value ): void {
-        $this->processName = $value;
+    public function setProcessName(?string $value): void {
+        $this->getBackingStore()->set('processName', $value);
     }
 
     /**
      * Sets the productName property value. The user experience analytics device startup process product name.
      *  @param string|null $value Value to set for the productName property.
     */
-    public function setProductName(?string $value ): void {
-        $this->productName = $value;
+    public function setProductName(?string $value): void {
+        $this->getBackingStore()->set('productName', $value);
     }
 
     /**
      * Sets the publisher property value. The User experience analytics device startup process publisher.
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
     /**
      * Sets the totalImpactInMs property value. User experience analytics device startup process total impact in milliseconds.
      *  @param int|null $value Value to set for the totalImpactInMs property.
     */
-    public function setTotalImpactInMs(?int $value ): void {
-        $this->totalImpactInMs = $value;
+    public function setTotalImpactInMs(?int $value): void {
+        $this->getBackingStore()->set('totalImpactInMs', $value);
     }
 
     /**
      * Sets the totalImpactInMs2 property value. User experience analytics device startup process total impact in milliseconds.
      *  @param int|null $value Value to set for the totalImpactInMs2 property.
     */
-    public function setTotalImpactInMs2(?int $value ): void {
-        $this->totalImpactInMs2 = $value;
+    public function setTotalImpactInMs2(?int $value): void {
+        $this->getBackingStore()->set('totalImpactInMs2', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftStoreForBusinessContainedApp extends MobileContainedApp implements Parsable 
 {
     /**
-     * @var string|null $appUserModelId The app user model ID of the contained app of a MicrosoftStoreForBusinessApp.
-    */
-    private ?string $appUserModelId = null;
-    
-    /**
      * Instantiates a new MicrosoftStoreForBusinessContainedApp and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class MicrosoftStoreForBusinessContainedApp extends MobileContainedApp implement
      * @return string|null
     */
     public function getAppUserModelId(): ?string {
-        return $this->appUserModelId;
+        return $this->getBackingStore()->get('appUserModelId');
     }
 
     /**
@@ -55,15 +50,15 @@ class MicrosoftStoreForBusinessContainedApp extends MobileContainedApp implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appUserModelId', $this->appUserModelId);
+        $writer->writeStringValue('appUserModelId', $this->getAppUserModelId());
     }
 
     /**
      * Sets the appUserModelId property value. The app user model ID of the contained app of a MicrosoftStoreForBusinessApp.
      *  @param string|null $value Value to set for the appUserModelId property.
     */
-    public function setAppUserModelId(?string $value ): void {
-        $this->appUserModelId = $value;
+    public function setAppUserModelId(?string $value): void {
+        $this->getBackingStore()->set('appUserModelId', $value);
     }
 
 }

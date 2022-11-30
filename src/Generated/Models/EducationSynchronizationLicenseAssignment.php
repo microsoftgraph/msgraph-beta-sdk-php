@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder, Parsable 
+class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var EducationUserRole|null $appliesTo The user role type to assign to license. Possible values are: student, teacher, faculty.
-    */
-    private ?EducationUserRole $appliesTo = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<string>|null $skuIds Represents the SKU identifiers of the licenses to assign.
-    */
-    private ?array $skuIds = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new educationSynchronizationLicenseAssignment and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.educationSynchronizationLicenseAssignment');
     }
 
     /**
@@ -50,8 +38,8 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -59,7 +47,15 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @return EducationUserRole|null
     */
     public function getAppliesTo(): ?EducationUserRole {
-        return $this->appliesTo;
+        return $this->getBackingStore()->get('appliesTo');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -80,7 +76,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +84,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @return array<string>|null
     */
     public function getSkuIds(): ?array {
-        return $this->skuIds;
+        return $this->getBackingStore()->get('skuIds');
     }
 
     /**
@@ -96,42 +92,50 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('appliesTo', $this->appliesTo);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfPrimitiveValues('skuIds', $this->skuIds);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('appliesTo', $this->getAppliesTo());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfPrimitiveValues('skuIds', $this->getSkuIds());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the appliesTo property value. The user role type to assign to license. Possible values are: student, teacher, faculty.
      *  @param EducationUserRole|null $value Value to set for the appliesTo property.
     */
-    public function setAppliesTo(?EducationUserRole $value ): void {
-        $this->appliesTo = $value;
+    public function setAppliesTo(?EducationUserRole $value): void {
+        $this->getBackingStore()->set('appliesTo', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the skuIds property value. Represents the SKU identifiers of the licenses to assign.
      *  @param array<string>|null $value Value to set for the skuIds property.
     */
-    public function setSkuIds(?array $value ): void {
-        $this->skuIds = $value;
+    public function setSkuIds(?array $value): void {
+        $this->getBackingStore()->set('skuIds', $value);
     }
 
 }

@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementReports extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceManagementCachedReportConfiguration>|null $cachedReportConfigurations Entity representing the configuration of a cached report
-    */
-    private ?array $cachedReportConfigurations = null;
-    
-    /**
-     * @var array<DeviceManagementExportJob>|null $exportJobs Entity representing a job to export a report
-    */
-    private ?array $exportJobs = null;
-    
-    /**
-     * Instantiates a new DeviceManagementReports and sets the default values.
+     * Instantiates a new deviceManagementReports and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementReports');
     }
 
     /**
@@ -40,7 +29,7 @@ class DeviceManagementReports extends Entity implements Parsable
      * @return array<DeviceManagementCachedReportConfiguration>|null
     */
     public function getCachedReportConfigurations(): ?array {
-        return $this->cachedReportConfigurations;
+        return $this->getBackingStore()->get('cachedReportConfigurations');
     }
 
     /**
@@ -48,7 +37,7 @@ class DeviceManagementReports extends Entity implements Parsable
      * @return array<DeviceManagementExportJob>|null
     */
     public function getExportJobs(): ?array {
-        return $this->exportJobs;
+        return $this->getBackingStore()->get('exportJobs');
     }
 
     /**
@@ -69,24 +58,24 @@ class DeviceManagementReports extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('cachedReportConfigurations', $this->cachedReportConfigurations);
-        $writer->writeCollectionOfObjectValues('exportJobs', $this->exportJobs);
+        $writer->writeCollectionOfObjectValues('cachedReportConfigurations', $this->getCachedReportConfigurations());
+        $writer->writeCollectionOfObjectValues('exportJobs', $this->getExportJobs());
     }
 
     /**
      * Sets the cachedReportConfigurations property value. Entity representing the configuration of a cached report
      *  @param array<DeviceManagementCachedReportConfiguration>|null $value Value to set for the cachedReportConfigurations property.
     */
-    public function setCachedReportConfigurations(?array $value ): void {
-        $this->cachedReportConfigurations = $value;
+    public function setCachedReportConfigurations(?array $value): void {
+        $this->getBackingStore()->set('cachedReportConfigurations', $value);
     }
 
     /**
      * Sets the exportJobs property value. Entity representing a job to export a report
      *  @param array<DeviceManagementExportJob>|null $value Value to set for the exportJobs property.
     */
-    public function setExportJobs(?array $value ): void {
-        $this->exportJobs = $value;
+    public function setExportJobs(?array $value): void {
+        $this->getBackingStore()->set('exportJobs', $value);
     }
 
 }

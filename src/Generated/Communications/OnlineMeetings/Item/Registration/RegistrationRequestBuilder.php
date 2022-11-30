@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class RegistrationRequestBuilder 
 {
     /**
-     * The customQuestions property
+     * Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.
     */
     public function customQuestions(): CustomQuestionsRequestBuilder {
         return new CustomQuestionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Disable and delete the meetingRegistration of an onlineMeeting on behalf of the organizer.
+     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -74,7 +74,7 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting.
+     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -123,7 +123,7 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.communications.onlineMeetings.item.registration.customQuestions.item collection
+     * Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.
      * @param string $id Unique identifier of the item
      * @return MeetingRegistrationQuestionItemRequestBuilder
     */
@@ -134,7 +134,7 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Disable and delete the meetingRegistration of an onlineMeeting on behalf of the organizer.
+     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -153,7 +153,7 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting.
+     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

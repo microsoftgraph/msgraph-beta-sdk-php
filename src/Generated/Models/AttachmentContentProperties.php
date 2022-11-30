@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttachmentContentProperties extends ContentProperties implements Parsable 
 {
     /**
-     * @var CurrentLabel|null $currentLabel The currentLabel property
-    */
-    private ?CurrentLabel $currentLabel = null;
-    
-    /**
      * Instantiates a new AttachmentContentProperties and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class AttachmentContentProperties extends ContentProperties implements Parsable
      * @return CurrentLabel|null
     */
     public function getCurrentLabel(): ?CurrentLabel {
-        return $this->currentLabel;
+        return $this->getBackingStore()->get('currentLabel');
     }
 
     /**
@@ -55,15 +50,15 @@ class AttachmentContentProperties extends ContentProperties implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('currentLabel', $this->currentLabel);
+        $writer->writeObjectValue('currentLabel', $this->getCurrentLabel());
     }
 
     /**
      * Sets the currentLabel property value. The currentLabel property
      *  @param CurrentLabel|null $value Value to set for the currentLabel property.
     */
-    public function setCurrentLabel(?CurrentLabel $value ): void {
-        $this->currentLabel = $value;
+    public function setCurrentLabel(?CurrentLabel $value): void {
+        $this->getBackingStore()->set('currentLabel', $value);
     }
 
 }

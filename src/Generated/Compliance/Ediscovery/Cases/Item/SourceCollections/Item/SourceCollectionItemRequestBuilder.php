@@ -28,42 +28,42 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SourceCollectionItemRequestBuilder 
 {
     /**
-     * The additionalSources property
+     * Provides operations to manage the additionalSources property of the microsoft.graph.ediscovery.sourceCollection entity.
     */
     public function additionalSources(): AdditionalSourcesRequestBuilder {
         return new AdditionalSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The addToReviewSetOperation property
+     * Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.ediscovery.sourceCollection entity.
     */
     public function addToReviewSetOperation(): AddToReviewSetOperationRequestBuilder {
         return new AddToReviewSetOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The custodianSources property
+     * Provides operations to manage the custodianSources property of the microsoft.graph.ediscovery.sourceCollection entity.
     */
     public function custodianSources(): CustodianSourcesRequestBuilder {
         return new CustodianSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The estimateStatistics property
+     * Provides operations to call the estimateStatistics method.
     */
     public function estimateStatistics(): EstimateStatisticsRequestBuilder {
         return new EstimateStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The lastEstimateStatisticsOperation property
+     * Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.ediscovery.sourceCollection entity.
     */
     public function lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
         return new LastEstimateStatisticsOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The noncustodialSources property
+     * Provides operations to manage the noncustodialSources property of the microsoft.graph.ediscovery.sourceCollection entity.
     */
     public function noncustodialSources(): NoncustodialSourcesRequestBuilder {
         return new NoncustodialSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -75,7 +75,7 @@ class SourceCollectionItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The purgeData property
+     * Provides operations to call the purgeData method.
     */
     public function purgeData(): PurgeDataRequestBuilder {
         return new PurgeDataRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -92,7 +92,7 @@ class SourceCollectionItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.sourceCollections.item.additionalSources.item collection
+     * Provides operations to manage the additionalSources property of the microsoft.graph.ediscovery.sourceCollection entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemAdditionalSourcesItemDataSourceItemRequestBuilder
     */
@@ -184,7 +184,7 @@ class SourceCollectionItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.sourceCollections.item.custodianSources.item collection
+     * Provides operations to manage the custodianSources property of the microsoft.graph.ediscovery.sourceCollection entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemCustodianSourcesItemDataSourceItemRequestBuilder
     */
@@ -233,7 +233,7 @@ class SourceCollectionItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.sourceCollections.item.noncustodialSources.item collection
+     * Provides operations to manage the noncustodialSources property of the microsoft.graph.ediscovery.sourceCollection entity.
      * @param string $id Unique identifier of the item
      * @return NoncustodialDataSourceItemRequestBuilder
     */

@@ -11,4 +11,5 @@ class ComanagementEligibleType extends Enum {
     public const NEEDS_OS_UPDATE = 'needsOsUpdate';
     public const INELIGIBLE = 'ineligible';
     public const SCHEDULED_FOR_ENROLLMENT = 'scheduledForEnrollment';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

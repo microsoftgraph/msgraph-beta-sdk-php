@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OemWarrantyInformationOnboarding extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $available Specifies whether warranty API is available. This property is read-only.
-    */
-    private ?bool $available = null;
-    
-    /**
-     * @var bool|null $enabled Specifies whether warranty query is enabled for given OEM. This property is read-only.
-    */
-    private ?bool $enabled = null;
-    
-    /**
-     * @var string|null $oemName OEM name. This property is read-only.
-    */
-    private ?string $oemName = null;
-    
-    /**
      * Instantiates a new oemWarrantyInformationOnboarding and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.oemWarrantyInformationOnboarding');
     }
 
     /**
@@ -45,7 +29,7 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
      * @return bool|null
     */
     public function getAvailable(): ?bool {
-        return $this->available;
+        return $this->getBackingStore()->get('available');
     }
 
     /**
@@ -53,7 +37,7 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->enabled;
+        return $this->getBackingStore()->get('enabled');
     }
 
     /**
@@ -74,7 +58,7 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
      * @return string|null
     */
     public function getOemName(): ?string {
-        return $this->oemName;
+        return $this->getBackingStore()->get('oemName');
     }
 
     /**
@@ -89,24 +73,24 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
      * Sets the available property value. Specifies whether warranty API is available. This property is read-only.
      *  @param bool|null $value Value to set for the available property.
     */
-    public function setAvailable(?bool $value ): void {
-        $this->available = $value;
+    public function setAvailable(?bool $value): void {
+        $this->getBackingStore()->set('available', $value);
     }
 
     /**
      * Sets the enabled property value. Specifies whether warranty query is enabled for given OEM. This property is read-only.
      *  @param bool|null $value Value to set for the enabled property.
     */
-    public function setEnabled(?bool $value ): void {
-        $this->enabled = $value;
+    public function setEnabled(?bool $value): void {
+        $this->getBackingStore()->set('enabled', $value);
     }
 
     /**
      * Sets the oemName property value. OEM name. This property is read-only.
      *  @param string|null $value Value to set for the oemName property.
     */
-    public function setOemName(?string $value ): void {
-        $this->oemName = $value;
+    public function setOemName(?string $value): void {
+        $this->getBackingStore()->set('oemName', $value);
     }
 
 }

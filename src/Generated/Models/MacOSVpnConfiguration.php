@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSVpnConfiguration extends AppleVpnConfiguration implements Parsable 
 {
     /**
-     * @var MacOSCertificateProfileBase|null $identityCertificate Identity certificate for client authentication when authentication method is certificate.
-    */
-    private ?MacOSCertificateProfileBase $identityCertificate = null;
-    
-    /**
      * Instantiates a new MacOSVpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class MacOSVpnConfiguration extends AppleVpnConfiguration implements Parsable
      * @return MacOSCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?MacOSCertificateProfileBase {
-        return $this->identityCertificate;
+        return $this->getBackingStore()->get('identityCertificate');
     }
 
     /**
@@ -55,15 +50,15 @@ class MacOSVpnConfiguration extends AppleVpnConfiguration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('identityCertificate', $this->identityCertificate);
+        $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
     }
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
      *  @param MacOSCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
-    public function setIdentityCertificate(?MacOSCertificateProfileBase $value ): void {
-        $this->identityCertificate = $value;
+    public function setIdentityCertificate(?MacOSCertificateProfileBase $value): void {
+        $this->getBackingStore()->set('identityCertificate', $value);
     }
 
 }

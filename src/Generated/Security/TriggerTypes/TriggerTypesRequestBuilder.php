@@ -30,7 +30,7 @@ class TriggerTypesRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The retentionEventTypes property
+     * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
     */
     public function retentionEventTypes(): RetentionEventTypesRequestBuilder {
         return new RetentionEventTypesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -181,7 +181,7 @@ class TriggerTypesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.triggerTypes.retentionEventTypes.item collection
+     * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
      * @param string $id Unique identifier of the item
      * @return RetentionEventTypeItemRequestBuilder
     */

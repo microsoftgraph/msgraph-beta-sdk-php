@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotDeploymentProfile implements Parsable 
 {
     /**
-     * @var WindowsDomainJoinConfiguration|null $domainJoinConfiguration Configuration to join Active Directory domain
-    */
-    private ?WindowsDomainJoinConfiguration $domainJoinConfiguration = null;
-    
-    /**
-     * @var bool|null $hybridAzureADJoinSkipConnectivityCheck The Autopilot Hybrid Azure AD join flow will continue even if it does not establish domain controller connectivity during OOBE.
-    */
-    private ?bool $hybridAzureADJoinSkipConnectivityCheck = null;
-    
-    /**
      * Instantiates a new ActiveDirectoryWindowsAutopilotDeploymentProfile and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotD
      * @return WindowsDomainJoinConfiguration|null
     */
     public function getDomainJoinConfiguration(): ?WindowsDomainJoinConfiguration {
-        return $this->domainJoinConfiguration;
+        return $this->getBackingStore()->get('domainJoinConfiguration');
     }
 
     /**
@@ -60,7 +50,7 @@ class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotD
      * @return bool|null
     */
     public function getHybridAzureADJoinSkipConnectivityCheck(): ?bool {
-        return $this->hybridAzureADJoinSkipConnectivityCheck;
+        return $this->getBackingStore()->get('hybridAzureADJoinSkipConnectivityCheck');
     }
 
     /**
@@ -69,24 +59,24 @@ class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotD
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('domainJoinConfiguration', $this->domainJoinConfiguration);
-        $writer->writeBooleanValue('hybridAzureADJoinSkipConnectivityCheck', $this->hybridAzureADJoinSkipConnectivityCheck);
+        $writer->writeObjectValue('domainJoinConfiguration', $this->getDomainJoinConfiguration());
+        $writer->writeBooleanValue('hybridAzureADJoinSkipConnectivityCheck', $this->getHybridAzureADJoinSkipConnectivityCheck());
     }
 
     /**
      * Sets the domainJoinConfiguration property value. Configuration to join Active Directory domain
      *  @param WindowsDomainJoinConfiguration|null $value Value to set for the domainJoinConfiguration property.
     */
-    public function setDomainJoinConfiguration(?WindowsDomainJoinConfiguration $value ): void {
-        $this->domainJoinConfiguration = $value;
+    public function setDomainJoinConfiguration(?WindowsDomainJoinConfiguration $value): void {
+        $this->getBackingStore()->set('domainJoinConfiguration', $value);
     }
 
     /**
      * Sets the hybridAzureADJoinSkipConnectivityCheck property value. The Autopilot Hybrid Azure AD join flow will continue even if it does not establish domain controller connectivity during OOBE.
      *  @param bool|null $value Value to set for the hybridAzureADJoinSkipConnectivityCheck property.
     */
-    public function setHybridAzureADJoinSkipConnectivityCheck(?bool $value ): void {
-        $this->hybridAzureADJoinSkipConnectivityCheck = $value;
+    public function setHybridAzureADJoinSkipConnectivityCheck(?bool $value): void {
+        $this->getBackingStore()->set('hybridAzureADJoinSkipConnectivityCheck', $value);
     }
 
 }

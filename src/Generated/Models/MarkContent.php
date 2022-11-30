@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MarkContent extends LabelActionBase implements Parsable 
 {
     /**
-     * @var string|null $fontColor The fontColor property
-    */
-    private ?string $fontColor = null;
-    
-    /**
-     * @var int|null $fontSize The fontSize property
-    */
-    private ?int $fontSize = null;
-    
-    /**
-     * @var string|null $text The text property
-    */
-    private ?string $text = null;
-    
-    /**
      * Instantiates a new MarkContent and sets the default values.
     */
     public function __construct() {
@@ -67,7 +52,7 @@ class MarkContent extends LabelActionBase implements Parsable
      * @return string|null
     */
     public function getFontColor(): ?string {
-        return $this->fontColor;
+        return $this->getBackingStore()->get('fontColor');
     }
 
     /**
@@ -75,7 +60,7 @@ class MarkContent extends LabelActionBase implements Parsable
      * @return int|null
     */
     public function getFontSize(): ?int {
-        return $this->fontSize;
+        return $this->getBackingStore()->get('fontSize');
     }
 
     /**
@@ -83,7 +68,7 @@ class MarkContent extends LabelActionBase implements Parsable
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->text;
+        return $this->getBackingStore()->get('text');
     }
 
     /**
@@ -92,33 +77,33 @@ class MarkContent extends LabelActionBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('fontColor', $this->fontColor);
-        $writer->writeIntegerValue('fontSize', $this->fontSize);
-        $writer->writeStringValue('text', $this->text);
+        $writer->writeStringValue('fontColor', $this->getFontColor());
+        $writer->writeIntegerValue('fontSize', $this->getFontSize());
+        $writer->writeStringValue('text', $this->getText());
     }
 
     /**
      * Sets the fontColor property value. The fontColor property
      *  @param string|null $value Value to set for the fontColor property.
     */
-    public function setFontColor(?string $value ): void {
-        $this->fontColor = $value;
+    public function setFontColor(?string $value): void {
+        $this->getBackingStore()->set('fontColor', $value);
     }
 
     /**
      * Sets the fontSize property value. The fontSize property
      *  @param int|null $value Value to set for the fontSize property.
     */
-    public function setFontSize(?int $value ): void {
-        $this->fontSize = $value;
+    public function setFontSize(?int $value): void {
+        $this->getBackingStore()->set('fontSize', $value);
     }
 
     /**
      * Sets the text property value. The text property
      *  @param string|null $value Value to set for the text property.
     */
-    public function setText(?string $value ): void {
-        $this->text = $value;
+    public function setText(?string $value): void {
+        $this->getBackingStore()->set('text', $value);
     }
 
 }

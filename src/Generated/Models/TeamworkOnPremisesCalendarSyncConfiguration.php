@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolder, Parsable 
+class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $domain The fully qualified domain name (FQDN) of the Skype for Business Server. Use the Exchange domain if the Skype for Business SIP domain is different from the Exchange domain of the user.
-    */
-    private ?string $domain = null;
-    
-    /**
-     * @var string|null $domainUserName The domain and username of the console device, for example, Seattle/RanierConf.
-    */
-    private ?string $domainUserName = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $smtpAddress The Simple Mail Transfer Protocol (SMTP) address of the user account. This is only required if a different user principal name (UPN) is used to sign in to Exchange other than Microsoft Teams and Skype for Business. This is a common scenario in a hybrid environment where an on-premises Exchange server is used.
-    */
-    private ?string $smtpAddress = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkOnPremisesCalendarSyncConfiguration and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.teamworkOnPremisesCalendarSyncConfiguration');
     }
 
     /**
@@ -55,8 +38,16 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -64,7 +55,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
      * @return string|null
     */
     public function getDomain(): ?string {
-        return $this->domain;
+        return $this->getBackingStore()->get('domain');
     }
 
     /**
@@ -72,7 +63,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
      * @return string|null
     */
     public function getDomainUserName(): ?string {
-        return $this->domainUserName;
+        return $this->getBackingStore()->get('domainUserName');
     }
 
     /**
@@ -94,7 +85,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -102,7 +93,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
      * @return string|null
     */
     public function getSmtpAddress(): ?string {
-        return $this->smtpAddress;
+        return $this->getBackingStore()->get('smtpAddress');
     }
 
     /**
@@ -110,51 +101,59 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('domain', $this->domain);
-        $writer->writeStringValue('domainUserName', $this->domainUserName);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('smtpAddress', $this->smtpAddress);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('domain', $this->getDomain());
+        $writer->writeStringValue('domainUserName', $this->getDomainUserName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('smtpAddress', $this->getSmtpAddress());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the domain property value. The fully qualified domain name (FQDN) of the Skype for Business Server. Use the Exchange domain if the Skype for Business SIP domain is different from the Exchange domain of the user.
      *  @param string|null $value Value to set for the domain property.
     */
-    public function setDomain(?string $value ): void {
-        $this->domain = $value;
+    public function setDomain(?string $value): void {
+        $this->getBackingStore()->set('domain', $value);
     }
 
     /**
      * Sets the domainUserName property value. The domain and username of the console device, for example, Seattle/RanierConf.
      *  @param string|null $value Value to set for the domainUserName property.
     */
-    public function setDomainUserName(?string $value ): void {
-        $this->domainUserName = $value;
+    public function setDomainUserName(?string $value): void {
+        $this->getBackingStore()->set('domainUserName', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the smtpAddress property value. The Simple Mail Transfer Protocol (SMTP) address of the user account. This is only required if a different user principal name (UPN) is used to sign in to Exchange other than Microsoft Teams and Skype for Business. This is a common scenario in a hybrid environment where an on-premises Exchange server is used.
      *  @param string|null $value Value to set for the smtpAddress property.
     */
-    public function setSmtpAddress(?string $value ): void {
-        $this->smtpAddress = $value;
+    public function setSmtpAddress(?string $value): void {
+        $this->getBackingStore()->set('smtpAddress', $value);
     }
 
 }

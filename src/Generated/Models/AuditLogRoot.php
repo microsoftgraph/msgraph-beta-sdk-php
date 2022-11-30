@@ -6,45 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AuditLogRoot implements AdditionalDataHolder, Parsable 
+class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<DirectoryAudit>|null $directoryAudits The directoryAudits property
-    */
-    private ?array $directoryAudits = null;
-    
-    /**
-     * @var array<ProvisioningObjectSummary>|null $directoryProvisioning The directoryProvisioning property
-    */
-    private ?array $directoryProvisioning = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<ProvisioningObjectSummary>|null $provisioning The provisioning property
-    */
-    private ?array $provisioning = null;
-    
-    /**
-     * @var array<SignIn>|null $signIns The signIns property
-    */
-    private ?array $signIns = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new AuditLogRoot and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.auditLogRoot');
     }
 
     /**
@@ -60,8 +38,16 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +55,7 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
      * @return array<DirectoryAudit>|null
     */
     public function getDirectoryAudits(): ?array {
-        return $this->directoryAudits;
+        return $this->getBackingStore()->get('directoryAudits');
     }
 
     /**
@@ -77,7 +63,7 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
      * @return array<ProvisioningObjectSummary>|null
     */
     public function getDirectoryProvisioning(): ?array {
-        return $this->directoryProvisioning;
+        return $this->getBackingStore()->get('directoryProvisioning');
     }
 
     /**
@@ -100,7 +86,7 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -108,7 +94,7 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
      * @return array<ProvisioningObjectSummary>|null
     */
     public function getProvisioning(): ?array {
-        return $this->provisioning;
+        return $this->getBackingStore()->get('provisioning');
     }
 
     /**
@@ -116,7 +102,7 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
      * @return array<SignIn>|null
     */
     public function getSignIns(): ?array {
-        return $this->signIns;
+        return $this->getBackingStore()->get('signIns');
     }
 
     /**
@@ -124,60 +110,68 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('directoryAudits', $this->directoryAudits);
-        $writer->writeCollectionOfObjectValues('directoryProvisioning', $this->directoryProvisioning);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfObjectValues('provisioning', $this->provisioning);
-        $writer->writeCollectionOfObjectValues('signIns', $this->signIns);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('directoryAudits', $this->getDirectoryAudits());
+        $writer->writeCollectionOfObjectValues('directoryProvisioning', $this->getDirectoryProvisioning());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('provisioning', $this->getProvisioning());
+        $writer->writeCollectionOfObjectValues('signIns', $this->getSignIns());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the directoryAudits property value. The directoryAudits property
      *  @param array<DirectoryAudit>|null $value Value to set for the directoryAudits property.
     */
-    public function setDirectoryAudits(?array $value ): void {
-        $this->directoryAudits = $value;
+    public function setDirectoryAudits(?array $value): void {
+        $this->getBackingStore()->set('directoryAudits', $value);
     }
 
     /**
      * Sets the directoryProvisioning property value. The directoryProvisioning property
      *  @param array<ProvisioningObjectSummary>|null $value Value to set for the directoryProvisioning property.
     */
-    public function setDirectoryProvisioning(?array $value ): void {
-        $this->directoryProvisioning = $value;
+    public function setDirectoryProvisioning(?array $value): void {
+        $this->getBackingStore()->set('directoryProvisioning', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the provisioning property value. The provisioning property
      *  @param array<ProvisioningObjectSummary>|null $value Value to set for the provisioning property.
     */
-    public function setProvisioning(?array $value ): void {
-        $this->provisioning = $value;
+    public function setProvisioning(?array $value): void {
+        $this->getBackingStore()->set('provisioning', $value);
     }
 
     /**
      * Sets the signIns property value. The signIns property
      *  @param array<SignIn>|null $value Value to set for the signIns property.
     */
-    public function setSignIns(?array $value ): void {
-        $this->signIns = $value;
+    public function setSignIns(?array $value): void {
+        $this->getBackingStore()->set('signIns', $value);
     }
 
 }

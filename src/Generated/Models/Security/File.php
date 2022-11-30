@@ -12,71 +12,10 @@ use Psr\Http\Message\StreamInterface;
 class File extends Entity implements Parsable 
 {
     /**
-     * @var StreamInterface|null $content The content property
-    */
-    private ?StreamInterface $content = null;
-    
-    /**
-     * @var DateTime|null $dateTime The dateTime property
-    */
-    private ?DateTime $dateTime = null;
-    
-    /**
-     * @var string|null $extension The extension property
-    */
-    private ?string $extension = null;
-    
-    /**
-     * @var StreamInterface|null $extractedTextContent The extractedTextContent property
-    */
-    private ?StreamInterface $extractedTextContent = null;
-    
-    /**
-     * @var string|null $mediaType The mediaType property
-    */
-    private ?string $mediaType = null;
-    
-    /**
-     * @var string|null $name The name property
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var StringValueDictionary|null $otherProperties The otherProperties property
-    */
-    private ?StringValueDictionary $otherProperties = null;
-    
-    /**
-     * @var FileProcessingStatus|null $processingStatus The processingStatus property
-    */
-    private ?FileProcessingStatus $processingStatus = null;
-    
-    /**
-     * @var array<string>|null $senderOrAuthors The senderOrAuthors property
-    */
-    private ?array $senderOrAuthors = null;
-    
-    /**
-     * @var int|null $size The size property
-    */
-    private ?int $size = null;
-    
-    /**
-     * @var SourceType|null $sourceType The sourceType property
-    */
-    private ?SourceType $sourceType = null;
-    
-    /**
-     * @var string|null $subjectTitle The subjectTitle property
-    */
-    private ?string $subjectTitle = null;
-    
-    /**
      * Instantiates a new file and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.file');
     }
 
     /**
@@ -97,10 +36,10 @@ class File extends Entity implements Parsable
 
     /**
      * Gets the content property value. The content property
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getContent(): StreamInterface {
-        return $this->content;
+    public function getContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -108,7 +47,7 @@ class File extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDateTime(): ?DateTime {
-        return $this->dateTime;
+        return $this->getBackingStore()->get('dateTime');
     }
 
     /**
@@ -116,15 +55,15 @@ class File extends Entity implements Parsable
      * @return string|null
     */
     public function getExtension(): ?string {
-        return $this->extension;
+        return $this->getBackingStore()->get('extension');
     }
 
     /**
      * Gets the extractedTextContent property value. The extractedTextContent property
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getExtractedTextContent(): StreamInterface {
-        return $this->extractedTextContent;
+    public function getExtractedTextContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('extractedTextContent');
     }
 
     /**
@@ -154,7 +93,7 @@ class File extends Entity implements Parsable
      * @return string|null
     */
     public function getMediaType(): ?string {
-        return $this->mediaType;
+        return $this->getBackingStore()->get('mediaType');
     }
 
     /**
@@ -162,7 +101,7 @@ class File extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -170,7 +109,7 @@ class File extends Entity implements Parsable
      * @return StringValueDictionary|null
     */
     public function getOtherProperties(): ?StringValueDictionary {
-        return $this->otherProperties;
+        return $this->getBackingStore()->get('otherProperties');
     }
 
     /**
@@ -178,7 +117,7 @@ class File extends Entity implements Parsable
      * @return FileProcessingStatus|null
     */
     public function getProcessingStatus(): ?FileProcessingStatus {
-        return $this->processingStatus;
+        return $this->getBackingStore()->get('processingStatus');
     }
 
     /**
@@ -186,7 +125,7 @@ class File extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSenderOrAuthors(): ?array {
-        return $this->senderOrAuthors;
+        return $this->getBackingStore()->get('senderOrAuthors');
     }
 
     /**
@@ -194,7 +133,7 @@ class File extends Entity implements Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->size;
+        return $this->getBackingStore()->get('size');
     }
 
     /**
@@ -202,7 +141,7 @@ class File extends Entity implements Parsable
      * @return SourceType|null
     */
     public function getSourceType(): ?SourceType {
-        return $this->sourceType;
+        return $this->getBackingStore()->get('sourceType');
     }
 
     /**
@@ -210,7 +149,7 @@ class File extends Entity implements Parsable
      * @return string|null
     */
     public function getSubjectTitle(): ?string {
-        return $this->subjectTitle;
+        return $this->getBackingStore()->get('subjectTitle');
     }
 
     /**
@@ -219,114 +158,114 @@ class File extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('content', $this->content);
-        $writer->writeDateTimeValue('dateTime', $this->dateTime);
-        $writer->writeStringValue('extension', $this->extension);
-        $writer->writeBinaryContent('extractedTextContent', $this->extractedTextContent);
-        $writer->writeStringValue('mediaType', $this->mediaType);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeObjectValue('otherProperties', $this->otherProperties);
-        $writer->writeEnumValue('processingStatus', $this->processingStatus);
-        $writer->writeCollectionOfPrimitiveValues('senderOrAuthors', $this->senderOrAuthors);
-        $writer->writeIntegerValue('size', $this->size);
-        $writer->writeEnumValue('sourceType', $this->sourceType);
-        $writer->writeStringValue('subjectTitle', $this->subjectTitle);
+        $writer->writeBinaryContent('content', $this->getContent());
+        $writer->writeDateTimeValue('dateTime', $this->getDateTime());
+        $writer->writeStringValue('extension', $this->getExtension());
+        $writer->writeBinaryContent('extractedTextContent', $this->getExtractedTextContent());
+        $writer->writeStringValue('mediaType', $this->getMediaType());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeObjectValue('otherProperties', $this->getOtherProperties());
+        $writer->writeEnumValue('processingStatus', $this->getProcessingStatus());
+        $writer->writeCollectionOfPrimitiveValues('senderOrAuthors', $this->getSenderOrAuthors());
+        $writer->writeIntegerValue('size', $this->getSize());
+        $writer->writeEnumValue('sourceType', $this->getSourceType());
+        $writer->writeStringValue('subjectTitle', $this->getSubjectTitle());
     }
 
     /**
      * Sets the content property value. The content property
      *  @param StreamInterface|null $value Value to set for the content property.
     */
-    public function setContent(?StreamInterface $value ): void {
-        $this->content = $value;
+    public function setContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the dateTime property value. The dateTime property
      *  @param DateTime|null $value Value to set for the dateTime property.
     */
-    public function setDateTime(?DateTime $value ): void {
-        $this->dateTime = $value;
+    public function setDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('dateTime', $value);
     }
 
     /**
      * Sets the extension property value. The extension property
      *  @param string|null $value Value to set for the extension property.
     */
-    public function setExtension(?string $value ): void {
-        $this->extension = $value;
+    public function setExtension(?string $value): void {
+        $this->getBackingStore()->set('extension', $value);
     }
 
     /**
      * Sets the extractedTextContent property value. The extractedTextContent property
      *  @param StreamInterface|null $value Value to set for the extractedTextContent property.
     */
-    public function setExtractedTextContent(?StreamInterface $value ): void {
-        $this->extractedTextContent = $value;
+    public function setExtractedTextContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('extractedTextContent', $value);
     }
 
     /**
      * Sets the mediaType property value. The mediaType property
      *  @param string|null $value Value to set for the mediaType property.
     */
-    public function setMediaType(?string $value ): void {
-        $this->mediaType = $value;
+    public function setMediaType(?string $value): void {
+        $this->getBackingStore()->set('mediaType', $value);
     }
 
     /**
      * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the otherProperties property value. The otherProperties property
      *  @param StringValueDictionary|null $value Value to set for the otherProperties property.
     */
-    public function setOtherProperties(?StringValueDictionary $value ): void {
-        $this->otherProperties = $value;
+    public function setOtherProperties(?StringValueDictionary $value): void {
+        $this->getBackingStore()->set('otherProperties', $value);
     }
 
     /**
      * Sets the processingStatus property value. The processingStatus property
      *  @param FileProcessingStatus|null $value Value to set for the processingStatus property.
     */
-    public function setProcessingStatus(?FileProcessingStatus $value ): void {
-        $this->processingStatus = $value;
+    public function setProcessingStatus(?FileProcessingStatus $value): void {
+        $this->getBackingStore()->set('processingStatus', $value);
     }
 
     /**
      * Sets the senderOrAuthors property value. The senderOrAuthors property
      *  @param array<string>|null $value Value to set for the senderOrAuthors property.
     */
-    public function setSenderOrAuthors(?array $value ): void {
-        $this->senderOrAuthors = $value;
+    public function setSenderOrAuthors(?array $value): void {
+        $this->getBackingStore()->set('senderOrAuthors', $value);
     }
 
     /**
      * Sets the size property value. The size property
      *  @param int|null $value Value to set for the size property.
     */
-    public function setSize(?int $value ): void {
-        $this->size = $value;
+    public function setSize(?int $value): void {
+        $this->getBackingStore()->set('size', $value);
     }
 
     /**
      * Sets the sourceType property value. The sourceType property
      *  @param SourceType|null $value Value to set for the sourceType property.
     */
-    public function setSourceType(?SourceType $value ): void {
-        $this->sourceType = $value;
+    public function setSourceType(?SourceType $value): void {
+        $this->getBackingStore()->set('sourceType', $value);
     }
 
     /**
      * Sets the subjectTitle property value. The subjectTitle property
      *  @param string|null $value Value to set for the subjectTitle property.
     */
-    public function setSubjectTitle(?string $value ): void {
-        $this->subjectTitle = $value;
+    public function setSubjectTitle(?string $value): void {
+        $this->getBackingStore()->set('subjectTitle', $value);
     }
 
 }

@@ -9,101 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * @var DeviceThreatProtectionLevel|null $advancedThreatProtectionRequiredSecurityLevel Device threat protection levels for the Device Threat Protection API.
-    */
-    private ?DeviceThreatProtectionLevel $advancedThreatProtectionRequiredSecurityLevel = null;
-    
-    /**
-     * @var bool|null $deviceThreatProtectionEnabled Require that devices have enabled device threat protection .
-    */
-    private ?bool $deviceThreatProtectionEnabled = null;
-    
-    /**
-     * @var DeviceThreatProtectionLevel|null $deviceThreatProtectionRequiredSecurityLevel Device threat protection levels for the Device Threat Protection API.
-    */
-    private ?DeviceThreatProtectionLevel $deviceThreatProtectionRequiredSecurityLevel = null;
-    
-    /**
-     * @var bool|null $managedEmailProfileRequired Indicates whether or not to require a managed email profile.
-    */
-    private ?bool $managedEmailProfileRequired = null;
-    
-    /**
-     * @var string|null $osMaximumBuildVersion Maximum IOS build version.
-    */
-    private ?string $osMaximumBuildVersion = null;
-    
-    /**
-     * @var string|null $osMaximumVersion Maximum IOS version.
-    */
-    private ?string $osMaximumVersion = null;
-    
-    /**
-     * @var string|null $osMinimumBuildVersion Minimum IOS build version.
-    */
-    private ?string $osMinimumBuildVersion = null;
-    
-    /**
-     * @var string|null $osMinimumVersion Minimum IOS version.
-    */
-    private ?string $osMinimumVersion = null;
-    
-    /**
-     * @var bool|null $passcodeBlockSimple Indicates whether or not to block simple passcodes.
-    */
-    private ?bool $passcodeBlockSimple = null;
-    
-    /**
-     * @var int|null $passcodeExpirationDays Number of days before the passcode expires. Valid values 1 to 65535
-    */
-    private ?int $passcodeExpirationDays = null;
-    
-    /**
-     * @var int|null $passcodeMinimumCharacterSetCount The number of character sets required in the password.
-    */
-    private ?int $passcodeMinimumCharacterSetCount = null;
-    
-    /**
-     * @var int|null $passcodeMinimumLength Minimum length of passcode. Valid values 4 to 14
-    */
-    private ?int $passcodeMinimumLength = null;
-    
-    /**
-     * @var int|null $passcodeMinutesOfInactivityBeforeLock Minutes of inactivity before a passcode is required.
-    */
-    private ?int $passcodeMinutesOfInactivityBeforeLock = null;
-    
-    /**
-     * @var int|null $passcodeMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity before the screen times out.
-    */
-    private ?int $passcodeMinutesOfInactivityBeforeScreenTimeout = null;
-    
-    /**
-     * @var int|null $passcodePreviousPasscodeBlockCount Number of previous passcodes to block. Valid values 1 to 24
-    */
-    private ?int $passcodePreviousPasscodeBlockCount = null;
-    
-    /**
-     * @var bool|null $passcodeRequired Indicates whether or not to require a passcode.
-    */
-    private ?bool $passcodeRequired = null;
-    
-    /**
-     * @var RequiredPasswordType|null $passcodeRequiredType Possible values of required passwords.
-    */
-    private ?RequiredPasswordType $passcodeRequiredType = null;
-    
-    /**
-     * @var array<AppListItem>|null $restrictedApps Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.
-    */
-    private ?array $restrictedApps = null;
-    
-    /**
-     * @var bool|null $securityBlockJailbrokenDevices Devices must not be jailbroken or rooted.
-    */
-    private ?bool $securityBlockJailbrokenDevices = null;
-    
-    /**
      * Instantiates a new IosCompliancePolicy and sets the default values.
     */
     public function __construct() {
@@ -125,7 +30,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return DeviceThreatProtectionLevel|null
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
-        return $this->advancedThreatProtectionRequiredSecurityLevel;
+        return $this->getBackingStore()->get('advancedThreatProtectionRequiredSecurityLevel');
     }
 
     /**
@@ -133,7 +38,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getDeviceThreatProtectionEnabled(): ?bool {
-        return $this->deviceThreatProtectionEnabled;
+        return $this->getBackingStore()->get('deviceThreatProtectionEnabled');
     }
 
     /**
@@ -141,7 +46,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return DeviceThreatProtectionLevel|null
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
-        return $this->deviceThreatProtectionRequiredSecurityLevel;
+        return $this->getBackingStore()->get('deviceThreatProtectionRequiredSecurityLevel');
     }
 
     /**
@@ -178,7 +83,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getManagedEmailProfileRequired(): ?bool {
-        return $this->managedEmailProfileRequired;
+        return $this->getBackingStore()->get('managedEmailProfileRequired');
     }
 
     /**
@@ -186,7 +91,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMaximumBuildVersion(): ?string {
-        return $this->osMaximumBuildVersion;
+        return $this->getBackingStore()->get('osMaximumBuildVersion');
     }
 
     /**
@@ -194,7 +99,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMaximumVersion(): ?string {
-        return $this->osMaximumVersion;
+        return $this->getBackingStore()->get('osMaximumVersion');
     }
 
     /**
@@ -202,7 +107,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMinimumBuildVersion(): ?string {
-        return $this->osMinimumBuildVersion;
+        return $this->getBackingStore()->get('osMinimumBuildVersion');
     }
 
     /**
@@ -210,7 +115,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMinimumVersion(): ?string {
-        return $this->osMinimumVersion;
+        return $this->getBackingStore()->get('osMinimumVersion');
     }
 
     /**
@@ -218,7 +123,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getPasscodeBlockSimple(): ?bool {
-        return $this->passcodeBlockSimple;
+        return $this->getBackingStore()->get('passcodeBlockSimple');
     }
 
     /**
@@ -226,7 +131,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasscodeExpirationDays(): ?int {
-        return $this->passcodeExpirationDays;
+        return $this->getBackingStore()->get('passcodeExpirationDays');
     }
 
     /**
@@ -234,7 +139,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasscodeMinimumCharacterSetCount(): ?int {
-        return $this->passcodeMinimumCharacterSetCount;
+        return $this->getBackingStore()->get('passcodeMinimumCharacterSetCount');
     }
 
     /**
@@ -242,7 +147,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasscodeMinimumLength(): ?int {
-        return $this->passcodeMinimumLength;
+        return $this->getBackingStore()->get('passcodeMinimumLength');
     }
 
     /**
@@ -250,7 +155,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasscodeMinutesOfInactivityBeforeLock(): ?int {
-        return $this->passcodeMinutesOfInactivityBeforeLock;
+        return $this->getBackingStore()->get('passcodeMinutesOfInactivityBeforeLock');
     }
 
     /**
@@ -258,7 +163,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasscodeMinutesOfInactivityBeforeScreenTimeout(): ?int {
-        return $this->passcodeMinutesOfInactivityBeforeScreenTimeout;
+        return $this->getBackingStore()->get('passcodeMinutesOfInactivityBeforeScreenTimeout');
     }
 
     /**
@@ -266,7 +171,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasscodePreviousPasscodeBlockCount(): ?int {
-        return $this->passcodePreviousPasscodeBlockCount;
+        return $this->getBackingStore()->get('passcodePreviousPasscodeBlockCount');
     }
 
     /**
@@ -274,7 +179,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getPasscodeRequired(): ?bool {
-        return $this->passcodeRequired;
+        return $this->getBackingStore()->get('passcodeRequired');
     }
 
     /**
@@ -282,7 +187,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return RequiredPasswordType|null
     */
     public function getPasscodeRequiredType(): ?RequiredPasswordType {
-        return $this->passcodeRequiredType;
+        return $this->getBackingStore()->get('passcodeRequiredType');
     }
 
     /**
@@ -290,7 +195,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return array<AppListItem>|null
     */
     public function getRestrictedApps(): ?array {
-        return $this->restrictedApps;
+        return $this->getBackingStore()->get('restrictedApps');
     }
 
     /**
@@ -298,7 +203,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getSecurityBlockJailbrokenDevices(): ?bool {
-        return $this->securityBlockJailbrokenDevices;
+        return $this->getBackingStore()->get('securityBlockJailbrokenDevices');
     }
 
     /**
@@ -307,177 +212,177 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('advancedThreatProtectionRequiredSecurityLevel', $this->advancedThreatProtectionRequiredSecurityLevel);
-        $writer->writeBooleanValue('deviceThreatProtectionEnabled', $this->deviceThreatProtectionEnabled);
-        $writer->writeEnumValue('deviceThreatProtectionRequiredSecurityLevel', $this->deviceThreatProtectionRequiredSecurityLevel);
-        $writer->writeBooleanValue('managedEmailProfileRequired', $this->managedEmailProfileRequired);
-        $writer->writeStringValue('osMaximumBuildVersion', $this->osMaximumBuildVersion);
-        $writer->writeStringValue('osMaximumVersion', $this->osMaximumVersion);
-        $writer->writeStringValue('osMinimumBuildVersion', $this->osMinimumBuildVersion);
-        $writer->writeStringValue('osMinimumVersion', $this->osMinimumVersion);
-        $writer->writeBooleanValue('passcodeBlockSimple', $this->passcodeBlockSimple);
-        $writer->writeIntegerValue('passcodeExpirationDays', $this->passcodeExpirationDays);
-        $writer->writeIntegerValue('passcodeMinimumCharacterSetCount', $this->passcodeMinimumCharacterSetCount);
-        $writer->writeIntegerValue('passcodeMinimumLength', $this->passcodeMinimumLength);
-        $writer->writeIntegerValue('passcodeMinutesOfInactivityBeforeLock', $this->passcodeMinutesOfInactivityBeforeLock);
-        $writer->writeIntegerValue('passcodeMinutesOfInactivityBeforeScreenTimeout', $this->passcodeMinutesOfInactivityBeforeScreenTimeout);
-        $writer->writeIntegerValue('passcodePreviousPasscodeBlockCount', $this->passcodePreviousPasscodeBlockCount);
-        $writer->writeBooleanValue('passcodeRequired', $this->passcodeRequired);
-        $writer->writeEnumValue('passcodeRequiredType', $this->passcodeRequiredType);
-        $writer->writeCollectionOfObjectValues('restrictedApps', $this->restrictedApps);
-        $writer->writeBooleanValue('securityBlockJailbrokenDevices', $this->securityBlockJailbrokenDevices);
+        $writer->writeEnumValue('advancedThreatProtectionRequiredSecurityLevel', $this->getAdvancedThreatProtectionRequiredSecurityLevel());
+        $writer->writeBooleanValue('deviceThreatProtectionEnabled', $this->getDeviceThreatProtectionEnabled());
+        $writer->writeEnumValue('deviceThreatProtectionRequiredSecurityLevel', $this->getDeviceThreatProtectionRequiredSecurityLevel());
+        $writer->writeBooleanValue('managedEmailProfileRequired', $this->getManagedEmailProfileRequired());
+        $writer->writeStringValue('osMaximumBuildVersion', $this->getOsMaximumBuildVersion());
+        $writer->writeStringValue('osMaximumVersion', $this->getOsMaximumVersion());
+        $writer->writeStringValue('osMinimumBuildVersion', $this->getOsMinimumBuildVersion());
+        $writer->writeStringValue('osMinimumVersion', $this->getOsMinimumVersion());
+        $writer->writeBooleanValue('passcodeBlockSimple', $this->getPasscodeBlockSimple());
+        $writer->writeIntegerValue('passcodeExpirationDays', $this->getPasscodeExpirationDays());
+        $writer->writeIntegerValue('passcodeMinimumCharacterSetCount', $this->getPasscodeMinimumCharacterSetCount());
+        $writer->writeIntegerValue('passcodeMinimumLength', $this->getPasscodeMinimumLength());
+        $writer->writeIntegerValue('passcodeMinutesOfInactivityBeforeLock', $this->getPasscodeMinutesOfInactivityBeforeLock());
+        $writer->writeIntegerValue('passcodeMinutesOfInactivityBeforeScreenTimeout', $this->getPasscodeMinutesOfInactivityBeforeScreenTimeout());
+        $writer->writeIntegerValue('passcodePreviousPasscodeBlockCount', $this->getPasscodePreviousPasscodeBlockCount());
+        $writer->writeBooleanValue('passcodeRequired', $this->getPasscodeRequired());
+        $writer->writeEnumValue('passcodeRequiredType', $this->getPasscodeRequiredType());
+        $writer->writeCollectionOfObjectValues('restrictedApps', $this->getRestrictedApps());
+        $writer->writeBooleanValue('securityBlockJailbrokenDevices', $this->getSecurityBlockJailbrokenDevices());
     }
 
     /**
      * Sets the advancedThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      *  @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
     */
-    public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value ): void {
-        $this->advancedThreatProtectionRequiredSecurityLevel = $value;
+    public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionRequiredSecurityLevel', $value);
     }
 
     /**
      * Sets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection .
      *  @param bool|null $value Value to set for the deviceThreatProtectionEnabled property.
     */
-    public function setDeviceThreatProtectionEnabled(?bool $value ): void {
-        $this->deviceThreatProtectionEnabled = $value;
+    public function setDeviceThreatProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('deviceThreatProtectionEnabled', $value);
     }
 
     /**
      * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      *  @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
     */
-    public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value ): void {
-        $this->deviceThreatProtectionRequiredSecurityLevel = $value;
+    public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
+        $this->getBackingStore()->set('deviceThreatProtectionRequiredSecurityLevel', $value);
     }
 
     /**
      * Sets the managedEmailProfileRequired property value. Indicates whether or not to require a managed email profile.
      *  @param bool|null $value Value to set for the managedEmailProfileRequired property.
     */
-    public function setManagedEmailProfileRequired(?bool $value ): void {
-        $this->managedEmailProfileRequired = $value;
+    public function setManagedEmailProfileRequired(?bool $value): void {
+        $this->getBackingStore()->set('managedEmailProfileRequired', $value);
     }
 
     /**
      * Sets the osMaximumBuildVersion property value. Maximum IOS build version.
      *  @param string|null $value Value to set for the osMaximumBuildVersion property.
     */
-    public function setOsMaximumBuildVersion(?string $value ): void {
-        $this->osMaximumBuildVersion = $value;
+    public function setOsMaximumBuildVersion(?string $value): void {
+        $this->getBackingStore()->set('osMaximumBuildVersion', $value);
     }
 
     /**
      * Sets the osMaximumVersion property value. Maximum IOS version.
      *  @param string|null $value Value to set for the osMaximumVersion property.
     */
-    public function setOsMaximumVersion(?string $value ): void {
-        $this->osMaximumVersion = $value;
+    public function setOsMaximumVersion(?string $value): void {
+        $this->getBackingStore()->set('osMaximumVersion', $value);
     }
 
     /**
      * Sets the osMinimumBuildVersion property value. Minimum IOS build version.
      *  @param string|null $value Value to set for the osMinimumBuildVersion property.
     */
-    public function setOsMinimumBuildVersion(?string $value ): void {
-        $this->osMinimumBuildVersion = $value;
+    public function setOsMinimumBuildVersion(?string $value): void {
+        $this->getBackingStore()->set('osMinimumBuildVersion', $value);
     }
 
     /**
      * Sets the osMinimumVersion property value. Minimum IOS version.
      *  @param string|null $value Value to set for the osMinimumVersion property.
     */
-    public function setOsMinimumVersion(?string $value ): void {
-        $this->osMinimumVersion = $value;
+    public function setOsMinimumVersion(?string $value): void {
+        $this->getBackingStore()->set('osMinimumVersion', $value);
     }
 
     /**
      * Sets the passcodeBlockSimple property value. Indicates whether or not to block simple passcodes.
      *  @param bool|null $value Value to set for the passcodeBlockSimple property.
     */
-    public function setPasscodeBlockSimple(?bool $value ): void {
-        $this->passcodeBlockSimple = $value;
+    public function setPasscodeBlockSimple(?bool $value): void {
+        $this->getBackingStore()->set('passcodeBlockSimple', $value);
     }
 
     /**
      * Sets the passcodeExpirationDays property value. Number of days before the passcode expires. Valid values 1 to 65535
      *  @param int|null $value Value to set for the passcodeExpirationDays property.
     */
-    public function setPasscodeExpirationDays(?int $value ): void {
-        $this->passcodeExpirationDays = $value;
+    public function setPasscodeExpirationDays(?int $value): void {
+        $this->getBackingStore()->set('passcodeExpirationDays', $value);
     }
 
     /**
      * Sets the passcodeMinimumCharacterSetCount property value. The number of character sets required in the password.
      *  @param int|null $value Value to set for the passcodeMinimumCharacterSetCount property.
     */
-    public function setPasscodeMinimumCharacterSetCount(?int $value ): void {
-        $this->passcodeMinimumCharacterSetCount = $value;
+    public function setPasscodeMinimumCharacterSetCount(?int $value): void {
+        $this->getBackingStore()->set('passcodeMinimumCharacterSetCount', $value);
     }
 
     /**
      * Sets the passcodeMinimumLength property value. Minimum length of passcode. Valid values 4 to 14
      *  @param int|null $value Value to set for the passcodeMinimumLength property.
     */
-    public function setPasscodeMinimumLength(?int $value ): void {
-        $this->passcodeMinimumLength = $value;
+    public function setPasscodeMinimumLength(?int $value): void {
+        $this->getBackingStore()->set('passcodeMinimumLength', $value);
     }
 
     /**
      * Sets the passcodeMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a passcode is required.
      *  @param int|null $value Value to set for the passcodeMinutesOfInactivityBeforeLock property.
     */
-    public function setPasscodeMinutesOfInactivityBeforeLock(?int $value ): void {
-        $this->passcodeMinutesOfInactivityBeforeLock = $value;
+    public function setPasscodeMinutesOfInactivityBeforeLock(?int $value): void {
+        $this->getBackingStore()->set('passcodeMinutesOfInactivityBeforeLock', $value);
     }
 
     /**
      * Sets the passcodeMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
      *  @param int|null $value Value to set for the passcodeMinutesOfInactivityBeforeScreenTimeout property.
     */
-    public function setPasscodeMinutesOfInactivityBeforeScreenTimeout(?int $value ): void {
-        $this->passcodeMinutesOfInactivityBeforeScreenTimeout = $value;
+    public function setPasscodeMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
+        $this->getBackingStore()->set('passcodeMinutesOfInactivityBeforeScreenTimeout', $value);
     }
 
     /**
      * Sets the passcodePreviousPasscodeBlockCount property value. Number of previous passcodes to block. Valid values 1 to 24
      *  @param int|null $value Value to set for the passcodePreviousPasscodeBlockCount property.
     */
-    public function setPasscodePreviousPasscodeBlockCount(?int $value ): void {
-        $this->passcodePreviousPasscodeBlockCount = $value;
+    public function setPasscodePreviousPasscodeBlockCount(?int $value): void {
+        $this->getBackingStore()->set('passcodePreviousPasscodeBlockCount', $value);
     }
 
     /**
      * Sets the passcodeRequired property value. Indicates whether or not to require a passcode.
      *  @param bool|null $value Value to set for the passcodeRequired property.
     */
-    public function setPasscodeRequired(?bool $value ): void {
-        $this->passcodeRequired = $value;
+    public function setPasscodeRequired(?bool $value): void {
+        $this->getBackingStore()->set('passcodeRequired', $value);
     }
 
     /**
      * Sets the passcodeRequiredType property value. Possible values of required passwords.
      *  @param RequiredPasswordType|null $value Value to set for the passcodeRequiredType property.
     */
-    public function setPasscodeRequiredType(?RequiredPasswordType $value ): void {
-        $this->passcodeRequiredType = $value;
+    public function setPasscodeRequiredType(?RequiredPasswordType $value): void {
+        $this->getBackingStore()->set('passcodeRequiredType', $value);
     }
 
     /**
      * Sets the restrictedApps property value. Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.
      *  @param array<AppListItem>|null $value Value to set for the restrictedApps property.
     */
-    public function setRestrictedApps(?array $value ): void {
-        $this->restrictedApps = $value;
+    public function setRestrictedApps(?array $value): void {
+        $this->getBackingStore()->set('restrictedApps', $value);
     }
 
     /**
      * Sets the securityBlockJailbrokenDevices property value. Devices must not be jailbroken or rooted.
      *  @param bool|null $value Value to set for the securityBlockJailbrokenDevices property.
     */
-    public function setSecurityBlockJailbrokenDevices(?bool $value ): void {
-        $this->securityBlockJailbrokenDevices = $value;
+    public function setSecurityBlockJailbrokenDevices(?bool $value): void {
+        $this->getBackingStore()->set('securityBlockJailbrokenDevices', $value);
     }
 
 }

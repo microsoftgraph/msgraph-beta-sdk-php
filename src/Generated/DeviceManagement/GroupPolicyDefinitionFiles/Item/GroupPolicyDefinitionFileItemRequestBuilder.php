@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GroupPolicyDefinitionFileItemRequestBuilder 
 {
     /**
-     * The definitions property
+     * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyDefinitionFile entity.
     */
     public function definitions(): DefinitionsRequestBuilder {
         return new DefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -123,7 +123,7 @@ class GroupPolicyDefinitionFileItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyDefinitionFiles.item.definitions.item collection
+     * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyDefinitionFile entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyDefinitionItemRequestBuilder
     */

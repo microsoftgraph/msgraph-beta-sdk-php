@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SublabelsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The evaluate property
+     * Provides operations to call the evaluate method.
     */
     public function evaluate(): EvaluateRequestBuilder {
         return new EvaluateRequestBuilder($this->pathParameters, $this->requestAdapter);

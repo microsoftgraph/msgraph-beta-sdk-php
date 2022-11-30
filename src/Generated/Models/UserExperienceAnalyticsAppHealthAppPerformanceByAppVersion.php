@@ -9,46 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity implements Parsable 
 {
     /**
-     * @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
-    */
-    private ?int $appCrashCount = null;
-    
-    /**
-     * @var string|null $appDisplayName The friendly name of the application.
-    */
-    private ?string $appDisplayName = null;
-    
-    /**
-     * @var string|null $appName The name of the application.
-    */
-    private ?string $appName = null;
-    
-    /**
-     * @var string|null $appPublisher The publisher of the application.
-    */
-    private ?string $appPublisher = null;
-    
-    /**
-     * @var int|null $appUsageDuration The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $appUsageDuration = null;
-    
-    /**
-     * @var string|null $appVersion The version of the application.
-    */
-    private ?string $appVersion = null;
-    
-    /**
-     * @var int|null $meanTimeToFailureInMinutes The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $meanTimeToFailureInMinutes = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByAppVersion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsAppHealthAppPerformanceByAppVersion');
     }
 
     /**
@@ -65,7 +29,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
      * @return int|null
     */
     public function getAppCrashCount(): ?int {
-        return $this->appCrashCount;
+        return $this->getBackingStore()->get('appCrashCount');
     }
 
     /**
@@ -73,7 +37,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->appDisplayName;
+        return $this->getBackingStore()->get('appDisplayName');
     }
 
     /**
@@ -81,7 +45,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
      * @return string|null
     */
     public function getAppName(): ?string {
-        return $this->appName;
+        return $this->getBackingStore()->get('appName');
     }
 
     /**
@@ -89,7 +53,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
      * @return string|null
     */
     public function getAppPublisher(): ?string {
-        return $this->appPublisher;
+        return $this->getBackingStore()->get('appPublisher');
     }
 
     /**
@@ -97,7 +61,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
      * @return int|null
     */
     public function getAppUsageDuration(): ?int {
-        return $this->appUsageDuration;
+        return $this->getBackingStore()->get('appUsageDuration');
     }
 
     /**
@@ -105,7 +69,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
      * @return string|null
     */
     public function getAppVersion(): ?string {
-        return $this->appVersion;
+        return $this->getBackingStore()->get('appVersion');
     }
 
     /**
@@ -130,7 +94,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
-        return $this->meanTimeToFailureInMinutes;
+        return $this->getBackingStore()->get('meanTimeToFailureInMinutes');
     }
 
     /**
@@ -139,69 +103,69 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('appCrashCount', $this->appCrashCount);
-        $writer->writeStringValue('appDisplayName', $this->appDisplayName);
-        $writer->writeStringValue('appName', $this->appName);
-        $writer->writeStringValue('appPublisher', $this->appPublisher);
-        $writer->writeIntegerValue('appUsageDuration', $this->appUsageDuration);
-        $writer->writeStringValue('appVersion', $this->appVersion);
-        $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->meanTimeToFailureInMinutes);
+        $writer->writeIntegerValue('appCrashCount', $this->getAppCrashCount());
+        $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
+        $writer->writeStringValue('appName', $this->getAppName());
+        $writer->writeStringValue('appPublisher', $this->getAppPublisher());
+        $writer->writeIntegerValue('appUsageDuration', $this->getAppUsageDuration());
+        $writer->writeStringValue('appVersion', $this->getAppVersion());
+        $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->getMeanTimeToFailureInMinutes());
     }
 
     /**
      * Sets the appCrashCount property value. The number of crashes for the app. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the appCrashCount property.
     */
-    public function setAppCrashCount(?int $value ): void {
-        $this->appCrashCount = $value;
+    public function setAppCrashCount(?int $value): void {
+        $this->getBackingStore()->set('appCrashCount', $value);
     }
 
     /**
      * Sets the appDisplayName property value. The friendly name of the application.
      *  @param string|null $value Value to set for the appDisplayName property.
     */
-    public function setAppDisplayName(?string $value ): void {
-        $this->appDisplayName = $value;
+    public function setAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('appDisplayName', $value);
     }
 
     /**
      * Sets the appName property value. The name of the application.
      *  @param string|null $value Value to set for the appName property.
     */
-    public function setAppName(?string $value ): void {
-        $this->appName = $value;
+    public function setAppName(?string $value): void {
+        $this->getBackingStore()->set('appName', $value);
     }
 
     /**
      * Sets the appPublisher property value. The publisher of the application.
      *  @param string|null $value Value to set for the appPublisher property.
     */
-    public function setAppPublisher(?string $value ): void {
-        $this->appPublisher = $value;
+    public function setAppPublisher(?string $value): void {
+        $this->getBackingStore()->set('appPublisher', $value);
     }
 
     /**
      * Sets the appUsageDuration property value. The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the appUsageDuration property.
     */
-    public function setAppUsageDuration(?int $value ): void {
-        $this->appUsageDuration = $value;
+    public function setAppUsageDuration(?int $value): void {
+        $this->getBackingStore()->set('appUsageDuration', $value);
     }
 
     /**
      * Sets the appVersion property value. The version of the application.
      *  @param string|null $value Value to set for the appVersion property.
     */
-    public function setAppVersion(?string $value ): void {
-        $this->appVersion = $value;
+    public function setAppVersion(?string $value): void {
+        $this->getBackingStore()->set('appVersion', $value);
     }
 
     /**
      * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
-    public function setMeanTimeToFailureInMinutes(?int $value ): void {
-        $this->meanTimeToFailureInMinutes = $value;
+    public function setMeanTimeToFailureInMinutes(?int $value): void {
+        $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);
     }
 
 }

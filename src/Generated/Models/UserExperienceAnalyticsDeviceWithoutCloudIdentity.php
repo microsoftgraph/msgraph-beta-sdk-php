@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implements Parsable 
 {
     /**
-     * @var string|null $azureAdDeviceId Azure Active Directory Device Id
-    */
-    private ?string $azureAdDeviceId = null;
-    
-    /**
-     * @var string|null $deviceName The tenant attach device's name.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * Instantiates a new UserExperienceAnalyticsDeviceWithoutCloudIdentity and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceWithoutCloudIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDeviceWithoutCloudIdentity');
     }
 
     /**
@@ -40,7 +29,7 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
      * @return string|null
     */
     public function getAzureAdDeviceId(): ?string {
-        return $this->azureAdDeviceId;
+        return $this->getBackingStore()->get('azureAdDeviceId');
     }
 
     /**
@@ -48,7 +37,7 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -69,24 +58,24 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('azureAdDeviceId', $this->azureAdDeviceId);
-        $writer->writeStringValue('deviceName', $this->deviceName);
+        $writer->writeStringValue('azureAdDeviceId', $this->getAzureAdDeviceId());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
     }
 
     /**
      * Sets the azureAdDeviceId property value. Azure Active Directory Device Id
      *  @param string|null $value Value to set for the azureAdDeviceId property.
     */
-    public function setAzureAdDeviceId(?string $value ): void {
-        $this->azureAdDeviceId = $value;
+    public function setAzureAdDeviceId(?string $value): void {
+        $this->getBackingStore()->set('azureAdDeviceId', $value);
     }
 
     /**
      * Sets the deviceName property value. The tenant attach device's name.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
 }

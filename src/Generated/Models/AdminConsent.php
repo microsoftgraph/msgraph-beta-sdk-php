@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AdminConsent implements AdditionalDataHolder, Parsable 
+class AdminConsent implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var AdminConsentState|null $shareAPNSData Admin consent state.
-    */
-    private ?AdminConsentState $shareAPNSData = null;
-    
-    /**
-     * @var AdminConsentState|null $shareUserExperienceAnalyticsData Admin consent state.
-    */
-    private ?AdminConsentState $shareUserExperienceAnalyticsData = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new adminConsent and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.adminConsent');
     }
 
     /**
@@ -50,8 +38,16 @@ class AdminConsent implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +68,7 @@ class AdminConsent implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -80,7 +76,7 @@ class AdminConsent implements AdditionalDataHolder, Parsable
      * @return AdminConsentState|null
     */
     public function getShareAPNSData(): ?AdminConsentState {
-        return $this->shareAPNSData;
+        return $this->getBackingStore()->get('shareAPNSData');
     }
 
     /**
@@ -88,7 +84,7 @@ class AdminConsent implements AdditionalDataHolder, Parsable
      * @return AdminConsentState|null
     */
     public function getShareUserExperienceAnalyticsData(): ?AdminConsentState {
-        return $this->shareUserExperienceAnalyticsData;
+        return $this->getBackingStore()->get('shareUserExperienceAnalyticsData');
     }
 
     /**
@@ -96,42 +92,50 @@ class AdminConsent implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('shareAPNSData', $this->shareAPNSData);
-        $writer->writeEnumValue('shareUserExperienceAnalyticsData', $this->shareUserExperienceAnalyticsData);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('shareAPNSData', $this->getShareAPNSData());
+        $writer->writeEnumValue('shareUserExperienceAnalyticsData', $this->getShareUserExperienceAnalyticsData());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the shareAPNSData property value. Admin consent state.
      *  @param AdminConsentState|null $value Value to set for the shareAPNSData property.
     */
-    public function setShareAPNSData(?AdminConsentState $value ): void {
-        $this->shareAPNSData = $value;
+    public function setShareAPNSData(?AdminConsentState $value): void {
+        $this->getBackingStore()->set('shareAPNSData', $value);
     }
 
     /**
      * Sets the shareUserExperienceAnalyticsData property value. Admin consent state.
      *  @param AdminConsentState|null $value Value to set for the shareUserExperienceAnalyticsData property.
     */
-    public function setShareUserExperienceAnalyticsData(?AdminConsentState $value ): void {
-        $this->shareUserExperienceAnalyticsData = $value;
+    public function setShareUserExperienceAnalyticsData(?AdminConsentState $value): void {
+        $this->getBackingStore()->set('shareUserExperienceAnalyticsData', $value);
     }
 
 }
