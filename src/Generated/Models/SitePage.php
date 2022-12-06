@@ -26,7 +26,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the contentType property value. The content type of the page.
+     * Gets the contentType property value. Inherited from baseItem.
      * @return ContentTypeInfo|null
     */
     public function getContentType(): ?ContentTypeInfo {
@@ -57,7 +57,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the publishingState property value. The publishingState property
+     * Gets the publishingState property value. The publishing status and the MM.mm version of the page.
      * @return PublicationFacet|null
     */
     public function getPublishingState(): ?PublicationFacet {
@@ -65,7 +65,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Title of the sitePage.
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -94,7 +94,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the contentType property value. The content type of the page.
+     * Sets the contentType property value. Inherited from baseItem.
      *  @param ContentTypeInfo|null $value Value to set for the contentType property.
     */
     public function setContentType(?ContentTypeInfo $value): void {
@@ -110,7 +110,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the publishingState property value. The publishingState property
+     * Sets the publishingState property value. The publishing status and the MM.mm version of the page.
      *  @param PublicationFacet|null $value Value to set for the publishingState property.
     */
     public function setPublishingState(?PublicationFacet $value): void {
@@ -118,7 +118,7 @@ class SitePage extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. Title of the sitePage.
      *  @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DirectoryAudit extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new directoryAudit and sets the default values.
+     * Instantiates a new DirectoryAudit and sets the default values.
     */
     public function __construct() {
         parent::__construct();
