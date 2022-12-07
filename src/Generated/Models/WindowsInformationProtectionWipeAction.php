@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsInformationProtectionWipeAction extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsInformationProtectionWipeAction and sets the default values.
+     * Instantiates a new WindowsInformationProtectionWipeAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
