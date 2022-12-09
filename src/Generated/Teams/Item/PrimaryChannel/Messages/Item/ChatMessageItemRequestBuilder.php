@@ -234,12 +234,12 @@ class ChatMessageItemRequestBuilder
     /**
      * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
      * @param string $id Unique identifier of the item
-     * @return ChatMessageItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\ChatMessageItemRequestBuilder
     */
-    public function repliesById(string $id): ChatMessageItemRequestBuilder {
+    public function repliesById(string $id): \Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\ChatMessageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['chatMessage%2Did1'] = $id;
-        return new ChatMessageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\Item\Replies\Item\ChatMessageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

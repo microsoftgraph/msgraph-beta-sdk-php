@@ -51,12 +51,12 @@ class EdiscoveryReviewTagItemRequestBuilder
     /**
      * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
      * @param string $id Unique identifier of the item
-     * @return EdiscoveryReviewTagItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Tags\Item\ChildTags\Item\EdiscoveryReviewTagItemRequestBuilder
     */
-    public function childTagsById(string $id): EdiscoveryReviewTagItemRequestBuilder {
+    public function childTagsById(string $id): \Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Tags\Item\ChildTags\Item\EdiscoveryReviewTagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['ediscoveryReviewTag%2Did1'] = $id;
-        return new EdiscoveryReviewTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Tags\Item\ChildTags\Item\EdiscoveryReviewTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

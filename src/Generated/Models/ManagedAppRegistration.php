@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedAppRegistration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new managedAppRegistration and sets the default values.
+     * Instantiates a new ManagedAppRegistration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

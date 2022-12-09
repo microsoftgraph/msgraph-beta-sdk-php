@@ -190,12 +190,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return EventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Events\Item\Instances\Item\ExceptionOccurrences\Item\EventItemRequestBuilder
     */
-    public function exceptionOccurrencesById(string $id): EventItemRequestBuilder {
+    public function exceptionOccurrencesById(string $id): \Microsoft\Graph\Beta\Generated\Me\Events\Item\Instances\Item\ExceptionOccurrences\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did2'] = $id;
-        return new EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Events\Item\Instances\Item\ExceptionOccurrences\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

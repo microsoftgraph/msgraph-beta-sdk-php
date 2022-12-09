@@ -60,12 +60,12 @@ class TermItemRequestBuilder
     /**
      * Provides operations to manage the children property of the microsoft.graph.termStore.term entity.
      * @param string $id Unique identifier of the item
-     * @return TermItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Sets\Item\Children\Item\Children\Item\TermItemRequestBuilder
     */
-    public function childrenById(string $id): TermItemRequestBuilder {
+    public function childrenById(string $id): \Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Sets\Item\Children\Item\Children\Item\TermItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['term%2Did1'] = $id;
-        return new TermItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Sets\Item\Children\Item\Children\Item\TermItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

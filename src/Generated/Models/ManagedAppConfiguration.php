@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable 
 {
     /**
-     * Instantiates a new ManagedAppConfiguration and sets the default values.
+     * Instantiates a new managedAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

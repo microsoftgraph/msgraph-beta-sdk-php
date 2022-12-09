@@ -6,10 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\AdditionalSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Item\DataSourceItemRequestBuilder as MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemAdditionalSourcesItemDataSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AddToReviewSetOperation\AddToReviewSetOperationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\CustodianSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\Item\DataSourceItemRequestBuilder as MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemCustodianSourcesItemDataSourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\EstimateStatistics\EstimateStatisticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\LastEstimateStatisticsOperation\LastEstimateStatisticsOperationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\NoncustodialSources\Item\NoncustodialDataSourceItemRequestBuilder;
@@ -94,12 +92,12 @@ class SourceCollectionItemRequestBuilder
     /**
      * Provides operations to manage the additionalSources property of the microsoft.graph.ediscovery.sourceCollection entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemAdditionalSourcesItemDataSourceItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Item\DataSourceItemRequestBuilder
     */
-    public function additionalSourcesById(string $id): MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemAdditionalSourcesItemDataSourceItemRequestBuilder {
+    public function additionalSourcesById(string $id): \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Item\DataSourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dataSource%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemAdditionalSourcesItemDataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\Item\DataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -186,12 +184,12 @@ class SourceCollectionItemRequestBuilder
     /**
      * Provides operations to manage the custodianSources property of the microsoft.graph.ediscovery.sourceCollection entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemCustodianSourcesItemDataSourceItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\Item\DataSourceItemRequestBuilder
     */
-    public function custodianSourcesById(string $id): MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemCustodianSourcesItemDataSourceItemRequestBuilder {
+    public function custodianSourcesById(string $id): \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\Item\DataSourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dataSource%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedComplianceEdiscoveryCasesItemSourceCollectionsItemCustodianSourcesItemDataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\Item\DataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

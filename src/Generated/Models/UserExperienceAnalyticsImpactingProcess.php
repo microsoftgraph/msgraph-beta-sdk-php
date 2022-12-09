@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsImpactingProcess and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsImpactingProcess and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -11,9 +11,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\Base
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ColumnLinks\ColumnLinksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ColumnLinks\Item\ColumnLinkItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ColumnPositions\ColumnPositionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ColumnPositions\Item\ColumnDefinitionItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemSitesItemContentTypesItemColumnPositionsItemColumnDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\Columns\ColumnsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemSitesItemContentTypesItemColumnsItemColumnDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\CopyToDefaultContentLocation\CopyToDefaultContentLocationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\IsPublished\IsPublishedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\Publish\PublishRequestBuilder;
@@ -111,12 +109,12 @@ class ContentTypeItemRequestBuilder
     /**
      * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
      * @param string $id Unique identifier of the item
-     * @return ContentTypeItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\BaseTypes\Item\ContentTypeItemRequestBuilder
     */
-    public function baseTypesById(string $id): ContentTypeItemRequestBuilder {
+    public function baseTypesById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\BaseTypes\Item\ContentTypeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['contentType%2Did1'] = $id;
-        return new ContentTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\BaseTypes\Item\ContentTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -133,23 +131,23 @@ class ContentTypeItemRequestBuilder
     /**
      * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemSitesItemContentTypesItemColumnPositionsItemColumnDefinitionItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ColumnPositions\Item\ColumnDefinitionItemRequestBuilder
     */
-    public function columnPositionsById(string $id): MicrosoftGraphBetaGeneratedGroupsItemSitesItemContentTypesItemColumnPositionsItemColumnDefinitionItemRequestBuilder {
+    public function columnPositionsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ColumnPositions\Item\ColumnDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['columnDefinition%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemSitesItemContentTypesItemColumnPositionsItemColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ColumnPositions\Item\ColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemSitesItemContentTypesItemColumnsItemColumnDefinitionItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder
     */
-    public function columnsById(string $id): MicrosoftGraphBetaGeneratedGroupsItemSitesItemContentTypesItemColumnsItemColumnDefinitionItemRequestBuilder {
+    public function columnsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['columnDefinition%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemSitesItemContentTypesItemColumnsItemColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

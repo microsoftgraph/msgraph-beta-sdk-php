@@ -10,8 +10,6 @@ use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleAssignmentMultiple;
 use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\AppScopes\AppScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\AppScopes\Item\AppScopeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\DirectoryScopes\DirectoryScopesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemDirectoryScopesItemDirectoryObjectItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemPrincipalsItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\Principals\PrincipalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\RoleDefinition\RoleDefinitionRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -181,12 +179,12 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     /**
      * Provides operations to manage the directoryScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemDirectoryScopesItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder
     */
-    public function directoryScopesById(string $id): MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemDirectoryScopesItemDirectoryObjectItemRequestBuilder {
+    public function directoryScopesById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemDirectoryScopesItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -231,12 +229,12 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     /**
      * Provides operations to manage the principals property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemPrincipalsItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder
     */
-    public function principalsById(string $id): MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemPrincipalsItemDirectoryObjectItemRequestBuilder {
+    public function principalsById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemPrincipalsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

@@ -262,12 +262,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedUsersItemCalendarEventsItemExceptionOccurrencesItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder
     */
-    public function exceptionOccurrencesById(string $id): MicrosoftGraphBetaGeneratedUsersItemCalendarEventsItemExceptionOccurrencesItemEventItemRequestBuilder {
+    public function exceptionOccurrencesById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new MicrosoftGraphBetaGeneratedUsersItemCalendarEventsItemExceptionOccurrencesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -303,12 +303,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the instances property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedUsersItemCalendarEventsItemInstancesItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Instances\Item\EventItemRequestBuilder
     */
-    public function instancesById(string $id): MicrosoftGraphBetaGeneratedUsersItemCalendarEventsItemInstancesItemEventItemRequestBuilder {
+    public function instancesById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Instances\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new MicrosoftGraphBetaGeneratedUsersItemCalendarEventsItemInstancesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Instances\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

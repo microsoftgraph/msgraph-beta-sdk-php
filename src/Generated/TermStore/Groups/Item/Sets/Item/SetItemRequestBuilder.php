@@ -8,11 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Set;
 use Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Children\ChildrenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Children\Item\TermItemRequestBuilder as MicrosoftGraphBetaGeneratedTermStoreGroupsItemSetsItemChildrenItemTermItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\ParentGroup\ParentGroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Relations\Item\RelationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Relations\RelationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Terms\Item\TermItemRequestBuilder as MicrosoftGraphBetaGeneratedTermStoreGroupsItemSetsItemTermsItemTermItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Terms\TermsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -70,12 +68,12 @@ class SetItemRequestBuilder
     /**
      * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedTermStoreGroupsItemSetsItemChildrenItemTermItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Children\Item\TermItemRequestBuilder
     */
-    public function childrenById(string $id): MicrosoftGraphBetaGeneratedTermStoreGroupsItemSetsItemChildrenItemTermItemRequestBuilder {
+    public function childrenById(string $id): \Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Children\Item\TermItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['term%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedTermStoreGroupsItemSetsItemChildrenItemTermItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Children\Item\TermItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -231,12 +229,12 @@ class SetItemRequestBuilder
     /**
      * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedTermStoreGroupsItemSetsItemTermsItemTermItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Terms\Item\TermItemRequestBuilder
     */
-    public function termsById(string $id): MicrosoftGraphBetaGeneratedTermStoreGroupsItemSetsItemTermsItemTermItemRequestBuilder {
+    public function termsById(string $id): \Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Terms\Item\TermItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['term%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedTermStoreGroupsItemSetsItemTermsItemTermItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Terms\Item\TermItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

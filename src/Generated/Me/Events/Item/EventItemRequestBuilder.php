@@ -262,12 +262,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeEventsItemExceptionOccurrencesItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder
     */
-    public function exceptionOccurrencesById(string $id): MicrosoftGraphBetaGeneratedMeEventsItemExceptionOccurrencesItemEventItemRequestBuilder {
+    public function exceptionOccurrencesById(string $id): \Microsoft\Graph\Beta\Generated\Me\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeEventsItemExceptionOccurrencesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -303,12 +303,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the instances property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeEventsItemInstancesItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Events\Item\Instances\Item\EventItemRequestBuilder
     */
-    public function instancesById(string $id): MicrosoftGraphBetaGeneratedMeEventsItemInstancesItemEventItemRequestBuilder {
+    public function instancesById(string $id): \Microsoft\Graph\Beta\Generated\Me\Events\Item\Instances\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeEventsItemInstancesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Events\Item\Instances\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

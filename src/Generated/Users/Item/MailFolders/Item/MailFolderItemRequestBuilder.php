@@ -104,12 +104,12 @@ class MailFolderItemRequestBuilder
     /**
      * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
      * @param string $id Unique identifier of the item
-     * @return MailFolderItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\MailFolderItemRequestBuilder
     */
-    public function childFoldersById(string $id): MailFolderItemRequestBuilder {
+    public function childFoldersById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\MailFolderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mailFolder%2Did1'] = $id;
-        return new MailFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\MailFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

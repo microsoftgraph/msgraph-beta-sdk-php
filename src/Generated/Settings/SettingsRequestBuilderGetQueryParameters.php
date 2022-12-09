@@ -19,12 +19,6 @@ class SettingsRequestBuilderGetQueryParameters
     public ?array $expand = null;
     
     /**
-     * @QueryParameter("%24filter")
-     * @var string|null $filter Filter items by property values
-    */
-    public ?string $filter = null;
-    
-    /**
      * @QueryParameter("%24orderby")
      * @var array<string>|null $orderby Order items by property values
     */

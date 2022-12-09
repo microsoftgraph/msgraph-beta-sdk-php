@@ -8,8 +8,6 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleManagementPolicy;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\EffectiveRules\EffectiveRulesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\EffectiveRules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemEffectiveRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Rules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Rules\RulesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -153,12 +151,12 @@ class UnifiedRoleManagementPolicyItemRequestBuilder
     /**
      * Provides operations to manage the effectiveRules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemEffectiveRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\EffectiveRules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder
     */
-    public function effectiveRulesById(string $id): MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemEffectiveRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder {
+    public function effectiveRulesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\EffectiveRules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRoleManagementPolicyRule%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemEffectiveRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\EffectiveRules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -203,12 +201,12 @@ class UnifiedRoleManagementPolicyItemRequestBuilder
     /**
      * Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Rules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder
     */
-    public function rulesById(string $id): MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder {
+    public function rulesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Rules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRoleManagementPolicyRule%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedPoliciesRoleManagementPoliciesItemRulesItemUnifiedRoleManagementPolicyRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Rules\Item\UnifiedRoleManagementPolicyRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }
