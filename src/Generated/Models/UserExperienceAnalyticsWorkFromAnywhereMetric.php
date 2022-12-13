@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereMetric and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

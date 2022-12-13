@@ -171,12 +171,12 @@ class UnifiedRoleDefinitionItemRequestBuilder
     /**
      * Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
      * @param string $id Unique identifier of the item
-     * @return UnifiedRoleDefinitionItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleDefinitions\Item\InheritsPermissionsFrom\Item\UnifiedRoleDefinitionItemRequestBuilder
     */
-    public function inheritsPermissionsFromById(string $id): UnifiedRoleDefinitionItemRequestBuilder {
+    public function inheritsPermissionsFromById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleDefinitions\Item\InheritsPermissionsFrom\Item\UnifiedRoleDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRoleDefinition%2Did1'] = $id;
-        return new UnifiedRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleDefinitions\Item\InheritsPermissionsFrom\Item\UnifiedRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

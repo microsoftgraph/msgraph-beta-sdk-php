@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RemoteActionAudit extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new remoteActionAudit and sets the default values.
+     * Instantiates a new RemoteActionAudit and sets the default values.
     */
     public function __construct() {
         parent::__construct();

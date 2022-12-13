@@ -11,11 +11,9 @@ use Microsoft\Graph\Beta\Generated\Domains\Item\FederationConfiguration\Federati
 use Microsoft\Graph\Beta\Generated\Domains\Item\FederationConfiguration\Item\InternalDomainFederationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\ForceDelete\ForceDeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\Promote\PromoteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\ServiceConfigurationRecords\Item\DomainDnsRecordItemRequestBuilder as MicrosoftGraphBetaGeneratedDomainsItemServiceConfigurationRecordsItemDomainDnsRecordItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\ServiceConfigurationRecords\ServiceConfigurationRecordsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\Item\SharedEmailDomainInvitationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\SharedEmailDomainInvitationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\Item\DomainDnsRecordItemRequestBuilder as MicrosoftGraphBetaGeneratedDomainsItemVerificationDnsRecordsItemDomainDnsRecordItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\VerificationDnsRecordsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\Verify\VerifyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Domain;
@@ -265,12 +263,12 @@ class DomainItemRequestBuilder
     /**
      * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedDomainsItemServiceConfigurationRecordsItemDomainDnsRecordItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Domains\Item\ServiceConfigurationRecords\Item\DomainDnsRecordItemRequestBuilder
     */
-    public function serviceConfigurationRecordsById(string $id): MicrosoftGraphBetaGeneratedDomainsItemServiceConfigurationRecordsItemDomainDnsRecordItemRequestBuilder {
+    public function serviceConfigurationRecordsById(string $id): \Microsoft\Graph\Beta\Generated\Domains\Item\ServiceConfigurationRecords\Item\DomainDnsRecordItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['domainDnsRecord%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedDomainsItemServiceConfigurationRecordsItemDomainDnsRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Domains\Item\ServiceConfigurationRecords\Item\DomainDnsRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -287,12 +285,12 @@ class DomainItemRequestBuilder
     /**
      * Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedDomainsItemVerificationDnsRecordsItemDomainDnsRecordItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\Item\DomainDnsRecordItemRequestBuilder
     */
-    public function verificationDnsRecordsById(string $id): MicrosoftGraphBetaGeneratedDomainsItemVerificationDnsRecordsItemDomainDnsRecordItemRequestBuilder {
+    public function verificationDnsRecordsById(string $id): \Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\Item\DomainDnsRecordItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['domainDnsRecord%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedDomainsItemVerificationDnsRecordsItemDomainDnsRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\Item\DomainDnsRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

@@ -231,12 +231,12 @@ class DriveItemItemRequestBuilder
     /**
      * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
      * @param string $id Unique identifier of the item
-     * @return DriveItemItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder
     */
-    public function childrenById(string $id): DriveItemItemRequestBuilder {
+    public function childrenById(string $id): \Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['driveItem%2Did1'] = $id;
-        return new DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

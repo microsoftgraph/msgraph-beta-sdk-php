@@ -9,9 +9,7 @@ use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\Allowed
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarPermissions\CalendarPermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarPermissions\Item\CalendarPermissionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarView\CalendarViewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarView\Item\EventItemRequestBuilder as MicrosoftGraphBetaGeneratedMeCalendarGroupsItemCalendarsItemCalendarViewItemEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\Events\EventsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\Events\Item\EventItemRequestBuilder as MicrosoftGraphBetaGeneratedMeCalendarGroupsItemCalendarsItemEventsItemEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\GetSchedule\GetScheduleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\MultiValueExtendedProperties\Item\MultiValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
@@ -109,12 +107,12 @@ class CalendarItemRequestBuilder
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeCalendarGroupsItemCalendarsItemCalendarViewItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarView\Item\EventItemRequestBuilder
     */
-    public function calendarViewById(string $id): MicrosoftGraphBetaGeneratedMeCalendarGroupsItemCalendarsItemCalendarViewItemEventItemRequestBuilder {
+    public function calendarViewById(string $id): \Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarView\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeCalendarGroupsItemCalendarsItemCalendarViewItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarView\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -220,12 +218,12 @@ class CalendarItemRequestBuilder
     /**
      * Provides operations to manage the events property of the microsoft.graph.calendar entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeCalendarGroupsItemCalendarsItemEventsItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\Events\Item\EventItemRequestBuilder
     */
-    public function eventsById(string $id): MicrosoftGraphBetaGeneratedMeCalendarGroupsItemCalendarsItemEventsItemEventItemRequestBuilder {
+    public function eventsById(string $id): \Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\Events\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeCalendarGroupsItemCalendarsItemEventsItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\Events\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

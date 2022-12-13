@@ -6,14 +6,12 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\AcceptedSenders\AcceptedSendersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\AcceptedSenders\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemAcceptedSendersItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\AddFavorite\AddFavoriteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\AssignLicense\AssignLicenseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\CalendarView\CalendarViewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\CalendarView\Item\EventItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemCalendarViewItemEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\CheckGrantedPermissionsForApp\CheckGrantedPermissionsForAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
@@ -27,21 +25,16 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints\EndpointsRequestBuilder
 use Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints\Item\EndpointItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\EvaluateDynamicMembership\EvaluateDynamicMembershipRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Events\EventsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\EventItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemEventsItemEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Extensions\Item\ExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\GroupLifecyclePolicies\GroupLifecyclePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\GroupLifecyclePolicies\Item\GroupLifecyclePolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemMemberOfItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\MemberOf\MemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Members\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemMembersItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Members\MembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemMembersWithLicenseErrorsItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\MembersWithLicenseErrorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\OnenoteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemOwnersItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\OwnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\PermissionGrants\PermissionGrantsRequestBuilder;
@@ -49,7 +42,6 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Photo\PhotoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Photos\Item\ProfilePhotoItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Photos\PhotosRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\PlannerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\RejectedSenders\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemRejectedSendersItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\RejectedSenders\RejectedSendersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\RemoveFavorite\RemoveFavoriteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Renew\RenewRequestBuilder;
@@ -63,9 +55,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\SubscribeByMail\SubscribeByMailRe
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\TeamRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\ConversationThreadItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Threads\ThreadsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemTransitiveMembersItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\TransitiveMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\UnsubscribeByMail\UnsubscribeByMailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\ValidateProperties\ValidatePropertiesRequestBuilder;
@@ -400,12 +390,12 @@ class GroupItemRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.acceptedSenders.item collection
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemAcceptedSendersItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\AcceptedSenders\Item\DirectoryObjectItemRequestBuilder
     */
-    public function acceptedSendersById(string $id): MicrosoftGraphBetaGeneratedGroupsItemAcceptedSendersItemDirectoryObjectItemRequestBuilder {
+    public function acceptedSendersById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\AcceptedSenders\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemAcceptedSendersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\AcceptedSenders\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -422,12 +412,12 @@ class GroupItemRequestBuilder
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.group entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemCalendarViewItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\CalendarView\Item\EventItemRequestBuilder
     */
-    public function calendarViewById(string $id): MicrosoftGraphBetaGeneratedGroupsItemCalendarViewItemEventItemRequestBuilder {
+    public function calendarViewById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\CalendarView\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemCalendarViewItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\CalendarView\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -566,12 +556,12 @@ class GroupItemRequestBuilder
     /**
      * Provides operations to manage the events property of the microsoft.graph.group entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemEventsItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\EventItemRequestBuilder
     */
-    public function eventsById(string $id): MicrosoftGraphBetaGeneratedGroupsItemEventsItemEventItemRequestBuilder {
+    public function eventsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemEventsItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -618,45 +608,45 @@ class GroupItemRequestBuilder
     /**
      * Provides operations to manage the memberOf property of the microsoft.graph.group entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemMemberOfItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder
     */
-    public function memberOfById(string $id): MicrosoftGraphBetaGeneratedGroupsItemMemberOfItemDirectoryObjectItemRequestBuilder {
+    public function memberOfById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.members.item collection
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemMembersItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Members\Item\DirectoryObjectItemRequestBuilder
     */
-    public function membersById(string $id): MicrosoftGraphBetaGeneratedGroupsItemMembersItemDirectoryObjectItemRequestBuilder {
+    public function membersById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Members\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemMembersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Members\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the membersWithLicenseErrors property of the microsoft.graph.group entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemMembersWithLicenseErrorsItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\DirectoryObjectItemRequestBuilder
     */
-    public function membersWithLicenseErrorsById(string $id): MicrosoftGraphBetaGeneratedGroupsItemMembersWithLicenseErrorsItemDirectoryObjectItemRequestBuilder {
+    public function membersWithLicenseErrorsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemMembersWithLicenseErrorsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\MembersWithLicenseErrors\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.owners.item collection
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemOwnersItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\DirectoryObjectItemRequestBuilder
     */
-    public function ownersById(string $id): MicrosoftGraphBetaGeneratedGroupsItemOwnersItemDirectoryObjectItemRequestBuilder {
+    public function ownersById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemOwnersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -704,12 +694,12 @@ class GroupItemRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.rejectedSenders.item collection
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemRejectedSendersItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\RejectedSenders\Item\DirectoryObjectItemRequestBuilder
     */
-    public function rejectedSendersById(string $id): MicrosoftGraphBetaGeneratedGroupsItemRejectedSendersItemDirectoryObjectItemRequestBuilder {
+    public function rejectedSendersById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\RejectedSenders\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemRejectedSendersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\RejectedSenders\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -748,23 +738,23 @@ class GroupItemRequestBuilder
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.group entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder
     */
-    public function transitiveMemberOfById(string $id): MicrosoftGraphBetaGeneratedGroupsItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder {
+    public function transitiveMemberOfById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the transitiveMembers property of the microsoft.graph.group entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemTransitiveMembersItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\Item\DirectoryObjectItemRequestBuilder
     */
-    public function transitiveMembersById(string $id): MicrosoftGraphBetaGeneratedGroupsItemTransitiveMembersItemDirectoryObjectItemRequestBuilder {
+    public function transitiveMembersById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemTransitiveMembersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMembers\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

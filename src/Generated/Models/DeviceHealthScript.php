@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
 class DeviceHealthScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceHealthScript and sets the default values.
+     * Instantiates a new DeviceHealthScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -209,12 +209,12 @@ class DeviceManagementTemplateItemRequestBuilder
     /**
      * Provides operations to manage the migratableTo property of the microsoft.graph.deviceManagementTemplate entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementTemplateItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder
     */
-    public function migratableToById(string $id): DeviceManagementTemplateItemRequestBuilder {
+    public function migratableToById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementTemplate%2Did1'] = $id;
-        return new DeviceManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

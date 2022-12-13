@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class AgedAccountsReceivable extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AgedAccountsReceivable and sets the default values.
+     * Instantiates a new agedAccountsReceivable and sets the default values.
     */
     public function __construct() {
         parent::__construct();

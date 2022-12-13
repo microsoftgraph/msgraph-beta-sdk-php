@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContinuousAccessEvaluationPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ContinuousAccessEvaluationPolicy and sets the default values.
+     * Instantiates a new continuousAccessEvaluationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

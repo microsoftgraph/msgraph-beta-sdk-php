@@ -70,12 +70,12 @@ class ContactFolderItemRequestBuilder
     /**
      * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
      * @param string $id Unique identifier of the item
-     * @return ContactFolderItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\ContactFolders\Item\ChildFolders\Item\ContactFolderItemRequestBuilder
     */
-    public function childFoldersById(string $id): ContactFolderItemRequestBuilder {
+    public function childFoldersById(string $id): \Microsoft\Graph\Beta\Generated\Me\ContactFolders\Item\ChildFolders\Item\ContactFolderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['contactFolder%2Did1'] = $id;
-        return new ContactFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\ContactFolders\Item\ChildFolders\Item\ContactFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

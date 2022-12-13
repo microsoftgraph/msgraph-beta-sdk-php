@@ -44,7 +44,7 @@ class HeaderLogoRequestBuilder
     }
 
     /**
-     * Get headerLogo for the navigation property branding from organization
+     * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
      * @param HeaderLogoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -65,7 +65,7 @@ class HeaderLogoRequestBuilder
     }
 
     /**
-     * Update headerLogo for the navigation property branding in organization
+     * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
      * @param StreamInterface $body Binary request body
      * @param HeaderLogoRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -88,7 +88,7 @@ class HeaderLogoRequestBuilder
     }
 
     /**
-     * Get headerLogo for the navigation property branding from organization
+     * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
      * @param HeaderLogoRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -107,7 +107,7 @@ class HeaderLogoRequestBuilder
     }
 
     /**
-     * Update headerLogo for the navigation property branding in organization
+     * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
      * @param StreamInterface $body Binary request body
      * @param HeaderLogoRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

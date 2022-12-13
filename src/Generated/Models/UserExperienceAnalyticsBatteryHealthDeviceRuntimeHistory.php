@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

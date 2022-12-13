@@ -34,9 +34,7 @@ use Microsoft\Graph\Beta\Generated\Policies\FeatureRolloutPolicies\Item\FeatureR
 use Microsoft\Graph\Beta\Generated\Policies\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\HomeRealmDiscoveryPolicies\Item\HomeRealmDiscoveryPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\IdentitySecurityDefaultsEnforcementPolicy\IdentitySecurityDefaultsEnforcementPolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesMobileAppManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\MobileAppManagementPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesMobileDeviceManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\MobileDeviceManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\PermissionGrantPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\PermissionGrantPoliciesRequestBuilder;
@@ -434,23 +432,23 @@ class PoliciesRequestBuilder
     /**
      * Provides operations to manage the mobileAppManagementPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedPoliciesMobileAppManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder
     */
-    public function mobileAppManagementPoliciesById(string $id): MicrosoftGraphBetaGeneratedPoliciesMobileAppManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder {
+    public function mobileAppManagementPoliciesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobilityManagementPolicy%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedPoliciesMobileAppManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the mobileDeviceManagementPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedPoliciesMobileDeviceManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder
     */
-    public function mobileDeviceManagementPoliciesById(string $id): MicrosoftGraphBetaGeneratedPoliciesMobileDeviceManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder {
+    public function mobileDeviceManagementPoliciesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobilityManagementPolicy%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedPoliciesMobileDeviceManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

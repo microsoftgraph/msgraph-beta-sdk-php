@@ -207,12 +207,12 @@ class SectionGroupItemRequestBuilder
     /**
      * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
      * @param string $id Unique identifier of the item
-     * @return SectionGroupItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Onenote\Notebooks\Item\SectionGroups\Item\SectionGroups\Item\SectionGroupItemRequestBuilder
     */
-    public function sectionGroupsById(string $id): SectionGroupItemRequestBuilder {
+    public function sectionGroupsById(string $id): \Microsoft\Graph\Beta\Generated\Me\Onenote\Notebooks\Item\SectionGroups\Item\SectionGroups\Item\SectionGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sectionGroup%2Did1'] = $id;
-        return new SectionGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Onenote\Notebooks\Item\SectionGroups\Item\SectionGroups\Item\SectionGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

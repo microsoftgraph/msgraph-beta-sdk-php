@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class MicrosoftTunnelSite extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new microsoftTunnelSite and sets the default values.
+     * Instantiates a new MicrosoftTunnelSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();

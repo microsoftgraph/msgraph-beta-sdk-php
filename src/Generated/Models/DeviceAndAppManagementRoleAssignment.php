@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Parsable 
 {
     /**
-     * Instantiates a new DeviceAndAppManagementRoleAssignment and sets the default values.
+     * Instantiates a new deviceAndAppManagementRoleAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

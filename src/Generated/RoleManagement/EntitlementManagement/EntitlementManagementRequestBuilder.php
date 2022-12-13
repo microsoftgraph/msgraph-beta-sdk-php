@@ -11,7 +11,6 @@ use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\Resource
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\ResourceNamespacesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignmentApprovals\Item\ApprovalItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignmentApprovals\RoleAssignmentApprovalsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder as MicrosoftGraphBetaGeneratedRoleManagementEntitlementManagementRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignments\RoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignmentScheduleInstances\Item\UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignmentScheduleInstances\RoleAssignmentScheduleInstancesRequestBuilder;
@@ -29,7 +28,6 @@ use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleElig
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleEligibilitySchedules\RoleEligibilitySchedulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionId\RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionId\RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\TransitiveRoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder as MicrosoftGraphBetaGeneratedRoleManagementEntitlementManagementTransitiveRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\TransitiveRoleAssignments\TransitiveRoleAssignmentsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -297,12 +295,12 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedRoleManagementEntitlementManagementRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder
     */
-    public function roleAssignmentsById(string $id): MicrosoftGraphBetaGeneratedRoleManagementEntitlementManagementRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder {
+    public function roleAssignmentsById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRoleAssignment%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedRoleManagementEntitlementManagementRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -401,12 +399,12 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the transitiveRoleAssignments property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedRoleManagementEntitlementManagementTransitiveRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\TransitiveRoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder
     */
-    public function transitiveRoleAssignmentsById(string $id): MicrosoftGraphBetaGeneratedRoleManagementEntitlementManagementTransitiveRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder {
+    public function transitiveRoleAssignmentsById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\TransitiveRoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRoleAssignment%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedRoleManagementEntitlementManagementTransitiveRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\TransitiveRoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }
