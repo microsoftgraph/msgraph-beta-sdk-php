@@ -91,7 +91,7 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder
 
     /**
      * Update the navigation property crossCloudGovernmentOrganizationMapping in deviceManagement
-     * @param CloudPcCrossCloudGovernmentOrganizationMapping $body 
+     * @param CloudPcCrossCloudGovernmentOrganizationMapping $body The request body
      * @param CrossCloudGovernmentOrganizationMappingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder
 
     /**
      * Update the navigation property crossCloudGovernmentOrganizationMapping in deviceManagement
-     * @param CloudPcCrossCloudGovernmentOrganizationMapping $body 
+     * @param CloudPcCrossCloudGovernmentOrganizationMapping $body The request body
      * @param CrossCloudGovernmentOrganizationMappingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

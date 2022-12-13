@@ -6,6 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\ExclusionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder as MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceExclusionsItemUpdatableAssetItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder as MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceMembersItemUpdatableAssetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\UpdateAudience\UpdateAudienceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\UpdateAudienceById\UpdateAudienceByIdRequestBuilder;
@@ -123,7 +125,7 @@ class AudienceRequestBuilder
 
     /**
      * Update the navigation property audience in admin
-     * @param DeploymentAudience $body 
+     * @param DeploymentAudience $body The request body
      * @param AudienceRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -167,12 +169,12 @@ class AudienceRequestBuilder
     /**
      * Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceExclusionsItemUpdatableAssetItemRequestBuilder
     */
-    public function exclusionsById(string $id): \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder {
+    public function exclusionsById(string $id): MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceExclusionsItemUpdatableAssetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['updatableAsset%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceExclusionsItemUpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -197,17 +199,17 @@ class AudienceRequestBuilder
     /**
      * Provides operations to manage the members property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceMembersItemUpdatableAssetItemRequestBuilder
     */
-    public function membersById(string $id): \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder {
+    public function membersById(string $id): MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceMembersItemUpdatableAssetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['updatableAsset%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceMembersItemUpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property audience in admin
-     * @param DeploymentAudience $body 
+     * @param DeploymentAudience $body The request body
      * @param AudienceRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

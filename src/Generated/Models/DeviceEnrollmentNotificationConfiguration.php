@@ -50,7 +50,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
         return array_merge(parent::getFieldDeserializers(), [
             'brandingOptions' => fn(ParseNode $n) => $o->setBrandingOptions($n->getEnumValue(EnrollmentNotificationBrandingOptions::class)),
             'defaultLocale' => fn(ParseNode $n) => $o->setDefaultLocale($n->getStringValue()),
-            'notificationMessageTemplateId' => fn(ParseNode $n) => $o->setNotificationMessageTemplateId($n->getStringValue()),
+            'notificationMessageTemplateId' => fn(ParseNode $n) => $o->setNotificationMessageTemplateId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'notificationTemplates' => fn(ParseNode $n) => $o->setNotificationTemplates($n->getCollectionOfPrimitiveValues()),
             'platformType' => fn(ParseNode $n) => $o->setPlatformType($n->getEnumValue(EnrollmentRestrictionPlatformType::class)),
             'templateType' => fn(ParseNode $n) => $o->setTemplateType($n->getEnumValue(EnrollmentNotificationTemplateType::class)),
@@ -59,9 +59,9 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
      * Gets the notificationMessageTemplateId property value. Notification Message Template Id
-     * @return string|null
+     * @return Guid|null
     */
-    public function getNotificationMessageTemplateId(): ?string {
+    public function getNotificationMessageTemplateId(): ?Guid {
         return $this->getBackingStore()->get('notificationMessageTemplateId');
     }
 
@@ -121,9 +121,9 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
      * Sets the notificationMessageTemplateId property value. Notification Message Template Id
-     *  @param string|null $value Value to set for the notificationMessageTemplateId property.
+     *  @param Guid|null $value Value to set for the notificationMessageTemplateId property.
     */
-    public function setNotificationMessageTemplateId(?string $value): void {
+    public function setNotificationMessageTemplateId(?Guid $value): void {
         $this->getBackingStore()->set('notificationMessageTemplateId', $value);
     }
 

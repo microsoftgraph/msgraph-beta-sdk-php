@@ -53,9 +53,9 @@ class DeviceKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the deviceId property value. The deviceId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getDeviceId(): ?string {
+    public function getDeviceId(): ?Guid {
         return $this->getBackingStore()->get('deviceId');
     }
 
@@ -66,7 +66,7 @@ class DeviceKey implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'keyMaterial' => fn(ParseNode $n) => $o->setKeyMaterial($n->getBinaryContent()),
             'keyType' => fn(ParseNode $n) => $o->setKeyType($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -127,9 +127,9 @@ class DeviceKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceId property value. The deviceId property
-     *  @param string|null $value Value to set for the deviceId property.
+     *  @param Guid|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value): void {
+    public function setDeviceId(?Guid $value): void {
         $this->getBackingStore()->set('deviceId', $value);
     }
 

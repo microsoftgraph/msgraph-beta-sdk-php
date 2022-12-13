@@ -146,7 +146,7 @@ class DeviceManagementTemplateItemRequestBuilder
 
     /**
      * Update the navigation property templates in deviceManagement
-     * @param DeviceManagementTemplate $body 
+     * @param DeviceManagementTemplate $body The request body
      * @param DeviceManagementTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -209,17 +209,17 @@ class DeviceManagementTemplateItemRequestBuilder
     /**
      * Provides operations to manage the migratableTo property of the microsoft.graph.deviceManagementTemplate entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder
+     * @return DeviceManagementTemplateItemRequestBuilder
     */
-    public function migratableToById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder {
+    public function migratableToById(string $id): DeviceManagementTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementTemplate%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\MigratableTo\Item\DeviceManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property templates in deviceManagement
-     * @param DeviceManagementTemplate $body 
+     * @param DeviceManagementTemplate $body The request body
      * @param DeviceManagementTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

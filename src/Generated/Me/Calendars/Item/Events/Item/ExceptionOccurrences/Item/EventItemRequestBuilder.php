@@ -220,12 +220,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the instances property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\ExceptionOccurrences\Item\Instances\Item\EventItemRequestBuilder
+     * @return EventItemRequestBuilder
     */
-    public function instancesById(string $id): \Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\ExceptionOccurrences\Item\Instances\Item\EventItemRequestBuilder {
+    public function instancesById(string $id): EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did2'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\ExceptionOccurrences\Item\Instances\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -59,7 +59,7 @@ class PowerliftDownloadRequest implements AdditionalDataHolder, BackedModel, Par
         return  [
             'files' => fn(ParseNode $n) => $o->setFiles($n->getCollectionOfPrimitiveValues()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'powerliftId' => fn(ParseNode $n) => $o->setPowerliftId($n->getStringValue()),
+            'powerliftId' => fn(ParseNode $n) => $o->setPowerliftId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -81,9 +81,9 @@ class PowerliftDownloadRequest implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the powerliftId property value. The unique id for the request
-     * @return string|null
+     * @return Guid|null
     */
-    public function getPowerliftId(): ?string {
+    public function getPowerliftId(): ?Guid {
         return $this->getBackingStore()->get('powerliftId');
     }
 
@@ -132,9 +132,9 @@ class PowerliftDownloadRequest implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the powerliftId property value. The unique id for the request
-     *  @param string|null $value Value to set for the powerliftId property.
+     *  @param Guid|null $value Value to set for the powerliftId property.
     */
-    public function setPowerliftId(?string $value): void {
+    public function setPowerliftId(?Guid $value): void {
         $this->getBackingStore()->set('powerliftId', $value);
     }
 

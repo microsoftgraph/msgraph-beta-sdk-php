@@ -2,7 +2,6 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\CustomTaskExtension;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

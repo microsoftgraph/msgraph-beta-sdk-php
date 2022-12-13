@@ -198,12 +198,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\ExceptionOccurrences\Item\EventItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedGroupsItemCalendarCalendarViewItemExceptionOccurrencesItemEventItemRequestBuilder
     */
-    public function exceptionOccurrencesById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\ExceptionOccurrences\Item\EventItemRequestBuilder {
+    public function exceptionOccurrencesById(string $id): MicrosoftGraphBetaGeneratedGroupsItemCalendarCalendarViewItemExceptionOccurrencesItemEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\ExceptionOccurrences\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedGroupsItemCalendarCalendarViewItemExceptionOccurrencesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -239,12 +239,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the instances property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\EventItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedGroupsItemCalendarCalendarViewItemInstancesItemEventItemRequestBuilder
     */
-    public function instancesById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\EventItemRequestBuilder {
+    public function instancesById(string $id): MicrosoftGraphBetaGeneratedGroupsItemCalendarCalendarViewItemInstancesItemEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\Item\Instances\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedGroupsItemCalendarCalendarViewItemInstancesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

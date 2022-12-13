@@ -109,7 +109,7 @@ class RunItemRequestBuilder
 
     /**
      * Update the navigation property runs in identityGovernance
-     * @param Run $body 
+     * @param Run $body The request body
      * @param RunItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -171,7 +171,7 @@ class RunItemRequestBuilder
 
     /**
      * Update the navigation property runs in identityGovernance
-     * @param Run $body 
+     * @param Run $body The request body
      * @param RunItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

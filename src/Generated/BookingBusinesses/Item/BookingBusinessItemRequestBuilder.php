@@ -6,7 +6,9 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\AppointmentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Item\BookingAppointmentItemRequestBuilder as MicrosoftGraphBetaGeneratedBookingBusinessesItemAppointmentsItemBookingAppointmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\CalendarViewRequestBuilder;
+use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Item\BookingAppointmentItemRequestBuilder as MicrosoftGraphBetaGeneratedBookingBusinessesItemCalendarViewItemBookingAppointmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\CustomersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\Item\BookingCustomerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CustomQuestions\CustomQuestionsRequestBuilder;
@@ -111,23 +113,23 @@ class BookingBusinessItemRequestBuilder
     /**
      * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Item\BookingAppointmentItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedBookingBusinessesItemAppointmentsItemBookingAppointmentItemRequestBuilder
     */
-    public function appointmentsById(string $id): \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Item\BookingAppointmentItemRequestBuilder {
+    public function appointmentsById(string $id): MicrosoftGraphBetaGeneratedBookingBusinessesItemAppointmentsItemBookingAppointmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['bookingAppointment%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Item\BookingAppointmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedBookingBusinessesItemAppointmentsItemBookingAppointmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Item\BookingAppointmentItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedBookingBusinessesItemCalendarViewItemBookingAppointmentItemRequestBuilder
     */
-    public function calendarViewById(string $id): \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Item\BookingAppointmentItemRequestBuilder {
+    public function calendarViewById(string $id): MicrosoftGraphBetaGeneratedBookingBusinessesItemCalendarViewItemBookingAppointmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['bookingAppointment%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\Item\BookingAppointmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedBookingBusinessesItemCalendarViewItemBookingAppointmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -189,7 +191,7 @@ class BookingBusinessItemRequestBuilder
 
     /**
      * Update the properties of a bookingBusiness object.
-     * @param BookingBusiness $body 
+     * @param BookingBusiness $body The request body
      * @param BookingBusinessItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -273,7 +275,7 @@ class BookingBusinessItemRequestBuilder
 
     /**
      * Update the properties of a bookingBusiness object.
-     * @param BookingBusiness $body 
+     * @param BookingBusiness $body The request body
      * @param BookingBusinessItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -60,7 +60,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
             'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
             'expirationDateTimeUTC' => fn(ParseNode $n) => $o->setExpirationDateTimeUTC($n->getDateTimeValue()),
             'initiatedByUserPrincipalName' => fn(ParseNode $n) => $o->setInitiatedByUserPrincipalName($n->getStringValue()),
-            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'receivedDateTimeUTC' => fn(ParseNode $n) => $o->setReceivedDateTimeUTC($n->getDateTimeValue()),
             'requestedDateTimeUTC' => fn(ParseNode $n) => $o->setRequestedDateTimeUTC($n->getDateTimeValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getFloatValue()),
@@ -78,9 +78,9 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
 
     /**
      * Gets the managedDeviceId property value. The device Id
-     * @return string|null
+     * @return Guid|null
     */
-    public function getManagedDeviceId(): ?string {
+    public function getManagedDeviceId(): ?Guid {
         return $this->getBackingStore()->get('managedDeviceId');
     }
 
@@ -167,9 +167,9 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceId property value. The device Id
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     *  @param Guid|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value): void {
+    public function setManagedDeviceId(?Guid $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
     }
 

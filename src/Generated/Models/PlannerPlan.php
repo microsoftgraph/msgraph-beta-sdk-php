@@ -66,7 +66,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the creationSource property value. The creationSource property
+     * Gets the creationSource property value. Contains information about the origin of the plan.
      * @return PlannerPlanCreation|null
     */
     public function getCreationSource(): ?PlannerPlanCreation {
@@ -184,7 +184,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the creationSource property value. The creationSource property
+     * Sets the creationSource property value. Contains information about the origin of the plan.
      *  @param PlannerPlanCreation|null $value Value to set for the creationSource property.
     */
     public function setCreationSource(?PlannerPlanCreation $value): void {

@@ -88,7 +88,7 @@ class RoleScopeTagsRequestBuilder
 
     /**
      * Create new navigation property to roleScopeTags for deviceManagement
-     * @param RoleScopeTag $body 
+     * @param RoleScopeTag $body The request body
      * @param RoleScopeTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -139,7 +139,7 @@ class RoleScopeTagsRequestBuilder
 
     /**
      * Create new navigation property to roleScopeTags for deviceManagement
-     * @param RoleScopeTag $body 
+     * @param RoleScopeTag $body The request body
      * @param RoleScopeTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

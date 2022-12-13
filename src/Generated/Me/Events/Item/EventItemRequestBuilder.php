@@ -218,7 +218,7 @@ class EventItemRequestBuilder
 
     /**
      * Update the navigation property events in me
-     * @param Event $body 
+     * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -262,12 +262,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Me\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedMeEventsItemExceptionOccurrencesItemEventItemRequestBuilder
     */
-    public function exceptionOccurrencesById(string $id): \Microsoft\Graph\Beta\Generated\Me\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder {
+    public function exceptionOccurrencesById(string $id): MicrosoftGraphBetaGeneratedMeEventsItemExceptionOccurrencesItemEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedMeEventsItemExceptionOccurrencesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -303,12 +303,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the instances property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Me\Events\Item\Instances\Item\EventItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedMeEventsItemInstancesItemEventItemRequestBuilder
     */
-    public function instancesById(string $id): \Microsoft\Graph\Beta\Generated\Me\Events\Item\Instances\Item\EventItemRequestBuilder {
+    public function instancesById(string $id): MicrosoftGraphBetaGeneratedMeEventsItemInstancesItemEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\Events\Item\Instances\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedMeEventsItemInstancesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -324,7 +324,7 @@ class EventItemRequestBuilder
 
     /**
      * Update the navigation property events in me
-     * @param Event $body 
+     * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

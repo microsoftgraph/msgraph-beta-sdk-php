@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -10,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SitePageData implements AdditionalDataHolder, BackedModel, Parsable 
+class PresenceStatusMessage implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * @var BackingStore $backingStore Stores model information.
@@ -18,7 +19,7 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new sitePageData and sets the default values.
+     * Instantiates a new presenceStatusMessage and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -28,10 +29,10 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return SitePageData
+     * @return PresenceStatusMessage
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SitePageData {
-        return new SitePageData();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PresenceStatusMessage {
+        return new PresenceStatusMessage();
     }
 
     /**
@@ -51,14 +52,33 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the expiryDateTime property value. The expiryDateTime property
+     * @return DateTimeTimeZone|null
+    */
+    public function getExpiryDateTime(): ?DateTimeTimeZone {
+        return $this->getBackingStore()->get('expiryDateTime');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'expiryDateTime' => fn(ParseNode $n) => $o->setExpiryDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'publishedDateTime' => fn(ParseNode $n) => $o->setPublishedDateTime($n->getDateTimeValue()),
         ];
+    }
+
+    /**
+     * Gets the message property value. The message property
+     * @return ItemBody|null
+    */
+    public function getMessage(): ?ItemBody {
+        return $this->getBackingStore()->get('message');
     }
 
     /**
@@ -70,11 +90,22 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the publishedDateTime property value. The publishedDateTime property
+     * @return DateTime|null
+    */
+    public function getPublishedDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('publishedDateTime');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('expiryDateTime', $this->getExpiryDateTime());
+        $writer->writeObjectValue('message', $this->getMessage());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeDateTimeValue('publishedDateTime', $this->getPublishedDateTime());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -95,11 +126,35 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the expiryDateTime property value. The expiryDateTime property
+     *  @param DateTimeTimeZone|null $value Value to set for the expiryDateTime property.
+    */
+    public function setExpiryDateTime(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('expiryDateTime', $value);
+    }
+
+    /**
+     * Sets the message property value. The message property
+     *  @param ItemBody|null $value Value to set for the message property.
+    */
+    public function setMessage(?ItemBody $value): void {
+        $this->getBackingStore()->set('message', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the publishedDateTime property value. The publishedDateTime property
+     *  @param DateTime|null $value Value to set for the publishedDateTime property.
+    */
+    public function setPublishedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('publishedDateTime', $value);
     }
 
 }

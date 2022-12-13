@@ -27,7 +27,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Gets the allowedDomainGuidsForSyncApp property value. Collection of trusted domain GUIDs for the OneDrive sync app.
-     * @return array<string>|null
+     * @return array<Guid>|null
     */
     public function getAllowedDomainGuidsForSyncApp(): ?array {
         return $this->getBackingStore()->get('allowedDomainGuidsForSyncApp');
@@ -335,7 +335,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the allowedDomainGuidsForSyncApp property value. Collection of trusted domain GUIDs for the OneDrive sync app.
-     *  @param array<string>|null $value Value to set for the allowedDomainGuidsForSyncApp property.
+     *  @param array<Guid>|null $value Value to set for the allowedDomainGuidsForSyncApp property.
     */
     public function setAllowedDomainGuidsForSyncApp(?array $value): void {
         $this->getBackingStore()->set('allowedDomainGuidsForSyncApp', $value);

@@ -58,7 +58,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationAppDeviceDetails property value. The authenticationAppDeviceDetails property
+     * Gets the authenticationAppDeviceDetails property value. Provides details about the app and device used during an Azure AD authentication step.
      * @return AuthenticationAppDeviceDetails|null
     */
     public function getAuthenticationAppDeviceDetails(): ?AuthenticationAppDeviceDetails {
@@ -66,7 +66,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationAppPolicyEvaluationDetails property value. The authenticationAppPolicyEvaluationDetails property
+     * Gets the authenticationAppPolicyEvaluationDetails property value. Provides details of the Azure AD policies applied to a user and client authentication app during an authentication step.
      * @return array<AuthenticationAppPolicyDetails>|null
     */
     public function getAuthenticationAppPolicyEvaluationDetails(): ?array {
@@ -706,7 +706,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationAppDeviceDetails property value. The authenticationAppDeviceDetails property
+     * Sets the authenticationAppDeviceDetails property value. Provides details about the app and device used during an Azure AD authentication step.
      *  @param AuthenticationAppDeviceDetails|null $value Value to set for the authenticationAppDeviceDetails property.
     */
     public function setAuthenticationAppDeviceDetails(?AuthenticationAppDeviceDetails $value): void {
@@ -714,7 +714,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationAppPolicyEvaluationDetails property value. The authenticationAppPolicyEvaluationDetails property
+     * Sets the authenticationAppPolicyEvaluationDetails property value. Provides details of the Azure AD policies applied to a user and client authentication app during an authentication step.
      *  @param array<AuthenticationAppPolicyDetails>|null $value Value to set for the authenticationAppPolicyEvaluationDetails property.
     */
     public function setAuthenticationAppPolicyEvaluationDetails(?array $value): void {

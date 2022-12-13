@@ -8,13 +8,17 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drive\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\Activities\Item\ItemActivityOLDItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\Bundles\BundlesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drive\Bundles\Item\DriveItemItemRequestBuilder as MicrosoftGraphBetaGeneratedDriveBundlesItemDriveItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\EscapedList\ListRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\Following\FollowingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drive\Following\Item\DriveItemItemRequestBuilder as MicrosoftGraphBetaGeneratedDriveFollowingItemDriveItemItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drive\Items\Item\DriveItemItemRequestBuilder as MicrosoftGraphBetaGeneratedDriveItemsItemDriveItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\Items\ItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\Recent\RecentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\Root\RootRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\SearchWithQ\SearchWithQRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\SharedWithMe\SharedWithMeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drive\Special\Item\DriveItemItemRequestBuilder as MicrosoftGraphBetaGeneratedDriveSpecialItemDriveItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drive\Special\SpecialRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Drive;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -106,12 +110,12 @@ class DriveRequestBuilder
     /**
      * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Drive\Bundles\Item\DriveItemItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDriveBundlesItemDriveItemItemRequestBuilder
     */
-    public function bundlesById(string $id): \Microsoft\Graph\Beta\Generated\Drive\Bundles\Item\DriveItemItemRequestBuilder {
+    public function bundlesById(string $id): MicrosoftGraphBetaGeneratedDriveBundlesItemDriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['driveItem%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Drive\Bundles\Item\DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDriveBundlesItemDriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -152,7 +156,7 @@ class DriveRequestBuilder
 
     /**
      * Update drive
-     * @param Drive $body 
+     * @param Drive $body The request body
      * @param DriveRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -177,12 +181,12 @@ class DriveRequestBuilder
     /**
      * Provides operations to manage the following property of the microsoft.graph.drive entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Drive\Following\Item\DriveItemItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDriveFollowingItemDriveItemItemRequestBuilder
     */
-    public function followingById(string $id): \Microsoft\Graph\Beta\Generated\Drive\Following\Item\DriveItemItemRequestBuilder {
+    public function followingById(string $id): MicrosoftGraphBetaGeneratedDriveFollowingItemDriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['driveItem%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Drive\Following\Item\DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDriveFollowingItemDriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -207,17 +211,17 @@ class DriveRequestBuilder
     /**
      * Provides operations to manage the items property of the microsoft.graph.drive entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Drive\Items\Item\DriveItemItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDriveItemsItemDriveItemItemRequestBuilder
     */
-    public function itemsById(string $id): \Microsoft\Graph\Beta\Generated\Drive\Items\Item\DriveItemItemRequestBuilder {
+    public function itemsById(string $id): MicrosoftGraphBetaGeneratedDriveItemsItemDriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['driveItem%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Drive\Items\Item\DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDriveItemsItemDriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update drive
-     * @param Drive $body 
+     * @param Drive $body The request body
      * @param DriveRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -263,12 +267,12 @@ class DriveRequestBuilder
     /**
      * Provides operations to manage the special property of the microsoft.graph.drive entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Drive\Special\Item\DriveItemItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDriveSpecialItemDriveItemItemRequestBuilder
     */
-    public function specialById(string $id): \Microsoft\Graph\Beta\Generated\Drive\Special\Item\DriveItemItemRequestBuilder {
+    public function specialById(string $id): MicrosoftGraphBetaGeneratedDriveSpecialItemDriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['driveItem%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Drive\Special\Item\DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDriveSpecialItemDriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

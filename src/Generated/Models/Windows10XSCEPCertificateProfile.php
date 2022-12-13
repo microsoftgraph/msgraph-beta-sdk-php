@@ -73,7 +73,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
             'keyStorageProvider' => fn(ParseNode $n) => $o->setKeyStorageProvider($n->getEnumValue(KeyStorageProviderOption::class)),
             'keyUsage' => fn(ParseNode $n) => $o->setKeyUsage($n->getEnumValue(KeyUsages::class)),
             'renewalThresholdPercentage' => fn(ParseNode $n) => $o->setRenewalThresholdPercentage($n->getIntegerValue()),
-            'rootCertificateId' => fn(ParseNode $n) => $o->setRootCertificateId($n->getStringValue()),
+            'rootCertificateId' => fn(ParseNode $n) => $o->setRootCertificateId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'scepServerUrls' => fn(ParseNode $n) => $o->setScepServerUrls($n->getCollectionOfPrimitiveValues()),
             'subjectAlternativeNameFormats' => fn(ParseNode $n) => $o->setSubjectAlternativeNameFormats($n->getCollectionOfObjectValues([Windows10XCustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'])),
             'subjectNameFormatString' => fn(ParseNode $n) => $o->setSubjectNameFormatString($n->getStringValue()),
@@ -122,9 +122,9 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Gets the rootCertificateId property value. Trusted Root Certificate ID
-     * @return string|null
+     * @return Guid|null
     */
-    public function getRootCertificateId(): ?string {
+    public function getRootCertificateId(): ?Guid {
         return $this->getBackingStore()->get('rootCertificateId');
     }
 
@@ -247,9 +247,9 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the rootCertificateId property value. Trusted Root Certificate ID
-     *  @param string|null $value Value to set for the rootCertificateId property.
+     *  @param Guid|null $value Value to set for the rootCertificateId property.
     */
-    public function setRootCertificateId(?string $value): void {
+    public function setRootCertificateId(?Guid $value): void {
         $this->getBackingStore()->set('rootCertificateId', $value);
     }
 

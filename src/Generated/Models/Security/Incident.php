@@ -67,6 +67,14 @@ class Incident extends Entity implements Parsable
     }
 
     /**
+     * Gets the customTags property value. The customTags property
+     * @return array<string>|null
+    */
+    public function getCustomTags(): ?array {
+        return $this->getBackingStore()->get('customTags');
+    }
+
+    /**
      * Gets the determination property value. Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @return AlertDetermination|null
     */
@@ -94,6 +102,7 @@ class Incident extends Entity implements Parsable
             'classification' => fn(ParseNode $n) => $o->setClassification($n->getEnumValue(AlertClassification::class)),
             'comments' => fn(ParseNode $n) => $o->setComments($n->getCollectionOfObjectValues([AlertComment::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'customTags' => fn(ParseNode $n) => $o->setCustomTags($n->getCollectionOfPrimitiveValues()),
             'determination' => fn(ParseNode $n) => $o->setDetermination($n->getEnumValue(AlertDetermination::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'incidentWebUrl' => fn(ParseNode $n) => $o->setIncidentWebUrl($n->getStringValue()),
@@ -101,7 +110,6 @@ class Incident extends Entity implements Parsable
             'redirectIncidentId' => fn(ParseNode $n) => $o->setRedirectIncidentId($n->getStringValue()),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(IncidentStatus::class)),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
@@ -147,14 +155,6 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the tags property value. Array of custom tags associated with an incident.
-     * @return array<string>|null
-    */
-    public function getTags(): ?array {
-        return $this->getBackingStore()->get('tags');
-    }
-
-    /**
      * Gets the tenantId property value. The Azure Active Directory tenant in which the alert was created.
      * @return string|null
     */
@@ -173,6 +173,7 @@ class Incident extends Entity implements Parsable
         $writer->writeEnumValue('classification', $this->getClassification());
         $writer->writeCollectionOfObjectValues('comments', $this->getComments());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeCollectionOfPrimitiveValues('customTags', $this->getCustomTags());
         $writer->writeEnumValue('determination', $this->getDetermination());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('incidentWebUrl', $this->getIncidentWebUrl());
@@ -180,7 +181,6 @@ class Incident extends Entity implements Parsable
         $writer->writeStringValue('redirectIncidentId', $this->getRedirectIncidentId());
         $writer->writeEnumValue('severity', $this->getSeverity());
         $writer->writeEnumValue('status', $this->getStatus());
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
         $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
@@ -222,6 +222,14 @@ class Incident extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the customTags property value. The customTags property
+     *  @param array<string>|null $value Value to set for the customTags property.
+    */
+    public function setCustomTags(?array $value): void {
+        $this->getBackingStore()->set('customTags', $value);
     }
 
     /**
@@ -278,14 +286,6 @@ class Incident extends Entity implements Parsable
     */
     public function setStatus(?IncidentStatus $value): void {
         $this->getBackingStore()->set('status', $value);
-    }
-
-    /**
-     * Sets the tags property value. Array of custom tags associated with an incident.
-     *  @param array<string>|null $value Value to set for the tags property.
-    */
-    public function setTags(?array $value): void {
-        $this->getBackingStore()->set('tags', $value);
     }
 
     /**

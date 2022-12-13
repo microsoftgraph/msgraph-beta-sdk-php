@@ -8,7 +8,9 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCreationPolicy;
 use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\ExcludesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesServicePrincipalCreationPoliciesItemExcludesItemServicePrincipalCreationConditionSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Includes\IncludesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Includes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesServicePrincipalCreationPoliciesItemIncludesItemServicePrincipalCreationConditionSetItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -107,7 +109,7 @@ class ServicePrincipalCreationPolicyItemRequestBuilder
 
     /**
      * Update the navigation property servicePrincipalCreationPolicies in policies
-     * @param ServicePrincipalCreationPolicy $body 
+     * @param ServicePrincipalCreationPolicy $body The request body
      * @param ServicePrincipalCreationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -151,12 +153,12 @@ class ServicePrincipalCreationPolicyItemRequestBuilder
     /**
      * Provides operations to manage the excludes property of the microsoft.graph.servicePrincipalCreationPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedPoliciesServicePrincipalCreationPoliciesItemExcludesItemServicePrincipalCreationConditionSetItemRequestBuilder
     */
-    public function excludesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder {
+    public function excludesById(string $id): MicrosoftGraphBetaGeneratedPoliciesServicePrincipalCreationPoliciesItemExcludesItemServicePrincipalCreationConditionSetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['servicePrincipalCreationConditionSet%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedPoliciesServicePrincipalCreationPoliciesItemExcludesItemServicePrincipalCreationConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -181,17 +183,17 @@ class ServicePrincipalCreationPolicyItemRequestBuilder
     /**
      * Provides operations to manage the includes property of the microsoft.graph.servicePrincipalCreationPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Includes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedPoliciesServicePrincipalCreationPoliciesItemIncludesItemServicePrincipalCreationConditionSetItemRequestBuilder
     */
-    public function includesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Includes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder {
+    public function includesById(string $id): MicrosoftGraphBetaGeneratedPoliciesServicePrincipalCreationPoliciesItemIncludesItemServicePrincipalCreationConditionSetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['servicePrincipalCreationConditionSet%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Includes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedPoliciesServicePrincipalCreationPoliciesItemIncludesItemServicePrincipalCreationConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property servicePrincipalCreationPolicies in policies
-     * @param ServicePrincipalCreationPolicy $body 
+     * @param ServicePrincipalCreationPolicy $body The request body
      * @param ServicePrincipalCreationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -99,7 +99,7 @@ class SensitivityLabelItemRequestBuilder
 
     /**
      * Update the navigation property sensitivityLabels in me
-     * @param SensitivityLabel $body 
+     * @param SensitivityLabel $body The request body
      * @param SensitivityLabelItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -161,7 +161,7 @@ class SensitivityLabelItemRequestBuilder
 
     /**
      * Update the navigation property sensitivityLabels in me
-     * @param SensitivityLabel $body 
+     * @param SensitivityLabel $body The request body
      * @param SensitivityLabelItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -182,12 +182,12 @@ class SensitivityLabelItemRequestBuilder
     /**
      * Provides operations to manage the sublabels property of the microsoft.graph.sensitivityLabel entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder
+     * @return SensitivityLabelItemRequestBuilder
     */
-    public function sublabelsById(string $id): \Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder {
+    public function sublabelsById(string $id): SensitivityLabelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sensitivityLabel%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

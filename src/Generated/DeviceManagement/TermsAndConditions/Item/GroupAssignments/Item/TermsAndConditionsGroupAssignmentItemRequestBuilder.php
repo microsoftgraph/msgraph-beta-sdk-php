@@ -99,7 +99,7 @@ class TermsAndConditionsGroupAssignmentItemRequestBuilder
 
     /**
      * Update the navigation property groupAssignments in deviceManagement
-     * @param TermsAndConditionsGroupAssignment $body 
+     * @param TermsAndConditionsGroupAssignment $body The request body
      * @param TermsAndConditionsGroupAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -161,7 +161,7 @@ class TermsAndConditionsGroupAssignmentItemRequestBuilder
 
     /**
      * Update the navigation property groupAssignments in deviceManagement
-     * @param TermsAndConditionsGroupAssignment $body 
+     * @param TermsAndConditionsGroupAssignment $body The request body
      * @param TermsAndConditionsGroupAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

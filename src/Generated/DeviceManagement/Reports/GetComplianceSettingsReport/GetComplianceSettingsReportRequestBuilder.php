@@ -45,7 +45,7 @@ class GetComplianceSettingsReportRequestBuilder
 
     /**
      * Invoke action getComplianceSettingsReport
-     * @param GetComplianceSettingsReportPostRequestBody $body 
+     * @param GetComplianceSettingsReportPostRequestBody $body The request body
      * @param GetComplianceSettingsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -68,7 +68,7 @@ class GetComplianceSettingsReportRequestBuilder
 
     /**
      * Invoke action getComplianceSettingsReport
-     * @param GetComplianceSettingsReportPostRequestBody $body 
+     * @param GetComplianceSettingsReportPostRequestBody $body The request body
      * @param GetComplianceSettingsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

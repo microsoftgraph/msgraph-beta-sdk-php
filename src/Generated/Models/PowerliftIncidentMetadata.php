@@ -98,7 +98,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
             'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getStringValue()),
-            'powerliftId' => fn(ParseNode $n) => $o->setPowerliftId($n->getStringValue()),
+            'powerliftId' => fn(ParseNode $n) => $o->setPowerliftId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -136,9 +136,9 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the powerliftId property value. The unique identifier of the app diagnostic. Example: 8520467a-49a9-44a4-8447-8dfb8bec6726
-     * @return string|null
+     * @return Guid|null
     */
-    public function getPowerliftId(): ?string {
+    public function getPowerliftId(): ?Guid {
         return $this->getBackingStore()->get('powerliftId');
     }
 
@@ -241,9 +241,9 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the powerliftId property value. The unique identifier of the app diagnostic. Example: 8520467a-49a9-44a4-8447-8dfb8bec6726
-     *  @param string|null $value Value to set for the powerliftId property.
+     *  @param Guid|null $value Value to set for the powerliftId property.
     */
-    public function setPowerliftId(?string $value): void {
+    public function setPowerliftId(?Guid $value): void {
         $this->getBackingStore()->set('powerliftId', $value);
     }
 

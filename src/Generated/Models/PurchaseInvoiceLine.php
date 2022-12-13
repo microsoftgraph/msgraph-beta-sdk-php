@@ -35,9 +35,9 @@ class PurchaseInvoiceLine extends Entity implements Parsable
 
     /**
      * Gets the accountId property value. The accountId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getAccountId(): ?string {
+    public function getAccountId(): ?Guid {
         return $this->getBackingStore()->get('accountId');
     }
 
@@ -91,9 +91,9 @@ class PurchaseInvoiceLine extends Entity implements Parsable
 
     /**
      * Gets the documentId property value. The documentId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getDocumentId(): ?string {
+    public function getDocumentId(): ?Guid {
         return $this->getBackingStore()->get('documentId');
     }
 
@@ -113,18 +113,18 @@ class PurchaseInvoiceLine extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'account' => fn(ParseNode $n) => $o->setAccount($n->getObjectValue([Account::class, 'createFromDiscriminatorValue'])),
-            'accountId' => fn(ParseNode $n) => $o->setAccountId($n->getStringValue()),
+            'accountId' => fn(ParseNode $n) => $o->setAccountId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'amountExcludingTax' => fn(ParseNode $n) => $o->setAmountExcludingTax($n->getStringValue()),
             'amountIncludingTax' => fn(ParseNode $n) => $o->setAmountIncludingTax($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'discountAmount' => fn(ParseNode $n) => $o->setDiscountAmount($n->getStringValue()),
             'discountAppliedBeforeTax' => fn(ParseNode $n) => $o->setDiscountAppliedBeforeTax($n->getBooleanValue()),
             'discountPercent' => fn(ParseNode $n) => $o->setDiscountPercent($n->getStringValue()),
-            'documentId' => fn(ParseNode $n) => $o->setDocumentId($n->getStringValue()),
+            'documentId' => fn(ParseNode $n) => $o->setDocumentId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'expectedReceiptDate' => fn(ParseNode $n) => $o->setExpectedReceiptDate($n->getDateValue()),
             'invoiceDiscountAllocation' => fn(ParseNode $n) => $o->setInvoiceDiscountAllocation($n->getStringValue()),
             'item' => fn(ParseNode $n) => $o->setItem($n->getObjectValue([Item::class, 'createFromDiscriminatorValue'])),
-            'itemId' => fn(ParseNode $n) => $o->setItemId($n->getStringValue()),
+            'itemId' => fn(ParseNode $n) => $o->setItemId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'lineType' => fn(ParseNode $n) => $o->setLineType($n->getStringValue()),
             'netAmount' => fn(ParseNode $n) => $o->setNetAmount($n->getStringValue()),
             'netAmountIncludingTax' => fn(ParseNode $n) => $o->setNetAmountIncludingTax($n->getStringValue()),
@@ -156,9 +156,9 @@ class PurchaseInvoiceLine extends Entity implements Parsable
 
     /**
      * Gets the itemId property value. The itemId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getItemId(): ?string {
+    public function getItemId(): ?Guid {
         return $this->getBackingStore()->get('itemId');
     }
 
@@ -283,9 +283,9 @@ class PurchaseInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the accountId property value. The accountId property
-     *  @param string|null $value Value to set for the accountId property.
+     *  @param Guid|null $value Value to set for the accountId property.
     */
-    public function setAccountId(?string $value): void {
+    public function setAccountId(?Guid $value): void {
         $this->getBackingStore()->set('accountId', $value);
     }
 
@@ -339,9 +339,9 @@ class PurchaseInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the documentId property value. The documentId property
-     *  @param string|null $value Value to set for the documentId property.
+     *  @param Guid|null $value Value to set for the documentId property.
     */
-    public function setDocumentId(?string $value): void {
+    public function setDocumentId(?Guid $value): void {
         $this->getBackingStore()->set('documentId', $value);
     }
 
@@ -371,9 +371,9 @@ class PurchaseInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the itemId property value. The itemId property
-     *  @param string|null $value Value to set for the itemId property.
+     *  @param Guid|null $value Value to set for the itemId property.
     */
-    public function setItemId(?string $value): void {
+    public function setItemId(?Guid $value): void {
         $this->getBackingStore()->set('itemId', $value);
     }
 

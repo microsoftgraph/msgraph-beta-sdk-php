@@ -29,6 +29,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\CalendarGroupI
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendars\CalendarsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Calendars\Item\CalendarItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CalendarView\CalendarViewRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CalendarView\Item\EventItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemCalendarViewItemEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ChangePassword\ChangePasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\ChatsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\ChatItemRequestBuilder;
@@ -41,6 +42,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\Item\ContactFolderI
 use Microsoft\Graph\Beta\Generated\Users\Item\Contacts\ContactsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Contacts\Item\ContactItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CreatedObjects\CreatedObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CreatedObjects\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemCreatedObjectsItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\DeviceEnrollmentConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\DeviceEnrollmentConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DeviceManagementTroubleshootingEvents\DeviceManagementTroubleshootingEventsRequestBuilder;
@@ -48,10 +50,12 @@ use Microsoft\Graph\Beta\Generated\Users\Item\DeviceManagementTroubleshootingEve
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\DeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\DirectReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemDirectReportsItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Events\EventsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\EventItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemEventsItemEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ExportDeviceAndAppManagementData\ExportDeviceAndAppManagementDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ExportDeviceAndAppManagementDataWithSkipWithTop\ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ExportPersonalData\ExportPersonalDataRequestBuilder;
@@ -89,6 +93,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedAppRegistrations\ManagedApp
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ManagedDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\ManagedDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Manager\ManagerRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemMemberOfItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MemberOf\MemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\MessageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\MessagesRequestBuilder;
@@ -104,7 +109,9 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\OnenoteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\OnlineMeetingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\OnlineMeetingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\OutlookRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemOwnedDevicesItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\OwnedDevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemOwnedObjectsItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\OwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\AccessReviewInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\PendingAccessReviewInstancesRequestBuilder;
@@ -116,6 +123,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Photos\PhotosRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\PlannerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Presence\PresenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Profile\ProfileRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\RegisteredDevices\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemRegisteredDevicesItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\RegisteredDevices\RegisteredDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ReminderViewWithStartDateTimeWithEndDateTime\ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\RemoveAllDevicesFromManagement\RemoveAllDevicesFromManagementRequestBuilder;
@@ -129,7 +137,9 @@ use Microsoft\Graph\Beta\Generated\Users\Item\SendMail\SendMailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\TeamworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Todo\TodoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemTransitiveReportsItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports\TransitiveReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\TranslateExchangeIds\TranslateExchangeIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\UnblockManagedApps\UnblockManagedAppsRequestBuilder;
@@ -859,12 +869,12 @@ class UserItemRequestBuilder
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\CalendarView\Item\EventItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemCalendarViewItemEventItemRequestBuilder
     */
-    public function calendarViewById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\CalendarView\Item\EventItemRequestBuilder {
+    public function calendarViewById(string $id): MicrosoftGraphBetaGeneratedUsersItemCalendarViewItemEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\CalendarView\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemCalendarViewItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -946,12 +956,12 @@ class UserItemRequestBuilder
     /**
      * Provides operations to manage the createdObjects property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\CreatedObjects\Item\DirectoryObjectItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemCreatedObjectsItemDirectoryObjectItemRequestBuilder
     */
-    public function createdObjectsById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\CreatedObjects\Item\DirectoryObjectItemRequestBuilder {
+    public function createdObjectsById(string $id): MicrosoftGraphBetaGeneratedUsersItemCreatedObjectsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\CreatedObjects\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemCreatedObjectsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -981,7 +991,7 @@ class UserItemRequestBuilder
 
     /**
      * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
-     * @param User $body 
+     * @param User $body The request body
      * @param UserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -1058,12 +1068,12 @@ class UserItemRequestBuilder
     /**
      * Provides operations to manage the directReports property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemDirectReportsItemDirectoryObjectItemRequestBuilder
     */
-    public function directReportsById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder {
+    public function directReportsById(string $id): MicrosoftGraphBetaGeneratedUsersItemDirectReportsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemDirectReportsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1080,12 +1090,12 @@ class UserItemRequestBuilder
     /**
      * Provides operations to manage the events property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\EventItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemEventsItemEventItemRequestBuilder
     */
-    public function eventsById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\EventItemRequestBuilder {
+    public function eventsById(string $id): MicrosoftGraphBetaGeneratedUsersItemEventsItemEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\Events\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemEventsItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1286,12 +1296,12 @@ class UserItemRequestBuilder
     /**
      * Provides operations to manage the memberOf property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemMemberOfItemDirectoryObjectItemRequestBuilder
     */
-    public function memberOfById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder {
+    public function memberOfById(string $id): MicrosoftGraphBetaGeneratedUsersItemMemberOfItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1363,28 +1373,28 @@ class UserItemRequestBuilder
     /**
      * Provides operations to manage the ownedDevices property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item\DirectoryObjectItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemOwnedDevicesItemDirectoryObjectItemRequestBuilder
     */
-    public function ownedDevicesById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item\DirectoryObjectItemRequestBuilder {
+    public function ownedDevicesById(string $id): MicrosoftGraphBetaGeneratedUsersItemOwnedDevicesItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemOwnedDevicesItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the ownedObjects property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\Item\DirectoryObjectItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemOwnedObjectsItemDirectoryObjectItemRequestBuilder
     */
-    public function ownedObjectsById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\Item\DirectoryObjectItemRequestBuilder {
+    public function ownedObjectsById(string $id): MicrosoftGraphBetaGeneratedUsersItemOwnedObjectsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemOwnedObjectsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
-     * @param User $body 
+     * @param User $body The request body
      * @param UserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -1438,12 +1448,12 @@ class UserItemRequestBuilder
     /**
      * Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\RegisteredDevices\Item\DirectoryObjectItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemRegisteredDevicesItemDirectoryObjectItemRequestBuilder
     */
-    public function registeredDevicesById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\RegisteredDevices\Item\DirectoryObjectItemRequestBuilder {
+    public function registeredDevicesById(string $id): MicrosoftGraphBetaGeneratedUsersItemRegisteredDevicesItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\RegisteredDevices\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemRegisteredDevicesItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1470,23 +1480,23 @@ class UserItemRequestBuilder
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder
     */
-    public function transitiveMemberOfById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder {
+    public function transitiveMemberOfById(string $id): MicrosoftGraphBetaGeneratedUsersItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the transitiveReports property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemTransitiveReportsItemDirectoryObjectItemRequestBuilder
     */
-    public function transitiveReportsById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder {
+    public function transitiveReportsById(string $id): MicrosoftGraphBetaGeneratedUsersItemTransitiveReportsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemTransitiveReportsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

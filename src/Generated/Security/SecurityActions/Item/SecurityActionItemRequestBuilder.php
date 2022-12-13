@@ -99,7 +99,7 @@ class SecurityActionItemRequestBuilder
 
     /**
      * Update the navigation property securityActions in security
-     * @param SecurityAction $body 
+     * @param SecurityAction $body The request body
      * @param SecurityActionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -161,7 +161,7 @@ class SecurityActionItemRequestBuilder
 
     /**
      * Update the navigation property securityActions in security
-     * @param SecurityAction $body 
+     * @param SecurityAction $body The request body
      * @param SecurityActionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

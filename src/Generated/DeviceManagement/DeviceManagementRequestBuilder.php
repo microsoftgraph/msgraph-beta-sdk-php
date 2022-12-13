@@ -36,23 +36,28 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\I
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudPCConnectivityIssues\CloudPCConnectivityIssuesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudPCConnectivityIssues\Item\CloudPCConnectivityIssueItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\ComanagedDevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementComanagedDevicesItemManagedDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagementEligibleDevices\ComanagementEligibleDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagementEligibleDevices\Item\ComanagementEligibleDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\ComplianceCategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementComplianceCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceManagementPartners\ComplianceManagementPartnersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceManagementPartners\Item\ComplianceManagementPartnerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\CompliancePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\DeviceManagementCompliancePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings\ComplianceSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementComplianceSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConditionalAccessSettings\ConditionalAccessSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollections\ConfigManagerCollectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollections\Item\ConfigManagerCollectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationCategories\ConfigurationCategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementConfigurationCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\ConfigurationPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\Item\DeviceManagementConfigurationPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicyTemplates\ConfigurationPolicyTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicyTemplates\Item\DeviceManagementConfigurationPolicyTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\ConfigurationSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementConfigurationSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DataSharingConsents\DataSharingConsentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DataSharingConsents\Item\DataSharingConsentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\DepOnboardingSettingsRequestBuilder;
@@ -143,6 +148,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSu
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\Item\ManagedDeviceEncryptionStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\ManagedDeviceEncryptionStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceOverview\ManagedDeviceOverviewRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementManagedDevicesItemManagedDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\ManagedDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigurations\Item\MicrosoftTunnelConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigurations\MicrosoftTunnelConfigurationsRequestBuilder;
@@ -175,6 +181,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceOperations\Item\Reso
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceOperations\ResourceOperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\DeviceManagementReusablePolicySettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\ReusablePolicySettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementReusableSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings\ReusableSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\Item\DeviceAndAppManagementRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleAssignments\RoleAssignmentsRequestBuilder;
@@ -239,6 +246,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatte
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthRuntimeDetails\UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsCategories\Item\UserExperienceAnalyticsCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsCategories\UserExperienceAnalyticsCategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsDeviceMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\Item\UserExperienceAnalyticsDevicePerformanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\UserExperienceAnalyticsDevicePerformanceRequestBuilder;
@@ -257,6 +265,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevic
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsImpactingProcess\Item\UserExperienceAnalyticsImpactingProcessItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsImpactingProcess\UserExperienceAnalyticsImpactingProcessRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder as MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\UserExperienceAnalyticsMetricHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsModelScores\Item\UserExperienceAnalyticsModelScoresItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsModelScores\UserExperienceAnalyticsModelScoresRequestBuilder;
@@ -304,7 +313,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaArtifacts\ZebraFota
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\ZebraFotaConnectorRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaDeployments\Item\ZebraFotaDeploymentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaDeployments\ZebraFotaDeploymentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\DeviceManagement;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagement;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -1618,12 +1627,12 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the comanagedDevices property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDeviceManagementComanagedDevicesItemManagedDeviceItemRequestBuilder
     */
-    public function comanagedDevicesById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceItemRequestBuilder {
+    public function comanagedDevicesById(string $id): MicrosoftGraphBetaGeneratedDeviceManagementComanagedDevicesItemManagedDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedDevice%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDeviceManagementComanagedDevicesItemManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1640,12 +1649,12 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the complianceCategories property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDeviceManagementComplianceCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder
     */
-    public function complianceCategoriesById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder {
+    public function complianceCategoriesById(string $id): MicrosoftGraphBetaGeneratedDeviceManagementComplianceCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationCategory%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDeviceManagementComplianceCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1673,12 +1682,12 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the complianceSettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDeviceManagementComplianceSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     */
-    public function complianceSettingsById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
+    public function complianceSettingsById(string $id): MicrosoftGraphBetaGeneratedDeviceManagementComplianceSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationSettingDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDeviceManagementComplianceSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1695,12 +1704,12 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the configurationCategories property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDeviceManagementConfigurationCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder
     */
-    public function configurationCategoriesById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder {
+    public function configurationCategoriesById(string $id): MicrosoftGraphBetaGeneratedDeviceManagementConfigurationCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationCategory%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDeviceManagementConfigurationCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1728,12 +1737,12 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the configurationSettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDeviceManagementConfigurationSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     */
-    public function configurationSettingsById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
+    public function configurationSettingsById(string $id): MicrosoftGraphBetaGeneratedDeviceManagementConfigurationSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationSettingDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDeviceManagementConfigurationSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -1774,7 +1783,7 @@ class DeviceManagementRequestBuilder
 
     /**
      * Update deviceManagement
-     * @param DeviceManagement $body 
+     * @param DeviceManagement $body The request body
      * @param DeviceManagementRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -2282,12 +2291,12 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDeviceManagementManagedDevicesItemManagedDeviceItemRequestBuilder
     */
-    public function managedDevicesById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceItemRequestBuilder {
+    public function managedDevicesById(string $id): MicrosoftGraphBetaGeneratedDeviceManagementManagedDevicesItemManagedDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedDevice%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDeviceManagementManagedDevicesItemManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -2391,7 +2400,7 @@ class DeviceManagementRequestBuilder
 
     /**
      * Update deviceManagement
-     * @param DeviceManagement $body 
+     * @param DeviceManagement $body The request body
      * @param DeviceManagementRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -2467,12 +2476,12 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the reusableSettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDeviceManagementReusableSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     */
-    public function reusableSettingsById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
+    public function reusableSettingsById(string $id): MicrosoftGraphBetaGeneratedDeviceManagementReusableSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationSettingDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDeviceManagementReusableSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -2795,12 +2804,12 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the userExperienceAnalyticsDeviceMetricHistory property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsDeviceMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder
     */
-    public function userExperienceAnalyticsDeviceMetricHistoryById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder {
+    public function userExperienceAnalyticsDeviceMetricHistoryById(string $id): MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsDeviceMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsMetricHistory%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsDeviceMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -2894,12 +2903,12 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder
     */
-    public function userExperienceAnalyticsMetricHistoryById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder {
+    public function userExperienceAnalyticsMetricHistoryById(string $id): MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsMetricHistory%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

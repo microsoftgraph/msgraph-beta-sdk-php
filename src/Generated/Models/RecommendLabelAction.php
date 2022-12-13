@@ -65,7 +65,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
 
     /**
      * Gets the responsibleSensitiveTypeIds property value. The sensitive information type GUIDs that caused the recommendation to be given.
-     * @return array<string>|null
+     * @return array<Guid>|null
     */
     public function getResponsibleSensitiveTypeIds(): ?array {
         return $this->getBackingStore()->get('responsibleSensitiveTypeIds');
@@ -109,7 +109,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
 
     /**
      * Sets the responsibleSensitiveTypeIds property value. The sensitive information type GUIDs that caused the recommendation to be given.
-     *  @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
+     *  @param array<Guid>|null $value Value to set for the responsibleSensitiveTypeIds property.
     */
     public function setResponsibleSensitiveTypeIds(?array $value): void {
         $this->getBackingStore()->set('responsibleSensitiveTypeIds', $value);

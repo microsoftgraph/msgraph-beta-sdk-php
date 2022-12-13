@@ -44,7 +44,7 @@ class MoveToCatalogRequestBuilder
 
     /**
      * In Azure AD entitlement management, this action moves the accessPackage to a specified target accessPackageCatalog. The resources in the access package must be present in the target catalog.
-     * @param MoveToCatalogPostRequestBody $body 
+     * @param MoveToCatalogPostRequestBody $body The request body
      * @param MoveToCatalogRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -67,7 +67,7 @@ class MoveToCatalogRequestBuilder
 
     /**
      * In Azure AD entitlement management, this action moves the accessPackage to a specified target accessPackageCatalog. The resources in the access package must be present in the target catalog.
-     * @param MoveToCatalogPostRequestBody $body 
+     * @param MoveToCatalogPostRequestBody $body The request body
      * @param MoveToCatalogRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

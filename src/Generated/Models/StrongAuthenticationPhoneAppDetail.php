@@ -43,9 +43,9 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Gets the deviceId property value. The deviceId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getDeviceId(): ?string {
+    public function getDeviceId(): ?Guid {
         return $this->getBackingStore()->get('deviceId');
     }
 
@@ -82,7 +82,7 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'authenticationType' => fn(ParseNode $n) => $o->setAuthenticationType($n->getStringValue()),
             'authenticatorFlavor' => fn(ParseNode $n) => $o->setAuthenticatorFlavor($n->getStringValue()),
-            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
             'deviceTag' => fn(ParseNode $n) => $o->setDeviceTag($n->getStringValue()),
             'deviceToken' => fn(ParseNode $n) => $o->setDeviceToken($n->getStringValue()),
@@ -211,9 +211,9 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The deviceId property
-     *  @param string|null $value Value to set for the deviceId property.
+     *  @param Guid|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value): void {
+    public function setDeviceId(?Guid $value): void {
         $this->getBackingStore()->set('deviceId', $value);
     }
 

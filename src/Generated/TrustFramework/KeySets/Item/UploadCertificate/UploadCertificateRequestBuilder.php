@@ -45,7 +45,7 @@ class UploadCertificateRequestBuilder
 
     /**
      * Upload a certificate to a trustFrameworkKeyset. The input is a base-64 encoded value of the certificate contents. This method returns trustFrameworkKey.
-     * @param UploadCertificatePostRequestBody $body 
+     * @param UploadCertificatePostRequestBody $body The request body
      * @param UploadCertificateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -69,7 +69,7 @@ class UploadCertificateRequestBuilder
 
     /**
      * Upload a certificate to a trustFrameworkKeyset. The input is a base-64 encoded value of the certificate contents. This method returns trustFrameworkKey.
-     * @param UploadCertificatePostRequestBody $body 
+     * @param UploadCertificatePostRequestBody $body The request body
      * @param UploadCertificateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

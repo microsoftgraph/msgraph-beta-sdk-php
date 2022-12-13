@@ -108,7 +108,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder
 
     /**
      * Update the navigation property reusablePolicySettings in deviceManagement
-     * @param DeviceManagementReusablePolicySetting $body 
+     * @param DeviceManagementReusablePolicySetting $body The request body
      * @param DeviceManagementReusablePolicySettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -170,7 +170,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder
 
     /**
      * Update the navigation property reusablePolicySettings in deviceManagement
-     * @param DeviceManagementReusablePolicySetting $body 
+     * @param DeviceManagementReusablePolicySetting $body The request body
      * @param DeviceManagementReusablePolicySettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

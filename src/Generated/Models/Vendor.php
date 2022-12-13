@@ -67,9 +67,9 @@ class Vendor extends Entity implements Parsable
 
     /**
      * Gets the currencyId property value. The currencyId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getCurrencyId(): ?string {
+    public function getCurrencyId(): ?Guid {
         return $this->getBackingStore()->get('currencyId');
     }
 
@@ -101,15 +101,15 @@ class Vendor extends Entity implements Parsable
             'blocked' => fn(ParseNode $n) => $o->setBlocked($n->getStringValue()),
             'currency' => fn(ParseNode $n) => $o->setCurrency($n->getObjectValue([Currency::class, 'createFromDiscriminatorValue'])),
             'currencyCode' => fn(ParseNode $n) => $o->setCurrencyCode($n->getStringValue()),
-            'currencyId' => fn(ParseNode $n) => $o->setCurrencyId($n->getStringValue()),
+            'currencyId' => fn(ParseNode $n) => $o->setCurrencyId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
             'paymentMethod' => fn(ParseNode $n) => $o->setPaymentMethod($n->getObjectValue([PaymentMethod::class, 'createFromDiscriminatorValue'])),
-            'paymentMethodId' => fn(ParseNode $n) => $o->setPaymentMethodId($n->getStringValue()),
+            'paymentMethodId' => fn(ParseNode $n) => $o->setPaymentMethodId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'paymentTerm' => fn(ParseNode $n) => $o->setPaymentTerm($n->getObjectValue([PaymentTerm::class, 'createFromDiscriminatorValue'])),
-            'paymentTermsId' => fn(ParseNode $n) => $o->setPaymentTermsId($n->getStringValue()),
+            'paymentTermsId' => fn(ParseNode $n) => $o->setPaymentTermsId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'phoneNumber' => fn(ParseNode $n) => $o->setPhoneNumber($n->getStringValue()),
             'picture' => fn(ParseNode $n) => $o->setPicture($n->getCollectionOfObjectValues([Picture::class, 'createFromDiscriminatorValue'])),
             'taxLiable' => fn(ParseNode $n) => $o->setTaxLiable($n->getBooleanValue()),
@@ -144,9 +144,9 @@ class Vendor extends Entity implements Parsable
 
     /**
      * Gets the paymentMethodId property value. The paymentMethodId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getPaymentMethodId(): ?string {
+    public function getPaymentMethodId(): ?Guid {
         return $this->getBackingStore()->get('paymentMethodId');
     }
 
@@ -160,9 +160,9 @@ class Vendor extends Entity implements Parsable
 
     /**
      * Gets the paymentTermsId property value. The paymentTermsId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getPaymentTermsId(): ?string {
+    public function getPaymentTermsId(): ?Guid {
         return $this->getBackingStore()->get('paymentTermsId');
     }
 
@@ -275,9 +275,9 @@ class Vendor extends Entity implements Parsable
 
     /**
      * Sets the currencyId property value. The currencyId property
-     *  @param string|null $value Value to set for the currencyId property.
+     *  @param Guid|null $value Value to set for the currencyId property.
     */
-    public function setCurrencyId(?string $value): void {
+    public function setCurrencyId(?Guid $value): void {
         $this->getBackingStore()->set('currencyId', $value);
     }
 
@@ -323,9 +323,9 @@ class Vendor extends Entity implements Parsable
 
     /**
      * Sets the paymentMethodId property value. The paymentMethodId property
-     *  @param string|null $value Value to set for the paymentMethodId property.
+     *  @param Guid|null $value Value to set for the paymentMethodId property.
     */
-    public function setPaymentMethodId(?string $value): void {
+    public function setPaymentMethodId(?Guid $value): void {
         $this->getBackingStore()->set('paymentMethodId', $value);
     }
 
@@ -339,9 +339,9 @@ class Vendor extends Entity implements Parsable
 
     /**
      * Sets the paymentTermsId property value. The paymentTermsId property
-     *  @param string|null $value Value to set for the paymentTermsId property.
+     *  @param Guid|null $value Value to set for the paymentTermsId property.
     */
-    public function setPaymentTermsId(?string $value): void {
+    public function setPaymentTermsId(?Guid $value): void {
         $this->getBackingStore()->set('paymentTermsId', $value);
     }
 

@@ -79,7 +79,7 @@ class ProviderTenantSettingsRequestBuilder
 
     /**
      * Create new navigation property to providerTenantSettings for security
-     * @param ProviderTenantSetting $body 
+     * @param ProviderTenantSetting $body The request body
      * @param ProviderTenantSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class ProviderTenantSettingsRequestBuilder
 
     /**
      * Create new navigation property to providerTenantSettings for security
-     * @param ProviderTenantSetting $body 
+     * @param ProviderTenantSetting $body The request body
      * @param ProviderTenantSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

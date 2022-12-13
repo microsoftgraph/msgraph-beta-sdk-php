@@ -40,7 +40,7 @@ class OutlookTaskGroup extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'changeKey' => fn(ParseNode $n) => $o->setChangeKey($n->getStringValue()),
-            'groupKey' => fn(ParseNode $n) => $o->setGroupKey($n->getStringValue()),
+            'groupKey' => fn(ParseNode $n) => $o->setGroupKey($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'isDefaultGroup' => fn(ParseNode $n) => $o->setIsDefaultGroup($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'taskFolders' => fn(ParseNode $n) => $o->setTaskFolders($n->getCollectionOfObjectValues([OutlookTaskFolder::class, 'createFromDiscriminatorValue'])),
@@ -49,9 +49,9 @@ class OutlookTaskGroup extends Entity implements Parsable
 
     /**
      * Gets the groupKey property value. The unique GUID identifier for the task group.
-     * @return string|null
+     * @return Guid|null
     */
-    public function getGroupKey(): ?string {
+    public function getGroupKey(): ?Guid {
         return $this->getBackingStore()->get('groupKey');
     }
 
@@ -102,9 +102,9 @@ class OutlookTaskGroup extends Entity implements Parsable
 
     /**
      * Sets the groupKey property value. The unique GUID identifier for the task group.
-     *  @param string|null $value Value to set for the groupKey property.
+     *  @param Guid|null $value Value to set for the groupKey property.
     */
-    public function setGroupKey(?string $value): void {
+    public function setGroupKey(?Guid $value): void {
         $this->getBackingStore()->set('groupKey', $value);
     }
 

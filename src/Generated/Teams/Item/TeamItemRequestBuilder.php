@@ -8,12 +8,15 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Team;
 use Microsoft\Graph\Beta\Generated\Teams\Item\AllChannels\AllChannelsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\Item\AllChannels\Item\ChannelItemRequestBuilder as MicrosoftGraphBetaGeneratedTeamsItemAllChannelsItemChannelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\ChannelsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\ChannelItemRequestBuilder as MicrosoftGraphBetaGeneratedTeamsItemChannelsItemChannelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\CompleteMigration\CompleteMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\EscapedClone\CloneRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Group\GroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\IncomingChannels\IncomingChannelsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\Item\IncomingChannels\Item\ChannelItemRequestBuilder as MicrosoftGraphBetaGeneratedTeamsItemIncomingChannelsItemChannelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\InstalledApps\InstalledAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\InstalledApps\Item\TeamsAppInstallationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Members\Item\ConversationMemberItemRequestBuilder;
@@ -201,23 +204,23 @@ class TeamItemRequestBuilder
     /**
      * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Teams\Item\AllChannels\Item\ChannelItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedTeamsItemAllChannelsItemChannelItemRequestBuilder
     */
-    public function allChannelsById(string $id): \Microsoft\Graph\Beta\Generated\Teams\Item\AllChannels\Item\ChannelItemRequestBuilder {
+    public function allChannelsById(string $id): MicrosoftGraphBetaGeneratedTeamsItemAllChannelsItemChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Teams\Item\AllChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedTeamsItemAllChannelsItemChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the channels property of the microsoft.graph.team entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\ChannelItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedTeamsItemChannelsItemChannelItemRequestBuilder
     */
-    public function channelsById(string $id): \Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\ChannelItemRequestBuilder {
+    public function channelsById(string $id): MicrosoftGraphBetaGeneratedTeamsItemChannelsItemChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedTeamsItemChannelsItemChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -279,7 +282,7 @@ class TeamItemRequestBuilder
 
     /**
      * Update the properties of the specified team.
-     * @param Team $body 
+     * @param Team $body The request body
      * @param TeamItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -342,12 +345,12 @@ class TeamItemRequestBuilder
     /**
      * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Teams\Item\IncomingChannels\Item\ChannelItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedTeamsItemIncomingChannelsItemChannelItemRequestBuilder
     */
-    public function incomingChannelsById(string $id): \Microsoft\Graph\Beta\Generated\Teams\Item\IncomingChannels\Item\ChannelItemRequestBuilder {
+    public function incomingChannelsById(string $id): MicrosoftGraphBetaGeneratedTeamsItemIncomingChannelsItemChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Teams\Item\IncomingChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedTeamsItemIncomingChannelsItemChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -396,7 +399,7 @@ class TeamItemRequestBuilder
 
     /**
      * Update the properties of the specified team.
-     * @param Team $body 
+     * @param Team $body The request body
      * @param TeamItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

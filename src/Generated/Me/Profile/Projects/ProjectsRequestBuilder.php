@@ -79,7 +79,7 @@ class ProjectsRequestBuilder
 
     /**
      * Use this API to create a new projectParticipation object in a user's profile.
-     * @param ProjectParticipation $body 
+     * @param ProjectParticipation $body The request body
      * @param ProjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class ProjectsRequestBuilder
 
     /**
      * Use this API to create a new projectParticipation object in a user's profile.
-     * @param ProjectParticipation $body 
+     * @param ProjectParticipation $body The request body
      * @param ProjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

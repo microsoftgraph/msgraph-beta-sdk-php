@@ -86,7 +86,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
             'definitionFile' => fn(ParseNode $n) => $o->setDefinitionFile($n->getObjectValue([GroupPolicyDefinitionFile::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'explainText' => fn(ParseNode $n) => $o->setExplainText($n->getStringValue()),
-            'groupPolicyCategoryId' => fn(ParseNode $n) => $o->setGroupPolicyCategoryId($n->getStringValue()),
+            'groupPolicyCategoryId' => fn(ParseNode $n) => $o->setGroupPolicyCategoryId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'hasRelatedDefinitions' => fn(ParseNode $n) => $o->setHasRelatedDefinitions($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'minDeviceCspVersion' => fn(ParseNode $n) => $o->setMinDeviceCspVersion($n->getStringValue()),
@@ -102,9 +102,9 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Gets the groupPolicyCategoryId property value. The category id of the parent category
-     * @return string|null
+     * @return Guid|null
     */
-    public function getGroupPolicyCategoryId(): ?string {
+    public function getGroupPolicyCategoryId(): ?Guid {
         return $this->getBackingStore()->get('groupPolicyCategoryId');
     }
 
@@ -263,9 +263,9 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyCategoryId property value. The category id of the parent category
-     *  @param string|null $value Value to set for the groupPolicyCategoryId property.
+     *  @param Guid|null $value Value to set for the groupPolicyCategoryId property.
     */
-    public function setGroupPolicyCategoryId(?string $value): void {
+    public function setGroupPolicyCategoryId(?Guid $value): void {
         $this->getBackingStore()->set('groupPolicyCategoryId', $value);
     }
 

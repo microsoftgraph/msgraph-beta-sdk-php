@@ -35,9 +35,9 @@ class Contract extends DirectoryObject implements Parsable
 
     /**
      * Gets the customerId property value. The customerId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getCustomerId(): ?string {
+    public function getCustomerId(): ?Guid {
         return $this->getBackingStore()->get('customerId');
     }
 
@@ -65,7 +65,7 @@ class Contract extends DirectoryObject implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'contractType' => fn(ParseNode $n) => $o->setContractType($n->getStringValue()),
-            'customerId' => fn(ParseNode $n) => $o->setCustomerId($n->getStringValue()),
+            'customerId' => fn(ParseNode $n) => $o->setCustomerId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'defaultDomainName' => fn(ParseNode $n) => $o->setDefaultDomainName($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
         ]);
@@ -93,9 +93,9 @@ class Contract extends DirectoryObject implements Parsable
 
     /**
      * Sets the customerId property value. The customerId property
-     *  @param string|null $value Value to set for the customerId property.
+     *  @param Guid|null $value Value to set for the customerId property.
     */
-    public function setCustomerId(?string $value): void {
+    public function setCustomerId(?Guid $value): void {
         $this->getBackingStore()->set('customerId', $value);
     }
 

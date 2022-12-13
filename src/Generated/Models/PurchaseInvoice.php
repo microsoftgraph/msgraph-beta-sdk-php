@@ -52,9 +52,9 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Gets the currencyId property value. The currencyId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getCurrencyId(): ?string {
+    public function getCurrencyId(): ?Guid {
         return $this->getBackingStore()->get('currencyId');
     }
 
@@ -92,7 +92,7 @@ class PurchaseInvoice extends Entity implements Parsable
             'buyFromAddress' => fn(ParseNode $n) => $o->setBuyFromAddress($n->getObjectValue([PostalAddressType::class, 'createFromDiscriminatorValue'])),
             'currency' => fn(ParseNode $n) => $o->setCurrency($n->getObjectValue([Currency::class, 'createFromDiscriminatorValue'])),
             'currencyCode' => fn(ParseNode $n) => $o->setCurrencyCode($n->getStringValue()),
-            'currencyId' => fn(ParseNode $n) => $o->setCurrencyId($n->getStringValue()),
+            'currencyId' => fn(ParseNode $n) => $o->setCurrencyId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'discountAmount' => fn(ParseNode $n) => $o->setDiscountAmount($n->getStringValue()),
             'discountAppliedBeforeTax' => fn(ParseNode $n) => $o->setDiscountAppliedBeforeTax($n->getBooleanValue()),
             'dueDate' => fn(ParseNode $n) => $o->setDueDate($n->getDateValue()),
@@ -102,7 +102,7 @@ class PurchaseInvoice extends Entity implements Parsable
             'payToAddress' => fn(ParseNode $n) => $o->setPayToAddress($n->getObjectValue([PostalAddressType::class, 'createFromDiscriminatorValue'])),
             'payToContact' => fn(ParseNode $n) => $o->setPayToContact($n->getStringValue()),
             'payToName' => fn(ParseNode $n) => $o->setPayToName($n->getStringValue()),
-            'payToVendorId' => fn(ParseNode $n) => $o->setPayToVendorId($n->getStringValue()),
+            'payToVendorId' => fn(ParseNode $n) => $o->setPayToVendorId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'payToVendorNumber' => fn(ParseNode $n) => $o->setPayToVendorNumber($n->getStringValue()),
             'pricesIncludeTax' => fn(ParseNode $n) => $o->setPricesIncludeTax($n->getBooleanValue()),
             'purchaseInvoiceLines' => fn(ParseNode $n) => $o->setPurchaseInvoiceLines($n->getCollectionOfObjectValues([PurchaseInvoiceLine::class, 'createFromDiscriminatorValue'])),
@@ -114,7 +114,7 @@ class PurchaseInvoice extends Entity implements Parsable
             'totalAmountIncludingTax' => fn(ParseNode $n) => $o->setTotalAmountIncludingTax($n->getStringValue()),
             'totalTaxAmount' => fn(ParseNode $n) => $o->setTotalTaxAmount($n->getStringValue()),
             'vendor' => fn(ParseNode $n) => $o->setVendor($n->getObjectValue([Vendor::class, 'createFromDiscriminatorValue'])),
-            'vendorId' => fn(ParseNode $n) => $o->setVendorId($n->getStringValue()),
+            'vendorId' => fn(ParseNode $n) => $o->setVendorId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'vendorInvoiceNumber' => fn(ParseNode $n) => $o->setVendorInvoiceNumber($n->getStringValue()),
             'vendorName' => fn(ParseNode $n) => $o->setVendorName($n->getStringValue()),
             'vendorNumber' => fn(ParseNode $n) => $o->setVendorNumber($n->getStringValue()),
@@ -171,9 +171,9 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Gets the payToVendorId property value. The payToVendorId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getPayToVendorId(): ?string {
+    public function getPayToVendorId(): ?Guid {
         return $this->getBackingStore()->get('payToVendorId');
     }
 
@@ -267,9 +267,9 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Gets the vendorId property value. The vendorId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getVendorId(): ?string {
+    public function getVendorId(): ?Guid {
         return $this->getBackingStore()->get('vendorId');
     }
 
@@ -360,9 +360,9 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the currencyId property value. The currencyId property
-     *  @param string|null $value Value to set for the currencyId property.
+     *  @param Guid|null $value Value to set for the currencyId property.
     */
-    public function setCurrencyId(?string $value): void {
+    public function setCurrencyId(?Guid $value): void {
         $this->getBackingStore()->set('currencyId', $value);
     }
 
@@ -440,9 +440,9 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the payToVendorId property value. The payToVendorId property
-     *  @param string|null $value Value to set for the payToVendorId property.
+     *  @param Guid|null $value Value to set for the payToVendorId property.
     */
-    public function setPayToVendorId(?string $value): void {
+    public function setPayToVendorId(?Guid $value): void {
         $this->getBackingStore()->set('payToVendorId', $value);
     }
 
@@ -536,9 +536,9 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the vendorId property value. The vendorId property
-     *  @param string|null $value Value to set for the vendorId property.
+     *  @param Guid|null $value Value to set for the vendorId property.
     */
-    public function setVendorId(?string $value): void {
+    public function setVendorId(?Guid $value): void {
         $this->getBackingStore()->set('vendorId', $value);
     }
 

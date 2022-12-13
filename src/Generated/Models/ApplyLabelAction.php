@@ -65,7 +65,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
 
     /**
      * Gets the responsibleSensitiveTypeIds property value. If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
-     * @return array<string>|null
+     * @return array<Guid>|null
     */
     public function getResponsibleSensitiveTypeIds(): ?array {
         return $this->getBackingStore()->get('responsibleSensitiveTypeIds');
@@ -109,7 +109,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the responsibleSensitiveTypeIds property value. If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
-     *  @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
+     *  @param array<Guid>|null $value Value to set for the responsibleSensitiveTypeIds property.
     */
     public function setResponsibleSensitiveTypeIds(?array $value): void {
         $this->getBackingStore()->set('responsibleSensitiveTypeIds', $value);

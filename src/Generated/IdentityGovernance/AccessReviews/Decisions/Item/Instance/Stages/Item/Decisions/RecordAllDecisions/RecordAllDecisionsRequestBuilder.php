@@ -44,7 +44,7 @@ class RecordAllDecisionsRequestBuilder
 
     /**
      * As a reviewer of an access review, record a decision for an accessReviewInstanceDecisionItem that is assigned to you and that matches the principal or resource IDs specified. If no IDs are specified, the decisions will apply to every **accessReviewInstanceDecisionItem** for which you are the reviewer.
-     * @param RecordAllDecisionsPostRequestBody $body 
+     * @param RecordAllDecisionsPostRequestBody $body The request body
      * @param RecordAllDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -67,7 +67,7 @@ class RecordAllDecisionsRequestBuilder
 
     /**
      * As a reviewer of an access review, record a decision for an accessReviewInstanceDecisionItem that is assigned to you and that matches the principal or resource IDs specified. If no IDs are specified, the decisions will apply to every **accessReviewInstanceDecisionItem** for which you are the reviewer.
-     * @param RecordAllDecisionsPostRequestBody $body 
+     * @param RecordAllDecisionsPostRequestBody $body The request body
      * @param RecordAllDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

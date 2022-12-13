@@ -13,7 +13,9 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTyp
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\ColumnLinks\ColumnLinksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\ColumnLinks\Item\ColumnLinkItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\ColumnPositions\ColumnPositionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\ColumnPositions\Item\ColumnDefinitionItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemDrivesItemEscapedListContentTypesItemColumnPositionsItemColumnDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\Columns\ColumnsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder as MicrosoftGraphBetaGeneratedUsersItemDrivesItemEscapedListContentTypesItemColumnsItemColumnDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\CopyToDefaultContentLocation\CopyToDefaultContentLocationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\IsPublished\IsPublishedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\Publish\PublishRequestBuilder;
@@ -109,12 +111,12 @@ class ContentTypeItemRequestBuilder
     /**
      * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\BaseTypes\Item\ContentTypeItemRequestBuilder
+     * @return ContentTypeItemRequestBuilder
     */
-    public function baseTypesById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\BaseTypes\Item\ContentTypeItemRequestBuilder {
+    public function baseTypesById(string $id): ContentTypeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['contentType%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\BaseTypes\Item\ContentTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ContentTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -131,23 +133,23 @@ class ContentTypeItemRequestBuilder
     /**
      * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\ColumnPositions\Item\ColumnDefinitionItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemDrivesItemEscapedListContentTypesItemColumnPositionsItemColumnDefinitionItemRequestBuilder
     */
-    public function columnPositionsById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\ColumnPositions\Item\ColumnDefinitionItemRequestBuilder {
+    public function columnPositionsById(string $id): MicrosoftGraphBetaGeneratedUsersItemDrivesItemEscapedListContentTypesItemColumnPositionsItemColumnDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['columnDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\ColumnPositions\Item\ColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemDrivesItemEscapedListContentTypesItemColumnPositionsItemColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedUsersItemDrivesItemEscapedListContentTypesItemColumnsItemColumnDefinitionItemRequestBuilder
     */
-    public function columnsById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder {
+    public function columnsById(string $id): MicrosoftGraphBetaGeneratedUsersItemDrivesItemEscapedListContentTypesItemColumnsItemColumnDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['columnDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\ContentTypes\Item\Columns\Item\ColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedUsersItemDrivesItemEscapedListContentTypesItemColumnsItemColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -209,7 +211,7 @@ class ContentTypeItemRequestBuilder
 
     /**
      * Update the navigation property contentTypes in users
-     * @param ContentType $body 
+     * @param ContentType $body The request body
      * @param ContentTypeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -279,7 +281,7 @@ class ContentTypeItemRequestBuilder
 
     /**
      * Update the navigation property contentTypes in users
-     * @param ContentType $body 
+     * @param ContentType $body The request body
      * @param ContentTypeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

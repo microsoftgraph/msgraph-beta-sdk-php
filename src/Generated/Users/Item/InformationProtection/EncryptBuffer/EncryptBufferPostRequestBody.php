@@ -67,15 +67,15 @@ class EncryptBufferPostRequestBody implements AdditionalDataHolder, BackedModel,
         $o = $this;
         return  [
             'buffer' => fn(ParseNode $n) => $o->setBuffer($n->getBinaryContent()),
-            'labelId' => fn(ParseNode $n) => $o->setLabelId($n->getStringValue()),
+            'labelId' => fn(ParseNode $n) => $o->setLabelId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
     /**
      * Gets the labelId property value. The labelId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getLabelId(): ?string {
+    public function getLabelId(): ?Guid {
         return $this->getBackingStore()->get('labelId');
     }
 
@@ -115,9 +115,9 @@ class EncryptBufferPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the labelId property value. The labelId property
-     *  @param string|null $value Value to set for the labelId property.
+     *  @param Guid|null $value Value to set for the labelId property.
     */
-    public function setLabelId(?string $value): void {
+    public function setLabelId(?Guid $value): void {
         $this->getBackingStore()->set('labelId', $value);
     }
 

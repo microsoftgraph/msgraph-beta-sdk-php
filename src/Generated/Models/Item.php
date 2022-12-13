@@ -27,9 +27,9 @@ class Item extends Entity implements Parsable
 
     /**
      * Gets the baseUnitOfMeasureId property value. The baseUnitOfMeasureId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getBaseUnitOfMeasureId(): ?string {
+    public function getBaseUnitOfMeasureId(): ?Guid {
         return $this->getBackingStore()->get('baseUnitOfMeasureId');
     }
 
@@ -56,20 +56,20 @@ class Item extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'baseUnitOfMeasureId' => fn(ParseNode $n) => $o->setBaseUnitOfMeasureId($n->getStringValue()),
+            'baseUnitOfMeasureId' => fn(ParseNode $n) => $o->setBaseUnitOfMeasureId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'blocked' => fn(ParseNode $n) => $o->setBlocked($n->getBooleanValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'gtin' => fn(ParseNode $n) => $o->setGtin($n->getStringValue()),
             'inventory' => fn(ParseNode $n) => $o->setInventory($n->getStringValue()),
             'itemCategory' => fn(ParseNode $n) => $o->setItemCategory($n->getObjectValue([ItemCategory::class, 'createFromDiscriminatorValue'])),
             'itemCategoryCode' => fn(ParseNode $n) => $o->setItemCategoryCode($n->getStringValue()),
-            'itemCategoryId' => fn(ParseNode $n) => $o->setItemCategoryId($n->getStringValue()),
+            'itemCategoryId' => fn(ParseNode $n) => $o->setItemCategoryId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
             'picture' => fn(ParseNode $n) => $o->setPicture($n->getCollectionOfObjectValues([Picture::class, 'createFromDiscriminatorValue'])),
             'priceIncludesTax' => fn(ParseNode $n) => $o->setPriceIncludesTax($n->getBooleanValue()),
             'taxGroupCode' => fn(ParseNode $n) => $o->setTaxGroupCode($n->getStringValue()),
-            'taxGroupId' => fn(ParseNode $n) => $o->setTaxGroupId($n->getStringValue()),
+            'taxGroupId' => fn(ParseNode $n) => $o->setTaxGroupId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
             'unitCost' => fn(ParseNode $n) => $o->setUnitCost($n->getStringValue()),
             'unitPrice' => fn(ParseNode $n) => $o->setUnitPrice($n->getStringValue()),
@@ -110,9 +110,9 @@ class Item extends Entity implements Parsable
 
     /**
      * Gets the itemCategoryId property value. The itemCategoryId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getItemCategoryId(): ?string {
+    public function getItemCategoryId(): ?Guid {
         return $this->getBackingStore()->get('itemCategoryId');
     }
 
@@ -158,9 +158,9 @@ class Item extends Entity implements Parsable
 
     /**
      * Gets the taxGroupId property value. The taxGroupId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getTaxGroupId(): ?string {
+    public function getTaxGroupId(): ?Guid {
         return $this->getBackingStore()->get('taxGroupId');
     }
 
@@ -215,9 +215,9 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the baseUnitOfMeasureId property value. The baseUnitOfMeasureId property
-     *  @param string|null $value Value to set for the baseUnitOfMeasureId property.
+     *  @param Guid|null $value Value to set for the baseUnitOfMeasureId property.
     */
-    public function setBaseUnitOfMeasureId(?string $value): void {
+    public function setBaseUnitOfMeasureId(?Guid $value): void {
         $this->getBackingStore()->set('baseUnitOfMeasureId', $value);
     }
 
@@ -271,9 +271,9 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the itemCategoryId property value. The itemCategoryId property
-     *  @param string|null $value Value to set for the itemCategoryId property.
+     *  @param Guid|null $value Value to set for the itemCategoryId property.
     */
-    public function setItemCategoryId(?string $value): void {
+    public function setItemCategoryId(?Guid $value): void {
         $this->getBackingStore()->set('itemCategoryId', $value);
     }
 
@@ -319,9 +319,9 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the taxGroupId property value. The taxGroupId property
-     *  @param string|null $value Value to set for the taxGroupId property.
+     *  @param Guid|null $value Value to set for the taxGroupId property.
     */
-    public function setTaxGroupId(?string $value): void {
+    public function setTaxGroupId(?Guid $value): void {
         $this->getBackingStore()->set('taxGroupId', $value);
     }
 

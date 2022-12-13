@@ -43,7 +43,7 @@ class OutlookTaskFolder extends Entity implements Parsable
             'isDefaultFolder' => fn(ParseNode $n) => $o->setIsDefaultFolder($n->getBooleanValue()),
             'multiValueExtendedProperties' => fn(ParseNode $n) => $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues([MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
-            'parentGroupKey' => fn(ParseNode $n) => $o->setParentGroupKey($n->getStringValue()),
+            'parentGroupKey' => fn(ParseNode $n) => $o->setParentGroupKey($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'singleValueExtendedProperties' => fn(ParseNode $n) => $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues([SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([OutlookTask::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -75,9 +75,9 @@ class OutlookTaskFolder extends Entity implements Parsable
 
     /**
      * Gets the parentGroupKey property value. The unique GUID identifier for the task folder's parent group.
-     * @return string|null
+     * @return Guid|null
     */
-    public function getParentGroupKey(): ?string {
+    public function getParentGroupKey(): ?Guid {
         return $this->getBackingStore()->get('parentGroupKey');
     }
 
@@ -146,9 +146,9 @@ class OutlookTaskFolder extends Entity implements Parsable
 
     /**
      * Sets the parentGroupKey property value. The unique GUID identifier for the task folder's parent group.
-     *  @param string|null $value Value to set for the parentGroupKey property.
+     *  @param Guid|null $value Value to set for the parentGroupKey property.
     */
-    public function setParentGroupKey(?string $value): void {
+    public function setParentGroupKey(?Guid $value): void {
         $this->getBackingStore()->set('parentGroupKey', $value);
     }
 

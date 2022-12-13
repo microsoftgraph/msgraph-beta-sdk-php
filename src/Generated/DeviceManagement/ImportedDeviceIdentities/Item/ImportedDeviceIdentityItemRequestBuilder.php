@@ -91,7 +91,7 @@ class ImportedDeviceIdentityItemRequestBuilder
 
     /**
      * Update the navigation property importedDeviceIdentities in deviceManagement
-     * @param ImportedDeviceIdentity $body 
+     * @param ImportedDeviceIdentity $body The request body
      * @param ImportedDeviceIdentityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class ImportedDeviceIdentityItemRequestBuilder
 
     /**
      * Update the navigation property importedDeviceIdentities in deviceManagement
-     * @param ImportedDeviceIdentity $body 
+     * @param ImportedDeviceIdentity $body The request body
      * @param ImportedDeviceIdentityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

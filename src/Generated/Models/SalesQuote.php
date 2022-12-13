@@ -44,9 +44,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Gets the billToCustomerId property value. The billToCustomerId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getBillToCustomerId(): ?string {
+    public function getBillToCustomerId(): ?Guid {
         return $this->getBackingStore()->get('billToCustomerId');
     }
 
@@ -84,9 +84,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Gets the currencyId property value. The currencyId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getCurrencyId(): ?string {
+    public function getCurrencyId(): ?Guid {
         return $this->getBackingStore()->get('currencyId');
     }
 
@@ -100,9 +100,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Gets the customerId property value. The customerId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getCustomerId(): ?string {
+    public function getCustomerId(): ?Guid {
         return $this->getBackingStore()->get('customerId');
     }
 
@@ -171,14 +171,14 @@ class SalesQuote extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'acceptedDate' => fn(ParseNode $n) => $o->setAcceptedDate($n->getDateValue()),
             'billingPostalAddress' => fn(ParseNode $n) => $o->setBillingPostalAddress($n->getObjectValue([PostalAddressType::class, 'createFromDiscriminatorValue'])),
-            'billToCustomerId' => fn(ParseNode $n) => $o->setBillToCustomerId($n->getStringValue()),
+            'billToCustomerId' => fn(ParseNode $n) => $o->setBillToCustomerId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'billToCustomerNumber' => fn(ParseNode $n) => $o->setBillToCustomerNumber($n->getStringValue()),
             'billToName' => fn(ParseNode $n) => $o->setBillToName($n->getStringValue()),
             'currency' => fn(ParseNode $n) => $o->setCurrency($n->getObjectValue([Currency::class, 'createFromDiscriminatorValue'])),
             'currencyCode' => fn(ParseNode $n) => $o->setCurrencyCode($n->getStringValue()),
-            'currencyId' => fn(ParseNode $n) => $o->setCurrencyId($n->getStringValue()),
+            'currencyId' => fn(ParseNode $n) => $o->setCurrencyId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'customer' => fn(ParseNode $n) => $o->setCustomer($n->getObjectValue([Customer::class, 'createFromDiscriminatorValue'])),
-            'customerId' => fn(ParseNode $n) => $o->setCustomerId($n->getStringValue()),
+            'customerId' => fn(ParseNode $n) => $o->setCustomerId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'customerName' => fn(ParseNode $n) => $o->setCustomerName($n->getStringValue()),
             'customerNumber' => fn(ParseNode $n) => $o->setCustomerNumber($n->getStringValue()),
             'discountAmount' => fn(ParseNode $n) => $o->setDiscountAmount($n->getStringValue()),
@@ -189,14 +189,14 @@ class SalesQuote extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
             'paymentTerm' => fn(ParseNode $n) => $o->setPaymentTerm($n->getObjectValue([PaymentTerm::class, 'createFromDiscriminatorValue'])),
-            'paymentTermsId' => fn(ParseNode $n) => $o->setPaymentTermsId($n->getStringValue()),
+            'paymentTermsId' => fn(ParseNode $n) => $o->setPaymentTermsId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'phoneNumber' => fn(ParseNode $n) => $o->setPhoneNumber($n->getStringValue()),
             'salesperson' => fn(ParseNode $n) => $o->setSalesperson($n->getStringValue()),
             'salesQuoteLines' => fn(ParseNode $n) => $o->setSalesQuoteLines($n->getCollectionOfObjectValues([SalesQuoteLine::class, 'createFromDiscriminatorValue'])),
             'sellingPostalAddress' => fn(ParseNode $n) => $o->setSellingPostalAddress($n->getObjectValue([PostalAddressType::class, 'createFromDiscriminatorValue'])),
             'sentDate' => fn(ParseNode $n) => $o->setSentDate($n->getDateTimeValue()),
             'shipmentMethod' => fn(ParseNode $n) => $o->setShipmentMethod($n->getObjectValue([ShipmentMethod::class, 'createFromDiscriminatorValue'])),
-            'shipmentMethodId' => fn(ParseNode $n) => $o->setShipmentMethodId($n->getStringValue()),
+            'shipmentMethodId' => fn(ParseNode $n) => $o->setShipmentMethodId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'shippingPostalAddress' => fn(ParseNode $n) => $o->setShippingPostalAddress($n->getObjectValue([PostalAddressType::class, 'createFromDiscriminatorValue'])),
             'shipToContact' => fn(ParseNode $n) => $o->setShipToContact($n->getStringValue()),
             'shipToName' => fn(ParseNode $n) => $o->setShipToName($n->getStringValue()),
@@ -234,9 +234,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Gets the paymentTermsId property value. The paymentTermsId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getPaymentTermsId(): ?string {
+    public function getPaymentTermsId(): ?Guid {
         return $this->getBackingStore()->get('paymentTermsId');
     }
 
@@ -290,9 +290,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Gets the shipmentMethodId property value. The shipmentMethodId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getShipmentMethodId(): ?string {
+    public function getShipmentMethodId(): ?Guid {
         return $this->getBackingStore()->get('shipmentMethodId');
     }
 
@@ -422,9 +422,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Sets the billToCustomerId property value. The billToCustomerId property
-     *  @param string|null $value Value to set for the billToCustomerId property.
+     *  @param Guid|null $value Value to set for the billToCustomerId property.
     */
-    public function setBillToCustomerId(?string $value): void {
+    public function setBillToCustomerId(?Guid $value): void {
         $this->getBackingStore()->set('billToCustomerId', $value);
     }
 
@@ -462,9 +462,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Sets the currencyId property value. The currencyId property
-     *  @param string|null $value Value to set for the currencyId property.
+     *  @param Guid|null $value Value to set for the currencyId property.
     */
-    public function setCurrencyId(?string $value): void {
+    public function setCurrencyId(?Guid $value): void {
         $this->getBackingStore()->set('currencyId', $value);
     }
 
@@ -478,9 +478,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Sets the customerId property value. The customerId property
-     *  @param string|null $value Value to set for the customerId property.
+     *  @param Guid|null $value Value to set for the customerId property.
     */
-    public function setCustomerId(?string $value): void {
+    public function setCustomerId(?Guid $value): void {
         $this->getBackingStore()->set('customerId', $value);
     }
 
@@ -566,9 +566,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Sets the paymentTermsId property value. The paymentTermsId property
-     *  @param string|null $value Value to set for the paymentTermsId property.
+     *  @param Guid|null $value Value to set for the paymentTermsId property.
     */
-    public function setPaymentTermsId(?string $value): void {
+    public function setPaymentTermsId(?Guid $value): void {
         $this->getBackingStore()->set('paymentTermsId', $value);
     }
 
@@ -622,9 +622,9 @@ class SalesQuote extends Entity implements Parsable
 
     /**
      * Sets the shipmentMethodId property value. The shipmentMethodId property
-     *  @param string|null $value Value to set for the shipmentMethodId property.
+     *  @param Guid|null $value Value to set for the shipmentMethodId property.
     */
-    public function setShipmentMethodId(?string $value): void {
+    public function setShipmentMethodId(?Guid $value): void {
         $this->getBackingStore()->set('shipmentMethodId', $value);
     }
 

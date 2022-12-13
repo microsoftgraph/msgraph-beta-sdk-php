@@ -50,6 +50,7 @@ class Presence extends Entity implements Parsable
             'activity' => fn(ParseNode $n) => $o->setActivity($n->getStringValue()),
             'availability' => fn(ParseNode $n) => $o->setAvailability($n->getStringValue()),
             'outOfOfficeSettings' => fn(ParseNode $n) => $o->setOutOfOfficeSettings($n->getObjectValue([OutOfOfficeSettings::class, 'createFromDiscriminatorValue'])),
+            'statusMessage' => fn(ParseNode $n) => $o->setStatusMessage($n->getObjectValue([PresenceStatusMessage::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -62,6 +63,14 @@ class Presence extends Entity implements Parsable
     }
 
     /**
+     * Gets the statusMessage property value. The statusMessage property
+     * @return PresenceStatusMessage|null
+    */
+    public function getStatusMessage(): ?PresenceStatusMessage {
+        return $this->getBackingStore()->get('statusMessage');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -70,6 +79,7 @@ class Presence extends Entity implements Parsable
         $writer->writeStringValue('activity', $this->getActivity());
         $writer->writeStringValue('availability', $this->getAvailability());
         $writer->writeObjectValue('outOfOfficeSettings', $this->getOutOfOfficeSettings());
+        $writer->writeObjectValue('statusMessage', $this->getStatusMessage());
     }
 
     /**
@@ -94,6 +104,14 @@ class Presence extends Entity implements Parsable
     */
     public function setOutOfOfficeSettings(?OutOfOfficeSettings $value): void {
         $this->getBackingStore()->set('outOfOfficeSettings', $value);
+    }
+
+    /**
+     * Sets the statusMessage property value. The statusMessage property
+     *  @param PresenceStatusMessage|null $value Value to set for the statusMessage property.
+    */
+    public function setStatusMessage(?PresenceStatusMessage $value): void {
+        $this->getBackingStore()->set('statusMessage', $value);
     }
 
 }

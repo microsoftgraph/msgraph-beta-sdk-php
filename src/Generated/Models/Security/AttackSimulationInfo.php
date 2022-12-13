@@ -62,9 +62,9 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the attackSimId property value. The activity ID for the attack simulation.
-     * @return string|null
+     * @return Guid|null
     */
-    public function getAttackSimId(): ?string {
+    public function getAttackSimId(): ?Guid {
         return $this->getBackingStore()->get('attackSimId');
     }
 
@@ -93,7 +93,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
         return  [
             'attackSimDateTime' => fn(ParseNode $n) => $o->setAttackSimDateTime($n->getDateTimeValue()),
             'attackSimDurationTime' => fn(ParseNode $n) => $o->setAttackSimDurationTime($n->getDateIntervalValue()),
-            'attackSimId' => fn(ParseNode $n) => $o->setAttackSimId($n->getStringValue()),
+            'attackSimId' => fn(ParseNode $n) => $o->setAttackSimId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'attackSimUserId' => fn(ParseNode $n) => $o->setAttackSimUserId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -146,9 +146,9 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the attackSimId property value. The activity ID for the attack simulation.
-     *  @param string|null $value Value to set for the attackSimId property.
+     *  @param Guid|null $value Value to set for the attackSimId property.
     */
-    public function setAttackSimId(?string $value): void {
+    public function setAttackSimId(?Guid $value): void {
         $this->getBackingStore()->set('attackSimId', $value);
     }
 

@@ -79,7 +79,7 @@ class EventsRequestBuilder
 
     /**
      * Create new navigation property to events for messageTraces
-     * @param MessageEvent $body 
+     * @param MessageEvent $body The request body
      * @param EventsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class EventsRequestBuilder
 
     /**
      * Create new navigation property to events for messageTraces
-     * @param MessageEvent $body 
+     * @param MessageEvent $body The request body
      * @param EventsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

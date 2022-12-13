@@ -28,9 +28,9 @@ class Windows10XVpnConfiguration extends DeviceManagementResourceAccessProfileBa
 
     /**
      * Gets the authenticationCertificateId property value. ID to the Authentication Certificate
-     * @return string|null
+     * @return Guid|null
     */
-    public function getAuthenticationCertificateId(): ?string {
+    public function getAuthenticationCertificateId(): ?Guid {
         return $this->getBackingStore()->get('authenticationCertificateId');
     }
 
@@ -57,7 +57,7 @@ class Windows10XVpnConfiguration extends DeviceManagementResourceAccessProfileBa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationCertificateId' => fn(ParseNode $n) => $o->setAuthenticationCertificateId($n->getStringValue()),
+            'authenticationCertificateId' => fn(ParseNode $n) => $o->setAuthenticationCertificateId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'customXml' => fn(ParseNode $n) => $o->setCustomXml($n->getBinaryContent()),
             'customXmlFileName' => fn(ParseNode $n) => $o->setCustomXmlFileName($n->getStringValue()),
         ]);
@@ -76,9 +76,9 @@ class Windows10XVpnConfiguration extends DeviceManagementResourceAccessProfileBa
 
     /**
      * Sets the authenticationCertificateId property value. ID to the Authentication Certificate
-     *  @param string|null $value Value to set for the authenticationCertificateId property.
+     *  @param Guid|null $value Value to set for the authenticationCertificateId property.
     */
-    public function setAuthenticationCertificateId(?string $value): void {
+    public function setAuthenticationCertificateId(?Guid $value): void {
         $this->getBackingStore()->set('authenticationCertificateId', $value);
     }
 

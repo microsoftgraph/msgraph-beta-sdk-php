@@ -36,9 +36,9 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Gets the accountId property value. The accountId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getAccountId(): ?string {
+    public function getAccountId(): ?Guid {
         return $this->getBackingStore()->get('accountId');
     }
 
@@ -98,7 +98,7 @@ class JournalLine extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'account' => fn(ParseNode $n) => $o->setAccount($n->getObjectValue([Account::class, 'createFromDiscriminatorValue'])),
-            'accountId' => fn(ParseNode $n) => $o->setAccountId($n->getStringValue()),
+            'accountId' => fn(ParseNode $n) => $o->setAccountId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'accountNumber' => fn(ParseNode $n) => $o->setAccountNumber($n->getStringValue()),
             'amount' => fn(ParseNode $n) => $o->setAmount($n->getStringValue()),
             'comment' => fn(ParseNode $n) => $o->setComment($n->getStringValue()),
@@ -174,9 +174,9 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the accountId property value. The accountId property
-     *  @param string|null $value Value to set for the accountId property.
+     *  @param Guid|null $value Value to set for the accountId property.
     */
-    public function setAccountId(?string $value): void {
+    public function setAccountId(?Guid $value): void {
         $this->getBackingStore()->set('accountId', $value);
     }
 

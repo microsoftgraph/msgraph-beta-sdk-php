@@ -25,12 +25,21 @@ class IpEvidence extends AlertEvidence implements Parsable
     }
 
     /**
+     * Gets the countryLetterCode property value. The countryLetterCode property
+     * @return string|null
+    */
+    public function getCountryLetterCode(): ?string {
+        return $this->getBackingStore()->get('countryLetterCode');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'countryLetterCode' => fn(ParseNode $n) => $o->setCountryLetterCode($n->getStringValue()),
             'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
         ]);
     }
@@ -49,7 +58,16 @@ class IpEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('countryLetterCode', $this->getCountryLetterCode());
         $writer->writeStringValue('ipAddress', $this->getIpAddress());
+    }
+
+    /**
+     * Sets the countryLetterCode property value. The countryLetterCode property
+     *  @param string|null $value Value to set for the countryLetterCode property.
+    */
+    public function setCountryLetterCode(?string $value): void {
+        $this->getBackingStore()->set('countryLetterCode', $value);
     }
 
     /**

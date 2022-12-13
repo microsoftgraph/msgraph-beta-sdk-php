@@ -50,7 +50,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'content' => fn(ParseNode $n) => $o->setContent($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'groupPolicyObjectId' => fn(ParseNode $n) => $o->setGroupPolicyObjectId($n->getStringValue()),
+            'groupPolicyObjectId' => fn(ParseNode $n) => $o->setGroupPolicyObjectId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'ouDistinguishedName' => fn(ParseNode $n) => $o->setOuDistinguishedName($n->getStringValue()),
             'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
@@ -59,9 +59,9 @@ class GroupPolicyObjectFile extends Entity implements Parsable
 
     /**
      * Gets the groupPolicyObjectId property value. The Group Policy Object GUID from GPO Xml content
-     * @return string|null
+     * @return Guid|null
     */
-    public function getGroupPolicyObjectId(): ?string {
+    public function getGroupPolicyObjectId(): ?Guid {
         return $this->getBackingStore()->get('groupPolicyObjectId');
     }
 
@@ -121,9 +121,9 @@ class GroupPolicyObjectFile extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyObjectId property value. The Group Policy Object GUID from GPO Xml content
-     *  @param string|null $value Value to set for the groupPolicyObjectId property.
+     *  @param Guid|null $value Value to set for the groupPolicyObjectId property.
     */
-    public function setGroupPolicyObjectId(?string $value): void {
+    public function setGroupPolicyObjectId(?Guid $value): void {
         $this->getBackingStore()->set('groupPolicyObjectId', $value);
     }
 

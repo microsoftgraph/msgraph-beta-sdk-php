@@ -6,9 +6,11 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\Security;
+use Microsoft\Graph\Beta\Generated\Models\Security;
 use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Alerts_v2RequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Item\AlertItemRequestBuilder as MicrosoftGraphBetaGeneratedSecurityAlerts_v2ItemAlertItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\AlertsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Alerts\Item\AlertItemRequestBuilder as MicrosoftGraphBetaGeneratedSecurityAlertsItemAlertItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\CasesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
@@ -232,23 +234,23 @@ class SecurityRequestBuilder
     /**
      * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Item\AlertItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedSecurityAlerts_v2ItemAlertItemRequestBuilder
     */
-    public function alerts_v2ById(string $id): \Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Item\AlertItemRequestBuilder {
+    public function alerts_v2ById(string $id): MicrosoftGraphBetaGeneratedSecurityAlerts_v2ItemAlertItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['alert%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Item\AlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedSecurityAlerts_v2ItemAlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the alerts property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Security\Alerts\Item\AlertItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedSecurityAlertsItemAlertItemRequestBuilder
     */
-    public function alertsById(string $id): \Microsoft\Graph\Beta\Generated\Security\Alerts\Item\AlertItemRequestBuilder {
+    public function alertsById(string $id): MicrosoftGraphBetaGeneratedSecurityAlertsItemAlertItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['alert%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Security\Alerts\Item\AlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedSecurityAlertsItemAlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -300,7 +302,7 @@ class SecurityRequestBuilder
 
     /**
      * Update security
-     * @param Security $body 
+     * @param Security $body The request body
      * @param SecurityRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -398,7 +400,7 @@ class SecurityRequestBuilder
 
     /**
      * Update security
-     * @param Security $body 
+     * @param Security $body The request body
      * @param SecurityRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

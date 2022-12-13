@@ -35,9 +35,9 @@ class Journal extends Entity implements Parsable
 
     /**
      * Gets the balancingAccountId property value. The balancingAccountId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getBalancingAccountId(): ?string {
+    public function getBalancingAccountId(): ?Guid {
         return $this->getBackingStore()->get('balancingAccountId');
     }
 
@@ -73,7 +73,7 @@ class Journal extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'account' => fn(ParseNode $n) => $o->setAccount($n->getObjectValue([Account::class, 'createFromDiscriminatorValue'])),
-            'balancingAccountId' => fn(ParseNode $n) => $o->setBalancingAccountId($n->getStringValue()),
+            'balancingAccountId' => fn(ParseNode $n) => $o->setBalancingAccountId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'balancingAccountNumber' => fn(ParseNode $n) => $o->setBalancingAccountNumber($n->getStringValue()),
             'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -123,9 +123,9 @@ class Journal extends Entity implements Parsable
 
     /**
      * Sets the balancingAccountId property value. The balancingAccountId property
-     *  @param string|null $value Value to set for the balancingAccountId property.
+     *  @param Guid|null $value Value to set for the balancingAccountId property.
     */
-    public function setBalancingAccountId(?string $value): void {
+    public function setBalancingAccountId(?Guid $value): void {
         $this->getBackingStore()->set('balancingAccountId', $value);
     }
 

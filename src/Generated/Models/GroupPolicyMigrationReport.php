@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyMigrationReport extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyMigrationReport and sets the default values.
+     * Instantiates a new groupPolicyMigrationReport and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -52,7 +52,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'groupPolicyCreatedDateTime' => fn(ParseNode $n) => $o->setGroupPolicyCreatedDateTime($n->getDateTimeValue()),
             'groupPolicyLastModifiedDateTime' => fn(ParseNode $n) => $o->setGroupPolicyLastModifiedDateTime($n->getDateTimeValue()),
-            'groupPolicyObjectId' => fn(ParseNode $n) => $o->setGroupPolicyObjectId($n->getStringValue()),
+            'groupPolicyObjectId' => fn(ParseNode $n) => $o->setGroupPolicyObjectId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'groupPolicySettingMappings' => fn(ParseNode $n) => $o->setGroupPolicySettingMappings($n->getCollectionOfObjectValues([GroupPolicySettingMapping::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'migrationReadiness' => fn(ParseNode $n) => $o->setMigrationReadiness($n->getEnumValue(GroupPolicyMigrationReadiness::class)),
@@ -84,9 +84,9 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Gets the groupPolicyObjectId property value. The Group Policy Object GUID from GPO Xml content
-     * @return string|null
+     * @return Guid|null
     */
-    public function getGroupPolicyObjectId(): ?string {
+    public function getGroupPolicyObjectId(): ?Guid {
         return $this->getBackingStore()->get('groupPolicyObjectId');
     }
 
@@ -227,9 +227,9 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyObjectId property value. The Group Policy Object GUID from GPO Xml content
-     *  @param string|null $value Value to set for the groupPolicyObjectId property.
+     *  @param Guid|null $value Value to set for the groupPolicyObjectId property.
     */
-    public function setGroupPolicyObjectId(?string $value): void {
+    public function setGroupPolicyObjectId(?Guid $value): void {
         $this->getBackingStore()->set('groupPolicyObjectId', $value);
     }
 

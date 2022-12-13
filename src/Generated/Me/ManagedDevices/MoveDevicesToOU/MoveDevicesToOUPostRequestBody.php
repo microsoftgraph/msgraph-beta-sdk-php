@@ -52,7 +52,7 @@ class MoveDevicesToOUPostRequestBody implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the deviceIds property value. The deviceIds property
-     * @return array<string>|null
+     * @return array<Guid>|null
     */
     public function getDeviceIds(): ?array {
         return $this->getBackingStore()->get('deviceIds');
@@ -106,7 +106,7 @@ class MoveDevicesToOUPostRequestBody implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the deviceIds property value. The deviceIds property
-     *  @param array<string>|null $value Value to set for the deviceIds property.
+     *  @param array<Guid>|null $value Value to set for the deviceIds property.
     */
     public function setDeviceIds(?array $value): void {
         $this->getBackingStore()->set('deviceIds', $value);

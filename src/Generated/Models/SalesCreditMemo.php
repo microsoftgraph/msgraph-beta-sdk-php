@@ -36,9 +36,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Gets the billToCustomerId property value. The billToCustomerId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getBillToCustomerId(): ?string {
+    public function getBillToCustomerId(): ?Guid {
         return $this->getBackingStore()->get('billToCustomerId');
     }
 
@@ -84,9 +84,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Gets the currencyId property value. The currencyId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getCurrencyId(): ?string {
+    public function getCurrencyId(): ?Guid {
         return $this->getBackingStore()->get('currencyId');
     }
 
@@ -100,9 +100,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Gets the customerId property value. The customerId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getCustomerId(): ?string {
+    public function getCustomerId(): ?Guid {
         return $this->getBackingStore()->get('customerId');
     }
 
@@ -170,15 +170,15 @@ class SalesCreditMemo extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'billingPostalAddress' => fn(ParseNode $n) => $o->setBillingPostalAddress($n->getObjectValue([PostalAddressType::class, 'createFromDiscriminatorValue'])),
-            'billToCustomerId' => fn(ParseNode $n) => $o->setBillToCustomerId($n->getStringValue()),
+            'billToCustomerId' => fn(ParseNode $n) => $o->setBillToCustomerId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'billToCustomerNumber' => fn(ParseNode $n) => $o->setBillToCustomerNumber($n->getStringValue()),
             'billToName' => fn(ParseNode $n) => $o->setBillToName($n->getStringValue()),
             'creditMemoDate' => fn(ParseNode $n) => $o->setCreditMemoDate($n->getDateValue()),
             'currency' => fn(ParseNode $n) => $o->setCurrency($n->getObjectValue([Currency::class, 'createFromDiscriminatorValue'])),
             'currencyCode' => fn(ParseNode $n) => $o->setCurrencyCode($n->getStringValue()),
-            'currencyId' => fn(ParseNode $n) => $o->setCurrencyId($n->getStringValue()),
+            'currencyId' => fn(ParseNode $n) => $o->setCurrencyId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'customer' => fn(ParseNode $n) => $o->setCustomer($n->getObjectValue([Customer::class, 'createFromDiscriminatorValue'])),
-            'customerId' => fn(ParseNode $n) => $o->setCustomerId($n->getStringValue()),
+            'customerId' => fn(ParseNode $n) => $o->setCustomerId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'customerName' => fn(ParseNode $n) => $o->setCustomerName($n->getStringValue()),
             'customerNumber' => fn(ParseNode $n) => $o->setCustomerNumber($n->getStringValue()),
             'discountAmount' => fn(ParseNode $n) => $o->setDiscountAmount($n->getStringValue()),
@@ -186,12 +186,12 @@ class SalesCreditMemo extends Entity implements Parsable
             'dueDate' => fn(ParseNode $n) => $o->setDueDate($n->getDateValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
             'externalDocumentNumber' => fn(ParseNode $n) => $o->setExternalDocumentNumber($n->getStringValue()),
-            'invoiceId' => fn(ParseNode $n) => $o->setInvoiceId($n->getStringValue()),
+            'invoiceId' => fn(ParseNode $n) => $o->setInvoiceId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'invoiceNumber' => fn(ParseNode $n) => $o->setInvoiceNumber($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
             'paymentTerm' => fn(ParseNode $n) => $o->setPaymentTerm($n->getObjectValue([PaymentTerm::class, 'createFromDiscriminatorValue'])),
-            'paymentTermsId' => fn(ParseNode $n) => $o->setPaymentTermsId($n->getStringValue()),
+            'paymentTermsId' => fn(ParseNode $n) => $o->setPaymentTermsId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'phoneNumber' => fn(ParseNode $n) => $o->setPhoneNumber($n->getStringValue()),
             'pricesIncludeTax' => fn(ParseNode $n) => $o->setPricesIncludeTax($n->getBooleanValue()),
             'salesCreditMemoLines' => fn(ParseNode $n) => $o->setSalesCreditMemoLines($n->getCollectionOfObjectValues([SalesCreditMemoLine::class, 'createFromDiscriminatorValue'])),
@@ -206,9 +206,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Gets the invoiceId property value. The invoiceId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getInvoiceId(): ?string {
+    public function getInvoiceId(): ?Guid {
         return $this->getBackingStore()->get('invoiceId');
     }
 
@@ -246,9 +246,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Gets the paymentTermsId property value. The paymentTermsId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getPaymentTermsId(): ?string {
+    public function getPaymentTermsId(): ?Guid {
         return $this->getBackingStore()->get('paymentTermsId');
     }
 
@@ -374,9 +374,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the billToCustomerId property value. The billToCustomerId property
-     *  @param string|null $value Value to set for the billToCustomerId property.
+     *  @param Guid|null $value Value to set for the billToCustomerId property.
     */
-    public function setBillToCustomerId(?string $value): void {
+    public function setBillToCustomerId(?Guid $value): void {
         $this->getBackingStore()->set('billToCustomerId', $value);
     }
 
@@ -422,9 +422,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the currencyId property value. The currencyId property
-     *  @param string|null $value Value to set for the currencyId property.
+     *  @param Guid|null $value Value to set for the currencyId property.
     */
-    public function setCurrencyId(?string $value): void {
+    public function setCurrencyId(?Guid $value): void {
         $this->getBackingStore()->set('currencyId', $value);
     }
 
@@ -438,9 +438,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the customerId property value. The customerId property
-     *  @param string|null $value Value to set for the customerId property.
+     *  @param Guid|null $value Value to set for the customerId property.
     */
-    public function setCustomerId(?string $value): void {
+    public function setCustomerId(?Guid $value): void {
         $this->getBackingStore()->set('customerId', $value);
     }
 
@@ -502,9 +502,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the invoiceId property value. The invoiceId property
-     *  @param string|null $value Value to set for the invoiceId property.
+     *  @param Guid|null $value Value to set for the invoiceId property.
     */
-    public function setInvoiceId(?string $value): void {
+    public function setInvoiceId(?Guid $value): void {
         $this->getBackingStore()->set('invoiceId', $value);
     }
 
@@ -542,9 +542,9 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the paymentTermsId property value. The paymentTermsId property
-     *  @param string|null $value Value to set for the paymentTermsId property.
+     *  @param Guid|null $value Value to set for the paymentTermsId property.
     */
-    public function setPaymentTermsId(?string $value): void {
+    public function setPaymentTermsId(?Guid $value): void {
         $this->getBackingStore()->set('paymentTermsId', $value);
     }
 

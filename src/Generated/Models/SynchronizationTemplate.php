@@ -31,9 +31,9 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Gets the applicationId property value. Identifier of the application this template belongs to.
-     * @return string|null
+     * @return Guid|null
     */
-    public function getApplicationId(): ?string {
+    public function getApplicationId(): ?Guid {
         return $this->getBackingStore()->get('applicationId');
     }
 
@@ -76,7 +76,7 @@ class SynchronizationTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationId' => fn(ParseNode $n) => $o->setApplicationId($n->getStringValue()),
+            'applicationId' => fn(ParseNode $n) => $o->setApplicationId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'discoverable' => fn(ParseNode $n) => $o->setDiscoverable($n->getBooleanValue()),
             'default' => fn(ParseNode $n) => $o->setDefault($n->getBooleanValue()),
@@ -119,9 +119,9 @@ class SynchronizationTemplate extends Entity implements Parsable
 
     /**
      * Sets the applicationId property value. Identifier of the application this template belongs to.
-     *  @param string|null $value Value to set for the applicationId property.
+     *  @param Guid|null $value Value to set for the applicationId property.
     */
-    public function setApplicationId(?string $value): void {
+    public function setApplicationId(?Guid $value): void {
         $this->getBackingStore()->set('applicationId', $value);
     }
 

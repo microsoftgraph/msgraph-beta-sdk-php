@@ -87,7 +87,7 @@ class ResourceAccessProfilesRequestBuilder
 
     /**
      * Create new navigation property to resourceAccessProfiles for deviceManagement
-     * @param DeviceManagementResourceAccessProfileBase $body 
+     * @param DeviceManagementResourceAccessProfileBase $body The request body
      * @param ResourceAccessProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,7 +130,7 @@ class ResourceAccessProfilesRequestBuilder
 
     /**
      * Create new navigation property to resourceAccessProfiles for deviceManagement
-     * @param DeviceManagementResourceAccessProfileBase $body 
+     * @param DeviceManagementResourceAccessProfileBase $body The request body
      * @param ResourceAccessProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

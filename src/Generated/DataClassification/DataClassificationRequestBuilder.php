@@ -8,13 +8,18 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyExactMatches\ClassifyExactMatchesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFile\ClassifyFileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\ClassifyFileJobsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder as MicrosoftGraphBetaGeneratedDataClassificationClassifyFileJobsItemJobResponseBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\ClassifyTextJobsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder as MicrosoftGraphBetaGeneratedDataClassificationClassifyTextJobsItemJobResponseBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\EvaluateDlpPoliciesJobsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder as MicrosoftGraphBetaGeneratedDataClassificationEvaluateDlpPoliciesJobsItemJobResponseBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\EvaluateLabelJobsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder as MicrosoftGraphBetaGeneratedDataClassificationEvaluateLabelJobsItemJobResponseBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\ExactMatchDataStoresRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Item\ExactMatchDataStoreItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents\ExactMatchUploadAgentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents\Item\ExactMatchUploadAgentItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder as MicrosoftGraphBetaGeneratedDataClassificationJobsItemJobResponseBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\Jobs\JobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitiveTypes\Item\SensitiveTypeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitiveTypes\SensitiveTypesRequestBuilder;
@@ -127,23 +132,23 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the classifyFileJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDataClassificationClassifyFileJobsItemJobResponseBaseItemRequestBuilder
     */
-    public function classifyFileJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder {
+    public function classifyFileJobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationClassifyFileJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDataClassificationClassifyFileJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the classifyTextJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDataClassificationClassifyTextJobsItemJobResponseBaseItemRequestBuilder
     */
-    public function classifyTextJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder {
+    public function classifyTextJobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationClassifyTextJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDataClassificationClassifyTextJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -184,7 +189,7 @@ class DataClassificationRequestBuilder
 
     /**
      * Update dataClassification
-     * @param DataClassificationService $body 
+     * @param DataClassificationService $body The request body
      * @param DataClassificationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -209,23 +214,23 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the evaluateDlpPoliciesJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDataClassificationEvaluateDlpPoliciesJobsItemJobResponseBaseItemRequestBuilder
     */
-    public function evaluateDlpPoliciesJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder {
+    public function evaluateDlpPoliciesJobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationEvaluateDlpPoliciesJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDataClassificationEvaluateDlpPoliciesJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the evaluateLabelJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDataClassificationEvaluateLabelJobsItemJobResponseBaseItemRequestBuilder
     */
-    public function evaluateLabelJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder {
+    public function evaluateLabelJobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationEvaluateLabelJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDataClassificationEvaluateLabelJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -272,17 +277,17 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the jobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedDataClassificationJobsItemJobResponseBaseItemRequestBuilder
     */
-    public function jobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder {
+    public function jobsById(string $id): MicrosoftGraphBetaGeneratedDataClassificationJobsItemJobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedDataClassificationJobsItemJobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update dataClassification
-     * @param DataClassificationService $body 
+     * @param DataClassificationService $body The request body
      * @param DataClassificationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

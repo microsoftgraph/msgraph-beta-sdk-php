@@ -45,7 +45,7 @@ class GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder
 
     /**
      * Invoke action getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport
-     * @param GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body 
+     * @param GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body The request body
      * @param GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -68,7 +68,7 @@ class GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder
 
     /**
      * Invoke action getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport
-     * @param GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body 
+     * @param GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body The request body
      * @param GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

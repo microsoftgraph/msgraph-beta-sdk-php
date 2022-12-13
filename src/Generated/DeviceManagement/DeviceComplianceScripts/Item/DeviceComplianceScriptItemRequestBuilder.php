@@ -136,7 +136,7 @@ class DeviceComplianceScriptItemRequestBuilder
 
     /**
      * Update the navigation property deviceComplianceScripts in deviceManagement
-     * @param DeviceComplianceScript $body 
+     * @param DeviceComplianceScript $body The request body
      * @param DeviceComplianceScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -209,7 +209,7 @@ class DeviceComplianceScriptItemRequestBuilder
 
     /**
      * Update the navigation property deviceComplianceScripts in deviceManagement
-     * @param DeviceComplianceScript $body 
+     * @param DeviceComplianceScript $body The request body
      * @param DeviceComplianceScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

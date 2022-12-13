@@ -103,7 +103,7 @@ class SalesOrderItemRequestBuilder
 
     /**
      * Update the navigation property salesOrders in financials
-     * @param SalesOrder $body 
+     * @param SalesOrder $body The request body
      * @param SalesOrderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -146,7 +146,7 @@ class SalesOrderItemRequestBuilder
 
     /**
      * Update the navigation property salesOrders in financials
-     * @param SalesOrder $body 
+     * @param SalesOrder $body The request body
      * @param SalesOrderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

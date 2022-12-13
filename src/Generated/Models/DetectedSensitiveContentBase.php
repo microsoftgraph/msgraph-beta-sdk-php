@@ -84,7 +84,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
         return  [
             'confidence' => fn(ParseNode $n) => $o->setConfidence($n->getIntegerValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'recommendedConfidence' => fn(ParseNode $n) => $o->setRecommendedConfidence($n->getIntegerValue()),
             'uniqueCount' => fn(ParseNode $n) => $o->setUniqueCount($n->getIntegerValue()),
@@ -93,9 +93,9 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the id property value. The id property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getId(): ?string {
+    public function getId(): ?Guid {
         return $this->getBackingStore()->get('id');
     }
 
@@ -171,9 +171,9 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the id property value. The id property
-     *  @param string|null $value Value to set for the id property.
+     *  @param Guid|null $value Value to set for the id property.
     */
-    public function setId(?string $value): void {
+    public function setId(?Guid $value): void {
         $this->getBackingStore()->set('id', $value);
     }
 

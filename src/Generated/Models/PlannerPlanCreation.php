@@ -58,7 +58,7 @@ class PlannerPlanCreation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the creationSourceKind property value. The creationSourceKind property
+     * Gets the creationSourceKind property value. Specifies what kind of creation source the plan is created with. The possible values are: external, publication and unknownFutureValue.
      * @return PlannerCreationSourceKind|null
     */
     public function getCreationSourceKind(): ?PlannerCreationSourceKind {
@@ -112,7 +112,7 @@ class PlannerPlanCreation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the creationSourceKind property value. The creationSourceKind property
+     * Sets the creationSourceKind property value. Specifies what kind of creation source the plan is created with. The possible values are: external, publication and unknownFutureValue.
      *  @param PlannerCreationSourceKind|null $value Value to set for the creationSourceKind property.
     */
     public function setCreationSourceKind(?PlannerCreationSourceKind $value): void {

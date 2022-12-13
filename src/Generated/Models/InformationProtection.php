@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationProtection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new InformationProtection and sets the default values.
+     * Instantiates a new informationProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

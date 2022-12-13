@@ -91,7 +91,7 @@ class SchemaRequestBuilder
 
     /**
      * Update the properties of a schema for an externalConnection.
-     * @param Schema $body 
+     * @param Schema $body The request body
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class SchemaRequestBuilder
 
     /**
      * Update the properties of a schema for an externalConnection.
-     * @param Schema $body 
+     * @param Schema $body The request body
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -36,9 +36,9 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Gets the appliesToInvoiceId property value. The appliesToInvoiceId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getAppliesToInvoiceId(): ?string {
+    public function getAppliesToInvoiceId(): ?Guid {
         return $this->getBackingStore()->get('appliesToInvoiceId');
     }
 
@@ -76,9 +76,9 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Gets the customerId property value. The customerId property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getCustomerId(): ?string {
+    public function getCustomerId(): ?Guid {
         return $this->getBackingStore()->get('customerId');
     }
 
@@ -122,12 +122,12 @@ class CustomerPayment extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'amount' => fn(ParseNode $n) => $o->setAmount($n->getStringValue()),
-            'appliesToInvoiceId' => fn(ParseNode $n) => $o->setAppliesToInvoiceId($n->getStringValue()),
+            'appliesToInvoiceId' => fn(ParseNode $n) => $o->setAppliesToInvoiceId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'appliesToInvoiceNumber' => fn(ParseNode $n) => $o->setAppliesToInvoiceNumber($n->getStringValue()),
             'comment' => fn(ParseNode $n) => $o->setComment($n->getStringValue()),
             'contactId' => fn(ParseNode $n) => $o->setContactId($n->getStringValue()),
             'customer' => fn(ParseNode $n) => $o->setCustomer($n->getObjectValue([Customer::class, 'createFromDiscriminatorValue'])),
-            'customerId' => fn(ParseNode $n) => $o->setCustomerId($n->getStringValue()),
+            'customerId' => fn(ParseNode $n) => $o->setCustomerId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             'customerNumber' => fn(ParseNode $n) => $o->setCustomerNumber($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'documentNumber' => fn(ParseNode $n) => $o->setDocumentNumber($n->getStringValue()),
@@ -204,9 +204,9 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the appliesToInvoiceId property value. The appliesToInvoiceId property
-     *  @param string|null $value Value to set for the appliesToInvoiceId property.
+     *  @param Guid|null $value Value to set for the appliesToInvoiceId property.
     */
-    public function setAppliesToInvoiceId(?string $value): void {
+    public function setAppliesToInvoiceId(?Guid $value): void {
         $this->getBackingStore()->set('appliesToInvoiceId', $value);
     }
 
@@ -244,9 +244,9 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the customerId property value. The customerId property
-     *  @param string|null $value Value to set for the customerId property.
+     *  @param Guid|null $value Value to set for the customerId property.
     */
-    public function setCustomerId(?string $value): void {
+    public function setCustomerId(?Guid $value): void {
         $this->getBackingStore()->set('customerId', $value);
     }
 

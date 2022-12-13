@@ -84,16 +84,16 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, BackedModel, Pars
             'classificationAttributes' => fn(ParseNode $n) => $o->setClassificationAttributes($n->getCollectionOfObjectValues([ClassificationAttribute::class, 'createFromDiscriminatorValue'])),
             'confidence' => fn(ParseNode $n) => $o->setConfidence($n->getIntegerValue()),
             'count' => fn(ParseNode $n) => $o->setCount($n->getIntegerValue()),
-            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getObjectValue([Guid::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
      * Gets the id property value. The id property
-     * @return string|null
+     * @return Guid|null
     */
-    public function getId(): ?string {
+    public function getId(): ?Guid {
         return $this->getBackingStore()->get('id');
     }
 
@@ -160,9 +160,9 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the id property value. The id property
-     *  @param string|null $value Value to set for the id property.
+     *  @param Guid|null $value Value to set for the id property.
     */
-    public function setId(?string $value): void {
+    public function setId(?Guid $value): void {
         $this->getBackingStore()->set('id', $value);
     }
 
