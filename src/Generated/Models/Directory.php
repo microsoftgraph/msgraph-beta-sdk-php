@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Directory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new directory and sets the default values.
+     * Instantiates a new Directory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -111,7 +111,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the onPremisesSynchronization property value. The onPremisesSynchronization property
+     * Gets the onPremisesSynchronization property value. A container for on-premises directory synchronization functionalities that are available for the organization.
      * @return array<OnPremisesDirectorySynchronization>|null
     */
     public function getOnPremisesSynchronization(): ?array {
@@ -227,7 +227,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the onPremisesSynchronization property value. The onPremisesSynchronization property
+     * Sets the onPremisesSynchronization property value. A container for on-premises directory synchronization functionalities that are available for the organization.
      *  @param array<OnPremisesDirectorySynchronization>|null $value Value to set for the onPremisesSynchronization property.
     */
     public function setOnPremisesSynchronization(?array $value): void {

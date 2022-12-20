@@ -148,7 +148,7 @@ class ContactFolderItemRequestBuilder
 
     /**
      * Update the navigation property contactFolders in me
-     * @param ContactFolder $body 
+     * @param ContactFolder $body The request body
      * @param ContactFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -221,7 +221,7 @@ class ContactFolderItemRequestBuilder
 
     /**
      * Update the navigation property contactFolders in me
-     * @param ContactFolder $body 
+     * @param ContactFolder $body The request body
      * @param ContactFolderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

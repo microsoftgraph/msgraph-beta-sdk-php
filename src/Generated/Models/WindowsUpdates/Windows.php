@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windows and sets the default values.
+     * Instantiates a new Windows and sets the default values.
     */
     public function __construct() {
         parent::__construct();

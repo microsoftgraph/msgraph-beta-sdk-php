@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Communications\Presences\Item\ClearPresence\ClearPresenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Presences\Item\ClearUserPreferredPresence\ClearUserPreferredPresenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Presences\Item\SetPresence\SetPresenceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\Presences\Item\SetStatusMessage\SetStatusMessageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Presences\Item\SetUserPreferredPresence\SetUserPreferredPresenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Presence;
@@ -50,6 +51,13 @@ class PresenceItemRequestBuilder
     */
     public function setPresence(): SetPresenceRequestBuilder {
         return new SetPresenceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the setStatusMessage method.
+    */
+    public function setStatusMessage(): SetStatusMessageRequestBuilder {
+        return new SetStatusMessageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -123,7 +131,7 @@ class PresenceItemRequestBuilder
 
     /**
      * Update the navigation property presences in communications
-     * @param Presence $body 
+     * @param Presence $body The request body
      * @param PresenceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -185,7 +193,7 @@ class PresenceItemRequestBuilder
 
     /**
      * Update the navigation property presences in communications
-     * @param Presence $body 
+     * @param Presence $body The request body
      * @param PresenceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

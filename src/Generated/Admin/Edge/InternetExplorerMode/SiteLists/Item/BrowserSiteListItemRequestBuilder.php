@@ -117,7 +117,7 @@ class BrowserSiteListItemRequestBuilder
 
     /**
      * Update the navigation property siteLists in admin
-     * @param BrowserSiteList $body 
+     * @param BrowserSiteList $body The request body
      * @param BrowserSiteListItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -179,7 +179,7 @@ class BrowserSiteListItemRequestBuilder
 
     /**
      * Update the navigation property siteLists in admin
-     * @param BrowserSiteList $body 
+     * @param BrowserSiteList $body The request body
      * @param BrowserSiteListItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

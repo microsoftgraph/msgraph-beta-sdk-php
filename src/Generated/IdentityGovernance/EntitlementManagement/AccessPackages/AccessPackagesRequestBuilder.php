@@ -81,7 +81,7 @@ class AccessPackagesRequestBuilder
 
     /**
      * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog. After the access package is created, you can then create accessPackageAssignmentPolicies which specify how users are assigned to the access package.
-     * @param AccessPackage $body 
+     * @param AccessPackage $body The request body
      * @param AccessPackagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +133,7 @@ class AccessPackagesRequestBuilder
 
     /**
      * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog. After the access package is created, you can then create accessPackageAssignmentPolicies which specify how users are assigned to the access package.
-     * @param AccessPackage $body 
+     * @param AccessPackage $body The request body
      * @param AccessPackagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

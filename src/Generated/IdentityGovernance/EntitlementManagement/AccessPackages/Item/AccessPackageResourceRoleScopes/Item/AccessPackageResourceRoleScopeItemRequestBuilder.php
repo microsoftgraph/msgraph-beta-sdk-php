@@ -107,7 +107,7 @@ class AccessPackageResourceRoleScopeItemRequestBuilder
 
     /**
      * Update the navigation property accessPackageResourceRoleScopes in identityGovernance
-     * @param AccessPackageResourceRoleScope $body 
+     * @param AccessPackageResourceRoleScope $body The request body
      * @param AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -169,7 +169,7 @@ class AccessPackageResourceRoleScopeItemRequestBuilder
 
     /**
      * Update the navigation property accessPackageResourceRoleScopes in identityGovernance
-     * @param AccessPackageResourceRoleScope $body 
+     * @param AccessPackageResourceRoleScope $body The request body
      * @param AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

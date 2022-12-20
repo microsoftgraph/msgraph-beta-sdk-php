@@ -5,7 +5,11 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\CanvasLayout\CanvasLayoutRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\GetWebPartsByPosition\GetWebPartsByPositionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\Publish\PublishRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\WebParts\Item\WebPartItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\WebParts\WebPartsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SitePage;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -18,6 +22,20 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class SitePageItemRequestBuilder 
 {
+    /**
+     * Provides operations to manage the canvasLayout property of the microsoft.graph.sitePage entity.
+    */
+    public function canvasLayout(): CanvasLayoutRequestBuilder {
+        return new CanvasLayoutRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getWebPartsByPosition method.
+    */
+    public function getWebPartsByPosition(): GetWebPartsByPositionRequestBuilder {
+        return new GetWebPartsByPositionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */
@@ -39,6 +57,13 @@ class SitePageItemRequestBuilder
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
+    
+    /**
+     * Provides operations to manage the webParts property of the microsoft.graph.sitePage entity.
+    */
+    public function webParts(): WebPartsRequestBuilder {
+        return new WebPartsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * Instantiates a new SitePageItemRequestBuilder and sets the default values.
@@ -99,7 +124,7 @@ class SitePageItemRequestBuilder
 
     /**
      * Update the navigation property pages in groups
-     * @param SitePage $body 
+     * @param SitePage $body The request body
      * @param SitePageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -161,7 +186,7 @@ class SitePageItemRequestBuilder
 
     /**
      * Update the navigation property pages in groups
-     * @param SitePage $body 
+     * @param SitePage $body The request body
      * @param SitePageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -177,6 +202,17 @@ class SitePageItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
+    }
+
+    /**
+     * Provides operations to manage the webParts property of the microsoft.graph.sitePage entity.
+     * @param string $id Unique identifier of the item
+     * @return WebPartItemRequestBuilder
+    */
+    public function webPartsById(string $id): WebPartItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['webPart%2Did'] = $id;
+        return new WebPartItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

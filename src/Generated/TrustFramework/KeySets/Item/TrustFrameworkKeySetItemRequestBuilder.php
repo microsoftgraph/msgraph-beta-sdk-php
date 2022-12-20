@@ -124,7 +124,7 @@ class TrustFrameworkKeySetItemRequestBuilder
 
     /**
      * Update the navigation property keySets in trustFramework
-     * @param TrustFrameworkKeySet $body 
+     * @param TrustFrameworkKeySet $body The request body
      * @param TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -194,7 +194,7 @@ class TrustFrameworkKeySetItemRequestBuilder
 
     /**
      * Update the navigation property keySets in trustFramework
-     * @param TrustFrameworkKeySet $body 
+     * @param TrustFrameworkKeySet $body The request body
      * @param TrustFrameworkKeySetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

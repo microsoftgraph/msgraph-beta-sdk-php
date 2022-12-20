@@ -44,7 +44,7 @@ class SearchExistingIdentitiesRequestBuilder
 
     /**
      * Invoke action searchExistingIdentities
-     * @param SearchExistingIdentitiesPostRequestBody $body 
+     * @param SearchExistingIdentitiesPostRequestBody $body The request body
      * @param SearchExistingIdentitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -68,7 +68,7 @@ class SearchExistingIdentitiesRequestBuilder
 
     /**
      * Invoke action searchExistingIdentities
-     * @param SearchExistingIdentitiesPostRequestBody $body 
+     * @param SearchExistingIdentitiesPostRequestBody $body The request body
      * @param SearchExistingIdentitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

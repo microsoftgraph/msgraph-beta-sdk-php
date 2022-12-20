@@ -111,7 +111,7 @@ class ProgramItemRequestBuilder
 
     /**
      * In the Azure AD access reviews feature, update an existing program object.
-     * @param Program $body 
+     * @param Program $body The request body
      * @param ProgramItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -173,7 +173,7 @@ class ProgramItemRequestBuilder
 
     /**
      * In the Azure AD access reviews feature, update an existing program object.
-     * @param Program $body 
+     * @param Program $body The request body
      * @param ProgramItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

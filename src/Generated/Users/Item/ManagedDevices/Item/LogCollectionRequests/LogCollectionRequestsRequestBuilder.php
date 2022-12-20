@@ -79,7 +79,7 @@ class LogCollectionRequestsRequestBuilder
 
     /**
      * Create new navigation property to logCollectionRequests for users
-     * @param DeviceLogCollectionResponse $body 
+     * @param DeviceLogCollectionResponse $body The request body
      * @param LogCollectionRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class LogCollectionRequestsRequestBuilder
 
     /**
      * Create new navigation property to logCollectionRequests for users
-     * @param DeviceLogCollectionResponse $body 
+     * @param DeviceLogCollectionResponse $body The request body
      * @param LogCollectionRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

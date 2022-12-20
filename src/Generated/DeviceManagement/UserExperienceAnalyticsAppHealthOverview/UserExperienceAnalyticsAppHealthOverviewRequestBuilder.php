@@ -100,7 +100,7 @@ class UserExperienceAnalyticsAppHealthOverviewRequestBuilder
 
     /**
      * Update the navigation property userExperienceAnalyticsAppHealthOverview in deviceManagement
-     * @param UserExperienceAnalyticsCategory $body 
+     * @param UserExperienceAnalyticsCategory $body The request body
      * @param UserExperienceAnalyticsAppHealthOverviewRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -173,7 +173,7 @@ class UserExperienceAnalyticsAppHealthOverviewRequestBuilder
 
     /**
      * Update the navigation property userExperienceAnalyticsAppHealthOverview in deviceManagement
-     * @param UserExperienceAnalyticsCategory $body 
+     * @param UserExperienceAnalyticsCategory $body The request body
      * @param UserExperienceAnalyticsAppHealthOverviewRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

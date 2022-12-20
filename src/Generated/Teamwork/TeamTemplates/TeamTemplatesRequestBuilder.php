@@ -53,7 +53,7 @@ class TeamTemplatesRequestBuilder
     }
 
     /**
-     * List the teamTemplateDefinition objects associated with a teamTemplate. 
+     * Get the list of teamTemplate objects that are available for a tenant. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -79,7 +79,7 @@ class TeamTemplatesRequestBuilder
 
     /**
      * Create new navigation property to teamTemplates for teamwork
-     * @param TeamTemplate $body 
+     * @param TeamTemplate $body The request body
      * @param TeamTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +102,7 @@ class TeamTemplatesRequestBuilder
     }
 
     /**
-     * List the teamTemplateDefinition objects associated with a teamTemplate. 
+     * Get the list of teamTemplate objects that are available for a tenant. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -122,7 +122,7 @@ class TeamTemplatesRequestBuilder
 
     /**
      * Create new navigation property to teamTemplates for teamwork
-     * @param TeamTemplate $body 
+     * @param TeamTemplate $body The request body
      * @param TeamTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

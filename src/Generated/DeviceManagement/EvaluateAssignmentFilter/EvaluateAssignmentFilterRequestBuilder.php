@@ -45,7 +45,7 @@ class EvaluateAssignmentFilterRequestBuilder
 
     /**
      * Invoke action evaluateAssignmentFilter
-     * @param EvaluateAssignmentFilterPostRequestBody $body 
+     * @param EvaluateAssignmentFilterPostRequestBody $body The request body
      * @param EvaluateAssignmentFilterRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -68,7 +68,7 @@ class EvaluateAssignmentFilterRequestBuilder
 
     /**
      * Invoke action evaluateAssignmentFilter
-     * @param EvaluateAssignmentFilterPostRequestBody $body 
+     * @param EvaluateAssignmentFilterPostRequestBody $body The request body
      * @param EvaluateAssignmentFilterRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

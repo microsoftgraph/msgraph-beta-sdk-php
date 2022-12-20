@@ -43,7 +43,7 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the alertThreshold property value. The alertThreshold property
+     * Gets the alertThreshold property value. Threshold value which triggers accidental deletion prevention. The threshold is either an absolute number of objects or a percentage number of objects.
      * @return int|null
     */
     public function getAlertThreshold(): ?int {
@@ -80,7 +80,7 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the synchronizationPreventionType property value. The synchronizationPreventionType property
+     * Gets the synchronizationPreventionType property value. The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage.
      * @return OnPremisesDirectorySynchronizationDeletionPreventionType|null
     */
     public function getSynchronizationPreventionType(): ?OnPremisesDirectorySynchronizationDeletionPreventionType {
@@ -107,7 +107,7 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the alertThreshold property value. The alertThreshold property
+     * Sets the alertThreshold property value. Threshold value which triggers accidental deletion prevention. The threshold is either an absolute number of objects or a percentage number of objects.
      *  @param int|null $value Value to set for the alertThreshold property.
     */
     public function setAlertThreshold(?int $value): void {
@@ -131,7 +131,7 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the synchronizationPreventionType property value. The synchronizationPreventionType property
+     * Sets the synchronizationPreventionType property value. The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage.
      *  @param OnPremisesDirectorySynchronizationDeletionPreventionType|null $value Value to set for the synchronizationPreventionType property.
     */
     public function setSynchronizationPreventionType(?OnPremisesDirectorySynchronizationDeletionPreventionType $value): void {

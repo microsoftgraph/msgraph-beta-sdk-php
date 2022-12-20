@@ -91,7 +91,7 @@ class RemoteAssistanceSettingsRequestBuilder
 
     /**
      * Update the navigation property remoteAssistanceSettings in deviceManagement
-     * @param RemoteAssistanceSettings $body 
+     * @param RemoteAssistanceSettings $body The request body
      * @param RemoteAssistanceSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class RemoteAssistanceSettingsRequestBuilder
 
     /**
      * Update the navigation property remoteAssistanceSettings in deviceManagement
-     * @param RemoteAssistanceSettings $body 
+     * @param RemoteAssistanceSettings $body The request body
      * @param RemoteAssistanceSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

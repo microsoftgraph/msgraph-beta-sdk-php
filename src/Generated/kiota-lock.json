@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "7AB87102C8F7CFDF6B41379D9FEFDFAB67E9DA57CC90F75440C3B3BE4FBC008A3AC4661A557863528731E47CE0E05850C75A16306ABCE1401DC6D0D00B3E6ABF",
-  "descriptionLocation": "/Users/kennethomondi/Desktop/work/graph/msgraph-metadata/openapi/beta/openapi.yaml",
+  "descriptionHash": "C33443CD34CCC5C8AD61578659F4BB1EECFAD32425097ED2A1302993FDAF0023B5F56D8AD0D1EDD40567622BA94C86DF8A5580276B310AE336D9E41BC8936EC7",
+  "descriptionLocation": "/home/vsts/work/1/s/msgraph-metadata/clean_beta_openapi/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "0.8.3.0",
+  "kiotaVersion": "0.9.0.0",
   "clientClassName": "BaseGraphClient",
   "clientNamespaceName": "Microsoft\\Graph\\Beta\\Generated",
   "language": "PHP",
@@ -10,19 +10,20 @@
   "includeAdditionalData": true,
   "serializers": [
     "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
-    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory"
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory"
   ],
   "deserializers": [
     "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
-    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory"
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
   ],
   "structuredMimeTypes": [
     "application/json",
-    "application/xml",
     "text/plain",
-    "text/xml",
-    "text/yaml"
+    "application/x-www-form-urlencoded"
   ],
   "includePatterns": [],
-  "excludePatterns": []
+  "excludePatterns": [],
+  "disabledValidationRules": []
 }

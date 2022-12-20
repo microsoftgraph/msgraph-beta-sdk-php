@@ -279,7 +279,7 @@ class TeamRequestBuilder
 
     /**
      * Create a new team from a group. In order to create a team, the group must have a least one owner. If the group was created less than 15 minutes ago, it's possible for the Create team call to fail with a 404 error code due to replication delays.The recommended pattern is to retry the Create team call three times, with a 10 second delay between calls.
-     * @param Team $body 
+     * @param Team $body The request body
      * @param TeamRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -396,7 +396,7 @@ class TeamRequestBuilder
 
     /**
      * Create a new team from a group. In order to create a team, the group must have a least one owner. If the group was created less than 15 minutes ago, it's possible for the Create team call to fail with a 404 error code due to replication delays.The recommended pattern is to retry the Create team call three times, with a 10 second delay between calls.
-     * @param Team $body 
+     * @param Team $body The request body
      * @param TeamRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

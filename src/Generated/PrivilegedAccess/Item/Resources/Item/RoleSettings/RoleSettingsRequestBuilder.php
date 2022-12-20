@@ -79,7 +79,7 @@ class RoleSettingsRequestBuilder
 
     /**
      * Create new navigation property to roleSettings for privilegedAccess
-     * @param GovernanceRoleSetting $body 
+     * @param GovernanceRoleSetting $body The request body
      * @param RoleSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class RoleSettingsRequestBuilder
 
     /**
      * Create new navigation property to roleSettings for privilegedAccess
-     * @param GovernanceRoleSetting $body 
+     * @param GovernanceRoleSetting $body The request body
      * @param RoleSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

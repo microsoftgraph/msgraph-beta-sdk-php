@@ -79,7 +79,7 @@ class FilterOperatorsRequestBuilder
 
     /**
      * Add new entity to filterOperators
-     * @param FilterOperatorSchema $body 
+     * @param FilterOperatorSchema $body The request body
      * @param FilterOperatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class FilterOperatorsRequestBuilder
 
     /**
      * Add new entity to filterOperators
-     * @param FilterOperatorSchema $body 
+     * @param FilterOperatorSchema $body The request body
      * @param FilterOperatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

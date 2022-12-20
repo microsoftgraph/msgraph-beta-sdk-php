@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TrustFrameworkKeySet extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TrustFrameworkKeySet and sets the default values.
+     * Instantiates a new trustFrameworkKeySet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

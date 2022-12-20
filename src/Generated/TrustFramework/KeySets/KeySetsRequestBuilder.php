@@ -79,7 +79,7 @@ class KeySetsRequestBuilder
 
     /**
      * Create a new trustFrameworkKeySet. The ID of the **trustFrameworkKeySet** is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
-     * @param TrustFrameworkKeySet $body 
+     * @param TrustFrameworkKeySet $body The request body
      * @param KeySetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class KeySetsRequestBuilder
 
     /**
      * Create a new trustFrameworkKeySet. The ID of the **trustFrameworkKeySet** is expected in the create request; however, it can be modified by the service. The modified ID will be available in the response and in the location header.
-     * @param TrustFrameworkKeySet $body 
+     * @param TrustFrameworkKeySet $body The request body
      * @param KeySetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

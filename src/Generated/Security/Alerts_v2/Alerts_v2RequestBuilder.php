@@ -79,7 +79,7 @@ class Alerts_v2RequestBuilder
 
     /**
      * Create new navigation property to alerts_v2 for security
-     * @param Alert $body 
+     * @param Alert $body The request body
      * @param Alerts_v2RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class Alerts_v2RequestBuilder
 
     /**
      * Create new navigation property to alerts_v2 for security
-     * @param Alert $body 
+     * @param Alert $body The request body
      * @param Alerts_v2RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

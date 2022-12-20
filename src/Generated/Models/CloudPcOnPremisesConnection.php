@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOnPremisesConnection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcOnPremisesConnection and sets the default values.
+     * Instantiates a new CloudPcOnPremisesConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -87,6 +87,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             'subscriptionName' => fn(ParseNode $n) => $o->setSubscriptionName($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcOnPremisesConnectionType::class)),
             'virtualNetworkId' => fn(ParseNode $n) => $o->setVirtualNetworkId($n->getStringValue()),
+            'virtualNetworkLocation' => fn(ParseNode $n) => $o->setVirtualNetworkLocation($n->getStringValue()),
         ]);
     }
 
@@ -179,6 +180,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
+     * Gets the virtualNetworkLocation property value. The virtualNetworkLocation property
+     * @return string|null
+    */
+    public function getVirtualNetworkLocation(): ?string {
+        return $this->getBackingStore()->get('virtualNetworkLocation');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -200,6 +209,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
         $writer->writeStringValue('subscriptionName', $this->getSubscriptionName());
         $writer->writeEnumValue('type', $this->getType());
         $writer->writeStringValue('virtualNetworkId', $this->getVirtualNetworkId());
+        $writer->writeStringValue('virtualNetworkLocation', $this->getVirtualNetworkLocation());
     }
 
     /**
@@ -328,6 +338,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     */
     public function setVirtualNetworkId(?string $value): void {
         $this->getBackingStore()->set('virtualNetworkId', $value);
+    }
+
+    /**
+     * Sets the virtualNetworkLocation property value. The virtualNetworkLocation property
+     *  @param string|null $value Value to set for the virtualNetworkLocation property.
+    */
+    public function setVirtualNetworkLocation(?string $value): void {
+        $this->getBackingStore()->set('virtualNetworkLocation', $value);
     }
 
 }
