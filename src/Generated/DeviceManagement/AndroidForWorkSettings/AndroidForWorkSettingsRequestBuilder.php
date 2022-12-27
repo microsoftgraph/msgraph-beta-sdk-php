@@ -123,7 +123,7 @@ class AndroidForWorkSettingsRequestBuilder
 
     /**
      * Update the navigation property androidForWorkSettings in deviceManagement
-     * @param AndroidForWorkSettings $body 
+     * @param AndroidForWorkSettings $body The request body
      * @param AndroidForWorkSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -185,7 +185,7 @@ class AndroidForWorkSettingsRequestBuilder
 
     /**
      * Update the navigation property androidForWorkSettings in deviceManagement
-     * @param AndroidForWorkSettings $body 
+     * @param AndroidForWorkSettings $body The request body
      * @param AndroidForWorkSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

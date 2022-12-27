@@ -44,7 +44,7 @@ class ChangeUserAccountTypeRequestBuilder
 
     /**
      * Change the account type of the user on a specific Cloud PC.
-     * @param ChangeUserAccountTypePostRequestBody $body 
+     * @param ChangeUserAccountTypePostRequestBody $body The request body
      * @param ChangeUserAccountTypeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -67,7 +67,7 @@ class ChangeUserAccountTypeRequestBuilder
 
     /**
      * Change the account type of the user on a specific Cloud PC.
-     * @param ChangeUserAccountTypePostRequestBody $body 
+     * @param ChangeUserAccountTypePostRequestBody $body The request body
      * @param ChangeUserAccountTypeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

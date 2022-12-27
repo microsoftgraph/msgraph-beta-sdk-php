@@ -94,7 +94,7 @@ class AuthenticationMethodItemRequestBuilder
 
     /**
      * Update the navigation property methods in users
-     * @param AuthenticationMethod $body 
+     * @param AuthenticationMethod $body The request body
      * @param AuthenticationMethodItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -137,7 +137,7 @@ class AuthenticationMethodItemRequestBuilder
 
     /**
      * Update the navigation property methods in users
-     * @param AuthenticationMethod $body 
+     * @param AuthenticationMethod $body The request body
      * @param AuthenticationMethodItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

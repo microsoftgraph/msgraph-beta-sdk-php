@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IntuneBrandingProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new IntuneBrandingProfile and sets the default values.
+     * Instantiates a new intuneBrandingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

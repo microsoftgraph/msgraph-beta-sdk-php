@@ -91,7 +91,7 @@ class TaxGroupItemRequestBuilder
 
     /**
      * Update the navigation property taxGroups in financials
-     * @param TaxGroup $body 
+     * @param TaxGroup $body The request body
      * @param TaxGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class TaxGroupItemRequestBuilder
 
     /**
      * Update the navigation property taxGroups in financials
-     * @param TaxGroup $body 
+     * @param TaxGroup $body The request body
      * @param TaxGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

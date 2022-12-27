@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAnomaly extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsAnomaly and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAnomaly and sets the default values.
     */
     public function __construct() {
         parent::__construct();

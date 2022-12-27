@@ -110,6 +110,7 @@ use Microsoft\Graph\Beta\Generated\Reports\GetTeamsTeamActivityCountsWithPeriod\
 use Microsoft\Graph\Beta\Generated\Reports\GetTeamsTeamActivityDetailWithDate\GetTeamsTeamActivityDetailWithDateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetTeamsTeamActivityDetailWithPeriod\GetTeamsTeamActivityDetailWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetTeamsTeamActivityDistributionCountsWithPeriod\GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetTeamsTeamCountsWithPeriod\GetTeamsTeamCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetTeamsUserActivityCountsWithPeriod\GetTeamsUserActivityCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetTeamsUserActivityDistributionTotalUserCountsWithPeriod\GetTeamsUserActivityDistributionTotalUserCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetTeamsUserActivityDistributionUserCountsWithPeriod\GetTeamsUserActivityDistributionUserCountsWithPeriodRequestBuilder;
@@ -319,7 +320,7 @@ class ReportsRequestBuilder
 
     /**
      * Update reports
-     * @param ReportRoot $body 
+     * @param ReportRoot $body The request body
      * @param ReportsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -1241,6 +1242,15 @@ class ReportsRequestBuilder
     }
 
     /**
+     * Provides operations to call the getTeamsTeamCounts method.
+     * @param string $period Usage: period='{period}'
+     * @return GetTeamsTeamCountsWithPeriodRequestBuilder
+    */
+    public function getTeamsTeamCountsWithPeriod(string $period): GetTeamsTeamCountsWithPeriodRequestBuilder {
+        return new GetTeamsTeamCountsWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    }
+
+    /**
      * Provides operations to call the getTeamsUserActivityCounts method.
      * @param string $period Usage: period='{period}'
      * @return GetTeamsUserActivityCountsWithPeriodRequestBuilder
@@ -1555,7 +1565,7 @@ class ReportsRequestBuilder
 
     /**
      * Update reports
-     * @param ReportRoot $body 
+     * @param ReportRoot $body The request body
      * @param ReportsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

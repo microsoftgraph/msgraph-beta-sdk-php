@@ -44,8 +44,8 @@ class ExtractContentLabelRequestBuilder
     }
 
     /**
-     * Invoke action extractContentLabel
-     * @param ExtractContentLabelPostRequestBody $body 
+     * Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.
+     * @param ExtractContentLabelPostRequestBody $body The request body
      * @param ExtractContentLabelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -68,8 +68,8 @@ class ExtractContentLabelRequestBuilder
     }
 
     /**
-     * Invoke action extractContentLabel
-     * @param ExtractContentLabelPostRequestBody $body 
+     * Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.
+     * @param ExtractContentLabelPostRequestBody $body The request body
      * @param ExtractContentLabelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -463,7 +463,7 @@ class ManagedTenantsRequestBuilder
 
     /**
      * Update the navigation property managedTenants in tenantRelationships
-     * @param ManagedTenant $body 
+     * @param ManagedTenant $body The request body
      * @param ManagedTenantsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -756,7 +756,7 @@ class ManagedTenantsRequestBuilder
 
     /**
      * Update the navigation property managedTenants in tenantRelationships
-     * @param ManagedTenant $body 
+     * @param ManagedTenant $body The request body
      * @param ManagedTenantsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -65,7 +65,7 @@ class OnPremisesDirectorySynchronizationItemRequestBuilder
     }
 
     /**
-     * Get onPremisesSynchronization from directory
+     * A container for on-premises directory synchronization functionalities that are available for the organization.
      * @param OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -91,7 +91,7 @@ class OnPremisesDirectorySynchronizationItemRequestBuilder
 
     /**
      * Update the navigation property onPremisesSynchronization in directory
-     * @param OnPremisesDirectorySynchronization $body 
+     * @param OnPremisesDirectorySynchronization $body The request body
      * @param OnPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +133,7 @@ class OnPremisesDirectorySynchronizationItemRequestBuilder
     }
 
     /**
-     * Get onPremisesSynchronization from directory
+     * A container for on-premises directory synchronization functionalities that are available for the organization.
      * @param OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -153,7 +153,7 @@ class OnPremisesDirectorySynchronizationItemRequestBuilder
 
     /**
      * Update the navigation property onPremisesSynchronization in directory
-     * @param OnPremisesDirectorySynchronization $body 
+     * @param OnPremisesDirectorySynchronization $body The request body
      * @param OnPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -79,7 +79,7 @@ class WorkflowsRequestBuilder
 
     /**
      * Create a new workflow object. You can create up to 50 workflows in a tenant.
-     * @param Workflow $body 
+     * @param Workflow $body The request body
      * @param WorkflowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class WorkflowsRequestBuilder
 
     /**
      * Create a new workflow object. You can create up to 50 workflows in a tenant.
-     * @param Workflow $body 
+     * @param Workflow $body The request body
      * @param WorkflowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

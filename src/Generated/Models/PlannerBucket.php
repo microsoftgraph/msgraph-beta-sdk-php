@@ -25,7 +25,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the creationSource property value. The creationSource property
+     * Gets the creationSource property value. Contains information about the origin of the bucket.
      * @return PlannerBucketCreation|null
     */
     public function getCreationSource(): ?PlannerBucketCreation {
@@ -93,7 +93,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the creationSource property value. The creationSource property
+     * Sets the creationSource property value. Contains information about the origin of the bucket.
      *  @param PlannerBucketCreation|null $value Value to set for the creationSource property.
     */
     public function setCreationSource(?PlannerBucketCreation $value): void {

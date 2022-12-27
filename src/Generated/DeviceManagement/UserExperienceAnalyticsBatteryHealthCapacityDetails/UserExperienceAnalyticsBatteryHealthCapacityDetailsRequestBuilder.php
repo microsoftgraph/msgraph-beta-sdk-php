@@ -91,7 +91,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder
 
     /**
      * Update the navigation property userExperienceAnalyticsBatteryHealthCapacityDetails in deviceManagement
-     * @param UserExperienceAnalyticsBatteryHealthCapacityDetails $body 
+     * @param UserExperienceAnalyticsBatteryHealthCapacityDetails $body The request body
      * @param UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder
 
     /**
      * Update the navigation property userExperienceAnalyticsBatteryHealthCapacityDetails in deviceManagement
-     * @param UserExperienceAnalyticsBatteryHealthCapacityDetails $body 
+     * @param UserExperienceAnalyticsBatteryHealthCapacityDetails $body The request body
      * @param UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

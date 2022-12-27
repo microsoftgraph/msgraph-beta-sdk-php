@@ -91,7 +91,7 @@ class UserCredentialUsageDetailsItemRequestBuilder
 
     /**
      * Update the navigation property userCredentialUsageDetails in reports
-     * @param UserCredentialUsageDetails $body 
+     * @param UserCredentialUsageDetails $body The request body
      * @param UserCredentialUsageDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class UserCredentialUsageDetailsItemRequestBuilder
 
     /**
      * Update the navigation property userCredentialUsageDetails in reports
-     * @param UserCredentialUsageDetails $body 
+     * @param UserCredentialUsageDetails $body The request body
      * @param UserCredentialUsageDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

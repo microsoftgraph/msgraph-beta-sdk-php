@@ -158,7 +158,7 @@ class CustodianItemRequestBuilder
 
     /**
      * Update the navigation property custodians in compliance
-     * @param Custodian $body 
+     * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -220,7 +220,7 @@ class CustodianItemRequestBuilder
 
     /**
      * Update the navigation property custodians in compliance
-     * @param Custodian $body 
+     * @param Custodian $body The request body
      * @param CustodianItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

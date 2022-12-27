@@ -79,7 +79,7 @@ class NamesRequestBuilder
 
     /**
      * Use this API to create a new personName object in a user's profile.
-     * @param PersonName $body 
+     * @param PersonName $body The request body
      * @param NamesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class NamesRequestBuilder
 
     /**
      * Use this API to create a new personName object in a user's profile.
-     * @param PersonName $body 
+     * @param PersonName $body The request body
      * @param NamesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

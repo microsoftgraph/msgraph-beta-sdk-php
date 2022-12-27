@@ -91,7 +91,7 @@ class WindowsDriverUpdateInventoryItemRequestBuilder
 
     /**
      * Update the navigation property driverInventories in deviceManagement
-     * @param WindowsDriverUpdateInventory $body 
+     * @param WindowsDriverUpdateInventory $body The request body
      * @param WindowsDriverUpdateInventoryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class WindowsDriverUpdateInventoryItemRequestBuilder
 
     /**
      * Update the navigation property driverInventories in deviceManagement
-     * @param WindowsDriverUpdateInventory $body 
+     * @param WindowsDriverUpdateInventory $body The request body
      * @param WindowsDriverUpdateInventoryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

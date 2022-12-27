@@ -99,7 +99,7 @@ class DataSharingConsentItemRequestBuilder
 
     /**
      * Update the navigation property dataSharingConsents in deviceManagement
-     * @param DataSharingConsent $body 
+     * @param DataSharingConsent $body The request body
      * @param DataSharingConsentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -161,7 +161,7 @@ class DataSharingConsentItemRequestBuilder
 
     /**
      * Update the navigation property dataSharingConsents in deviceManagement
-     * @param DataSharingConsent $body 
+     * @param DataSharingConsent $body The request body
      * @param DataSharingConsentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

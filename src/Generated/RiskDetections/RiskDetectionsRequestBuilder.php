@@ -45,7 +45,7 @@ class RiskDetectionsRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a **riskDetection** object.
+     * Retrieve the properties of a collection of **riskDetection** objects.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -71,7 +71,7 @@ class RiskDetectionsRequestBuilder
 
     /**
      * Add new entity to riskDetections
-     * @param RiskDetection $body 
+     * @param RiskDetection $body The request body
      * @param RiskDetectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -94,7 +94,7 @@ class RiskDetectionsRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a **riskDetection** object.
+     * Retrieve the properties of a collection of **riskDetection** objects.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -114,7 +114,7 @@ class RiskDetectionsRequestBuilder
 
     /**
      * Add new entity to riskDetections
-     * @param RiskDetection $body 
+     * @param RiskDetection $body The request body
      * @param RiskDetectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

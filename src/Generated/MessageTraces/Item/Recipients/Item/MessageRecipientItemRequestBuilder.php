@@ -100,7 +100,7 @@ class MessageRecipientItemRequestBuilder
 
     /**
      * Update the navigation property recipients in messageTraces
-     * @param MessageRecipient $body 
+     * @param MessageRecipient $body The request body
      * @param MessageRecipientItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -173,7 +173,7 @@ class MessageRecipientItemRequestBuilder
 
     /**
      * Update the navigation property recipients in messageTraces
-     * @param MessageRecipient $body 
+     * @param MessageRecipient $body The request body
      * @param MessageRecipientItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

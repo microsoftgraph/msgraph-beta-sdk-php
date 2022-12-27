@@ -45,7 +45,7 @@ class UploadSecretRequestBuilder
 
     /**
      * Upload a plain text secret to a trustFrameworkKeyset. Examples of secrets are application secrets in Azure Active Directory, Google, Facebook, or any other identity provider. his method returns trustFrameworkKey.
-     * @param UploadSecretPostRequestBody $body 
+     * @param UploadSecretPostRequestBody $body The request body
      * @param UploadSecretRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -69,7 +69,7 @@ class UploadSecretRequestBuilder
 
     /**
      * Upload a plain text secret to a trustFrameworkKeyset. Examples of secrets are application secrets in Azure Active Directory, Google, Facebook, or any other identity provider. his method returns trustFrameworkKey.
-     * @param UploadSecretPostRequestBody $body 
+     * @param UploadSecretPostRequestBody $body The request body
      * @param UploadSecretRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

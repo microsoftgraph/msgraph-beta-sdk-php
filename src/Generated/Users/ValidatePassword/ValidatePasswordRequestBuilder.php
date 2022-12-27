@@ -45,7 +45,7 @@ class ValidatePasswordRequestBuilder
 
     /**
      * Check a user's password against the organization's password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password.
-     * @param ValidatePasswordPostRequestBody $body 
+     * @param ValidatePasswordPostRequestBody $body The request body
      * @param ValidatePasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -69,7 +69,7 @@ class ValidatePasswordRequestBuilder
 
     /**
      * Check a user's password against the organization's password validation policy and report whether the password is valid. Use this action to provide real-time feedback on password strength while the user types their password.
-     * @param ValidatePasswordPostRequestBody $body 
+     * @param ValidatePasswordPostRequestBody $body The request body
      * @param ValidatePasswordRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

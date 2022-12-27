@@ -116,7 +116,7 @@ class ManagementTemplateStepItemRequestBuilder
 
     /**
      * Update the navigation property managementTemplateSteps in tenantRelationships
-     * @param ManagementTemplateStep $body 
+     * @param ManagementTemplateStep $body The request body
      * @param ManagementTemplateStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -178,7 +178,7 @@ class ManagementTemplateStepItemRequestBuilder
 
     /**
      * Update the navigation property managementTemplateSteps in tenantRelationships
-     * @param ManagementTemplateStep $body 
+     * @param ManagementTemplateStep $body The request body
      * @param ManagementTemplateStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

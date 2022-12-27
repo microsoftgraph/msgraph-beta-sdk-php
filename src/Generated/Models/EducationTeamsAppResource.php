@@ -26,7 +26,7 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
     }
 
     /**
-     * Gets the appIconWebUrl property value. URL that points to the app's icon.
+     * Gets the appIconWebUrl property value. URL that points to the icon of the app.
      * @return string|null
     */
     public function getAppIconWebUrl(): ?string {
@@ -34,7 +34,7 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
     }
 
     /**
-     * Gets the appId property value. Teams App ID of the application.
+     * Gets the appId property value. Teams app ID of the application.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -84,7 +84,7 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
     }
 
     /**
-     * Sets the appIconWebUrl property value. URL that points to the app's icon.
+     * Sets the appIconWebUrl property value. URL that points to the icon of the app.
      *  @param string|null $value Value to set for the appIconWebUrl property.
     */
     public function setAppIconWebUrl(?string $value): void {
@@ -92,7 +92,7 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
     }
 
     /**
-     * Sets the appId property value. Teams App ID of the application.
+     * Sets the appId property value. Teams app ID of the application.
      *  @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {

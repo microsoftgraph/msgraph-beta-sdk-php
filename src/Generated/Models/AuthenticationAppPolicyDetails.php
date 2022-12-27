@@ -43,7 +43,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the adminConfiguration property value. The adminConfiguration property
+     * Gets the adminConfiguration property value. The admin configuration of the policy on the user's authentication app. For a policy that does not impact the success/failure of the authentication, the evaluation defaults to notApplicable. The possible values are: notApplicable, enabled, disabled, unknownFutureValue.
      * @return AuthenticationAppAdminConfiguration|null
     */
     public function getAdminConfiguration(): ?AuthenticationAppAdminConfiguration {
@@ -51,7 +51,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the authenticationEvaluation property value. The authenticationEvaluation property
+     * Gets the authenticationEvaluation property value. Evaluates the success/failure of the authentication based on the admin configuration of the policy on the user's client authentication app. The possible values are: success, failure, unknownFutureValue.
      * @return AuthenticationAppEvaluation|null
     */
     public function getAuthenticationEvaluation(): ?AuthenticationAppEvaluation {
@@ -90,7 +90,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the policyName property value. The policyName property
+     * Gets the policyName property value. The name of the policy enforced on the user's authentication app.
      * @return string|null
     */
     public function getPolicyName(): ?string {
@@ -98,7 +98,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Refers to whether the policy executed as expected on the user's client authentication app. The possible values are: unknown, appLockOutOfDate, appLockEnabled, appLockDisabled, appContextOutOfDate, appContextShown, appContextNotShown, locationContextOutOfDate, locationContextShown, locationContextNotShown, numberMatchOutOfDate, numberMatchCorrectNumberEntered, numberMatchIncorrectNumberEntered, numberMatchDeny, tamperResistantHardwareOutOfDate, tamperResistantHardwareUsed, tamperResistantHardwareNotUsed, unknownFutureValue.
      * @return AuthenticationAppPolicyStatus|null
     */
     public function getStatus(): ?AuthenticationAppPolicyStatus {
@@ -127,7 +127,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the adminConfiguration property value. The adminConfiguration property
+     * Sets the adminConfiguration property value. The admin configuration of the policy on the user's authentication app. For a policy that does not impact the success/failure of the authentication, the evaluation defaults to notApplicable. The possible values are: notApplicable, enabled, disabled, unknownFutureValue.
      *  @param AuthenticationAppAdminConfiguration|null $value Value to set for the adminConfiguration property.
     */
     public function setAdminConfiguration(?AuthenticationAppAdminConfiguration $value): void {
@@ -135,7 +135,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the authenticationEvaluation property value. The authenticationEvaluation property
+     * Sets the authenticationEvaluation property value. Evaluates the success/failure of the authentication based on the admin configuration of the policy on the user's client authentication app. The possible values are: success, failure, unknownFutureValue.
      *  @param AuthenticationAppEvaluation|null $value Value to set for the authenticationEvaluation property.
     */
     public function setAuthenticationEvaluation(?AuthenticationAppEvaluation $value): void {
@@ -159,7 +159,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the policyName property value. The policyName property
+     * Sets the policyName property value. The name of the policy enforced on the user's authentication app.
      *  @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {
@@ -167,7 +167,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Refers to whether the policy executed as expected on the user's client authentication app. The possible values are: unknown, appLockOutOfDate, appLockEnabled, appLockDisabled, appContextOutOfDate, appContextShown, appContextNotShown, locationContextOutOfDate, locationContextShown, locationContextNotShown, numberMatchOutOfDate, numberMatchCorrectNumberEntered, numberMatchIncorrectNumberEntered, numberMatchDeny, tamperResistantHardwareOutOfDate, tamperResistantHardwareUsed, tamperResistantHardwareNotUsed, unknownFutureValue.
      *  @param AuthenticationAppPolicyStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AuthenticationAppPolicyStatus $value): void {

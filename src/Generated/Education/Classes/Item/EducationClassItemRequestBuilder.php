@@ -180,7 +180,7 @@ class EducationClassItemRequestBuilder
 
     /**
      * Update the navigation property classes in education
-     * @param EducationClass $body 
+     * @param EducationClass $body The request body
      * @param EducationClassItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -253,7 +253,7 @@ class EducationClassItemRequestBuilder
 
     /**
      * Update the navigation property classes in education
-     * @param EducationClass $body 
+     * @param EducationClass $body The request body
      * @param EducationClassItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

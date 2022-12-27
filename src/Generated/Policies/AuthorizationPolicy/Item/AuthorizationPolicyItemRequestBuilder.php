@@ -100,7 +100,7 @@ class AuthorizationPolicyItemRequestBuilder
 
     /**
      * Update the navigation property authorizationPolicy in policies
-     * @param AuthorizationPolicy $body 
+     * @param AuthorizationPolicy $body The request body
      * @param AuthorizationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -173,7 +173,7 @@ class AuthorizationPolicyItemRequestBuilder
 
     /**
      * Update the navigation property authorizationPolicy in policies
-     * @param AuthorizationPolicy $body 
+     * @param AuthorizationPolicy $body The request body
      * @param AuthorizationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

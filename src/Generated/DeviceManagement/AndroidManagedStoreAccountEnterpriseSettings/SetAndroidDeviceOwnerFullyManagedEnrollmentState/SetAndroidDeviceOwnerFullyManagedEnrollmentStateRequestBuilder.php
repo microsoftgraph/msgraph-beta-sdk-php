@@ -44,7 +44,7 @@ class SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder
 
     /**
      * Sets the AndroidManagedStoreAccountEnterpriseSettings AndroidDeviceOwnerFullyManagedEnrollmentEnabled to the given value.
-     * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body 
+     * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body The request body
      * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -67,7 +67,7 @@ class SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder
 
     /**
      * Sets the AndroidManagedStoreAccountEnterpriseSettings AndroidDeviceOwnerFullyManagedEnrollmentEnabled to the given value.
-     * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body 
+     * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body The request body
      * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

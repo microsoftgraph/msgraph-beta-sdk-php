@@ -218,7 +218,7 @@ class EventItemRequestBuilder
 
     /**
      * Update the navigation property events in users
-     * @param Event $body 
+     * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -324,7 +324,7 @@ class EventItemRequestBuilder
 
     /**
      * Update the navigation property events in users
-     * @param Event $body 
+     * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -111,7 +111,7 @@ class LabelsRequestBuilder
 
     /**
      * Create new navigation property to labels for me
-     * @param InformationProtectionLabel $body 
+     * @param InformationProtectionLabel $body The request body
      * @param LabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -154,7 +154,7 @@ class LabelsRequestBuilder
 
     /**
      * Create new navigation property to labels for me
-     * @param InformationProtectionLabel $body 
+     * @param InformationProtectionLabel $body The request body
      * @param LabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -1,7 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetStatusMessage;
 
+use Microsoft\Graph\Beta\Generated\Models\PresenceStatusMessage;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -10,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SitePageData implements AdditionalDataHolder, BackedModel, Parsable 
+class SetStatusMessagePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * @var BackingStore $backingStore Stores model information.
@@ -18,7 +19,7 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new sitePageData and sets the default values.
+     * Instantiates a new setStatusMessagePostRequestBody and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -28,10 +29,10 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return SitePageData
+     * @return SetStatusMessagePostRequestBody
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SitePageData {
-        return new SitePageData();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SetStatusMessagePostRequestBody {
+        return new SetStatusMessagePostRequestBody();
     }
 
     /**
@@ -57,16 +58,16 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'statusMessage' => fn(ParseNode $n) => $o->setStatusMessage($n->getObjectValue([PresenceStatusMessage::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
     /**
-     * Gets the @odata.type property value. The OdataType property
-     * @return string|null
+     * Gets the statusMessage property value. The statusMessage property
+     * @return PresenceStatusMessage|null
     */
-    public function getOdataType(): ?string {
-        return $this->getBackingStore()->get('odataType');
+    public function getStatusMessage(): ?PresenceStatusMessage {
+        return $this->getBackingStore()->get('statusMessage');
     }
 
     /**
@@ -74,7 +75,7 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('statusMessage', $this->getStatusMessage());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -95,11 +96,11 @@ class SitePageData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * Sets the statusMessage property value. The statusMessage property
+     *  @param PresenceStatusMessage|null $value Value to set for the statusMessage property.
     */
-    public function setOdataType(?string $value): void {
-        $this->getBackingStore()->set('odataType', $value);
+    public function setStatusMessage(?PresenceStatusMessage $value): void {
+        $this->getBackingStore()->set('statusMessage', $value);
     }
 
 }

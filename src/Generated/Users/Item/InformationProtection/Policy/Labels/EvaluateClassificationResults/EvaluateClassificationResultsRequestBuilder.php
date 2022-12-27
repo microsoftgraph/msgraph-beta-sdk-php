@@ -44,7 +44,7 @@ class EvaluateClassificationResultsRequestBuilder
 
     /**
      * Using classification results, compute the information protection label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set automatically based on classification of the file contents, rather than labeled directly by a user or service.  To evaluate based on classification results, provide contentInfo, which includes existing content metadata key/value pairs, and classification results. The API returns an informationProtectionAction that contains one of more of the following: 
-     * @param EvaluateClassificationResultsPostRequestBody $body 
+     * @param EvaluateClassificationResultsPostRequestBody $body The request body
      * @param EvaluateClassificationResultsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -68,7 +68,7 @@ class EvaluateClassificationResultsRequestBuilder
 
     /**
      * Using classification results, compute the information protection label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set automatically based on classification of the file contents, rather than labeled directly by a user or service.  To evaluate based on classification results, provide contentInfo, which includes existing content metadata key/value pairs, and classification results. The API returns an informationProtectionAction that contains one of more of the following: 
-     * @param EvaluateClassificationResultsPostRequestBody $body 
+     * @param EvaluateClassificationResultsPostRequestBody $body The request body
      * @param EvaluateClassificationResultsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

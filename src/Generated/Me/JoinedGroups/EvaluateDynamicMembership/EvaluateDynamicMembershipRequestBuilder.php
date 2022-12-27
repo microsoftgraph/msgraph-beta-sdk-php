@@ -45,7 +45,7 @@ class EvaluateDynamicMembershipRequestBuilder
 
     /**
      * Evaluate whether a user or device is or would be a member of a dynamic group. The membership rule is returned along with other details that were used in the evaluation. You can complete this operation in the following ways:
-     * @param EvaluateDynamicMembershipPostRequestBody $body 
+     * @param EvaluateDynamicMembershipPostRequestBody $body The request body
      * @param EvaluateDynamicMembershipRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -69,7 +69,7 @@ class EvaluateDynamicMembershipRequestBuilder
 
     /**
      * Evaluate whether a user or device is or would be a member of a dynamic group. The membership rule is returned along with other details that were used in the evaluation. You can complete this operation in the following ways:
-     * @param EvaluateDynamicMembershipPostRequestBody $body 
+     * @param EvaluateDynamicMembershipPostRequestBody $body The request body
      * @param EvaluateDynamicMembershipRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

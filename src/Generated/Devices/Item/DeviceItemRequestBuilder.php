@@ -201,7 +201,7 @@ class DeviceItemRequestBuilder
 
     /**
      * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.
-     * @param Device $body 
+     * @param Device $body The request body
      * @param DeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -285,7 +285,7 @@ class DeviceItemRequestBuilder
 
     /**
      * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.
-     * @param Device $body 
+     * @param Device $body The request body
      * @param DeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

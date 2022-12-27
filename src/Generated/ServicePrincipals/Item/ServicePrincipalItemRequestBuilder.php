@@ -380,7 +380,7 @@ class ServicePrincipalItemRequestBuilder
 
     /**
      * Update the properties of servicePrincipal object.
-     * @param ServicePrincipal $body 
+     * @param ServicePrincipal $body The request body
      * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -541,7 +541,7 @@ class ServicePrincipalItemRequestBuilder
 
     /**
      * Update the properties of servicePrincipal object.
-     * @param ServicePrincipal $body 
+     * @param ServicePrincipal $body The request body
      * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

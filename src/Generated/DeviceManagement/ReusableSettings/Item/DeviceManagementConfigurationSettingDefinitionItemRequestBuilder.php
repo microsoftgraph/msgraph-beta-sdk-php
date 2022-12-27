@@ -91,7 +91,7 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
 
     /**
      * Update the navigation property reusableSettings in deviceManagement
-     * @param DeviceManagementConfigurationSettingDefinition $body 
+     * @param DeviceManagementConfigurationSettingDefinition $body The request body
      * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
 
     /**
      * Update the navigation property reusableSettings in deviceManagement
-     * @param DeviceManagementConfigurationSettingDefinition $body 
+     * @param DeviceManagementConfigurationSettingDefinition $body The request body
      * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

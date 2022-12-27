@@ -78,8 +78,8 @@ class ResourcesRequestBuilder
     }
 
     /**
-     * Create an assignment resource. You can create the following types of assignment resources: Every resource has an @odata.type property to indicate which type of resource is being created. 
-     * @param EducationAssignmentResource $body 
+     * Create an assignment resource. You can create the following types of assignment resources: Every resource has an **@odata.type** property to indicate which type of resource is being created. 
+     * @param EducationAssignmentResource $body The request body
      * @param ResourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,8 +121,8 @@ class ResourcesRequestBuilder
     }
 
     /**
-     * Create an assignment resource. You can create the following types of assignment resources: Every resource has an @odata.type property to indicate which type of resource is being created. 
-     * @param EducationAssignmentResource $body 
+     * Create an assignment resource. You can create the following types of assignment resources: Every resource has an **@odata.type** property to indicate which type of resource is being created. 
+     * @param EducationAssignmentResource $body The request body
      * @param ResourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

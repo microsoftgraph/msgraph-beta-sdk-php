@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new AndroidDeviceOwnerCertificateProfileBase and sets the default values.
+     * Instantiates a new androidDeviceOwnerCertificateProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

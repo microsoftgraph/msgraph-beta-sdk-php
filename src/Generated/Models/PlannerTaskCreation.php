@@ -59,7 +59,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the creationSourceKind property value. The creationSourceKind property
+     * Gets the creationSourceKind property value. Specifies what kind of creation source the task is created with. The possible values are: external, publication and unknownFutureValue.
      * @return PlannerCreationSourceKind|null
     */
     public function getCreationSourceKind(): ?PlannerCreationSourceKind {
@@ -88,7 +88,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the teamsPublicationInfo property value. Information about the publication process that created this task. null value indicates that the task was not created by a publication process.
+     * Gets the teamsPublicationInfo property value. Information about the publication process that created this task. This field is deprecated and clients should move to using the new inheritance model.
      * @return PlannerTeamsPublicationInfo|null
     */
     public function getTeamsPublicationInfo(): ?PlannerTeamsPublicationInfo {
@@ -123,7 +123,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the creationSourceKind property value. The creationSourceKind property
+     * Sets the creationSourceKind property value. Specifies what kind of creation source the task is created with. The possible values are: external, publication and unknownFutureValue.
      *  @param PlannerCreationSourceKind|null $value Value to set for the creationSourceKind property.
     */
     public function setCreationSourceKind(?PlannerCreationSourceKind $value): void {
@@ -139,7 +139,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the teamsPublicationInfo property value. Information about the publication process that created this task. null value indicates that the task was not created by a publication process.
+     * Sets the teamsPublicationInfo property value. Information about the publication process that created this task. This field is deprecated and clients should move to using the new inheritance model.
      *  @param PlannerTeamsPublicationInfo|null $value Value to set for the teamsPublicationInfo property.
     */
     public function setTeamsPublicationInfo(?PlannerTeamsPublicationInfo $value): void {

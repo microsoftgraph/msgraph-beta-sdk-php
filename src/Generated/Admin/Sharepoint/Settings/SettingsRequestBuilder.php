@@ -91,7 +91,7 @@ class SettingsRequestBuilder
 
     /**
      * Update one or more tenant-level settings for SharePoint and OneDrive.
-     * @param Settings $body 
+     * @param Settings $body The request body
      * @param SettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class SettingsRequestBuilder
 
     /**
      * Update one or more tenant-level settings for SharePoint and OneDrive.
-     * @param Settings $body 
+     * @param Settings $body The request body
      * @param SettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
