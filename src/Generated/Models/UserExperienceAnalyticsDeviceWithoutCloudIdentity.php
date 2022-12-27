@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceWithoutCloudIdentity and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceWithoutCloudIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

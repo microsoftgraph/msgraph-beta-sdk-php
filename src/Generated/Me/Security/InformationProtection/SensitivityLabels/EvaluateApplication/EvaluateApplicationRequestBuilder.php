@@ -43,8 +43,8 @@ class EvaluateApplicationRequestBuilder
     }
 
     /**
-     * Invoke action evaluateApplication
-     * @param EvaluateApplicationPostRequestBody $body 
+     * Compute the sensitivity label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set manually or explicitly by a user or service, rather than automatically based on file contents. Given contentInfo, which includes existing content metadata key-value pairs, and labelingOptions as an input, the API returns an informationProtectionAction object that contains one of more of the following: 
+     * @param EvaluateApplicationPostRequestBody $body The request body
      * @param EvaluateApplicationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -67,8 +67,8 @@ class EvaluateApplicationRequestBuilder
     }
 
     /**
-     * Invoke action evaluateApplication
-     * @param EvaluateApplicationPostRequestBody $body 
+     * Compute the sensitivity label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set manually or explicitly by a user or service, rather than automatically based on file contents. Given contentInfo, which includes existing content metadata key-value pairs, and labelingOptions as an input, the API returns an informationProtectionAction object that contains one of more of the following: 
+     * @param EvaluateApplicationPostRequestBody $body The request body
      * @param EvaluateApplicationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

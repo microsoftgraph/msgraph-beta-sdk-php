@@ -154,7 +154,7 @@ class DeviceCustomAttributeShellScriptItemRequestBuilder
 
     /**
      * Update the navigation property deviceCustomAttributeShellScripts in deviceManagement
-     * @param DeviceCustomAttributeShellScript $body 
+     * @param DeviceCustomAttributeShellScript $body The request body
      * @param DeviceCustomAttributeShellScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -238,7 +238,7 @@ class DeviceCustomAttributeShellScriptItemRequestBuilder
 
     /**
      * Update the navigation property deviceCustomAttributeShellScripts in deviceManagement
-     * @param DeviceCustomAttributeShellScript $body 
+     * @param DeviceCustomAttributeShellScript $body The request body
      * @param DeviceCustomAttributeShellScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

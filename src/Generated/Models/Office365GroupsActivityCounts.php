@@ -44,6 +44,8 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
             'reportDate' => fn(ParseNode $n) => $o->setReportDate($n->getDateValue()),
             'reportPeriod' => fn(ParseNode $n) => $o->setReportPeriod($n->getStringValue()),
             'reportRefreshDate' => fn(ParseNode $n) => $o->setReportRefreshDate($n->getDateValue()),
+            'teamsChannelMessages' => fn(ParseNode $n) => $o->setTeamsChannelMessages($n->getIntegerValue()),
+            'teamsMeetingsOrganized' => fn(ParseNode $n) => $o->setTeamsMeetingsOrganized($n->getIntegerValue()),
             'yammerMessagesLiked' => fn(ParseNode $n) => $o->setYammerMessagesLiked($n->getIntegerValue()),
             'yammerMessagesPosted' => fn(ParseNode $n) => $o->setYammerMessagesPosted($n->getIntegerValue()),
             'yammerMessagesRead' => fn(ParseNode $n) => $o->setYammerMessagesRead($n->getIntegerValue()),
@@ -72,6 +74,22 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     */
     public function getReportRefreshDate(): ?Date {
         return $this->getBackingStore()->get('reportRefreshDate');
+    }
+
+    /**
+     * Gets the teamsChannelMessages property value. The teamsChannelMessages property
+     * @return int|null
+    */
+    public function getTeamsChannelMessages(): ?int {
+        return $this->getBackingStore()->get('teamsChannelMessages');
+    }
+
+    /**
+     * Gets the teamsMeetingsOrganized property value. The teamsMeetingsOrganized property
+     * @return int|null
+    */
+    public function getTeamsMeetingsOrganized(): ?int {
+        return $this->getBackingStore()->get('teamsMeetingsOrganized');
     }
 
     /**
@@ -108,6 +126,8 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
         $writer->writeDateValue('reportDate', $this->getReportDate());
         $writer->writeStringValue('reportPeriod', $this->getReportPeriod());
         $writer->writeDateValue('reportRefreshDate', $this->getReportRefreshDate());
+        $writer->writeIntegerValue('teamsChannelMessages', $this->getTeamsChannelMessages());
+        $writer->writeIntegerValue('teamsMeetingsOrganized', $this->getTeamsMeetingsOrganized());
         $writer->writeIntegerValue('yammerMessagesLiked', $this->getYammerMessagesLiked());
         $writer->writeIntegerValue('yammerMessagesPosted', $this->getYammerMessagesPosted());
         $writer->writeIntegerValue('yammerMessagesRead', $this->getYammerMessagesRead());
@@ -143,6 +163,22 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     */
     public function setReportRefreshDate(?Date $value): void {
         $this->getBackingStore()->set('reportRefreshDate', $value);
+    }
+
+    /**
+     * Sets the teamsChannelMessages property value. The teamsChannelMessages property
+     *  @param int|null $value Value to set for the teamsChannelMessages property.
+    */
+    public function setTeamsChannelMessages(?int $value): void {
+        $this->getBackingStore()->set('teamsChannelMessages', $value);
+    }
+
+    /**
+     * Sets the teamsMeetingsOrganized property value. The teamsMeetingsOrganized property
+     *  @param int|null $value Value to set for the teamsMeetingsOrganized property.
+    */
+    public function setTeamsMeetingsOrganized(?int $value): void {
+        $this->getBackingStore()->set('teamsMeetingsOrganized', $value);
     }
 
     /**

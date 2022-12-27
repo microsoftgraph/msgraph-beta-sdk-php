@@ -79,7 +79,7 @@ class CredentialUserRegistrationDetailsRequestBuilder
 
     /**
      * Create new navigation property to credentialUserRegistrationDetails for print
-     * @param CredentialUserRegistrationDetails $body 
+     * @param CredentialUserRegistrationDetails $body The request body
      * @param CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class CredentialUserRegistrationDetailsRequestBuilder
 
     /**
      * Create new navigation property to credentialUserRegistrationDetails for print
-     * @param CredentialUserRegistrationDetails $body 
+     * @param CredentialUserRegistrationDetails $body The request body
      * @param CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

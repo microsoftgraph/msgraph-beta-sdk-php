@@ -25,7 +25,7 @@ class OnPremisesDirectorySynchronization extends Entity implements Parsable
     }
 
     /**
-     * Gets the configuration property value. The configuration property
+     * Gets the configuration property value. Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant.
      * @return OnPremisesDirectorySynchronizationConfiguration|null
     */
     public function getConfiguration(): ?OnPremisesDirectorySynchronizationConfiguration {
@@ -63,7 +63,7 @@ class OnPremisesDirectorySynchronization extends Entity implements Parsable
     }
 
     /**
-     * Sets the configuration property value. The configuration property
+     * Sets the configuration property value. Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant.
      *  @param OnPremisesDirectorySynchronizationConfiguration|null $value Value to set for the configuration property.
     */
     public function setConfiguration(?OnPremisesDirectorySynchronizationConfiguration $value): void {

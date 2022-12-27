@@ -79,7 +79,7 @@ class RetentionLabelsRequestBuilder
 
     /**
      * Create a new retentionLabel object. To create a disposition review stage, include the **actionAfterRetentionPeriod** property in the request body with one of the possible values specified.
-     * @param RetentionLabel $body 
+     * @param RetentionLabel $body The request body
      * @param RetentionLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class RetentionLabelsRequestBuilder
 
     /**
      * Create a new retentionLabel object. To create a disposition review stage, include the **actionAfterRetentionPeriod** property in the request body with one of the possible values specified.
-     * @param RetentionLabel $body 
+     * @param RetentionLabel $body The request body
      * @param RetentionLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

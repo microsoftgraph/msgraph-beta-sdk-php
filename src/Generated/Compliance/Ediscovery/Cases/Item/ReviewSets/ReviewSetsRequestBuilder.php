@@ -79,7 +79,7 @@ class ReviewSetsRequestBuilder
 
     /**
      * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property.
-     * @param ReviewSet $body 
+     * @param ReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class ReviewSetsRequestBuilder
 
     /**
      * Create a new reviewSet object. The request body contains the display name of the review set, which is the only writable property.
-     * @param ReviewSet $body 
+     * @param ReviewSet $body The request body
      * @param ReviewSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

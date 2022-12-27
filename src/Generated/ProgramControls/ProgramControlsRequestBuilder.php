@@ -79,7 +79,7 @@ class ProgramControlsRequestBuilder
 
     /**
      * In the Azure AD access reviews feature, create a new programControl object.  This links an access review to a program. Prior to making this request, the caller must have previously
-     * @param ProgramControl $body 
+     * @param ProgramControl $body The request body
      * @param ProgramControlsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class ProgramControlsRequestBuilder
 
     /**
      * In the Azure AD access reviews feature, create a new programControl object.  This links an access review to a program. Prior to making this request, the caller must have previously
-     * @param ProgramControl $body 
+     * @param ProgramControl $body The request body
      * @param ProgramControlsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

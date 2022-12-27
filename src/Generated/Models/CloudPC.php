@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPC extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPC and sets the default values.
+     * Instantiates a new cloudPC and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -164,7 +164,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the partnerAgentInstallResults property value. The partnerAgentInstallResults property
+     * Gets the partnerAgentInstallResults property value. The results of every partner agent's installation status on Cloud PC.
      * @return array<CloudPcPartnerAgentInstallResult>|null
     */
     public function getPartnerAgentInstallResults(): ?array {
@@ -388,7 +388,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the partnerAgentInstallResults property value. The partnerAgentInstallResults property
+     * Sets the partnerAgentInstallResults property value. The results of every partner agent's installation status on Cloud PC.
      *  @param array<CloudPcPartnerAgentInstallResult>|null $value Value to set for the partnerAgentInstallResults property.
     */
     public function setPartnerAgentInstallResults(?array $value): void {

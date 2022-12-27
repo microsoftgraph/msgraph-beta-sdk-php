@@ -152,7 +152,7 @@ class PlannerRequestBuilder
 
     /**
      * Update the properties of a plannerUser object. You can use this operation to add or remove plans from a user's favorite plans list, and to indicate which plans the user has recently viewed.
-     * @param PlannerUser $body 
+     * @param PlannerUser $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -225,7 +225,7 @@ class PlannerRequestBuilder
 
     /**
      * Update the properties of a plannerUser object. You can use this operation to add or remove plans from a user's favorite plans list, and to indicate which plans the user has recently viewed.
-     * @param PlannerUser $body 
+     * @param PlannerUser $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -1,0 +1,285 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+
+class TitleArea implements AdditionalDataHolder, BackedModel, Parsable 
+{
+    /**
+     * @var BackingStore $backingStore Stores model information.
+    */
+    private BackingStore $backingStore;
+    
+    /**
+     * Instantiates a new titleArea and sets the default values.
+    */
+    public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
+        $this->setAdditionalData([]);
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return TitleArea
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TitleArea {
+        return new TitleArea();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the alternativeText property value. Alternative text on the title area.
+     * @return string|null
+    */
+    public function getAlternativeText(): ?string {
+        return $this->getBackingStore()->get('alternativeText');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
+    }
+
+    /**
+     * Gets the enableGradientEffect property value. Indicates whether the title area has a gradient effect enabled.
+     * @return bool|null
+    */
+    public function getEnableGradientEffect(): ?bool {
+        return $this->getBackingStore()->get('enableGradientEffect');
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return  [
+            'alternativeText' => fn(ParseNode $n) => $o->setAlternativeText($n->getStringValue()),
+            'enableGradientEffect' => fn(ParseNode $n) => $o->setEnableGradientEffect($n->getBooleanValue()),
+            'imageWebUrl' => fn(ParseNode $n) => $o->setImageWebUrl($n->getStringValue()),
+            'layout' => fn(ParseNode $n) => $o->setLayout($n->getEnumValue(TitleAreaLayoutType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'serverProcessedContent' => fn(ParseNode $n) => $o->setServerProcessedContent($n->getObjectValue([ServerProcessedContent::class, 'createFromDiscriminatorValue'])),
+            'showAuthor' => fn(ParseNode $n) => $o->setShowAuthor($n->getBooleanValue()),
+            'showPublishedDate' => fn(ParseNode $n) => $o->setShowPublishedDate($n->getBooleanValue()),
+            'showTextBlockAboveTitle' => fn(ParseNode $n) => $o->setShowTextBlockAboveTitle($n->getBooleanValue()),
+            'textAboveTitle' => fn(ParseNode $n) => $o->setTextAboveTitle($n->getStringValue()),
+            'textAlignment' => fn(ParseNode $n) => $o->setTextAlignment($n->getEnumValue(TitleAreaTextAlignmentType::class)),
+        ];
+    }
+
+    /**
+     * Gets the imageWebUrl property value. URL of the image in the title area.
+     * @return string|null
+    */
+    public function getImageWebUrl(): ?string {
+        return $this->getBackingStore()->get('imageWebUrl');
+    }
+
+    /**
+     * Gets the layout property value. Enumeration value that indicates the layout of the title area. The possible values are: imageAndTitle, plain, colorBlock, overlap, unknownFutureValue.
+     * @return TitleAreaLayoutType|null
+    */
+    public function getLayout(): ?TitleAreaLayoutType {
+        return $this->getBackingStore()->get('layout');
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->getBackingStore()->get('odataType');
+    }
+
+    /**
+     * Gets the serverProcessedContent property value. Contains collections of data that can be processed by server side services like search index and link fixup.
+     * @return ServerProcessedContent|null
+    */
+    public function getServerProcessedContent(): ?ServerProcessedContent {
+        return $this->getBackingStore()->get('serverProcessedContent');
+    }
+
+    /**
+     * Gets the showAuthor property value. Indicates whether the author should be shown in title area.
+     * @return bool|null
+    */
+    public function getShowAuthor(): ?bool {
+        return $this->getBackingStore()->get('showAuthor');
+    }
+
+    /**
+     * Gets the showPublishedDate property value. Indicates whether the published date should be shown in title area.
+     * @return bool|null
+    */
+    public function getShowPublishedDate(): ?bool {
+        return $this->getBackingStore()->get('showPublishedDate');
+    }
+
+    /**
+     * Gets the showTextBlockAboveTitle property value. Indicates whether the text block above title should be shown in title area.
+     * @return bool|null
+    */
+    public function getShowTextBlockAboveTitle(): ?bool {
+        return $this->getBackingStore()->get('showTextBlockAboveTitle');
+    }
+
+    /**
+     * Gets the textAboveTitle property value. The text above title line.
+     * @return string|null
+    */
+    public function getTextAboveTitle(): ?string {
+        return $this->getBackingStore()->get('textAboveTitle');
+    }
+
+    /**
+     * Gets the textAlignment property value. Enumeration value that indicates the text alignment of the title area. The possible values are: left, center, unknownFutureValue.
+     * @return TitleAreaTextAlignmentType|null
+    */
+    public function getTextAlignment(): ?TitleAreaTextAlignmentType {
+        return $this->getBackingStore()->get('textAlignment');
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('alternativeText', $this->getAlternativeText());
+        $writer->writeBooleanValue('enableGradientEffect', $this->getEnableGradientEffect());
+        $writer->writeStringValue('imageWebUrl', $this->getImageWebUrl());
+        $writer->writeEnumValue('layout', $this->getLayout());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('serverProcessedContent', $this->getServerProcessedContent());
+        $writer->writeBooleanValue('showAuthor', $this->getShowAuthor());
+        $writer->writeBooleanValue('showPublishedDate', $this->getShowPublishedDate());
+        $writer->writeBooleanValue('showTextBlockAboveTitle', $this->getShowTextBlockAboveTitle());
+        $writer->writeStringValue('textAboveTitle', $this->getTextAboveTitle());
+        $writer->writeEnumValue('textAlignment', $this->getTextAlignment());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the alternativeText property value. Alternative text on the title area.
+     *  @param string|null $value Value to set for the alternativeText property.
+    */
+    public function setAlternativeText(?string $value): void {
+        $this->getBackingStore()->set('alternativeText', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the enableGradientEffect property value. Indicates whether the title area has a gradient effect enabled.
+     *  @param bool|null $value Value to set for the enableGradientEffect property.
+    */
+    public function setEnableGradientEffect(?bool $value): void {
+        $this->getBackingStore()->set('enableGradientEffect', $value);
+    }
+
+    /**
+     * Sets the imageWebUrl property value. URL of the image in the title area.
+     *  @param string|null $value Value to set for the imageWebUrl property.
+    */
+    public function setImageWebUrl(?string $value): void {
+        $this->getBackingStore()->set('imageWebUrl', $value);
+    }
+
+    /**
+     * Sets the layout property value. Enumeration value that indicates the layout of the title area. The possible values are: imageAndTitle, plain, colorBlock, overlap, unknownFutureValue.
+     *  @param TitleAreaLayoutType|null $value Value to set for the layout property.
+    */
+    public function setLayout(?TitleAreaLayoutType $value): void {
+        $this->getBackingStore()->set('layout', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the serverProcessedContent property value. Contains collections of data that can be processed by server side services like search index and link fixup.
+     *  @param ServerProcessedContent|null $value Value to set for the serverProcessedContent property.
+    */
+    public function setServerProcessedContent(?ServerProcessedContent $value): void {
+        $this->getBackingStore()->set('serverProcessedContent', $value);
+    }
+
+    /**
+     * Sets the showAuthor property value. Indicates whether the author should be shown in title area.
+     *  @param bool|null $value Value to set for the showAuthor property.
+    */
+    public function setShowAuthor(?bool $value): void {
+        $this->getBackingStore()->set('showAuthor', $value);
+    }
+
+    /**
+     * Sets the showPublishedDate property value. Indicates whether the published date should be shown in title area.
+     *  @param bool|null $value Value to set for the showPublishedDate property.
+    */
+    public function setShowPublishedDate(?bool $value): void {
+        $this->getBackingStore()->set('showPublishedDate', $value);
+    }
+
+    /**
+     * Sets the showTextBlockAboveTitle property value. Indicates whether the text block above title should be shown in title area.
+     *  @param bool|null $value Value to set for the showTextBlockAboveTitle property.
+    */
+    public function setShowTextBlockAboveTitle(?bool $value): void {
+        $this->getBackingStore()->set('showTextBlockAboveTitle', $value);
+    }
+
+    /**
+     * Sets the textAboveTitle property value. The text above title line.
+     *  @param string|null $value Value to set for the textAboveTitle property.
+    */
+    public function setTextAboveTitle(?string $value): void {
+        $this->getBackingStore()->set('textAboveTitle', $value);
+    }
+
+    /**
+     * Sets the textAlignment property value. Enumeration value that indicates the text alignment of the title area. The possible values are: left, center, unknownFutureValue.
+     *  @param TitleAreaTextAlignmentType|null $value Value to set for the textAlignment property.
+    */
+    public function setTextAlignment(?TitleAreaTextAlignmentType $value): void {
+        $this->getBackingStore()->set('textAlignment', $value);
+    }
+
+}

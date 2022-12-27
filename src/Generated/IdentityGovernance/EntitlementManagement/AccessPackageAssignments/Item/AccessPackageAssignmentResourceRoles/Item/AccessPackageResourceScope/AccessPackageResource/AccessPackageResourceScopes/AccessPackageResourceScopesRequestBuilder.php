@@ -79,7 +79,7 @@ class AccessPackageResourceScopesRequestBuilder
 
     /**
      * Create new navigation property to accessPackageResourceScopes for identityGovernance
-     * @param AccessPackageResourceScope $body 
+     * @param AccessPackageResourceScope $body The request body
      * @param AccessPackageResourceScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class AccessPackageResourceScopesRequestBuilder
 
     /**
      * Create new navigation property to accessPackageResourceScopes for identityGovernance
-     * @param AccessPackageResourceScope $body 
+     * @param AccessPackageResourceScope $body The request body
      * @param AccessPackageResourceScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

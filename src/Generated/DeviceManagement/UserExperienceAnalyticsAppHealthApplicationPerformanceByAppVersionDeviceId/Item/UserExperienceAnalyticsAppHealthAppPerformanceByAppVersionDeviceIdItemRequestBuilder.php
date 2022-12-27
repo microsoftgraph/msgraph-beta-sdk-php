@@ -91,7 +91,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequ
 
     /**
      * Update the navigation property userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId in deviceManagement
-     * @param UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId $body 
+     * @param UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId $body The request body
      * @param UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequ
 
     /**
      * Update the navigation property userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId in deviceManagement
-     * @param UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId $body 
+     * @param UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId $body The request body
      * @param UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

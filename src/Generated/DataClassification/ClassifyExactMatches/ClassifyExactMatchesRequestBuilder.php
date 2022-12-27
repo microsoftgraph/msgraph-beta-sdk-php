@@ -45,7 +45,7 @@ class ClassifyExactMatchesRequestBuilder
 
     /**
      * Invoke action classifyExactMatches
-     * @param ClassifyExactMatchesPostRequestBody $body 
+     * @param ClassifyExactMatchesPostRequestBody $body The request body
      * @param ClassifyExactMatchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -69,7 +69,7 @@ class ClassifyExactMatchesRequestBuilder
 
     /**
      * Invoke action classifyExactMatches
-     * @param ClassifyExactMatchesPostRequestBody $body 
+     * @param ClassifyExactMatchesPostRequestBody $body The request body
      * @param ClassifyExactMatchesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

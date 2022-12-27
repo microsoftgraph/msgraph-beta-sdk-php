@@ -36,7 +36,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
     }
 
     /**
-     * Gets the accidentalDeletionPrevention property value. The accidentalDeletionPrevention property
+     * Gets the accidentalDeletionPrevention property value. Contains the accidental deletion prevention configuration for a tenant.
      * @return OnPremisesAccidentalDeletionPrevention|null
     */
     public function getAccidentalDeletionPrevention(): ?OnPremisesAccidentalDeletionPrevention {
@@ -60,7 +60,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
     }
 
     /**
-     * Gets the customerRequestedSynchronizationInterval property value. The customerRequestedSynchronizationInterval property
+     * Gets the customerRequestedSynchronizationInterval property value. Interval of time that the customer requested the sync client waits between sync cycles.
      * @return DateInterval|null
     */
     public function getCustomerRequestedSynchronizationInterval(): ?DateInterval {
@@ -90,7 +90,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
     }
 
     /**
-     * Gets the synchronizationInterval property value. The synchronizationInterval property
+     * Gets the synchronizationInterval property value. Interval of time the sync client should honor between sync cycles
      * @return DateInterval|null
     */
     public function getSynchronizationInterval(): ?DateInterval {
@@ -110,7 +110,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
     }
 
     /**
-     * Sets the accidentalDeletionPrevention property value. The accidentalDeletionPrevention property
+     * Sets the accidentalDeletionPrevention property value. Contains the accidental deletion prevention configuration for a tenant.
      *  @param OnPremisesAccidentalDeletionPrevention|null $value Value to set for the accidentalDeletionPrevention property.
     */
     public function setAccidentalDeletionPrevention(?OnPremisesAccidentalDeletionPrevention $value): void {
@@ -134,7 +134,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
     }
 
     /**
-     * Sets the customerRequestedSynchronizationInterval property value. The customerRequestedSynchronizationInterval property
+     * Sets the customerRequestedSynchronizationInterval property value. Interval of time that the customer requested the sync client waits between sync cycles.
      *  @param DateInterval|null $value Value to set for the customerRequestedSynchronizationInterval property.
     */
     public function setCustomerRequestedSynchronizationInterval(?DateInterval $value): void {
@@ -150,7 +150,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
     }
 
     /**
-     * Sets the synchronizationInterval property value. The synchronizationInterval property
+     * Sets the synchronizationInterval property value. Interval of time the sync client should honor between sync cycles
      *  @param DateInterval|null $value Value to set for the synchronizationInterval property.
     */
     public function setSynchronizationInterval(?DateInterval $value): void {

@@ -100,7 +100,7 @@ class RiskyServicePrincipalItemRequestBuilder
 
     /**
      * Update the navigation property riskyServicePrincipals in identityProtection
-     * @param RiskyServicePrincipal $body 
+     * @param RiskyServicePrincipal $body The request body
      * @param RiskyServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -173,7 +173,7 @@ class RiskyServicePrincipalItemRequestBuilder
 
     /**
      * Update the navigation property riskyServicePrincipals in identityProtection
-     * @param RiskyServicePrincipal $body 
+     * @param RiskyServicePrincipal $body The request body
      * @param RiskyServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -76,7 +76,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSystemRule property value. Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only
+     * Gets the isSystemRule property value. Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only a few properties can be edited.
      * @return bool|null
     */
     public function getIsSystemRule(): ?bool {
@@ -84,7 +84,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the notificationChannels property value. The notificationChannels property
+     * Gets the notificationChannels property value. The notification channels of the rule selected by the user.
      * @return array<NotificationChannel>|null
     */
     public function getNotificationChannels(): ?array {
@@ -92,7 +92,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the severity property value. The severity property
+     * Gets the severity property value. The severity of the rule. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
      * @return RuleSeverityType|null
     */
     public function getSeverity(): ?RuleSeverityType {
@@ -100,7 +100,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the threshold property value. The threshold property
+     * Gets the threshold property value. The conditions to send alerts. For example, send alert when provisioning has failed for greater than or equal to 6 Cloud PCs.
      * @return RuleThreshold|null
     */
     public function getThreshold(): ?RuleThreshold {
@@ -156,7 +156,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSystemRule property value. Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only
+     * Sets the isSystemRule property value. Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only a few properties can be edited.
      *  @param bool|null $value Value to set for the isSystemRule property.
     */
     public function setIsSystemRule(?bool $value): void {
@@ -164,7 +164,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the notificationChannels property value. The notificationChannels property
+     * Sets the notificationChannels property value. The notification channels of the rule selected by the user.
      *  @param array<NotificationChannel>|null $value Value to set for the notificationChannels property.
     */
     public function setNotificationChannels(?array $value): void {
@@ -172,7 +172,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the severity property value. The severity property
+     * Sets the severity property value. The severity of the rule. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
      *  @param RuleSeverityType|null $value Value to set for the severity property.
     */
     public function setSeverity(?RuleSeverityType $value): void {
@@ -180,7 +180,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the threshold property value. The threshold property
+     * Sets the threshold property value. The conditions to send alerts. For example, send alert when provisioning has failed for greater than or equal to 6 Cloud PCs.
      *  @param RuleThreshold|null $value Value to set for the threshold property.
     */
     public function setThreshold(?RuleThreshold $value): void {

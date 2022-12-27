@@ -44,7 +44,7 @@ class RenameRequestBuilder
 
     /**
      * Rename a specific Cloud PC. Use this API to update the **displayName** for the Cloud PC entity.
-     * @param RenamePostRequestBody $body 
+     * @param RenamePostRequestBody $body The request body
      * @param RenameRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -67,7 +67,7 @@ class RenameRequestBuilder
 
     /**
      * Rename a specific Cloud PC. Use this API to update the **displayName** for the Cloud PC entity.
-     * @param RenamePostRequestBody $body 
+     * @param RenamePostRequestBody $body The request body
      * @param RenameRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

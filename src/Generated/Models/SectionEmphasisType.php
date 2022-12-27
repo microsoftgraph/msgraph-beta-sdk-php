@@ -1,0 +1,13 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use Microsoft\Kiota\Abstractions\Enum;
+
+class SectionEmphasisType extends Enum {
+    public const NONE = 'none';
+    public const NETURAL = 'netural';
+    public const SOFT = 'soft';
+    public const STRONG = 'strong';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+}

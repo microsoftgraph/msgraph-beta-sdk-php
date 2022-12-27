@@ -118,7 +118,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isPortalNotificationSent property value. If true, the portal notification has already been sent for the user; otherwise, the portal notification hasn't been sent yet.
+     * Gets the isPortalNotificationSent property value. true if the portal notification has already been sent to the user; false otherwise.
      * @return bool|null
     */
     public function getIsPortalNotificationSent(): ?bool {
@@ -223,7 +223,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isPortalNotificationSent property value. If true, the portal notification has already been sent for the user; otherwise, the portal notification hasn't been sent yet.
+     * Sets the isPortalNotificationSent property value. true if the portal notification has already been sent to the user; false otherwise.
      *  @param bool|null $value Value to set for the isPortalNotificationSent property.
     */
     public function setIsPortalNotificationSent(?bool $value): void {

@@ -398,6 +398,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.callRecords.session': return new Session();
                 case '#microsoft.graph.callTranscript': return new CallTranscript();
                 case '#microsoft.graph.cancelMediaProcessingOperation': return new CancelMediaProcessingOperation();
+                case '#microsoft.graph.canvasLayout': return new CanvasLayout();
                 case '#microsoft.graph.cartToClassAssociation': return new CartToClassAssociation();
                 case '#microsoft.graph.certificateBasedAuthConfiguration': return new CertificateBasedAuthConfiguration();
                 case '#microsoft.graph.certificateConnectorDetails': return new CertificateConnectorDetails();
@@ -792,6 +793,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.groupPolicyUploadedDefinitionFile': return new GroupPolicyUploadedDefinitionFile();
                 case '#microsoft.graph.groupPolicyUploadedPresentation': return new GroupPolicyUploadedPresentation();
                 case '#microsoft.graph.homeRealmDiscoveryPolicy': return new HomeRealmDiscoveryPolicy();
+                case '#microsoft.graph.horizontalSection': return new HorizontalSection();
+                case '#microsoft.graph.horizontalSectionColumn': return new HorizontalSectionColumn();
                 case '#microsoft.graph.hostSecurityProfile': return new HostSecurityProfile();
                 case '#microsoft.graph.identityApiConnector': return new IdentityApiConnector();
                 case '#microsoft.graph.identityBuiltInUserFlowAttribute': return new IdentityBuiltInUserFlowAttribute();
@@ -1343,6 +1346,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.socialIdentityProvider': return new SocialIdentityProvider();
                 case '#microsoft.graph.softwareOathAuthenticationMethod': return new SoftwareOathAuthenticationMethod();
                 case '#microsoft.graph.softwareUpdateStatusSummary': return new SoftwareUpdateStatusSummary();
+                case '#microsoft.graph.standardWebPart': return new StandardWebPart();
                 case '#microsoft.graph.startHoldMusicOperation': return new StartHoldMusicOperation();
                 case '#microsoft.graph.stopHoldMusicOperation': return new StopHoldMusicOperation();
                 case '#microsoft.graph.strongAuthenticationDetail': return new StrongAuthenticationDetail();
@@ -1409,6 +1413,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.termStore.store': return new Store();
                 case '#microsoft.graph.termStore.term': return new Term();
                 case '#microsoft.graph.textClassificationRequest': return new TextClassificationRequest();
+                case '#microsoft.graph.textWebPart': return new TextWebPart();
                 case '#microsoft.graph.threatAssessmentRequest': return new ThreatAssessmentRequest();
                 case '#microsoft.graph.threatAssessmentResult': return new ThreatAssessmentResult();
                 case '#microsoft.graph.thumbnailSet': return new ThumbnailSet();
@@ -1517,6 +1522,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.userSignInInsight': return new UserSignInInsight();
                 case '#microsoft.graph.userTeamwork': return new UserTeamwork();
                 case '#microsoft.graph.vendor': return new Vendor();
+                case '#microsoft.graph.verticalSection': return new VerticalSection();
                 case '#microsoft.graph.virtualAppointment': return new VirtualAppointment();
                 case '#microsoft.graph.virtualEndpoint': return new VirtualEndpoint();
                 case '#microsoft.graph.vpnConfiguration': return new VpnConfiguration();
@@ -1525,6 +1531,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.webAccount': return new WebAccount();
                 case '#microsoft.graph.webApp': return new WebApp();
                 case '#microsoft.graph.webApplicationSegment': return new WebApplicationSegment();
+                case '#microsoft.graph.webPart': return new WebPart();
                 case '#microsoft.graph.win32LobApp': return new Win32LobApp();
                 case '#microsoft.graph.windows10CertificateProfileBase': return new Windows10CertificateProfileBase();
                 case '#microsoft.graph.windows10CompliancePolicy': return new Windows10CompliancePolicy();

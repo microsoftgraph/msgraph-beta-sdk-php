@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserAnalytics extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UserAnalytics and sets the default values.
+     * Instantiates a new userAnalytics and sets the default values.
     */
     public function __construct() {
         parent::__construct();

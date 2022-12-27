@@ -45,7 +45,7 @@ class GenerateKeyRequestBuilder
 
     /**
      * Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn't have to provide a secret.
-     * @param GenerateKeyPostRequestBody $body 
+     * @param GenerateKeyPostRequestBody $body The request body
      * @param GenerateKeyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -69,7 +69,7 @@ class GenerateKeyRequestBuilder
 
     /**
      * Generate a trustFrameworkKey and a secret automatically in the trustFrameworkKeyset. The caller doesn't have to provide a secret.
-     * @param GenerateKeyPostRequestBody $body 
+     * @param GenerateKeyPostRequestBody $body The request body
      * @param GenerateKeyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

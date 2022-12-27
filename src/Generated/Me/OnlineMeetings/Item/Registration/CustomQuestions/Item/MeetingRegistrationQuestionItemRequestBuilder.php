@@ -91,7 +91,7 @@ class MeetingRegistrationQuestionItemRequestBuilder
 
     /**
      * Update the navigation property customQuestions in me
-     * @param MeetingRegistrationQuestion $body 
+     * @param MeetingRegistrationQuestion $body The request body
      * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class MeetingRegistrationQuestionItemRequestBuilder
 
     /**
      * Update the navigation property customQuestions in me
-     * @param MeetingRegistrationQuestion $body 
+     * @param MeetingRegistrationQuestion $body The request body
      * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -26,7 +26,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Gets the contextScenarioId property value. The contextScenarioId property
+     * Gets the contextScenarioId property value. Nullable. An identifier for the scenario associated with this external source. This should be in reverse DNS format. For example, Contoso company owned application for customer support would have a value like 'com.constoso.customerSupport'.
      * @return string|null
     */
     public function getContextScenarioId(): ?string {
@@ -34,7 +34,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Gets the displayLinkType property value. The displayLinkType property
+     * Gets the displayLinkType property value. Specifies how an application should display the link to the associated plannerExternalTaskSource. The possible values are: none, default.
      * @return PlannerExternalTaskSourceDisplayType|null
     */
     public function getDisplayLinkType(): ?PlannerExternalTaskSourceDisplayType {
@@ -42,7 +42,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Gets the displayNameSegments property value. The displayNameSegments property
+     * Gets the displayNameSegments property value. The segments of the name of the external experience. Segments represent a hierarchical structure that allows other apps to display the relationship.
      * @return array<string>|null
     */
     public function getDisplayNameSegments(): ?array {
@@ -50,7 +50,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Gets the externalContextId property value. The externalContextId property
+     * Gets the externalContextId property value. Nullable. The id of the external entity's containing entity or context.
      * @return string|null
     */
     public function getExternalContextId(): ?string {
@@ -58,7 +58,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Gets the externalObjectId property value. The externalObjectId property
+     * Gets the externalObjectId property value. Nullable. The id of the entity that an external service associates with a task.
      * @return string|null
     */
     public function getExternalObjectId(): ?string {
@@ -66,7 +66,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Gets the externalObjectVersion property value. The externalObjectVersion property
+     * Gets the externalObjectVersion property value. Nullable. The external Item Version for the object specified by the externalObjectId.
      * @return string|null
     */
     public function getExternalObjectVersion(): ?string {
@@ -91,7 +91,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Gets the webUrl property value. The webUrl property
+     * Gets the webUrl property value. Nullable. URL of the user experience represented by the associated plannerExternalTaskSource.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -114,7 +114,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Sets the contextScenarioId property value. The contextScenarioId property
+     * Sets the contextScenarioId property value. Nullable. An identifier for the scenario associated with this external source. This should be in reverse DNS format. For example, Contoso company owned application for customer support would have a value like 'com.constoso.customerSupport'.
      *  @param string|null $value Value to set for the contextScenarioId property.
     */
     public function setContextScenarioId(?string $value): void {
@@ -122,7 +122,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Sets the displayLinkType property value. The displayLinkType property
+     * Sets the displayLinkType property value. Specifies how an application should display the link to the associated plannerExternalTaskSource. The possible values are: none, default.
      *  @param PlannerExternalTaskSourceDisplayType|null $value Value to set for the displayLinkType property.
     */
     public function setDisplayLinkType(?PlannerExternalTaskSourceDisplayType $value): void {
@@ -130,7 +130,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Sets the displayNameSegments property value. The displayNameSegments property
+     * Sets the displayNameSegments property value. The segments of the name of the external experience. Segments represent a hierarchical structure that allows other apps to display the relationship.
      *  @param array<string>|null $value Value to set for the displayNameSegments property.
     */
     public function setDisplayNameSegments(?array $value): void {
@@ -138,7 +138,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Sets the externalContextId property value. The externalContextId property
+     * Sets the externalContextId property value. Nullable. The id of the external entity's containing entity or context.
      *  @param string|null $value Value to set for the externalContextId property.
     */
     public function setExternalContextId(?string $value): void {
@@ -146,7 +146,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Sets the externalObjectId property value. The externalObjectId property
+     * Sets the externalObjectId property value. Nullable. The id of the entity that an external service associates with a task.
      *  @param string|null $value Value to set for the externalObjectId property.
     */
     public function setExternalObjectId(?string $value): void {
@@ -154,7 +154,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Sets the externalObjectVersion property value. The externalObjectVersion property
+     * Sets the externalObjectVersion property value. Nullable. The external Item Version for the object specified by the externalObjectId.
      *  @param string|null $value Value to set for the externalObjectVersion property.
     */
     public function setExternalObjectVersion(?string $value): void {
@@ -162,7 +162,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
     }
 
     /**
-     * Sets the webUrl property value. The webUrl property
+     * Sets the webUrl property value. Nullable. URL of the user experience represented by the associated plannerExternalTaskSource.
      *  @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

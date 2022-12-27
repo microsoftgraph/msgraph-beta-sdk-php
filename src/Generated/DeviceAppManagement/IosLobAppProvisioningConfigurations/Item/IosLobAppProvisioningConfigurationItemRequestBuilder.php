@@ -146,7 +146,7 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
 
     /**
      * Update the navigation property iosLobAppProvisioningConfigurations in deviceAppManagement
-     * @param IosLobAppProvisioningConfiguration $body 
+     * @param IosLobAppProvisioningConfiguration $body The request body
      * @param IosLobAppProvisioningConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -230,7 +230,7 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
 
     /**
      * Update the navigation property iosLobAppProvisioningConfigurations in deviceAppManagement
-     * @param IosLobAppProvisioningConfiguration $body 
+     * @param IosLobAppProvisioningConfiguration $body The request body
      * @param IosLobAppProvisioningConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -144,7 +144,7 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder
 
     /**
      * Update the navigation property configurationPolicies in deviceManagement
-     * @param DeviceManagementConfigurationPolicy $body 
+     * @param DeviceManagementConfigurationPolicy $body The request body
      * @param DeviceManagementConfigurationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -206,7 +206,7 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder
 
     /**
      * Update the navigation property configurationPolicies in deviceManagement
-     * @param DeviceManagementConfigurationPolicy $body 
+     * @param DeviceManagementConfigurationPolicy $body The request body
      * @param DeviceManagementConfigurationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
