@@ -350,9 +350,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the accounts property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return AccountItemRequestBuilder
+     * @return AccountItemRequestBuilder|null
     */
-    public function accountsById(string $id): AccountItemRequestBuilder {
+    public function accountsById(string $id): ?AccountItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['account%2Did'] = $id;
         return new AccountItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -361,9 +361,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the agedAccountsPayable property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return AgedAccountsPayableItemRequestBuilder
+     * @return AgedAccountsPayableItemRequestBuilder|null
     */
-    public function agedAccountsPayableById(string $id): AgedAccountsPayableItemRequestBuilder {
+    public function agedAccountsPayableById(string $id): ?AgedAccountsPayableItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['agedAccountsPayable%2Did'] = $id;
         return new AgedAccountsPayableItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -372,9 +372,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the agedAccountsReceivable property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return AgedAccountsReceivableItemRequestBuilder
+     * @return AgedAccountsReceivableItemRequestBuilder|null
     */
-    public function agedAccountsReceivableById(string $id): AgedAccountsReceivableItemRequestBuilder {
+    public function agedAccountsReceivableById(string $id): ?AgedAccountsReceivableItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['agedAccountsReceivable%2Did'] = $id;
         return new AgedAccountsReceivableItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -383,9 +383,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the companyInformation property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return CompanyInformationItemRequestBuilder
+     * @return CompanyInformationItemRequestBuilder|null
     */
-    public function companyInformationById(string $id): CompanyInformationItemRequestBuilder {
+    public function companyInformationById(string $id): ?CompanyInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['companyInformation%2Did'] = $id;
         return new CompanyInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -405,9 +405,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the countriesRegions property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return CountryRegionItemRequestBuilder
+     * @return CountryRegionItemRequestBuilder|null
     */
-    public function countriesRegionsById(string $id): CountryRegionItemRequestBuilder {
+    public function countriesRegionsById(string $id): ?CountryRegionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['countryRegion%2Did'] = $id;
         return new CountryRegionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -441,9 +441,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the currencies property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return CurrencyItemRequestBuilder
+     * @return CurrencyItemRequestBuilder|null
     */
-    public function currenciesById(string $id): CurrencyItemRequestBuilder {
+    public function currenciesById(string $id): ?CurrencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['currency%2Did'] = $id;
         return new CurrencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -452,9 +452,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the customerPaymentJournals property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return CustomerPaymentJournalItemRequestBuilder
+     * @return CustomerPaymentJournalItemRequestBuilder|null
     */
-    public function customerPaymentJournalsById(string $id): CustomerPaymentJournalItemRequestBuilder {
+    public function customerPaymentJournalsById(string $id): ?CustomerPaymentJournalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customerPaymentJournal%2Did'] = $id;
         return new CustomerPaymentJournalItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -463,9 +463,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the customerPayments property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return CustomerPaymentItemRequestBuilder
+     * @return CustomerPaymentItemRequestBuilder|null
     */
-    public function customerPaymentsById(string $id): CustomerPaymentItemRequestBuilder {
+    public function customerPaymentsById(string $id): ?CustomerPaymentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customerPayment%2Did'] = $id;
         return new CustomerPaymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -474,9 +474,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the customers property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return CustomerItemRequestBuilder
+     * @return CustomerItemRequestBuilder|null
     */
-    public function customersById(string $id): CustomerItemRequestBuilder {
+    public function customersById(string $id): ?CustomerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customer%2Did'] = $id;
         return new CustomerItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -485,9 +485,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the dimensions property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return DimensionItemRequestBuilder
+     * @return DimensionItemRequestBuilder|null
     */
-    public function dimensionsById(string $id): DimensionItemRequestBuilder {
+    public function dimensionsById(string $id): ?DimensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dimension%2Did'] = $id;
         return new DimensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -496,9 +496,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the dimensionValues property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return DimensionValueItemRequestBuilder
+     * @return DimensionValueItemRequestBuilder|null
     */
-    public function dimensionValuesById(string $id): DimensionValueItemRequestBuilder {
+    public function dimensionValuesById(string $id): ?DimensionValueItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dimensionValue%2Did'] = $id;
         return new DimensionValueItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -507,9 +507,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the employees property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return EmployeeItemRequestBuilder
+     * @return EmployeeItemRequestBuilder|null
     */
-    public function employeesById(string $id): EmployeeItemRequestBuilder {
+    public function employeesById(string $id): ?EmployeeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['employee%2Did'] = $id;
         return new EmployeeItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -518,9 +518,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the generalLedgerEntries property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return GeneralLedgerEntryItemRequestBuilder
+     * @return GeneralLedgerEntryItemRequestBuilder|null
     */
-    public function generalLedgerEntriesById(string $id): GeneralLedgerEntryItemRequestBuilder {
+    public function generalLedgerEntriesById(string $id): ?GeneralLedgerEntryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['generalLedgerEntry%2Did'] = $id;
         return new GeneralLedgerEntryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -548,9 +548,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the itemCategories property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return ItemCategoryItemRequestBuilder
+     * @return ItemCategoryItemRequestBuilder|null
     */
-    public function itemCategoriesById(string $id): ItemCategoryItemRequestBuilder {
+    public function itemCategoriesById(string $id): ?ItemCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemCategory%2Did'] = $id;
         return new ItemCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -559,9 +559,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the items property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return ItemItemRequestBuilder
+     * @return ItemItemRequestBuilder|null
     */
-    public function itemsById(string $id): ItemItemRequestBuilder {
+    public function itemsById(string $id): ?ItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['item%2Did'] = $id;
         return new ItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -570,9 +570,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the journalLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return JournalLineItemRequestBuilder
+     * @return JournalLineItemRequestBuilder|null
     */
-    public function journalLinesById(string $id): JournalLineItemRequestBuilder {
+    public function journalLinesById(string $id): ?JournalLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['journalLine%2Did'] = $id;
         return new JournalLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -581,9 +581,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the journals property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return JournalItemRequestBuilder
+     * @return JournalItemRequestBuilder|null
     */
-    public function journalsById(string $id): JournalItemRequestBuilder {
+    public function journalsById(string $id): ?JournalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['journal%2Did'] = $id;
         return new JournalItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -592,9 +592,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the paymentMethods property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return PaymentMethodItemRequestBuilder
+     * @return PaymentMethodItemRequestBuilder|null
     */
-    public function paymentMethodsById(string $id): PaymentMethodItemRequestBuilder {
+    public function paymentMethodsById(string $id): ?PaymentMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['paymentMethod%2Did'] = $id;
         return new PaymentMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -603,9 +603,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the paymentTerms property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return PaymentTermItemRequestBuilder
+     * @return PaymentTermItemRequestBuilder|null
     */
-    public function paymentTermsById(string $id): PaymentTermItemRequestBuilder {
+    public function paymentTermsById(string $id): ?PaymentTermItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['paymentTerm%2Did'] = $id;
         return new PaymentTermItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -614,9 +614,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the picture property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return PictureItemRequestBuilder
+     * @return PictureItemRequestBuilder|null
     */
-    public function pictureById(string $id): PictureItemRequestBuilder {
+    public function pictureById(string $id): ?PictureItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['picture%2Did'] = $id;
         return new PictureItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -625,9 +625,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return PurchaseInvoiceLineItemRequestBuilder
+     * @return PurchaseInvoiceLineItemRequestBuilder|null
     */
-    public function purchaseInvoiceLinesById(string $id): PurchaseInvoiceLineItemRequestBuilder {
+    public function purchaseInvoiceLinesById(string $id): ?PurchaseInvoiceLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['purchaseInvoiceLine%2Did'] = $id;
         return new PurchaseInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -636,9 +636,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the purchaseInvoices property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return PurchaseInvoiceItemRequestBuilder
+     * @return PurchaseInvoiceItemRequestBuilder|null
     */
-    public function purchaseInvoicesById(string $id): PurchaseInvoiceItemRequestBuilder {
+    public function purchaseInvoicesById(string $id): ?PurchaseInvoiceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['purchaseInvoice%2Did'] = $id;
         return new PurchaseInvoiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -647,9 +647,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return SalesCreditMemoLineItemRequestBuilder
+     * @return SalesCreditMemoLineItemRequestBuilder|null
     */
-    public function salesCreditMemoLinesById(string $id): SalesCreditMemoLineItemRequestBuilder {
+    public function salesCreditMemoLinesById(string $id): ?SalesCreditMemoLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesCreditMemoLine%2Did'] = $id;
         return new SalesCreditMemoLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -658,9 +658,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the salesCreditMemos property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return SalesCreditMemoItemRequestBuilder
+     * @return SalesCreditMemoItemRequestBuilder|null
     */
-    public function salesCreditMemosById(string $id): SalesCreditMemoItemRequestBuilder {
+    public function salesCreditMemosById(string $id): ?SalesCreditMemoItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesCreditMemo%2Did'] = $id;
         return new SalesCreditMemoItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -669,9 +669,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the salesInvoiceLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return SalesInvoiceLineItemRequestBuilder
+     * @return SalesInvoiceLineItemRequestBuilder|null
     */
-    public function salesInvoiceLinesById(string $id): SalesInvoiceLineItemRequestBuilder {
+    public function salesInvoiceLinesById(string $id): ?SalesInvoiceLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesInvoiceLine%2Did'] = $id;
         return new SalesInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -680,9 +680,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the salesInvoices property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return SalesInvoiceItemRequestBuilder
+     * @return SalesInvoiceItemRequestBuilder|null
     */
-    public function salesInvoicesById(string $id): SalesInvoiceItemRequestBuilder {
+    public function salesInvoicesById(string $id): ?SalesInvoiceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesInvoice%2Did'] = $id;
         return new SalesInvoiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -691,9 +691,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the salesOrderLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return SalesOrderLineItemRequestBuilder
+     * @return SalesOrderLineItemRequestBuilder|null
     */
-    public function salesOrderLinesById(string $id): SalesOrderLineItemRequestBuilder {
+    public function salesOrderLinesById(string $id): ?SalesOrderLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesOrderLine%2Did'] = $id;
         return new SalesOrderLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -702,9 +702,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the salesOrders property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return SalesOrderItemRequestBuilder
+     * @return SalesOrderItemRequestBuilder|null
     */
-    public function salesOrdersById(string $id): SalesOrderItemRequestBuilder {
+    public function salesOrdersById(string $id): ?SalesOrderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesOrder%2Did'] = $id;
         return new SalesOrderItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -713,9 +713,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the salesQuoteLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return SalesQuoteLineItemRequestBuilder
+     * @return SalesQuoteLineItemRequestBuilder|null
     */
-    public function salesQuoteLinesById(string $id): SalesQuoteLineItemRequestBuilder {
+    public function salesQuoteLinesById(string $id): ?SalesQuoteLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesQuoteLine%2Did'] = $id;
         return new SalesQuoteLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -724,9 +724,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the salesQuotes property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return SalesQuoteItemRequestBuilder
+     * @return SalesQuoteItemRequestBuilder|null
     */
-    public function salesQuotesById(string $id): SalesQuoteItemRequestBuilder {
+    public function salesQuotesById(string $id): ?SalesQuoteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesQuote%2Did'] = $id;
         return new SalesQuoteItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -735,9 +735,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the shipmentMethods property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return ShipmentMethodItemRequestBuilder
+     * @return ShipmentMethodItemRequestBuilder|null
     */
-    public function shipmentMethodsById(string $id): ShipmentMethodItemRequestBuilder {
+    public function shipmentMethodsById(string $id): ?ShipmentMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['shipmentMethod%2Did'] = $id;
         return new ShipmentMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -746,9 +746,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the taxAreas property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return TaxAreaItemRequestBuilder
+     * @return TaxAreaItemRequestBuilder|null
     */
-    public function taxAreasById(string $id): TaxAreaItemRequestBuilder {
+    public function taxAreasById(string $id): ?TaxAreaItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['taxArea%2Did'] = $id;
         return new TaxAreaItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -757,9 +757,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the taxGroups property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return TaxGroupItemRequestBuilder
+     * @return TaxGroupItemRequestBuilder|null
     */
-    public function taxGroupsById(string $id): TaxGroupItemRequestBuilder {
+    public function taxGroupsById(string $id): ?TaxGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['taxGroup%2Did'] = $id;
         return new TaxGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -768,9 +768,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the unitsOfMeasure property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return UnitOfMeasureItemRequestBuilder
+     * @return UnitOfMeasureItemRequestBuilder|null
     */
-    public function unitsOfMeasureById(string $id): UnitOfMeasureItemRequestBuilder {
+    public function unitsOfMeasureById(string $id): ?UnitOfMeasureItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unitOfMeasure%2Did'] = $id;
         return new UnitOfMeasureItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -779,9 +779,9 @@ class CompanyItemRequestBuilder
     /**
      * Provides operations to manage the vendors property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
-     * @return VendorItemRequestBuilder
+     * @return VendorItemRequestBuilder|null
     */
-    public function vendorsById(string $id): VendorItemRequestBuilder {
+    public function vendorsById(string $id): ?VendorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['vendor%2Did'] = $id;
         return new VendorItemRequestBuilder($urlTplParams, $this->requestAdapter);

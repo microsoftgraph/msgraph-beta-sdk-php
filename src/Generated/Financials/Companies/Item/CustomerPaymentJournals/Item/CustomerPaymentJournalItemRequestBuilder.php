@@ -133,9 +133,9 @@ class CustomerPaymentJournalItemRequestBuilder
     /**
      * Provides operations to manage the customerPayments property of the microsoft.graph.customerPaymentJournal entity.
      * @param string $id Unique identifier of the item
-     * @return CustomerPaymentItemRequestBuilder
+     * @return CustomerPaymentItemRequestBuilder|null
     */
-    public function customerPaymentsById(string $id): CustomerPaymentItemRequestBuilder {
+    public function customerPaymentsById(string $id): ?CustomerPaymentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customerPayment%2Did'] = $id;
         return new CustomerPaymentItemRequestBuilder($urlTplParams, $this->requestAdapter);

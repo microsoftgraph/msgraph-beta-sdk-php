@@ -69,9 +69,9 @@ class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder
+     * @return WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDefenderApplicationControlSupplementalPolicyAssignment%2Did'] = $id;
         return new WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -180,9 +180,9 @@ class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder
     /**
      * Provides operations to manage the deviceStatuses property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder
+     * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder|null
     */
-    public function deviceStatusesById(string $id): WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder {
+    public function deviceStatusesById(string $id): ?WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus%2Did'] = $id;
         return new WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);

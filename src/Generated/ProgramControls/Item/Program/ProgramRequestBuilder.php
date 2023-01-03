@@ -55,9 +55,9 @@ class ProgramRequestBuilder
     /**
      * Provides operations to manage the controls property of the microsoft.graph.program entity.
      * @param string $id Unique identifier of the item
-     * @return ProgramControlItemRequestBuilder
+     * @return ProgramControlItemRequestBuilder|null
     */
-    public function controlsById(string $id): ProgramControlItemRequestBuilder {
+    public function controlsById(string $id): ?ProgramControlItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['programControl%2Did1'] = $id;
         return new ProgramControlItemRequestBuilder($urlTplParams, $this->requestAdapter);

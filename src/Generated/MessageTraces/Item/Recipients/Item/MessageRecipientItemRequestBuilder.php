@@ -144,9 +144,9 @@ class MessageRecipientItemRequestBuilder
     /**
      * Provides operations to manage the events property of the microsoft.graph.messageRecipient entity.
      * @param string $id Unique identifier of the item
-     * @return MessageEventItemRequestBuilder
+     * @return MessageEventItemRequestBuilder|null
     */
-    public function eventsById(string $id): MessageEventItemRequestBuilder {
+    public function eventsById(string $id): ?MessageEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['messageEvent%2Did'] = $id;
         return new MessageEventItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -147,9 +147,9 @@ class TeamworkRequestBuilder
     /**
      * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
      * @param string $id Unique identifier of the item
-     * @return DeletedTeamItemRequestBuilder
+     * @return DeletedTeamItemRequestBuilder|null
     */
-    public function deletedTeamsById(string $id): DeletedTeamItemRequestBuilder {
+    public function deletedTeamsById(string $id): ?DeletedTeamItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deletedTeam%2Did'] = $id;
         return new DeletedTeamItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -158,9 +158,9 @@ class TeamworkRequestBuilder
     /**
      * Provides operations to manage the devices property of the microsoft.graph.teamwork entity.
      * @param string $id Unique identifier of the item
-     * @return TeamworkDeviceItemRequestBuilder
+     * @return TeamworkDeviceItemRequestBuilder|null
     */
-    public function devicesById(string $id): TeamworkDeviceItemRequestBuilder {
+    public function devicesById(string $id): ?TeamworkDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamworkDevice%2Did'] = $id;
         return new TeamworkDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -208,9 +208,9 @@ class TeamworkRequestBuilder
     /**
      * Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
      * @param string $id Unique identifier of the item
-     * @return TeamTemplateItemRequestBuilder
+     * @return TeamTemplateItemRequestBuilder|null
     */
-    public function teamTemplatesById(string $id): TeamTemplateItemRequestBuilder {
+    public function teamTemplatesById(string $id): ?TeamTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamTemplate%2Did'] = $id;
         return new TeamTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -219,9 +219,9 @@ class TeamworkRequestBuilder
     /**
      * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
      * @param string $id Unique identifier of the item
-     * @return WorkforceIntegrationItemRequestBuilder
+     * @return WorkforceIntegrationItemRequestBuilder|null
     */
-    public function workforceIntegrationsById(string $id): WorkforceIntegrationItemRequestBuilder {
+    public function workforceIntegrationsById(string $id): ?WorkforceIntegrationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['workforceIntegration%2Did'] = $id;
         return new WorkforceIntegrationItemRequestBuilder($urlTplParams, $this->requestAdapter);

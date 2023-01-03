@@ -183,9 +183,9 @@ class DelegatedAdminCustomerItemRequestBuilder
     /**
      * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
      * @param string $id Unique identifier of the item
-     * @return DelegatedAdminServiceManagementDetailItemRequestBuilder
+     * @return DelegatedAdminServiceManagementDetailItemRequestBuilder|null
     */
-    public function serviceManagementDetailsById(string $id): DelegatedAdminServiceManagementDetailItemRequestBuilder {
+    public function serviceManagementDetailsById(string $id): ?DelegatedAdminServiceManagementDetailItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['delegatedAdminServiceManagementDetail%2Did'] = $id;
         return new DelegatedAdminServiceManagementDetailItemRequestBuilder($urlTplParams, $this->requestAdapter);

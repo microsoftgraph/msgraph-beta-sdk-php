@@ -44,9 +44,9 @@ class SolutionsRequestBuilder
     /**
      * Provides operations to manage the businessScenarios property of the microsoft.graph.solutionsRoot entity.
      * @param string $id Unique identifier of the item
-     * @return BusinessScenarioItemRequestBuilder
+     * @return BusinessScenarioItemRequestBuilder|null
     */
-    public function businessScenariosById(string $id): BusinessScenarioItemRequestBuilder {
+    public function businessScenariosById(string $id): ?BusinessScenarioItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['businessScenario%2Did'] = $id;
         return new BusinessScenarioItemRequestBuilder($urlTplParams, $this->requestAdapter);

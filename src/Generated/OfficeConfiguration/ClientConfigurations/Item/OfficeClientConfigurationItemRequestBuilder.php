@@ -68,9 +68,9 @@ class OfficeClientConfigurationItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.officeClientConfiguration entity.
      * @param string $id Unique identifier of the item
-     * @return OfficeClientConfigurationAssignmentItemRequestBuilder
+     * @return OfficeClientConfigurationAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): OfficeClientConfigurationAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?OfficeClientConfigurationAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['officeClientConfigurationAssignment%2Did'] = $id;
         return new OfficeClientConfigurationAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

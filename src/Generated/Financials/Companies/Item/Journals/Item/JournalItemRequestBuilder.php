@@ -179,9 +179,9 @@ class JournalItemRequestBuilder
     /**
      * Provides operations to manage the journalLines property of the microsoft.graph.journal entity.
      * @param string $id Unique identifier of the item
-     * @return JournalLineItemRequestBuilder
+     * @return JournalLineItemRequestBuilder|null
     */
-    public function journalLinesById(string $id): JournalLineItemRequestBuilder {
+    public function journalLinesById(string $id): ?JournalLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['journalLine%2Did'] = $id;
         return new JournalLineItemRequestBuilder($urlTplParams, $this->requestAdapter);

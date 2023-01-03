@@ -44,9 +44,9 @@ class MobileAppTroubleshootingEventItemRequestBuilder
     /**
      * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
      * @param string $id Unique identifier of the item
-     * @return AppLogCollectionRequestItemRequestBuilder
+     * @return AppLogCollectionRequestItemRequestBuilder|null
     */
-    public function appLogCollectionRequestsById(string $id): AppLogCollectionRequestItemRequestBuilder {
+    public function appLogCollectionRequestsById(string $id): ?AppLogCollectionRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['appLogCollectionRequest%2Did'] = $id;
         return new AppLogCollectionRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);

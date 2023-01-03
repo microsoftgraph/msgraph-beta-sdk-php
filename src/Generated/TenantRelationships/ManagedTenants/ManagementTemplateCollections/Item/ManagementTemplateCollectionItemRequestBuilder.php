@@ -163,9 +163,9 @@ class ManagementTemplateCollectionItemRequestBuilder
     /**
      * Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managementTemplateCollection entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateItemRequestBuilder
+     * @return ManagementTemplateItemRequestBuilder|null
     */
-    public function managementTemplatesById(string $id): ManagementTemplateItemRequestBuilder {
+    public function managementTemplatesById(string $id): ?ManagementTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplate%2Did'] = $id;
         return new ManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);

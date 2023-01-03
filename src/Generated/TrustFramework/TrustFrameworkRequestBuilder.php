@@ -132,9 +132,9 @@ class TrustFrameworkRequestBuilder
     /**
      * Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.
      * @param string $id Unique identifier of the item
-     * @return TrustFrameworkKeySetItemRequestBuilder
+     * @return TrustFrameworkKeySetItemRequestBuilder|null
     */
-    public function keySetsById(string $id): TrustFrameworkKeySetItemRequestBuilder {
+    public function keySetsById(string $id): ?TrustFrameworkKeySetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['trustFrameworkKeySet%2Did'] = $id;
         return new TrustFrameworkKeySetItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -163,9 +163,9 @@ class TrustFrameworkRequestBuilder
     /**
      * Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.
      * @param string $id Unique identifier of the item
-     * @return TrustFrameworkPolicyItemRequestBuilder
+     * @return TrustFrameworkPolicyItemRequestBuilder|null
     */
-    public function policiesById(string $id): TrustFrameworkPolicyItemRequestBuilder {
+    public function policiesById(string $id): ?TrustFrameworkPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['trustFrameworkPolicy%2Did'] = $id;
         return new TrustFrameworkPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);

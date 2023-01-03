@@ -44,9 +44,9 @@ class OfficeConfigurationRequestBuilder
     /**
      * Provides operations to manage the clientConfigurations property of the microsoft.graph.officeConfiguration entity.
      * @param string $id Unique identifier of the item
-     * @return OfficeClientConfigurationItemRequestBuilder
+     * @return OfficeClientConfigurationItemRequestBuilder|null
     */
-    public function clientConfigurationsById(string $id): OfficeClientConfigurationItemRequestBuilder {
+    public function clientConfigurationsById(string $id): ?OfficeClientConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['officeClientConfiguration%2Did'] = $id;
         return new OfficeClientConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);

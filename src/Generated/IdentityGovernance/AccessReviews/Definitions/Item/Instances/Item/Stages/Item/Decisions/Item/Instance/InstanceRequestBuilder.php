@@ -120,9 +120,9 @@ class InstanceRequestBuilder
     /**
      * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
      * @param string $id Unique identifier of the item
-     * @return AccessReviewReviewerItemRequestBuilder
+     * @return AccessReviewReviewerItemRequestBuilder|null
     */
-    public function contactedReviewersById(string $id): AccessReviewReviewerItemRequestBuilder {
+    public function contactedReviewersById(string $id): ?AccessReviewReviewerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessReviewReviewer%2Did'] = $id;
         return new AccessReviewReviewerItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -201,9 +201,9 @@ class InstanceRequestBuilder
     /**
      * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
      * @param string $id Unique identifier of the item
-     * @return AccessReviewInstanceDecisionItemItemRequestBuilder
+     * @return AccessReviewInstanceDecisionItemItemRequestBuilder|null
     */
-    public function decisionsById(string $id): AccessReviewInstanceDecisionItemItemRequestBuilder {
+    public function decisionsById(string $id): ?AccessReviewInstanceDecisionItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessReviewInstanceDecisionItem%2Did1'] = $id;
         return new AccessReviewInstanceDecisionItemItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -183,9 +183,9 @@ class MessageTraceItemRequestBuilder
     /**
      * Provides operations to manage the recipients property of the microsoft.graph.messageTrace entity.
      * @param string $id Unique identifier of the item
-     * @return MessageRecipientItemRequestBuilder
+     * @return MessageRecipientItemRequestBuilder|null
     */
-    public function recipientsById(string $id): MessageRecipientItemRequestBuilder {
+    public function recipientsById(string $id): ?MessageRecipientItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['messageRecipient%2Did'] = $id;
         return new MessageRecipientItemRequestBuilder($urlTplParams, $this->requestAdapter);

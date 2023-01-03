@@ -218,9 +218,9 @@ class GovernanceResourceItemRequestBuilder
     /**
      * Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.governanceResource entity.
      * @param string $id Unique identifier of the item
-     * @return GovernanceRoleAssignmentRequestItemRequestBuilder
+     * @return GovernanceRoleAssignmentRequestItemRequestBuilder|null
     */
-    public function roleAssignmentRequestsById(string $id): GovernanceRoleAssignmentRequestItemRequestBuilder {
+    public function roleAssignmentRequestsById(string $id): ?GovernanceRoleAssignmentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleAssignmentRequest%2Did'] = $id;
         return new GovernanceRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -229,9 +229,9 @@ class GovernanceResourceItemRequestBuilder
     /**
      * Provides operations to manage the roleAssignments property of the microsoft.graph.governanceResource entity.
      * @param string $id Unique identifier of the item
-     * @return GovernanceRoleAssignmentItemRequestBuilder
+     * @return GovernanceRoleAssignmentItemRequestBuilder|null
     */
-    public function roleAssignmentsById(string $id): GovernanceRoleAssignmentItemRequestBuilder {
+    public function roleAssignmentsById(string $id): ?GovernanceRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleAssignment%2Did'] = $id;
         return new GovernanceRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -240,9 +240,9 @@ class GovernanceResourceItemRequestBuilder
     /**
      * Provides operations to manage the roleDefinitions property of the microsoft.graph.governanceResource entity.
      * @param string $id Unique identifier of the item
-     * @return GovernanceRoleDefinitionItemRequestBuilder
+     * @return GovernanceRoleDefinitionItemRequestBuilder|null
     */
-    public function roleDefinitionsById(string $id): GovernanceRoleDefinitionItemRequestBuilder {
+    public function roleDefinitionsById(string $id): ?GovernanceRoleDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleDefinition%2Did'] = $id;
         return new GovernanceRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -251,9 +251,9 @@ class GovernanceResourceItemRequestBuilder
     /**
      * Provides operations to manage the roleSettings property of the microsoft.graph.governanceResource entity.
      * @param string $id Unique identifier of the item
-     * @return GovernanceRoleSettingItemRequestBuilder
+     * @return GovernanceRoleSettingItemRequestBuilder|null
     */
-    public function roleSettingsById(string $id): GovernanceRoleSettingItemRequestBuilder {
+    public function roleSettingsById(string $id): ?GovernanceRoleSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleSetting%2Did'] = $id;
         return new GovernanceRoleSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);

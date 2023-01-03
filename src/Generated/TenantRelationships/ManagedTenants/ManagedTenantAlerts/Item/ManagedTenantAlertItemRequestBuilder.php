@@ -78,9 +78,9 @@ class ManagedTenantAlertItemRequestBuilder
     /**
      * Provides operations to manage the alertLogs property of the microsoft.graph.managedTenants.managedTenantAlert entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantAlertLogItemRequestBuilder
+     * @return ManagedTenantAlertLogItemRequestBuilder|null
     */
-    public function alertLogsById(string $id): ManagedTenantAlertLogItemRequestBuilder {
+    public function alertLogsById(string $id): ?ManagedTenantAlertLogItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantAlertLog%2Did'] = $id;
         return new ManagedTenantAlertLogItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -89,9 +89,9 @@ class ManagedTenantAlertItemRequestBuilder
     /**
      * Provides operations to manage the apiNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantApiNotificationItemRequestBuilder
+     * @return ManagedTenantApiNotificationItemRequestBuilder|null
     */
-    public function apiNotificationsById(string $id): ManagedTenantApiNotificationItemRequestBuilder {
+    public function apiNotificationsById(string $id): ?ManagedTenantApiNotificationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantApiNotification%2Did'] = $id;
         return new ManagedTenantApiNotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -200,9 +200,9 @@ class ManagedTenantAlertItemRequestBuilder
     /**
      * Provides operations to manage the emailNotifications property of the microsoft.graph.managedTenants.managedTenantAlert entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantEmailNotificationItemRequestBuilder
+     * @return ManagedTenantEmailNotificationItemRequestBuilder|null
     */
-    public function emailNotificationsById(string $id): ManagedTenantEmailNotificationItemRequestBuilder {
+    public function emailNotificationsById(string $id): ?ManagedTenantEmailNotificationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantEmailNotification%2Did'] = $id;
         return new ManagedTenantEmailNotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);

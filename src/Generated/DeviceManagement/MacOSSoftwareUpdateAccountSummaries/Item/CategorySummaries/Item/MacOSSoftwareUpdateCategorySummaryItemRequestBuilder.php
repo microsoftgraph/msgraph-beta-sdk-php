@@ -183,9 +183,9 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder
     /**
      * Provides operations to manage the updateStateSummaries property of the microsoft.graph.macOSSoftwareUpdateCategorySummary entity.
      * @param string $id Unique identifier of the item
-     * @return MacOSSoftwareUpdateStateSummaryItemRequestBuilder
+     * @return MacOSSoftwareUpdateStateSummaryItemRequestBuilder|null
     */
-    public function updateStateSummariesById(string $id): MacOSSoftwareUpdateStateSummaryItemRequestBuilder {
+    public function updateStateSummariesById(string $id): ?MacOSSoftwareUpdateStateSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['macOSSoftwareUpdateStateSummary%2Did'] = $id;
         return new MacOSSoftwareUpdateStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);

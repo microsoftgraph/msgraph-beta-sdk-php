@@ -69,9 +69,9 @@ class DeviceComplianceScriptItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceComplianceScript entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceHealthScriptAssignmentItemRequestBuilder
+     * @return DeviceHealthScriptAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): DeviceHealthScriptAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?DeviceHealthScriptAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceHealthScriptAssignment%2Did'] = $id;
         return new DeviceHealthScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -180,9 +180,9 @@ class DeviceComplianceScriptItemRequestBuilder
     /**
      * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceComplianceScript entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceComplianceScriptDeviceStateItemRequestBuilder
+     * @return DeviceComplianceScriptDeviceStateItemRequestBuilder|null
     */
-    public function deviceRunStatesById(string $id): DeviceComplianceScriptDeviceStateItemRequestBuilder {
+    public function deviceRunStatesById(string $id): ?DeviceComplianceScriptDeviceStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceComplianceScriptDeviceState%2Did'] = $id;
         return new DeviceComplianceScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

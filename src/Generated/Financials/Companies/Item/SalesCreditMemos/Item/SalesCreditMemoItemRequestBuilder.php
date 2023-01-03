@@ -167,9 +167,9 @@ class SalesCreditMemoItemRequestBuilder
     /**
      * Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.salesCreditMemo entity.
      * @param string $id Unique identifier of the item
-     * @return SalesCreditMemoLineItemRequestBuilder
+     * @return SalesCreditMemoLineItemRequestBuilder|null
     */
-    public function salesCreditMemoLinesById(string $id): SalesCreditMemoLineItemRequestBuilder {
+    public function salesCreditMemoLinesById(string $id): ?SalesCreditMemoLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesCreditMemoLine%2Did'] = $id;
         return new SalesCreditMemoLineItemRequestBuilder($urlTplParams, $this->requestAdapter);

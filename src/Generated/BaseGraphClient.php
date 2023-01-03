@@ -1036,9 +1036,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of accessReviewDecision entities.
      * @param string $id Unique identifier of the item
-     * @return AccessReviewDecisionItemRequestBuilder
+     * @return AccessReviewDecisionItemRequestBuilder|null
     */
-    public function accessReviewDecisionsById(string $id): AccessReviewDecisionItemRequestBuilder {
+    public function accessReviewDecisionsById(string $id): ?AccessReviewDecisionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessReviewDecision%2Did'] = $id;
         return new AccessReviewDecisionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1047,9 +1047,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of accessReview entities.
      * @param string $id Unique identifier of the item
-     * @return AccessReviewItemRequestBuilder
+     * @return AccessReviewItemRequestBuilder|null
     */
-    public function accessReviewsById(string $id): AccessReviewItemRequestBuilder {
+    public function accessReviewsById(string $id): ?AccessReviewItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessReview%2Did'] = $id;
         return new AccessReviewItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1058,9 +1058,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of activityStatistics entities.
      * @param string $id Unique identifier of the item
-     * @return ActivityStatisticsItemRequestBuilder
+     * @return ActivityStatisticsItemRequestBuilder|null
     */
-    public function activitystatisticsById(string $id): ActivityStatisticsItemRequestBuilder {
+    public function activitystatisticsById(string $id): ?ActivityStatisticsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['activityStatistics%2Did'] = $id;
         return new ActivityStatisticsItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1069,9 +1069,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of administrativeUnit entities.
      * @param string $id Unique identifier of the item
-     * @return AdministrativeUnitItemRequestBuilder
+     * @return AdministrativeUnitItemRequestBuilder|null
     */
-    public function administrativeUnitsById(string $id): AdministrativeUnitItemRequestBuilder {
+    public function administrativeUnitsById(string $id): ?AdministrativeUnitItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['administrativeUnit%2Did'] = $id;
         return new AdministrativeUnitItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1080,9 +1080,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of agreementAcceptance entities.
      * @param string $id Unique identifier of the item
-     * @return AgreementAcceptanceItemRequestBuilder
+     * @return AgreementAcceptanceItemRequestBuilder|null
     */
-    public function agreementAcceptancesById(string $id): AgreementAcceptanceItemRequestBuilder {
+    public function agreementAcceptancesById(string $id): ?AgreementAcceptanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['agreementAcceptance%2Did'] = $id;
         return new AgreementAcceptanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1091,9 +1091,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of agreement entities.
      * @param string $id Unique identifier of the item
-     * @return AgreementItemRequestBuilder
+     * @return AgreementItemRequestBuilder|null
     */
-    public function agreementsById(string $id): AgreementItemRequestBuilder {
+    public function agreementsById(string $id): ?AgreementItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['agreement%2Did'] = $id;
         return new AgreementItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1102,9 +1102,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of allowedDataLocation entities.
      * @param string $id Unique identifier of the item
-     * @return AllowedDataLocationItemRequestBuilder
+     * @return AllowedDataLocationItemRequestBuilder|null
     */
-    public function allowedDataLocationsById(string $id): AllowedDataLocationItemRequestBuilder {
+    public function allowedDataLocationsById(string $id): ?AllowedDataLocationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['allowedDataLocation%2Did'] = $id;
         return new AllowedDataLocationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1113,9 +1113,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of application entities.
      * @param string $id Unique identifier of the item
-     * @return ApplicationItemRequestBuilder
+     * @return ApplicationItemRequestBuilder|null
     */
-    public function applicationsById(string $id): ApplicationItemRequestBuilder {
+    public function applicationsById(string $id): ?ApplicationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['application%2Did'] = $id;
         return new ApplicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1124,9 +1124,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of applicationTemplate entities.
      * @param string $id Unique identifier of the item
-     * @return ApplicationTemplateItemRequestBuilder
+     * @return ApplicationTemplateItemRequestBuilder|null
     */
-    public function applicationTemplatesById(string $id): ApplicationTemplateItemRequestBuilder {
+    public function applicationTemplatesById(string $id): ?ApplicationTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['applicationTemplate%2Did'] = $id;
         return new ApplicationTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1135,9 +1135,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of appRoleAssignment entities.
      * @param string $id Unique identifier of the item
-     * @return AppRoleAssignmentItemRequestBuilder
+     * @return AppRoleAssignmentItemRequestBuilder|null
     */
-    public function appRoleAssignmentsById(string $id): AppRoleAssignmentItemRequestBuilder {
+    public function appRoleAssignmentsById(string $id): ?AppRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['appRoleAssignment%2Did'] = $id;
         return new AppRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1146,9 +1146,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of approvalWorkflowProvider entities.
      * @param string $id Unique identifier of the item
-     * @return ApprovalWorkflowProviderItemRequestBuilder
+     * @return ApprovalWorkflowProviderItemRequestBuilder|null
     */
-    public function approvalWorkflowProvidersById(string $id): ApprovalWorkflowProviderItemRequestBuilder {
+    public function approvalWorkflowProvidersById(string $id): ?ApprovalWorkflowProviderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['approvalWorkflowProvider%2Did'] = $id;
         return new ApprovalWorkflowProviderItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1157,9 +1157,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of authenticationMethodConfiguration entities.
      * @param string $id Unique identifier of the item
-     * @return AuthenticationMethodConfigurationItemRequestBuilder
+     * @return AuthenticationMethodConfigurationItemRequestBuilder|null
     */
-    public function authenticationMethodConfigurationsById(string $id): AuthenticationMethodConfigurationItemRequestBuilder {
+    public function authenticationMethodConfigurationsById(string $id): ?AuthenticationMethodConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['authenticationMethodConfiguration%2Did'] = $id;
         return new AuthenticationMethodConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1168,9 +1168,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of bookingBusiness entities.
      * @param string $id Unique identifier of the item
-     * @return BookingBusinessItemRequestBuilder
+     * @return BookingBusinessItemRequestBuilder|null
     */
-    public function bookingBusinessesById(string $id): BookingBusinessItemRequestBuilder {
+    public function bookingBusinessesById(string $id): ?BookingBusinessItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['bookingBusiness%2Did'] = $id;
         return new BookingBusinessItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1179,9 +1179,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of bookingCurrency entities.
      * @param string $id Unique identifier of the item
-     * @return BookingCurrencyItemRequestBuilder
+     * @return BookingCurrencyItemRequestBuilder|null
     */
-    public function bookingCurrenciesById(string $id): BookingCurrencyItemRequestBuilder {
+    public function bookingCurrenciesById(string $id): ?BookingCurrencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['bookingCurrency%2Did'] = $id;
         return new BookingCurrencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1190,9 +1190,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of businessFlowTemplate entities.
      * @param string $id Unique identifier of the item
-     * @return BusinessFlowTemplateItemRequestBuilder
+     * @return BusinessFlowTemplateItemRequestBuilder|null
     */
-    public function businessFlowTemplatesById(string $id): BusinessFlowTemplateItemRequestBuilder {
+    public function businessFlowTemplatesById(string $id): ?BusinessFlowTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['businessFlowTemplate%2Did'] = $id;
         return new BusinessFlowTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1201,9 +1201,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.
      * @param string $id Unique identifier of the item
-     * @return CertificateBasedAuthConfigurationItemRequestBuilder
+     * @return CertificateBasedAuthConfigurationItemRequestBuilder|null
     */
-    public function certificateBasedAuthConfigurationById(string $id): CertificateBasedAuthConfigurationItemRequestBuilder {
+    public function certificateBasedAuthConfigurationById(string $id): ?CertificateBasedAuthConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['certificateBasedAuthConfiguration%2Did'] = $id;
         return new CertificateBasedAuthConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1212,9 +1212,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of chat entities.
      * @param string $id Unique identifier of the item
-     * @return ChatItemRequestBuilder
+     * @return ChatItemRequestBuilder|null
     */
-    public function chatsById(string $id): ChatItemRequestBuilder {
+    public function chatsById(string $id): ?ChatItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['chat%2Did'] = $id;
         return new ChatItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1223,9 +1223,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of command entities.
      * @param string $id Unique identifier of the item
-     * @return CommandItemRequestBuilder
+     * @return CommandItemRequestBuilder|null
     */
-    public function commandsById(string $id): CommandItemRequestBuilder {
+    public function commandsById(string $id): ?CommandItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['command%2Did'] = $id;
         return new CommandItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1234,9 +1234,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of externalConnection entities.
      * @param string $id Unique identifier of the item
-     * @return ExternalConnectionItemRequestBuilder
+     * @return ExternalConnectionItemRequestBuilder|null
     */
-    public function connectionsById(string $id): ExternalConnectionItemRequestBuilder {
+    public function connectionsById(string $id): ?ExternalConnectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['externalConnection%2Did'] = $id;
         return new ExternalConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1264,9 +1264,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of orgContact entities.
      * @param string $id Unique identifier of the item
-     * @return OrgContactItemRequestBuilder
+     * @return OrgContactItemRequestBuilder|null
     */
-    public function contactsById(string $id): OrgContactItemRequestBuilder {
+    public function contactsById(string $id): ?OrgContactItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['orgContact%2Did'] = $id;
         return new OrgContactItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1275,9 +1275,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of contract entities.
      * @param string $id Unique identifier of the item
-     * @return ContractItemRequestBuilder
+     * @return ContractItemRequestBuilder|null
     */
-    public function contractsById(string $id): ContractItemRequestBuilder {
+    public function contractsById(string $id): ?ContractItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['contract%2Did'] = $id;
         return new ContractItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1286,9 +1286,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of dataPolicyOperation entities.
      * @param string $id Unique identifier of the item
-     * @return DataPolicyOperationItemRequestBuilder
+     * @return DataPolicyOperationItemRequestBuilder|null
     */
-    public function dataPolicyOperationsById(string $id): DataPolicyOperationItemRequestBuilder {
+    public function dataPolicyOperationsById(string $id): ?DataPolicyOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dataPolicyOperation%2Did'] = $id;
         return new DataPolicyOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1297,9 +1297,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of device entities.
      * @param string $id Unique identifier of the item
-     * @return DeviceItemRequestBuilder
+     * @return DeviceItemRequestBuilder|null
     */
-    public function devicesById(string $id): DeviceItemRequestBuilder {
+    public function devicesById(string $id): ?DeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['device%2Did'] = $id;
         return new DeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1308,9 +1308,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of directoryObject entities.
      * @param string $id Unique identifier of the item
-     * @return DirectoryObjectItemRequestBuilder
+     * @return DirectoryObjectItemRequestBuilder|null
     */
-    public function directoryObjectsById(string $id): DirectoryObjectItemRequestBuilder {
+    public function directoryObjectsById(string $id): ?DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1319,9 +1319,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of directoryRole entities.
      * @param string $id Unique identifier of the item
-     * @return DirectoryRoleItemRequestBuilder
+     * @return DirectoryRoleItemRequestBuilder|null
     */
-    public function directoryRolesById(string $id): DirectoryRoleItemRequestBuilder {
+    public function directoryRolesById(string $id): ?DirectoryRoleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryRole%2Did'] = $id;
         return new DirectoryRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1330,9 +1330,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of directoryRoleTemplate entities.
      * @param string $id Unique identifier of the item
-     * @return DirectoryRoleTemplateItemRequestBuilder
+     * @return DirectoryRoleTemplateItemRequestBuilder|null
     */
-    public function directoryRoleTemplatesById(string $id): DirectoryRoleTemplateItemRequestBuilder {
+    public function directoryRoleTemplatesById(string $id): ?DirectoryRoleTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryRoleTemplate%2Did'] = $id;
         return new DirectoryRoleTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1341,9 +1341,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of directorySettingTemplate entities.
      * @param string $id Unique identifier of the item
-     * @return DirectorySettingTemplateItemRequestBuilder
+     * @return DirectorySettingTemplateItemRequestBuilder|null
     */
-    public function directorySettingTemplatesById(string $id): DirectorySettingTemplateItemRequestBuilder {
+    public function directorySettingTemplatesById(string $id): ?DirectorySettingTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directorySettingTemplate%2Did'] = $id;
         return new DirectorySettingTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1352,9 +1352,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of domainDnsRecord entities.
      * @param string $id Unique identifier of the item
-     * @return DomainDnsRecordItemRequestBuilder
+     * @return DomainDnsRecordItemRequestBuilder|null
     */
-    public function domainDnsRecordsById(string $id): DomainDnsRecordItemRequestBuilder {
+    public function domainDnsRecordsById(string $id): ?DomainDnsRecordItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['domainDnsRecord%2Did'] = $id;
         return new DomainDnsRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1363,9 +1363,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of domain entities.
      * @param string $id Unique identifier of the item
-     * @return DomainItemRequestBuilder
+     * @return DomainItemRequestBuilder|null
     */
-    public function domainsById(string $id): DomainItemRequestBuilder {
+    public function domainsById(string $id): ?DomainItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['domain%2Did'] = $id;
         return new DomainItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1374,9 +1374,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of drive entities.
      * @param string $id Unique identifier of the item
-     * @return DriveItemRequestBuilder
+     * @return DriveItemRequestBuilder|null
     */
-    public function drivesById(string $id): DriveItemRequestBuilder {
+    public function drivesById(string $id): ?DriveItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['drive%2Did'] = $id;
         return new DriveItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1385,9 +1385,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of filterOperatorSchema entities.
      * @param string $id Unique identifier of the item
-     * @return FilterOperatorSchemaItemRequestBuilder
+     * @return FilterOperatorSchemaItemRequestBuilder|null
     */
-    public function filterOperatorsById(string $id): FilterOperatorSchemaItemRequestBuilder {
+    public function filterOperatorsById(string $id): ?FilterOperatorSchemaItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['filterOperatorSchema%2Did'] = $id;
         return new FilterOperatorSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1396,9 +1396,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of attributeMappingFunctionSchema entities.
      * @param string $id Unique identifier of the item
-     * @return AttributeMappingFunctionSchemaItemRequestBuilder
+     * @return AttributeMappingFunctionSchemaItemRequestBuilder|null
     */
-    public function functionsById(string $id): AttributeMappingFunctionSchemaItemRequestBuilder {
+    public function functionsById(string $id): ?AttributeMappingFunctionSchemaItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['attributeMappingFunctionSchema%2Did'] = $id;
         return new AttributeMappingFunctionSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1407,9 +1407,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of governanceResource entities.
      * @param string $id Unique identifier of the item
-     * @return GovernanceResourceItemRequestBuilder
+     * @return GovernanceResourceItemRequestBuilder|null
     */
-    public function governanceResourcesById(string $id): GovernanceResourceItemRequestBuilder {
+    public function governanceResourcesById(string $id): ?GovernanceResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceResource%2Did'] = $id;
         return new GovernanceResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1418,9 +1418,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of governanceRoleAssignmentRequest entities.
      * @param string $id Unique identifier of the item
-     * @return GovernanceRoleAssignmentRequestItemRequestBuilder
+     * @return GovernanceRoleAssignmentRequestItemRequestBuilder|null
     */
-    public function governanceRoleAssignmentRequestsById(string $id): GovernanceRoleAssignmentRequestItemRequestBuilder {
+    public function governanceRoleAssignmentRequestsById(string $id): ?GovernanceRoleAssignmentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleAssignmentRequest%2Did'] = $id;
         return new GovernanceRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1429,9 +1429,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of governanceRoleAssignment entities.
      * @param string $id Unique identifier of the item
-     * @return GovernanceRoleAssignmentItemRequestBuilder
+     * @return GovernanceRoleAssignmentItemRequestBuilder|null
     */
-    public function governanceRoleAssignmentsById(string $id): GovernanceRoleAssignmentItemRequestBuilder {
+    public function governanceRoleAssignmentsById(string $id): ?GovernanceRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleAssignment%2Did'] = $id;
         return new GovernanceRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1440,9 +1440,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of governanceRoleDefinition entities.
      * @param string $id Unique identifier of the item
-     * @return GovernanceRoleDefinitionItemRequestBuilder
+     * @return GovernanceRoleDefinitionItemRequestBuilder|null
     */
-    public function governanceRoleDefinitionsById(string $id): GovernanceRoleDefinitionItemRequestBuilder {
+    public function governanceRoleDefinitionsById(string $id): ?GovernanceRoleDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleDefinition%2Did'] = $id;
         return new GovernanceRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1451,9 +1451,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of governanceRoleSetting entities.
      * @param string $id Unique identifier of the item
-     * @return GovernanceRoleSettingItemRequestBuilder
+     * @return GovernanceRoleSettingItemRequestBuilder|null
     */
-    public function governanceRoleSettingsById(string $id): GovernanceRoleSettingItemRequestBuilder {
+    public function governanceRoleSettingsById(string $id): ?GovernanceRoleSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleSetting%2Did'] = $id;
         return new GovernanceRoleSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1462,9 +1462,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of governanceSubject entities.
      * @param string $id Unique identifier of the item
-     * @return GovernanceSubjectItemRequestBuilder
+     * @return GovernanceSubjectItemRequestBuilder|null
     */
-    public function governanceSubjectsById(string $id): GovernanceSubjectItemRequestBuilder {
+    public function governanceSubjectsById(string $id): ?GovernanceSubjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceSubject%2Did'] = $id;
         return new GovernanceSubjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1473,9 +1473,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of groupLifecyclePolicy entities.
      * @param string $id Unique identifier of the item
-     * @return GroupLifecyclePolicyItemRequestBuilder
+     * @return GroupLifecyclePolicyItemRequestBuilder|null
     */
-    public function groupLifecyclePoliciesById(string $id): GroupLifecyclePolicyItemRequestBuilder {
+    public function groupLifecyclePoliciesById(string $id): ?GroupLifecyclePolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupLifecyclePolicy%2Did'] = $id;
         return new GroupLifecyclePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1484,9 +1484,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of group entities.
      * @param string $id Unique identifier of the item
-     * @return GroupItemRequestBuilder
+     * @return GroupItemRequestBuilder|null
     */
-    public function groupsById(string $id): GroupItemRequestBuilder {
+    public function groupsById(string $id): ?GroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['group%2Did'] = $id;
         return new GroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1495,9 +1495,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of identityProvider entities.
      * @param string $id Unique identifier of the item
-     * @return IdentityProviderItemRequestBuilder
+     * @return IdentityProviderItemRequestBuilder|null
     */
-    public function identityProvidersById(string $id): IdentityProviderItemRequestBuilder {
+    public function identityProvidersById(string $id): ?IdentityProviderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['identityProvider%2Did'] = $id;
         return new IdentityProviderItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1506,9 +1506,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of invitation entities.
      * @param string $id Unique identifier of the item
-     * @return InvitationItemRequestBuilder
+     * @return InvitationItemRequestBuilder|null
     */
-    public function invitationsById(string $id): InvitationItemRequestBuilder {
+    public function invitationsById(string $id): ?InvitationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['invitation%2Did'] = $id;
         return new InvitationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1517,9 +1517,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of messageEvent entities.
      * @param string $id Unique identifier of the item
-     * @return MessageEventItemRequestBuilder
+     * @return MessageEventItemRequestBuilder|null
     */
-    public function messageEventsById(string $id): MessageEventItemRequestBuilder {
+    public function messageEventsById(string $id): ?MessageEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['messageEvent%2Did'] = $id;
         return new MessageEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1528,9 +1528,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of messageRecipient entities.
      * @param string $id Unique identifier of the item
-     * @return MessageRecipientItemRequestBuilder
+     * @return MessageRecipientItemRequestBuilder|null
     */
-    public function messageRecipientsById(string $id): MessageRecipientItemRequestBuilder {
+    public function messageRecipientsById(string $id): ?MessageRecipientItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['messageRecipient%2Did'] = $id;
         return new MessageRecipientItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1539,9 +1539,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of messageTrace entities.
      * @param string $id Unique identifier of the item
-     * @return MessageTraceItemRequestBuilder
+     * @return MessageTraceItemRequestBuilder|null
     */
-    public function messageTracesById(string $id): MessageTraceItemRequestBuilder {
+    public function messageTracesById(string $id): ?MessageTraceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['messageTrace%2Did'] = $id;
         return new MessageTraceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1550,9 +1550,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of mobilityManagementPolicy entities.
      * @param string $id Unique identifier of the item
-     * @return MobilityManagementPolicyItemRequestBuilder
+     * @return MobilityManagementPolicyItemRequestBuilder|null
     */
-    public function mobilityManagementPoliciesById(string $id): MobilityManagementPolicyItemRequestBuilder {
+    public function mobilityManagementPoliciesById(string $id): ?MobilityManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobilityManagementPolicy%2Did'] = $id;
         return new MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1561,9 +1561,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of oAuth2PermissionGrant entities.
      * @param string $id Unique identifier of the item
-     * @return OAuth2PermissionGrantItemRequestBuilder
+     * @return OAuth2PermissionGrantItemRequestBuilder|null
     */
-    public function oauth2PermissionGrantsById(string $id): OAuth2PermissionGrantItemRequestBuilder {
+    public function oauth2PermissionGrantsById(string $id): ?OAuth2PermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['oAuth2PermissionGrant%2Did'] = $id;
         return new OAuth2PermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1572,9 +1572,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of onPremisesPublishingProfile entities.
      * @param string $id Unique identifier of the item
-     * @return OnPremisesPublishingProfileItemRequestBuilder
+     * @return OnPremisesPublishingProfileItemRequestBuilder|null
     */
-    public function onPremisesPublishingProfilesById(string $id): OnPremisesPublishingProfileItemRequestBuilder {
+    public function onPremisesPublishingProfilesById(string $id): ?OnPremisesPublishingProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['onPremisesPublishingProfile%2Did'] = $id;
         return new OnPremisesPublishingProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1583,9 +1583,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of organization entities.
      * @param string $id Unique identifier of the item
-     * @return OrganizationItemRequestBuilder
+     * @return OrganizationItemRequestBuilder|null
     */
-    public function organizationById(string $id): OrganizationItemRequestBuilder {
+    public function organizationById(string $id): ?OrganizationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['organization%2Did'] = $id;
         return new OrganizationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1594,9 +1594,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of payloadResponse entities.
      * @param string $id Unique identifier of the item
-     * @return PayloadResponseItemRequestBuilder
+     * @return PayloadResponseItemRequestBuilder|null
     */
-    public function payloadResponseById(string $id): PayloadResponseItemRequestBuilder {
+    public function payloadResponseById(string $id): ?PayloadResponseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['payloadResponse%2Did'] = $id;
         return new PayloadResponseItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1605,9 +1605,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
      * @param string $id Unique identifier of the item
-     * @return ResourceSpecificPermissionGrantItemRequestBuilder
+     * @return ResourceSpecificPermissionGrantItemRequestBuilder|null
     */
-    public function permissionGrantsById(string $id): ResourceSpecificPermissionGrantItemRequestBuilder {
+    public function permissionGrantsById(string $id): ?ResourceSpecificPermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['resourceSpecificPermissionGrant%2Did'] = $id;
         return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1616,9 +1616,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of place entities.
      * @param string $id Unique identifier of the item
-     * @return PlaceItemRequestBuilder
+     * @return PlaceItemRequestBuilder|null
     */
-    public function placesById(string $id): PlaceItemRequestBuilder {
+    public function placesById(string $id): ?PlaceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['place%2Did'] = $id;
         return new PlaceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1627,9 +1627,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of privilegedAccess entities.
      * @param string $id Unique identifier of the item
-     * @return PrivilegedAccessItemRequestBuilder
+     * @return PrivilegedAccessItemRequestBuilder|null
     */
-    public function privilegedAccessById(string $id): PrivilegedAccessItemRequestBuilder {
+    public function privilegedAccessById(string $id): ?PrivilegedAccessItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['privilegedAccess%2Did'] = $id;
         return new PrivilegedAccessItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1638,9 +1638,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of privilegedApproval entities.
      * @param string $id Unique identifier of the item
-     * @return PrivilegedApprovalItemRequestBuilder
+     * @return PrivilegedApprovalItemRequestBuilder|null
     */
-    public function privilegedApprovalById(string $id): PrivilegedApprovalItemRequestBuilder {
+    public function privilegedApprovalById(string $id): ?PrivilegedApprovalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['privilegedApproval%2Did'] = $id;
         return new PrivilegedApprovalItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1649,9 +1649,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of privilegedOperationEvent entities.
      * @param string $id Unique identifier of the item
-     * @return PrivilegedOperationEventItemRequestBuilder
+     * @return PrivilegedOperationEventItemRequestBuilder|null
     */
-    public function privilegedOperationEventsById(string $id): PrivilegedOperationEventItemRequestBuilder {
+    public function privilegedOperationEventsById(string $id): ?PrivilegedOperationEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['privilegedOperationEvent%2Did'] = $id;
         return new PrivilegedOperationEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1660,9 +1660,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of privilegedRoleAssignmentRequest entities.
      * @param string $id Unique identifier of the item
-     * @return PrivilegedRoleAssignmentRequestItemRequestBuilder
+     * @return PrivilegedRoleAssignmentRequestItemRequestBuilder|null
     */
-    public function privilegedRoleAssignmentRequestsById(string $id): PrivilegedRoleAssignmentRequestItemRequestBuilder {
+    public function privilegedRoleAssignmentRequestsById(string $id): ?PrivilegedRoleAssignmentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['privilegedRoleAssignmentRequest%2Did'] = $id;
         return new PrivilegedRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1671,9 +1671,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of privilegedRoleAssignment entities.
      * @param string $id Unique identifier of the item
-     * @return PrivilegedRoleAssignmentItemRequestBuilder
+     * @return PrivilegedRoleAssignmentItemRequestBuilder|null
     */
-    public function privilegedRoleAssignmentsById(string $id): PrivilegedRoleAssignmentItemRequestBuilder {
+    public function privilegedRoleAssignmentsById(string $id): ?PrivilegedRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['privilegedRoleAssignment%2Did'] = $id;
         return new PrivilegedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1682,9 +1682,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of privilegedRole entities.
      * @param string $id Unique identifier of the item
-     * @return PrivilegedRoleItemRequestBuilder
+     * @return PrivilegedRoleItemRequestBuilder|null
     */
-    public function privilegedRolesById(string $id): PrivilegedRoleItemRequestBuilder {
+    public function privilegedRolesById(string $id): ?PrivilegedRoleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['privilegedRole%2Did'] = $id;
         return new PrivilegedRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1693,9 +1693,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of privilegedSignupStatus entities.
      * @param string $id Unique identifier of the item
-     * @return PrivilegedSignupStatusItemRequestBuilder
+     * @return PrivilegedSignupStatusItemRequestBuilder|null
     */
-    public function privilegedSignupStatusById(string $id): PrivilegedSignupStatusItemRequestBuilder {
+    public function privilegedSignupStatusById(string $id): ?PrivilegedSignupStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['privilegedSignupStatus%2Did'] = $id;
         return new PrivilegedSignupStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1704,9 +1704,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of programControl entities.
      * @param string $id Unique identifier of the item
-     * @return ProgramControlItemRequestBuilder
+     * @return ProgramControlItemRequestBuilder|null
     */
-    public function programControlsById(string $id): ProgramControlItemRequestBuilder {
+    public function programControlsById(string $id): ?ProgramControlItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['programControl%2Did'] = $id;
         return new ProgramControlItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1715,9 +1715,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of programControlType entities.
      * @param string $id Unique identifier of the item
-     * @return ProgramControlTypeItemRequestBuilder
+     * @return ProgramControlTypeItemRequestBuilder|null
     */
-    public function programControlTypesById(string $id): ProgramControlTypeItemRequestBuilder {
+    public function programControlTypesById(string $id): ?ProgramControlTypeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['programControlType%2Did'] = $id;
         return new ProgramControlTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1726,9 +1726,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of program entities.
      * @param string $id Unique identifier of the item
-     * @return ProgramItemRequestBuilder
+     * @return ProgramItemRequestBuilder|null
     */
-    public function programsById(string $id): ProgramItemRequestBuilder {
+    public function programsById(string $id): ?ProgramItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['program%2Did'] = $id;
         return new ProgramItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1737,9 +1737,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of riskDetection entities.
      * @param string $id Unique identifier of the item
-     * @return RiskDetectionItemRequestBuilder
+     * @return RiskDetectionItemRequestBuilder|null
     */
-    public function riskDetectionsById(string $id): RiskDetectionItemRequestBuilder {
+    public function riskDetectionsById(string $id): ?RiskDetectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['riskDetection%2Did'] = $id;
         return new RiskDetectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1748,9 +1748,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of riskyUser entities.
      * @param string $id Unique identifier of the item
-     * @return RiskyUserItemRequestBuilder
+     * @return RiskyUserItemRequestBuilder|null
     */
-    public function riskyUsersById(string $id): RiskyUserItemRequestBuilder {
+    public function riskyUsersById(string $id): ?RiskyUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['riskyUser%2Did'] = $id;
         return new RiskyUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1759,9 +1759,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of schemaExtension entities.
      * @param string $id Unique identifier of the item
-     * @return SchemaExtensionItemRequestBuilder
+     * @return SchemaExtensionItemRequestBuilder|null
     */
-    public function schemaExtensionsById(string $id): SchemaExtensionItemRequestBuilder {
+    public function schemaExtensionsById(string $id): ?SchemaExtensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['schemaExtension%2Did'] = $id;
         return new SchemaExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1770,9 +1770,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of scopedRoleMembership entities.
      * @param string $id Unique identifier of the item
-     * @return ScopedRoleMembershipItemRequestBuilder
+     * @return ScopedRoleMembershipItemRequestBuilder|null
     */
-    public function scopedRoleMembershipsById(string $id): ScopedRoleMembershipItemRequestBuilder {
+    public function scopedRoleMembershipsById(string $id): ?ScopedRoleMembershipItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['scopedRoleMembership%2Did'] = $id;
         return new ScopedRoleMembershipItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1781,9 +1781,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of servicePrincipal entities.
      * @param string $id Unique identifier of the item
-     * @return ServicePrincipalItemRequestBuilder
+     * @return ServicePrincipalItemRequestBuilder|null
     */
-    public function servicePrincipalsById(string $id): ServicePrincipalItemRequestBuilder {
+    public function servicePrincipalsById(string $id): ?ServicePrincipalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['servicePrincipal%2Did'] = $id;
         return new ServicePrincipalItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1792,9 +1792,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of directorySetting entities.
      * @param string $id Unique identifier of the item
-     * @return DirectorySettingItemRequestBuilder
+     * @return DirectorySettingItemRequestBuilder|null
     */
-    public function settingsById(string $id): DirectorySettingItemRequestBuilder {
+    public function settingsById(string $id): ?DirectorySettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directorySetting%2Did'] = $id;
         return new DirectorySettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1803,9 +1803,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of sharedDriveItem entities.
      * @param string $id Unique identifier of the item
-     * @return SharedDriveItemItemRequestBuilder
+     * @return SharedDriveItemItemRequestBuilder|null
     */
-    public function sharesById(string $id): SharedDriveItemItemRequestBuilder {
+    public function sharesById(string $id): ?SharedDriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sharedDriveItem%2Did'] = $id;
         return new SharedDriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1814,9 +1814,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of site entities.
      * @param string $id Unique identifier of the item
-     * @return SiteItemRequestBuilder
+     * @return SiteItemRequestBuilder|null
     */
-    public function sitesById(string $id): SiteItemRequestBuilder {
+    public function sitesById(string $id): ?SiteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['site%2Did'] = $id;
         return new SiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1825,9 +1825,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of subscribedSku entities.
      * @param string $id Unique identifier of the item
-     * @return SubscribedSkuItemRequestBuilder
+     * @return SubscribedSkuItemRequestBuilder|null
     */
-    public function subscribedSkusById(string $id): SubscribedSkuItemRequestBuilder {
+    public function subscribedSkusById(string $id): ?SubscribedSkuItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['subscribedSku%2Did'] = $id;
         return new SubscribedSkuItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1836,9 +1836,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of subscription entities.
      * @param string $id Unique identifier of the item
-     * @return SubscriptionItemRequestBuilder
+     * @return SubscriptionItemRequestBuilder|null
     */
-    public function subscriptionsById(string $id): SubscriptionItemRequestBuilder {
+    public function subscriptionsById(string $id): ?SubscriptionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['subscription%2Did'] = $id;
         return new SubscriptionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1847,9 +1847,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of team entities.
      * @param string $id Unique identifier of the item
-     * @return TeamItemRequestBuilder
+     * @return TeamItemRequestBuilder|null
     */
-    public function teamsById(string $id): TeamItemRequestBuilder {
+    public function teamsById(string $id): ?TeamItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['team%2Did'] = $id;
         return new TeamItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1858,9 +1858,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of teamsTemplate entities.
      * @param string $id Unique identifier of the item
-     * @return TeamsTemplateItemRequestBuilder
+     * @return TeamsTemplateItemRequestBuilder|null
     */
-    public function teamsTemplatesById(string $id): TeamsTemplateItemRequestBuilder {
+    public function teamsTemplatesById(string $id): ?TeamsTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamsTemplate%2Did'] = $id;
         return new TeamsTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1869,9 +1869,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of teamTemplateDefinition entities.
      * @param string $id Unique identifier of the item
-     * @return TeamTemplateDefinitionItemRequestBuilder
+     * @return TeamTemplateDefinitionItemRequestBuilder|null
     */
-    public function teamTemplateDefinitionById(string $id): TeamTemplateDefinitionItemRequestBuilder {
+    public function teamTemplateDefinitionById(string $id): ?TeamTemplateDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamTemplateDefinition%2Did'] = $id;
         return new TeamTemplateDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1880,9 +1880,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of user entities.
      * @param string $id Unique identifier of the item
-     * @return UserItemRequestBuilder
+     * @return UserItemRequestBuilder|null
     */
-    public function usersById(string $id): UserItemRequestBuilder {
+    public function usersById(string $id): ?UserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['user%2Did'] = $id;
         return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1891,9 +1891,9 @@ class BaseGraphClient
     /**
      * Provides operations to manage the collection of driveItem entities.
      * @param string $id Unique identifier of the item
-     * @return DriveItemItemRequestBuilder
+     * @return DriveItemItemRequestBuilder|null
     */
-    public function workbooksById(string $id): DriveItemItemRequestBuilder {
+    public function workbooksById(string $id): ?DriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['driveItem%2Did'] = $id;
         return new DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);

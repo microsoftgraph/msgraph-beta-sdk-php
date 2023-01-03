@@ -44,9 +44,9 @@ class FinancialsRequestBuilder
     /**
      * Provides operations to manage the companies property of the microsoft.graph.financials entity.
      * @param string $id Unique identifier of the item
-     * @return CompanyItemRequestBuilder
+     * @return CompanyItemRequestBuilder|null
     */
-    public function companiesById(string $id): CompanyItemRequestBuilder {
+    public function companiesById(string $id): ?CompanyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['company%2Did'] = $id;
         return new CompanyItemRequestBuilder($urlTplParams, $this->requestAdapter);

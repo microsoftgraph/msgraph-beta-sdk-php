@@ -125,9 +125,9 @@ class TeamTemplateItemRequestBuilder
     /**
      * Provides operations to manage the definitions property of the microsoft.graph.teamTemplate entity.
      * @param string $id Unique identifier of the item
-     * @return TeamTemplateDefinitionItemRequestBuilder
+     * @return TeamTemplateDefinitionItemRequestBuilder|null
     */
-    public function definitionsById(string $id): TeamTemplateDefinitionItemRequestBuilder {
+    public function definitionsById(string $id): ?TeamTemplateDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamTemplateDefinition%2Did'] = $id;
         return new TeamTemplateDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);

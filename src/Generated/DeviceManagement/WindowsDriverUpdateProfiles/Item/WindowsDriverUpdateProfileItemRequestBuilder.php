@@ -77,9 +77,9 @@ class WindowsDriverUpdateProfileItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsDriverUpdateProfile entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsDriverUpdateProfileAssignmentItemRequestBuilder
+     * @return WindowsDriverUpdateProfileAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): WindowsDriverUpdateProfileAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?WindowsDriverUpdateProfileAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDriverUpdateProfileAssignment%2Did'] = $id;
         return new WindowsDriverUpdateProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -188,9 +188,9 @@ class WindowsDriverUpdateProfileItemRequestBuilder
     /**
      * Provides operations to manage the driverInventories property of the microsoft.graph.windowsDriverUpdateProfile entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsDriverUpdateInventoryItemRequestBuilder
+     * @return WindowsDriverUpdateInventoryItemRequestBuilder|null
     */
-    public function driverInventoriesById(string $id): WindowsDriverUpdateInventoryItemRequestBuilder {
+    public function driverInventoriesById(string $id): ?WindowsDriverUpdateInventoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDriverUpdateInventory%2Did'] = $id;
         return new WindowsDriverUpdateInventoryItemRequestBuilder($urlTplParams, $this->requestAdapter);

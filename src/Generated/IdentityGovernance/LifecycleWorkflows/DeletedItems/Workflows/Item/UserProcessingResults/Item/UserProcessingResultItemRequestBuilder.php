@@ -191,9 +191,9 @@ class UserProcessingResultItemRequestBuilder
     /**
      * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.userProcessingResult entity.
      * @param string $id Unique identifier of the item
-     * @return TaskProcessingResultItemRequestBuilder
+     * @return TaskProcessingResultItemRequestBuilder|null
     */
-    public function taskProcessingResultsById(string $id): TaskProcessingResultItemRequestBuilder {
+    public function taskProcessingResultsById(string $id): ?TaskProcessingResultItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['taskProcessingResult%2Did'] = $id;
         return new TaskProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);

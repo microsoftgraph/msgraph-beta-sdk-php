@@ -183,9 +183,9 @@ class LabelsRequestBuilder
     /**
      * Provides operations to manage the retentionLabels property of the microsoft.graph.security.labelsRoot entity.
      * @param string $id Unique identifier of the item
-     * @return RetentionLabelItemRequestBuilder
+     * @return RetentionLabelItemRequestBuilder|null
     */
-    public function retentionLabelsById(string $id): RetentionLabelItemRequestBuilder {
+    public function retentionLabelsById(string $id): ?RetentionLabelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['retentionLabel%2Did'] = $id;
         return new RetentionLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);

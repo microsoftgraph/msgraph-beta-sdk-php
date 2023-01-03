@@ -60,9 +60,9 @@ class ApprovalWorkflowProviderItemRequestBuilder
     /**
      * Provides operations to manage the businessFlows property of the microsoft.graph.approvalWorkflowProvider entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlows\Item\BusinessFlowItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlows\Item\BusinessFlowItemRequestBuilder|null
     */
-    public function businessFlowsById(string $id): \Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlows\Item\BusinessFlowItemRequestBuilder {
+    public function businessFlowsById(string $id): ?\Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlows\Item\BusinessFlowItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['businessFlow%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlows\Item\BusinessFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -71,9 +71,9 @@ class ApprovalWorkflowProviderItemRequestBuilder
     /**
      * Provides operations to manage the businessFlowsWithRequestsAwaitingMyDecision property of the microsoft.graph.approvalWorkflowProvider entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsWithRequestsAwaitingMyDecision\Item\BusinessFlowItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsWithRequestsAwaitingMyDecision\Item\BusinessFlowItemRequestBuilder|null
     */
-    public function businessFlowsWithRequestsAwaitingMyDecisionById(string $id): \Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsWithRequestsAwaitingMyDecision\Item\BusinessFlowItemRequestBuilder {
+    public function businessFlowsWithRequestsAwaitingMyDecisionById(string $id): ?\Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsWithRequestsAwaitingMyDecision\Item\BusinessFlowItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['businessFlow%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlowsWithRequestsAwaitingMyDecision\Item\BusinessFlowItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -221,9 +221,9 @@ class ApprovalWorkflowProviderItemRequestBuilder
     /**
      * Provides operations to manage the policyTemplates property of the microsoft.graph.approvalWorkflowProvider entity.
      * @param string $id Unique identifier of the item
-     * @return GovernancePolicyTemplateItemRequestBuilder
+     * @return GovernancePolicyTemplateItemRequestBuilder|null
     */
-    public function policyTemplatesById(string $id): GovernancePolicyTemplateItemRequestBuilder {
+    public function policyTemplatesById(string $id): ?GovernancePolicyTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governancePolicyTemplate%2Did'] = $id;
         return new GovernancePolicyTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -152,9 +152,9 @@ class RetentionLabelItemRequestBuilder
     /**
      * Provides operations to manage the dispositionReviewStages property of the microsoft.graph.security.retentionLabel entity.
      * @param string $id Unique identifier of the item
-     * @return DispositionReviewStageItemRequestBuilder
+     * @return DispositionReviewStageItemRequestBuilder|null
     */
-    public function dispositionReviewStagesById(string $id): DispositionReviewStageItemRequestBuilder {
+    public function dispositionReviewStagesById(string $id): ?DispositionReviewStageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dispositionReviewStage%2Did'] = $id;
         return new DispositionReviewStageItemRequestBuilder($urlTplParams, $this->requestAdapter);

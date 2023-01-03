@@ -195,9 +195,9 @@ class RecommendationItemRequestBuilder
     /**
      * Provides operations to manage the impactedResources property of the microsoft.graph.recommendation entity.
      * @param string $id Unique identifier of the item
-     * @return RecommendationResourceItemRequestBuilder
+     * @return RecommendationResourceItemRequestBuilder|null
     */
-    public function impactedResourcesById(string $id): RecommendationResourceItemRequestBuilder {
+    public function impactedResourcesById(string $id): ?RecommendationResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['recommendationResource%2Did'] = $id;
         return new RecommendationResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);

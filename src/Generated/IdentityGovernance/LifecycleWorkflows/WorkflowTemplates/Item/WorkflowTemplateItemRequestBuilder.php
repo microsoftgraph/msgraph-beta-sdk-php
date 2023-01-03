@@ -183,9 +183,9 @@ class WorkflowTemplateItemRequestBuilder
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowTemplate entity.
      * @param string $id Unique identifier of the item
-     * @return TaskItemRequestBuilder
+     * @return TaskItemRequestBuilder|null
     */
-    public function tasksById(string $id): TaskItemRequestBuilder {
+    public function tasksById(string $id): ?TaskItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['task%2Did'] = $id;
         return new TaskItemRequestBuilder($urlTplParams, $this->requestAdapter);

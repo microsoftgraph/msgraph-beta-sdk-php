@@ -201,9 +201,9 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplicationMultiple entity.
      * @param string $id Unique identifier of the item
-     * @return UnifiedRbacResourceNamespaceItemRequestBuilder
+     * @return UnifiedRbacResourceNamespaceItemRequestBuilder|null
     */
-    public function resourceNamespacesById(string $id): UnifiedRbacResourceNamespaceItemRequestBuilder {
+    public function resourceNamespacesById(string $id): ?UnifiedRbacResourceNamespaceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRbacResourceNamespace%2Did'] = $id;
         return new UnifiedRbacResourceNamespaceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -212,9 +212,9 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplicationMultiple entity.
      * @param string $id Unique identifier of the item
-     * @return UnifiedRoleAssignmentMultipleItemRequestBuilder
+     * @return UnifiedRoleAssignmentMultipleItemRequestBuilder|null
     */
-    public function roleAssignmentsById(string $id): UnifiedRoleAssignmentMultipleItemRequestBuilder {
+    public function roleAssignmentsById(string $id): ?UnifiedRoleAssignmentMultipleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRoleAssignmentMultiple%2Did'] = $id;
         return new UnifiedRoleAssignmentMultipleItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -223,9 +223,9 @@ class DeviceManagementRequestBuilder
     /**
      * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplicationMultiple entity.
      * @param string $id Unique identifier of the item
-     * @return UnifiedRoleDefinitionItemRequestBuilder
+     * @return UnifiedRoleDefinitionItemRequestBuilder|null
     */
-    public function roleDefinitionsById(string $id): UnifiedRoleDefinitionItemRequestBuilder {
+    public function roleDefinitionsById(string $id): ?UnifiedRoleDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRoleDefinition%2Did'] = $id;
         return new UnifiedRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);

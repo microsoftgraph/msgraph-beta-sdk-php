@@ -207,9 +207,9 @@ class VendorItemRequestBuilder
     /**
      * Provides operations to manage the picture property of the microsoft.graph.vendor entity.
      * @param string $id Unique identifier of the item
-     * @return PictureItemRequestBuilder
+     * @return PictureItemRequestBuilder|null
     */
-    public function pictureById(string $id): PictureItemRequestBuilder {
+    public function pictureById(string $id): ?PictureItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['picture%2Did'] = $id;
         return new PictureItemRequestBuilder($urlTplParams, $this->requestAdapter);

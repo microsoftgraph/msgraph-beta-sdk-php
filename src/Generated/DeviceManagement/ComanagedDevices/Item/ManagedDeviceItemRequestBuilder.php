@@ -464,9 +464,9 @@ class ManagedDeviceItemRequestBuilder
     /**
      * Provides operations to manage the assignmentFilterEvaluationStatusDetails property of the microsoft.graph.managedDevice entity.
      * @param string $id Unique identifier of the item
-     * @return AssignmentFilterEvaluationStatusDetailsItemRequestBuilder
+     * @return AssignmentFilterEvaluationStatusDetailsItemRequestBuilder|null
     */
-    public function assignmentFilterEvaluationStatusDetailsById(string $id): AssignmentFilterEvaluationStatusDetailsItemRequestBuilder {
+    public function assignmentFilterEvaluationStatusDetailsById(string $id): ?AssignmentFilterEvaluationStatusDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['assignmentFilterEvaluationStatusDetails%2Did'] = $id;
         return new AssignmentFilterEvaluationStatusDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -575,9 +575,9 @@ class ManagedDeviceItemRequestBuilder
     /**
      * Provides operations to manage the detectedApps property of the microsoft.graph.managedDevice entity.
      * @param string $id Unique identifier of the item
-     * @return DetectedAppItemRequestBuilder
+     * @return DetectedAppItemRequestBuilder|null
     */
-    public function detectedAppsById(string $id): DetectedAppItemRequestBuilder {
+    public function detectedAppsById(string $id): ?DetectedAppItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['detectedApp%2Did'] = $id;
         return new DetectedAppItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -586,9 +586,9 @@ class ManagedDeviceItemRequestBuilder
     /**
      * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceCompliancePolicyStateItemRequestBuilder
+     * @return DeviceCompliancePolicyStateItemRequestBuilder|null
     */
-    public function deviceCompliancePolicyStatesById(string $id): DeviceCompliancePolicyStateItemRequestBuilder {
+    public function deviceCompliancePolicyStatesById(string $id): ?DeviceCompliancePolicyStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceCompliancePolicyState%2Did'] = $id;
         return new DeviceCompliancePolicyStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -597,9 +597,9 @@ class ManagedDeviceItemRequestBuilder
     /**
      * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceConfigurationStateItemRequestBuilder
+     * @return DeviceConfigurationStateItemRequestBuilder|null
     */
-    public function deviceConfigurationStatesById(string $id): DeviceConfigurationStateItemRequestBuilder {
+    public function deviceConfigurationStatesById(string $id): ?DeviceConfigurationStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceConfigurationState%2Did'] = $id;
         return new DeviceConfigurationStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -667,9 +667,9 @@ class ManagedDeviceItemRequestBuilder
     /**
      * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceLogCollectionResponseItemRequestBuilder
+     * @return DeviceLogCollectionResponseItemRequestBuilder|null
     */
-    public function logCollectionRequestsById(string $id): DeviceLogCollectionResponseItemRequestBuilder {
+    public function logCollectionRequestsById(string $id): ?DeviceLogCollectionResponseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceLogCollectionResponse%2Did'] = $id;
         return new DeviceLogCollectionResponseItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -678,9 +678,9 @@ class ManagedDeviceItemRequestBuilder
     /**
      * Provides operations to manage the managedDeviceMobileAppConfigurationStates property of the microsoft.graph.managedDevice entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedDeviceMobileAppConfigurationStateItemRequestBuilder
+     * @return ManagedDeviceMobileAppConfigurationStateItemRequestBuilder|null
     */
-    public function managedDeviceMobileAppConfigurationStatesById(string $id): ManagedDeviceMobileAppConfigurationStateItemRequestBuilder {
+    public function managedDeviceMobileAppConfigurationStatesById(string $id): ?ManagedDeviceMobileAppConfigurationStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedDeviceMobileAppConfigurationState%2Did'] = $id;
         return new ManagedDeviceMobileAppConfigurationStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -718,9 +718,9 @@ class ManagedDeviceItemRequestBuilder
     /**
      * Provides operations to manage the securityBaselineStates property of the microsoft.graph.managedDevice entity.
      * @param string $id Unique identifier of the item
-     * @return SecurityBaselineStateItemRequestBuilder
+     * @return SecurityBaselineStateItemRequestBuilder|null
     */
-    public function securityBaselineStatesById(string $id): SecurityBaselineStateItemRequestBuilder {
+    public function securityBaselineStatesById(string $id): ?SecurityBaselineStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['securityBaselineState%2Did'] = $id;
         return new SecurityBaselineStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

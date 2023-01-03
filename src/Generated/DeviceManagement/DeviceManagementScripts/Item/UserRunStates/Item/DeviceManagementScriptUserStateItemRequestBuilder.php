@@ -144,9 +144,9 @@ class DeviceManagementScriptUserStateItemRequestBuilder
     /**
      * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceManagementScriptUserState entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptDeviceStateItemRequestBuilder
+     * @return DeviceManagementScriptDeviceStateItemRequestBuilder|null
     */
-    public function deviceRunStatesById(string $id): DeviceManagementScriptDeviceStateItemRequestBuilder {
+    public function deviceRunStatesById(string $id): ?DeviceManagementScriptDeviceStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementScriptDeviceState%2Did'] = $id;
         return new DeviceManagementScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

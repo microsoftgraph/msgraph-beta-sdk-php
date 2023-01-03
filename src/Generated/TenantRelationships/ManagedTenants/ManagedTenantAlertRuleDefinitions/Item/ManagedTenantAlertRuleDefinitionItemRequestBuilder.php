@@ -44,9 +44,9 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder
     /**
      * Provides operations to manage the alertRules property of the microsoft.graph.managedTenants.managedTenantAlertRuleDefinition entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantAlertRuleItemRequestBuilder
+     * @return ManagedTenantAlertRuleItemRequestBuilder|null
     */
-    public function alertRulesById(string $id): ManagedTenantAlertRuleItemRequestBuilder {
+    public function alertRulesById(string $id): ?ManagedTenantAlertRuleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantAlertRule%2Did'] = $id;
         return new ManagedTenantAlertRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);

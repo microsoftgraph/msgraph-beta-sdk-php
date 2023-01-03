@@ -178,9 +178,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the exportJobs property of the microsoft.graph.cloudPcReports entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcExportJobItemRequestBuilder
+     * @return CloudPcExportJobItemRequestBuilder|null
     */
-    public function exportJobsById(string $id): CloudPcExportJobItemRequestBuilder {
+    public function exportJobsById(string $id): ?CloudPcExportJobItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcExportJob%2Did'] = $id;
         return new CloudPcExportJobItemRequestBuilder($urlTplParams, $this->requestAdapter);

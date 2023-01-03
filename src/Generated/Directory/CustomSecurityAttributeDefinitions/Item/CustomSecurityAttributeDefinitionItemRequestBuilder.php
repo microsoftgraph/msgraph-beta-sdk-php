@@ -44,9 +44,9 @@ class CustomSecurityAttributeDefinitionItemRequestBuilder
     /**
      * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
      * @param string $id Unique identifier of the item
-     * @return AllowedValueItemRequestBuilder
+     * @return AllowedValueItemRequestBuilder|null
     */
-    public function allowedValuesById(string $id): AllowedValueItemRequestBuilder {
+    public function allowedValuesById(string $id): ?AllowedValueItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['allowedValue%2Did'] = $id;
         return new AllowedValueItemRequestBuilder($urlTplParams, $this->requestAdapter);

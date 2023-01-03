@@ -51,9 +51,9 @@ class TagItemRequestBuilder
     /**
      * Provides operations to manage the childTags property of the microsoft.graph.ediscovery.tag entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder|null
     */
-    public function childTagsById(string $id): \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder {
+    public function childTagsById(string $id): ?\Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tag%2Did1'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder($urlTplParams, $this->requestAdapter);

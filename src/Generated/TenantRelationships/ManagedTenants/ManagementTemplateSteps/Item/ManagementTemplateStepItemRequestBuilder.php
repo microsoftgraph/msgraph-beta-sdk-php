@@ -199,9 +199,9 @@ class ManagementTemplateStepItemRequestBuilder
     /**
      * Provides operations to manage the versions property of the microsoft.graph.managedTenants.managementTemplateStep entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateStepVersionItemRequestBuilder
+     * @return ManagementTemplateStepVersionItemRequestBuilder|null
     */
-    public function versionsById(string $id): ManagementTemplateStepVersionItemRequestBuilder {
+    public function versionsById(string $id): ?ManagementTemplateStepVersionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateStepVersion%2Did'] = $id;
         return new ManagementTemplateStepVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);

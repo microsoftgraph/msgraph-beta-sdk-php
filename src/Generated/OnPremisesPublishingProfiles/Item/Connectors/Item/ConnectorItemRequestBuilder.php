@@ -163,9 +163,9 @@ class ConnectorItemRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.connectors.item.memberOf.item collection
      * @param string $id Unique identifier of the item
-     * @return ConnectorGroupItemRequestBuilder
+     * @return ConnectorGroupItemRequestBuilder|null
     */
-    public function memberOfById(string $id): ConnectorGroupItemRequestBuilder {
+    public function memberOfById(string $id): ?ConnectorGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['connectorGroup%2Did'] = $id;
         return new ConnectorGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);

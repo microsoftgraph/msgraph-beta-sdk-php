@@ -192,9 +192,9 @@ class EdiscoveryHoldPolicyItemRequestBuilder
     /**
      * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return SiteSourceItemRequestBuilder
+     * @return SiteSourceItemRequestBuilder|null
     */
-    public function siteSourcesById(string $id): SiteSourceItemRequestBuilder {
+    public function siteSourcesById(string $id): ?SiteSourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['siteSource%2Did'] = $id;
         return new SiteSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -203,9 +203,9 @@ class EdiscoveryHoldPolicyItemRequestBuilder
     /**
      * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return UserSourceItemRequestBuilder
+     * @return UserSourceItemRequestBuilder|null
     */
-    public function userSourcesById(string $id): UserSourceItemRequestBuilder {
+    public function userSourcesById(string $id): ?UserSourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userSource%2Did'] = $id;
         return new UserSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);

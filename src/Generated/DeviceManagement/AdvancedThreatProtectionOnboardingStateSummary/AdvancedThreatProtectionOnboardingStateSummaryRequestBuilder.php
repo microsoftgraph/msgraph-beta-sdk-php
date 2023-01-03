@@ -44,9 +44,9 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder
     /**
      * Provides operations to manage the advancedThreatProtectionOnboardingDeviceSettingStates property of the microsoft.graph.advancedThreatProtectionOnboardingStateSummary entity.
      * @param string $id Unique identifier of the item
-     * @return AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder|null
     */
-    public function advancedThreatProtectionOnboardingDeviceSettingStatesById(string $id): AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder {
+    public function advancedThreatProtectionOnboardingDeviceSettingStatesById(string $id): ?AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['advancedThreatProtectionOnboardingDeviceSettingState%2Did'] = $id;
         return new AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -52,9 +52,9 @@ class AppleUserInitiatedEnrollmentProfileItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.appleUserInitiatedEnrollmentProfile entity.
      * @param string $id Unique identifier of the item
-     * @return AppleEnrollmentProfileAssignmentItemRequestBuilder
+     * @return AppleEnrollmentProfileAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): AppleEnrollmentProfileAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?AppleEnrollmentProfileAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['appleEnrollmentProfileAssignment%2Did'] = $id;
         return new AppleEnrollmentProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

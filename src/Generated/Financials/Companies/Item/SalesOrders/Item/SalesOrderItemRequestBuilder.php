@@ -167,9 +167,9 @@ class SalesOrderItemRequestBuilder
     /**
      * Provides operations to manage the salesOrderLines property of the microsoft.graph.salesOrder entity.
      * @param string $id Unique identifier of the item
-     * @return SalesOrderLineItemRequestBuilder
+     * @return SalesOrderLineItemRequestBuilder|null
     */
-    public function salesOrderLinesById(string $id): SalesOrderLineItemRequestBuilder {
+    public function salesOrderLinesById(string $id): ?SalesOrderLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesOrderLine%2Did'] = $id;
         return new SalesOrderLineItemRequestBuilder($urlTplParams, $this->requestAdapter);

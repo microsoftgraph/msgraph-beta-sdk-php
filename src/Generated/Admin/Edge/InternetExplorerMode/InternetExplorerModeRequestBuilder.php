@@ -183,9 +183,9 @@ class InternetExplorerModeRequestBuilder
     /**
      * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
      * @param string $id Unique identifier of the item
-     * @return BrowserSiteListItemRequestBuilder
+     * @return BrowserSiteListItemRequestBuilder|null
     */
-    public function siteListsById(string $id): BrowserSiteListItemRequestBuilder {
+    public function siteListsById(string $id): ?BrowserSiteListItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['browserSiteList%2Did'] = $id;
         return new BrowserSiteListItemRequestBuilder($urlTplParams, $this->requestAdapter);

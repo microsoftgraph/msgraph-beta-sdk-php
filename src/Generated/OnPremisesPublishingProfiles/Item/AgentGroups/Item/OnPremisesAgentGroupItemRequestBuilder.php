@@ -53,9 +53,9 @@ class OnPremisesAgentGroupItemRequestBuilder
     /**
      * Provides operations to manage the agents property of the microsoft.graph.onPremisesAgentGroup entity.
      * @param string $id Unique identifier of the item
-     * @return OnPremisesAgentItemRequestBuilder
+     * @return OnPremisesAgentItemRequestBuilder|null
     */
-    public function agentsById(string $id): OnPremisesAgentItemRequestBuilder {
+    public function agentsById(string $id): ?OnPremisesAgentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['onPremisesAgent%2Did'] = $id;
         return new OnPremisesAgentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -203,9 +203,9 @@ class OnPremisesAgentGroupItemRequestBuilder
     /**
      * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesAgentGroup entity.
      * @param string $id Unique identifier of the item
-     * @return PublishedResourceItemRequestBuilder
+     * @return PublishedResourceItemRequestBuilder|null
     */
-    public function publishedResourcesById(string $id): PublishedResourceItemRequestBuilder {
+    public function publishedResourcesById(string $id): ?PublishedResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['publishedResource%2Did'] = $id;
         return new PublishedResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);

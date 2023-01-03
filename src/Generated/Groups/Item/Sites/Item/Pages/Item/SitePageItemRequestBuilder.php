@@ -207,9 +207,9 @@ class SitePageItemRequestBuilder
     /**
      * Provides operations to manage the webParts property of the microsoft.graph.sitePage entity.
      * @param string $id Unique identifier of the item
-     * @return WebPartItemRequestBuilder
+     * @return WebPartItemRequestBuilder|null
     */
-    public function webPartsById(string $id): WebPartItemRequestBuilder {
+    public function webPartsById(string $id): ?WebPartItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['webPart%2Did'] = $id;
         return new WebPartItemRequestBuilder($urlTplParams, $this->requestAdapter);

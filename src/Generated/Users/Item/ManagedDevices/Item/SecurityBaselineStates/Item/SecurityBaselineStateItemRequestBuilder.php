@@ -183,9 +183,9 @@ class SecurityBaselineStateItemRequestBuilder
     /**
      * Provides operations to manage the settingStates property of the microsoft.graph.securityBaselineState entity.
      * @param string $id Unique identifier of the item
-     * @return SecurityBaselineSettingStateItemRequestBuilder
+     * @return SecurityBaselineSettingStateItemRequestBuilder|null
     */
-    public function settingStatesById(string $id): SecurityBaselineSettingStateItemRequestBuilder {
+    public function settingStatesById(string $id): ?SecurityBaselineSettingStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['securityBaselineSettingState%2Did'] = $id;
         return new SecurityBaselineSettingStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

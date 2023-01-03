@@ -168,9 +168,9 @@ class LifecycleWorkflowsRequestBuilder
     /**
      * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
      * @param string $id Unique identifier of the item
-     * @return CustomTaskExtensionItemRequestBuilder
+     * @return CustomTaskExtensionItemRequestBuilder|null
     */
-    public function customTaskExtensionsById(string $id): CustomTaskExtensionItemRequestBuilder {
+    public function customTaskExtensionsById(string $id): ?CustomTaskExtensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customTaskExtension%2Did'] = $id;
         return new CustomTaskExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -237,9 +237,9 @@ class LifecycleWorkflowsRequestBuilder
     /**
      * Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
      * @param string $id Unique identifier of the item
-     * @return TaskDefinitionItemRequestBuilder
+     * @return TaskDefinitionItemRequestBuilder|null
     */
-    public function taskDefinitionsById(string $id): TaskDefinitionItemRequestBuilder {
+    public function taskDefinitionsById(string $id): ?TaskDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['taskDefinition%2Did'] = $id;
         return new TaskDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -248,9 +248,9 @@ class LifecycleWorkflowsRequestBuilder
     /**
      * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
      * @param string $id Unique identifier of the item
-     * @return WorkflowItemRequestBuilder
+     * @return WorkflowItemRequestBuilder|null
     */
-    public function workflowsById(string $id): WorkflowItemRequestBuilder {
+    public function workflowsById(string $id): ?WorkflowItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['workflow%2Did'] = $id;
         return new WorkflowItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -259,9 +259,9 @@ class LifecycleWorkflowsRequestBuilder
     /**
      * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
      * @param string $id Unique identifier of the item
-     * @return WorkflowTemplateItemRequestBuilder
+     * @return WorkflowTemplateItemRequestBuilder|null
     */
-    public function workflowTemplatesById(string $id): WorkflowTemplateItemRequestBuilder {
+    public function workflowTemplatesById(string $id): ?WorkflowTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['workflowTemplate%2Did'] = $id;
         return new WorkflowTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -207,9 +207,9 @@ class EdiscoveryFileItemRequestBuilder
     /**
      * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryFile entity.
      * @param string $id Unique identifier of the item
-     * @return EdiscoveryReviewTagItemRequestBuilder
+     * @return EdiscoveryReviewTagItemRequestBuilder|null
     */
-    public function tagsById(string $id): EdiscoveryReviewTagItemRequestBuilder {
+    public function tagsById(string $id): ?EdiscoveryReviewTagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['ediscoveryReviewTag%2Did'] = $id;
         return new EdiscoveryReviewTagItemRequestBuilder($urlTplParams, $this->requestAdapter);

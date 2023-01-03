@@ -181,9 +181,9 @@ class OutlookTaskFolderItemRequestBuilder
     /**
      * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.outlookTaskFolder entity.
      * @param string $id Unique identifier of the item
-     * @return MultiValueLegacyExtendedPropertyItemRequestBuilder
+     * @return MultiValueLegacyExtendedPropertyItemRequestBuilder|null
     */
-    public function multiValueExtendedPropertiesById(string $id): MultiValueLegacyExtendedPropertyItemRequestBuilder {
+    public function multiValueExtendedPropertiesById(string $id): ?MultiValueLegacyExtendedPropertyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['multiValueLegacyExtendedProperty%2Did'] = $id;
         return new MultiValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -212,9 +212,9 @@ class OutlookTaskFolderItemRequestBuilder
     /**
      * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.outlookTaskFolder entity.
      * @param string $id Unique identifier of the item
-     * @return SingleValueLegacyExtendedPropertyItemRequestBuilder
+     * @return SingleValueLegacyExtendedPropertyItemRequestBuilder|null
     */
-    public function singleValueExtendedPropertiesById(string $id): SingleValueLegacyExtendedPropertyItemRequestBuilder {
+    public function singleValueExtendedPropertiesById(string $id): ?SingleValueLegacyExtendedPropertyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['singleValueLegacyExtendedProperty%2Did'] = $id;
         return new SingleValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -223,9 +223,9 @@ class OutlookTaskFolderItemRequestBuilder
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.outlookTaskFolder entity.
      * @param string $id Unique identifier of the item
-     * @return OutlookTaskItemRequestBuilder
+     * @return OutlookTaskItemRequestBuilder|null
     */
-    public function tasksById(string $id): OutlookTaskItemRequestBuilder {
+    public function tasksById(string $id): ?OutlookTaskItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['outlookTask%2Did'] = $id;
         return new OutlookTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);

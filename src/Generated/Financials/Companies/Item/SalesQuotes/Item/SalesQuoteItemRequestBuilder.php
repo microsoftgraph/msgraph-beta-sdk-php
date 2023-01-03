@@ -191,9 +191,9 @@ class SalesQuoteItemRequestBuilder
     /**
      * Provides operations to manage the salesQuoteLines property of the microsoft.graph.salesQuote entity.
      * @param string $id Unique identifier of the item
-     * @return SalesQuoteLineItemRequestBuilder
+     * @return SalesQuoteLineItemRequestBuilder|null
     */
-    public function salesQuoteLinesById(string $id): SalesQuoteLineItemRequestBuilder {
+    public function salesQuoteLinesById(string $id): ?SalesQuoteLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesQuoteLine%2Did'] = $id;
         return new SalesQuoteLineItemRequestBuilder($urlTplParams, $this->requestAdapter);

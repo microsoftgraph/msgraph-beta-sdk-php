@@ -182,9 +182,9 @@ class SensitivityLabelItemRequestBuilder
     /**
      * Provides operations to manage the sublabels property of the microsoft.graph.sensitivityLabel entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder|null
     */
-    public function sublabelsById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder {
+    public function sublabelsById(string $id): ?\Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sensitivityLabel%2Did1'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);

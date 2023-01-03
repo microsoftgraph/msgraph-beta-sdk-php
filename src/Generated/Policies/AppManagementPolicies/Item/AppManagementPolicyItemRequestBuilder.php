@@ -44,9 +44,9 @@ class AppManagementPolicyItemRequestBuilder
     /**
      * Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return DirectoryObjectItemRequestBuilder
+     * @return DirectoryObjectItemRequestBuilder|null
     */
-    public function appliesToById(string $id): DirectoryObjectItemRequestBuilder {
+    public function appliesToById(string $id): ?DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);

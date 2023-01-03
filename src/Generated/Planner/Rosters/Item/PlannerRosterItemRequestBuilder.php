@@ -172,9 +172,9 @@ class PlannerRosterItemRequestBuilder
     /**
      * Provides operations to manage the members property of the microsoft.graph.plannerRoster entity.
      * @param string $id Unique identifier of the item
-     * @return PlannerRosterMemberItemRequestBuilder
+     * @return PlannerRosterMemberItemRequestBuilder|null
     */
-    public function membersById(string $id): PlannerRosterMemberItemRequestBuilder {
+    public function membersById(string $id): ?PlannerRosterMemberItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['plannerRosterMember%2Did'] = $id;
         return new PlannerRosterMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -203,9 +203,9 @@ class PlannerRosterItemRequestBuilder
     /**
      * Provides operations to manage the plans property of the microsoft.graph.plannerRoster entity.
      * @param string $id Unique identifier of the item
-     * @return PlannerPlanItemRequestBuilder
+     * @return PlannerPlanItemRequestBuilder|null
     */
-    public function plansById(string $id): PlannerPlanItemRequestBuilder {
+    public function plansById(string $id): ?PlannerPlanItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['plannerPlan%2Did'] = $id;
         return new PlannerPlanItemRequestBuilder($urlTplParams, $this->requestAdapter);

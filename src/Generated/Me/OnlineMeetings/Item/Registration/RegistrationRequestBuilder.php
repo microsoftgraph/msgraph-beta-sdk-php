@@ -125,9 +125,9 @@ class RegistrationRequestBuilder
     /**
      * Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.
      * @param string $id Unique identifier of the item
-     * @return MeetingRegistrationQuestionItemRequestBuilder
+     * @return MeetingRegistrationQuestionItemRequestBuilder|null
     */
-    public function customQuestionsById(string $id): MeetingRegistrationQuestionItemRequestBuilder {
+    public function customQuestionsById(string $id): ?MeetingRegistrationQuestionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['meetingRegistrationQuestion%2Did'] = $id;
         return new MeetingRegistrationQuestionItemRequestBuilder($urlTplParams, $this->requestAdapter);

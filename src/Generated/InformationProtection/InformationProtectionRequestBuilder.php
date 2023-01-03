@@ -178,9 +178,9 @@ class InformationProtectionRequestBuilder
     /**
      * Provides operations to manage the dataLossPreventionPolicies property of the microsoft.graph.informationProtection entity.
      * @param string $id Unique identifier of the item
-     * @return DataLossPreventionPolicyItemRequestBuilder
+     * @return DataLossPreventionPolicyItemRequestBuilder|null
     */
-    public function dataLossPreventionPoliciesById(string $id): DataLossPreventionPolicyItemRequestBuilder {
+    public function dataLossPreventionPoliciesById(string $id): ?DataLossPreventionPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dataLossPreventionPolicy%2Did'] = $id;
         return new DataLossPreventionPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -228,9 +228,9 @@ class InformationProtectionRequestBuilder
     /**
      * Provides operations to manage the sensitivityLabels property of the microsoft.graph.informationProtection entity.
      * @param string $id Unique identifier of the item
-     * @return SensitivityLabelItemRequestBuilder
+     * @return SensitivityLabelItemRequestBuilder|null
     */
-    public function sensitivityLabelsById(string $id): SensitivityLabelItemRequestBuilder {
+    public function sensitivityLabelsById(string $id): ?SensitivityLabelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sensitivityLabel%2Did'] = $id;
         return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -239,9 +239,9 @@ class InformationProtectionRequestBuilder
     /**
      * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
      * @param string $id Unique identifier of the item
-     * @return ThreatAssessmentRequestItemRequestBuilder
+     * @return ThreatAssessmentRequestItemRequestBuilder|null
     */
-    public function threatAssessmentRequestsById(string $id): ThreatAssessmentRequestItemRequestBuilder {
+    public function threatAssessmentRequestsById(string $id): ?ThreatAssessmentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['threatAssessmentRequest%2Did'] = $id;
         return new ThreatAssessmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);

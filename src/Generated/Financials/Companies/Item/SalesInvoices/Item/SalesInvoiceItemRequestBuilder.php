@@ -215,9 +215,9 @@ class SalesInvoiceItemRequestBuilder
     /**
      * Provides operations to manage the salesInvoiceLines property of the microsoft.graph.salesInvoice entity.
      * @param string $id Unique identifier of the item
-     * @return SalesInvoiceLineItemRequestBuilder
+     * @return SalesInvoiceLineItemRequestBuilder|null
     */
-    public function salesInvoiceLinesById(string $id): SalesInvoiceLineItemRequestBuilder {
+    public function salesInvoiceLinesById(string $id): ?SalesInvoiceLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesInvoiceLine%2Did'] = $id;
         return new SalesInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);

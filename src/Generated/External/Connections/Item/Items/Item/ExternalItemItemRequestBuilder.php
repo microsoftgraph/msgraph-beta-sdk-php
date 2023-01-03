@@ -52,9 +52,9 @@ class ExternalItemItemRequestBuilder
     /**
      * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
      * @param string $id Unique identifier of the item
-     * @return ExternalActivityItemRequestBuilder
+     * @return ExternalActivityItemRequestBuilder|null
     */
-    public function activitiesById(string $id): ExternalActivityItemRequestBuilder {
+    public function activitiesById(string $id): ?ExternalActivityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['externalActivity%2Did'] = $id;
         return new ExternalActivityItemRequestBuilder($urlTplParams, $this->requestAdapter);

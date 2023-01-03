@@ -44,9 +44,9 @@ class AccessPackageResourceEnvironmentItemRequestBuilder
     /**
      * Provides operations to manage the accessPackageResources property of the microsoft.graph.accessPackageResourceEnvironment entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceItemRequestBuilder
+     * @return AccessPackageResourceItemRequestBuilder|null
     */
-    public function accessPackageResourcesById(string $id): AccessPackageResourceItemRequestBuilder {
+    public function accessPackageResourcesById(string $id): ?AccessPackageResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResource%2Did'] = $id;
         return new AccessPackageResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);

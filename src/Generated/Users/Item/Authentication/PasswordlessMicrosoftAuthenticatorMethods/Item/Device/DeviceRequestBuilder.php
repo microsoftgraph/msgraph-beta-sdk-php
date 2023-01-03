@@ -134,9 +134,9 @@ class DeviceRequestBuilder
     /**
      * Provides operations to manage the commands property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return CommandItemRequestBuilder
+     * @return CommandItemRequestBuilder|null
     */
-    public function commandsById(string $id): CommandItemRequestBuilder {
+    public function commandsById(string $id): ?CommandItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['command%2Did'] = $id;
         return new CommandItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -245,9 +245,9 @@ class DeviceRequestBuilder
     /**
      * Provides operations to manage the extensions property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return ExtensionItemRequestBuilder
+     * @return ExtensionItemRequestBuilder|null
     */
-    public function extensionsById(string $id): ExtensionItemRequestBuilder {
+    public function extensionsById(string $id): ?ExtensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['extension%2Did'] = $id;
         return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -275,9 +275,9 @@ class DeviceRequestBuilder
     /**
      * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\MemberOf\Item\DirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\MemberOf\Item\DirectoryObjectItemRequestBuilder|null
     */
-    public function memberOfById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\MemberOf\Item\DirectoryObjectItemRequestBuilder {
+    public function memberOfById(string $id): ?\Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\MemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\MemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -306,9 +306,9 @@ class DeviceRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.authentication.passwordlessMicrosoftAuthenticatorMethods.item.device.registeredOwners.item collection
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder|null
     */
-    public function registeredOwnersById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder {
+    public function registeredOwnersById(string $id): ?\Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -317,9 +317,9 @@ class DeviceRequestBuilder
     /**
      * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder|null
     */
-    public function registeredUsersById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder {
+    public function registeredUsersById(string $id): ?\Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -328,9 +328,9 @@ class DeviceRequestBuilder
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder|null
     */
-    public function transitiveMemberOfById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder {
+    public function transitiveMemberOfById(string $id): ?\Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\Device\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -339,9 +339,9 @@ class DeviceRequestBuilder
     /**
      * Provides operations to manage the usageRights property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return UsageRightItemRequestBuilder
+     * @return UsageRightItemRequestBuilder|null
     */
-    public function usageRightsById(string $id): UsageRightItemRequestBuilder {
+    public function usageRightsById(string $id): ?UsageRightItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['usageRight%2Did'] = $id;
         return new UsageRightItemRequestBuilder($urlTplParams, $this->requestAdapter);

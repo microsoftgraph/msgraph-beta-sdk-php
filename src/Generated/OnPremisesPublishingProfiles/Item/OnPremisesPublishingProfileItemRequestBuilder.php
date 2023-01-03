@@ -80,9 +80,9 @@ class OnPremisesPublishingProfileItemRequestBuilder
     /**
      * Provides operations to manage the agentGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
-     * @return OnPremisesAgentGroupItemRequestBuilder
+     * @return OnPremisesAgentGroupItemRequestBuilder|null
     */
-    public function agentGroupsById(string $id): OnPremisesAgentGroupItemRequestBuilder {
+    public function agentGroupsById(string $id): ?OnPremisesAgentGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['onPremisesAgentGroup%2Did'] = $id;
         return new OnPremisesAgentGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -91,9 +91,9 @@ class OnPremisesPublishingProfileItemRequestBuilder
     /**
      * Provides operations to manage the agents property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
-     * @return OnPremisesAgentItemRequestBuilder
+     * @return OnPremisesAgentItemRequestBuilder|null
     */
-    public function agentsById(string $id): OnPremisesAgentItemRequestBuilder {
+    public function agentsById(string $id): ?OnPremisesAgentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['onPremisesAgent%2Did'] = $id;
         return new OnPremisesAgentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -102,9 +102,9 @@ class OnPremisesPublishingProfileItemRequestBuilder
     /**
      * Provides operations to manage the connectorGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
-     * @return ConnectorGroupItemRequestBuilder
+     * @return ConnectorGroupItemRequestBuilder|null
     */
-    public function connectorGroupsById(string $id): ConnectorGroupItemRequestBuilder {
+    public function connectorGroupsById(string $id): ?ConnectorGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['connectorGroup%2Did'] = $id;
         return new ConnectorGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -113,9 +113,9 @@ class OnPremisesPublishingProfileItemRequestBuilder
     /**
      * Provides operations to manage the connectors property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
-     * @return ConnectorItemRequestBuilder
+     * @return ConnectorItemRequestBuilder|null
     */
-    public function connectorsById(string $id): ConnectorItemRequestBuilder {
+    public function connectorsById(string $id): ?ConnectorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['connector%2Did'] = $id;
         return new ConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -263,9 +263,9 @@ class OnPremisesPublishingProfileItemRequestBuilder
     /**
      * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
-     * @return PublishedResourceItemRequestBuilder
+     * @return PublishedResourceItemRequestBuilder|null
     */
-    public function publishedResourcesById(string $id): PublishedResourceItemRequestBuilder {
+    public function publishedResourcesById(string $id): ?PublishedResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['publishedResource%2Did'] = $id;
         return new PublishedResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);

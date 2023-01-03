@@ -183,9 +183,9 @@ class OutboundSharedUserProfileUserItemRequestBuilder
     /**
      * Provides operations to manage the tenants property of the microsoft.graph.outboundSharedUserProfile entity.
      * @param string $id Unique identifier of the item
-     * @return TenantReferenceTenantItemRequestBuilder
+     * @return TenantReferenceTenantItemRequestBuilder|null
     */
-    public function tenantsById(string $id): TenantReferenceTenantItemRequestBuilder {
+    public function tenantsById(string $id): ?TenantReferenceTenantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tenantReference%2DtenantId'] = $id;
         return new TenantReferenceTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -183,9 +183,9 @@ class DeviceManagementSettingCategoryItemRequestBuilder
     /**
      * Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementSettingCategory entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementSettingDefinitionItemRequestBuilder
+     * @return DeviceManagementSettingDefinitionItemRequestBuilder|null
     */
-    public function settingDefinitionsById(string $id): DeviceManagementSettingDefinitionItemRequestBuilder {
+    public function settingDefinitionsById(string $id): ?DeviceManagementSettingDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementSettingDefinition%2Did'] = $id;
         return new DeviceManagementSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);

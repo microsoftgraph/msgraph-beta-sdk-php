@@ -123,9 +123,9 @@ class EmployeeExperienceRequestBuilder
     /**
      * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
      * @param string $id Unique identifier of the item
-     * @return LearningProviderItemRequestBuilder
+     * @return LearningProviderItemRequestBuilder|null
     */
-    public function learningProvidersById(string $id): LearningProviderItemRequestBuilder {
+    public function learningProvidersById(string $id): ?LearningProviderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['learningProvider%2Did'] = $id;
         return new LearningProviderItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -129,9 +129,9 @@ class OutlookRequestBuilder
     /**
      * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
      * @param string $id Unique identifier of the item
-     * @return OutlookCategoryItemRequestBuilder
+     * @return OutlookCategoryItemRequestBuilder|null
     */
-    public function masterCategoriesById(string $id): OutlookCategoryItemRequestBuilder {
+    public function masterCategoriesById(string $id): ?OutlookCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['outlookCategory%2Did'] = $id;
         return new OutlookCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -165,9 +165,9 @@ class OutlookRequestBuilder
     /**
      * Provides operations to manage the taskFolders property of the microsoft.graph.outlookUser entity.
      * @param string $id Unique identifier of the item
-     * @return OutlookTaskFolderItemRequestBuilder
+     * @return OutlookTaskFolderItemRequestBuilder|null
     */
-    public function taskFoldersById(string $id): OutlookTaskFolderItemRequestBuilder {
+    public function taskFoldersById(string $id): ?OutlookTaskFolderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['outlookTaskFolder%2Did'] = $id;
         return new OutlookTaskFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -176,9 +176,9 @@ class OutlookRequestBuilder
     /**
      * Provides operations to manage the taskGroups property of the microsoft.graph.outlookUser entity.
      * @param string $id Unique identifier of the item
-     * @return OutlookTaskGroupItemRequestBuilder
+     * @return OutlookTaskGroupItemRequestBuilder|null
     */
-    public function taskGroupsById(string $id): OutlookTaskGroupItemRequestBuilder {
+    public function taskGroupsById(string $id): ?OutlookTaskGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['outlookTaskGroup%2Did'] = $id;
         return new OutlookTaskGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -187,9 +187,9 @@ class OutlookRequestBuilder
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.outlookUser entity.
      * @param string $id Unique identifier of the item
-     * @return OutlookTaskItemRequestBuilder
+     * @return OutlookTaskItemRequestBuilder|null
     */
-    public function tasksById(string $id): OutlookTaskItemRequestBuilder {
+    public function tasksById(string $id): ?OutlookTaskItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['outlookTask%2Did'] = $id;
         return new OutlookTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);

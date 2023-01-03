@@ -152,9 +152,9 @@ class UserAppInstallStatusItemRequestBuilder
     /**
      * Provides operations to manage the deviceStatuses property of the microsoft.graph.userAppInstallStatus entity.
      * @param string $id Unique identifier of the item
-     * @return MobileAppInstallStatusItemRequestBuilder
+     * @return MobileAppInstallStatusItemRequestBuilder|null
     */
-    public function deviceStatusesById(string $id): MobileAppInstallStatusItemRequestBuilder {
+    public function deviceStatusesById(string $id): ?MobileAppInstallStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobileAppInstallStatus%2Did'] = $id;
         return new MobileAppInstallStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);

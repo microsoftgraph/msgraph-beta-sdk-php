@@ -70,9 +70,9 @@ class SearchRequestBuilder
     /**
      * Provides operations to manage the acronyms property of the microsoft.graph.searchEntity entity.
      * @param string $id Unique identifier of the item
-     * @return AcronymItemRequestBuilder
+     * @return AcronymItemRequestBuilder|null
     */
-    public function acronymsById(string $id): AcronymItemRequestBuilder {
+    public function acronymsById(string $id): ?AcronymItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['acronym%2Did'] = $id;
         return new AcronymItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -81,9 +81,9 @@ class SearchRequestBuilder
     /**
      * Provides operations to manage the bookmarks property of the microsoft.graph.searchEntity entity.
      * @param string $id Unique identifier of the item
-     * @return BookmarkItemRequestBuilder
+     * @return BookmarkItemRequestBuilder|null
     */
-    public function bookmarksById(string $id): BookmarkItemRequestBuilder {
+    public function bookmarksById(string $id): ?BookmarkItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['bookmark%2Did'] = $id;
         return new BookmarkItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -191,9 +191,9 @@ class SearchRequestBuilder
     /**
      * Provides operations to manage the qnas property of the microsoft.graph.searchEntity entity.
      * @param string $id Unique identifier of the item
-     * @return QnaItemRequestBuilder
+     * @return QnaItemRequestBuilder|null
     */
-    public function qnasById(string $id): QnaItemRequestBuilder {
+    public function qnasById(string $id): ?QnaItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['qna%2Did'] = $id;
         return new QnaItemRequestBuilder($urlTplParams, $this->requestAdapter);

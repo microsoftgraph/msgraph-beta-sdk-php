@@ -163,9 +163,9 @@ class LearningProviderItemRequestBuilder
     /**
      * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
      * @param string $id Unique identifier of the item
-     * @return LearningContentItemRequestBuilder
+     * @return LearningContentItemRequestBuilder|null
     */
-    public function learningContentsById(string $id): LearningContentItemRequestBuilder {
+    public function learningContentsById(string $id): ?LearningContentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['learningContent%2Did'] = $id;
         return new LearningContentItemRequestBuilder($urlTplParams, $this->requestAdapter);

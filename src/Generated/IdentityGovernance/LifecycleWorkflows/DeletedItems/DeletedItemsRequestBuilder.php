@@ -183,9 +183,9 @@ class DeletedItemsRequestBuilder
     /**
      * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
      * @param string $id Unique identifier of the item
-     * @return WorkflowItemRequestBuilder
+     * @return WorkflowItemRequestBuilder|null
     */
-    public function workflowsById(string $id): WorkflowItemRequestBuilder {
+    public function workflowsById(string $id): ?WorkflowItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['workflow%2Did'] = $id;
         return new WorkflowItemRequestBuilder($urlTplParams, $this->requestAdapter);

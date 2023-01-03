@@ -61,9 +61,9 @@ class AccessPackageResourceRequestBuilder
     /**
      * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageResource entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceRoleItemRequestBuilder
+     * @return AccessPackageResourceRoleItemRequestBuilder|null
     */
-    public function accessPackageResourceRolesById(string $id): AccessPackageResourceRoleItemRequestBuilder {
+    public function accessPackageResourceRolesById(string $id): ?AccessPackageResourceRoleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceRole%2Did'] = $id;
         return new AccessPackageResourceRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -72,9 +72,9 @@ class AccessPackageResourceRequestBuilder
     /**
      * Provides operations to manage the accessPackageResourceScopes property of the microsoft.graph.accessPackageResource entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceScopeItemRequestBuilder
+     * @return AccessPackageResourceScopeItemRequestBuilder|null
     */
-    public function accessPackageResourceScopesById(string $id): AccessPackageResourceScopeItemRequestBuilder {
+    public function accessPackageResourceScopesById(string $id): ?AccessPackageResourceScopeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceScope%2Did1'] = $id;
         return new AccessPackageResourceScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);

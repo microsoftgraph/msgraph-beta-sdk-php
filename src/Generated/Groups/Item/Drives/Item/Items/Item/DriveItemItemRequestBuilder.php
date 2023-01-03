@@ -220,9 +220,9 @@ class DriveItemItemRequestBuilder
     /**
      * Provides operations to manage the activities property of the microsoft.graph.driveItem entity.
      * @param string $id Unique identifier of the item
-     * @return ItemActivityOLDItemRequestBuilder
+     * @return ItemActivityOLDItemRequestBuilder|null
     */
-    public function activitiesById(string $id): ItemActivityOLDItemRequestBuilder {
+    public function activitiesById(string $id): ?ItemActivityOLDItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemActivityOLD%2Did'] = $id;
         return new ItemActivityOLDItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -231,9 +231,9 @@ class DriveItemItemRequestBuilder
     /**
      * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder|null
     */
-    public function childrenById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder {
+    public function childrenById(string $id): ?\Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['driveItem%2Did1'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\Children\Item\DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -409,9 +409,9 @@ class DriveItemItemRequestBuilder
     /**
      * Provides operations to manage the permissions property of the microsoft.graph.driveItem entity.
      * @param string $id Unique identifier of the item
-     * @return PermissionItemRequestBuilder
+     * @return PermissionItemRequestBuilder|null
     */
-    public function permissionsById(string $id): PermissionItemRequestBuilder {
+    public function permissionsById(string $id): ?PermissionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['permission%2Did'] = $id;
         return new PermissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -429,9 +429,9 @@ class DriveItemItemRequestBuilder
     /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
      * @param string $id Unique identifier of the item
-     * @return SubscriptionItemRequestBuilder
+     * @return SubscriptionItemRequestBuilder|null
     */
-    public function subscriptionsById(string $id): SubscriptionItemRequestBuilder {
+    public function subscriptionsById(string $id): ?SubscriptionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['subscription%2Did'] = $id;
         return new SubscriptionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -440,9 +440,9 @@ class DriveItemItemRequestBuilder
     /**
      * Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.
      * @param string $id Unique identifier of the item
-     * @return ThumbnailSetItemRequestBuilder
+     * @return ThumbnailSetItemRequestBuilder|null
     */
-    public function thumbnailsById(string $id): ThumbnailSetItemRequestBuilder {
+    public function thumbnailsById(string $id): ?ThumbnailSetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['thumbnailSet%2Did'] = $id;
         return new ThumbnailSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -451,9 +451,9 @@ class DriveItemItemRequestBuilder
     /**
      * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
      * @param string $id Unique identifier of the item
-     * @return DriveItemVersionItemRequestBuilder
+     * @return DriveItemVersionItemRequestBuilder|null
     */
-    public function versionsById(string $id): DriveItemVersionItemRequestBuilder {
+    public function versionsById(string $id): ?DriveItemVersionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['driveItemVersion%2Did'] = $id;
         return new DriveItemVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -52,9 +52,9 @@ class CloudPcProvisioningPolicyItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.cloudPcProvisioningPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcProvisioningPolicyAssignmentItemRequestBuilder
+     * @return CloudPcProvisioningPolicyAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): CloudPcProvisioningPolicyAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?CloudPcProvisioningPolicyAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcProvisioningPolicyAssignment%2Did'] = $id;
         return new CloudPcProvisioningPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

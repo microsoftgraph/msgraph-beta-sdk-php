@@ -144,9 +144,9 @@ class CatalogRequestBuilder
     /**
      * Provides operations to manage the entries property of the microsoft.graph.windowsUpdates.catalog entity.
      * @param string $id Unique identifier of the item
-     * @return CatalogEntryItemRequestBuilder
+     * @return CatalogEntryItemRequestBuilder|null
     */
-    public function entriesById(string $id): CatalogEntryItemRequestBuilder {
+    public function entriesById(string $id): ?CatalogEntryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['catalogEntry%2Did'] = $id;
         return new CatalogEntryItemRequestBuilder($urlTplParams, $this->requestAdapter);

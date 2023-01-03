@@ -163,9 +163,9 @@ class PolicyRequestBuilder
     /**
      * Provides operations to manage the labels property of the microsoft.graph.informationProtectionPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return InformationProtectionLabelItemRequestBuilder
+     * @return InformationProtectionLabelItemRequestBuilder|null
     */
-    public function labelsById(string $id): InformationProtectionLabelItemRequestBuilder {
+    public function labelsById(string $id): ?InformationProtectionLabelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['informationProtectionLabel%2Did'] = $id;
         return new InformationProtectionLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);

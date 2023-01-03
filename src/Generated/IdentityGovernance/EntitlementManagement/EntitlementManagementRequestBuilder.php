@@ -160,9 +160,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return ApprovalItemRequestBuilder
+     * @return ApprovalItemRequestBuilder|null
     */
-    public function accessPackageAssignmentApprovalsById(string $id): ApprovalItemRequestBuilder {
+    public function accessPackageAssignmentApprovalsById(string $id): ?ApprovalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['approval%2Did'] = $id;
         return new ApprovalItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -171,9 +171,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageAssignmentPolicyItemRequestBuilder
+     * @return AccessPackageAssignmentPolicyItemRequestBuilder|null
     */
-    public function accessPackageAssignmentPoliciesById(string $id): AccessPackageAssignmentPolicyItemRequestBuilder {
+    public function accessPackageAssignmentPoliciesById(string $id): ?AccessPackageAssignmentPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageAssignmentPolicy%2Did'] = $id;
         return new AccessPackageAssignmentPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -182,9 +182,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageAssignmentRequests property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageAssignmentRequestItemRequestBuilder
+     * @return AccessPackageAssignmentRequestItemRequestBuilder|null
     */
-    public function accessPackageAssignmentRequestsById(string $id): AccessPackageAssignmentRequestItemRequestBuilder {
+    public function accessPackageAssignmentRequestsById(string $id): ?AccessPackageAssignmentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageAssignmentRequest%2Did'] = $id;
         return new AccessPackageAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -193,9 +193,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageAssignmentResourceRoles property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageAssignmentResourceRoleItemRequestBuilder
+     * @return AccessPackageAssignmentResourceRoleItemRequestBuilder|null
     */
-    public function accessPackageAssignmentResourceRolesById(string $id): AccessPackageAssignmentResourceRoleItemRequestBuilder {
+    public function accessPackageAssignmentResourceRolesById(string $id): ?AccessPackageAssignmentResourceRoleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageAssignmentResourceRole%2Did'] = $id;
         return new AccessPackageAssignmentResourceRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -204,9 +204,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageAssignments property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageAssignmentItemRequestBuilder
+     * @return AccessPackageAssignmentItemRequestBuilder|null
     */
-    public function accessPackageAssignmentsById(string $id): AccessPackageAssignmentItemRequestBuilder {
+    public function accessPackageAssignmentsById(string $id): ?AccessPackageAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageAssignment%2Did'] = $id;
         return new AccessPackageAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -215,9 +215,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageCatalogs property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageCatalogItemRequestBuilder
+     * @return AccessPackageCatalogItemRequestBuilder|null
     */
-    public function accessPackageCatalogsById(string $id): AccessPackageCatalogItemRequestBuilder {
+    public function accessPackageCatalogsById(string $id): ?AccessPackageCatalogItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageCatalog%2Did'] = $id;
         return new AccessPackageCatalogItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -226,9 +226,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageResourceEnvironments property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceEnvironmentItemRequestBuilder
+     * @return AccessPackageResourceEnvironmentItemRequestBuilder|null
     */
-    public function accessPackageResourceEnvironmentsById(string $id): AccessPackageResourceEnvironmentItemRequestBuilder {
+    public function accessPackageResourceEnvironmentsById(string $id): ?AccessPackageResourceEnvironmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceEnvironment%2Did'] = $id;
         return new AccessPackageResourceEnvironmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -237,9 +237,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageResourceRequests property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceRequestItemRequestBuilder
+     * @return AccessPackageResourceRequestItemRequestBuilder|null
     */
-    public function accessPackageResourceRequestsById(string $id): AccessPackageResourceRequestItemRequestBuilder {
+    public function accessPackageResourceRequestsById(string $id): ?AccessPackageResourceRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceRequest%2Did'] = $id;
         return new AccessPackageResourceRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -248,9 +248,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageResourceRoleScopes property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceRoleScopeItemRequestBuilder
+     * @return AccessPackageResourceRoleScopeItemRequestBuilder|null
     */
-    public function accessPackageResourceRoleScopesById(string $id): AccessPackageResourceRoleScopeItemRequestBuilder {
+    public function accessPackageResourceRoleScopesById(string $id): ?AccessPackageResourceRoleScopeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceRoleScope%2Did'] = $id;
         return new AccessPackageResourceRoleScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -259,9 +259,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackageResources property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceItemRequestBuilder
+     * @return AccessPackageResourceItemRequestBuilder|null
     */
-    public function accessPackageResourcesById(string $id): AccessPackageResourceItemRequestBuilder {
+    public function accessPackageResourcesById(string $id): ?AccessPackageResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResource%2Did'] = $id;
         return new AccessPackageResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -270,9 +270,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageItemRequestBuilder
+     * @return AccessPackageItemRequestBuilder|null
     */
-    public function accessPackagesById(string $id): AccessPackageItemRequestBuilder {
+    public function accessPackagesById(string $id): ?AccessPackageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackage%2Did'] = $id;
         return new AccessPackageItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -281,9 +281,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return ConnectedOrganizationItemRequestBuilder
+     * @return ConnectedOrganizationItemRequestBuilder|null
     */
-    public function connectedOrganizationsById(string $id): ConnectedOrganizationItemRequestBuilder {
+    public function connectedOrganizationsById(string $id): ?ConnectedOrganizationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['connectedOrganization%2Did'] = $id;
         return new ConnectedOrganizationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -431,9 +431,9 @@ class EntitlementManagementRequestBuilder
     /**
      * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageSubjectItemRequestBuilder
+     * @return AccessPackageSubjectItemRequestBuilder|null
     */
-    public function subjectsById(string $id): AccessPackageSubjectItemRequestBuilder {
+    public function subjectsById(string $id): ?AccessPackageSubjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageSubject%2Did'] = $id;
         return new AccessPackageSubjectItemRequestBuilder($urlTplParams, $this->requestAdapter);

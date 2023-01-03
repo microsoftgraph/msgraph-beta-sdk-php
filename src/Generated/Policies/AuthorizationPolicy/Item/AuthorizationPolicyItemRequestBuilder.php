@@ -125,9 +125,9 @@ class AuthorizationPolicyItemRequestBuilder
     /**
      * Provides operations to manage the defaultUserRoleOverrides property of the microsoft.graph.authorizationPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return DefaultUserRoleOverrideItemRequestBuilder
+     * @return DefaultUserRoleOverrideItemRequestBuilder|null
     */
-    public function defaultUserRoleOverridesById(string $id): DefaultUserRoleOverrideItemRequestBuilder {
+    public function defaultUserRoleOverridesById(string $id): ?DefaultUserRoleOverrideItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['defaultUserRoleOverride%2Did'] = $id;
         return new DefaultUserRoleOverrideItemRequestBuilder($urlTplParams, $this->requestAdapter);

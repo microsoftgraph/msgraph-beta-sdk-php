@@ -191,9 +191,9 @@ class ExactMatchDataStoreItemRequestBuilder
     /**
      * Provides operations to manage the sessions property of the microsoft.graph.exactMatchDataStore entity.
      * @param string $id Unique identifier of the item
-     * @return ExactMatchSessionItemRequestBuilder
+     * @return ExactMatchSessionItemRequestBuilder|null
     */
-    public function sessionsById(string $id): ExactMatchSessionItemRequestBuilder {
+    public function sessionsById(string $id): ?ExactMatchSessionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['exactMatchSession%2Did'] = $id;
         return new ExactMatchSessionItemRequestBuilder($urlTplParams, $this->requestAdapter);

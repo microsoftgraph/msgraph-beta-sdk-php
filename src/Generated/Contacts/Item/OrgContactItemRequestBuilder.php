@@ -215,9 +215,9 @@ class OrgContactItemRequestBuilder
     /**
      * Provides operations to manage the directReports property of the microsoft.graph.orgContact entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Contacts\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Contacts\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder|null
     */
-    public function directReportsById(string $id): \Microsoft\Graph\Beta\Generated\Contacts\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder {
+    public function directReportsById(string $id): ?\Microsoft\Graph\Beta\Generated\Contacts\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Contacts\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -245,9 +245,9 @@ class OrgContactItemRequestBuilder
     /**
      * Provides operations to manage the memberOf property of the microsoft.graph.orgContact entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder|null
     */
-    public function memberOfById(string $id): \Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder {
+    public function memberOfById(string $id): ?\Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -276,9 +276,9 @@ class OrgContactItemRequestBuilder
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.orgContact entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder|null
     */
-    public function transitiveMemberOfById(string $id): \Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder {
+    public function transitiveMemberOfById(string $id): ?\Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -287,9 +287,9 @@ class OrgContactItemRequestBuilder
     /**
      * Provides operations to manage the transitiveReports property of the microsoft.graph.orgContact entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder|null
     */
-    public function transitiveReportsById(string $id): \Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder {
+    public function transitiveReportsById(string $id): ?\Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);

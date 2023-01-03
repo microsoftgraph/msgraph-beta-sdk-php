@@ -204,9 +204,9 @@ class WorkflowItemRequestBuilder
     /**
      * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
-     * @return UserItemRequestBuilder
+     * @return UserItemRequestBuilder|null
     */
-    public function executionScopeById(string $id): UserItemRequestBuilder {
+    public function executionScopeById(string $id): ?UserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['user%2Did'] = $id;
         return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -254,9 +254,9 @@ class WorkflowItemRequestBuilder
     /**
      * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
-     * @return RunItemRequestBuilder
+     * @return RunItemRequestBuilder|null
     */
-    public function runsById(string $id): RunItemRequestBuilder {
+    public function runsById(string $id): ?RunItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['run%2Did'] = $id;
         return new RunItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -265,9 +265,9 @@ class WorkflowItemRequestBuilder
     /**
      * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
-     * @return TaskReportItemRequestBuilder
+     * @return TaskReportItemRequestBuilder|null
     */
-    public function taskReportsById(string $id): TaskReportItemRequestBuilder {
+    public function taskReportsById(string $id): ?TaskReportItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['taskReport%2Did'] = $id;
         return new TaskReportItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -276,9 +276,9 @@ class WorkflowItemRequestBuilder
     /**
      * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
-     * @return UserProcessingResultItemRequestBuilder
+     * @return UserProcessingResultItemRequestBuilder|null
     */
-    public function userProcessingResultsById(string $id): UserProcessingResultItemRequestBuilder {
+    public function userProcessingResultsById(string $id): ?UserProcessingResultItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userProcessingResult%2Did'] = $id;
         return new UserProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -287,9 +287,9 @@ class WorkflowItemRequestBuilder
     /**
      * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
-     * @return WorkflowVersionVersionNumberItemRequestBuilder
+     * @return WorkflowVersionVersionNumberItemRequestBuilder|null
     */
-    public function versionsById(string $id): WorkflowVersionVersionNumberItemRequestBuilder {
+    public function versionsById(string $id): ?WorkflowVersionVersionNumberItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['workflowVersion%2DversionNumber'] = $id;
         return new WorkflowVersionVersionNumberItemRequestBuilder($urlTplParams, $this->requestAdapter);

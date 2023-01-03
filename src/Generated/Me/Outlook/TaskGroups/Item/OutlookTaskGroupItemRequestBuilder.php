@@ -183,9 +183,9 @@ class OutlookTaskGroupItemRequestBuilder
     /**
      * Provides operations to manage the taskFolders property of the microsoft.graph.outlookTaskGroup entity.
      * @param string $id Unique identifier of the item
-     * @return OutlookTaskFolderItemRequestBuilder
+     * @return OutlookTaskFolderItemRequestBuilder|null
     */
-    public function taskFoldersById(string $id): OutlookTaskFolderItemRequestBuilder {
+    public function taskFoldersById(string $id): ?OutlookTaskFolderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['outlookTaskFolder%2Did'] = $id;
         return new OutlookTaskFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);

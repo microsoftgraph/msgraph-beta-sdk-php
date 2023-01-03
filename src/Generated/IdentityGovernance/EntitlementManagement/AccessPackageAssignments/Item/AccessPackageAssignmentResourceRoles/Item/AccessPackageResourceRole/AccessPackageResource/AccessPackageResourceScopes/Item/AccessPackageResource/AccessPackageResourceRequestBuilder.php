@@ -52,9 +52,9 @@ class AccessPackageResourceRequestBuilder
     /**
      * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageResource entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceRoleItemRequestBuilder
+     * @return AccessPackageResourceRoleItemRequestBuilder|null
     */
-    public function accessPackageResourceRolesById(string $id): AccessPackageResourceRoleItemRequestBuilder {
+    public function accessPackageResourceRolesById(string $id): ?AccessPackageResourceRoleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceRole%2Did'] = $id;
         return new AccessPackageResourceRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);

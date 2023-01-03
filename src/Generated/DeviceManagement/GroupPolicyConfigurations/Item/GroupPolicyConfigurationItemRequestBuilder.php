@@ -69,9 +69,9 @@ class GroupPolicyConfigurationItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.groupPolicyConfiguration entity.
      * @param string $id Unique identifier of the item
-     * @return GroupPolicyConfigurationAssignmentItemRequestBuilder
+     * @return GroupPolicyConfigurationAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): GroupPolicyConfigurationAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?GroupPolicyConfigurationAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyConfigurationAssignment%2Did'] = $id;
         return new GroupPolicyConfigurationAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -161,9 +161,9 @@ class GroupPolicyConfigurationItemRequestBuilder
     /**
      * Provides operations to manage the definitionValues property of the microsoft.graph.groupPolicyConfiguration entity.
      * @param string $id Unique identifier of the item
-     * @return GroupPolicyDefinitionValueItemRequestBuilder
+     * @return GroupPolicyDefinitionValueItemRequestBuilder|null
     */
-    public function definitionValuesById(string $id): GroupPolicyDefinitionValueItemRequestBuilder {
+    public function definitionValuesById(string $id): ?GroupPolicyDefinitionValueItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyDefinitionValue%2Did'] = $id;
         return new GroupPolicyDefinitionValueItemRequestBuilder($urlTplParams, $this->requestAdapter);

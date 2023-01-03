@@ -80,9 +80,9 @@ class DimensionItemRequestBuilder
     /**
      * Provides operations to manage the dimensionValues property of the microsoft.graph.dimension entity.
      * @param string $id Unique identifier of the item
-     * @return DimensionValueItemRequestBuilder
+     * @return DimensionValueItemRequestBuilder|null
     */
-    public function dimensionValuesById(string $id): DimensionValueItemRequestBuilder {
+    public function dimensionValuesById(string $id): ?DimensionValueItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dimensionValue%2Did'] = $id;
         return new DimensionValueItemRequestBuilder($urlTplParams, $this->requestAdapter);

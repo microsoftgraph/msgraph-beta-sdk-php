@@ -211,9 +211,9 @@ class TeamworkDeviceItemRequestBuilder
     /**
      * Provides operations to manage the operations property of the microsoft.graph.teamworkDevice entity.
      * @param string $id Unique identifier of the item
-     * @return TeamworkDeviceOperationItemRequestBuilder
+     * @return TeamworkDeviceOperationItemRequestBuilder|null
     */
-    public function operationsById(string $id): TeamworkDeviceOperationItemRequestBuilder {
+    public function operationsById(string $id): ?TeamworkDeviceOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamworkDeviceOperation%2Did'] = $id;
         return new TeamworkDeviceOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);

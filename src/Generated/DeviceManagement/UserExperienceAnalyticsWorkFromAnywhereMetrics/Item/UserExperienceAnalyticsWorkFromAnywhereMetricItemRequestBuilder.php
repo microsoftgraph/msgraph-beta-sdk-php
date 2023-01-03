@@ -163,9 +163,9 @@ class UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder
     /**
      * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
      * @param string $id Unique identifier of the item
-     * @return UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder
+     * @return UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder|null
     */
-    public function metricDevicesById(string $id): UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder {
+    public function metricDevicesById(string $id): ?UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsWorkFromAnywhereDevice%2Did'] = $id;
         return new UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);

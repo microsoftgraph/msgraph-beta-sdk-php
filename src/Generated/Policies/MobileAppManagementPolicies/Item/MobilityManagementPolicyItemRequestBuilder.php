@@ -163,9 +163,9 @@ class MobilityManagementPolicyItemRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.policies.mobileAppManagementPolicies.item.includedGroups.item collection
      * @param string $id Unique identifier of the item
-     * @return GroupItemRequestBuilder
+     * @return GroupItemRequestBuilder|null
     */
-    public function includedGroupsById(string $id): GroupItemRequestBuilder {
+    public function includedGroupsById(string $id): ?GroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['group%2Did'] = $id;
         return new GroupItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -181,9 +181,9 @@ class SynchronizationRequestBuilder
     /**
      * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
      * @param string $id Unique identifier of the item
-     * @return SynchronizationJobItemRequestBuilder
+     * @return SynchronizationJobItemRequestBuilder|null
     */
-    public function jobsById(string $id): SynchronizationJobItemRequestBuilder {
+    public function jobsById(string $id): ?SynchronizationJobItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['synchronizationJob%2Did'] = $id;
         return new SynchronizationJobItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -220,9 +220,9 @@ class SynchronizationRequestBuilder
     /**
      * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
      * @param string $id Unique identifier of the item
-     * @return SynchronizationTemplateItemRequestBuilder
+     * @return SynchronizationTemplateItemRequestBuilder|null
     */
-    public function templatesById(string $id): SynchronizationTemplateItemRequestBuilder {
+    public function templatesById(string $id): ?SynchronizationTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['synchronizationTemplate%2Did'] = $id;
         return new SynchronizationTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);

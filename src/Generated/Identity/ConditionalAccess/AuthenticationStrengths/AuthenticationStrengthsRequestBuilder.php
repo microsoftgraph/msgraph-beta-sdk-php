@@ -53,9 +53,9 @@ class AuthenticationStrengthsRequestBuilder
     /**
      * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
      * @param string $id Unique identifier of the item
-     * @return AuthenticationMethodModeDetailItemRequestBuilder
+     * @return AuthenticationMethodModeDetailItemRequestBuilder|null
     */
-    public function authenticationMethodModesById(string $id): AuthenticationMethodModeDetailItemRequestBuilder {
+    public function authenticationMethodModesById(string $id): ?AuthenticationMethodModeDetailItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['authenticationMethodModeDetail%2Did'] = $id;
         return new AuthenticationMethodModeDetailItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -203,9 +203,9 @@ class AuthenticationStrengthsRequestBuilder
     /**
      * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.
      * @param string $id Unique identifier of the item
-     * @return AuthenticationStrengthPolicyItemRequestBuilder
+     * @return AuthenticationStrengthPolicyItemRequestBuilder|null
     */
-    public function policiesById(string $id): AuthenticationStrengthPolicyItemRequestBuilder {
+    public function policiesById(string $id): ?AuthenticationStrengthPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['authenticationStrengthPolicy%2Did'] = $id;
         return new AuthenticationStrengthPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);

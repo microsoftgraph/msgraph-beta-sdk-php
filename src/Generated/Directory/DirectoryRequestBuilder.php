@@ -143,9 +143,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return AdministrativeUnitItemRequestBuilder
+     * @return AdministrativeUnitItemRequestBuilder|null
     */
-    public function administrativeUnitsById(string $id): AdministrativeUnitItemRequestBuilder {
+    public function administrativeUnitsById(string $id): ?AdministrativeUnitItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['administrativeUnit%2Did'] = $id;
         return new AdministrativeUnitItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -154,9 +154,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return AttributeSetItemRequestBuilder
+     * @return AttributeSetItemRequestBuilder|null
     */
-    public function attributeSetsById(string $id): AttributeSetItemRequestBuilder {
+    public function attributeSetsById(string $id): ?AttributeSetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['attributeSet%2Did'] = $id;
         return new AttributeSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -225,9 +225,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return CustomSecurityAttributeDefinitionItemRequestBuilder
+     * @return CustomSecurityAttributeDefinitionItemRequestBuilder|null
     */
-    public function customSecurityAttributeDefinitionsById(string $id): CustomSecurityAttributeDefinitionItemRequestBuilder {
+    public function customSecurityAttributeDefinitionsById(string $id): ?CustomSecurityAttributeDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customSecurityAttributeDefinition%2Did'] = $id;
         return new CustomSecurityAttributeDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -236,9 +236,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return DirectoryObjectItemRequestBuilder
+     * @return DirectoryObjectItemRequestBuilder|null
     */
-    public function deletedItemsById(string $id): DirectoryObjectItemRequestBuilder {
+    public function deletedItemsById(string $id): ?DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
         return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -247,9 +247,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return FeatureRolloutPolicyItemRequestBuilder
+     * @return FeatureRolloutPolicyItemRequestBuilder|null
     */
-    public function featureRolloutPoliciesById(string $id): FeatureRolloutPolicyItemRequestBuilder {
+    public function featureRolloutPoliciesById(string $id): ?FeatureRolloutPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['featureRolloutPolicy%2Did'] = $id;
         return new FeatureRolloutPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -258,9 +258,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return IdentityProviderBaseItemRequestBuilder
+     * @return IdentityProviderBaseItemRequestBuilder|null
     */
-    public function federationConfigurationsById(string $id): IdentityProviderBaseItemRequestBuilder {
+    public function federationConfigurationsById(string $id): ?IdentityProviderBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['identityProviderBase%2Did'] = $id;
         return new IdentityProviderBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -288,9 +288,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the impactedResources property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return RecommendationResourceItemRequestBuilder
+     * @return RecommendationResourceItemRequestBuilder|null
     */
-    public function impactedResourcesById(string $id): RecommendationResourceItemRequestBuilder {
+    public function impactedResourcesById(string $id): ?RecommendationResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['recommendationResource%2Did'] = $id;
         return new RecommendationResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -299,9 +299,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the inboundSharedUserProfiles property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return InboundSharedUserProfileUserItemRequestBuilder
+     * @return InboundSharedUserProfileUserItemRequestBuilder|null
     */
-    public function inboundSharedUserProfilesById(string $id): InboundSharedUserProfileUserItemRequestBuilder {
+    public function inboundSharedUserProfilesById(string $id): ?InboundSharedUserProfileUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['inboundSharedUserProfile%2DuserId'] = $id;
         return new InboundSharedUserProfileUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -310,9 +310,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return OnPremisesDirectorySynchronizationItemRequestBuilder
+     * @return OnPremisesDirectorySynchronizationItemRequestBuilder|null
     */
-    public function onPremisesSynchronizationById(string $id): OnPremisesDirectorySynchronizationItemRequestBuilder {
+    public function onPremisesSynchronizationById(string $id): ?OnPremisesDirectorySynchronizationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['onPremisesDirectorySynchronization%2Did'] = $id;
         return new OnPremisesDirectorySynchronizationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -321,9 +321,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the outboundSharedUserProfiles property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return OutboundSharedUserProfileUserItemRequestBuilder
+     * @return OutboundSharedUserProfileUserItemRequestBuilder|null
     */
-    public function outboundSharedUserProfilesById(string $id): OutboundSharedUserProfileUserItemRequestBuilder {
+    public function outboundSharedUserProfilesById(string $id): ?OutboundSharedUserProfileUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['outboundSharedUserProfile%2DuserId'] = $id;
         return new OutboundSharedUserProfileUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -352,9 +352,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the recommendations property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return RecommendationItemRequestBuilder
+     * @return RecommendationItemRequestBuilder|null
     */
-    public function recommendationsById(string $id): RecommendationItemRequestBuilder {
+    public function recommendationsById(string $id): ?RecommendationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['recommendation%2Did'] = $id;
         return new RecommendationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -363,9 +363,9 @@ class DirectoryRequestBuilder
     /**
      * Provides operations to manage the sharedEmailDomains property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
-     * @return SharedEmailDomainItemRequestBuilder
+     * @return SharedEmailDomainItemRequestBuilder|null
     */
-    public function sharedEmailDomainsById(string $id): SharedEmailDomainItemRequestBuilder {
+    public function sharedEmailDomainsById(string $id): ?SharedEmailDomainItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sharedEmailDomain%2Did'] = $id;
         return new SharedEmailDomainItemRequestBuilder($urlTplParams, $this->requestAdapter);

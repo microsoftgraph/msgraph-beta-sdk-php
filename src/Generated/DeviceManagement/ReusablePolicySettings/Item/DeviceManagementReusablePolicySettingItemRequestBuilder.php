@@ -191,9 +191,9 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder
     /**
      * Provides operations to manage the referencingConfigurationPolicies property of the microsoft.graph.deviceManagementReusablePolicySetting entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationPolicyItemRequestBuilder
+     * @return DeviceManagementConfigurationPolicyItemRequestBuilder|null
     */
-    public function referencingConfigurationPoliciesById(string $id): DeviceManagementConfigurationPolicyItemRequestBuilder {
+    public function referencingConfigurationPoliciesById(string $id): ?DeviceManagementConfigurationPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationPolicy%2Did'] = $id;
         return new DeviceManagementConfigurationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);

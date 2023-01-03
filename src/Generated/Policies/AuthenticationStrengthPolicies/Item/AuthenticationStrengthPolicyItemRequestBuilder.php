@@ -53,9 +53,9 @@ class AuthenticationStrengthPolicyItemRequestBuilder
     /**
      * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return AuthenticationCombinationConfigurationItemRequestBuilder
+     * @return AuthenticationCombinationConfigurationItemRequestBuilder|null
     */
-    public function combinationConfigurationsById(string $id): AuthenticationCombinationConfigurationItemRequestBuilder {
+    public function combinationConfigurationsById(string $id): ?AuthenticationCombinationConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['authenticationCombinationConfiguration%2Did'] = $id;
         return new AuthenticationCombinationConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);

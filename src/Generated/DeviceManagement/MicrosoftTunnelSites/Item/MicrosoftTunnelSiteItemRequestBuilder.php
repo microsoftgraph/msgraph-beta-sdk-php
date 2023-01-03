@@ -179,9 +179,9 @@ class MicrosoftTunnelSiteItemRequestBuilder
     /**
      * Provides operations to manage the microsoftTunnelServers property of the microsoft.graph.microsoftTunnelSite entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftTunnelServerItemRequestBuilder
+     * @return MicrosoftTunnelServerItemRequestBuilder|null
     */
-    public function microsoftTunnelServersById(string $id): MicrosoftTunnelServerItemRequestBuilder {
+    public function microsoftTunnelServersById(string $id): ?MicrosoftTunnelServerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['microsoftTunnelServer%2Did'] = $id;
         return new MicrosoftTunnelServerItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -68,9 +68,9 @@ class GroupPolicyCategoryItemRequestBuilder
     /**
      * Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder|null
     */
-    public function childrenById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder {
+    public function childrenById(string $id): ?\Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyCategory%2Did1'] = $id;
         return new \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -160,9 +160,9 @@ class GroupPolicyCategoryItemRequestBuilder
     /**
      * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyCategory entity.
      * @param string $id Unique identifier of the item
-     * @return GroupPolicyDefinitionItemRequestBuilder
+     * @return GroupPolicyDefinitionItemRequestBuilder|null
     */
-    public function definitionsById(string $id): GroupPolicyDefinitionItemRequestBuilder {
+    public function definitionsById(string $id): ?GroupPolicyDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyDefinition%2Did'] = $id;
         return new GroupPolicyDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);

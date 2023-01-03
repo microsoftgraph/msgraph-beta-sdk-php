@@ -125,9 +125,9 @@ class GroupPolicyDefinitionFileItemRequestBuilder
     /**
      * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyDefinitionFile entity.
      * @param string $id Unique identifier of the item
-     * @return GroupPolicyDefinitionItemRequestBuilder
+     * @return GroupPolicyDefinitionItemRequestBuilder|null
     */
-    public function definitionsById(string $id): GroupPolicyDefinitionItemRequestBuilder {
+    public function definitionsById(string $id): ?GroupPolicyDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyDefinition%2Did'] = $id;
         return new GroupPolicyDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);

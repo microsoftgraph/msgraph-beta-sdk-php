@@ -207,9 +207,9 @@ class PlannerRequestBuilder
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.businessScenarioPlanner entity.
      * @param string $id Unique identifier of the item
-     * @return BusinessScenarioTaskItemRequestBuilder
+     * @return BusinessScenarioTaskItemRequestBuilder|null
     */
-    public function tasksById(string $id): BusinessScenarioTaskItemRequestBuilder {
+    public function tasksById(string $id): ?BusinessScenarioTaskItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['businessScenarioTask%2Did'] = $id;
         return new BusinessScenarioTaskItemRequestBuilder($urlTplParams, $this->requestAdapter);

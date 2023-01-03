@@ -172,9 +172,9 @@ class ManagementTemplateItemRequestBuilder
     /**
      * Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managementTemplate entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateCollectionItemRequestBuilder
+     * @return ManagementTemplateCollectionItemRequestBuilder|null
     */
-    public function managementTemplateCollectionsById(string $id): ManagementTemplateCollectionItemRequestBuilder {
+    public function managementTemplateCollectionsById(string $id): ?ManagementTemplateCollectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateCollection%2Did'] = $id;
         return new ManagementTemplateCollectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -183,9 +183,9 @@ class ManagementTemplateItemRequestBuilder
     /**
      * Provides operations to manage the managementTemplateSteps property of the microsoft.graph.managedTenants.managementTemplate entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateStepItemRequestBuilder
+     * @return ManagementTemplateStepItemRequestBuilder|null
     */
-    public function managementTemplateStepsById(string $id): ManagementTemplateStepItemRequestBuilder {
+    public function managementTemplateStepsById(string $id): ?ManagementTemplateStepItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateStep%2Did'] = $id;
         return new ManagementTemplateStepItemRequestBuilder($urlTplParams, $this->requestAdapter);

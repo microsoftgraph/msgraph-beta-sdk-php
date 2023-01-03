@@ -61,9 +61,9 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.embeddedSIMActivationCodePool entity.
      * @param string $id Unique identifier of the item
-     * @return EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder
+     * @return EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['embeddedSIMActivationCodePoolAssignment%2Did'] = $id;
         return new EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -172,9 +172,9 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder
     /**
      * Provides operations to manage the deviceStates property of the microsoft.graph.embeddedSIMActivationCodePool entity.
      * @param string $id Unique identifier of the item
-     * @return EmbeddedSIMDeviceStateItemRequestBuilder
+     * @return EmbeddedSIMDeviceStateItemRequestBuilder|null
     */
-    public function deviceStatesById(string $id): EmbeddedSIMDeviceStateItemRequestBuilder {
+    public function deviceStatesById(string $id): ?EmbeddedSIMDeviceStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['embeddedSIMDeviceState%2Did'] = $id;
         return new EmbeddedSIMDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

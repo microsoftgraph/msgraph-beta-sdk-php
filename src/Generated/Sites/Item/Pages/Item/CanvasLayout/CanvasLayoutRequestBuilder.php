@@ -171,9 +171,9 @@ class CanvasLayoutRequestBuilder
     /**
      * Provides operations to manage the horizontalSections property of the microsoft.graph.canvasLayout entity.
      * @param string $id Unique identifier of the item
-     * @return HorizontalSectionItemRequestBuilder
+     * @return HorizontalSectionItemRequestBuilder|null
     */
-    public function horizontalSectionsById(string $id): HorizontalSectionItemRequestBuilder {
+    public function horizontalSectionsById(string $id): ?HorizontalSectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['horizontalSection%2Did'] = $id;
         return new HorizontalSectionItemRequestBuilder($urlTplParams, $this->requestAdapter);

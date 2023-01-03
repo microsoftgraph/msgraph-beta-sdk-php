@@ -207,9 +207,9 @@ class NextVersionDefinitionRequestBuilder
     /**
      * Provides operations to manage the presentations property of the microsoft.graph.groupPolicyDefinition entity.
      * @param string $id Unique identifier of the item
-     * @return GroupPolicyPresentationItemRequestBuilder
+     * @return GroupPolicyPresentationItemRequestBuilder|null
     */
-    public function presentationsById(string $id): GroupPolicyPresentationItemRequestBuilder {
+    public function presentationsById(string $id): ?GroupPolicyPresentationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyPresentation%2Did'] = $id;
         return new GroupPolicyPresentationItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -192,9 +192,9 @@ class RunItemRequestBuilder
     /**
      * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.run entity.
      * @param string $id Unique identifier of the item
-     * @return TaskProcessingResultItemRequestBuilder
+     * @return TaskProcessingResultItemRequestBuilder|null
     */
-    public function taskProcessingResultsById(string $id): TaskProcessingResultItemRequestBuilder {
+    public function taskProcessingResultsById(string $id): ?TaskProcessingResultItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['taskProcessingResult%2Did'] = $id;
         return new TaskProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -203,9 +203,9 @@ class RunItemRequestBuilder
     /**
      * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.run entity.
      * @param string $id Unique identifier of the item
-     * @return UserProcessingResultItemRequestBuilder
+     * @return UserProcessingResultItemRequestBuilder|null
     */
-    public function userProcessingResultsById(string $id): UserProcessingResultItemRequestBuilder {
+    public function userProcessingResultsById(string $id): ?UserProcessingResultItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userProcessingResult%2Did'] = $id;
         return new UserProcessingResultItemRequestBuilder($urlTplParams, $this->requestAdapter);

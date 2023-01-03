@@ -206,9 +206,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the account property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return UserAccountInformationItemRequestBuilder
+     * @return UserAccountInformationItemRequestBuilder|null
     */
-    public function accountById(string $id): UserAccountInformationItemRequestBuilder {
+    public function accountById(string $id): ?UserAccountInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userAccountInformation%2Did'] = $id;
         return new UserAccountInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -217,9 +217,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the addresses property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return ItemAddressItemRequestBuilder
+     * @return ItemAddressItemRequestBuilder|null
     */
-    public function addressesById(string $id): ItemAddressItemRequestBuilder {
+    public function addressesById(string $id): ?ItemAddressItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemAddress%2Did'] = $id;
         return new ItemAddressItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -228,9 +228,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the anniversaries property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return PersonAnnualEventItemRequestBuilder
+     * @return PersonAnnualEventItemRequestBuilder|null
     */
-    public function anniversariesById(string $id): PersonAnnualEventItemRequestBuilder {
+    public function anniversariesById(string $id): ?PersonAnnualEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personAnnualEvent%2Did'] = $id;
         return new PersonAnnualEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -239,9 +239,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the awards property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return PersonAwardItemRequestBuilder
+     * @return PersonAwardItemRequestBuilder|null
     */
-    public function awardsById(string $id): PersonAwardItemRequestBuilder {
+    public function awardsById(string $id): ?PersonAwardItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personAward%2Did'] = $id;
         return new PersonAwardItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -250,9 +250,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the certifications property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return PersonCertificationItemRequestBuilder
+     * @return PersonCertificationItemRequestBuilder|null
     */
-    public function certificationsById(string $id): PersonCertificationItemRequestBuilder {
+    public function certificationsById(string $id): ?PersonCertificationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personCertification%2Did'] = $id;
         return new PersonCertificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -361,9 +361,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the educationalActivities property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return EducationalActivityItemRequestBuilder
+     * @return EducationalActivityItemRequestBuilder|null
     */
-    public function educationalActivitiesById(string $id): EducationalActivityItemRequestBuilder {
+    public function educationalActivitiesById(string $id): ?EducationalActivityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['educationalActivity%2Did'] = $id;
         return new EducationalActivityItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -372,9 +372,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the emails property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return ItemEmailItemRequestBuilder
+     * @return ItemEmailItemRequestBuilder|null
     */
-    public function emailsById(string $id): ItemEmailItemRequestBuilder {
+    public function emailsById(string $id): ?ItemEmailItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemEmail%2Did'] = $id;
         return new ItemEmailItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -402,9 +402,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the interests property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return PersonInterestItemRequestBuilder
+     * @return PersonInterestItemRequestBuilder|null
     */
-    public function interestsById(string $id): PersonInterestItemRequestBuilder {
+    public function interestsById(string $id): ?PersonInterestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personInterest%2Did'] = $id;
         return new PersonInterestItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -413,9 +413,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the languages property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return LanguageProficiencyItemRequestBuilder
+     * @return LanguageProficiencyItemRequestBuilder|null
     */
-    public function languagesById(string $id): LanguageProficiencyItemRequestBuilder {
+    public function languagesById(string $id): ?LanguageProficiencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['languageProficiency%2Did'] = $id;
         return new LanguageProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -424,9 +424,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the names property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return PersonNameItemRequestBuilder
+     * @return PersonNameItemRequestBuilder|null
     */
-    public function namesById(string $id): PersonNameItemRequestBuilder {
+    public function namesById(string $id): ?PersonNameItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personName%2Did'] = $id;
         return new PersonNameItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -435,9 +435,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the notes property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return PersonAnnotationItemRequestBuilder
+     * @return PersonAnnotationItemRequestBuilder|null
     */
-    public function notesById(string $id): PersonAnnotationItemRequestBuilder {
+    public function notesById(string $id): ?PersonAnnotationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personAnnotation%2Did'] = $id;
         return new PersonAnnotationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -466,9 +466,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the patents property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return ItemPatentItemRequestBuilder
+     * @return ItemPatentItemRequestBuilder|null
     */
-    public function patentsById(string $id): ItemPatentItemRequestBuilder {
+    public function patentsById(string $id): ?ItemPatentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemPatent%2Did'] = $id;
         return new ItemPatentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -477,9 +477,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the phones property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return ItemPhoneItemRequestBuilder
+     * @return ItemPhoneItemRequestBuilder|null
     */
-    public function phonesById(string $id): ItemPhoneItemRequestBuilder {
+    public function phonesById(string $id): ?ItemPhoneItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemPhone%2Did'] = $id;
         return new ItemPhoneItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -488,9 +488,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the positions property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return WorkPositionItemRequestBuilder
+     * @return WorkPositionItemRequestBuilder|null
     */
-    public function positionsById(string $id): WorkPositionItemRequestBuilder {
+    public function positionsById(string $id): ?WorkPositionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['workPosition%2Did'] = $id;
         return new WorkPositionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -499,9 +499,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the projects property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return ProjectParticipationItemRequestBuilder
+     * @return ProjectParticipationItemRequestBuilder|null
     */
-    public function projectsById(string $id): ProjectParticipationItemRequestBuilder {
+    public function projectsById(string $id): ?ProjectParticipationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['projectParticipation%2Did'] = $id;
         return new ProjectParticipationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -510,9 +510,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the publications property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return ItemPublicationItemRequestBuilder
+     * @return ItemPublicationItemRequestBuilder|null
     */
-    public function publicationsById(string $id): ItemPublicationItemRequestBuilder {
+    public function publicationsById(string $id): ?ItemPublicationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemPublication%2Did'] = $id;
         return new ItemPublicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -521,9 +521,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the skills property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return SkillProficiencyItemRequestBuilder
+     * @return SkillProficiencyItemRequestBuilder|null
     */
-    public function skillsById(string $id): SkillProficiencyItemRequestBuilder {
+    public function skillsById(string $id): ?SkillProficiencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['skillProficiency%2Did'] = $id;
         return new SkillProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -532,9 +532,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the webAccounts property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return WebAccountItemRequestBuilder
+     * @return WebAccountItemRequestBuilder|null
     */
-    public function webAccountsById(string $id): WebAccountItemRequestBuilder {
+    public function webAccountsById(string $id): ?WebAccountItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['webAccount%2Did'] = $id;
         return new WebAccountItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -543,9 +543,9 @@ class ProfileRequestBuilder
     /**
      * Provides operations to manage the websites property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
-     * @return PersonWebsiteItemRequestBuilder
+     * @return PersonWebsiteItemRequestBuilder|null
     */
-    public function websitesById(string $id): PersonWebsiteItemRequestBuilder {
+    public function websitesById(string $id): ?PersonWebsiteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personWebsite%2Did'] = $id;
         return new PersonWebsiteItemRequestBuilder($urlTplParams, $this->requestAdapter);

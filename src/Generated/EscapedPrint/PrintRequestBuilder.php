@@ -104,9 +104,9 @@ class PrintRequestBuilder
     /**
      * Provides operations to manage the connectors property of the microsoft.graph.print entity.
      * @param string $id Unique identifier of the item
-     * @return PrintConnectorItemRequestBuilder
+     * @return PrintConnectorItemRequestBuilder|null
     */
-    public function connectorsById(string $id): PrintConnectorItemRequestBuilder {
+    public function connectorsById(string $id): ?PrintConnectorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printConnector%2Did'] = $id;
         return new PrintConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -194,9 +194,9 @@ class PrintRequestBuilder
     /**
      * Provides operations to manage the operations property of the microsoft.graph.print entity.
      * @param string $id Unique identifier of the item
-     * @return PrintOperationItemRequestBuilder
+     * @return PrintOperationItemRequestBuilder|null
     */
-    public function operationsById(string $id): PrintOperationItemRequestBuilder {
+    public function operationsById(string $id): ?PrintOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printOperation%2Did'] = $id;
         return new PrintOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -225,9 +225,9 @@ class PrintRequestBuilder
     /**
      * Provides operations to manage the printers property of the microsoft.graph.print entity.
      * @param string $id Unique identifier of the item
-     * @return PrinterItemRequestBuilder
+     * @return PrinterItemRequestBuilder|null
     */
-    public function printersById(string $id): PrinterItemRequestBuilder {
+    public function printersById(string $id): ?PrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printer%2Did'] = $id;
         return new PrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -236,9 +236,9 @@ class PrintRequestBuilder
     /**
      * Provides operations to manage the printerShares property of the microsoft.graph.print entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder|null
     */
-    public function printerSharesById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder {
+    public function printerSharesById(string $id): ?\Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printerShare%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -247,9 +247,9 @@ class PrintRequestBuilder
     /**
      * Provides operations to manage the services property of the microsoft.graph.print entity.
      * @param string $id Unique identifier of the item
-     * @return PrintServiceItemRequestBuilder
+     * @return PrintServiceItemRequestBuilder|null
     */
-    public function servicesById(string $id): PrintServiceItemRequestBuilder {
+    public function servicesById(string $id): ?PrintServiceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printService%2Did'] = $id;
         return new PrintServiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -258,9 +258,9 @@ class PrintRequestBuilder
     /**
      * Provides operations to manage the shares property of the microsoft.graph.print entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder|null
     */
-    public function sharesById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder {
+    public function sharesById(string $id): ?\Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printerShare%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -269,9 +269,9 @@ class PrintRequestBuilder
     /**
      * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
      * @param string $id Unique identifier of the item
-     * @return PrintTaskDefinitionItemRequestBuilder
+     * @return PrintTaskDefinitionItemRequestBuilder|null
     */
-    public function taskDefinitionsById(string $id): PrintTaskDefinitionItemRequestBuilder {
+    public function taskDefinitionsById(string $id): ?PrintTaskDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printTaskDefinition%2Did'] = $id;
         return new PrintTaskDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);

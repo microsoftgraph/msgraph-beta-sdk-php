@@ -191,9 +191,9 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder
     /**
      * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
      * @param string $id Unique identifier of the item
-     * @return UnifiedRbacResourceActionItemRequestBuilder
+     * @return UnifiedRbacResourceActionItemRequestBuilder|null
     */
-    public function resourceActionsById(string $id): UnifiedRbacResourceActionItemRequestBuilder {
+    public function resourceActionsById(string $id): ?UnifiedRbacResourceActionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRbacResourceAction%2Did'] = $id;
         return new UnifiedRbacResourceActionItemRequestBuilder($urlTplParams, $this->requestAdapter);

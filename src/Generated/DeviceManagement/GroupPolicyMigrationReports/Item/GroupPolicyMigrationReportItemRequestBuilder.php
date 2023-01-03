@@ -172,9 +172,9 @@ class GroupPolicyMigrationReportItemRequestBuilder
     /**
      * Provides operations to manage the groupPolicySettingMappings property of the microsoft.graph.groupPolicyMigrationReport entity.
      * @param string $id Unique identifier of the item
-     * @return GroupPolicySettingMappingItemRequestBuilder
+     * @return GroupPolicySettingMappingItemRequestBuilder|null
     */
-    public function groupPolicySettingMappingsById(string $id): GroupPolicySettingMappingItemRequestBuilder {
+    public function groupPolicySettingMappingsById(string $id): ?GroupPolicySettingMappingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicySettingMapping%2Did'] = $id;
         return new GroupPolicySettingMappingItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -203,9 +203,9 @@ class GroupPolicyMigrationReportItemRequestBuilder
     /**
      * Provides operations to manage the unsupportedGroupPolicyExtensions property of the microsoft.graph.groupPolicyMigrationReport entity.
      * @param string $id Unique identifier of the item
-     * @return UnsupportedGroupPolicyExtensionItemRequestBuilder
+     * @return UnsupportedGroupPolicyExtensionItemRequestBuilder|null
     */
-    public function unsupportedGroupPolicyExtensionsById(string $id): UnsupportedGroupPolicyExtensionItemRequestBuilder {
+    public function unsupportedGroupPolicyExtensionsById(string $id): ?UnsupportedGroupPolicyExtensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unsupportedGroupPolicyExtension%2Did'] = $id;
         return new UnsupportedGroupPolicyExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);

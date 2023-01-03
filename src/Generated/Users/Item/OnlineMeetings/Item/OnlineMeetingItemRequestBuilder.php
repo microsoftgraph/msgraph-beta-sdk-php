@@ -101,9 +101,9 @@ class OnlineMeetingItemRequestBuilder
     /**
      * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
      * @param string $id Unique identifier of the item
-     * @return MeetingAttendanceReportItemRequestBuilder
+     * @return MeetingAttendanceReportItemRequestBuilder|null
     */
-    public function attendanceReportsById(string $id): MeetingAttendanceReportItemRequestBuilder {
+    public function attendanceReportsById(string $id): ?MeetingAttendanceReportItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['meetingAttendanceReport%2Did'] = $id;
         return new MeetingAttendanceReportItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -251,9 +251,9 @@ class OnlineMeetingItemRequestBuilder
     /**
      * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
      * @param string $id Unique identifier of the item
-     * @return CallTranscriptItemRequestBuilder
+     * @return CallTranscriptItemRequestBuilder|null
     */
-    public function transcriptsById(string $id): CallTranscriptItemRequestBuilder {
+    public function transcriptsById(string $id): ?CallTranscriptItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['callTranscript%2Did'] = $id;
         return new CallTranscriptItemRequestBuilder($urlTplParams, $this->requestAdapter);

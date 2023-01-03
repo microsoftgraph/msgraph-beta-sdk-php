@@ -61,9 +61,9 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder
     /**
      * Provides operations to manage the assignedDevices property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsAutopilotDeviceIdentityItemRequestBuilder
+     * @return WindowsAutopilotDeviceIdentityItemRequestBuilder|null
     */
-    public function assignedDevicesById(string $id): WindowsAutopilotDeviceIdentityItemRequestBuilder {
+    public function assignedDevicesById(string $id): ?WindowsAutopilotDeviceIdentityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsAutopilotDeviceIdentity%2Did'] = $id;
         return new WindowsAutopilotDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -72,9 +72,9 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder
+     * @return WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsAutopilotDeploymentProfileAssignment%2Did'] = $id;
         return new WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

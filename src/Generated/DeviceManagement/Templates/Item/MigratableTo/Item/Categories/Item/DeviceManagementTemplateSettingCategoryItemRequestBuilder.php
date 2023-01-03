@@ -183,9 +183,9 @@ class DeviceManagementTemplateSettingCategoryItemRequestBuilder
     /**
      * Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementSettingInstanceItemRequestBuilder
+     * @return DeviceManagementSettingInstanceItemRequestBuilder|null
     */
-    public function recommendedSettingsById(string $id): DeviceManagementSettingInstanceItemRequestBuilder {
+    public function recommendedSettingsById(string $id): ?DeviceManagementSettingInstanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementSettingInstance%2Did'] = $id;
         return new DeviceManagementSettingInstanceItemRequestBuilder($urlTplParams, $this->requestAdapter);

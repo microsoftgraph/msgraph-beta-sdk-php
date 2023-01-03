@@ -154,9 +154,9 @@ class SchemaRequestBuilder
     /**
      * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
      * @param string $id Unique identifier of the item
-     * @return DirectoryDefinitionItemRequestBuilder
+     * @return DirectoryDefinitionItemRequestBuilder|null
     */
-    public function directoriesById(string $id): DirectoryDefinitionItemRequestBuilder {
+    public function directoriesById(string $id): ?DirectoryDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryDefinition%2Did'] = $id;
         return new DirectoryDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);

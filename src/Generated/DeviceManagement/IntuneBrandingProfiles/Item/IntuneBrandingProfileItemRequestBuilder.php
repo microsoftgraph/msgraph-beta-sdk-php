@@ -52,9 +52,9 @@ class IntuneBrandingProfileItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.intuneBrandingProfile entity.
      * @param string $id Unique identifier of the item
-     * @return IntuneBrandingProfileAssignmentItemRequestBuilder
+     * @return IntuneBrandingProfileAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): IntuneBrandingProfileAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?IntuneBrandingProfileAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['intuneBrandingProfileAssignment%2Did'] = $id;
         return new IntuneBrandingProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

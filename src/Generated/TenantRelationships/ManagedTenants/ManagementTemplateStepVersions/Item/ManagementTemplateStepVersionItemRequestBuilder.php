@@ -160,9 +160,9 @@ class ManagementTemplateStepVersionItemRequestBuilder
     /**
      * Provides operations to manage the deployments property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateStepDeploymentItemRequestBuilder
+     * @return ManagementTemplateStepDeploymentItemRequestBuilder|null
     */
-    public function deploymentsById(string $id): ManagementTemplateStepDeploymentItemRequestBuilder {
+    public function deploymentsById(string $id): ?ManagementTemplateStepDeploymentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateStepDeployment%2Did'] = $id;
         return new ManagementTemplateStepDeploymentItemRequestBuilder($urlTplParams, $this->requestAdapter);

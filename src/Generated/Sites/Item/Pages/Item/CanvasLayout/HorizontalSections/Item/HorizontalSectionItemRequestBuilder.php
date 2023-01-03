@@ -44,9 +44,9 @@ class HorizontalSectionItemRequestBuilder
     /**
      * Provides operations to manage the columns property of the microsoft.graph.horizontalSection entity.
      * @param string $id Unique identifier of the item
-     * @return HorizontalSectionColumnItemRequestBuilder
+     * @return HorizontalSectionColumnItemRequestBuilder|null
     */
-    public function columnsById(string $id): HorizontalSectionColumnItemRequestBuilder {
+    public function columnsById(string $id): ?HorizontalSectionColumnItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['horizontalSectionColumn%2Did'] = $id;
         return new HorizontalSectionColumnItemRequestBuilder($urlTplParams, $this->requestAdapter);

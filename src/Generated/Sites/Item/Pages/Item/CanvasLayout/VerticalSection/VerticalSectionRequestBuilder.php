@@ -183,9 +183,9 @@ class VerticalSectionRequestBuilder
     /**
      * Provides operations to manage the webparts property of the microsoft.graph.verticalSection entity.
      * @param string $id Unique identifier of the item
-     * @return WebPartItemRequestBuilder
+     * @return WebPartItemRequestBuilder|null
     */
-    public function webpartsById(string $id): WebPartItemRequestBuilder {
+    public function webpartsById(string $id): ?WebPartItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['webPart%2Did'] = $id;
         return new WebPartItemRequestBuilder($urlTplParams, $this->requestAdapter);

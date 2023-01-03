@@ -127,9 +127,9 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the classifyFileJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder|null
     */
-    public function classifyFileJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder {
+    public function classifyFileJobsById(string $id): ?\Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -138,9 +138,9 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the classifyTextJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder|null
     */
-    public function classifyTextJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder {
+    public function classifyTextJobsById(string $id): ?\Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -209,9 +209,9 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the evaluateDlpPoliciesJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder|null
     */
-    public function evaluateDlpPoliciesJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder {
+    public function evaluateDlpPoliciesJobsById(string $id): ?\Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -220,9 +220,9 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the evaluateLabelJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder|null
     */
-    public function evaluateLabelJobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder {
+    public function evaluateLabelJobsById(string $id): ?\Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -231,9 +231,9 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the exactMatchDataStores property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return ExactMatchDataStoreItemRequestBuilder
+     * @return ExactMatchDataStoreItemRequestBuilder|null
     */
-    public function exactMatchDataStoresById(string $id): ExactMatchDataStoreItemRequestBuilder {
+    public function exactMatchDataStoresById(string $id): ?ExactMatchDataStoreItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['exactMatchDataStore%2Did'] = $id;
         return new ExactMatchDataStoreItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -242,9 +242,9 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the exactMatchUploadAgents property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return ExactMatchUploadAgentItemRequestBuilder
+     * @return ExactMatchUploadAgentItemRequestBuilder|null
     */
-    public function exactMatchUploadAgentsById(string $id): ExactMatchUploadAgentItemRequestBuilder {
+    public function exactMatchUploadAgentsById(string $id): ?ExactMatchUploadAgentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['exactMatchUploadAgent%2Did'] = $id;
         return new ExactMatchUploadAgentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -272,9 +272,9 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the jobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder|null
     */
-    public function jobsById(string $id): \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder {
+    public function jobsById(string $id): ?\Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['jobResponseBase%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\DataClassification\Jobs\Item\JobResponseBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -303,9 +303,9 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the sensitiveTypes property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return SensitiveTypeItemRequestBuilder
+     * @return SensitiveTypeItemRequestBuilder|null
     */
-    public function sensitiveTypesById(string $id): SensitiveTypeItemRequestBuilder {
+    public function sensitiveTypesById(string $id): ?SensitiveTypeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sensitiveType%2Did'] = $id;
         return new SensitiveTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -314,9 +314,9 @@ class DataClassificationRequestBuilder
     /**
      * Provides operations to manage the sensitivityLabels property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
-     * @return SensitivityLabelItemRequestBuilder
+     * @return SensitivityLabelItemRequestBuilder|null
     */
-    public function sensitivityLabelsById(string $id): SensitivityLabelItemRequestBuilder {
+    public function sensitivityLabelsById(string $id): ?SensitivityLabelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sensitivityLabel%2Did'] = $id;
         return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);

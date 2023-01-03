@@ -171,9 +171,9 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder
     /**
      * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
      * @param string $id Unique identifier of the item
-     * @return GovernanceInsightItemRequestBuilder
+     * @return GovernanceInsightItemRequestBuilder|null
     */
-    public function insightsById(string $id): GovernanceInsightItemRequestBuilder {
+    public function insightsById(string $id): ?GovernanceInsightItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceInsight%2Did'] = $id;
         return new GovernanceInsightItemRequestBuilder($urlTplParams, $this->requestAdapter);

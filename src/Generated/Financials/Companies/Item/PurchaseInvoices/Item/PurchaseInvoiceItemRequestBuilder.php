@@ -167,9 +167,9 @@ class PurchaseInvoiceItemRequestBuilder
     /**
      * Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.purchaseInvoice entity.
      * @param string $id Unique identifier of the item
-     * @return PurchaseInvoiceLineItemRequestBuilder
+     * @return PurchaseInvoiceLineItemRequestBuilder|null
     */
-    public function purchaseInvoiceLinesById(string $id): PurchaseInvoiceLineItemRequestBuilder {
+    public function purchaseInvoiceLinesById(string $id): ?PurchaseInvoiceLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['purchaseInvoiceLine%2Did'] = $id;
         return new PurchaseInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);

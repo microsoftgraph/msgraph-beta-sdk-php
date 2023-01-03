@@ -52,9 +52,9 @@ class CloudPcUserSettingItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.cloudPcUserSetting entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcUserSettingAssignmentItemRequestBuilder
+     * @return CloudPcUserSettingAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): CloudPcUserSettingAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?CloudPcUserSettingAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcUserSettingAssignment%2Did'] = $id;
         return new CloudPcUserSettingAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

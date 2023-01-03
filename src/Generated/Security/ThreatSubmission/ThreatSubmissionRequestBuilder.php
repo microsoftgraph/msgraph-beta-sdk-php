@@ -171,9 +171,9 @@ class ThreatSubmissionRequestBuilder
     /**
      * Provides operations to manage the emailThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
      * @param string $id Unique identifier of the item
-     * @return EmailThreatSubmissionItemRequestBuilder
+     * @return EmailThreatSubmissionItemRequestBuilder|null
     */
-    public function emailThreatsById(string $id): EmailThreatSubmissionItemRequestBuilder {
+    public function emailThreatsById(string $id): ?EmailThreatSubmissionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['emailThreatSubmission%2Did'] = $id;
         return new EmailThreatSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -182,9 +182,9 @@ class ThreatSubmissionRequestBuilder
     /**
      * Provides operations to manage the emailThreatSubmissionPolicies property of the microsoft.graph.security.threatSubmissionRoot entity.
      * @param string $id Unique identifier of the item
-     * @return EmailThreatSubmissionPolicyItemRequestBuilder
+     * @return EmailThreatSubmissionPolicyItemRequestBuilder|null
     */
-    public function emailThreatSubmissionPoliciesById(string $id): EmailThreatSubmissionPolicyItemRequestBuilder {
+    public function emailThreatSubmissionPoliciesById(string $id): ?EmailThreatSubmissionPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['emailThreatSubmissionPolicy%2Did'] = $id;
         return new EmailThreatSubmissionPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -193,9 +193,9 @@ class ThreatSubmissionRequestBuilder
     /**
      * Provides operations to manage the fileThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
      * @param string $id Unique identifier of the item
-     * @return FileThreatSubmissionItemRequestBuilder
+     * @return FileThreatSubmissionItemRequestBuilder|null
     */
-    public function fileThreatsById(string $id): FileThreatSubmissionItemRequestBuilder {
+    public function fileThreatsById(string $id): ?FileThreatSubmissionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['fileThreatSubmission%2Did'] = $id;
         return new FileThreatSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -243,9 +243,9 @@ class ThreatSubmissionRequestBuilder
     /**
      * Provides operations to manage the urlThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
      * @param string $id Unique identifier of the item
-     * @return UrlThreatSubmissionItemRequestBuilder
+     * @return UrlThreatSubmissionItemRequestBuilder|null
     */
-    public function urlThreatsById(string $id): UrlThreatSubmissionItemRequestBuilder {
+    public function urlThreatsById(string $id): ?UrlThreatSubmissionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['urlThreatSubmission%2Did'] = $id;
         return new UrlThreatSubmissionItemRequestBuilder($urlTplParams, $this->requestAdapter);

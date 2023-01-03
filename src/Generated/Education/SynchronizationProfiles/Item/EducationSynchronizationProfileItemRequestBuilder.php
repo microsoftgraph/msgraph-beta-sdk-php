@@ -185,9 +185,9 @@ class EducationSynchronizationProfileItemRequestBuilder
     /**
      * Provides operations to manage the errors property of the microsoft.graph.educationSynchronizationProfile entity.
      * @param string $id Unique identifier of the item
-     * @return EducationSynchronizationErrorItemRequestBuilder
+     * @return EducationSynchronizationErrorItemRequestBuilder|null
     */
-    public function errorsById(string $id): EducationSynchronizationErrorItemRequestBuilder {
+    public function errorsById(string $id): ?EducationSynchronizationErrorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['educationSynchronizationError%2Did'] = $id;
         return new EducationSynchronizationErrorItemRequestBuilder($urlTplParams, $this->requestAdapter);

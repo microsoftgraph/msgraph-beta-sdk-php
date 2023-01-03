@@ -168,9 +168,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the auditEvents property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcAuditEventItemRequestBuilder
+     * @return CloudPcAuditEventItemRequestBuilder|null
     */
-    public function auditEventsById(string $id): CloudPcAuditEventItemRequestBuilder {
+    public function auditEventsById(string $id): ?CloudPcAuditEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcAuditEvent%2Did'] = $id;
         return new CloudPcAuditEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -179,9 +179,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the cloudPCs property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPCItemRequestBuilder
+     * @return CloudPCItemRequestBuilder|null
     */
-    public function cloudPCsById(string $id): CloudPCItemRequestBuilder {
+    public function cloudPCsById(string $id): ?CloudPCItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPC%2Did'] = $id;
         return new CloudPCItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -290,9 +290,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the deviceImages property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcDeviceImageItemRequestBuilder
+     * @return CloudPcDeviceImageItemRequestBuilder|null
     */
-    public function deviceImagesById(string $id): CloudPcDeviceImageItemRequestBuilder {
+    public function deviceImagesById(string $id): ?CloudPcDeviceImageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcDeviceImage%2Did'] = $id;
         return new CloudPcDeviceImageItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -301,9 +301,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the externalPartnerSettings property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcExternalPartnerSettingItemRequestBuilder
+     * @return CloudPcExternalPartnerSettingItemRequestBuilder|null
     */
-    public function externalPartnerSettingsById(string $id): CloudPcExternalPartnerSettingItemRequestBuilder {
+    public function externalPartnerSettingsById(string $id): ?CloudPcExternalPartnerSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcExternalPartnerSetting%2Did'] = $id;
         return new CloudPcExternalPartnerSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -312,9 +312,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the galleryImages property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcGalleryImageItemRequestBuilder
+     * @return CloudPcGalleryImageItemRequestBuilder|null
     */
-    public function galleryImagesById(string $id): CloudPcGalleryImageItemRequestBuilder {
+    public function galleryImagesById(string $id): ?CloudPcGalleryImageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcGalleryImage%2Did'] = $id;
         return new CloudPcGalleryImageItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -350,9 +350,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the onPremisesConnections property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcOnPremisesConnectionItemRequestBuilder
+     * @return CloudPcOnPremisesConnectionItemRequestBuilder|null
     */
-    public function onPremisesConnectionsById(string $id): CloudPcOnPremisesConnectionItemRequestBuilder {
+    public function onPremisesConnectionsById(string $id): ?CloudPcOnPremisesConnectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcOnPremisesConnection%2Did'] = $id;
         return new CloudPcOnPremisesConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -381,9 +381,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the provisioningPolicies property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcProvisioningPolicyItemRequestBuilder
+     * @return CloudPcProvisioningPolicyItemRequestBuilder|null
     */
-    public function provisioningPoliciesById(string $id): CloudPcProvisioningPolicyItemRequestBuilder {
+    public function provisioningPoliciesById(string $id): ?CloudPcProvisioningPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcProvisioningPolicy%2Did'] = $id;
         return new CloudPcProvisioningPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -392,9 +392,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcServicePlanItemRequestBuilder
+     * @return CloudPcServicePlanItemRequestBuilder|null
     */
-    public function servicePlansById(string $id): CloudPcServicePlanItemRequestBuilder {
+    public function servicePlansById(string $id): ?CloudPcServicePlanItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcServicePlan%2Did'] = $id;
         return new CloudPcServicePlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -403,9 +403,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the sharedUseServicePlans property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcSharedUseServicePlanItemRequestBuilder
+     * @return CloudPcSharedUseServicePlanItemRequestBuilder|null
     */
-    public function sharedUseServicePlansById(string $id): CloudPcSharedUseServicePlanItemRequestBuilder {
+    public function sharedUseServicePlansById(string $id): ?CloudPcSharedUseServicePlanItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcSharedUseServicePlan%2Did'] = $id;
         return new CloudPcSharedUseServicePlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -414,9 +414,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the snapshots property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcSnapshotItemRequestBuilder
+     * @return CloudPcSnapshotItemRequestBuilder|null
     */
-    public function snapshotsById(string $id): CloudPcSnapshotItemRequestBuilder {
+    public function snapshotsById(string $id): ?CloudPcSnapshotItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcSnapshot%2Did'] = $id;
         return new CloudPcSnapshotItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -425,9 +425,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the supportedRegions property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcSupportedRegionItemRequestBuilder
+     * @return CloudPcSupportedRegionItemRequestBuilder|null
     */
-    public function supportedRegionsById(string $id): CloudPcSupportedRegionItemRequestBuilder {
+    public function supportedRegionsById(string $id): ?CloudPcSupportedRegionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcSupportedRegion%2Did'] = $id;
         return new CloudPcSupportedRegionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -436,9 +436,9 @@ class VirtualEndpointRequestBuilder
     /**
      * Provides operations to manage the userSettings property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcUserSettingItemRequestBuilder
+     * @return CloudPcUserSettingItemRequestBuilder|null
     */
-    public function userSettingsById(string $id): CloudPcUserSettingItemRequestBuilder {
+    public function userSettingsById(string $id): ?CloudPcUserSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcUserSetting%2Did'] = $id;
         return new CloudPcUserSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);

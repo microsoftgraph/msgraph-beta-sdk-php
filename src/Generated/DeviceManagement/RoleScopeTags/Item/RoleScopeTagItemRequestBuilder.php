@@ -52,9 +52,9 @@ class RoleScopeTagItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.roleScopeTag entity.
      * @param string $id Unique identifier of the item
-     * @return RoleScopeTagAutoAssignmentItemRequestBuilder
+     * @return RoleScopeTagAutoAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): RoleScopeTagAutoAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?RoleScopeTagAutoAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['roleScopeTagAutoAssignment%2Did'] = $id;
         return new RoleScopeTagAutoAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

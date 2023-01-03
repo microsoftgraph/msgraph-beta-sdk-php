@@ -53,9 +53,9 @@ class ConnectorGroupItemRequestBuilder
     /**
      * Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
      * @param string $id Unique identifier of the item
-     * @return ApplicationItemRequestBuilder
+     * @return ApplicationItemRequestBuilder|null
     */
-    public function applicationsById(string $id): ApplicationItemRequestBuilder {
+    public function applicationsById(string $id): ?ApplicationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['application%2Did'] = $id;
         return new ApplicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -183,9 +183,9 @@ class ConnectorGroupItemRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.connectorGroups.item.members.item collection
      * @param string $id Unique identifier of the item
-     * @return ConnectorItemRequestBuilder
+     * @return ConnectorItemRequestBuilder|null
     */
-    public function membersById(string $id): ConnectorItemRequestBuilder {
+    public function membersById(string $id): ?ConnectorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['connector%2Did'] = $id;
         return new ConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -215,9 +215,9 @@ class SettingsRequestBuilder
     /**
      * Provides operations to manage the profileCardProperties property of the microsoft.graph.organizationSettings entity.
      * @param string $id Unique identifier of the item
-     * @return ProfileCardPropertyItemRequestBuilder
+     * @return ProfileCardPropertyItemRequestBuilder|null
     */
-    public function profileCardPropertiesById(string $id): ProfileCardPropertyItemRequestBuilder {
+    public function profileCardPropertiesById(string $id): ?ProfileCardPropertyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['profileCardProperty%2Did'] = $id;
         return new ProfileCardPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);

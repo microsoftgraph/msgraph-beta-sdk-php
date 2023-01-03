@@ -79,9 +79,9 @@ class EducationRequestBuilder
     /**
      * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
      * @param string $id Unique identifier of the item
-     * @return EducationClassItemRequestBuilder
+     * @return EducationClassItemRequestBuilder|null
     */
-    public function classesById(string $id): EducationClassItemRequestBuilder {
+    public function classesById(string $id): ?EducationClassItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['educationClass%2Did'] = $id;
         return new EducationClassItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -189,9 +189,9 @@ class EducationRequestBuilder
     /**
      * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
      * @param string $id Unique identifier of the item
-     * @return EducationSchoolItemRequestBuilder
+     * @return EducationSchoolItemRequestBuilder|null
     */
-    public function schoolsById(string $id): EducationSchoolItemRequestBuilder {
+    public function schoolsById(string $id): ?EducationSchoolItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['educationSchool%2Did'] = $id;
         return new EducationSchoolItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -200,9 +200,9 @@ class EducationRequestBuilder
     /**
      * Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
      * @param string $id Unique identifier of the item
-     * @return EducationSynchronizationProfileItemRequestBuilder
+     * @return EducationSynchronizationProfileItemRequestBuilder|null
     */
-    public function synchronizationProfilesById(string $id): EducationSynchronizationProfileItemRequestBuilder {
+    public function synchronizationProfilesById(string $id): ?EducationSynchronizationProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['educationSynchronizationProfile%2Did'] = $id;
         return new EducationSynchronizationProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -211,9 +211,9 @@ class EducationRequestBuilder
     /**
      * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
      * @param string $id Unique identifier of the item
-     * @return EducationUserItemRequestBuilder
+     * @return EducationUserItemRequestBuilder|null
     */
-    public function usersById(string $id): EducationUserItemRequestBuilder {
+    public function usersById(string $id): ?EducationUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['educationUser%2Did'] = $id;
         return new EducationUserItemRequestBuilder($urlTplParams, $this->requestAdapter);

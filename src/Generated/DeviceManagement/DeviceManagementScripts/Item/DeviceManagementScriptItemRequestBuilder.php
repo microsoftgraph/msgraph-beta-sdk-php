@@ -87,9 +87,9 @@ class DeviceManagementScriptItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementScript entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptAssignmentItemRequestBuilder
+     * @return DeviceManagementScriptAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): DeviceManagementScriptAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?DeviceManagementScriptAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementScriptAssignment%2Did'] = $id;
         return new DeviceManagementScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -198,9 +198,9 @@ class DeviceManagementScriptItemRequestBuilder
     /**
      * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceManagementScript entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptDeviceStateItemRequestBuilder
+     * @return DeviceManagementScriptDeviceStateItemRequestBuilder|null
     */
-    public function deviceRunStatesById(string $id): DeviceManagementScriptDeviceStateItemRequestBuilder {
+    public function deviceRunStatesById(string $id): ?DeviceManagementScriptDeviceStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementScriptDeviceState%2Did'] = $id;
         return new DeviceManagementScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -228,9 +228,9 @@ class DeviceManagementScriptItemRequestBuilder
     /**
      * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceManagementScript entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptGroupAssignmentItemRequestBuilder
+     * @return DeviceManagementScriptGroupAssignmentItemRequestBuilder|null
     */
-    public function groupAssignmentsById(string $id): DeviceManagementScriptGroupAssignmentItemRequestBuilder {
+    public function groupAssignmentsById(string $id): ?DeviceManagementScriptGroupAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementScriptGroupAssignment%2Did'] = $id;
         return new DeviceManagementScriptGroupAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -259,9 +259,9 @@ class DeviceManagementScriptItemRequestBuilder
     /**
      * Provides operations to manage the userRunStates property of the microsoft.graph.deviceManagementScript entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementScriptUserStateItemRequestBuilder
+     * @return DeviceManagementScriptUserStateItemRequestBuilder|null
     */
-    public function userRunStatesById(string $id): DeviceManagementScriptUserStateItemRequestBuilder {
+    public function userRunStatesById(string $id): ?DeviceManagementScriptUserStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementScriptUserState%2Did'] = $id;
         return new DeviceManagementScriptUserStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

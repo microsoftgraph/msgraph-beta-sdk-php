@@ -183,9 +183,9 @@ class TriggerTypesRequestBuilder
     /**
      * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
      * @param string $id Unique identifier of the item
-     * @return RetentionEventTypeItemRequestBuilder
+     * @return RetentionEventTypeItemRequestBuilder|null
     */
-    public function retentionEventTypesById(string $id): RetentionEventTypeItemRequestBuilder {
+    public function retentionEventTypesById(string $id): ?RetentionEventTypeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['retentionEventType%2Did'] = $id;
         return new RetentionEventTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);

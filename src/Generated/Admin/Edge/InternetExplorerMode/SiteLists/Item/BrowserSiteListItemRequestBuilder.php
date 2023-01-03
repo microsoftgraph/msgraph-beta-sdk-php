@@ -200,9 +200,9 @@ class BrowserSiteListItemRequestBuilder
     /**
      * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
      * @param string $id Unique identifier of the item
-     * @return BrowserSharedCookieItemRequestBuilder
+     * @return BrowserSharedCookieItemRequestBuilder|null
     */
-    public function sharedCookiesById(string $id): BrowserSharedCookieItemRequestBuilder {
+    public function sharedCookiesById(string $id): ?BrowserSharedCookieItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['browserSharedCookie%2Did'] = $id;
         return new BrowserSharedCookieItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -211,9 +211,9 @@ class BrowserSiteListItemRequestBuilder
     /**
      * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
      * @param string $id Unique identifier of the item
-     * @return BrowserSiteItemRequestBuilder
+     * @return BrowserSiteItemRequestBuilder|null
     */
-    public function sitesById(string $id): BrowserSiteItemRequestBuilder {
+    public function sitesById(string $id): ?BrowserSiteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['browserSite%2Did'] = $id;
         return new BrowserSiteItemRequestBuilder($urlTplParams, $this->requestAdapter);

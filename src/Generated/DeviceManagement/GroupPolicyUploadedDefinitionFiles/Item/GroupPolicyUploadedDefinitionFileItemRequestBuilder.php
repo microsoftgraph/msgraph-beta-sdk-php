@@ -203,9 +203,9 @@ class GroupPolicyUploadedDefinitionFileItemRequestBuilder
     /**
      * Provides operations to manage the groupPolicyOperations property of the microsoft.graph.groupPolicyUploadedDefinitionFile entity.
      * @param string $id Unique identifier of the item
-     * @return GroupPolicyOperationItemRequestBuilder
+     * @return GroupPolicyOperationItemRequestBuilder|null
     */
-    public function groupPolicyOperationsById(string $id): GroupPolicyOperationItemRequestBuilder {
+    public function groupPolicyOperationsById(string $id): ?GroupPolicyOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyOperation%2Did'] = $id;
         return new GroupPolicyOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);

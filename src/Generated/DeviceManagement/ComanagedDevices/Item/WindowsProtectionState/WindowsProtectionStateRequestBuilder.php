@@ -144,9 +144,9 @@ class WindowsProtectionStateRequestBuilder
     /**
      * Provides operations to manage the detectedMalwareState property of the microsoft.graph.windowsProtectionState entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsDeviceMalwareStateItemRequestBuilder
+     * @return WindowsDeviceMalwareStateItemRequestBuilder|null
     */
-    public function detectedMalwareStateById(string $id): WindowsDeviceMalwareStateItemRequestBuilder {
+    public function detectedMalwareStateById(string $id): ?WindowsDeviceMalwareStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDeviceMalwareState%2Did'] = $id;
         return new WindowsDeviceMalwareStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

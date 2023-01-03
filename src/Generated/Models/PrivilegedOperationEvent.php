@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedOperationEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new privilegedOperationEvent and sets the default values.
+     * Instantiates a new PrivilegedOperationEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

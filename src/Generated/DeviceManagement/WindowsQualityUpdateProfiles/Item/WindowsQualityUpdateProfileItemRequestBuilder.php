@@ -52,9 +52,9 @@ class WindowsQualityUpdateProfileItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsQualityUpdateProfile entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsQualityUpdateProfileAssignmentItemRequestBuilder
+     * @return WindowsQualityUpdateProfileAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): WindowsQualityUpdateProfileAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?WindowsQualityUpdateProfileAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsQualityUpdateProfileAssignment%2Did'] = $id;
         return new WindowsQualityUpdateProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

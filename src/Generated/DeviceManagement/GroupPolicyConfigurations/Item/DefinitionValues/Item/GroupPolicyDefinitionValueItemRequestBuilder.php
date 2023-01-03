@@ -191,9 +191,9 @@ class GroupPolicyDefinitionValueItemRequestBuilder
     /**
      * Provides operations to manage the presentationValues property of the microsoft.graph.groupPolicyDefinitionValue entity.
      * @param string $id Unique identifier of the item
-     * @return GroupPolicyPresentationValueItemRequestBuilder
+     * @return GroupPolicyPresentationValueItemRequestBuilder|null
     */
-    public function presentationValuesById(string $id): GroupPolicyPresentationValueItemRequestBuilder {
+    public function presentationValuesById(string $id): ?GroupPolicyPresentationValueItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyPresentationValue%2Did'] = $id;
         return new GroupPolicyPresentationValueItemRequestBuilder($urlTplParams, $this->requestAdapter);

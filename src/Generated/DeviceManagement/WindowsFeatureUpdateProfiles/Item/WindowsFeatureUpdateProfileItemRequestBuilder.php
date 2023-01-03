@@ -52,9 +52,9 @@ class WindowsFeatureUpdateProfileItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsFeatureUpdateProfile entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsFeatureUpdateProfileAssignmentItemRequestBuilder
+     * @return WindowsFeatureUpdateProfileAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): WindowsFeatureUpdateProfileAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?WindowsFeatureUpdateProfileAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsFeatureUpdateProfileAssignment%2Did'] = $id;
         return new WindowsFeatureUpdateProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

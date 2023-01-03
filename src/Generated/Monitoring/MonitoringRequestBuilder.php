@@ -53,9 +53,9 @@ class MonitoringRequestBuilder
     /**
      * Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.
      * @param string $id Unique identifier of the item
-     * @return AlertRecordItemRequestBuilder
+     * @return AlertRecordItemRequestBuilder|null
     */
-    public function alertRecordsById(string $id): AlertRecordItemRequestBuilder {
+    public function alertRecordsById(string $id): ?AlertRecordItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['alertRecord%2Did'] = $id;
         return new AlertRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -64,9 +64,9 @@ class MonitoringRequestBuilder
     /**
      * Provides operations to manage the alertRules property of the microsoft.graph.deviceManagement.monitoring entity.
      * @param string $id Unique identifier of the item
-     * @return AlertRuleItemRequestBuilder
+     * @return AlertRuleItemRequestBuilder|null
     */
-    public function alertRulesById(string $id): AlertRuleItemRequestBuilder {
+    public function alertRulesById(string $id): ?AlertRuleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['alertRule%2Did'] = $id;
         return new AlertRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);

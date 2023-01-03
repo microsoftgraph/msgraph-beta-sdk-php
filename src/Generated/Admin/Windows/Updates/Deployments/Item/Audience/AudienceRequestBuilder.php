@@ -167,9 +167,9 @@ class AudienceRequestBuilder
     /**
      * Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder|null
     */
-    public function exclusionsById(string $id): \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder {
+    public function exclusionsById(string $id): ?\Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['updatableAsset%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Exclusions\Item\UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -197,9 +197,9 @@ class AudienceRequestBuilder
     /**
      * Provides operations to manage the members property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder|null
     */
-    public function membersById(string $id): \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder {
+    public function membersById(string $id): ?\Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['updatableAsset%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\Audience\Members\Item\UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);

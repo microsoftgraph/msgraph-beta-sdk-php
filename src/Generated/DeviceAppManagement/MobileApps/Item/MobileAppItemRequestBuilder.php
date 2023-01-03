@@ -121,9 +121,9 @@ class MobileAppItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
-     * @return MobileAppAssignmentItemRequestBuilder
+     * @return MobileAppAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): MobileAppAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?MobileAppAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobileAppAssignment%2Did'] = $id;
         return new MobileAppAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -132,9 +132,9 @@ class MobileAppItemRequestBuilder
     /**
      * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
-     * @return MobileAppCategoryItemRequestBuilder
+     * @return MobileAppCategoryItemRequestBuilder|null
     */
-    public function categoriesById(string $id): MobileAppCategoryItemRequestBuilder {
+    public function categoriesById(string $id): ?MobileAppCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobileAppCategory%2Did'] = $id;
         return new MobileAppCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -243,9 +243,9 @@ class MobileAppItemRequestBuilder
     /**
      * Provides operations to manage the deviceStatuses property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
-     * @return MobileAppInstallStatusItemRequestBuilder
+     * @return MobileAppInstallStatusItemRequestBuilder|null
     */
-    public function deviceStatusesById(string $id): MobileAppInstallStatusItemRequestBuilder {
+    public function deviceStatusesById(string $id): ?MobileAppInstallStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobileAppInstallStatus%2Did'] = $id;
         return new MobileAppInstallStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -303,9 +303,9 @@ class MobileAppItemRequestBuilder
     /**
      * Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
-     * @return MobileAppRelationshipItemRequestBuilder
+     * @return MobileAppRelationshipItemRequestBuilder|null
     */
-    public function relationshipsById(string $id): MobileAppRelationshipItemRequestBuilder {
+    public function relationshipsById(string $id): ?MobileAppRelationshipItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobileAppRelationship%2Did'] = $id;
         return new MobileAppRelationshipItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -314,9 +314,9 @@ class MobileAppItemRequestBuilder
     /**
      * Provides operations to manage the userStatuses property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
-     * @return UserAppInstallStatusItemRequestBuilder
+     * @return UserAppInstallStatusItemRequestBuilder|null
     */
-    public function userStatusesById(string $id): UserAppInstallStatusItemRequestBuilder {
+    public function userStatusesById(string $id): ?UserAppInstallStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userAppInstallStatus%2Did'] = $id;
         return new UserAppInstallStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -138,9 +138,9 @@ class DeviceManagementIntentItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementIntentAssignmentItemRequestBuilder
+     * @return DeviceManagementIntentAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): DeviceManagementIntentAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?DeviceManagementIntentAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementIntentAssignment%2Did'] = $id;
         return new DeviceManagementIntentAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -149,9 +149,9 @@ class DeviceManagementIntentItemRequestBuilder
     /**
      * Provides operations to manage the categories property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementIntentSettingCategoryItemRequestBuilder
+     * @return DeviceManagementIntentSettingCategoryItemRequestBuilder|null
     */
-    public function categoriesById(string $id): DeviceManagementIntentSettingCategoryItemRequestBuilder {
+    public function categoriesById(string $id): ?DeviceManagementIntentSettingCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementIntentSettingCategory%2Did'] = $id;
         return new DeviceManagementIntentSettingCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -269,9 +269,9 @@ class DeviceManagementIntentItemRequestBuilder
     /**
      * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder
+     * @return DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder|null
     */
-    public function deviceSettingStateSummariesById(string $id): DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder {
+    public function deviceSettingStateSummariesById(string $id): ?DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementIntentDeviceSettingStateSummary%2Did'] = $id;
         return new DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -280,9 +280,9 @@ class DeviceManagementIntentItemRequestBuilder
     /**
      * Provides operations to manage the deviceStates property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementIntentDeviceStateItemRequestBuilder
+     * @return DeviceManagementIntentDeviceStateItemRequestBuilder|null
     */
-    public function deviceStatesById(string $id): DeviceManagementIntentDeviceStateItemRequestBuilder {
+    public function deviceStatesById(string $id): ?DeviceManagementIntentDeviceStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementIntentDeviceState%2Did'] = $id;
         return new DeviceManagementIntentDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -330,9 +330,9 @@ class DeviceManagementIntentItemRequestBuilder
     /**
      * Provides operations to manage the settings property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementSettingInstanceItemRequestBuilder
+     * @return DeviceManagementSettingInstanceItemRequestBuilder|null
     */
-    public function settingsById(string $id): DeviceManagementSettingInstanceItemRequestBuilder {
+    public function settingsById(string $id): ?DeviceManagementSettingInstanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementSettingInstance%2Did'] = $id;
         return new DeviceManagementSettingInstanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -341,9 +341,9 @@ class DeviceManagementIntentItemRequestBuilder
     /**
      * Provides operations to manage the userStates property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementIntentUserStateItemRequestBuilder
+     * @return DeviceManagementIntentUserStateItemRequestBuilder|null
     */
-    public function userStatesById(string $id): DeviceManagementIntentUserStateItemRequestBuilder {
+    public function userStatesById(string $id): ?DeviceManagementIntentUserStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementIntentUserState%2Did'] = $id;
         return new DeviceManagementIntentUserStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

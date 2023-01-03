@@ -163,9 +163,9 @@ class PlanConfigurationRequestBuilder
     /**
      * Provides operations to manage the localizations property of the microsoft.graph.plannerPlanConfiguration entity.
      * @param string $id Unique identifier of the item
-     * @return PlannerPlanConfigurationLocalizationItemRequestBuilder
+     * @return PlannerPlanConfigurationLocalizationItemRequestBuilder|null
     */
-    public function localizationsById(string $id): PlannerPlanConfigurationLocalizationItemRequestBuilder {
+    public function localizationsById(string $id): ?PlannerPlanConfigurationLocalizationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['plannerPlanConfigurationLocalization%2Did'] = $id;
         return new PlannerPlanConfigurationLocalizationItemRequestBuilder($urlTplParams, $this->requestAdapter);

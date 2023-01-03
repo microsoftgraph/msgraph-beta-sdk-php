@@ -86,9 +86,9 @@ class DeviceHealthScriptItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceHealthScript entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceHealthScriptAssignmentItemRequestBuilder
+     * @return DeviceHealthScriptAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): DeviceHealthScriptAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?DeviceHealthScriptAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceHealthScriptAssignment%2Did'] = $id;
         return new DeviceHealthScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -197,9 +197,9 @@ class DeviceHealthScriptItemRequestBuilder
     /**
      * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceHealthScript entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceHealthScriptDeviceStateItemRequestBuilder
+     * @return DeviceHealthScriptDeviceStateItemRequestBuilder|null
     */
-    public function deviceRunStatesById(string $id): DeviceHealthScriptDeviceStateItemRequestBuilder {
+    public function deviceRunStatesById(string $id): ?DeviceHealthScriptDeviceStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceHealthScriptDeviceState%2Did'] = $id;
         return new DeviceHealthScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

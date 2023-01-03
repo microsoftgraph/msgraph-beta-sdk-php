@@ -191,9 +191,9 @@ class InformationProtectionRequestBuilder
     /**
      * Provides operations to manage the sensitivityLabels property of the microsoft.graph.security.informationProtection entity.
      * @param string $id Unique identifier of the item
-     * @return SensitivityLabelItemRequestBuilder
+     * @return SensitivityLabelItemRequestBuilder|null
     */
-    public function sensitivityLabelsById(string $id): SensitivityLabelItemRequestBuilder {
+    public function sensitivityLabelsById(string $id): ?SensitivityLabelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['sensitivityLabel%2Did'] = $id;
         return new SensitivityLabelItemRequestBuilder($urlTplParams, $this->requestAdapter);

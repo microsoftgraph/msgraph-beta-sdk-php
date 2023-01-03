@@ -265,9 +265,9 @@ class ChatItemRequestBuilder
     /**
      * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
-     * @return TeamsAppInstallationItemRequestBuilder
+     * @return TeamsAppInstallationItemRequestBuilder|null
     */
-    public function installedAppsById(string $id): TeamsAppInstallationItemRequestBuilder {
+    public function installedAppsById(string $id): ?TeamsAppInstallationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamsAppInstallation%2Did'] = $id;
         return new TeamsAppInstallationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -276,9 +276,9 @@ class ChatItemRequestBuilder
     /**
      * Provides operations to manage the members property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
-     * @return ConversationMemberItemRequestBuilder
+     * @return ConversationMemberItemRequestBuilder|null
     */
-    public function membersById(string $id): ConversationMemberItemRequestBuilder {
+    public function membersById(string $id): ?ConversationMemberItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['conversationMember%2Did'] = $id;
         return new ConversationMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -287,9 +287,9 @@ class ChatItemRequestBuilder
     /**
      * Provides operations to manage the messages property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
-     * @return ChatMessageItemRequestBuilder
+     * @return ChatMessageItemRequestBuilder|null
     */
-    public function messagesById(string $id): ChatMessageItemRequestBuilder {
+    public function messagesById(string $id): ?ChatMessageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['chatMessage%2Did'] = $id;
         return new ChatMessageItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -298,9 +298,9 @@ class ChatItemRequestBuilder
     /**
      * Provides operations to manage the operations property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
-     * @return TeamsAsyncOperationItemRequestBuilder
+     * @return TeamsAsyncOperationItemRequestBuilder|null
     */
-    public function operationsById(string $id): TeamsAsyncOperationItemRequestBuilder {
+    public function operationsById(string $id): ?TeamsAsyncOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamsAsyncOperation%2Did'] = $id;
         return new TeamsAsyncOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -329,9 +329,9 @@ class ChatItemRequestBuilder
     /**
      * Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
-     * @return ResourceSpecificPermissionGrantItemRequestBuilder
+     * @return ResourceSpecificPermissionGrantItemRequestBuilder|null
     */
-    public function permissionGrantsById(string $id): ResourceSpecificPermissionGrantItemRequestBuilder {
+    public function permissionGrantsById(string $id): ?ResourceSpecificPermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['resourceSpecificPermissionGrant%2Did'] = $id;
         return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -340,9 +340,9 @@ class ChatItemRequestBuilder
     /**
      * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
-     * @return PinnedChatMessageInfoItemRequestBuilder
+     * @return PinnedChatMessageInfoItemRequestBuilder|null
     */
-    public function pinnedMessagesById(string $id): PinnedChatMessageInfoItemRequestBuilder {
+    public function pinnedMessagesById(string $id): ?PinnedChatMessageInfoItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['pinnedChatMessageInfo%2Did'] = $id;
         return new PinnedChatMessageInfoItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -351,9 +351,9 @@ class ChatItemRequestBuilder
     /**
      * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
-     * @return TeamsTabItemRequestBuilder
+     * @return TeamsTabItemRequestBuilder|null
     */
-    public function tabsById(string $id): TeamsTabItemRequestBuilder {
+    public function tabsById(string $id): ?TeamsTabItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamsTab%2Did'] = $id;
         return new TeamsTabItemRequestBuilder($urlTplParams, $this->requestAdapter);

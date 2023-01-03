@@ -53,9 +53,9 @@ class AppRequestBuilder
     /**
      * Provides operations to manage the calls property of the microsoft.graph.commsApplication entity.
      * @param string $id Unique identifier of the item
-     * @return CallItemRequestBuilder
+     * @return CallItemRequestBuilder|null
     */
-    public function callsById(string $id): CallItemRequestBuilder {
+    public function callsById(string $id): ?CallItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['call%2Did'] = $id;
         return new CallItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -143,9 +143,9 @@ class AppRequestBuilder
     /**
      * Provides operations to manage the onlineMeetings property of the microsoft.graph.commsApplication entity.
      * @param string $id Unique identifier of the item
-     * @return OnlineMeetingItemRequestBuilder
+     * @return OnlineMeetingItemRequestBuilder|null
     */
-    public function onlineMeetingsById(string $id): OnlineMeetingItemRequestBuilder {
+    public function onlineMeetingsById(string $id): ?OnlineMeetingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['onlineMeeting%2Did'] = $id;
         return new OnlineMeetingItemRequestBuilder($urlTplParams, $this->requestAdapter);

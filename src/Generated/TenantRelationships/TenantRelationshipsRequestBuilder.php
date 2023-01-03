@@ -123,9 +123,9 @@ class TenantRelationshipsRequestBuilder
     /**
      * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
      * @param string $id Unique identifier of the item
-     * @return DelegatedAdminCustomerItemRequestBuilder
+     * @return DelegatedAdminCustomerItemRequestBuilder|null
     */
-    public function delegatedAdminCustomersById(string $id): DelegatedAdminCustomerItemRequestBuilder {
+    public function delegatedAdminCustomersById(string $id): ?DelegatedAdminCustomerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['delegatedAdminCustomer%2Did'] = $id;
         return new DelegatedAdminCustomerItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -134,9 +134,9 @@ class TenantRelationshipsRequestBuilder
     /**
      * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
      * @param string $id Unique identifier of the item
-     * @return DelegatedAdminRelationshipItemRequestBuilder
+     * @return DelegatedAdminRelationshipItemRequestBuilder|null
     */
-    public function delegatedAdminRelationshipsById(string $id): DelegatedAdminRelationshipItemRequestBuilder {
+    public function delegatedAdminRelationshipsById(string $id): ?DelegatedAdminRelationshipItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['delegatedAdminRelationship%2Did'] = $id;
         return new DelegatedAdminRelationshipItemRequestBuilder($urlTplParams, $this->requestAdapter);

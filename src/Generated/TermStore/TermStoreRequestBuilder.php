@@ -132,9 +132,9 @@ class TermStoreRequestBuilder
     /**
      * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
      * @param string $id Unique identifier of the item
-     * @return GroupItemRequestBuilder
+     * @return GroupItemRequestBuilder|null
     */
-    public function groupsById(string $id): GroupItemRequestBuilder {
+    public function groupsById(string $id): ?GroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['group%2Did'] = $id;
         return new GroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -163,9 +163,9 @@ class TermStoreRequestBuilder
     /**
      * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
      * @param string $id Unique identifier of the item
-     * @return SetItemRequestBuilder
+     * @return SetItemRequestBuilder|null
     */
-    public function setsById(string $id): SetItemRequestBuilder {
+    public function setsById(string $id): ?SetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['set%2Did'] = $id;
         return new SetItemRequestBuilder($urlTplParams, $this->requestAdapter);

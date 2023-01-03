@@ -525,9 +525,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the cachedReportConfigurations property of the microsoft.graph.deviceManagementReports entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementCachedReportConfigurationItemRequestBuilder
+     * @return DeviceManagementCachedReportConfigurationItemRequestBuilder|null
     */
-    public function cachedReportConfigurationsById(string $id): DeviceManagementCachedReportConfigurationItemRequestBuilder {
+    public function cachedReportConfigurationsById(string $id): ?DeviceManagementCachedReportConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementCachedReportConfiguration%2Did'] = $id;
         return new DeviceManagementCachedReportConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -636,9 +636,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementExportJobItemRequestBuilder
+     * @return DeviceManagementExportJobItemRequestBuilder|null
     */
-    public function exportJobsById(string $id): DeviceManagementExportJobItemRequestBuilder {
+    public function exportJobsById(string $id): ?DeviceManagementExportJobItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementExportJob%2Did'] = $id;
         return new DeviceManagementExportJobItemRequestBuilder($urlTplParams, $this->requestAdapter);

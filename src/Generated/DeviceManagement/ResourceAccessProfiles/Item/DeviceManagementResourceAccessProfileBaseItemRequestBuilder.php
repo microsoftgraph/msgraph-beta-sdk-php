@@ -52,9 +52,9 @@ class DeviceManagementResourceAccessProfileBaseItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementResourceAccessProfileBase entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder
+     * @return DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementResourceAccessProfileAssignment%2Did'] = $id;
         return new DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

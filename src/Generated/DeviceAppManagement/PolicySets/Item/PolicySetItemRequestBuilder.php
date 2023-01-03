@@ -61,9 +61,9 @@ class PolicySetItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.policySet entity.
      * @param string $id Unique identifier of the item
-     * @return PolicySetAssignmentItemRequestBuilder
+     * @return PolicySetAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): PolicySetAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?PolicySetAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['policySetAssignment%2Did'] = $id;
         return new PolicySetAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -191,9 +191,9 @@ class PolicySetItemRequestBuilder
     /**
      * Provides operations to manage the items property of the microsoft.graph.policySet entity.
      * @param string $id Unique identifier of the item
-     * @return PolicySetItemItemRequestBuilder
+     * @return PolicySetItemItemRequestBuilder|null
     */
-    public function itemsById(string $id): PolicySetItemItemRequestBuilder {
+    public function itemsById(string $id): ?PolicySetItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['policySetItem%2Did'] = $id;
         return new PolicySetItemItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -274,9 +274,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return ApplicationSignInDetailedSummaryItemRequestBuilder
+     * @return ApplicationSignInDetailedSummaryItemRequestBuilder|null
     */
-    public function applicationSignInDetailedSummaryById(string $id): ApplicationSignInDetailedSummaryItemRequestBuilder {
+    public function applicationSignInDetailedSummaryById(string $id): ?ApplicationSignInDetailedSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['applicationSignInDetailedSummary%2Did'] = $id;
         return new ApplicationSignInDetailedSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -345,9 +345,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the credentialUserRegistrationDetails property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return CredentialUserRegistrationDetailsItemRequestBuilder
+     * @return CredentialUserRegistrationDetailsItemRequestBuilder|null
     */
-    public function credentialUserRegistrationDetailsById(string $id): CredentialUserRegistrationDetailsItemRequestBuilder {
+    public function credentialUserRegistrationDetailsById(string $id): ?CredentialUserRegistrationDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['credentialUserRegistrationDetails%2Did'] = $id;
         return new CredentialUserRegistrationDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -356,9 +356,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the dailyPrintUsage property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return PrintUsageItemRequestBuilder
+     * @return PrintUsageItemRequestBuilder|null
     */
-    public function dailyPrintUsageById(string $id): PrintUsageItemRequestBuilder {
+    public function dailyPrintUsageById(string $id): ?PrintUsageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printUsage%2Did'] = $id;
         return new PrintUsageItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -367,9 +367,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder|null
     */
-    public function dailyPrintUsageByPrinterById(string $id): \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
+    public function dailyPrintUsageByPrinterById(string $id): ?\Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printUsageByPrinter%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -378,9 +378,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder|null
     */
-    public function dailyPrintUsageByUserById(string $id): \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder {
+    public function dailyPrintUsageByUserById(string $id): ?\Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printUsageByUser%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -389,9 +389,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the dailyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder|null
     */
-    public function dailyPrintUsageSummariesByPrinterById(string $id): \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
+    public function dailyPrintUsageSummariesByPrinterById(string $id): ?\Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printUsageByPrinter%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -400,9 +400,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the dailyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder|null
     */
-    public function dailyPrintUsageSummariesByUserById(string $id): \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder {
+    public function dailyPrintUsageSummariesByUserById(string $id): ?\Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printUsageByUser%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1522,9 +1522,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder|null
     */
-    public function monthlyPrintUsageByPrinterById(string $id): \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
+    public function monthlyPrintUsageByPrinterById(string $id): ?\Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printUsageByPrinter%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1533,9 +1533,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder|null
     */
-    public function monthlyPrintUsageByUserById(string $id): \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder {
+    public function monthlyPrintUsageByUserById(string $id): ?\Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printUsageByUser%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\Item\PrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1544,9 +1544,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the monthlyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder|null
     */
-    public function monthlyPrintUsageSummariesByPrinterById(string $id): \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
+    public function monthlyPrintUsageSummariesByPrinterById(string $id): ?\Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printUsageByPrinter%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\Item\PrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1555,9 +1555,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the monthlyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder|null
     */
-    public function monthlyPrintUsageSummariesByUserById(string $id): \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder {
+    public function monthlyPrintUsageSummariesByUserById(string $id): ?\Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printUsageByUser%2Did'] = $id;
         return new \Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -1586,9 +1586,9 @@ class ReportsRequestBuilder
     /**
      * Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
-     * @return UserCredentialUsageDetailsItemRequestBuilder
+     * @return UserCredentialUsageDetailsItemRequestBuilder|null
     */
-    public function userCredentialUsageDetailsById(string $id): UserCredentialUsageDetailsItemRequestBuilder {
+    public function userCredentialUsageDetailsById(string $id): ?UserCredentialUsageDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userCredentialUsageDetails%2Did'] = $id;
         return new UserCredentialUsageDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);

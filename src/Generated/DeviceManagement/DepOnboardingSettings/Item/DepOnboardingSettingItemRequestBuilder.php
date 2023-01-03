@@ -210,9 +210,9 @@ class DepOnboardingSettingItemRequestBuilder
     /**
      * Provides operations to manage the enrollmentProfiles property of the microsoft.graph.depOnboardingSetting entity.
      * @param string $id Unique identifier of the item
-     * @return EnrollmentProfileItemRequestBuilder
+     * @return EnrollmentProfileItemRequestBuilder|null
     */
-    public function enrollmentProfilesById(string $id): EnrollmentProfileItemRequestBuilder {
+    public function enrollmentProfilesById(string $id): ?EnrollmentProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['enrollmentProfile%2Did'] = $id;
         return new EnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -248,9 +248,9 @@ class DepOnboardingSettingItemRequestBuilder
     /**
      * Provides operations to manage the importedAppleDeviceIdentities property of the microsoft.graph.depOnboardingSetting entity.
      * @param string $id Unique identifier of the item
-     * @return ImportedAppleDeviceIdentityItemRequestBuilder
+     * @return ImportedAppleDeviceIdentityItemRequestBuilder|null
     */
-    public function importedAppleDeviceIdentitiesById(string $id): ImportedAppleDeviceIdentityItemRequestBuilder {
+    public function importedAppleDeviceIdentitiesById(string $id): ?ImportedAppleDeviceIdentityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['importedAppleDeviceIdentity%2Did'] = $id;
         return new ImportedAppleDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);

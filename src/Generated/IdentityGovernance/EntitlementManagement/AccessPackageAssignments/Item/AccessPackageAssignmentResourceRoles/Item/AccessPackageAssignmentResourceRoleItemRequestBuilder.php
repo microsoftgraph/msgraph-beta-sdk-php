@@ -68,9 +68,9 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder
     /**
      * Provides operations to manage the accessPackageAssignments property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageAssignmentItemRequestBuilder
+     * @return AccessPackageAssignmentItemRequestBuilder|null
     */
-    public function accessPackageAssignmentsById(string $id): AccessPackageAssignmentItemRequestBuilder {
+    public function accessPackageAssignmentsById(string $id): ?AccessPackageAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageAssignment%2Did1'] = $id;
         return new AccessPackageAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

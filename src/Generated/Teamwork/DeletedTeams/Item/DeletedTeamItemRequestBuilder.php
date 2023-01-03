@@ -44,9 +44,9 @@ class DeletedTeamItemRequestBuilder
     /**
      * Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity.
      * @param string $id Unique identifier of the item
-     * @return ChannelItemRequestBuilder
+     * @return ChannelItemRequestBuilder|null
     */
-    public function channelsById(string $id): ChannelItemRequestBuilder {
+    public function channelsById(string $id): ?ChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
         return new ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);

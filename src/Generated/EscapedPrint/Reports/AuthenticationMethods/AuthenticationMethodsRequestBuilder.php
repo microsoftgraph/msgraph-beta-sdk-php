@@ -187,9 +187,9 @@ class AuthenticationMethodsRequestBuilder
     /**
      * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
      * @param string $id Unique identifier of the item
-     * @return UserRegistrationDetailsItemRequestBuilder
+     * @return UserRegistrationDetailsItemRequestBuilder|null
     */
-    public function userRegistrationDetailsById(string $id): UserRegistrationDetailsItemRequestBuilder {
+    public function userRegistrationDetailsById(string $id): ?UserRegistrationDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userRegistrationDetails%2Did'] = $id;
         return new UserRegistrationDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);

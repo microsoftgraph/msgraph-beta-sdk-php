@@ -183,9 +183,9 @@ class DeviceManagementAutopilotEventItemRequestBuilder
     /**
      * Provides operations to manage the policyStatusDetails property of the microsoft.graph.deviceManagementAutopilotEvent entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder
+     * @return DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder|null
     */
-    public function policyStatusDetailsById(string $id): DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder {
+    public function policyStatusDetailsById(string $id): ?DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementAutopilotPolicyStatusDetail%2Did'] = $id;
         return new DeviceManagementAutopilotPolicyStatusDetailItemRequestBuilder($urlTplParams, $this->requestAdapter);

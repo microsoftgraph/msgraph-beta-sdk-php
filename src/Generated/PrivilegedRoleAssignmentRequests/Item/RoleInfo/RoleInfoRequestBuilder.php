@@ -76,9 +76,9 @@ class RoleInfoRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.privilegedRole entity.
      * @param string $id Unique identifier of the item
-     * @return PrivilegedRoleAssignmentItemRequestBuilder
+     * @return PrivilegedRoleAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): PrivilegedRoleAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?PrivilegedRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['privilegedRoleAssignment%2Did'] = $id;
         return new PrivilegedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -141,9 +141,9 @@ class AccessPackageAssignmentPolicyRequestBuilder
     /**
      * Provides operations to manage the customExtensionHandlers property of the microsoft.graph.accessPackageAssignmentPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return CustomExtensionHandlerItemRequestBuilder
+     * @return CustomExtensionHandlerItemRequestBuilder|null
     */
-    public function customExtensionHandlersById(string $id): CustomExtensionHandlerItemRequestBuilder {
+    public function customExtensionHandlersById(string $id): ?CustomExtensionHandlerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customExtensionHandler%2Did'] = $id;
         return new CustomExtensionHandlerItemRequestBuilder($urlTplParams, $this->requestAdapter);

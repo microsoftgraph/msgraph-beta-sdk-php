@@ -183,9 +183,9 @@ class DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder
     /**
      * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceManagementComplianceScheduledActionForRule entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementComplianceActionItemItemRequestBuilder
+     * @return DeviceManagementComplianceActionItemItemRequestBuilder|null
     */
-    public function scheduledActionConfigurationsById(string $id): DeviceManagementComplianceActionItemItemRequestBuilder {
+    public function scheduledActionConfigurationsById(string $id): ?DeviceManagementComplianceActionItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementComplianceActionItem%2Did'] = $id;
         return new DeviceManagementComplianceActionItemItemRequestBuilder($urlTplParams, $this->requestAdapter);

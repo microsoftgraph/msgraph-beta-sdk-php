@@ -170,9 +170,9 @@ class UpdatesRequestBuilder
     /**
      * Provides operations to manage the deployments property of the microsoft.graph.windowsUpdates.updates entity.
      * @param string $id Unique identifier of the item
-     * @return DeploymentItemRequestBuilder
+     * @return DeploymentItemRequestBuilder|null
     */
-    public function deploymentsById(string $id): DeploymentItemRequestBuilder {
+    public function deploymentsById(string $id): ?DeploymentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deployment%2Did'] = $id;
         return new DeploymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -220,9 +220,9 @@ class UpdatesRequestBuilder
     /**
      * Provides operations to manage the resourceConnections property of the microsoft.graph.windowsUpdates.updates entity.
      * @param string $id Unique identifier of the item
-     * @return ResourceConnectionItemRequestBuilder
+     * @return ResourceConnectionItemRequestBuilder|null
     */
-    public function resourceConnectionsById(string $id): ResourceConnectionItemRequestBuilder {
+    public function resourceConnectionsById(string $id): ?ResourceConnectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['resourceConnection%2Did'] = $id;
         return new ResourceConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -231,9 +231,9 @@ class UpdatesRequestBuilder
     /**
      * Provides operations to manage the updatableAssets property of the microsoft.graph.windowsUpdates.updates entity.
      * @param string $id Unique identifier of the item
-     * @return UpdatableAssetItemRequestBuilder
+     * @return UpdatableAssetItemRequestBuilder|null
     */
-    public function updatableAssetsById(string $id): UpdatableAssetItemRequestBuilder {
+    public function updatableAssetsById(string $id): ?UpdatableAssetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['updatableAsset%2Did'] = $id;
         return new UpdatableAssetItemRequestBuilder($urlTplParams, $this->requestAdapter);

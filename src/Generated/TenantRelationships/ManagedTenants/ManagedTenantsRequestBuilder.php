@@ -341,9 +341,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the aggregatedPolicyCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return AggregatedPolicyComplianceItemRequestBuilder
+     * @return AggregatedPolicyComplianceItemRequestBuilder|null
     */
-    public function aggregatedPolicyCompliancesById(string $id): AggregatedPolicyComplianceItemRequestBuilder {
+    public function aggregatedPolicyCompliancesById(string $id): ?AggregatedPolicyComplianceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['aggregatedPolicyCompliance%2Did'] = $id;
         return new AggregatedPolicyComplianceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -352,9 +352,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the auditEvents property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return AuditEventItemRequestBuilder
+     * @return AuditEventItemRequestBuilder|null
     */
-    public function auditEventsById(string $id): AuditEventItemRequestBuilder {
+    public function auditEventsById(string $id): ?AuditEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['auditEvent%2Did'] = $id;
         return new AuditEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -363,9 +363,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the cloudPcConnections property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcConnectionItemRequestBuilder
+     * @return CloudPcConnectionItemRequestBuilder|null
     */
-    public function cloudPcConnectionsById(string $id): CloudPcConnectionItemRequestBuilder {
+    public function cloudPcConnectionsById(string $id): ?CloudPcConnectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcConnection%2Did'] = $id;
         return new CloudPcConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -374,9 +374,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the cloudPcDevices property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcDeviceItemRequestBuilder
+     * @return CloudPcDeviceItemRequestBuilder|null
     */
-    public function cloudPcDevicesById(string $id): CloudPcDeviceItemRequestBuilder {
+    public function cloudPcDevicesById(string $id): ?CloudPcDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcDevice%2Did'] = $id;
         return new CloudPcDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -385,9 +385,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the cloudPcsOverview property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return CloudPcOverviewTenantItemRequestBuilder
+     * @return CloudPcOverviewTenantItemRequestBuilder|null
     */
-    public function cloudPcsOverviewById(string $id): CloudPcOverviewTenantItemRequestBuilder {
+    public function cloudPcsOverviewById(string $id): ?CloudPcOverviewTenantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcOverview%2DtenantId'] = $id;
         return new CloudPcOverviewTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -396,9 +396,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the conditionalAccessPolicyCoverages property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ConditionalAccessPolicyCoverageItemRequestBuilder
+     * @return ConditionalAccessPolicyCoverageItemRequestBuilder|null
     */
-    public function conditionalAccessPolicyCoveragesById(string $id): ConditionalAccessPolicyCoverageItemRequestBuilder {
+    public function conditionalAccessPolicyCoveragesById(string $id): ?ConditionalAccessPolicyCoverageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['conditionalAccessPolicyCoverage%2Did'] = $id;
         return new ConditionalAccessPolicyCoverageItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -488,9 +488,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the credentialUserRegistrationsSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return CredentialUserRegistrationsSummaryItemRequestBuilder
+     * @return CredentialUserRegistrationsSummaryItemRequestBuilder|null
     */
-    public function credentialUserRegistrationsSummariesById(string $id): CredentialUserRegistrationsSummaryItemRequestBuilder {
+    public function credentialUserRegistrationsSummariesById(string $id): ?CredentialUserRegistrationsSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['credentialUserRegistrationsSummary%2Did'] = $id;
         return new CredentialUserRegistrationsSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -518,9 +518,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceCompliancePolicySettingStateSummaryItemRequestBuilder
+     * @return DeviceCompliancePolicySettingStateSummaryItemRequestBuilder|null
     */
-    public function deviceCompliancePolicySettingStateSummariesById(string $id): DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
+    public function deviceCompliancePolicySettingStateSummariesById(string $id): ?DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceCompliancePolicySettingStateSummary%2Did'] = $id;
         return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -548,9 +548,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managedDeviceCompliances property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedDeviceComplianceItemRequestBuilder
+     * @return ManagedDeviceComplianceItemRequestBuilder|null
     */
-    public function managedDeviceCompliancesById(string $id): ManagedDeviceComplianceItemRequestBuilder {
+    public function managedDeviceCompliancesById(string $id): ?ManagedDeviceComplianceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedDeviceCompliance%2Did'] = $id;
         return new ManagedDeviceComplianceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -559,9 +559,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managedDeviceComplianceTrends property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedDeviceComplianceTrendItemRequestBuilder
+     * @return ManagedDeviceComplianceTrendItemRequestBuilder|null
     */
-    public function managedDeviceComplianceTrendsById(string $id): ManagedDeviceComplianceTrendItemRequestBuilder {
+    public function managedDeviceComplianceTrendsById(string $id): ?ManagedDeviceComplianceTrendItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedDeviceComplianceTrend%2Did'] = $id;
         return new ManagedDeviceComplianceTrendItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -570,9 +570,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managedTenantAlertLogs property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantAlertLogItemRequestBuilder
+     * @return ManagedTenantAlertLogItemRequestBuilder|null
     */
-    public function managedTenantAlertLogsById(string $id): ManagedTenantAlertLogItemRequestBuilder {
+    public function managedTenantAlertLogsById(string $id): ?ManagedTenantAlertLogItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantAlertLog%2Did'] = $id;
         return new ManagedTenantAlertLogItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -581,9 +581,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managedTenantAlertRuleDefinitions property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantAlertRuleDefinitionItemRequestBuilder
+     * @return ManagedTenantAlertRuleDefinitionItemRequestBuilder|null
     */
-    public function managedTenantAlertRuleDefinitionsById(string $id): ManagedTenantAlertRuleDefinitionItemRequestBuilder {
+    public function managedTenantAlertRuleDefinitionsById(string $id): ?ManagedTenantAlertRuleDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantAlertRuleDefinition%2Did'] = $id;
         return new ManagedTenantAlertRuleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -592,9 +592,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managedTenantAlertRules property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantAlertRuleItemRequestBuilder
+     * @return ManagedTenantAlertRuleItemRequestBuilder|null
     */
-    public function managedTenantAlertRulesById(string $id): ManagedTenantAlertRuleItemRequestBuilder {
+    public function managedTenantAlertRulesById(string $id): ?ManagedTenantAlertRuleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantAlertRule%2Did'] = $id;
         return new ManagedTenantAlertRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -603,9 +603,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managedTenantAlerts property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantAlertItemRequestBuilder
+     * @return ManagedTenantAlertItemRequestBuilder|null
     */
-    public function managedTenantAlertsById(string $id): ManagedTenantAlertItemRequestBuilder {
+    public function managedTenantAlertsById(string $id): ?ManagedTenantAlertItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantAlert%2Did'] = $id;
         return new ManagedTenantAlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -614,9 +614,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managedTenantApiNotifications property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantApiNotificationItemRequestBuilder
+     * @return ManagedTenantApiNotificationItemRequestBuilder|null
     */
-    public function managedTenantApiNotificationsById(string $id): ManagedTenantApiNotificationItemRequestBuilder {
+    public function managedTenantApiNotificationsById(string $id): ?ManagedTenantApiNotificationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantApiNotification%2Did'] = $id;
         return new ManagedTenantApiNotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -625,9 +625,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managedTenantEmailNotifications property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantEmailNotificationItemRequestBuilder
+     * @return ManagedTenantEmailNotificationItemRequestBuilder|null
     */
-    public function managedTenantEmailNotificationsById(string $id): ManagedTenantEmailNotificationItemRequestBuilder {
+    public function managedTenantEmailNotificationsById(string $id): ?ManagedTenantEmailNotificationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantEmailNotification%2Did'] = $id;
         return new ManagedTenantEmailNotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -636,9 +636,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managedTenantTicketingEndpoints property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagedTenantTicketingEndpointItemRequestBuilder
+     * @return ManagedTenantTicketingEndpointItemRequestBuilder|null
     */
-    public function managedTenantTicketingEndpointsById(string $id): ManagedTenantTicketingEndpointItemRequestBuilder {
+    public function managedTenantTicketingEndpointsById(string $id): ?ManagedTenantTicketingEndpointItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedTenantTicketingEndpoint%2Did'] = $id;
         return new ManagedTenantTicketingEndpointItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -647,9 +647,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managementActions property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementActionItemRequestBuilder
+     * @return ManagementActionItemRequestBuilder|null
     */
-    public function managementActionsById(string $id): ManagementActionItemRequestBuilder {
+    public function managementActionsById(string $id): ?ManagementActionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementAction%2Did'] = $id;
         return new ManagementActionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -658,9 +658,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managementActionTenantDeploymentStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementActionTenantDeploymentStatusItemRequestBuilder
+     * @return ManagementActionTenantDeploymentStatusItemRequestBuilder|null
     */
-    public function managementActionTenantDeploymentStatusesById(string $id): ManagementActionTenantDeploymentStatusItemRequestBuilder {
+    public function managementActionTenantDeploymentStatusesById(string $id): ?ManagementActionTenantDeploymentStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementActionTenantDeploymentStatus%2Did'] = $id;
         return new ManagementActionTenantDeploymentStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -669,9 +669,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managementIntents property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementIntentItemRequestBuilder
+     * @return ManagementIntentItemRequestBuilder|null
     */
-    public function managementIntentsById(string $id): ManagementIntentItemRequestBuilder {
+    public function managementIntentsById(string $id): ?ManagementIntentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementIntent%2Did'] = $id;
         return new ManagementIntentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -680,9 +680,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateCollectionItemRequestBuilder
+     * @return ManagementTemplateCollectionItemRequestBuilder|null
     */
-    public function managementTemplateCollectionsById(string $id): ManagementTemplateCollectionItemRequestBuilder {
+    public function managementTemplateCollectionsById(string $id): ?ManagementTemplateCollectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateCollection%2Did'] = $id;
         return new ManagementTemplateCollectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -691,9 +691,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managementTemplateCollectionTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateCollectionTenantSummaryItemRequestBuilder
+     * @return ManagementTemplateCollectionTenantSummaryItemRequestBuilder|null
     */
-    public function managementTemplateCollectionTenantSummariesById(string $id): ManagementTemplateCollectionTenantSummaryItemRequestBuilder {
+    public function managementTemplateCollectionTenantSummariesById(string $id): ?ManagementTemplateCollectionTenantSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateCollectionTenantSummary%2Did'] = $id;
         return new ManagementTemplateCollectionTenantSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -702,9 +702,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateItemRequestBuilder
+     * @return ManagementTemplateItemRequestBuilder|null
     */
-    public function managementTemplatesById(string $id): ManagementTemplateItemRequestBuilder {
+    public function managementTemplatesById(string $id): ?ManagementTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplate%2Did'] = $id;
         return new ManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -713,9 +713,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managementTemplateSteps property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateStepItemRequestBuilder
+     * @return ManagementTemplateStepItemRequestBuilder|null
     */
-    public function managementTemplateStepsById(string $id): ManagementTemplateStepItemRequestBuilder {
+    public function managementTemplateStepsById(string $id): ?ManagementTemplateStepItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateStep%2Did'] = $id;
         return new ManagementTemplateStepItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -724,9 +724,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managementTemplateStepTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateStepTenantSummaryItemRequestBuilder
+     * @return ManagementTemplateStepTenantSummaryItemRequestBuilder|null
     */
-    public function managementTemplateStepTenantSummariesById(string $id): ManagementTemplateStepTenantSummaryItemRequestBuilder {
+    public function managementTemplateStepTenantSummariesById(string $id): ?ManagementTemplateStepTenantSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateStepTenantSummary%2Did'] = $id;
         return new ManagementTemplateStepTenantSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -735,9 +735,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the managementTemplateStepVersions property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return ManagementTemplateStepVersionItemRequestBuilder
+     * @return ManagementTemplateStepVersionItemRequestBuilder|null
     */
-    public function managementTemplateStepVersionsById(string $id): ManagementTemplateStepVersionItemRequestBuilder {
+    public function managementTemplateStepVersionsById(string $id): ?ManagementTemplateStepVersionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateStepVersion%2Did'] = $id;
         return new ManagementTemplateStepVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -746,9 +746,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the myRoles property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return MyRoleTenantItemRequestBuilder
+     * @return MyRoleTenantItemRequestBuilder|null
     */
-    public function myRolesById(string $id): MyRoleTenantItemRequestBuilder {
+    public function myRolesById(string $id): ?MyRoleTenantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['myRole%2DtenantId'] = $id;
         return new MyRoleTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -777,9 +777,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the tenantGroups property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return TenantGroupItemRequestBuilder
+     * @return TenantGroupItemRequestBuilder|null
     */
-    public function tenantGroupsById(string $id): TenantGroupItemRequestBuilder {
+    public function tenantGroupsById(string $id): ?TenantGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tenantGroup%2Did'] = $id;
         return new TenantGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -788,9 +788,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the tenants property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return TenantItemRequestBuilder
+     * @return TenantItemRequestBuilder|null
     */
-    public function tenantsById(string $id): TenantItemRequestBuilder {
+    public function tenantsById(string $id): ?TenantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tenant%2Did'] = $id;
         return new TenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -799,9 +799,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the tenantsCustomizedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return TenantCustomizedInformationItemRequestBuilder
+     * @return TenantCustomizedInformationItemRequestBuilder|null
     */
-    public function tenantsCustomizedInformationById(string $id): TenantCustomizedInformationItemRequestBuilder {
+    public function tenantsCustomizedInformationById(string $id): ?TenantCustomizedInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tenantCustomizedInformation%2Did'] = $id;
         return new TenantCustomizedInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -810,9 +810,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the tenantsDetailedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return TenantDetailedInformationItemRequestBuilder
+     * @return TenantDetailedInformationItemRequestBuilder|null
     */
-    public function tenantsDetailedInformationById(string $id): TenantDetailedInformationItemRequestBuilder {
+    public function tenantsDetailedInformationById(string $id): ?TenantDetailedInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tenantDetailedInformation%2Did'] = $id;
         return new TenantDetailedInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -821,9 +821,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the tenantTags property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return TenantTagItemRequestBuilder
+     * @return TenantTagItemRequestBuilder|null
     */
-    public function tenantTagsById(string $id): TenantTagItemRequestBuilder {
+    public function tenantTagsById(string $id): ?TenantTagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tenantTag%2Did'] = $id;
         return new TenantTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -832,9 +832,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the windowsDeviceMalwareStates property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsDeviceMalwareStateItemRequestBuilder
+     * @return WindowsDeviceMalwareStateItemRequestBuilder|null
     */
-    public function windowsDeviceMalwareStatesById(string $id): WindowsDeviceMalwareStateItemRequestBuilder {
+    public function windowsDeviceMalwareStatesById(string $id): ?WindowsDeviceMalwareStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDeviceMalwareState%2Did'] = $id;
         return new WindowsDeviceMalwareStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -843,9 +843,9 @@ class ManagedTenantsRequestBuilder
     /**
      * Provides operations to manage the windowsProtectionStates property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
-     * @return WindowsProtectionStateItemRequestBuilder
+     * @return WindowsProtectionStateItemRequestBuilder|null
     */
-    public function windowsProtectionStatesById(string $id): WindowsProtectionStateItemRequestBuilder {
+    public function windowsProtectionStatesById(string $id): ?WindowsProtectionStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsProtectionState%2Did'] = $id;
         return new WindowsProtectionStateItemRequestBuilder($urlTplParams, $this->requestAdapter);

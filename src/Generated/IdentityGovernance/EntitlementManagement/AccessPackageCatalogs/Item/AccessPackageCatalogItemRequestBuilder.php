@@ -80,9 +80,9 @@ class AccessPackageCatalogItemRequestBuilder
     /**
      * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceRoleItemRequestBuilder
+     * @return AccessPackageResourceRoleItemRequestBuilder|null
     */
-    public function accessPackageResourceRolesById(string $id): AccessPackageResourceRoleItemRequestBuilder {
+    public function accessPackageResourceRolesById(string $id): ?AccessPackageResourceRoleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceRole%2Did'] = $id;
         return new AccessPackageResourceRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -91,9 +91,9 @@ class AccessPackageCatalogItemRequestBuilder
     /**
      * Provides operations to manage the accessPackageResources property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceItemRequestBuilder
+     * @return AccessPackageResourceItemRequestBuilder|null
     */
-    public function accessPackageResourcesById(string $id): AccessPackageResourceItemRequestBuilder {
+    public function accessPackageResourcesById(string $id): ?AccessPackageResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResource%2Did'] = $id;
         return new AccessPackageResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -102,9 +102,9 @@ class AccessPackageCatalogItemRequestBuilder
     /**
      * Provides operations to manage the accessPackageResourceScopes property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageResourceScopeItemRequestBuilder
+     * @return AccessPackageResourceScopeItemRequestBuilder|null
     */
-    public function accessPackageResourceScopesById(string $id): AccessPackageResourceScopeItemRequestBuilder {
+    public function accessPackageResourceScopesById(string $id): ?AccessPackageResourceScopeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceScope%2Did'] = $id;
         return new AccessPackageResourceScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -113,9 +113,9 @@ class AccessPackageCatalogItemRequestBuilder
     /**
      * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
-     * @return AccessPackageItemRequestBuilder
+     * @return AccessPackageItemRequestBuilder|null
     */
-    public function accessPackagesById(string $id): AccessPackageItemRequestBuilder {
+    public function accessPackagesById(string $id): ?AccessPackageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackage%2Did'] = $id;
         return new AccessPackageItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -205,9 +205,9 @@ class AccessPackageCatalogItemRequestBuilder
     /**
      * Provides operations to manage the customAccessPackageWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
-     * @return CustomAccessPackageWorkflowExtensionItemRequestBuilder
+     * @return CustomAccessPackageWorkflowExtensionItemRequestBuilder|null
     */
-    public function customAccessPackageWorkflowExtensionsById(string $id): CustomAccessPackageWorkflowExtensionItemRequestBuilder {
+    public function customAccessPackageWorkflowExtensionsById(string $id): ?CustomAccessPackageWorkflowExtensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customAccessPackageWorkflowExtension%2Did'] = $id;
         return new CustomAccessPackageWorkflowExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);

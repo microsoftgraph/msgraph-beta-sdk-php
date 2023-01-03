@@ -183,9 +183,9 @@ class DeviceAndAppManagementRoleAssignmentItemRequestBuilder
     /**
      * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceAndAppManagementRoleAssignment entity.
      * @param string $id Unique identifier of the item
-     * @return RoleScopeTagItemRequestBuilder
+     * @return RoleScopeTagItemRequestBuilder|null
     */
-    public function roleScopeTagsById(string $id): RoleScopeTagItemRequestBuilder {
+    public function roleScopeTagsById(string $id): ?RoleScopeTagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['roleScopeTag%2Did'] = $id;
         return new RoleScopeTagItemRequestBuilder($urlTplParams, $this->requestAdapter);

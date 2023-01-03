@@ -199,9 +199,9 @@ class ReviewSetItemRequestBuilder
     /**
      * Provides operations to manage the queries property of the microsoft.graph.ediscovery.reviewSet entity.
      * @param string $id Unique identifier of the item
-     * @return ReviewSetQueryItemRequestBuilder
+     * @return ReviewSetQueryItemRequestBuilder|null
     */
-    public function queriesById(string $id): ReviewSetQueryItemRequestBuilder {
+    public function queriesById(string $id): ?ReviewSetQueryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['reviewSetQuery%2Did'] = $id;
         return new ReviewSetQueryItemRequestBuilder($urlTplParams, $this->requestAdapter);

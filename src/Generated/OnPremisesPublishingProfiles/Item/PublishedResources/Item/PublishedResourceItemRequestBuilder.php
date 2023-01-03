@@ -44,9 +44,9 @@ class PublishedResourceItemRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.publishedResources.item.agentGroups.item collection
      * @param string $id Unique identifier of the item
-     * @return OnPremisesAgentGroupItemRequestBuilder
+     * @return OnPremisesAgentGroupItemRequestBuilder|null
     */
-    public function agentGroupsById(string $id): OnPremisesAgentGroupItemRequestBuilder {
+    public function agentGroupsById(string $id): ?OnPremisesAgentGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['onPremisesAgentGroup%2Did'] = $id;
         return new OnPremisesAgentGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);

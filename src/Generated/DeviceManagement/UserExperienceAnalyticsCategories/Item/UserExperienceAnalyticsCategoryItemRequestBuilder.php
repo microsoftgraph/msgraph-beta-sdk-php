@@ -163,9 +163,9 @@ class UserExperienceAnalyticsCategoryItemRequestBuilder
     /**
      * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
      * @param string $id Unique identifier of the item
-     * @return UserExperienceAnalyticsMetricItemRequestBuilder
+     * @return UserExperienceAnalyticsMetricItemRequestBuilder|null
     */
-    public function metricValuesById(string $id): UserExperienceAnalyticsMetricItemRequestBuilder {
+    public function metricValuesById(string $id): ?UserExperienceAnalyticsMetricItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsMetric%2Did'] = $id;
         return new UserExperienceAnalyticsMetricItemRequestBuilder($urlTplParams, $this->requestAdapter);

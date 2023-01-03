@@ -77,9 +77,9 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder
+     * @return DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder|null
     */
-    public function assignmentsById(string $id): DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder {
+    public function assignmentsById(string $id): ?DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationPolicyAssignment%2Did'] = $id;
         return new DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
@@ -227,9 +227,9 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder
     /**
      * Provides operations to manage the settings property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationSettingItemRequestBuilder
+     * @return DeviceManagementConfigurationSettingItemRequestBuilder|null
     */
-    public function settingsById(string $id): DeviceManagementConfigurationSettingItemRequestBuilder {
+    public function settingsById(string $id): ?DeviceManagementConfigurationSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationSetting%2Did'] = $id;
         return new DeviceManagementConfigurationSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);

@@ -44,9 +44,9 @@ class AnalyticsRequestBuilder
     /**
      * Provides operations to manage the activityStatistics property of the microsoft.graph.userAnalytics entity.
      * @param string $id Unique identifier of the item
-     * @return ActivityStatisticsItemRequestBuilder
+     * @return ActivityStatisticsItemRequestBuilder|null
     */
-    public function activityStatisticsById(string $id): ActivityStatisticsItemRequestBuilder {
+    public function activityStatisticsById(string $id): ?ActivityStatisticsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['activityStatistics%2Did'] = $id;
         return new ActivityStatisticsItemRequestBuilder($urlTplParams, $this->requestAdapter);

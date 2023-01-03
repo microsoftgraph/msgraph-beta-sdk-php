@@ -183,9 +183,9 @@ class DeviceManagementConfigurationPolicyTemplateItemRequestBuilder
     /**
      * Provides operations to manage the settingTemplates property of the microsoft.graph.deviceManagementConfigurationPolicyTemplate entity.
      * @param string $id Unique identifier of the item
-     * @return DeviceManagementConfigurationSettingTemplateItemRequestBuilder
+     * @return DeviceManagementConfigurationSettingTemplateItemRequestBuilder|null
     */
-    public function settingTemplatesById(string $id): DeviceManagementConfigurationSettingTemplateItemRequestBuilder {
+    public function settingTemplatesById(string $id): ?DeviceManagementConfigurationSettingTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationSettingTemplate%2Did'] = $id;
         return new DeviceManagementConfigurationSettingTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
