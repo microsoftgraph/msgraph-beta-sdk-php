@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsable 
 {
     /**
-     * Instantiates a new DepMacOSEnrollmentProfile and sets the default values.
+     * Instantiates a new depMacOSEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

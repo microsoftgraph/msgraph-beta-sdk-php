@@ -44,7 +44,7 @@ class GetSharedUseLicenseUsageReportRequestBuilder
     }
 
     /**
-     * Invoke action getSharedUseLicenseUsageReport
+     * Get the shared use license usage reports, such as **servicePlanId**, **licenseCount**, and **claimedLicenseCount**, for real-time, 7 days, or 28 days trend.
      * @param GetSharedUseLicenseUsageReportPostRequestBody $body The request body
      * @param GetSharedUseLicenseUsageReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -67,7 +67,7 @@ class GetSharedUseLicenseUsageReportRequestBuilder
     }
 
     /**
-     * Invoke action getSharedUseLicenseUsageReport
+     * Get the shared use license usage reports, such as **servicePlanId**, **licenseCount**, and **claimedLicenseCount**, for real-time, 7 days, or 28 days trend.
      * @param GetSharedUseLicenseUsageReportPostRequestBody $body The request body
      * @param GetSharedUseLicenseUsageReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
