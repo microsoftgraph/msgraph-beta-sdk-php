@@ -73,7 +73,7 @@ class RubricRequestBuilder
     }
 
     /**
-     * Get the educationRubric object attached to an educationAssignment, if one exists.
+     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
      * @param RubricRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -99,7 +99,7 @@ class RubricRequestBuilder
 
     /**
      * Update the navigation property rubric in education
-     * @param EducationRubric $body 
+     * @param EducationRubric $body The request body
      * @param RubricRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -141,7 +141,7 @@ class RubricRequestBuilder
     }
 
     /**
-     * Get the educationRubric object attached to an educationAssignment, if one exists.
+     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
      * @param RubricRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -161,7 +161,7 @@ class RubricRequestBuilder
 
     /**
      * Update the navigation property rubric in education
-     * @param EducationRubric $body 
+     * @param EducationRubric $body The request body
      * @param RubricRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

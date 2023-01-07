@@ -43,7 +43,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the appVersion property value. The appVersion property
+     * Gets the appVersion property value. The version of the client authentication app used during the authentication step.
      * @return string|null
     */
     public function getAppVersion(): ?string {
@@ -59,7 +59,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the clientApp property value. The clientApp property
+     * Gets the clientApp property value. The name of the client authentication app used during the authentication step.
      * @return string|null
     */
     public function getClientApp(): ?string {
@@ -67,7 +67,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the deviceId property value. The deviceId property
+     * Gets the deviceId property value. ID of the device used during the authentication step.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -98,7 +98,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the operatingSystem property value. The operatingSystem property
+     * Gets the operatingSystem property value. The operating system running on the device used for the authentication step.
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
@@ -127,7 +127,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the appVersion property value. The appVersion property
+     * Sets the appVersion property value. The version of the client authentication app used during the authentication step.
      *  @param string|null $value Value to set for the appVersion property.
     */
     public function setAppVersion(?string $value): void {
@@ -143,7 +143,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the clientApp property value. The clientApp property
+     * Sets the clientApp property value. The name of the client authentication app used during the authentication step.
      *  @param string|null $value Value to set for the clientApp property.
     */
     public function setClientApp(?string $value): void {
@@ -151,7 +151,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the deviceId property value. The deviceId property
+     * Sets the deviceId property value. ID of the device used during the authentication step.
      *  @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -167,7 +167,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the operatingSystem property value. The operatingSystem property
+     * Sets the operatingSystem property value. The operating system running on the device used for the authentication step.
      *  @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {

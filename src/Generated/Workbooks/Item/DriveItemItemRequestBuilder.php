@@ -231,12 +231,12 @@ class DriveItemItemRequestBuilder
     /**
      * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
      * @param string $id Unique identifier of the item
-     * @return DriveItemItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Workbooks\Item\Children\Item\DriveItemItemRequestBuilder
     */
-    public function childrenById(string $id): DriveItemItemRequestBuilder {
+    public function childrenById(string $id): \Microsoft\Graph\Beta\Generated\Workbooks\Item\Children\Item\DriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['driveItem%2Did1'] = $id;
-        return new DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Workbooks\Item\Children\Item\DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -298,7 +298,7 @@ class DriveItemItemRequestBuilder
 
     /**
      * Update entity in workbooks
-     * @param DriveItem $body 
+     * @param DriveItem $body The request body
      * @param DriveItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -388,7 +388,7 @@ class DriveItemItemRequestBuilder
 
     /**
      * Update entity in workbooks
-     * @param DriveItem $body 
+     * @param DriveItem $body The request body
      * @param DriveItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

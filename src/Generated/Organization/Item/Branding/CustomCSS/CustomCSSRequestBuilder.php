@@ -44,7 +44,7 @@ class CustomCSSRequestBuilder
     }
 
     /**
-     * Get customCSS for the navigation property branding from organization
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param CustomCSSRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -65,7 +65,7 @@ class CustomCSSRequestBuilder
     }
 
     /**
-     * Update customCSS for the navigation property branding in organization
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param StreamInterface $body Binary request body
      * @param CustomCSSRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -88,7 +88,7 @@ class CustomCSSRequestBuilder
     }
 
     /**
-     * Get customCSS for the navigation property branding from organization
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param CustomCSSRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -107,7 +107,7 @@ class CustomCSSRequestBuilder
     }
 
     /**
-     * Update customCSS for the navigation property branding in organization
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param StreamInterface $body Binary request body
      * @param CustomCSSRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -13,14 +13,10 @@ use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMeth
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\Extensions\Item\ExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\GetMemberObjects\GetMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\MemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceMemberOfItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\MemberOf\MemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceRegisteredOwnersItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredOwners\RegisteredOwnersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceRegisteredUsersItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredUsers\RegisteredUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceTransitiveMemberOfItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\UsageRights\Item\UsageRightItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\UsageRights\UsageRightsRequestBuilder;
@@ -205,7 +201,7 @@ class DeviceRequestBuilder
 
     /**
      * Update the navigation property device in me
-     * @param Device $body 
+     * @param Device $body The request body
      * @param DeviceRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -279,17 +275,17 @@ class DeviceRequestBuilder
     /**
      * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceMemberOfItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\MemberOf\Item\DirectoryObjectItemRequestBuilder
     */
-    public function memberOfById(string $id): MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceMemberOfItemDirectoryObjectItemRequestBuilder {
+    public function memberOfById(string $id): \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\MemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\MemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property device in me
-     * @param Device $body 
+     * @param Device $body The request body
      * @param DeviceRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -310,34 +306,34 @@ class DeviceRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.me.authentication.windowsHelloForBusinessMethods.item.device.registeredOwners.item collection
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceRegisteredOwnersItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder
     */
-    public function registeredOwnersById(string $id): MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceRegisteredOwnersItemDirectoryObjectItemRequestBuilder {
+    public function registeredOwnersById(string $id): \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceRegisteredOwnersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceRegisteredUsersItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder
     */
-    public function registeredUsersById(string $id): MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceRegisteredUsersItemDirectoryObjectItemRequestBuilder {
+    public function registeredUsersById(string $id): \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceRegisteredUsersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceTransitiveMemberOfItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder
     */
-    public function transitiveMemberOfById(string $id): MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceTransitiveMemberOfItemDirectoryObjectItemRequestBuilder {
+    public function transitiveMemberOfById(string $id): \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeAuthenticationWindowsHelloForBusinessMethodsItemDeviceTransitiveMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

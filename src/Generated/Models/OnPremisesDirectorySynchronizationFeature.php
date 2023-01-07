@@ -51,7 +51,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the blockCloudObjectTakeoverThroughHardMatchEnabled property value. The blockCloudObjectTakeoverThroughHardMatchEnabled property
+     * Gets the blockCloudObjectTakeoverThroughHardMatchEnabled property value. Used to block cloud object takeover via source anchor hard match if enabled.
      * @return bool|null
     */
     public function getBlockCloudObjectTakeoverThroughHardMatchEnabled(): ?bool {
@@ -59,7 +59,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the blockSoftMatchEnabled property value. The blockSoftMatchEnabled property
+     * Gets the blockSoftMatchEnabled property value. Use to block soft match for all objects if enabled for the  tenant. Customers are encouraged to enable this feature and keep it enabled until soft matching is required again for their tenancy. This flag should be enabled again after any soft matching has been completed and is no longer needed.
      * @return bool|null
     */
     public function getBlockSoftMatchEnabled(): ?bool {
@@ -67,7 +67,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the bypassDirSyncOverridesEnabled property value. The bypassDirSyncOverridesEnabled property
+     * Gets the bypassDirSyncOverridesEnabled property value. When true, persists the values of Mobile and OtherMobile in on-premises AD during sync cycles instead of values of MobilePhone or AlternateMobilePhones in Azure AD.
      * @return bool|null
     */
     public function getBypassDirSyncOverridesEnabled(): ?bool {
@@ -75,7 +75,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the cloudPasswordPolicyForPasswordSyncedUsersEnabled property value. The cloudPasswordPolicyForPasswordSyncedUsersEnabled property
+     * Gets the cloudPasswordPolicyForPasswordSyncedUsersEnabled property value. Used to indicate that cloud password policy applies to users whose passwords are synchronized from on-premises.
      * @return bool|null
     */
     public function getCloudPasswordPolicyForPasswordSyncedUsersEnabled(): ?bool {
@@ -83,7 +83,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the concurrentCredentialUpdateEnabled property value. The concurrentCredentialUpdateEnabled property
+     * Gets the concurrentCredentialUpdateEnabled property value. Used to enable concurrent user credentials update in OrgId.
      * @return bool|null
     */
     public function getConcurrentCredentialUpdateEnabled(): ?bool {
@@ -91,7 +91,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the concurrentOrgIdProvisioningEnabled property value. The concurrentOrgIdProvisioningEnabled property
+     * Gets the concurrentOrgIdProvisioningEnabled property value. Used to enable concurrent user creation in OrgId.
      * @return bool|null
     */
     public function getConcurrentOrgIdProvisioningEnabled(): ?bool {
@@ -99,7 +99,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the deviceWritebackEnabled property value. The deviceWritebackEnabled property
+     * Gets the deviceWritebackEnabled property value. Used to indicate that device write-back is enabled.
      * @return bool|null
     */
     public function getDeviceWritebackEnabled(): ?bool {
@@ -107,7 +107,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the directoryExtensionsEnabled property value. The directoryExtensionsEnabled property
+     * Gets the directoryExtensionsEnabled property value. Used to indicate that directory extensions are being synced from on-premises AD to Azure AD.
      * @return bool|null
     */
     public function getDirectoryExtensionsEnabled(): ?bool {
@@ -145,7 +145,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the fopeConflictResolutionEnabled property value. The fopeConflictResolutionEnabled property
+     * Gets the fopeConflictResolutionEnabled property value. Used to indicate that for a Microsoft Forefront Online Protection for Exchange (FOPE) migrated tenant, the conflicting proxy address should be migrated over.
      * @return bool|null
     */
     public function getFopeConflictResolutionEnabled(): ?bool {
@@ -153,7 +153,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the groupWriteBackEnabled property value. The groupWriteBackEnabled property
+     * Gets the groupWriteBackEnabled property value. Used to enable object-level group writeback feature for additional group types.
      * @return bool|null
     */
     public function getGroupWriteBackEnabled(): ?bool {
@@ -169,7 +169,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the passwordSyncEnabled property value. The passwordSyncEnabled property
+     * Gets the passwordSyncEnabled property value. Used to indicate on-premise password synchronization is enabled.
      * @return bool|null
     */
     public function getPasswordSyncEnabled(): ?bool {
@@ -177,7 +177,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the passwordWritebackEnabled property value. The passwordWritebackEnabled property
+     * Gets the passwordWritebackEnabled property value. Used to indicate that writeback of password resets from Azure AD to on-premises AD is enabled.
      * @return bool|null
     */
     public function getPasswordWritebackEnabled(): ?bool {
@@ -185,7 +185,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the quarantineUponProxyAddressesConflictEnabled property value. The quarantineUponProxyAddressesConflictEnabled property
+     * Gets the quarantineUponProxyAddressesConflictEnabled property value. Used to indicate that we should quarantine objects with conflicting proxy address.
      * @return bool|null
     */
     public function getQuarantineUponProxyAddressesConflictEnabled(): ?bool {
@@ -193,7 +193,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the quarantineUponUpnConflictEnabled property value. The quarantineUponUpnConflictEnabled property
+     * Gets the quarantineUponUpnConflictEnabled property value. Used to indicate that we should quarantine objects conflicting with duplicate userPrincipalName.
      * @return bool|null
     */
     public function getQuarantineUponUpnConflictEnabled(): ?bool {
@@ -201,7 +201,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the softMatchOnUpnEnabled property value. The softMatchOnUpnEnabled property
+     * Gets the softMatchOnUpnEnabled property value. Used to indicate that we should soft match objects based on userPrincipalName.
      * @return bool|null
     */
     public function getSoftMatchOnUpnEnabled(): ?bool {
@@ -209,7 +209,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the synchronizeUpnForManagedUsersEnabled property value. The synchronizeUpnForManagedUsersEnabled property
+     * Gets the synchronizeUpnForManagedUsersEnabled property value. Used to indicate that we should synchronize userPrincipalName objects for managed users with licenses.
      * @return bool|null
     */
     public function getSynchronizeUpnForManagedUsersEnabled(): ?bool {
@@ -217,7 +217,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the unifiedGroupWritebackEnabled property value. The unifiedGroupWritebackEnabled property
+     * Gets the unifiedGroupWritebackEnabled property value. Used to indicate that Microsoft 365 Group write-back is enabled.
      * @return bool|null
     */
     public function getUnifiedGroupWritebackEnabled(): ?bool {
@@ -225,7 +225,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the userForcePasswordChangeOnLogonEnabled property value. The userForcePasswordChangeOnLogonEnabled property
+     * Gets the userForcePasswordChangeOnLogonEnabled property value. Used to indicate that feature to force password change for a user on logon is enabled while synchronizing on-premise credentials.
      * @return bool|null
     */
     public function getUserForcePasswordChangeOnLogonEnabled(): ?bool {
@@ -233,7 +233,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Gets the userWritebackEnabled property value. The userWritebackEnabled property
+     * Gets the userWritebackEnabled property value. Used to indicate that user writeback is enabled.
      * @return bool|null
     */
     public function getUserWritebackEnabled(): ?bool {
@@ -285,7 +285,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the blockCloudObjectTakeoverThroughHardMatchEnabled property value. The blockCloudObjectTakeoverThroughHardMatchEnabled property
+     * Sets the blockCloudObjectTakeoverThroughHardMatchEnabled property value. Used to block cloud object takeover via source anchor hard match if enabled.
      *  @param bool|null $value Value to set for the blockCloudObjectTakeoverThroughHardMatchEnabled property.
     */
     public function setBlockCloudObjectTakeoverThroughHardMatchEnabled(?bool $value): void {
@@ -293,7 +293,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the blockSoftMatchEnabled property value. The blockSoftMatchEnabled property
+     * Sets the blockSoftMatchEnabled property value. Use to block soft match for all objects if enabled for the  tenant. Customers are encouraged to enable this feature and keep it enabled until soft matching is required again for their tenancy. This flag should be enabled again after any soft matching has been completed and is no longer needed.
      *  @param bool|null $value Value to set for the blockSoftMatchEnabled property.
     */
     public function setBlockSoftMatchEnabled(?bool $value): void {
@@ -301,7 +301,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the bypassDirSyncOverridesEnabled property value. The bypassDirSyncOverridesEnabled property
+     * Sets the bypassDirSyncOverridesEnabled property value. When true, persists the values of Mobile and OtherMobile in on-premises AD during sync cycles instead of values of MobilePhone or AlternateMobilePhones in Azure AD.
      *  @param bool|null $value Value to set for the bypassDirSyncOverridesEnabled property.
     */
     public function setBypassDirSyncOverridesEnabled(?bool $value): void {
@@ -309,7 +309,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the cloudPasswordPolicyForPasswordSyncedUsersEnabled property value. The cloudPasswordPolicyForPasswordSyncedUsersEnabled property
+     * Sets the cloudPasswordPolicyForPasswordSyncedUsersEnabled property value. Used to indicate that cloud password policy applies to users whose passwords are synchronized from on-premises.
      *  @param bool|null $value Value to set for the cloudPasswordPolicyForPasswordSyncedUsersEnabled property.
     */
     public function setCloudPasswordPolicyForPasswordSyncedUsersEnabled(?bool $value): void {
@@ -317,7 +317,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the concurrentCredentialUpdateEnabled property value. The concurrentCredentialUpdateEnabled property
+     * Sets the concurrentCredentialUpdateEnabled property value. Used to enable concurrent user credentials update in OrgId.
      *  @param bool|null $value Value to set for the concurrentCredentialUpdateEnabled property.
     */
     public function setConcurrentCredentialUpdateEnabled(?bool $value): void {
@@ -325,7 +325,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the concurrentOrgIdProvisioningEnabled property value. The concurrentOrgIdProvisioningEnabled property
+     * Sets the concurrentOrgIdProvisioningEnabled property value. Used to enable concurrent user creation in OrgId.
      *  @param bool|null $value Value to set for the concurrentOrgIdProvisioningEnabled property.
     */
     public function setConcurrentOrgIdProvisioningEnabled(?bool $value): void {
@@ -333,7 +333,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the deviceWritebackEnabled property value. The deviceWritebackEnabled property
+     * Sets the deviceWritebackEnabled property value. Used to indicate that device write-back is enabled.
      *  @param bool|null $value Value to set for the deviceWritebackEnabled property.
     */
     public function setDeviceWritebackEnabled(?bool $value): void {
@@ -341,7 +341,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the directoryExtensionsEnabled property value. The directoryExtensionsEnabled property
+     * Sets the directoryExtensionsEnabled property value. Used to indicate that directory extensions are being synced from on-premises AD to Azure AD.
      *  @param bool|null $value Value to set for the directoryExtensionsEnabled property.
     */
     public function setDirectoryExtensionsEnabled(?bool $value): void {
@@ -349,7 +349,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the fopeConflictResolutionEnabled property value. The fopeConflictResolutionEnabled property
+     * Sets the fopeConflictResolutionEnabled property value. Used to indicate that for a Microsoft Forefront Online Protection for Exchange (FOPE) migrated tenant, the conflicting proxy address should be migrated over.
      *  @param bool|null $value Value to set for the fopeConflictResolutionEnabled property.
     */
     public function setFopeConflictResolutionEnabled(?bool $value): void {
@@ -357,7 +357,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the groupWriteBackEnabled property value. The groupWriteBackEnabled property
+     * Sets the groupWriteBackEnabled property value. Used to enable object-level group writeback feature for additional group types.
      *  @param bool|null $value Value to set for the groupWriteBackEnabled property.
     */
     public function setGroupWriteBackEnabled(?bool $value): void {
@@ -373,7 +373,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the passwordSyncEnabled property value. The passwordSyncEnabled property
+     * Sets the passwordSyncEnabled property value. Used to indicate on-premise password synchronization is enabled.
      *  @param bool|null $value Value to set for the passwordSyncEnabled property.
     */
     public function setPasswordSyncEnabled(?bool $value): void {
@@ -381,7 +381,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the passwordWritebackEnabled property value. The passwordWritebackEnabled property
+     * Sets the passwordWritebackEnabled property value. Used to indicate that writeback of password resets from Azure AD to on-premises AD is enabled.
      *  @param bool|null $value Value to set for the passwordWritebackEnabled property.
     */
     public function setPasswordWritebackEnabled(?bool $value): void {
@@ -389,7 +389,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the quarantineUponProxyAddressesConflictEnabled property value. The quarantineUponProxyAddressesConflictEnabled property
+     * Sets the quarantineUponProxyAddressesConflictEnabled property value. Used to indicate that we should quarantine objects with conflicting proxy address.
      *  @param bool|null $value Value to set for the quarantineUponProxyAddressesConflictEnabled property.
     */
     public function setQuarantineUponProxyAddressesConflictEnabled(?bool $value): void {
@@ -397,7 +397,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the quarantineUponUpnConflictEnabled property value. The quarantineUponUpnConflictEnabled property
+     * Sets the quarantineUponUpnConflictEnabled property value. Used to indicate that we should quarantine objects conflicting with duplicate userPrincipalName.
      *  @param bool|null $value Value to set for the quarantineUponUpnConflictEnabled property.
     */
     public function setQuarantineUponUpnConflictEnabled(?bool $value): void {
@@ -405,7 +405,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the softMatchOnUpnEnabled property value. The softMatchOnUpnEnabled property
+     * Sets the softMatchOnUpnEnabled property value. Used to indicate that we should soft match objects based on userPrincipalName.
      *  @param bool|null $value Value to set for the softMatchOnUpnEnabled property.
     */
     public function setSoftMatchOnUpnEnabled(?bool $value): void {
@@ -413,7 +413,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the synchronizeUpnForManagedUsersEnabled property value. The synchronizeUpnForManagedUsersEnabled property
+     * Sets the synchronizeUpnForManagedUsersEnabled property value. Used to indicate that we should synchronize userPrincipalName objects for managed users with licenses.
      *  @param bool|null $value Value to set for the synchronizeUpnForManagedUsersEnabled property.
     */
     public function setSynchronizeUpnForManagedUsersEnabled(?bool $value): void {
@@ -421,7 +421,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the unifiedGroupWritebackEnabled property value. The unifiedGroupWritebackEnabled property
+     * Sets the unifiedGroupWritebackEnabled property value. Used to indicate that Microsoft 365 Group write-back is enabled.
      *  @param bool|null $value Value to set for the unifiedGroupWritebackEnabled property.
     */
     public function setUnifiedGroupWritebackEnabled(?bool $value): void {
@@ -429,7 +429,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the userForcePasswordChangeOnLogonEnabled property value. The userForcePasswordChangeOnLogonEnabled property
+     * Sets the userForcePasswordChangeOnLogonEnabled property value. Used to indicate that feature to force password change for a user on logon is enabled while synchronizing on-premise credentials.
      *  @param bool|null $value Value to set for the userForcePasswordChangeOnLogonEnabled property.
     */
     public function setUserForcePasswordChangeOnLogonEnabled(?bool $value): void {
@@ -437,7 +437,7 @@ class OnPremisesDirectorySynchronizationFeature implements AdditionalDataHolder,
     }
 
     /**
-     * Sets the userWritebackEnabled property value. The userWritebackEnabled property
+     * Sets the userWritebackEnabled property value. Used to indicate that user writeback is enabled.
      *  @param bool|null $value Value to set for the userWritebackEnabled property.
     */
     public function setUserWritebackEnabled(?bool $value): void {

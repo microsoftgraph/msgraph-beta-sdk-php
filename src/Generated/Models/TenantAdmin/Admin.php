@@ -2,7 +2,9 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\TenantAdmin;
 
-use Microsoft\Graph\Beta\Generated\Models\TenantAdmin\Sharepoint;
+use Microsoft\Graph\Beta\Generated\Models\AdminReportSettings;
+use Microsoft\Graph\Beta\Generated\Models\Edge;
+use Microsoft\Graph\Beta\Generated\Models\ServiceAnnouncement;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Windows;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

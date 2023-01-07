@@ -80,7 +80,7 @@ class DepOnboardingSettingsRequestBuilder
 
     /**
      * Create new navigation property to depOnboardingSettings for deviceManagement
-     * @param DepOnboardingSetting $body 
+     * @param DepOnboardingSetting $body The request body
      * @param DepOnboardingSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +132,7 @@ class DepOnboardingSettingsRequestBuilder
 
     /**
      * Create new navigation property to depOnboardingSettings for deviceManagement
-     * @param DepOnboardingSetting $body 
+     * @param DepOnboardingSetting $body The request body
      * @param DepOnboardingSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -68,12 +68,12 @@ class GroupPolicyCategoryItemRequestBuilder
     /**
      * Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.
      * @param string $id Unique identifier of the item
-     * @return GroupPolicyCategoryItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder
     */
-    public function childrenById(string $id): GroupPolicyCategoryItemRequestBuilder {
+    public function childrenById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyCategory%2Did1'] = $id;
-        return new GroupPolicyCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\Children\Item\GroupPolicyCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -135,7 +135,7 @@ class GroupPolicyCategoryItemRequestBuilder
 
     /**
      * Update the navigation property groupPolicyCategories in deviceManagement
-     * @param GroupPolicyCategory $body 
+     * @param GroupPolicyCategory $body The request body
      * @param GroupPolicyCategoryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -208,7 +208,7 @@ class GroupPolicyCategoryItemRequestBuilder
 
     /**
      * Update the navigation property groupPolicyCategories in deviceManagement
-     * @param GroupPolicyCategory $body 
+     * @param GroupPolicyCategory $body The request body
      * @param GroupPolicyCategoryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -73,6 +73,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the enableSingleSignOn property value. The enableSingleSignOn property
+     * @return bool|null
+    */
+    public function getEnableSingleSignOn(): ?bool {
+        return $this->getBackingStore()->get('enableSingleSignOn');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -85,6 +93,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'domainJoinConfiguration' => fn(ParseNode $n) => $o->setDomainJoinConfiguration($n->getObjectValue([CloudPcDomainJoinConfiguration::class, 'createFromDiscriminatorValue'])),
+            'enableSingleSignOn' => fn(ParseNode $n) => $o->setEnableSingleSignOn($n->getBooleanValue()),
             'gracePeriodInHours' => fn(ParseNode $n) => $o->setGracePeriodInHours($n->getIntegerValue()),
             'imageDisplayName' => fn(ParseNode $n) => $o->setImageDisplayName($n->getStringValue()),
             'imageId' => fn(ParseNode $n) => $o->setImageId($n->getStringValue()),
@@ -190,6 +199,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('domainJoinConfiguration', $this->getDomainJoinConfiguration());
+        $writer->writeBooleanValue('enableSingleSignOn', $this->getEnableSingleSignOn());
         $writer->writeIntegerValue('gracePeriodInHours', $this->getGracePeriodInHours());
         $writer->writeStringValue('imageDisplayName', $this->getImageDisplayName());
         $writer->writeStringValue('imageId', $this->getImageId());
@@ -248,6 +258,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setDomainJoinConfiguration(?CloudPcDomainJoinConfiguration $value): void {
         $this->getBackingStore()->set('domainJoinConfiguration', $value);
+    }
+
+    /**
+     * Sets the enableSingleSignOn property value. The enableSingleSignOn property
+     *  @param bool|null $value Value to set for the enableSingleSignOn property.
+    */
+    public function setEnableSingleSignOn(?bool $value): void {
+        $this->getBackingStore()->set('enableSingleSignOn', $value);
     }
 
     /**

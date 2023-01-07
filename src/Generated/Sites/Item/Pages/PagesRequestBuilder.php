@@ -53,7 +53,7 @@ class PagesRequestBuilder
     }
 
     /**
-     * Get the collection of [sitePage][] objects from the site pages [list][] in a site [site][]. All pages in the site are returned (with pagination).
+     * Get the collection of [sitePage][] objects from the site pages [list][] in a site [site][]. All pages in the site are returned (with pagination). Sort alphabetically by `name` in ascending order.
      * @param PagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -79,7 +79,7 @@ class PagesRequestBuilder
 
     /**
      * Create a new [sitePage][] in the site pages [list][] in a [site][].
-     * @param SitePage $body 
+     * @param SitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +102,7 @@ class PagesRequestBuilder
     }
 
     /**
-     * Get the collection of [sitePage][] objects from the site pages [list][] in a site [site][]. All pages in the site are returned (with pagination).
+     * Get the collection of [sitePage][] objects from the site pages [list][] in a site [site][]. All pages in the site are returned (with pagination). Sort alphabetically by `name` in ascending order.
      * @param PagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -122,7 +122,7 @@ class PagesRequestBuilder
 
     /**
      * Create a new [sitePage][] in the site pages [list][] in a [site][].
-     * @param SitePage $body 
+     * @param SitePage $body The request body
      * @param PagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

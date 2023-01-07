@@ -10,7 +10,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\AppConsent\AppConsentReque
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\EntitlementManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\LifecycleWorkflowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\TermsOfUseRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\IdentityGovernance;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -110,7 +110,7 @@ class IdentityGovernanceRequestBuilder
 
     /**
      * Update identityGovernance
-     * @param IdentityGovernance $body 
+     * @param IdentityGovernance $body The request body
      * @param IdentityGovernanceRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class IdentityGovernanceRequestBuilder
 
     /**
      * Update identityGovernance
-     * @param IdentityGovernance $body 
+     * @param IdentityGovernance $body The request body
      * @param IdentityGovernanceRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

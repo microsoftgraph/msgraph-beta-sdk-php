@@ -51,12 +51,12 @@ class TagItemRequestBuilder
     /**
      * Provides operations to manage the childTags property of the microsoft.graph.ediscovery.tag entity.
      * @param string $id Unique identifier of the item
-     * @return TagItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder
     */
-    public function childTagsById(string $id): TagItemRequestBuilder {
+    public function childTagsById(string $id): \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tag%2Did1'] = $id;
-        return new TagItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\Item\ChildTags\Item\TagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -118,7 +118,7 @@ class TagItemRequestBuilder
 
     /**
      * Update the navigation property tags in compliance
-     * @param Tag $body 
+     * @param Tag $body The request body
      * @param TagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -180,7 +180,7 @@ class TagItemRequestBuilder
 
     /**
      * Update the navigation property tags in compliance
-     * @param Tag $body 
+     * @param Tag $body The request body
      * @param TagItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

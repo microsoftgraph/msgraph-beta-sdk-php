@@ -1,0 +1,24 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\HorizontalSections\Item;
+
+use Microsoft\Kiota\Abstractions\RequestOption;
+
+class HorizontalSectionItemRequestBuilderGetRequestConfiguration 
+{
+    /**
+     * @var array<string, string>|null $headers Request headers
+    */
+    public ?array $headers = null;
+    
+    /**
+     * @var array<string, RequestOption>|null $options Request options
+    */
+    public ?array $options = null;
+    
+    /**
+     * @var HorizontalSectionItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?HorizontalSectionItemRequestBuilderGetQueryParameters $queryParameters = null;
+    
+}

@@ -11,10 +11,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageResourceRoleScopes\AccessPackageResourceRoleScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackageResourceRoleScopes\Item\AccessPackageResourceRoleScopeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackagesIncompatibleWith\AccessPackagesIncompatibleWithRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackagesIncompatibleWith\Item\AccessPackageItemRequestBuilder as MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementAccessPackageAssignmentsItemAccessPackageAccessPackagesIncompatibleWithItemAccessPackageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\GetApplicablePolicyRequirements\GetApplicablePolicyRequirementsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\IncompatibleAccessPackages\IncompatibleAccessPackagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\IncompatibleAccessPackages\Item\AccessPackageItemRequestBuilder as MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementAccessPackageAssignmentsItemAccessPackageIncompatibleAccessPackagesItemAccessPackageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\IncompatibleGroups\IncompatibleGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\IncompatibleGroups\Item\GroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\MoveToCatalog\MoveToCatalogRequestBuilder;
@@ -126,12 +124,12 @@ class AccessPackageRequestBuilder
     /**
      * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementAccessPackageAssignmentsItemAccessPackageAccessPackagesIncompatibleWithItemAccessPackageItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackagesIncompatibleWith\Item\AccessPackageItemRequestBuilder
     */
-    public function accessPackagesIncompatibleWithById(string $id): MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementAccessPackageAssignmentsItemAccessPackageAccessPackagesIncompatibleWithItemAccessPackageItemRequestBuilder {
+    public function accessPackagesIncompatibleWithById(string $id): \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackagesIncompatibleWith\Item\AccessPackageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackage%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementAccessPackageAssignmentsItemAccessPackageAccessPackagesIncompatibleWithItemAccessPackageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\AccessPackagesIncompatibleWith\Item\AccessPackageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -193,7 +191,7 @@ class AccessPackageRequestBuilder
 
     /**
      * Update the navigation property accessPackage in identityGovernance
-     * @param AccessPackage $body 
+     * @param AccessPackage $body The request body
      * @param AccessPackageRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -256,12 +254,12 @@ class AccessPackageRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackage.incompatibleAccessPackages.item collection
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementAccessPackageAssignmentsItemAccessPackageIncompatibleAccessPackagesItemAccessPackageItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\IncompatibleAccessPackages\Item\AccessPackageItemRequestBuilder
     */
-    public function incompatibleAccessPackagesById(string $id): MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementAccessPackageAssignmentsItemAccessPackageIncompatibleAccessPackagesItemAccessPackageItemRequestBuilder {
+    public function incompatibleAccessPackagesById(string $id): \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\IncompatibleAccessPackages\Item\AccessPackageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackage%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementAccessPackageAssignmentsItemAccessPackageIncompatibleAccessPackagesItemAccessPackageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignments\Item\AccessPackage\IncompatibleAccessPackages\Item\AccessPackageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -277,7 +275,7 @@ class AccessPackageRequestBuilder
 
     /**
      * Update the navigation property accessPackage in identityGovernance
-     * @param AccessPackage $body 
+     * @param AccessPackage $body The request body
      * @param AccessPackageRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

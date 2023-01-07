@@ -44,7 +44,7 @@ class UpdateTiIndicatorsRequestBuilder
 
     /**
      * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests.
-     * @param UpdateTiIndicatorsPostRequestBody $body 
+     * @param UpdateTiIndicatorsPostRequestBody $body The request body
      * @param UpdateTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -68,7 +68,7 @@ class UpdateTiIndicatorsRequestBuilder
 
     /**
      * Update multiple threat intelligence (TI) indicators in one request instead of multiple requests.
-     * @param UpdateTiIndicatorsPostRequestBody $body 
+     * @param UpdateTiIndicatorsPostRequestBody $body The request body
      * @param UpdateTiIndicatorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

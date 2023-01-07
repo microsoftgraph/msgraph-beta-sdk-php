@@ -43,7 +43,7 @@ class SetPortalNotificationAsSentRequestBuilder
     }
 
     /**
-     * Set a single portal notification status to published by modifying the **isPortalNotificationSent** property to `true` for the user specified in the request.
+     * Set the status of the specified notification on the Microsoft EndPoint Manager admin center as sent, by modifying the **isPortalNotificationSent** property to `true`.
      * @param SetPortalNotificationAsSentRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -64,7 +64,7 @@ class SetPortalNotificationAsSentRequestBuilder
     }
 
     /**
-     * Set a single portal notification status to published by modifying the **isPortalNotificationSent** property to `true` for the user specified in the request.
+     * Set the status of the specified notification on the Microsoft EndPoint Manager admin center as sent, by modifying the **isPortalNotificationSent** property to `true`.
      * @param SetPortalNotificationAsSentRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

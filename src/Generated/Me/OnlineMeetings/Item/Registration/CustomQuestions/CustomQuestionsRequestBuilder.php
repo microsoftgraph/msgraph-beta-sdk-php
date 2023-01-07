@@ -79,7 +79,7 @@ class CustomQuestionsRequestBuilder
 
     /**
      * Create a custom registration question associated with a meetingRegistration object on behalf of the organizer.
-     * @param MeetingRegistrationQuestion $body 
+     * @param MeetingRegistrationQuestion $body The request body
      * @param CustomQuestionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class CustomQuestionsRequestBuilder
 
     /**
      * Create a custom registration question associated with a meetingRegistration object on behalf of the organizer.
-     * @param MeetingRegistrationQuestion $body 
+     * @param MeetingRegistrationQuestion $body The request body
      * @param CustomQuestionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

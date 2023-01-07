@@ -9,9 +9,7 @@ use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\AllowedCalendarSharingRoles
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\CalendarPermissions\CalendarPermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\CalendarPermissions\Item\CalendarPermissionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\CalendarView\CalendarViewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\CalendarView\Item\EventItemRequestBuilder as MicrosoftGraphBetaGeneratedMeCalendarsItemCalendarViewItemEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\EventsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\EventItemRequestBuilder as MicrosoftGraphBetaGeneratedMeCalendarsItemEventsItemEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\GetSchedule\GetScheduleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\MultiValueExtendedProperties\Item\MultiValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
@@ -109,12 +107,12 @@ class CalendarItemRequestBuilder
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeCalendarsItemCalendarViewItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Calendars\Item\CalendarView\Item\EventItemRequestBuilder
     */
-    public function calendarViewById(string $id): MicrosoftGraphBetaGeneratedMeCalendarsItemCalendarViewItemEventItemRequestBuilder {
+    public function calendarViewById(string $id): \Microsoft\Graph\Beta\Generated\Me\Calendars\Item\CalendarView\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeCalendarsItemCalendarViewItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Calendars\Item\CalendarView\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -176,7 +174,7 @@ class CalendarItemRequestBuilder
 
     /**
      * Update the navigation property calendars in me
-     * @param Calendar $body 
+     * @param Calendar $body The request body
      * @param CalendarItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -220,12 +218,12 @@ class CalendarItemRequestBuilder
     /**
      * Provides operations to manage the events property of the microsoft.graph.calendar entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeCalendarsItemEventsItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\EventItemRequestBuilder
     */
-    public function eventsById(string $id): MicrosoftGraphBetaGeneratedMeCalendarsItemEventsItemEventItemRequestBuilder {
+    public function eventsById(string $id): \Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeCalendarsItemEventsItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Calendars\Item\Events\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -260,7 +258,7 @@ class CalendarItemRequestBuilder
 
     /**
      * Update the navigation property calendars in me
-     * @param Calendar $body 
+     * @param Calendar $body The request body
      * @param CalendarItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

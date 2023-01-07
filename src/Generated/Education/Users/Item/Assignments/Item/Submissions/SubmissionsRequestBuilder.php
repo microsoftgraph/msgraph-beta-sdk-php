@@ -53,7 +53,7 @@ class SubmissionsRequestBuilder
     }
 
     /**
-     * List all the submissions associated with an assignment. A teacher or an application with application permissions can get all the **submissions**, a student can only get **submissions** that they are associated with. Provide the header `Prefer: include-unknown-enum-members` to properly list **submissions** with the `reassigned` status. For details, see the examples section.
+     * List all the submissions associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the **submissions**, a student can only get **submissions** that they are associated with. Provide the header `Prefer: include-unknown-enum-members` to properly list **submissions** with the `reassigned` status. For details, see the examples section.
      * @param SubmissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -79,7 +79,7 @@ class SubmissionsRequestBuilder
 
     /**
      * Create new navigation property to submissions for education
-     * @param EducationSubmission $body 
+     * @param EducationSubmission $body The request body
      * @param SubmissionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +102,7 @@ class SubmissionsRequestBuilder
     }
 
     /**
-     * List all the submissions associated with an assignment. A teacher or an application with application permissions can get all the **submissions**, a student can only get **submissions** that they are associated with. Provide the header `Prefer: include-unknown-enum-members` to properly list **submissions** with the `reassigned` status. For details, see the examples section.
+     * List all the submissions associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the **submissions**, a student can only get **submissions** that they are associated with. Provide the header `Prefer: include-unknown-enum-members` to properly list **submissions** with the `reassigned` status. For details, see the examples section.
      * @param SubmissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -122,7 +122,7 @@ class SubmissionsRequestBuilder
 
     /**
      * Create new navigation property to submissions for education
-     * @param EducationSubmission $body 
+     * @param EducationSubmission $body The request body
      * @param SubmissionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

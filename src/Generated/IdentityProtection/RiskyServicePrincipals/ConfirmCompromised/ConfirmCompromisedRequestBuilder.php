@@ -43,8 +43,8 @@ class ConfirmCompromisedRequestBuilder
     }
 
     /**
-     * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to `high`. When the risk level of the service principal is confirmed as compromised, the service principal object is disabled and its **disabledByMicrosoftStatus** property is updated.
-     * @param ConfirmCompromisedPostRequestBody $body 
+     * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to `high`.
+     * @param ConfirmCompromisedPostRequestBody $body The request body
      * @param ConfirmCompromisedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -66,8 +66,8 @@ class ConfirmCompromisedRequestBuilder
     }
 
     /**
-     * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to `high`. When the risk level of the service principal is confirmed as compromised, the service principal object is disabled and its **disabledByMicrosoftStatus** property is updated.
-     * @param ConfirmCompromisedPostRequestBody $body 
+     * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to `high`.
+     * @param ConfirmCompromisedPostRequestBody $body The request body
      * @param ConfirmCompromisedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

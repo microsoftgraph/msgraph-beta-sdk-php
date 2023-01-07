@@ -53,7 +53,7 @@ class OnPremisesSynchronizationRequestBuilder
     }
 
     /**
-     * Get onPremisesSynchronization from directory
+     * A container for on-premises directory synchronization functionalities that are available for the organization.
      * @param OnPremisesSynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -79,7 +79,7 @@ class OnPremisesSynchronizationRequestBuilder
 
     /**
      * Create new navigation property to onPremisesSynchronization for directory
-     * @param OnPremisesDirectorySynchronization $body 
+     * @param OnPremisesDirectorySynchronization $body The request body
      * @param OnPremisesSynchronizationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +102,7 @@ class OnPremisesSynchronizationRequestBuilder
     }
 
     /**
-     * Get onPremisesSynchronization from directory
+     * A container for on-premises directory synchronization functionalities that are available for the organization.
      * @param OnPremisesSynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -122,7 +122,7 @@ class OnPremisesSynchronizationRequestBuilder
 
     /**
      * Create new navigation property to onPremisesSynchronization for directory
-     * @param OnPremisesDirectorySynchronization $body 
+     * @param OnPremisesDirectorySynchronization $body The request body
      * @param OnPremisesSynchronizationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

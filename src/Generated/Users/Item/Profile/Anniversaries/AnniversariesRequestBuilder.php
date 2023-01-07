@@ -79,7 +79,7 @@ class AnniversariesRequestBuilder
 
     /**
      * Use this API to create a new personAnniversary object in a user's profile.
-     * @param PersonAnnualEvent $body 
+     * @param PersonAnnualEvent $body The request body
      * @param AnniversariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -122,7 +122,7 @@ class AnniversariesRequestBuilder
 
     /**
      * Use this API to create a new personAnniversary object in a user's profile.
-     * @param PersonAnnualEvent $body 
+     * @param PersonAnnualEvent $body The request body
      * @param AnniversariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

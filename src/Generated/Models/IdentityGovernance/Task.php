@@ -43,7 +43,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the continueOnError property value. A boolean value that determines if the failure of this task stops the subsequent workflows from running. Optional.
+     * Gets the continueOnError property value. A boolean value that specifies whether, if this task fails, the workflow will stop, and subsequent tasks will not run. Optional.
      * @return bool|null
     */
     public function getContinueOnError(): ?bool {
@@ -151,7 +151,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the continueOnError property value. A boolean value that determines if the failure of this task stops the subsequent workflows from running. Optional.
+     * Sets the continueOnError property value. A boolean value that specifies whether, if this task fails, the workflow will stop, and subsequent tasks will not run. Optional.
      *  @param bool|null $value Value to set for the continueOnError property.
     */
     public function setContinueOnError(?bool $value): void {

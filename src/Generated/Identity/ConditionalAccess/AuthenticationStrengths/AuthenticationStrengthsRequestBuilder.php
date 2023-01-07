@@ -120,7 +120,7 @@ class AuthenticationStrengthsRequestBuilder
 
     /**
      * Update the navigation property authenticationStrengths in identity
-     * @param AuthenticationStrengthRoot $body 
+     * @param AuthenticationStrengthRoot $body The request body
      * @param AuthenticationStrengthsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -182,7 +182,7 @@ class AuthenticationStrengthsRequestBuilder
 
     /**
      * Update the navigation property authenticationStrengths in identity
-     * @param AuthenticationStrengthRoot $body 
+     * @param AuthenticationStrengthRoot $body The request body
      * @param AuthenticationStrengthsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

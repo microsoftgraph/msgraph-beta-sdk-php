@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcExportJob extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcExportJob and sets the default values.
+     * Instantiates a new cloudPcExportJob and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The date time when the export job expires.
+     * Gets the expirationDateTime property value. The date and time when the export job expires.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -34,7 +34,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the exportJobStatus property value. The status of the export job.The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
+     * Gets the exportJobStatus property value. The status of the export job. The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
      * @return CloudPcExportJobStatus|null
     */
     public function getExportJobStatus(): ?CloudPcExportJobStatus {
@@ -42,7 +42,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the exportUrl property value. The storage account url of the exported report, it can be used to download the file.
+     * Gets the exportUrl property value. The storage account URL of the exported report. It can be used to download the file.
      * @return string|null
     */
     public function getExportUrl(): ?string {
@@ -84,7 +84,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the reportName property value. The report name.The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
+     * Gets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
      * @return CloudPcReportName|null
     */
     public function getReportName(): ?CloudPcReportName {
@@ -92,7 +92,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestDateTime property value. The date time when the export job was requested.
+     * Gets the requestDateTime property value. The date and time when the export job was requested.
      * @return DateTime|null
     */
     public function getRequestDateTime(): ?DateTime {
@@ -124,7 +124,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The date time when the export job expires.
+     * Sets the expirationDateTime property value. The date and time when the export job expires.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -132,7 +132,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the exportJobStatus property value. The status of the export job.The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
+     * Sets the exportJobStatus property value. The status of the export job. The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
      *  @param CloudPcExportJobStatus|null $value Value to set for the exportJobStatus property.
     */
     public function setExportJobStatus(?CloudPcExportJobStatus $value): void {
@@ -140,7 +140,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the exportUrl property value. The storage account url of the exported report, it can be used to download the file.
+     * Sets the exportUrl property value. The storage account URL of the exported report. It can be used to download the file.
      *  @param string|null $value Value to set for the exportUrl property.
     */
     public function setExportUrl(?string $value): void {
@@ -164,7 +164,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the reportName property value. The report name.The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
+     * Sets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
      *  @param CloudPcReportName|null $value Value to set for the reportName property.
     */
     public function setReportName(?CloudPcReportName $value): void {
@@ -172,7 +172,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestDateTime property value. The date time when the export job was requested.
+     * Sets the requestDateTime property value. The date and time when the export job was requested.
      *  @param DateTime|null $value Value to set for the requestDateTime property.
     */
     public function setRequestDateTime(?DateTime $value): void {

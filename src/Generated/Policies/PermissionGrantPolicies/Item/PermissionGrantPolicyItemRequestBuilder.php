@@ -8,9 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PermissionGrantPolicy;
 use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Excludes\ExcludesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Excludes\Item\PermissionGrantConditionSetItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesPermissionGrantPoliciesItemExcludesItemPermissionGrantConditionSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Includes\IncludesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Includes\Item\PermissionGrantConditionSetItemRequestBuilder as MicrosoftGraphBetaGeneratedPoliciesPermissionGrantPoliciesItemIncludesItemPermissionGrantConditionSetItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -109,7 +107,7 @@ class PermissionGrantPolicyItemRequestBuilder
 
     /**
      * Update the navigation property permissionGrantPolicies in policies
-     * @param PermissionGrantPolicy $body 
+     * @param PermissionGrantPolicy $body The request body
      * @param PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,12 +151,12 @@ class PermissionGrantPolicyItemRequestBuilder
     /**
      * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedPoliciesPermissionGrantPoliciesItemExcludesItemPermissionGrantConditionSetItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Excludes\Item\PermissionGrantConditionSetItemRequestBuilder
     */
-    public function excludesById(string $id): MicrosoftGraphBetaGeneratedPoliciesPermissionGrantPoliciesItemExcludesItemPermissionGrantConditionSetItemRequestBuilder {
+    public function excludesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Excludes\Item\PermissionGrantConditionSetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['permissionGrantConditionSet%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedPoliciesPermissionGrantPoliciesItemExcludesItemPermissionGrantConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Excludes\Item\PermissionGrantConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -183,17 +181,17 @@ class PermissionGrantPolicyItemRequestBuilder
     /**
      * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedPoliciesPermissionGrantPoliciesItemIncludesItemPermissionGrantConditionSetItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Includes\Item\PermissionGrantConditionSetItemRequestBuilder
     */
-    public function includesById(string $id): MicrosoftGraphBetaGeneratedPoliciesPermissionGrantPoliciesItemIncludesItemPermissionGrantConditionSetItemRequestBuilder {
+    public function includesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Includes\Item\PermissionGrantConditionSetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['permissionGrantConditionSet%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedPoliciesPermissionGrantPoliciesItemIncludesItemPermissionGrantConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\Item\Includes\Item\PermissionGrantConditionSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property permissionGrantPolicies in policies
-     * @param PermissionGrantPolicy $body 
+     * @param PermissionGrantPolicy $body The request body
      * @param PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -44,7 +44,7 @@ class ActivateServiceRequestBuilder
 
     /**
      * Activate a service for an organization.
-     * @param ActivateServicePostRequestBody $body 
+     * @param ActivateServicePostRequestBody $body The request body
      * @param ActivateServiceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -67,7 +67,7 @@ class ActivateServiceRequestBuilder
 
     /**
      * Activate a service for an organization.
-     * @param ActivateServicePostRequestBody $body 
+     * @param ActivateServicePostRequestBody $body The request body
      * @param ActivateServiceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

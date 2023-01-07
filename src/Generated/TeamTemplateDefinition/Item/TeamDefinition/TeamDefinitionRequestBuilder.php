@@ -8,15 +8,12 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Team;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\AllChannels\AllChannelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\AllChannels\Item\ChannelItemRequestBuilder as MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionAllChannelsItemChannelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\ChannelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\ChannelItemRequestBuilder as MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionChannelsItemChannelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\CompleteMigration\CompleteMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\EscapedClone\CloneRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Group\GroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\IncomingChannels\IncomingChannelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\IncomingChannels\Item\ChannelItemRequestBuilder as MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionIncomingChannelsItemChannelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\InstalledApps\InstalledAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\InstalledApps\Item\TeamsAppInstallationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Members\Item\ConversationMemberItemRequestBuilder;
@@ -204,23 +201,23 @@ class TeamDefinitionRequestBuilder
     /**
      * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionAllChannelsItemChannelItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\AllChannels\Item\ChannelItemRequestBuilder
     */
-    public function allChannelsById(string $id): MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionAllChannelsItemChannelItemRequestBuilder {
+    public function allChannelsById(string $id): \Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\AllChannels\Item\ChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionAllChannelsItemChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\AllChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the channels property of the microsoft.graph.team entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionChannelsItemChannelItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\ChannelItemRequestBuilder
     */
-    public function channelsById(string $id): MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionChannelsItemChannelItemRequestBuilder {
+    public function channelsById(string $id): \Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\ChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionChannelsItemChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -282,7 +279,7 @@ class TeamDefinitionRequestBuilder
 
     /**
      * Update the navigation property teamDefinition in teamTemplateDefinition
-     * @param Team $body 
+     * @param Team $body The request body
      * @param TeamDefinitionRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -345,12 +342,12 @@ class TeamDefinitionRequestBuilder
     /**
      * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionIncomingChannelsItemChannelItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\IncomingChannels\Item\ChannelItemRequestBuilder
     */
-    public function incomingChannelsById(string $id): MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionIncomingChannelsItemChannelItemRequestBuilder {
+    public function incomingChannelsById(string $id): \Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\IncomingChannels\Item\ChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedTeamTemplateDefinitionItemTeamDefinitionIncomingChannelsItemChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\IncomingChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -399,7 +396,7 @@ class TeamDefinitionRequestBuilder
 
     /**
      * Update the navigation property teamDefinition in teamTemplateDefinition
-     * @param Team $body 
+     * @param Team $body The request body
      * @param TeamDefinitionRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

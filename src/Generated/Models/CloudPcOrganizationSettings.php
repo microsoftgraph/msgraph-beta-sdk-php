@@ -33,6 +33,14 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the enableSingleSignOn property value. The enableSingleSignOn property
+     * @return bool|null
+    */
+    public function getEnableSingleSignOn(): ?bool {
+        return $this->getBackingStore()->get('enableSingleSignOn');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -40,6 +48,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'enableMEMAutoEnroll' => fn(ParseNode $n) => $o->setEnableMEMAutoEnroll($n->getBooleanValue()),
+            'enableSingleSignOn' => fn(ParseNode $n) => $o->setEnableSingleSignOn($n->getBooleanValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)),
             'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
@@ -77,6 +86,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('enableMEMAutoEnroll', $this->getEnableMEMAutoEnroll());
+        $writer->writeBooleanValue('enableSingleSignOn', $this->getEnableSingleSignOn());
         $writer->writeEnumValue('osVersion', $this->getOsVersion());
         $writer->writeEnumValue('userAccountType', $this->getUserAccountType());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());
@@ -88,6 +98,14 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     */
     public function setEnableMEMAutoEnroll(?bool $value): void {
         $this->getBackingStore()->set('enableMEMAutoEnroll', $value);
+    }
+
+    /**
+     * Sets the enableSingleSignOn property value. The enableSingleSignOn property
+     *  @param bool|null $value Value to set for the enableSingleSignOn property.
+    */
+    public function setEnableSingleSignOn(?bool $value): void {
+        $this->getBackingStore()->set('enableSingleSignOn', $value);
     }
 
     /**

@@ -65,7 +65,7 @@ class AssignmentDefaultsRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors. Only teachers can perform this operation.
      * @param AssignmentDefaultsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -91,7 +91,7 @@ class AssignmentDefaultsRequestBuilder
 
     /**
      * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
-     * @param EducationAssignmentDefaults $body 
+     * @param EducationAssignmentDefaults $body The request body
      * @param AssignmentDefaultsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -133,7 +133,7 @@ class AssignmentDefaultsRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors. Only teachers can perform this operation.
      * @param AssignmentDefaultsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -153,7 +153,7 @@ class AssignmentDefaultsRequestBuilder
 
     /**
      * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
-     * @param EducationAssignmentDefaults $body 
+     * @param EducationAssignmentDefaults $body The request body
      * @param AssignmentDefaultsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

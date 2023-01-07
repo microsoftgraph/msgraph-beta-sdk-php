@@ -11,12 +11,10 @@ use Microsoft\Graph\Beta\Generated\EscapedPrint\Operations\Item\PrintOperationIt
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\PrinterItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\PrintersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder as MicrosoftGraphBetaGeneratedEscapedPrintPrinterSharesItemPrinterShareItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\PrinterSharesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\ReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Services\Item\PrintServiceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Services\ServicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder as MicrosoftGraphBetaGeneratedEscapedPrintSharesItemPrinterShareItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\SharesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\TaskDefinitions\Item\PrintTaskDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\TaskDefinitions\TaskDefinitionsRequestBuilder;
@@ -152,7 +150,7 @@ class PrintRequestBuilder
 
     /**
      * Update print
-     * @param EscapedPrint $body 
+     * @param EscapedPrint $body The request body
      * @param PrintRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -206,7 +204,7 @@ class PrintRequestBuilder
 
     /**
      * Update print
-     * @param EscapedPrint $body 
+     * @param EscapedPrint $body The request body
      * @param PrintRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -238,12 +236,12 @@ class PrintRequestBuilder
     /**
      * Provides operations to manage the printerShares property of the microsoft.graph.print entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedEscapedPrintPrinterSharesItemPrinterShareItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder
     */
-    public function printerSharesById(string $id): MicrosoftGraphBetaGeneratedEscapedPrintPrinterSharesItemPrinterShareItemRequestBuilder {
+    public function printerSharesById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printerShare%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedEscapedPrintPrinterSharesItemPrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -260,12 +258,12 @@ class PrintRequestBuilder
     /**
      * Provides operations to manage the shares property of the microsoft.graph.print entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedEscapedPrintSharesItemPrinterShareItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder
     */
-    public function sharesById(string $id): MicrosoftGraphBetaGeneratedEscapedPrintSharesItemPrinterShareItemRequestBuilder {
+    public function sharesById(string $id): \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['printerShare%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedEscapedPrintSharesItemPrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\PrinterShareItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

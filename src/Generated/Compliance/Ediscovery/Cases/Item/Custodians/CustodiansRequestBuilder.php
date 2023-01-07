@@ -95,7 +95,7 @@ class CustodiansRequestBuilder
 
     /**
      * Create a new custodian object. After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site.
-     * @param Custodian $body 
+     * @param Custodian $body The request body
      * @param CustodiansRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -138,7 +138,7 @@ class CustodiansRequestBuilder
 
     /**
      * Create a new custodian object. After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site.
-     * @param Custodian $body 
+     * @param Custodian $body The request body
      * @param CustodiansRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

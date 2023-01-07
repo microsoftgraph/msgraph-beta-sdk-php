@@ -116,7 +116,7 @@ class ReviewSetItemRequestBuilder
 
     /**
      * Update the navigation property reviewSets in compliance
-     * @param ReviewSet $body 
+     * @param ReviewSet $body The request body
      * @param ReviewSetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -178,7 +178,7 @@ class ReviewSetItemRequestBuilder
 
     /**
      * Update the navigation property reviewSets in compliance
-     * @param ReviewSet $body 
+     * @param ReviewSet $body The request body
      * @param ReviewSetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

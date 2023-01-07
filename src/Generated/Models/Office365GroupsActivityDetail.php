@@ -80,6 +80,8 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
             'sharePointActiveFileCount' => fn(ParseNode $n) => $o->setSharePointActiveFileCount($n->getIntegerValue()),
             'sharePointSiteStorageUsedInBytes' => fn(ParseNode $n) => $o->setSharePointSiteStorageUsedInBytes($n->getIntegerValue()),
             'sharePointTotalFileCount' => fn(ParseNode $n) => $o->setSharePointTotalFileCount($n->getIntegerValue()),
+            'teamsChannelMessagesCount' => fn(ParseNode $n) => $o->setTeamsChannelMessagesCount($n->getIntegerValue()),
+            'teamsMeetingsOrganizedCount' => fn(ParseNode $n) => $o->setTeamsMeetingsOrganizedCount($n->getIntegerValue()),
             'yammerLikedMessageCount' => fn(ParseNode $n) => $o->setYammerLikedMessageCount($n->getIntegerValue()),
             'yammerPostedMessageCount' => fn(ParseNode $n) => $o->setYammerPostedMessageCount($n->getIntegerValue()),
             'yammerReadMessageCount' => fn(ParseNode $n) => $o->setYammerReadMessageCount($n->getIntegerValue()),
@@ -183,6 +185,22 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
     }
 
     /**
+     * Gets the teamsChannelMessagesCount property value. The teamsChannelMessagesCount property
+     * @return int|null
+    */
+    public function getTeamsChannelMessagesCount(): ?int {
+        return $this->getBackingStore()->get('teamsChannelMessagesCount');
+    }
+
+    /**
+     * Gets the teamsMeetingsOrganizedCount property value. The teamsMeetingsOrganizedCount property
+     * @return int|null
+    */
+    public function getTeamsMeetingsOrganizedCount(): ?int {
+        return $this->getBackingStore()->get('teamsMeetingsOrganizedCount');
+    }
+
+    /**
      * Gets the yammerLikedMessageCount property value. The number of messages liked in Yammer groups.
      * @return int|null
     */
@@ -228,6 +246,8 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
         $writer->writeIntegerValue('sharePointActiveFileCount', $this->getSharePointActiveFileCount());
         $writer->writeIntegerValue('sharePointSiteStorageUsedInBytes', $this->getSharePointSiteStorageUsedInBytes());
         $writer->writeIntegerValue('sharePointTotalFileCount', $this->getSharePointTotalFileCount());
+        $writer->writeIntegerValue('teamsChannelMessagesCount', $this->getTeamsChannelMessagesCount());
+        $writer->writeIntegerValue('teamsMeetingsOrganizedCount', $this->getTeamsMeetingsOrganizedCount());
         $writer->writeIntegerValue('yammerLikedMessageCount', $this->getYammerLikedMessageCount());
         $writer->writeIntegerValue('yammerPostedMessageCount', $this->getYammerPostedMessageCount());
         $writer->writeIntegerValue('yammerReadMessageCount', $this->getYammerReadMessageCount());
@@ -359,6 +379,22 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
     */
     public function setSharePointTotalFileCount(?int $value): void {
         $this->getBackingStore()->set('sharePointTotalFileCount', $value);
+    }
+
+    /**
+     * Sets the teamsChannelMessagesCount property value. The teamsChannelMessagesCount property
+     *  @param int|null $value Value to set for the teamsChannelMessagesCount property.
+    */
+    public function setTeamsChannelMessagesCount(?int $value): void {
+        $this->getBackingStore()->set('teamsChannelMessagesCount', $value);
+    }
+
+    /**
+     * Sets the teamsMeetingsOrganizedCount property value. The teamsMeetingsOrganizedCount property
+     *  @param int|null $value Value to set for the teamsMeetingsOrganizedCount property.
+    */
+    public function setTeamsMeetingsOrganizedCount(?int $value): void {
+        $this->getBackingStore()->set('teamsMeetingsOrganizedCount', $value);
     }
 
     /**

@@ -106,7 +106,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Gets the customCSS property value. The customCSS property
+     * Gets the customCSS property value. CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @return StreamInterface|null
     */
     public function getCustomCSS(): ?StreamInterface {
@@ -114,7 +114,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Gets the customCSSRelativeUrl property value. The customCSSRelativeUrl property
+     * Gets the customCSSRelativeUrl property value. A relative URL for the customCSS property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
      * @return string|null
     */
     public function getCustomCSSRelativeUrl(): ?string {
@@ -234,7 +234,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Gets the headerLogo property value. The headerLogo property
+     * Gets the headerLogo property value. A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
      * @return StreamInterface|null
     */
     public function getHeaderLogo(): ?StreamInterface {
@@ -242,7 +242,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Gets the headerLogoRelativeUrl property value. The headerLogoRelativeUrl property
+     * Gets the headerLogoRelativeUrl property value. A relative URL for the headerLogo property that is combined with a CDN base URL from the cdnList to provide the read-only version served by a CDN. Read-only.
      * @return string|null
     */
     public function getHeaderLogoRelativeUrl(): ?string {
@@ -250,7 +250,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Gets the loginPageLayoutConfiguration property value. The loginPageLayoutConfiguration property
+     * Gets the loginPageLayoutConfiguration property value. Represents the layout configuration to be displayed on the login page for a tenant.
      * @return LoginPageLayoutConfiguration|null
     */
     public function getLoginPageLayoutConfiguration(): ?LoginPageLayoutConfiguration {
@@ -424,7 +424,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Sets the customCSS property value. The customCSS property
+     * Sets the customCSS property value. CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      *  @param StreamInterface|null $value Value to set for the customCSS property.
     */
     public function setCustomCSS(?StreamInterface $value): void {
@@ -432,7 +432,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Sets the customCSSRelativeUrl property value. The customCSSRelativeUrl property
+     * Sets the customCSSRelativeUrl property value. A relative URL for the customCSS property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
      *  @param string|null $value Value to set for the customCSSRelativeUrl property.
     */
     public function setCustomCSSRelativeUrl(?string $value): void {
@@ -512,7 +512,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Sets the headerLogo property value. The headerLogo property
+     * Sets the headerLogo property value. A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
      *  @param StreamInterface|null $value Value to set for the headerLogo property.
     */
     public function setHeaderLogo(?StreamInterface $value): void {
@@ -520,7 +520,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Sets the headerLogoRelativeUrl property value. The headerLogoRelativeUrl property
+     * Sets the headerLogoRelativeUrl property value. A relative URL for the headerLogo property that is combined with a CDN base URL from the cdnList to provide the read-only version served by a CDN. Read-only.
      *  @param string|null $value Value to set for the headerLogoRelativeUrl property.
     */
     public function setHeaderLogoRelativeUrl(?string $value): void {
@@ -528,7 +528,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     }
 
     /**
-     * Sets the loginPageLayoutConfiguration property value. The loginPageLayoutConfiguration property
+     * Sets the loginPageLayoutConfiguration property value. Represents the layout configuration to be displayed on the login page for a tenant.
      *  @param LoginPageLayoutConfiguration|null $value Value to set for the loginPageLayoutConfiguration property.
     */
     public function setLoginPageLayoutConfiguration(?LoginPageLayoutConfiguration $value): void {

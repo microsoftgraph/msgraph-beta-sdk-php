@@ -10,8 +10,8 @@ use Microsoft\Graph\Beta\Generated\Admin\ReportSettings\ReportSettingsRequestBui
 use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Sharepoint\SharepointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\WindowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Admin;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TenantAdmin\Admin;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -110,7 +110,7 @@ class AdminRequestBuilder
 
     /**
      * Update admin
-     * @param Admin $body 
+     * @param Admin $body The request body
      * @param AdminRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,7 +153,7 @@ class AdminRequestBuilder
 
     /**
      * Update admin
-     * @param Admin $body 
+     * @param Admin $body The request body
      * @param AdminRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -7,9 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\DecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder as MicrosoftGraphBetaGeneratedAccessReviewsItemDecisionsItemAccessReviewDecisionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\InstancesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\MyDecisions\Item\AccessReviewDecisionItemRequestBuilder as MicrosoftGraphBetaGeneratedAccessReviewsItemMyDecisionsItemAccessReviewDecisionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\MyDecisions\MyDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\ResetDecisions\ResetDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Reviewers\Item\AccessReviewReviewerItemRequestBuilder;
@@ -158,7 +156,7 @@ class AccessReviewItemRequestBuilder
 
     /**
      * In the Azure AD access reviews feature, update an existing accessReview object to change one or more of its properties. This API is not intended to change the reviewers or decisions of a review.  To change the reviewers, use the addReviewer or removeReviewer APIs.  To stop an already-started one-time review, or an already-started instance of a recurring review, early, use the stop API. To apply the decisions to the target group or app access rights, use the apply API. 
-     * @param AccessReview $body 
+     * @param AccessReview $body The request body
      * @param AccessReviewItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -183,12 +181,12 @@ class AccessReviewItemRequestBuilder
     /**
      * Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedAccessReviewsItemDecisionsItemAccessReviewDecisionItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder
     */
-    public function decisionsById(string $id): MicrosoftGraphBetaGeneratedAccessReviewsItemDecisionsItemAccessReviewDecisionItemRequestBuilder {
+    public function decisionsById(string $id): \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessReviewDecision%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedAccessReviewsItemDecisionsItemAccessReviewDecisionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -232,28 +230,28 @@ class AccessReviewItemRequestBuilder
     /**
      * Provides operations to manage the instances property of the microsoft.graph.accessReview entity.
      * @param string $id Unique identifier of the item
-     * @return AccessReviewItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\AccessReviewItemRequestBuilder
     */
-    public function instancesById(string $id): AccessReviewItemRequestBuilder {
+    public function instancesById(string $id): \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\AccessReviewItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessReview%2Did1'] = $id;
-        return new AccessReviewItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\AccessReviewItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the myDecisions property of the microsoft.graph.accessReview entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedAccessReviewsItemMyDecisionsItemAccessReviewDecisionItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\AccessReviews\Item\MyDecisions\Item\AccessReviewDecisionItemRequestBuilder
     */
-    public function myDecisionsById(string $id): MicrosoftGraphBetaGeneratedAccessReviewsItemMyDecisionsItemAccessReviewDecisionItemRequestBuilder {
+    public function myDecisionsById(string $id): \Microsoft\Graph\Beta\Generated\AccessReviews\Item\MyDecisions\Item\AccessReviewDecisionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessReviewDecision%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedAccessReviewsItemMyDecisionsItemAccessReviewDecisionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\AccessReviews\Item\MyDecisions\Item\AccessReviewDecisionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * In the Azure AD access reviews feature, update an existing accessReview object to change one or more of its properties. This API is not intended to change the reviewers or decisions of a review.  To change the reviewers, use the addReviewer or removeReviewer APIs.  To stop an already-started one-time review, or an already-started instance of a recurring review, early, use the stop API. To apply the decisions to the target group or app access rights, use the apply API. 
-     * @param AccessReview $body 
+     * @param AccessReview $body The request body
      * @param AccessReviewItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

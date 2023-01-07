@@ -45,7 +45,7 @@ class GetMobileApplicationManagementAppConfigurationReportRequestBuilder
 
     /**
      * Invoke action getMobileApplicationManagementAppConfigurationReport
-     * @param GetMobileApplicationManagementAppConfigurationReportPostRequestBody $body 
+     * @param GetMobileApplicationManagementAppConfigurationReportPostRequestBody $body The request body
      * @param GetMobileApplicationManagementAppConfigurationReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -68,7 +68,7 @@ class GetMobileApplicationManagementAppConfigurationReportRequestBuilder
 
     /**
      * Invoke action getMobileApplicationManagementAppConfigurationReport
-     * @param GetMobileApplicationManagementAppConfigurationReportPostRequestBody $body 
+     * @param GetMobileApplicationManagementAppConfigurationReportPostRequestBody $body The request body
      * @param GetMobileApplicationManagementAppConfigurationReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

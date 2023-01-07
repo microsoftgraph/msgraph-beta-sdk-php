@@ -27,7 +27,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertImpact property value. The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 Count and 12 AffectedCloudPcPercentage.
+     * Gets the alertImpact property value. The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 affectedCloudPcCount means that 6 Cloud PCs are affected. 12 affectedCloudPcPercentage means 12% of Cloud PCs are affected.
      * @return AlertImpact|null
     */
     public function getAlertImpact(): ?AlertImpact {
@@ -135,7 +135,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertImpact property value. The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 Count and 12 AffectedCloudPcPercentage.
+     * Sets the alertImpact property value. The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 affectedCloudPcCount means that 6 Cloud PCs are affected. 12 affectedCloudPcPercentage means 12% of Cloud PCs are affected.
      *  @param AlertImpact|null $value Value to set for the alertImpact property.
     */
     public function setAlertImpact(?AlertImpact $value): void {

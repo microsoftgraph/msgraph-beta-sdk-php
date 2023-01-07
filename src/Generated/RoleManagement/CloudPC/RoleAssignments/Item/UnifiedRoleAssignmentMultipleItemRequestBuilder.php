@@ -10,8 +10,6 @@ use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleAssignmentMultiple;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\AppScopes\AppScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\AppScopes\Item\AppScopeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes\DirectoryScopesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedRoleManagementCloudPCRoleAssignmentsItemDirectoryScopesItemDirectoryObjectItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedRoleManagementCloudPCRoleAssignmentsItemPrincipalsItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\Principals\PrincipalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\RoleDefinition\RoleDefinitionRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -137,7 +135,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
 
     /**
      * Update the navigation property roleAssignments in roleManagement
-     * @param UnifiedRoleAssignmentMultiple $body 
+     * @param UnifiedRoleAssignmentMultiple $body The request body
      * @param UnifiedRoleAssignmentMultipleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -181,12 +179,12 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     /**
      * Provides operations to manage the directoryScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedRoleManagementCloudPCRoleAssignmentsItemDirectoryScopesItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder
     */
-    public function directoryScopesById(string $id): MicrosoftGraphBetaGeneratedRoleManagementCloudPCRoleAssignmentsItemDirectoryScopesItemDirectoryObjectItemRequestBuilder {
+    public function directoryScopesById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedRoleManagementCloudPCRoleAssignmentsItemDirectoryScopesItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -210,7 +208,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
 
     /**
      * Update the navigation property roleAssignments in roleManagement
-     * @param UnifiedRoleAssignmentMultiple $body 
+     * @param UnifiedRoleAssignmentMultiple $body The request body
      * @param UnifiedRoleAssignmentMultipleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -231,12 +229,12 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     /**
      * Provides operations to manage the principals property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedRoleManagementCloudPCRoleAssignmentsItemPrincipalsItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder
     */
-    public function principalsById(string $id): MicrosoftGraphBetaGeneratedRoleManagementCloudPCRoleAssignmentsItemPrincipalsItemDirectoryObjectItemRequestBuilder {
+    public function principalsById(string $id): \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedRoleManagementCloudPCRoleAssignmentsItemPrincipalsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\Principals\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

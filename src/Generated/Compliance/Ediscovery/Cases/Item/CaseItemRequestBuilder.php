@@ -178,7 +178,7 @@ class CaseItemRequestBuilder
 
     /**
      * Update the navigation property cases in compliance
-     * @param EscapedCase $body 
+     * @param EscapedCase $body The request body
      * @param CaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -284,7 +284,7 @@ class CaseItemRequestBuilder
 
     /**
      * Update the navigation property cases in compliance
-     * @param EscapedCase $body 
+     * @param EscapedCase $body The request body
      * @param CaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

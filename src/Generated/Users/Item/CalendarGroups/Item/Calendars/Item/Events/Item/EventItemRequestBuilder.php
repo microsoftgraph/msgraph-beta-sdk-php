@@ -218,7 +218,7 @@ class EventItemRequestBuilder
 
     /**
      * Update the navigation property events in users
-     * @param Event $body 
+     * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -262,12 +262,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedUsersItemCalendarGroupsItemCalendarsItemEventsItemExceptionOccurrencesItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendars\Item\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder
     */
-    public function exceptionOccurrencesById(string $id): MicrosoftGraphBetaGeneratedUsersItemCalendarGroupsItemCalendarsItemEventsItemExceptionOccurrencesItemEventItemRequestBuilder {
+    public function exceptionOccurrencesById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendars\Item\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new MicrosoftGraphBetaGeneratedUsersItemCalendarGroupsItemCalendarsItemEventsItemExceptionOccurrencesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendars\Item\Events\Item\ExceptionOccurrences\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -303,12 +303,12 @@ class EventItemRequestBuilder
     /**
      * Provides operations to manage the instances property of the microsoft.graph.event entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedUsersItemCalendarGroupsItemCalendarsItemEventsItemInstancesItemEventItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendars\Item\Events\Item\Instances\Item\EventItemRequestBuilder
     */
-    public function instancesById(string $id): MicrosoftGraphBetaGeneratedUsersItemCalendarGroupsItemCalendarsItemEventsItemInstancesItemEventItemRequestBuilder {
+    public function instancesById(string $id): \Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendars\Item\Events\Item\Instances\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new MicrosoftGraphBetaGeneratedUsersItemCalendarGroupsItemCalendarsItemEventsItemInstancesItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendars\Item\Events\Item\Instances\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -324,7 +324,7 @@ class EventItemRequestBuilder
 
     /**
      * Update the navigation property events in users
-     * @param Event $body 
+     * @param Event $body The request body
      * @param EventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

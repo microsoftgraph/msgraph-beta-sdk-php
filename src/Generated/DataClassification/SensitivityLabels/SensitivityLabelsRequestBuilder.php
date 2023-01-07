@@ -87,7 +87,7 @@ class SensitivityLabelsRequestBuilder
 
     /**
      * Create new navigation property to sensitivityLabels for dataClassification
-     * @param SensitivityLabel $body 
+     * @param SensitivityLabel $body The request body
      * @param SensitivityLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,7 +130,7 @@ class SensitivityLabelsRequestBuilder
 
     /**
      * Create new navigation property to sensitivityLabels for dataClassification
-     * @param SensitivityLabel $body 
+     * @param SensitivityLabel $body The request body
      * @param SensitivityLabelsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

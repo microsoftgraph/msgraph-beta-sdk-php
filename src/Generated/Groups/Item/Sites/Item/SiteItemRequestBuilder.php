@@ -7,14 +7,12 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\ColumnsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\Item\ColumnDefinitionItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemSitesItemColumnsItemColumnDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\ContentTypesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ContentTypeItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Drives\Item\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\ExternalColumnsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\Item\ColumnDefinitionItemRequestBuilder as MicrosoftGraphBetaGeneratedGroupsItemSitesItemExternalColumnsItemColumnDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetApplicableContentTypesForListWithListId\GetApplicableContentTypesForListWithListIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\GetByPathWithPathRequestBuilder;
@@ -159,12 +157,12 @@ class SiteItemRequestBuilder
     /**
      * Provides operations to manage the columns property of the microsoft.graph.site entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemSitesItemColumnsItemColumnDefinitionItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\Item\ColumnDefinitionItemRequestBuilder
     */
-    public function columnsById(string $id): MicrosoftGraphBetaGeneratedGroupsItemSitesItemColumnsItemColumnDefinitionItemRequestBuilder {
+    public function columnsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\Item\ColumnDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['columnDefinition%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemSitesItemColumnsItemColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Columns\Item\ColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -216,7 +214,7 @@ class SiteItemRequestBuilder
 
     /**
      * Update the navigation property sites in groups
-     * @param Site $body 
+     * @param Site $body The request body
      * @param SiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -252,12 +250,12 @@ class SiteItemRequestBuilder
     /**
      * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedGroupsItemSitesItemExternalColumnsItemColumnDefinitionItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\Item\ColumnDefinitionItemRequestBuilder
     */
-    public function externalColumnsById(string $id): MicrosoftGraphBetaGeneratedGroupsItemSitesItemExternalColumnsItemColumnDefinitionItemRequestBuilder {
+    public function externalColumnsById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\Item\ColumnDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['columnDefinition%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedGroupsItemSitesItemExternalColumnsItemColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\Item\ColumnDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -354,7 +352,7 @@ class SiteItemRequestBuilder
 
     /**
      * Update the navigation property sites in groups
-     * @param Site $body 
+     * @param Site $body The request body
      * @param SiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -386,12 +384,12 @@ class SiteItemRequestBuilder
     /**
      * Provides operations to manage the sites property of the microsoft.graph.site entity.
      * @param string $id Unique identifier of the item
-     * @return SiteItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Sites\Item\SiteItemRequestBuilder
     */
-    public function sitesById(string $id): SiteItemRequestBuilder {
+    public function sitesById(string $id): \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Sites\Item\SiteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['site%2Did1'] = $id;
-        return new SiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Sites\Item\SiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

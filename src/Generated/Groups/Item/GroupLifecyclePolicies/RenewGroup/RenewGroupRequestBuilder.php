@@ -44,7 +44,7 @@ class RenewGroupRequestBuilder
 
     /**
      * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
-     * @param RenewGroupPostRequestBody $body 
+     * @param RenewGroupPostRequestBody $body The request body
      * @param RenewGroupRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -68,7 +68,7 @@ class RenewGroupRequestBuilder
 
     /**
      * Renew a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
-     * @param RenewGroupPostRequestBody $body 
+     * @param RenewGroupPostRequestBody $body The request body
      * @param RenewGroupRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -13,14 +13,10 @@ use Microsoft\Graph\Beta\Generated\Me\Devices\Item\Extensions\ExtensionsRequestB
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\Extensions\Item\ExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Devices\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeDevicesItemMemberOfItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\MemberOf\MemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeDevicesItemRegisteredOwnersItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredOwners\RegisteredOwnersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeDevicesItemRegisteredUsersItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredUsers\RegisteredUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Devices\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeDevicesItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\UsageRights\Item\UsageRightItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Devices\Item\UsageRights\UsageRightsRequestBuilder;
@@ -205,7 +201,7 @@ class DeviceItemRequestBuilder
 
     /**
      * Update the navigation property devices in me
-     * @param Device $body 
+     * @param Device $body The request body
      * @param DeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -279,17 +275,17 @@ class DeviceItemRequestBuilder
     /**
      * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeDevicesItemMemberOfItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Devices\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder
     */
-    public function memberOfById(string $id): MicrosoftGraphBetaGeneratedMeDevicesItemMemberOfItemDirectoryObjectItemRequestBuilder {
+    public function memberOfById(string $id): \Microsoft\Graph\Beta\Generated\Me\Devices\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeDevicesItemMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Devices\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property devices in me
-     * @param Device $body 
+     * @param Device $body The request body
      * @param DeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -310,34 +306,34 @@ class DeviceItemRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.me.devices.item.registeredOwners.item collection
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeDevicesItemRegisteredOwnersItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder
     */
-    public function registeredOwnersById(string $id): MicrosoftGraphBetaGeneratedMeDevicesItemRegisteredOwnersItemDirectoryObjectItemRequestBuilder {
+    public function registeredOwnersById(string $id): \Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeDevicesItemRegisteredOwnersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredOwners\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeDevicesItemRegisteredUsersItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder
     */
-    public function registeredUsersById(string $id): MicrosoftGraphBetaGeneratedMeDevicesItemRegisteredUsersItemDirectoryObjectItemRequestBuilder {
+    public function registeredUsersById(string $id): \Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeDevicesItemRegisteredUsersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Devices\Item\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedMeDevicesItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\Me\Devices\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder
     */
-    public function transitiveMemberOfById(string $id): MicrosoftGraphBetaGeneratedMeDevicesItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder {
+    public function transitiveMemberOfById(string $id): \Microsoft\Graph\Beta\Generated\Me\Devices\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedMeDevicesItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\Devices\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

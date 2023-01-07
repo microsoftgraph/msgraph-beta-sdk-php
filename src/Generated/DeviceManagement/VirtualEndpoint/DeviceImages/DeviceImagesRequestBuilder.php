@@ -80,7 +80,7 @@ class DeviceImagesRequestBuilder
 
     /**
      * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs.
-     * @param CloudPcDeviceImage $body 
+     * @param CloudPcDeviceImage $body The request body
      * @param DeviceImagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -131,7 +131,7 @@ class DeviceImagesRequestBuilder
 
     /**
      * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs.
-     * @param CloudPcDeviceImage $body 
+     * @param CloudPcDeviceImage $body The request body
      * @param DeviceImagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

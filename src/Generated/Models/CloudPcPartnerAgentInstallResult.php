@@ -66,7 +66,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the installStatus property value. The installStatus property
+     * Gets the installStatus property value. The status of a partner agent installation. Possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.
      * @return CloudPcPartnerAgentInstallStatus|null
     */
     public function getInstallStatus(): ?CloudPcPartnerAgentInstallStatus {
@@ -74,7 +74,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the isThirdPartyPartner property value. The isThirdPartyPartner property
+     * Gets the isThirdPartyPartner property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent.  When 'FALSE', the agent is a Microsoft agent or is not known.  The default value is 'FALSE'.
      * @return bool|null
     */
     public function getIsThirdPartyPartner(): ?bool {
@@ -90,7 +90,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the partnerAgentName property value. The partnerAgentName property
+     * Gets the partnerAgentName property value. Indicates the name of a partner agent and includes first-party and third-party. Currently, Citrix is the only third-party value. Read-Only.
      * @return CloudPcPartnerAgentName|null
     */
     public function getPartnerAgentName(): ?CloudPcPartnerAgentName {
@@ -98,7 +98,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the retriable property value. The retriable property
+     * Gets the retriable property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent. When 'FALSE', the agent is a Microsoft agent or is not known. The default value is 'FALSE'.
      * @return bool|null
     */
     public function getRetriable(): ?bool {
@@ -135,7 +135,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the installStatus property value. The installStatus property
+     * Sets the installStatus property value. The status of a partner agent installation. Possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.
      *  @param CloudPcPartnerAgentInstallStatus|null $value Value to set for the installStatus property.
     */
     public function setInstallStatus(?CloudPcPartnerAgentInstallStatus $value): void {
@@ -143,7 +143,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the isThirdPartyPartner property value. The isThirdPartyPartner property
+     * Sets the isThirdPartyPartner property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent.  When 'FALSE', the agent is a Microsoft agent or is not known.  The default value is 'FALSE'.
      *  @param bool|null $value Value to set for the isThirdPartyPartner property.
     */
     public function setIsThirdPartyPartner(?bool $value): void {
@@ -159,7 +159,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the partnerAgentName property value. The partnerAgentName property
+     * Sets the partnerAgentName property value. Indicates the name of a partner agent and includes first-party and third-party. Currently, Citrix is the only third-party value. Read-Only.
      *  @param CloudPcPartnerAgentName|null $value Value to set for the partnerAgentName property.
     */
     public function setPartnerAgentName(?CloudPcPartnerAgentName $value): void {
@@ -167,7 +167,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the retriable property value. The retriable property
+     * Sets the retriable property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent. When 'FALSE', the agent is a Microsoft agent or is not known. The default value is 'FALSE'.
      *  @param bool|null $value Value to set for the retriable property.
     */
     public function setRetriable(?bool $value): void {

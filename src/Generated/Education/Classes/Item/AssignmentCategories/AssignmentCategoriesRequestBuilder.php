@@ -54,7 +54,7 @@ class AssignmentCategoriesRequestBuilder
     }
 
     /**
-     * Retrieve a list of educationCategory objects.
+     * Retrieve a list of educationCategory objects. Only teachers can perform this operation.
      * @param AssignmentCategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -79,8 +79,8 @@ class AssignmentCategoriesRequestBuilder
     }
 
     /**
-     * Creates a new educationCategory on an educationClass.
-     * @param EducationCategory $body 
+     * Creates a new educationCategory on an educationClass. Only teachers can perform this operation.
+     * @param EducationCategory $body The request body
      * @param AssignmentCategoriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -111,7 +111,7 @@ class AssignmentCategoriesRequestBuilder
     }
 
     /**
-     * Retrieve a list of educationCategory objects.
+     * Retrieve a list of educationCategory objects. Only teachers can perform this operation.
      * @param AssignmentCategoriesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -130,8 +130,8 @@ class AssignmentCategoriesRequestBuilder
     }
 
     /**
-     * Creates a new educationCategory on an educationClass.
-     * @param EducationCategory $body 
+     * Creates a new educationCategory on an educationClass. Only teachers can perform this operation.
+     * @param EducationCategory $body The request body
      * @param AssignmentCategoriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

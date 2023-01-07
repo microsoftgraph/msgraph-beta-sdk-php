@@ -2,7 +2,10 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 
-use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\LifecycleWorkflowsContainer;
+use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
+use Microsoft\Graph\Beta\Generated\Models\AppConsentApprovalRoute;
+use Microsoft\Graph\Beta\Generated\Models\EntitlementManagement;
+use Microsoft\Graph\Beta\Generated\Models\TermsOfUseContainer;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

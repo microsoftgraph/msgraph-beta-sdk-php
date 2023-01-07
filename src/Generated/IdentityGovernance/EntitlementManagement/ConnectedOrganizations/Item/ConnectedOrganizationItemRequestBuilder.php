@@ -6,9 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\ExternalSponsors\ExternalSponsorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\ExternalSponsors\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementConnectedOrganizationsItemExternalSponsorsItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\InternalSponsors\InternalSponsorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\InternalSponsors\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementConnectedOrganizationsItemInternalSponsorsItemDirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ConnectedOrganization;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -109,7 +107,7 @@ class ConnectedOrganizationItemRequestBuilder
 
     /**
      * Update the navigation property connectedOrganizations in identityGovernance
-     * @param ConnectedOrganization $body 
+     * @param ConnectedOrganization $body The request body
      * @param ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -153,12 +151,12 @@ class ConnectedOrganizationItemRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.connectedOrganizations.item.externalSponsors.item collection
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementConnectedOrganizationsItemExternalSponsorsItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\ExternalSponsors\Item\DirectoryObjectItemRequestBuilder
     */
-    public function externalSponsorsById(string $id): MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementConnectedOrganizationsItemExternalSponsorsItemDirectoryObjectItemRequestBuilder {
+    public function externalSponsorsById(string $id): \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\ExternalSponsors\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementConnectedOrganizationsItemExternalSponsorsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\ExternalSponsors\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -183,17 +181,17 @@ class ConnectedOrganizationItemRequestBuilder
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.connectedOrganizations.item.internalSponsors.item collection
      * @param string $id Unique identifier of the item
-     * @return MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementConnectedOrganizationsItemInternalSponsorsItemDirectoryObjectItemRequestBuilder
+     * @return \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\InternalSponsors\Item\DirectoryObjectItemRequestBuilder
     */
-    public function internalSponsorsById(string $id): MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementConnectedOrganizationsItemInternalSponsorsItemDirectoryObjectItemRequestBuilder {
+    public function internalSponsorsById(string $id): \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\InternalSponsors\Item\DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['directoryObject%2Did'] = $id;
-        return new MicrosoftGraphBetaGeneratedIdentityGovernanceEntitlementManagementConnectedOrganizationsItemInternalSponsorsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\InternalSponsors\Item\DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property connectedOrganizations in identityGovernance
-     * @param ConnectedOrganization $body 
+     * @param ConnectedOrganization $body The request body
      * @param ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

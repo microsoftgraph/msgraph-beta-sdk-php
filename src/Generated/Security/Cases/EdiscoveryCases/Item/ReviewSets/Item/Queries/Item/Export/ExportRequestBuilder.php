@@ -44,7 +44,7 @@ class ExportRequestBuilder
 
     /**
      * Initiate an export from a **reviewSet** query.  For details, see Export documents from a review set in eDiscovery (Premium).
-     * @param ExportPostRequestBody $body 
+     * @param ExportPostRequestBody $body The request body
      * @param ExportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -67,7 +67,7 @@ class ExportRequestBuilder
 
     /**
      * Initiate an export from a **reviewSet** query.  For details, see Export documents from a review set in eDiscovery (Premium).
-     * @param ExportPostRequestBody $body 
+     * @param ExportPostRequestBody $body The request body
      * @param ExportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

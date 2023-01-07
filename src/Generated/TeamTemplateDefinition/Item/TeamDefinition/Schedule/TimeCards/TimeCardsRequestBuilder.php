@@ -87,7 +87,7 @@ class TimeCardsRequestBuilder
 
     /**
      * Create new navigation property to timeCards for teamTemplateDefinition
-     * @param TimeCard $body 
+     * @param TimeCard $body The request body
      * @param TimeCardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -130,7 +130,7 @@ class TimeCardsRequestBuilder
 
     /**
      * Create new navigation property to timeCards for teamTemplateDefinition
-     * @param TimeCard $body 
+     * @param TimeCard $body The request body
      * @param TimeCardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

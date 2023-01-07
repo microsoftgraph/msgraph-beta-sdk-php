@@ -111,7 +111,7 @@ class IncidentItemRequestBuilder
 
     /**
      * Update the navigation property incidents in security
-     * @param Incident $body 
+     * @param Incident $body The request body
      * @param IncidentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -173,7 +173,7 @@ class IncidentItemRequestBuilder
 
     /**
      * Update the navigation property incidents in security
-     * @param Incident $body 
+     * @param Incident $body The request body
      * @param IncidentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
