@@ -47,9 +47,29 @@ class GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder
      * Invoke action getConfigurationPolicySettingsDeviceSummaryReport
      * @param GetConfigurationPolicySettingsDeviceSummaryReportPostRequestBody $body The request body
      * @param GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @return Promise
+    */
+    public function post(GetConfigurationPolicySettingsDeviceSummaryReportPostRequestBody $body, ?GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $responseHandler, $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
+     * Invoke action getConfigurationPolicySettingsDeviceSummaryReport
+     * @param GetConfigurationPolicySettingsDeviceSummaryReportPostRequestBody $body The request body
+     * @param GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createPostRequestInformation(GetConfigurationPolicySettingsDeviceSummaryReportPostRequestBody $body, ?GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetConfigurationPolicySettingsDeviceSummaryReportPostRequestBody $body, ?GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -64,26 +84,6 @@ class GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Invoke action getConfigurationPolicySettingsDeviceSummaryReport
-     * @param GetConfigurationPolicySettingsDeviceSummaryReportPostRequestBody $body The request body
-     * @param GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @return Promise
-    */
-    public function post(GetConfigurationPolicySettingsDeviceSummaryReportPostRequestBody $body, ?GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $responseHandler, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
     }
 
 }
