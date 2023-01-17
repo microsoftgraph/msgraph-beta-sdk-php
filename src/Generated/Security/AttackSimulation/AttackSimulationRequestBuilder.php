@@ -7,6 +7,10 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\AttackSimulationRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Operations\Item\AttackSimulationOperationItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Operations\OperationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Payloads\Item\PayloadItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Payloads\PayloadsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAutomations\Item\SimulationAutomationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\SimulationAutomations\SimulationAutomationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\Item\SimulationItemRequestBuilder;
@@ -22,9 +26,23 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AttackSimulationRequestBuilder 
 {
     /**
+     * Provides operations to manage the operations property of the microsoft.graph.attackSimulationRoot entity.
+    */
+    public function operations(): OperationsRequestBuilder {
+        return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */
     private array $pathParameters;
+    
+    /**
+     * Provides operations to manage the payloads property of the microsoft.graph.attackSimulationRoot entity.
+    */
+    public function payloads(): PayloadsRequestBuilder {
+        return new PayloadsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -64,9 +82,111 @@ class AttackSimulationRequestBuilder
     /**
      * Delete navigation property attackSimulation for security
      * @param AttackSimulationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @return Promise
+    */
+    public function delete(?AttackSimulationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
+     * Provides tenants capability to launch a simulated and realistic phishing attack and learn from it.
+     * @param AttackSimulationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @return Promise
+    */
+    public function get(?AttackSimulationRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->toGetRequestInformation($requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [AttackSimulationRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.attackSimulationRoot entity.
+     * @param string $id Unique identifier of the item
+     * @return AttackSimulationOperationItemRequestBuilder
+    */
+    public function operationsById(string $id): AttackSimulationOperationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['attackSimulationOperation%2Did'] = $id;
+        return new AttackSimulationOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Update the navigation property attackSimulation in security
+     * @param AttackSimulationRoot $body The request body
+     * @param AttackSimulationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @return Promise
+    */
+    public function patch(AttackSimulationRoot $body, ?AttackSimulationRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [AttackSimulationRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
+     * Provides operations to manage the payloads property of the microsoft.graph.attackSimulationRoot entity.
+     * @param string $id Unique identifier of the item
+     * @return PayloadItemRequestBuilder
+    */
+    public function payloadsById(string $id): PayloadItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['payload%2Did'] = $id;
+        return new PayloadItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
+     * @param string $id Unique identifier of the item
+     * @return SimulationAutomationItemRequestBuilder
+    */
+    public function simulationAutomationsById(string $id): SimulationAutomationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['simulationAutomation%2Did'] = $id;
+        return new SimulationAutomationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
+     * @param string $id Unique identifier of the item
+     * @return SimulationItemRequestBuilder
+    */
+    public function simulationsById(string $id): SimulationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['simulation%2Did'] = $id;
+        return new SimulationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Delete navigation property attackSimulation for security
+     * @param AttackSimulationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createDeleteRequestInformation(?AttackSimulationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AttackSimulationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -87,7 +207,7 @@ class AttackSimulationRequestBuilder
      * @param AttackSimulationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?AttackSimulationRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AttackSimulationRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -113,7 +233,7 @@ class AttackSimulationRequestBuilder
      * @param AttackSimulationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(AttackSimulationRoot $body, ?AttackSimulationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AttackSimulationRoot $body, ?AttackSimulationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -129,86 +249,6 @@ class AttackSimulationRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Delete navigation property attackSimulation for security
-     * @param AttackSimulationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @return Promise
-    */
-    public function delete(?AttackSimulationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createDeleteRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
-    }
-
-    /**
-     * Provides tenants capability to launch a simulated and realistic phishing attack and learn from it.
-     * @param AttackSimulationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @return Promise
-    */
-    public function get(?AttackSimulationRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AttackSimulationRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
-    }
-
-    /**
-     * Update the navigation property attackSimulation in security
-     * @param AttackSimulationRoot $body The request body
-     * @param AttackSimulationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @return Promise
-    */
-    public function patch(AttackSimulationRoot $body, ?AttackSimulationRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AttackSimulationRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
-    }
-
-    /**
-     * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return SimulationAutomationItemRequestBuilder
-    */
-    public function simulationAutomationsById(string $id): SimulationAutomationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['simulationAutomation%2Did'] = $id;
-        return new SimulationAutomationItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param string $id Unique identifier of the item
-     * @return SimulationItemRequestBuilder
-    */
-    public function simulationsById(string $id): SimulationItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['simulation%2Did'] = $id;
-        return new SimulationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

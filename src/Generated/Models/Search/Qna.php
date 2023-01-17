@@ -86,7 +86,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the languageTags property value. A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
+     * Gets the languageTags property value. A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. For the list of possible values, see supported language tags.
      * @return array<string>|null
     */
     public function getLanguageTags(): ?array {
@@ -175,7 +175,7 @@ class Qna extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the languageTags property value. A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
+     * Sets the languageTags property value. A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. For the list of possible values, see supported language tags.
      *  @param array<string>|null $value Value to set for the languageTags property.
     */
     public function setLanguageTags(?array $value): void {

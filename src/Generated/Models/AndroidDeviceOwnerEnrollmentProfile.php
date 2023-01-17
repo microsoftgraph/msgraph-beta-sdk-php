@@ -113,6 +113,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
             'enrollmentMode' => fn(ParseNode $n) => $o->setEnrollmentMode($n->getEnumValue(AndroidDeviceOwnerEnrollmentMode::class)),
             'enrollmentTokenType' => fn(ParseNode $n) => $o->setEnrollmentTokenType($n->getEnumValue(AndroidDeviceOwnerEnrollmentTokenType::class)),
             'enrollmentTokenUsageCount' => fn(ParseNode $n) => $o->setEnrollmentTokenUsageCount($n->getIntegerValue()),
+            'isTeamsDeviceProfile' => fn(ParseNode $n) => $o->setIsTeamsDeviceProfile($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'qrCodeContent' => fn(ParseNode $n) => $o->setQrCodeContent($n->getStringValue()),
             'qrCodeImage' => fn(ParseNode $n) => $o->setQrCodeImage($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
@@ -125,6 +126,14 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
             'wifiSecurityType' => fn(ParseNode $n) => $o->setWifiSecurityType($n->getEnumValue(AospWifiSecurityType::class)),
             'wifiSsid' => fn(ParseNode $n) => $o->setWifiSsid($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the isTeamsDeviceProfile property value. Boolean indicating if this profile is an Android AOSP for Teams device profile.
+     * @return bool|null
+    */
+    public function getIsTeamsDeviceProfile(): ?bool {
+        return $this->getBackingStore()->get('isTeamsDeviceProfile');
     }
 
     /**
@@ -230,6 +239,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
         $writer->writeEnumValue('enrollmentMode', $this->getEnrollmentMode());
         $writer->writeEnumValue('enrollmentTokenType', $this->getEnrollmentTokenType());
         $writer->writeIntegerValue('enrollmentTokenUsageCount', $this->getEnrollmentTokenUsageCount());
+        $writer->writeBooleanValue('isTeamsDeviceProfile', $this->getIsTeamsDeviceProfile());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('qrCodeContent', $this->getQrCodeContent());
         $writer->writeObjectValue('qrCodeImage', $this->getQrCodeImage());
@@ -313,6 +323,14 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     */
     public function setEnrollmentTokenUsageCount(?int $value): void {
         $this->getBackingStore()->set('enrollmentTokenUsageCount', $value);
+    }
+
+    /**
+     * Sets the isTeamsDeviceProfile property value. Boolean indicating if this profile is an Android AOSP for Teams device profile.
+     *  @param bool|null $value Value to set for the isTeamsDeviceProfile property.
+    */
+    public function setIsTeamsDeviceProfile(?bool $value): void {
+        $this->getBackingStore()->set('isTeamsDeviceProfile', $value);
     }
 
     /**

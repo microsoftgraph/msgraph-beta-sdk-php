@@ -80,7 +80,7 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the ruleKind property value. The ruleKind property
+     * Gets the ruleKind property value. Identifies which type of property rules is represented by this instance. The possible values are: taskRule, bucketRule, planRule, unknownFutureValue.
      * @return PlannerRuleKind|null
     */
     public function getRuleKind(): ?PlannerRuleKind {
@@ -122,7 +122,7 @@ class PlannerPropertyRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the ruleKind property value. The ruleKind property
+     * Sets the ruleKind property value. Identifies which type of property rules is represented by this instance. The possible values are: taskRule, bucketRule, planRule, unknownFutureValue.
      *  @param PlannerRuleKind|null $value Value to set for the ruleKind property.
     */
     public function setRuleKind(?PlannerRuleKind $value): void {

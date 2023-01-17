@@ -78,7 +78,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v10_0 property value. Version 10.0 or later.
+     * Gets the v10_0 property value. When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV10_0(): ?bool {
@@ -86,7 +86,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v11_0 property value. Version 11.0 or later.
+     * Gets the v11_0 property value. When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV11_0(): ?bool {
@@ -94,7 +94,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v12_0 property value. Version 12.0 or later.
+     * Gets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV12_0(): ?bool {
@@ -102,7 +102,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v13_0 property value. Version 13.0 or later.
+     * Gets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV13_0(): ?bool {
@@ -110,7 +110,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v14_0 property value. Version 14.0 or later.
+     * Gets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV14_0(): ?bool {
@@ -118,7 +118,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v15_0 property value. Version 15.0 or later.
+     * Gets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV15_0(): ?bool {
@@ -126,7 +126,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v8_0 property value. Version 8.0 or later.
+     * Gets the v8_0 property value. When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV8_0(): ?bool {
@@ -134,7 +134,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v9_0 property value. Version 9.0 or later.
+     * Gets the v9_0 property value. When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
     public function getV9_0(): ?bool {
@@ -183,7 +183,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v10_0 property value. Version 10.0 or later.
+     * Sets the v10_0 property value. When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      *  @param bool|null $value Value to set for the v10_0 property.
     */
     public function setV10_0(?bool $value): void {
@@ -191,7 +191,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v11_0 property value. Version 11.0 or later.
+     * Sets the v11_0 property value. When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      *  @param bool|null $value Value to set for the v11_0 property.
     */
     public function setV11_0(?bool $value): void {
@@ -199,7 +199,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v12_0 property value. Version 12.0 or later.
+     * Sets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      *  @param bool|null $value Value to set for the v12_0 property.
     */
     public function setV12_0(?bool $value): void {
@@ -207,7 +207,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v13_0 property value. Version 13.0 or later.
+     * Sets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      *  @param bool|null $value Value to set for the v13_0 property.
     */
     public function setV13_0(?bool $value): void {
@@ -215,7 +215,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v14_0 property value. Version 14.0 or later.
+     * Sets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      *  @param bool|null $value Value to set for the v14_0 property.
     */
     public function setV14_0(?bool $value): void {
@@ -223,7 +223,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v15_0 property value. Version 15.0 or later.
+     * Sets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      *  @param bool|null $value Value to set for the v15_0 property.
     */
     public function setV15_0(?bool $value): void {
@@ -231,7 +231,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v8_0 property value. Version 8.0 or later.
+     * Sets the v8_0 property value. When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      *  @param bool|null $value Value to set for the v8_0 property.
     */
     public function setV8_0(?bool $value): void {
@@ -239,7 +239,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the v9_0 property value. Version 9.0 or later.
+     * Sets the v9_0 property value. When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      *  @param bool|null $value Value to set for the v9_0 property.
     */
     public function setV9_0(?bool $value): void {

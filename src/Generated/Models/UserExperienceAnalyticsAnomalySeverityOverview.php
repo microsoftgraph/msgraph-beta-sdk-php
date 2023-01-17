@@ -66,7 +66,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Gets the highSeverityAnomalyCount property value. The number of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Gets the highSeverityAnomalyCount property value. Indicates count of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getHighSeverityAnomalyCount(): ?int {
@@ -74,7 +74,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Gets the informationalSeverityAnomalyCount property value. The number of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Gets the informationalSeverityAnomalyCount property value. Indicates count of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getInformationalSeverityAnomalyCount(): ?int {
@@ -82,7 +82,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Gets the lowSeverityAnomalyCount property value. The number of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Gets the lowSeverityAnomalyCount property value. Indicates count of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getLowSeverityAnomalyCount(): ?int {
@@ -90,7 +90,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Gets the mediumSeverityAnomalyCount property value. The number of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Gets the mediumSeverityAnomalyCount property value. Indicates count of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      * @return int|null
     */
     public function getMediumSeverityAnomalyCount(): ?int {
@@ -135,7 +135,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Sets the highSeverityAnomalyCount property value. The number of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Sets the highSeverityAnomalyCount property value. Indicates count of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the highSeverityAnomalyCount property.
     */
     public function setHighSeverityAnomalyCount(?int $value): void {
@@ -143,7 +143,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Sets the informationalSeverityAnomalyCount property value. The number of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Sets the informationalSeverityAnomalyCount property value. Indicates count of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the informationalSeverityAnomalyCount property.
     */
     public function setInformationalSeverityAnomalyCount(?int $value): void {
@@ -151,7 +151,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Sets the lowSeverityAnomalyCount property value. The number of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Sets the lowSeverityAnomalyCount property value. Indicates count of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the lowSeverityAnomalyCount property.
     */
     public function setLowSeverityAnomalyCount(?int $value): void {
@@ -159,7 +159,7 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Sets the mediumSeverityAnomalyCount property value. The number of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     * Sets the mediumSeverityAnomalyCount property value. Indicates count of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the mediumSeverityAnomalyCount property.
     */
     public function setMediumSeverityAnomalyCount(?int $value): void {

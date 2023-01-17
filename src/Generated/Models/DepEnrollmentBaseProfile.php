@@ -82,6 +82,14 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
+     * Gets the enabledSkipKeys property value. enabledSkipKeys contains all the enabled skip keys as strings
+     * @return array<string>|null
+    */
+    public function getEnabledSkipKeys(): ?array {
+        return $this->getBackingStore()->get('enabledSkipKeys');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -94,6 +102,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
             'deviceNameTemplate' => fn(ParseNode $n) => $o->setDeviceNameTemplate($n->getStringValue()),
             'diagnosticsDisabled' => fn(ParseNode $n) => $o->setDiagnosticsDisabled($n->getBooleanValue()),
             'displayToneSetupDisabled' => fn(ParseNode $n) => $o->setDisplayToneSetupDisabled($n->getBooleanValue()),
+            'enabledSkipKeys' => fn(ParseNode $n) => $o->setEnabledSkipKeys($n->getCollectionOfPrimitiveValues()),
             'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
             'isMandatory' => fn(ParseNode $n) => $o->setIsMandatory($n->getBooleanValue()),
             'locationDisabled' => fn(ParseNode $n) => $o->setLocationDisabled($n->getBooleanValue()),
@@ -175,7 +184,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
-     * Gets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
+     * Gets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/en-us/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
      * @return bool|null
     */
     public function getSupervisedModeEnabled(): ?bool {
@@ -226,6 +235,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
         $writer->writeStringValue('deviceNameTemplate', $this->getDeviceNameTemplate());
         $writer->writeBooleanValue('diagnosticsDisabled', $this->getDiagnosticsDisabled());
         $writer->writeBooleanValue('displayToneSetupDisabled', $this->getDisplayToneSetupDisabled());
+        $writer->writeCollectionOfPrimitiveValues('enabledSkipKeys', $this->getEnabledSkipKeys());
         $writer->writeBooleanValue('isDefault', $this->getIsDefault());
         $writer->writeBooleanValue('isMandatory', $this->getIsMandatory());
         $writer->writeBooleanValue('locationDisabled', $this->getLocationDisabled());
@@ -287,6 +297,14 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     */
     public function setDisplayToneSetupDisabled(?bool $value): void {
         $this->getBackingStore()->set('displayToneSetupDisabled', $value);
+    }
+
+    /**
+     * Sets the enabledSkipKeys property value. enabledSkipKeys contains all the enabled skip keys as strings
+     *  @param array<string>|null $value Value to set for the enabledSkipKeys property.
+    */
+    public function setEnabledSkipKeys(?array $value): void {
+        $this->getBackingStore()->set('enabledSkipKeys', $value);
     }
 
     /**
@@ -354,7 +372,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
-     * Sets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
+     * Sets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/en-us/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
      *  @param bool|null $value Value to set for the supervisedModeEnabled property.
     */
     public function setSupervisedModeEnabled(?bool $value): void {

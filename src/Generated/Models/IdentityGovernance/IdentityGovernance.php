@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\AppConsentApprovalRoute;
 use Microsoft\Graph\Beta\Generated\Models\EntitlementManagement;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessRoot;
 use Microsoft\Graph\Beta\Generated\Models\TermsOfUseContainer;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -90,6 +91,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
             'entitlementManagement' => fn(ParseNode $n) => $o->setEntitlementManagement($n->getObjectValue([EntitlementManagement::class, 'createFromDiscriminatorValue'])),
             'lifecycleWorkflows' => fn(ParseNode $n) => $o->setLifecycleWorkflows($n->getObjectValue([LifecycleWorkflowsContainer::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'privilegedAccess' => fn(ParseNode $n) => $o->setPrivilegedAccess($n->getObjectValue([PrivilegedAccessRoot::class, 'createFromDiscriminatorValue'])),
             'termsOfUse' => fn(ParseNode $n) => $o->setTermsOfUse($n->getObjectValue([TermsOfUseContainer::class, 'createFromDiscriminatorValue'])),
         ];
     }
@@ -111,6 +113,14 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the privilegedAccess property value. The privilegedAccess property
+     * @return PrivilegedAccessRoot|null
+    */
+    public function getPrivilegedAccess(): ?PrivilegedAccessRoot {
+        return $this->getBackingStore()->get('privilegedAccess');
+    }
+
+    /**
      * Gets the termsOfUse property value. The termsOfUse property
      * @return TermsOfUseContainer|null
     */
@@ -128,6 +138,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('entitlementManagement', $this->getEntitlementManagement());
         $writer->writeObjectValue('lifecycleWorkflows', $this->getLifecycleWorkflows());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('privilegedAccess', $this->getPrivilegedAccess());
         $writer->writeObjectValue('termsOfUse', $this->getTermsOfUse());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -186,6 +197,14 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the privilegedAccess property value. The privilegedAccess property
+     *  @param PrivilegedAccessRoot|null $value Value to set for the privilegedAccess property.
+    */
+    public function setPrivilegedAccess(?PrivilegedAccessRoot $value): void {
+        $this->getBackingStore()->set('privilegedAccess', $value);
     }
 
     /**

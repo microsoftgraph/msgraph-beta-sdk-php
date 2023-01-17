@@ -3,17 +3,27 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenant;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TenantRelationship extends Entity implements Parsable 
+class TenantRelationship implements AdditionalDataHolder, BackedModel, Parsable 
 {
+    /**
+     * @var BackingStore $backingStore Stores model information.
+    */
+    private BackingStore $backingStore;
+    
     /**
      * Instantiates a new TenantRelationship and sets the default values.
     */
     public function __construct() {
-        parent::__construct();
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -23,6 +33,22 @@ class TenantRelationship extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantRelationship {
         return new TenantRelationship();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -47,11 +73,12 @@ class TenantRelationship extends Entity implements Parsable
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return array_merge(parent::getFieldDeserializers(), [
+        return  [
             'delegatedAdminCustomers' => fn(ParseNode $n) => $o->setDelegatedAdminCustomers($n->getCollectionOfObjectValues([DelegatedAdminCustomer::class, 'createFromDiscriminatorValue'])),
             'delegatedAdminRelationships' => fn(ParseNode $n) => $o->setDelegatedAdminRelationships($n->getCollectionOfObjectValues([DelegatedAdminRelationship::class, 'createFromDiscriminatorValue'])),
             'managedTenants' => fn(ParseNode $n) => $o->setManagedTenants($n->getObjectValue([ManagedTenant::class, 'createFromDiscriminatorValue'])),
-        ]);
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+        ];
     }
 
     /**
@@ -63,14 +90,39 @@ class TenantRelationship extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->getBackingStore()->get('odataType');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('delegatedAdminCustomers', $this->getDelegatedAdminCustomers());
         $writer->writeCollectionOfObjectValues('delegatedAdminRelationships', $this->getDelegatedAdminRelationships());
         $writer->writeObjectValue('managedTenants', $this->getManagedTenants());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
@@ -95,6 +147,14 @@ class TenantRelationship extends Entity implements Parsable
     */
     public function setManagedTenants(?ManagedTenant $value): void {
         $this->getBackingStore()->set('managedTenants', $value);
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -51,7 +51,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the externalBucketId property value. The externalBucketId property
+     * Gets the externalBucketId property value. The identifier for the bucketDefinition configured in the plannerPlanConfiguration for the scenario. The task will be placed in the corresponding plannerBucket in the target plan. Required.
      * @return string|null
     */
     public function getExternalBucketId(): ?string {
@@ -59,7 +59,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the externalContextId property value. The externalContextId property
+     * Gets the externalContextId property value. The identifier for the context of the task. Context is an application controlled value, and tasks can be queried by their externalContextId. Optional.
      * @return string|null
     */
     public function getExternalContextId(): ?string {
@@ -67,7 +67,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the externalObjectId property value. The externalObjectId property
+     * Gets the externalObjectId property value. Application-specific identifier for the task. Every task for the same scenario must have a unique identifier specified for this property. Required.
      * @return string|null
     */
     public function getExternalObjectId(): ?string {
@@ -75,7 +75,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the externalObjectVersion property value. The externalObjectVersion property
+     * Gets the externalObjectVersion property value. Application-specific version of the task. Optional.
      * @return string|null
     */
     public function getExternalObjectVersion(): ?string {
@@ -107,7 +107,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the webUrl property value. The webUrl property
+     * Gets the webUrl property value. The URL to the application-specific experience for this task. Optional.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -145,7 +145,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the externalBucketId property value. The externalBucketId property
+     * Sets the externalBucketId property value. The identifier for the bucketDefinition configured in the plannerPlanConfiguration for the scenario. The task will be placed in the corresponding plannerBucket in the target plan. Required.
      *  @param string|null $value Value to set for the externalBucketId property.
     */
     public function setExternalBucketId(?string $value): void {
@@ -153,7 +153,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the externalContextId property value. The externalContextId property
+     * Sets the externalContextId property value. The identifier for the context of the task. Context is an application controlled value, and tasks can be queried by their externalContextId. Optional.
      *  @param string|null $value Value to set for the externalContextId property.
     */
     public function setExternalContextId(?string $value): void {
@@ -161,7 +161,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the externalObjectId property value. The externalObjectId property
+     * Sets the externalObjectId property value. Application-specific identifier for the task. Every task for the same scenario must have a unique identifier specified for this property. Required.
      *  @param string|null $value Value to set for the externalObjectId property.
     */
     public function setExternalObjectId(?string $value): void {
@@ -169,7 +169,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the externalObjectVersion property value. The externalObjectVersion property
+     * Sets the externalObjectVersion property value. Application-specific version of the task. Optional.
      *  @param string|null $value Value to set for the externalObjectVersion property.
     */
     public function setExternalObjectVersion(?string $value): void {
@@ -185,7 +185,7 @@ class BusinessScenarioProperties implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the webUrl property value. The webUrl property
+     * Sets the webUrl property value. The URL to the application-specific experience for this task. Optional.
      *  @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

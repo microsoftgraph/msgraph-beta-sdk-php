@@ -37,7 +37,7 @@ class BusinessScenarioGroupTarget extends BusinessScenarioTaskTargetBase impleme
     }
 
     /**
-     * Gets the groupId property value. The groupId property
+     * Gets the groupId property value. The unique identifier for the group.
      * @return string|null
     */
     public function getGroupId(): ?string {
@@ -54,7 +54,7 @@ class BusinessScenarioGroupTarget extends BusinessScenarioTaskTargetBase impleme
     }
 
     /**
-     * Sets the groupId property value. The groupId property
+     * Sets the groupId property value. The unique identifier for the group.
      *  @param string|null $value Value to set for the groupId property.
     */
     public function setGroupId(?string $value): void {

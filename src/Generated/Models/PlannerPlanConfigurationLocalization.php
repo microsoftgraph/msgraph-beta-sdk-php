@@ -25,7 +25,7 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
     }
 
     /**
-     * Gets the buckets property value. The buckets property
+     * Gets the buckets property value. Localized names for configured buckets in the plan configuration.
      * @return array<PlannerPlanConfigurationBucketLocalization>|null
     */
     public function getBuckets(): ?array {
@@ -46,7 +46,7 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
     }
 
     /**
-     * Gets the languageTag property value. The languageTag property
+     * Gets the languageTag property value. The language code associated with the localized names in this object.
      * @return string|null
     */
     public function getLanguageTag(): ?string {
@@ -54,7 +54,7 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
     }
 
     /**
-     * Gets the planTitle property value. The planTitle property
+     * Gets the planTitle property value. Localized title of the plan.
      * @return string|null
     */
     public function getPlanTitle(): ?string {
@@ -73,7 +73,7 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
     }
 
     /**
-     * Sets the buckets property value. The buckets property
+     * Sets the buckets property value. Localized names for configured buckets in the plan configuration.
      *  @param array<PlannerPlanConfigurationBucketLocalization>|null $value Value to set for the buckets property.
     */
     public function setBuckets(?array $value): void {
@@ -81,7 +81,7 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
     }
 
     /**
-     * Sets the languageTag property value. The languageTag property
+     * Sets the languageTag property value. The language code associated with the localized names in this object.
      *  @param string|null $value Value to set for the languageTag property.
     */
     public function setLanguageTag(?string $value): void {
@@ -89,7 +89,7 @@ class PlannerPlanConfigurationLocalization extends Entity implements Parsable
     }
 
     /**
-     * Sets the planTitle property value. The planTitle property
+     * Sets the planTitle property value. Localized title of the plan.
      *  @param string|null $value Value to set for the planTitle property.
     */
     public function setPlanTitle(?string $value): void {

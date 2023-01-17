@@ -31,9 +31,27 @@ class AttackSimulationRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([AttackSimulationOperation::class, 'createFromDiscriminatorValue'])),
+            'payloads' => fn(ParseNode $n) => $o->setPayloads($n->getCollectionOfObjectValues([Payload::class, 'createFromDiscriminatorValue'])),
             'simulationAutomations' => fn(ParseNode $n) => $o->setSimulationAutomations($n->getCollectionOfObjectValues([SimulationAutomation::class, 'createFromDiscriminatorValue'])),
             'simulations' => fn(ParseNode $n) => $o->setSimulations($n->getCollectionOfObjectValues([Simulation::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the operations property value. The operations property
+     * @return array<AttackSimulationOperation>|null
+    */
+    public function getOperations(): ?array {
+        return $this->getBackingStore()->get('operations');
+    }
+
+    /**
+     * Gets the payloads property value. The payloads property
+     * @return array<Payload>|null
+    */
+    public function getPayloads(): ?array {
+        return $this->getBackingStore()->get('payloads');
     }
 
     /**
@@ -58,8 +76,26 @@ class AttackSimulationRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
+        $writer->writeCollectionOfObjectValues('payloads', $this->getPayloads());
         $writer->writeCollectionOfObjectValues('simulationAutomations', $this->getSimulationAutomations());
         $writer->writeCollectionOfObjectValues('simulations', $this->getSimulations());
+    }
+
+    /**
+     * Sets the operations property value. The operations property
+     *  @param array<AttackSimulationOperation>|null $value Value to set for the operations property.
+    */
+    public function setOperations(?array $value): void {
+        $this->getBackingStore()->set('operations', $value);
+    }
+
+    /**
+     * Sets the payloads property value. The payloads property
+     *  @param array<Payload>|null $value Value to set for the payloads property.
+    */
+    public function setPayloads(?array $value): void {
+        $this->getBackingStore()->set('payloads', $value);
     }
 
     /**

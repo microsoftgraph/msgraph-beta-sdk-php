@@ -50,6 +50,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
             'availabilityIsAffectedByPersonalCalendar' => fn(ParseNode $n) => $o->setAvailabilityIsAffectedByPersonalCalendar($n->getBooleanValue()),
             'colorIndex' => fn(ParseNode $n) => $o->setColorIndex($n->getIntegerValue()),
             'isEmailNotificationEnabled' => fn(ParseNode $n) => $o->setIsEmailNotificationEnabled($n->getBooleanValue()),
+            'membershipStatus' => fn(ParseNode $n) => $o->setMembershipStatus($n->getEnumValue(BookingStaffMembershipStatus::class)),
             'role' => fn(ParseNode $n) => $o->setRole($n->getEnumValue(BookingStaffRole::class)),
             'timeZone' => fn(ParseNode $n) => $o->setTimeZone($n->getStringValue()),
             'useBusinessHours' => fn(ParseNode $n) => $o->setUseBusinessHours($n->getBooleanValue()),
@@ -63,6 +64,14 @@ class BookingStaffMember extends BookingPerson implements Parsable
     */
     public function getIsEmailNotificationEnabled(): ?bool {
         return $this->getBackingStore()->get('isEmailNotificationEnabled');
+    }
+
+    /**
+     * Gets the membershipStatus property value. The membershipStatus property
+     * @return BookingStaffMembershipStatus|null
+    */
+    public function getMembershipStatus(): ?BookingStaffMembershipStatus {
+        return $this->getBackingStore()->get('membershipStatus');
     }
 
     /**
@@ -106,6 +115,7 @@ class BookingStaffMember extends BookingPerson implements Parsable
         $writer->writeBooleanValue('availabilityIsAffectedByPersonalCalendar', $this->getAvailabilityIsAffectedByPersonalCalendar());
         $writer->writeIntegerValue('colorIndex', $this->getColorIndex());
         $writer->writeBooleanValue('isEmailNotificationEnabled', $this->getIsEmailNotificationEnabled());
+        $writer->writeEnumValue('membershipStatus', $this->getMembershipStatus());
         $writer->writeEnumValue('role', $this->getRole());
         $writer->writeStringValue('timeZone', $this->getTimeZone());
         $writer->writeBooleanValue('useBusinessHours', $this->getUseBusinessHours());
@@ -134,6 +144,14 @@ class BookingStaffMember extends BookingPerson implements Parsable
     */
     public function setIsEmailNotificationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEmailNotificationEnabled', $value);
+    }
+
+    /**
+     * Sets the membershipStatus property value. The membershipStatus property
+     *  @param BookingStaffMembershipStatus|null $value Value to set for the membershipStatus property.
+    */
+    public function setMembershipStatus(?BookingStaffMembershipStatus $value): void {
+        $this->getBackingStore()->set('membershipStatus', $value);
     }
 
     /**

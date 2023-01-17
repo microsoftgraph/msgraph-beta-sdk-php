@@ -85,7 +85,6 @@ class DeviceAppManagement extends Entity implements Parsable
             'mobileAppConfigurations' => fn(ParseNode $n) => $o->setMobileAppConfigurations($n->getCollectionOfObjectValues([ManagedDeviceMobileAppConfiguration::class, 'createFromDiscriminatorValue'])),
             'mobileApps' => fn(ParseNode $n) => $o->setMobileApps($n->getCollectionOfObjectValues([MobileApp::class, 'createFromDiscriminatorValue'])),
             'policySets' => fn(ParseNode $n) => $o->setPolicySets($n->getCollectionOfObjectValues([PolicySet::class, 'createFromDiscriminatorValue'])),
-            'sideLoadingKeys' => fn(ParseNode $n) => $o->setSideLoadingKeys($n->getCollectionOfObjectValues([SideLoadingKey::class, 'createFromDiscriminatorValue'])),
             'symantecCodeSigningCertificate' => fn(ParseNode $n) => $o->setSymantecCodeSigningCertificate($n->getObjectValue([SymantecCodeSigningCertificate::class, 'createFromDiscriminatorValue'])),
             'targetedManagedAppConfigurations' => fn(ParseNode $n) => $o->setTargetedManagedAppConfigurations($n->getCollectionOfObjectValues([TargetedManagedAppConfiguration::class, 'createFromDiscriminatorValue'])),
             'vppTokens' => fn(ParseNode $n) => $o->setVppTokens($n->getCollectionOfObjectValues([VppToken::class, 'createFromDiscriminatorValue'])),
@@ -235,14 +234,6 @@ class DeviceAppManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the sideLoadingKeys property value. Side Loading Keys that are required for the Windows 8 and 8.1 Apps installation.
-     * @return array<SideLoadingKey>|null
-    */
-    public function getSideLoadingKeys(): ?array {
-        return $this->getBackingStore()->get('sideLoadingKeys');
-    }
-
-    /**
      * Gets the symantecCodeSigningCertificate property value. The WinPhone Symantec Code Signing Certificate.
      * @return SymantecCodeSigningCertificate|null
     */
@@ -341,7 +332,6 @@ class DeviceAppManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('mobileAppConfigurations', $this->getMobileAppConfigurations());
         $writer->writeCollectionOfObjectValues('mobileApps', $this->getMobileApps());
         $writer->writeCollectionOfObjectValues('policySets', $this->getPolicySets());
-        $writer->writeCollectionOfObjectValues('sideLoadingKeys', $this->getSideLoadingKeys());
         $writer->writeObjectValue('symantecCodeSigningCertificate', $this->getSymantecCodeSigningCertificate());
         $writer->writeCollectionOfObjectValues('targetedManagedAppConfigurations', $this->getTargetedManagedAppConfigurations());
         $writer->writeCollectionOfObjectValues('vppTokens', $this->getVppTokens());
@@ -519,14 +509,6 @@ class DeviceAppManagement extends Entity implements Parsable
     */
     public function setPolicySets(?array $value): void {
         $this->getBackingStore()->set('policySets', $value);
-    }
-
-    /**
-     * Sets the sideLoadingKeys property value. Side Loading Keys that are required for the Windows 8 and 8.1 Apps installation.
-     *  @param array<SideLoadingKey>|null $value Value to set for the sideLoadingKeys property.
-    */
-    public function setSideLoadingKeys(?array $value): void {
-        $this->getBackingStore()->set('sideLoadingKeys', $value);
     }
 
     /**

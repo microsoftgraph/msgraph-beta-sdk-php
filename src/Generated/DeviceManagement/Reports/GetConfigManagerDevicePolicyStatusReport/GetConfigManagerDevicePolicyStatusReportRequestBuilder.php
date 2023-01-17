@@ -47,9 +47,29 @@ class GetConfigManagerDevicePolicyStatusReportRequestBuilder
      * Invoke action getConfigManagerDevicePolicyStatusReport
      * @param GetConfigManagerDevicePolicyStatusReportPostRequestBody $body The request body
      * @param GetConfigManagerDevicePolicyStatusReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @return Promise
+    */
+    public function post(GetConfigManagerDevicePolicyStatusReportPostRequestBody $body, ?GetConfigManagerDevicePolicyStatusReportRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $responseHandler, $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
+     * Invoke action getConfigManagerDevicePolicyStatusReport
+     * @param GetConfigManagerDevicePolicyStatusReportPostRequestBody $body The request body
+     * @param GetConfigManagerDevicePolicyStatusReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createPostRequestInformation(GetConfigManagerDevicePolicyStatusReportPostRequestBody $body, ?GetConfigManagerDevicePolicyStatusReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetConfigManagerDevicePolicyStatusReportPostRequestBody $body, ?GetConfigManagerDevicePolicyStatusReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -64,26 +84,6 @@ class GetConfigManagerDevicePolicyStatusReportRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
-    }
-
-    /**
-     * Invoke action getConfigManagerDevicePolicyStatusReport
-     * @param GetConfigManagerDevicePolicyStatusReportPostRequestBody $body The request body
-     * @param GetConfigManagerDevicePolicyStatusReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @return Promise
-    */
-    public function post(GetConfigManagerDevicePolicyStatusReportPostRequestBody $body, ?GetConfigManagerDevicePolicyStatusReportRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $responseHandler, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
     }
 
 }

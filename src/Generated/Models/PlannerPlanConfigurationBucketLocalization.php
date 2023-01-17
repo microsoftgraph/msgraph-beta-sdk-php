@@ -51,7 +51,7 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
     }
 
     /**
-     * Gets the externalBucketId property value. The externalBucketId property
+     * Gets the externalBucketId property value. Application-specified identifier of the bucket.
      * @return string|null
     */
     public function getExternalBucketId(): ?string {
@@ -72,7 +72,7 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name of the bucket.
      * @return string|null
     */
     public function getName(): ?string {
@@ -115,7 +115,7 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
     }
 
     /**
-     * Sets the externalBucketId property value. The externalBucketId property
+     * Sets the externalBucketId property value. Application-specified identifier of the bucket.
      *  @param string|null $value Value to set for the externalBucketId property.
     */
     public function setExternalBucketId(?string $value): void {
@@ -123,7 +123,7 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name of the bucket.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {

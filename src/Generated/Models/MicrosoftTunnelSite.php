@@ -42,14 +42,6 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the enableCertificatePinning property value. When set to true, certificate pinning will be enforced on connections between the Microsoft Tunnel server and Microsoft Tunnel clients. When set to false, certificate pinning will be disabled.
-     * @return bool|null
-    */
-    public function getEnableCertificatePinning(): ?bool {
-        return $this->getBackingStore()->get('enableCertificatePinning');
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -58,7 +50,6 @@ class MicrosoftTunnelSite extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'enableCertificatePinning' => fn(ParseNode $n) => $o->setEnableCertificatePinning($n->getBooleanValue()),
             'internalNetworkProbeUrl' => fn(ParseNode $n) => $o->setInternalNetworkProbeUrl($n->getStringValue()),
             'microsoftTunnelConfiguration' => fn(ParseNode $n) => $o->setMicrosoftTunnelConfiguration($n->getObjectValue([MicrosoftTunnelConfiguration::class, 'createFromDiscriminatorValue'])),
             'microsoftTunnelServers' => fn(ParseNode $n) => $o->setMicrosoftTunnelServers($n->getCollectionOfObjectValues([MicrosoftTunnelServer::class, 'createFromDiscriminatorValue'])),
@@ -160,7 +151,6 @@ class MicrosoftTunnelSite extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeBooleanValue('enableCertificatePinning', $this->getEnableCertificatePinning());
         $writer->writeStringValue('internalNetworkProbeUrl', $this->getInternalNetworkProbeUrl());
         $writer->writeObjectValue('microsoftTunnelConfiguration', $this->getMicrosoftTunnelConfiguration());
         $writer->writeCollectionOfObjectValues('microsoftTunnelServers', $this->getMicrosoftTunnelServers());
@@ -187,14 +177,6 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
-    }
-
-    /**
-     * Sets the enableCertificatePinning property value. When set to true, certificate pinning will be enforced on connections between the Microsoft Tunnel server and Microsoft Tunnel clients. When set to false, certificate pinning will be disabled.
-     *  @param bool|null $value Value to set for the enableCertificatePinning property.
-    */
-    public function setEnableCertificatePinning(?bool $value): void {
-        $this->getBackingStore()->set('enableCertificatePinning', $value);
     }
 
     /**

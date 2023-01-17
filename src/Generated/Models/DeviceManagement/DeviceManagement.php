@@ -134,6 +134,7 @@ use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceScores;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceStartupHistory;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceStartupProcess;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceStartupProcessPerformance;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceTimelineEvents;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceWithoutCloudIdentity;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsImpactingProcess;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsMetricHistory;
@@ -819,6 +820,7 @@ class DeviceManagement extends Entity implements Parsable
             'userExperienceAnalyticsDeviceStartupProcesses' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsDeviceStartupProcesses($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceStartupProcess::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsDeviceStartupProcessPerformance' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsDeviceStartupProcessPerformance($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceStartupProcessPerformance::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsDevicesWithoutCloudIdentity' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsDevicesWithoutCloudIdentity($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceWithoutCloudIdentity::class, 'createFromDiscriminatorValue'])),
+            'userExperienceAnalyticsDeviceTimelineEvents' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsDeviceTimelineEvents($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceTimelineEvents::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsImpactingProcess' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsImpactingProcess($n->getCollectionOfObjectValues([UserExperienceAnalyticsImpactingProcess::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsMetricHistory' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsMetricHistory($n->getCollectionOfObjectValues([UserExperienceAnalyticsMetricHistory::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsModelScores' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsModelScores($n->getCollectionOfObjectValues([UserExperienceAnalyticsModelScores::class, 'createFromDiscriminatorValue'])),
@@ -1547,6 +1549,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the userExperienceAnalyticsDeviceTimelineEvents property value. The user experience analytics device events entity contains NRT device timeline events details.
+     * @return array<UserExperienceAnalyticsDeviceTimelineEvents>|null
+    */
+    public function getUserExperienceAnalyticsDeviceTimelineEvents(): ?array {
+        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceTimelineEvents');
+    }
+
+    /**
      * Gets the userExperienceAnalyticsImpactingProcess property value. User experience analytics impacting process
      * @return array<UserExperienceAnalyticsImpactingProcess>|null
     */
@@ -1919,6 +1929,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupProcesses', $this->getUserExperienceAnalyticsDeviceStartupProcesses());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupProcessPerformance', $this->getUserExperienceAnalyticsDeviceStartupProcessPerformance());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDevicesWithoutCloudIdentity', $this->getUserExperienceAnalyticsDevicesWithoutCloudIdentity());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceTimelineEvents', $this->getUserExperienceAnalyticsDeviceTimelineEvents());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsImpactingProcess', $this->getUserExperienceAnalyticsImpactingProcess());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsMetricHistory', $this->getUserExperienceAnalyticsMetricHistory());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsModelScores', $this->getUserExperienceAnalyticsModelScores());
@@ -3123,6 +3134,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setUserExperienceAnalyticsDevicesWithoutCloudIdentity(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDevicesWithoutCloudIdentity', $value);
+    }
+
+    /**
+     * Sets the userExperienceAnalyticsDeviceTimelineEvents property value. The user experience analytics device events entity contains NRT device timeline events details.
+     *  @param array<UserExperienceAnalyticsDeviceTimelineEvents>|null $value Value to set for the userExperienceAnalyticsDeviceTimelineEvents property.
+    */
+    public function setUserExperienceAnalyticsDeviceTimelineEvents(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDeviceTimelineEvents', $value);
     }
 
     /**

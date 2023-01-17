@@ -64,7 +64,7 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name of the override. Allowed override values will be dependent on the property affected by the rule.
      * @return string|null
     */
     public function getName(): ?string {
@@ -80,7 +80,7 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the rules property value. The rules property
+     * Gets the rules property value. Overridden rules. These are used as rules for the override instead of the default rules.
      * @return array<string>|null
     */
     public function getRules(): ?array {
@@ -115,7 +115,7 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name of the override. Allowed override values will be dependent on the property affected by the rule.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -131,7 +131,7 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the rules property value. The rules property
+     * Sets the rules property value. Overridden rules. These are used as rules for the override instead of the default rules.
      *  @param array<string>|null $value Value to set for the rules property.
     */
     public function setRules(?array $value): void {

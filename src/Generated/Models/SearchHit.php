@@ -103,6 +103,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
             '_summary' => fn(ParseNode $n) => $o->set_summary($n->getStringValue()),
             'contentSource' => fn(ParseNode $n) => $o->setContentSource($n->getStringValue()),
             'hitId' => fn(ParseNode $n) => $o->setHitId($n->getStringValue()),
+            'isCollapsed' => fn(ParseNode $n) => $o->setIsCollapsed($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rank' => fn(ParseNode $n) => $o->setRank($n->getIntegerValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
@@ -117,6 +118,14 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function getHitId(): ?string {
         return $this->getBackingStore()->get('hitId');
+    }
+
+    /**
+     * Gets the isCollapsed property value. The isCollapsed property
+     * @return bool|null
+    */
+    public function getIsCollapsed(): ?bool {
+        return $this->getBackingStore()->get('isCollapsed');
     }
 
     /**
@@ -166,6 +175,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('contentSource', $this->getContentSource());
         $writer->writeStringValue('hitId', $this->getHitId());
+        $writer->writeBooleanValue('isCollapsed', $this->getIsCollapsed());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('rank', $this->getRank());
         $writer->writeObjectValue('resource', $this->getResource());
@@ -240,6 +250,14 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setHitId(?string $value): void {
         $this->getBackingStore()->set('hitId', $value);
+    }
+
+    /**
+     * Sets the isCollapsed property value. The isCollapsed property
+     *  @param bool|null $value Value to set for the isCollapsed property.
+    */
+    public function setIsCollapsed(?bool $value): void {
+        $this->getBackingStore()->set('isCollapsed', $value);
     }
 
     /**

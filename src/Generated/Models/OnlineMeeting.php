@@ -185,6 +185,7 @@ class OnlineMeeting extends Entity implements Parsable
             'transcripts' => fn(ParseNode $n) => $o->setTranscripts($n->getCollectionOfObjectValues([CallTranscript::class, 'createFromDiscriminatorValue'])),
             'videoTeleconferenceId' => fn(ParseNode $n) => $o->setVideoTeleconferenceId($n->getStringValue()),
             'virtualAppointment' => fn(ParseNode $n) => $o->setVirtualAppointment($n->getObjectValue([VirtualAppointment::class, 'createFromDiscriminatorValue'])),
+            'watermarkProtection' => fn(ParseNode $n) => $o->setWatermarkProtection($n->getObjectValue([WatermarkProtectionValues::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -213,7 +214,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
+     * Gets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
      * @return JoinMeetingIdSettings|null
     */
     public function getJoinMeetingIdSettings(): ?JoinMeetingIdSettings {
@@ -325,6 +326,14 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
+     * Gets the watermarkProtection property value. The watermarkProtection property
+     * @return WatermarkProtectionValues|null
+    */
+    public function getWatermarkProtection(): ?WatermarkProtectionValues {
+        return $this->getBackingStore()->get('watermarkProtection');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -362,6 +371,7 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('transcripts', $this->getTranscripts());
         $writer->writeStringValue('videoTeleconferenceId', $this->getVideoTeleconferenceId());
         $writer->writeObjectValue('virtualAppointment', $this->getVirtualAppointment());
+        $writer->writeObjectValue('watermarkProtection', $this->getWatermarkProtection());
     }
 
     /**
@@ -509,7 +519,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
+     * Sets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
      *  @param JoinMeetingIdSettings|null $value Value to set for the joinMeetingIdSettings property.
     */
     public function setJoinMeetingIdSettings(?JoinMeetingIdSettings $value): void {
@@ -618,6 +628,14 @@ class OnlineMeeting extends Entity implements Parsable
     */
     public function setVirtualAppointment(?VirtualAppointment $value): void {
         $this->getBackingStore()->set('virtualAppointment', $value);
+    }
+
+    /**
+     * Sets the watermarkProtection property value. The watermarkProtection property
+     *  @param WatermarkProtectionValues|null $value Value to set for the watermarkProtection property.
+    */
+    public function setWatermarkProtection(?WatermarkProtectionValues $value): void {
+        $this->getBackingStore()->set('watermarkProtection', $value);
     }
 
 }

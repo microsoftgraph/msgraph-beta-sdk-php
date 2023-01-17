@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JobResponseBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new JobResponseBase and sets the default values.
+     * Instantiates a new jobResponseBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

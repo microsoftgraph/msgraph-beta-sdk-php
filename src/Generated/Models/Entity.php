@@ -336,6 +336,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.attachment': return new Attachment();
                 case '#microsoft.graph.attachmentBase': return new AttachmentBase();
                 case '#microsoft.graph.attachmentSession': return new AttachmentSession();
+                case '#microsoft.graph.attackSimulationOperation': return new AttackSimulationOperation();
                 case '#microsoft.graph.attackSimulationRoot': return new AttackSimulationRoot();
                 case '#microsoft.graph.attendanceRecord': return new AttendanceRecord();
                 case '#microsoft.graph.attributeMappingFunctionSchema': return new AttributeMappingFunctionSchema();
@@ -1109,6 +1110,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.participantLeftNotification': return new ParticipantLeftNotification();
                 case '#microsoft.graph.passwordAuthenticationMethod': return new PasswordAuthenticationMethod();
                 case '#microsoft.graph.passwordlessMicrosoftAuthenticatorAuthenticationMethod': return new PasswordlessMicrosoftAuthenticatorAuthenticationMethod();
+                case '#microsoft.graph.payload': return new Payload();
                 case '#microsoft.graph.payloadCompatibleAssignmentFilter': return new PayloadCompatibleAssignmentFilter();
                 case '#microsoft.graph.payloadResponse': return new PayloadResponse();
                 case '#microsoft.graph.paymentMethod': return new PaymentMethod();
@@ -1172,6 +1174,17 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.printUsageByPrinter': return new PrintUsageByPrinter();
                 case '#microsoft.graph.printUsageByUser': return new PrintUsageByUser();
                 case '#microsoft.graph.privilegedAccess': return new PrivilegedAccess();
+                case '#microsoft.graph.privilegedAccessGroup': return new PrivilegedAccessGroup();
+                case '#microsoft.graph.privilegedAccessGroupAssignmentSchedule': return new PrivilegedAccessGroupAssignmentSchedule();
+                case '#microsoft.graph.privilegedAccessGroupAssignmentScheduleInstance': return new PrivilegedAccessGroupAssignmentScheduleInstance();
+                case '#microsoft.graph.privilegedAccessGroupAssignmentScheduleRequest': return new PrivilegedAccessGroupAssignmentScheduleRequest();
+                case '#microsoft.graph.privilegedAccessGroupEligibilitySchedule': return new PrivilegedAccessGroupEligibilitySchedule();
+                case '#microsoft.graph.privilegedAccessGroupEligibilityScheduleInstance': return new PrivilegedAccessGroupEligibilityScheduleInstance();
+                case '#microsoft.graph.privilegedAccessGroupEligibilityScheduleRequest': return new PrivilegedAccessGroupEligibilityScheduleRequest();
+                case '#microsoft.graph.privilegedAccessRoot': return new PrivilegedAccessRoot();
+                case '#microsoft.graph.privilegedAccessSchedule': return new PrivilegedAccessSchedule();
+                case '#microsoft.graph.privilegedAccessScheduleInstance': return new PrivilegedAccessScheduleInstance();
+                case '#microsoft.graph.privilegedAccessScheduleRequest': return new PrivilegedAccessScheduleRequest();
                 case '#microsoft.graph.privilegedApproval': return new PrivilegedApproval();
                 case '#microsoft.graph.privilegedOperationEvent': return new PrivilegedOperationEvent();
                 case '#microsoft.graph.privilegedRole': return new PrivilegedRole();
@@ -1330,7 +1343,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.shift': return new Shift();
                 case '#microsoft.graph.shiftPreferences': return new ShiftPreferences();
                 case '#microsoft.graph.shipmentMethod': return new ShipmentMethod();
-                case '#microsoft.graph.sideLoadingKey': return new SideLoadingKey();
                 case '#microsoft.graph.signIn': return new SignIn();
                 case '#microsoft.graph.simulation': return new Simulation();
                 case '#microsoft.graph.simulationAutomation': return new SimulationAutomation();
@@ -1399,7 +1411,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.tenantAdmin.sharepoint': return new Sharepoint();
                 case '#microsoft.graph.tenantAppManagementPolicy': return new TenantAppManagementPolicy();
                 case '#microsoft.graph.tenantAttachRBAC': return new TenantAttachRBAC();
-                case '#microsoft.graph.tenantRelationship': return new TenantRelationship();
                 case '#microsoft.graph.tenantRelationshipAccessPolicyBase': return new TenantRelationshipAccessPolicyBase();
                 case '#microsoft.graph.tenantSetupInfo': return new TenantSetupInfo();
                 case '#microsoft.graph.termsAndConditions': return new TermsAndConditions();
@@ -1496,6 +1507,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.userExperienceAnalyticsDeviceStartupHistory': return new UserExperienceAnalyticsDeviceStartupHistory();
                 case '#microsoft.graph.userExperienceAnalyticsDeviceStartupProcess': return new UserExperienceAnalyticsDeviceStartupProcess();
                 case '#microsoft.graph.userExperienceAnalyticsDeviceStartupProcessPerformance': return new UserExperienceAnalyticsDeviceStartupProcessPerformance();
+                case '#microsoft.graph.userExperienceAnalyticsDeviceTimelineEvents': return new UserExperienceAnalyticsDeviceTimelineEvents();
                 case '#microsoft.graph.userExperienceAnalyticsDeviceWithoutCloudIdentity': return new UserExperienceAnalyticsDeviceWithoutCloudIdentity();
                 case '#microsoft.graph.userExperienceAnalyticsImpactingProcess': return new UserExperienceAnalyticsImpactingProcess();
                 case '#microsoft.graph.userExperienceAnalyticsMetric': return new UserExperienceAnalyticsMetric();

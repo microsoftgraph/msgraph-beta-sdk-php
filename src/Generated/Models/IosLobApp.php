@@ -69,18 +69,9 @@ class IosLobApp extends MobileLobApp implements Parsable
             'buildNumber' => fn(ParseNode $n) => $o->setBuildNumber($n->getStringValue()),
             'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
-            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
             'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([IosMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
             'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getStringValue()),
         ]);
-    }
-
-    /**
-     * Gets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022)
-     * @return string|null
-    */
-    public function getIdentityVersion(): ?string {
-        return $this->getBackingStore()->get('identityVersion');
     }
 
     /**
@@ -109,7 +100,6 @@ class IosLobApp extends MobileLobApp implements Parsable
         $writer->writeStringValue('buildNumber', $this->getBuildNumber());
         $writer->writeStringValue('bundleId', $this->getBundleId());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
-        $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
         $writer->writeStringValue('versionNumber', $this->getVersionNumber());
     }
@@ -144,14 +134,6 @@ class IosLobApp extends MobileLobApp implements Parsable
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
-    }
-
-    /**
-     * Sets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022)
-     *  @param string|null $value Value to set for the identityVersion property.
-    */
-    public function setIdentityVersion(?string $value): void {
-        $this->getBackingStore()->set('identityVersion', $value);
     }
 
     /**

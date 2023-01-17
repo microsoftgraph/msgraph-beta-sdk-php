@@ -51,7 +51,7 @@ class PlannerPlanConfigurationBucketDefinition implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the externalBucketId property value. The externalBucketId property
+     * Gets the externalBucketId property value. Application-specified identifier of the bucket.
      * @return string|null
     */
     public function getExternalBucketId(): ?string {
@@ -105,7 +105,7 @@ class PlannerPlanConfigurationBucketDefinition implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the externalBucketId property value. The externalBucketId property
+     * Sets the externalBucketId property value. Application-specified identifier of the bucket.
      *  @param string|null $value Value to set for the externalBucketId property.
     */
     public function setExternalBucketId(?string $value): void {
