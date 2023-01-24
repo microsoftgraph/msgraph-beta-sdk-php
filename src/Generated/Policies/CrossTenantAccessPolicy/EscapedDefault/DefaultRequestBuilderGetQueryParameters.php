@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\CrossTenantAccessPolicy\Escape
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Azure AD (**isServiceDefault** is `true`) or may be customized in your tenant (**isServiceDefault** is `false`).
+*/
 class DefaultRequestBuilderGetQueryParameters 
 {
     /**

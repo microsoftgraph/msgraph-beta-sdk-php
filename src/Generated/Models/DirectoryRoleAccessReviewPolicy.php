@@ -54,7 +54,7 @@ class DirectoryRoleAccessReviewPolicy extends Entity implements Parsable
 
     /**
      * Sets the settings property value. The settings property
-     *  @param AccessReviewScheduleSettings|null $value Value to set for the settings property.
+     * @param AccessReviewScheduleSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?AccessReviewScheduleSettings $value): void {
         $this->getBackingStore()->set('settings', $value);

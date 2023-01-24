@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The minimum operating system required for a Windows mobile app.
+*/
 class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -210,7 +213,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -218,7 +221,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -226,7 +229,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -234,7 +237,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_0 property value. Windows version 10.0 or later.
-     *  @param bool|null $value Value to set for the v10_0 property.
+     * @param bool|null $value Value to set for the v10_0 property.
     */
     public function setV10_0(?bool $value): void {
         $this->getBackingStore()->set('v10_0', $value);
@@ -242,7 +245,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_1607 property value. Windows 10 1607 or later.
-     *  @param bool|null $value Value to set for the v10_1607 property.
+     * @param bool|null $value Value to set for the v10_1607 property.
     */
     public function setV10_1607(?bool $value): void {
         $this->getBackingStore()->set('v10_1607', $value);
@@ -250,7 +253,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_1703 property value. Windows 10 1703 or later.
-     *  @param bool|null $value Value to set for the v10_1703 property.
+     * @param bool|null $value Value to set for the v10_1703 property.
     */
     public function setV10_1703(?bool $value): void {
         $this->getBackingStore()->set('v10_1703', $value);
@@ -258,7 +261,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_1709 property value. Windows 10 1709 or later.
-     *  @param bool|null $value Value to set for the v10_1709 property.
+     * @param bool|null $value Value to set for the v10_1709 property.
     */
     public function setV10_1709(?bool $value): void {
         $this->getBackingStore()->set('v10_1709', $value);
@@ -266,7 +269,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_1803 property value. Windows 10 1803 or later.
-     *  @param bool|null $value Value to set for the v10_1803 property.
+     * @param bool|null $value Value to set for the v10_1803 property.
     */
     public function setV10_1803(?bool $value): void {
         $this->getBackingStore()->set('v10_1803', $value);
@@ -274,7 +277,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_1809 property value. Windows 10 1809 or later.
-     *  @param bool|null $value Value to set for the v10_1809 property.
+     * @param bool|null $value Value to set for the v10_1809 property.
     */
     public function setV10_1809(?bool $value): void {
         $this->getBackingStore()->set('v10_1809', $value);
@@ -282,7 +285,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_1903 property value. Windows 10 1903 or later.
-     *  @param bool|null $value Value to set for the v10_1903 property.
+     * @param bool|null $value Value to set for the v10_1903 property.
     */
     public function setV10_1903(?bool $value): void {
         $this->getBackingStore()->set('v10_1903', $value);
@@ -290,7 +293,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_1909 property value. Windows 10 1909 or later.
-     *  @param bool|null $value Value to set for the v10_1909 property.
+     * @param bool|null $value Value to set for the v10_1909 property.
     */
     public function setV10_1909(?bool $value): void {
         $this->getBackingStore()->set('v10_1909', $value);
@@ -298,7 +301,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_2004 property value. Windows 10 2004 or later.
-     *  @param bool|null $value Value to set for the v10_2004 property.
+     * @param bool|null $value Value to set for the v10_2004 property.
     */
     public function setV10_2004(?bool $value): void {
         $this->getBackingStore()->set('v10_2004', $value);
@@ -306,7 +309,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_21H1 property value. Windows 10 21H1 or later.
-     *  @param bool|null $value Value to set for the v10_21H1 property.
+     * @param bool|null $value Value to set for the v10_21H1 property.
     */
     public function setV10_21H1(?bool $value): void {
         $this->getBackingStore()->set('v10_21H1', $value);
@@ -314,7 +317,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v10_2H20 property value. Windows 10 2H20 or later.
-     *  @param bool|null $value Value to set for the v10_2H20 property.
+     * @param bool|null $value Value to set for the v10_2H20 property.
     */
     public function setV10_2H20(?bool $value): void {
         $this->getBackingStore()->set('v10_2H20', $value);
@@ -322,7 +325,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v8_0 property value. Windows version 8.0 or later.
-     *  @param bool|null $value Value to set for the v8_0 property.
+     * @param bool|null $value Value to set for the v8_0 property.
     */
     public function setV8_0(?bool $value): void {
         $this->getBackingStore()->set('v8_0', $value);
@@ -330,7 +333,7 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the v8_1 property value. Windows version 8.1 or later.
-     *  @param bool|null $value Value to set for the v8_1 property.
+     * @param bool|null $value Value to set for the v8_1 property.
     */
     public function setV8_1(?bool $value): void {
         $this->getBackingStore()->set('v8_1', $value);

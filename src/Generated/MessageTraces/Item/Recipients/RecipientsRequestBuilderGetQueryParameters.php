@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\MessageTraces\Item\Recipients;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get recipients from messageTraces
+*/
 class RecipientsRequestBuilderGetQueryParameters 
 {
     /**

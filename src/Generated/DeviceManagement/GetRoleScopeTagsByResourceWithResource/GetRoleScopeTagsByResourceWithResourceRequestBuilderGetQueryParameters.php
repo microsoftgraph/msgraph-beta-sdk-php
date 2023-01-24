@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByReso
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getRoleScopeTagsByResource
+*/
 class GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters 
 {
     /**

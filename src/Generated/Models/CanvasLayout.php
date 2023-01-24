@@ -64,7 +64,7 @@ class CanvasLayout extends Entity implements Parsable
 
     /**
      * Sets the horizontalSections property value. Collection of horizontal sections on the SharePoint page.
-     *  @param array<HorizontalSection>|null $value Value to set for the horizontalSections property.
+     * @param array<HorizontalSection>|null $value Value to set for the horizontalSections property.
     */
     public function setHorizontalSections(?array $value): void {
         $this->getBackingStore()->set('horizontalSections', $value);
@@ -72,7 +72,7 @@ class CanvasLayout extends Entity implements Parsable
 
     /**
      * Sets the verticalSection property value. Vertical section on the SharePoint page.
-     *  @param VerticalSection|null $value Value to set for the verticalSection property.
+     * @param VerticalSection|null $value Value to set for the verticalSection property.
     */
     public function setVerticalSection(?VerticalSection $value): void {
         $this->getBackingStore()->set('verticalSection', $value);

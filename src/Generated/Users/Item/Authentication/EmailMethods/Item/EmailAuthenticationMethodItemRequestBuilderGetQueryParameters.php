@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\EmailMethods\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the email addresses registered to a user for authentication.
+*/
 class EmailAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {
     /**

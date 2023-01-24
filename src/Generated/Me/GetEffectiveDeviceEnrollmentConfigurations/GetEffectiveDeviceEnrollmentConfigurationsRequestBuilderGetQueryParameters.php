@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\GetEffectiveDeviceEnrollmentConfigur
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getEffectiveDeviceEnrollmentConfigurations
+*/
 class GetEffectiveDeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters 
 {
     /**

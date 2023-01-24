@@ -55,7 +55,7 @@ class WindowsDeploymentSettings extends DeploymentSettings implements Parsable
 
     /**
      * Sets the userExperience property value. Settings governing the user's update experience on a device.
-     *  @param UserExperienceSettings|null $value Value to set for the userExperience property.
+     * @param UserExperienceSettings|null $value Value to set for the userExperience property.
     */
     public function setUserExperience(?UserExperienceSettings $value): void {
         $this->getBackingStore()->set('userExperience', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\DeletedItems;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get deletedItems from directory
+*/
 class DeletedItemsRequestBuilderGetQueryParameters 
 {
     /**

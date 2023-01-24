@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ListItem\Activit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get driveItem from drives
+*/
 class DriveItemRequestBuilderGetQueryParameters 
 {
     /**

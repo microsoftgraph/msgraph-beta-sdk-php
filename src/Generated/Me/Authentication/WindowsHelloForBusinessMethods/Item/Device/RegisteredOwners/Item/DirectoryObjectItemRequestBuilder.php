@@ -8,6 +8,9 @@ use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMeth
 use Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusinessMethods\Item\Device\RegisteredOwners\Item\User\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /me/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod-id}/device/registeredOwners/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**

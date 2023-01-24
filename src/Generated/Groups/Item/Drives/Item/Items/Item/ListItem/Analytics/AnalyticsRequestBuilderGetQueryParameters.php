@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\List
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Analytics about the view activities that took place on this item.
+*/
 class AnalyticsRequestBuilderGetQueryParameters 
 {
     /**

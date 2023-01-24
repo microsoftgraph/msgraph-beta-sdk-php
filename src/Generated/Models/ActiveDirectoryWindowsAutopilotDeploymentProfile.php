@@ -65,7 +65,7 @@ class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotD
 
     /**
      * Sets the domainJoinConfiguration property value. Configuration to join Active Directory domain
-     *  @param WindowsDomainJoinConfiguration|null $value Value to set for the domainJoinConfiguration property.
+     * @param WindowsDomainJoinConfiguration|null $value Value to set for the domainJoinConfiguration property.
     */
     public function setDomainJoinConfiguration(?WindowsDomainJoinConfiguration $value): void {
         $this->getBackingStore()->set('domainJoinConfiguration', $value);
@@ -73,7 +73,7 @@ class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotD
 
     /**
      * Sets the hybridAzureADJoinSkipConnectivityCheck property value. The Autopilot Hybrid Azure AD join flow will continue even if it does not establish domain controller connectivity during OOBE.
-     *  @param bool|null $value Value to set for the hybridAzureADJoinSkipConnectivityCheck property.
+     * @param bool|null $value Value to set for the hybridAzureADJoinSkipConnectivityCheck property.
     */
     public function setHybridAzureADJoinSkipConnectivityCheck(?bool $value): void {
         $this->getBackingStore()->set('hybridAzureADJoinSkipConnectivityCheck', $value);

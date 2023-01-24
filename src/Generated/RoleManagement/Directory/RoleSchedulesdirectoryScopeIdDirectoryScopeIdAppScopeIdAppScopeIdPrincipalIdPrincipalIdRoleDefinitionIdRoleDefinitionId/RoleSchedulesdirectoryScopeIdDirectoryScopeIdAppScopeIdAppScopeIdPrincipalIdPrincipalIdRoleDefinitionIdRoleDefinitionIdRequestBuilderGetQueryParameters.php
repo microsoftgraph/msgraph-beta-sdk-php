@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleSchedulesd
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function roleSchedules
+*/
 class RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilderGetQueryParameters 
 {
     /**

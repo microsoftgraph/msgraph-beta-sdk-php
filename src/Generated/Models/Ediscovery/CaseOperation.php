@@ -131,7 +131,7 @@ class CaseOperation extends Entity implements Parsable
 
     /**
      * Sets the action property value. The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
-     *  @param CaseAction|null $value Value to set for the action property.
+     * @param CaseAction|null $value Value to set for the action property.
     */
     public function setAction(?CaseAction $value): void {
         $this->getBackingStore()->set('action', $value);
@@ -139,7 +139,7 @@ class CaseOperation extends Entity implements Parsable
 
     /**
      * Sets the completedDateTime property value. The date and time the operation was completed.
-     *  @param DateTime|null $value Value to set for the completedDateTime property.
+     * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
@@ -147,7 +147,7 @@ class CaseOperation extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The user that created the operation.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -155,7 +155,7 @@ class CaseOperation extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the operation was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -163,7 +163,7 @@ class CaseOperation extends Entity implements Parsable
 
     /**
      * Sets the percentProgress property value. The progress of the operation.
-     *  @param int|null $value Value to set for the percentProgress property.
+     * @param int|null $value Value to set for the percentProgress property.
     */
     public function setPercentProgress(?int $value): void {
         $this->getBackingStore()->set('percentProgress', $value);
@@ -171,7 +171,7 @@ class CaseOperation extends Entity implements Parsable
 
     /**
      * Sets the resultInfo property value. Contains success and failure-specific result information.
-     *  @param ResultInfo|null $value Value to set for the resultInfo property.
+     * @param ResultInfo|null $value Value to set for the resultInfo property.
     */
     public function setResultInfo(?ResultInfo $value): void {
         $this->getBackingStore()->set('resultInfo', $value);
@@ -179,7 +179,7 @@ class CaseOperation extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
-     *  @param CaseOperationStatus|null $value Value to set for the status property.
+     * @param CaseOperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CaseOperationStatus $value): void {
         $this->getBackingStore()->set('status', $value);

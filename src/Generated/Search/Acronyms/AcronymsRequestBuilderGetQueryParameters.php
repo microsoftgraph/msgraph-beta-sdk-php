@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Search\Acronyms;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the acronym objects and their properties.
+*/
 class AcronymsRequestBuilderGetQueryParameters 
 {
     /**

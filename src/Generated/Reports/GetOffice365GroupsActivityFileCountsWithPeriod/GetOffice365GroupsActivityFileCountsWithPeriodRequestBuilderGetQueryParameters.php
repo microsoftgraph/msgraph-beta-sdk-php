@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetOffice365GroupsActivityFileC
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getOffice365GroupsActivityFileCounts
+*/
 class GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetQueryParameters 
 {
     /**

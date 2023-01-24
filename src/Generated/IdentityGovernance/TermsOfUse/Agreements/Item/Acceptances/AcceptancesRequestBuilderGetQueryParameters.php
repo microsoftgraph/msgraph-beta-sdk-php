@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreement
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the details about the acceptance records for a specific agreement.
+*/
 class AcceptancesRequestBuilderGetQueryParameters 
 {
     /**

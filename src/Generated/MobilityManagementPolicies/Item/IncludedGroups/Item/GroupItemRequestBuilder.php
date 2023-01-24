@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\Include
 use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /mobilityManagementPolicies/{mobilityManagementPolicy-id}/includedGroups/{group-id}
+*/
 class GroupItemRequestBuilder 
 {
     /**

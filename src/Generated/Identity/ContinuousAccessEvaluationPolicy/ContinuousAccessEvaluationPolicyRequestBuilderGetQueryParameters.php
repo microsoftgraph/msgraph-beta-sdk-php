@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ContinuousAccessEvaluationPoli
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of a continuousAccessEvaluationPolicy object.
+*/
 class ContinuousAccessEvaluationPolicyRequestBuilderGetQueryParameters 
 {
     /**

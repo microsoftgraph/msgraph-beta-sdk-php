@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\WindowsHelloF
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get responsepayload from users
+*/
 class ResponsepayloadRequestBuilderGetQueryParameters 
 {
     /**

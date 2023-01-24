@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Triggers\RetentionEvents\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get retentionEvents from security
+*/
 class RetentionEventItemRequestBuilderGetQueryParameters 
 {
     /**

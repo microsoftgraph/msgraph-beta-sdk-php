@@ -110,7 +110,7 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -134,7 +134,7 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the reasons property value. Specifies the reasons the deployment has its state value. Read-only.
-     *  @param array<DeploymentStateReason>|null $value Value to set for the reasons property.
+     * @param array<DeploymentStateReason>|null $value Value to set for the reasons property.
     */
     public function setReasons(?array $value): void {
         $this->getBackingStore()->set('reasons', $value);
@@ -142,7 +142,7 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the requestedValue property value. The requestedValue property
-     *  @param RequestedDeploymentStateValue|null $value Value to set for the requestedValue property.
+     * @param RequestedDeploymentStateValue|null $value Value to set for the requestedValue property.
     */
     public function setRequestedValue(?RequestedDeploymentStateValue $value): void {
         $this->getBackingStore()->set('requestedValue', $value);
@@ -150,7 +150,7 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the value property value. The value property
-     *  @param DeploymentStateValue|null $value Value to set for the value property.
+     * @param DeploymentStateValue|null $value Value to set for the value property.
     */
     public function setValue(?DeploymentStateValue $value): void {
         $this->getBackingStore()->set('value', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function findByMethodMode
+*/
 class FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the list of channels either in this team or shared with this team (incoming channels).
+*/
 class AllChannelsRequestBuilderGetQueryParameters 
 {
     /**

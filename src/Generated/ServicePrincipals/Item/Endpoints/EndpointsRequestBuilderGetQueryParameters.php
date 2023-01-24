@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Endpoints;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences.
+*/
 class EndpointsRequestBuilderGetQueryParameters 
 {
     /**

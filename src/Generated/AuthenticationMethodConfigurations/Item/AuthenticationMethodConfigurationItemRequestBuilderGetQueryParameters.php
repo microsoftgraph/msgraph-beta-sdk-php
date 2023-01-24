@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AuthenticationMethodConfigurations\Item
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from authenticationMethodConfigurations by key (id)
+*/
 class AuthenticationMethodConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**

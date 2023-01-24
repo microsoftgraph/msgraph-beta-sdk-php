@@ -125,7 +125,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
 
     /**
      * Sets the categories property value. Contains categories a user has associated with the project (for example, digital transformation, oil rig).
-     *  @param array<string>|null $value Value to set for the categories property.
+     * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -133,7 +133,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
 
     /**
      * Sets the client property value. Contains detailed information about the client the project was for.
-     *  @param CompanyDetail|null $value Value to set for the client property.
+     * @param CompanyDetail|null $value Value to set for the client property.
     */
     public function setClient(?CompanyDetail $value): void {
         $this->getBackingStore()->set('client', $value);
@@ -141,7 +141,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
 
     /**
      * Sets the collaborationTags property value. Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
-     *  @param array<string>|null $value Value to set for the collaborationTags property.
+     * @param array<string>|null $value Value to set for the collaborationTags property.
     */
     public function setCollaborationTags(?array $value): void {
         $this->getBackingStore()->set('collaborationTags', $value);
@@ -149,7 +149,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
 
     /**
      * Sets the colleagues property value. Lists people that also worked on the project.
-     *  @param array<RelatedPerson>|null $value Value to set for the colleagues property.
+     * @param array<RelatedPerson>|null $value Value to set for the colleagues property.
     */
     public function setColleagues(?array $value): void {
         $this->getBackingStore()->set('colleagues', $value);
@@ -157,7 +157,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
 
     /**
      * Sets the detail property value. Contains detail about the user's role on the project.
-     *  @param PositionDetail|null $value Value to set for the detail property.
+     * @param PositionDetail|null $value Value to set for the detail property.
     */
     public function setDetail(?PositionDetail $value): void {
         $this->getBackingStore()->set('detail', $value);
@@ -165,7 +165,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Contains a friendly name for the project.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -173,7 +173,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
 
     /**
      * Sets the sponsors property value. The Person or people who sponsored the project.
-     *  @param array<RelatedPerson>|null $value Value to set for the sponsors property.
+     * @param array<RelatedPerson>|null $value Value to set for the sponsors property.
     */
     public function setSponsors(?array $value): void {
         $this->getBackingStore()->set('sponsors', $value);
@@ -181,7 +181,7 @@ class ProjectParticipation extends ItemFacet implements Parsable
 
     /**
      * Sets the thumbnailUrl property value. The thumbnailUrl property
-     *  @param string|null $value Value to set for the thumbnailUrl property.
+     * @param string|null $value Value to set for the thumbnailUrl property.
     */
     public function setThumbnailUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailUrl', $value);

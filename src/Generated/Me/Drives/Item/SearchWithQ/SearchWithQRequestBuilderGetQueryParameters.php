@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Drives\Item\SearchWithQ;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function search
+*/
 class SearchWithQRequestBuilderGetQueryParameters 
 {
     /**

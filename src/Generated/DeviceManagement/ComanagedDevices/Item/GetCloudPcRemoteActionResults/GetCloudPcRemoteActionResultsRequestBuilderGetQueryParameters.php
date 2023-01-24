@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getCloudPcRemoteActionResults
+*/
 class GetCloudPcRemoteActionResultsRequestBuilderGetQueryParameters 
 {
     /**

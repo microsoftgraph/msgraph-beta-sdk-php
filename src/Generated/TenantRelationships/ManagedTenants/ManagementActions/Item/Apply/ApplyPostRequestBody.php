@@ -130,7 +130,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the excludeGroups property value. The excludeGroups property
-     *  @param array<string>|null $value Value to set for the excludeGroups property.
+     * @param array<string>|null $value Value to set for the excludeGroups property.
     */
     public function setExcludeGroups(?array $value): void {
         $this->getBackingStore()->set('excludeGroups', $value);
@@ -154,7 +154,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the includeAllUsers property value. The includeAllUsers property
-     *  @param bool|null $value Value to set for the includeAllUsers property.
+     * @param bool|null $value Value to set for the includeAllUsers property.
     */
     public function setIncludeAllUsers(?bool $value): void {
         $this->getBackingStore()->set('includeAllUsers', $value);
@@ -162,7 +162,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the includeGroups property value. The includeGroups property
-     *  @param array<string>|null $value Value to set for the includeGroups property.
+     * @param array<string>|null $value Value to set for the includeGroups property.
     */
     public function setIncludeGroups(?array $value): void {
         $this->getBackingStore()->set('includeGroups', $value);
@@ -170,7 +170,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the managementTemplateId property value. The managementTemplateId property
-     *  @param string|null $value Value to set for the managementTemplateId property.
+     * @param string|null $value Value to set for the managementTemplateId property.
     */
     public function setManagementTemplateId(?string $value): void {
         $this->getBackingStore()->set('managementTemplateId', $value);
@@ -178,7 +178,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the tenantGroupId property value. The tenantGroupId property
-     *  @param string|null $value Value to set for the tenantGroupId property.
+     * @param string|null $value Value to set for the tenantGroupId property.
     */
     public function setTenantGroupId(?string $value): void {
         $this->getBackingStore()->set('tenantGroupId', $value);
@@ -186,7 +186,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the tenantId property value. The tenantId property
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

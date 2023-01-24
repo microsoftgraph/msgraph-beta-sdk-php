@@ -296,7 +296,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the associatedApps property value. Associated Apps. This collection can contain a maximum of 10000 elements.
-     *  @param array<Windows10AssociatedApps>|null $value Value to set for the associatedApps property.
+     * @param array<Windows10AssociatedApps>|null $value Value to set for the associatedApps property.
     */
     public function setAssociatedApps(?array $value): void {
         $this->getBackingStore()->set('associatedApps', $value);
@@ -304,7 +304,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the authenticationMethod property value. Windows 10 VPN connection types.
-     *  @param Windows10VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param Windows10VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?Windows10VpnAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -312,7 +312,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the connectionType property value. VPN connection types.
-     *  @param Windows10VpnConnectionType|null $value Value to set for the connectionType property.
+     * @param Windows10VpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?Windows10VpnConnectionType $value): void {
         $this->getBackingStore()->set('connectionType', $value);
@@ -320,7 +320,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the cryptographySuite property value. Cryptography Suite security settings for IKEv2 VPN in Windows10 and above
-     *  @param CryptographySuite|null $value Value to set for the cryptographySuite property.
+     * @param CryptographySuite|null $value Value to set for the cryptographySuite property.
     */
     public function setCryptographySuite(?CryptographySuite $value): void {
         $this->getBackingStore()->set('cryptographySuite', $value);
@@ -328,7 +328,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the dnsRules property value. DNS rules. This collection can contain a maximum of 1000 elements.
-     *  @param array<VpnDnsRule>|null $value Value to set for the dnsRules property.
+     * @param array<VpnDnsRule>|null $value Value to set for the dnsRules property.
     */
     public function setDnsRules(?array $value): void {
         $this->getBackingStore()->set('dnsRules', $value);
@@ -336,7 +336,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the dnsSuffixes property value. Specify DNS suffixes to add to the DNS search list to properly route short names.
-     *  @param array<string>|null $value Value to set for the dnsSuffixes property.
+     * @param array<string>|null $value Value to set for the dnsSuffixes property.
     */
     public function setDnsSuffixes(?array $value): void {
         $this->getBackingStore()->set('dnsSuffixes', $value);
@@ -344,7 +344,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the eapXml property value. Extensible Authentication Protocol (EAP) XML. (UTF8 encoded byte array)
-     *  @param StreamInterface|null $value Value to set for the eapXml property.
+     * @param StreamInterface|null $value Value to set for the eapXml property.
     */
     public function setEapXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('eapXml', $value);
@@ -352,7 +352,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the enableAlwaysOn property value. Enable Always On mode.
-     *  @param bool|null $value Value to set for the enableAlwaysOn property.
+     * @param bool|null $value Value to set for the enableAlwaysOn property.
     */
     public function setEnableAlwaysOn(?bool $value): void {
         $this->getBackingStore()->set('enableAlwaysOn', $value);
@@ -360,7 +360,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the enableConditionalAccess property value. Enable conditional access.
-     *  @param bool|null $value Value to set for the enableConditionalAccess property.
+     * @param bool|null $value Value to set for the enableConditionalAccess property.
     */
     public function setEnableConditionalAccess(?bool $value): void {
         $this->getBackingStore()->set('enableConditionalAccess', $value);
@@ -368,7 +368,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the enableDeviceTunnel property value. Enable device tunnel.
-     *  @param bool|null $value Value to set for the enableDeviceTunnel property.
+     * @param bool|null $value Value to set for the enableDeviceTunnel property.
     */
     public function setEnableDeviceTunnel(?bool $value): void {
         $this->getBackingStore()->set('enableDeviceTunnel', $value);
@@ -376,7 +376,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the enableDnsRegistration property value. Enable IP address registration with internal DNS.
-     *  @param bool|null $value Value to set for the enableDnsRegistration property.
+     * @param bool|null $value Value to set for the enableDnsRegistration property.
     */
     public function setEnableDnsRegistration(?bool $value): void {
         $this->getBackingStore()->set('enableDnsRegistration', $value);
@@ -384,7 +384,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the enableSingleSignOnWithAlternateCertificate property value. Enable single sign-on (SSO) with alternate certificate.
-     *  @param bool|null $value Value to set for the enableSingleSignOnWithAlternateCertificate property.
+     * @param bool|null $value Value to set for the enableSingleSignOnWithAlternateCertificate property.
     */
     public function setEnableSingleSignOnWithAlternateCertificate(?bool $value): void {
         $this->getBackingStore()->set('enableSingleSignOnWithAlternateCertificate', $value);
@@ -392,7 +392,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the enableSplitTunneling property value. Enable split tunneling.
-     *  @param bool|null $value Value to set for the enableSplitTunneling property.
+     * @param bool|null $value Value to set for the enableSplitTunneling property.
     */
     public function setEnableSplitTunneling(?bool $value): void {
         $this->getBackingStore()->set('enableSplitTunneling', $value);
@@ -400,7 +400,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
-     *  @param WindowsCertificateProfileBase|null $value Value to set for the identityCertificate property.
+     * @param WindowsCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
     public function setIdentityCertificate(?WindowsCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
@@ -408,7 +408,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the microsoftTunnelSiteId property value. ID of the Microsoft Tunnel site associated with the VPN profile.
-     *  @param string|null $value Value to set for the microsoftTunnelSiteId property.
+     * @param string|null $value Value to set for the microsoftTunnelSiteId property.
     */
     public function setMicrosoftTunnelSiteId(?string $value): void {
         $this->getBackingStore()->set('microsoftTunnelSiteId', $value);
@@ -416,7 +416,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the onlyAssociatedAppsCanUseConnection property value. Only associated Apps can use connection (per-app VPN).
-     *  @param bool|null $value Value to set for the onlyAssociatedAppsCanUseConnection property.
+     * @param bool|null $value Value to set for the onlyAssociatedAppsCanUseConnection property.
     */
     public function setOnlyAssociatedAppsCanUseConnection(?bool $value): void {
         $this->getBackingStore()->set('onlyAssociatedAppsCanUseConnection', $value);
@@ -424,7 +424,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the profileTarget property value. Profile target type. Possible values are: user, device, autoPilotDevice.
-     *  @param Windows10VpnProfileTarget|null $value Value to set for the profileTarget property.
+     * @param Windows10VpnProfileTarget|null $value Value to set for the profileTarget property.
     */
     public function setProfileTarget(?Windows10VpnProfileTarget $value): void {
         $this->getBackingStore()->set('profileTarget', $value);
@@ -432,7 +432,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the proxyServer property value. Proxy Server.
-     *  @param Windows10VpnProxyServer|null $value Value to set for the proxyServer property.
+     * @param Windows10VpnProxyServer|null $value Value to set for the proxyServer property.
     */
     public function setProxyServer(?Windows10VpnProxyServer $value): void {
         $this->getBackingStore()->set('proxyServer', $value);
@@ -440,7 +440,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the rememberUserCredentials property value. Remember user credentials.
-     *  @param bool|null $value Value to set for the rememberUserCredentials property.
+     * @param bool|null $value Value to set for the rememberUserCredentials property.
     */
     public function setRememberUserCredentials(?bool $value): void {
         $this->getBackingStore()->set('rememberUserCredentials', $value);
@@ -448,7 +448,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the routes property value. Routes (optional for third-party providers). This collection can contain a maximum of 1000 elements.
-     *  @param array<VpnRoute>|null $value Value to set for the routes property.
+     * @param array<VpnRoute>|null $value Value to set for the routes property.
     */
     public function setRoutes(?array $value): void {
         $this->getBackingStore()->set('routes', $value);
@@ -456,7 +456,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the singleSignOnEku property value. Single sign-on Extended Key Usage (EKU).
-     *  @param ExtendedKeyUsage|null $value Value to set for the singleSignOnEku property.
+     * @param ExtendedKeyUsage|null $value Value to set for the singleSignOnEku property.
     */
     public function setSingleSignOnEku(?ExtendedKeyUsage $value): void {
         $this->getBackingStore()->set('singleSignOnEku', $value);
@@ -464,7 +464,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the singleSignOnIssuerHash property value. Single sign-on issuer hash.
-     *  @param string|null $value Value to set for the singleSignOnIssuerHash property.
+     * @param string|null $value Value to set for the singleSignOnIssuerHash property.
     */
     public function setSingleSignOnIssuerHash(?string $value): void {
         $this->getBackingStore()->set('singleSignOnIssuerHash', $value);
@@ -472,7 +472,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the trafficRules property value. Traffic rules. This collection can contain a maximum of 1000 elements.
-     *  @param array<VpnTrafficRule>|null $value Value to set for the trafficRules property.
+     * @param array<VpnTrafficRule>|null $value Value to set for the trafficRules property.
     */
     public function setTrafficRules(?array $value): void {
         $this->getBackingStore()->set('trafficRules', $value);
@@ -480,7 +480,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the trustedNetworkDomains property value. Trusted Network Domains
-     *  @param array<string>|null $value Value to set for the trustedNetworkDomains property.
+     * @param array<string>|null $value Value to set for the trustedNetworkDomains property.
     */
     public function setTrustedNetworkDomains(?array $value): void {
         $this->getBackingStore()->set('trustedNetworkDomains', $value);
@@ -488,7 +488,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the windowsInformationProtectionDomain property value. Windows Information Protection (WIP) domain to associate with this connection.
-     *  @param string|null $value Value to set for the windowsInformationProtectionDomain property.
+     * @param string|null $value Value to set for the windowsInformationProtectionDomain property.
     */
     public function setWindowsInformationProtectionDomain(?string $value): void {
         $this->getBackingStore()->set('windowsInformationProtectionDomain', $value);

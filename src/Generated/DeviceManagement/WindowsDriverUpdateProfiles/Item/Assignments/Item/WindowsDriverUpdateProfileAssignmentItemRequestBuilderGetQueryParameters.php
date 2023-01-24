@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdatePro
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of group assignments of the profile.
+*/
 class WindowsDriverUpdateProfileAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**

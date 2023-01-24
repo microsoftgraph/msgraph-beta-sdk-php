@@ -117,7 +117,7 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -125,7 +125,7 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -133,7 +133,7 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the monitoring property value. Settings governing conditions to monitor and automated actions to take.
-     *  @param MonitoringSettings|null $value Value to set for the monitoring property.
+     * @param MonitoringSettings|null $value Value to set for the monitoring property.
     */
     public function setMonitoring(?MonitoringSettings $value): void {
         $this->getBackingStore()->set('monitoring', $value);
@@ -141,7 +141,7 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -149,7 +149,7 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the rollout property value. Settings governing how the content is rolled out.
-     *  @param RolloutSettings|null $value Value to set for the rollout property.
+     * @param RolloutSettings|null $value Value to set for the rollout property.
     */
     public function setRollout(?RolloutSettings $value): void {
         $this->getBackingStore()->set('rollout', $value);
@@ -157,7 +157,7 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the safeguard property value. Settings governing safeguard holds on offering content.
-     *  @param SafeguardSettings|null $value Value to set for the safeguard property.
+     * @param SafeguardSettings|null $value Value to set for the safeguard property.
     */
     public function setSafeguard(?SafeguardSettings $value): void {
         $this->getBackingStore()->set('safeguard', $value);

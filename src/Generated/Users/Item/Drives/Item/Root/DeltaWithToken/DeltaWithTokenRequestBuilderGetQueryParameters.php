@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Root\DeltaWithTo
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function delta
+*/
 class DeltaWithTokenRequestBuilderGetQueryParameters 
 {
     /**

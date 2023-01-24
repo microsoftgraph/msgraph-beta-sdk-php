@@ -55,7 +55,7 @@ class WindowsWebApp extends MobileApp implements Parsable
 
     /**
      * Sets the appUrl property value. The web app URL.
-     *  @param string|null $value Value to set for the appUrl property.
+     * @param string|null $value Value to set for the appUrl property.
     */
     public function setAppUrl(?string $value): void {
         $this->getBackingStore()->set('appUrl', $value);

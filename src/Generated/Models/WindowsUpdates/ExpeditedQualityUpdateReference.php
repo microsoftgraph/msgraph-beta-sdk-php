@@ -55,7 +55,7 @@ class ExpeditedQualityUpdateReference extends QualityUpdateReference implements 
 
     /**
      * Sets the equivalentContent property value. Specifies other content to consider as equivalent. Supports a subset of the values for equivalentContentOption. Default value is latestSecurity. Possible values are: latestSecurity, unknownFutureValue.
-     *  @param EquivalentContentOption|null $value Value to set for the equivalentContent property.
+     * @param EquivalentContentOption|null $value Value to set for the equivalentContent property.
     */
     public function setEquivalentContent(?EquivalentContentOption $value): void {
         $this->getBackingStore()->set('equivalentContent', $value);

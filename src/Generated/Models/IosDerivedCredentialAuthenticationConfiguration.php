@@ -55,7 +55,7 @@ class IosDerivedCredentialAuthenticationConfiguration extends DeviceConfiguratio
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
-     *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
+     * @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
     public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
         $this->getBackingStore()->set('derivedCredentialSettings', $value);

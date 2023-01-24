@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\G
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getIosAvailableUpdateVersions
+*/
 class GetIosAvailableUpdateVersionsRequestBuilderGetQueryParameters 
 {
     /**

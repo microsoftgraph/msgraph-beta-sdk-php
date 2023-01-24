@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetEmailActivityCo
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class GetEmailActivityCountsWithPeriodRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     

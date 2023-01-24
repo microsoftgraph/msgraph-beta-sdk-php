@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Members\Item;
 use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Members\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /education/classes/{educationClass-id}/members/{educationUser-id}
+*/
 class EducationUserItemRequestBuilder 
 {
     /**

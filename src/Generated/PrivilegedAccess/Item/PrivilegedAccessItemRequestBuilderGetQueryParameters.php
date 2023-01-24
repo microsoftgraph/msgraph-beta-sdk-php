@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from privilegedAccess by key (id)
+*/
 class PrivilegedAccessItemRequestBuilderGetQueryParameters 
 {
     /**

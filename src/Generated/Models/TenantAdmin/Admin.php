@@ -134,7 +134,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -142,7 +142,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -150,7 +150,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the edge property value. A container for Microsoft Edge resources. Read-only.
-     *  @param Edge|null $value Value to set for the edge property.
+     * @param Edge|null $value Value to set for the edge property.
     */
     public function setEdge(?Edge $value): void {
         $this->getBackingStore()->set('edge', $value);
@@ -158,7 +158,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -166,7 +166,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the reportSettings property value. A container for administrative resources to manage reports.
-     *  @param AdminReportSettings|null $value Value to set for the reportSettings property.
+     * @param AdminReportSettings|null $value Value to set for the reportSettings property.
     */
     public function setReportSettings(?AdminReportSettings $value): void {
         $this->getBackingStore()->set('reportSettings', $value);
@@ -174,7 +174,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the serviceAnnouncement property value. A container for service communications resources. Read-only.
-     *  @param ServiceAnnouncement|null $value Value to set for the serviceAnnouncement property.
+     * @param ServiceAnnouncement|null $value Value to set for the serviceAnnouncement property.
     */
     public function setServiceAnnouncement(?ServiceAnnouncement $value): void {
         $this->getBackingStore()->set('serviceAnnouncement', $value);
@@ -182,7 +182,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sharepoint property value. A container for administrative resources to manage tenant-level settings for SharePoint and OneDrive.
-     *  @param Sharepoint|null $value Value to set for the sharepoint property.
+     * @param Sharepoint|null $value Value to set for the sharepoint property.
     */
     public function setSharepoint(?Sharepoint $value): void {
         $this->getBackingStore()->set('sharepoint', $value);
@@ -190,7 +190,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the windows property value. A container for all Windows Update for Business deployment service functionality. Read-only.
-     *  @param Windows|null $value Value to set for the windows property.
+     * @param Windows|null $value Value to set for the windows property.
     */
     public function setWindows(?Windows $value): void {
         $this->getBackingStore()->set('windows', $value);

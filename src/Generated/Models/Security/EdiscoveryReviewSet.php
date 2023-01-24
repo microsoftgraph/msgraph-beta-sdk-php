@@ -65,7 +65,7 @@ class EdiscoveryReviewSet extends DataSet implements Parsable
 
     /**
      * Sets the files property value. Represents files within the review set.
-     *  @param array<EdiscoveryFile>|null $value Value to set for the files property.
+     * @param array<EdiscoveryFile>|null $value Value to set for the files property.
     */
     public function setFiles(?array $value): void {
         $this->getBackingStore()->set('files', $value);
@@ -73,7 +73,7 @@ class EdiscoveryReviewSet extends DataSet implements Parsable
 
     /**
      * Sets the queries property value. Represents queries within the review set.
-     *  @param array<EdiscoveryReviewSetQuery>|null $value Value to set for the queries property.
+     * @param array<EdiscoveryReviewSetQuery>|null $value Value to set for the queries property.
     */
     public function setQueries(?array $value): void {
         $this->getBackingStore()->set('queries', $value);

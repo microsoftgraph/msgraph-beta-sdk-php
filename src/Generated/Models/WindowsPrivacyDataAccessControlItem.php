@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Specify access control level per privacy data category
+*/
 class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable 
 {
     /**
@@ -84,7 +87,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
 
     /**
      * Sets the accessLevel property value. Determine the access level to specific Windows privacy data category.
-     *  @param WindowsPrivacyDataAccessLevel|null $value Value to set for the accessLevel property.
+     * @param WindowsPrivacyDataAccessLevel|null $value Value to set for the accessLevel property.
     */
     public function setAccessLevel(?WindowsPrivacyDataAccessLevel $value): void {
         $this->getBackingStore()->set('accessLevel', $value);
@@ -92,7 +95,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
 
     /**
      * Sets the appDisplayName property value. The Package Family Name of a Windows app. When set, the access level applies to the specified application.
-     *  @param string|null $value Value to set for the appDisplayName property.
+     * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
         $this->getBackingStore()->set('appDisplayName', $value);
@@ -100,7 +103,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
 
     /**
      * Sets the appPackageFamilyName property value. The Package Family Name of a Windows app. When set, the access level applies to the specified application.
-     *  @param string|null $value Value to set for the appPackageFamilyName property.
+     * @param string|null $value Value to set for the appPackageFamilyName property.
     */
     public function setAppPackageFamilyName(?string $value): void {
         $this->getBackingStore()->set('appPackageFamilyName', $value);
@@ -108,7 +111,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
 
     /**
      * Sets the dataCategory property value. Windows privacy data category specifier for privacy data access.
-     *  @param WindowsPrivacyDataCategory|null $value Value to set for the dataCategory property.
+     * @param WindowsPrivacyDataCategory|null $value Value to set for the dataCategory property.
     */
     public function setDataCategory(?WindowsPrivacyDataCategory $value): void {
         $this->getBackingStore()->set('dataCategory', $value);

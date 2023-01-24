@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drive\Items\Item\Children\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
+*/
 class DriveItemItemRequestBuilderGetQueryParameters 
 {
     /**

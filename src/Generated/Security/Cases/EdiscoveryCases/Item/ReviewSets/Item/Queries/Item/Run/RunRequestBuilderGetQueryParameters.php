@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Rev
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function run
+*/
 class RunRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\AssociatedTeams\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of associatedTeamInfo objects that a user is associated with.
+*/
 class AssociatedTeamInfoItemRequestBuilderGetQueryParameters 
 {
     /**

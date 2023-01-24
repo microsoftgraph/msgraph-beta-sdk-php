@@ -55,7 +55,7 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
 
     /**
      * Sets the groupIdSourceOption property value. Possible values for the DeliveryOptimizationGroupIdOptionsType setting.
-     *  @param DeliveryOptimizationGroupIdOptionsType|null $value Value to set for the groupIdSourceOption property.
+     * @param DeliveryOptimizationGroupIdOptionsType|null $value Value to set for the groupIdSourceOption property.
     */
     public function setGroupIdSourceOption(?DeliveryOptimizationGroupIdOptionsType $value): void {
         $this->getBackingStore()->set('groupIdSourceOption', $value);

@@ -95,7 +95,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the license property value. Edition Upgrade License File Content.
-     *  @param string|null $value Value to set for the license property.
+     * @param string|null $value Value to set for the license property.
     */
     public function setLicense(?string $value): void {
         $this->getBackingStore()->set('license', $value);
@@ -103,7 +103,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the licenseType property value. Edition Upgrade License type
-     *  @param EditionUpgradeLicenseType|null $value Value to set for the licenseType property.
+     * @param EditionUpgradeLicenseType|null $value Value to set for the licenseType property.
     */
     public function setLicenseType(?EditionUpgradeLicenseType $value): void {
         $this->getBackingStore()->set('licenseType', $value);
@@ -111,7 +111,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the productKey property value. Edition Upgrade Product Key.
-     *  @param string|null $value Value to set for the productKey property.
+     * @param string|null $value Value to set for the productKey property.
     */
     public function setProductKey(?string $value): void {
         $this->getBackingStore()->set('productKey', $value);
@@ -119,7 +119,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the targetEdition property value. Windows 10 Edition type.
-     *  @param Windows10EditionType|null $value Value to set for the targetEdition property.
+     * @param Windows10EditionType|null $value Value to set for the targetEdition property.
     */
     public function setTargetEdition(?Windows10EditionType $value): void {
         $this->getBackingStore()->set('targetEdition', $value);
@@ -127,7 +127,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the windowsSMode property value. The possible options to configure S mode unlock
-     *  @param WindowsSModeConfiguration|null $value Value to set for the windowsSMode property.
+     * @param WindowsSModeConfiguration|null $value Value to set for the windowsSMode property.
     */
     public function setWindowsSMode(?WindowsSModeConfiguration $value): void {
         $this->getBackingStore()->set('windowsSMode', $value);

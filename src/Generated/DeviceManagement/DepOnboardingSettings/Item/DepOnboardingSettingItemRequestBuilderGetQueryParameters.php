@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * This collections of multiple DEP tokens per-tenant.
+*/
 class DepOnboardingSettingItemRequestBuilderGetQueryParameters 
 {
     /**

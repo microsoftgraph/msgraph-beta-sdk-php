@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredUsers\Item\Endpo
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.endpoint
+*/
 class EndpointRequestBuilderGetQueryParameters 
 {
     /**

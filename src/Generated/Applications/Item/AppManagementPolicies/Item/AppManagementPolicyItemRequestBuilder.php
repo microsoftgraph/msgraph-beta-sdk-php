@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies
 use Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /applications/{application-id}/appManagementPolicies/{appManagementPolicy-id}
+*/
 class AppManagementPolicyItemRequestBuilder 
 {
     /**

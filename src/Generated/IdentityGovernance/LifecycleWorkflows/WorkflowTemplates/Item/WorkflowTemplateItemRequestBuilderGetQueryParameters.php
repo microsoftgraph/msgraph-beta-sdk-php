@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The workflow templates in the lifecycle workflow instance.
+*/
 class WorkflowTemplateItemRequestBuilderGetQueryParameters 
 {
     /**

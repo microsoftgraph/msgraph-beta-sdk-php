@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Authentication\MicrosoftAuthenticato
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property registeredOwners for me
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

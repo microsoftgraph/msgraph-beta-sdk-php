@@ -65,7 +65,7 @@ class DeploymentAudience extends Entity implements Parsable
 
     /**
      * Sets the exclusions property value. Specifies the assets to exclude from the audience.
-     *  @param array<UpdatableAsset>|null $value Value to set for the exclusions property.
+     * @param array<UpdatableAsset>|null $value Value to set for the exclusions property.
     */
     public function setExclusions(?array $value): void {
         $this->getBackingStore()->set('exclusions', $value);
@@ -73,7 +73,7 @@ class DeploymentAudience extends Entity implements Parsable
 
     /**
      * Sets the members property value. Specifies the assets to include in the audience.
-     *  @param array<UpdatableAsset>|null $value Value to set for the members property.
+     * @param array<UpdatableAsset>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);

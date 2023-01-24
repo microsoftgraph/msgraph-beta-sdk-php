@@ -94,7 +94,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
 
     /**
      * Sets the allowedHeaders property value. The allowedHeaders property
-     *  @param array<string>|null $value Value to set for the allowedHeaders property.
+     * @param array<string>|null $value Value to set for the allowedHeaders property.
     */
     public function setAllowedHeaders(?array $value): void {
         $this->getBackingStore()->set('allowedHeaders', $value);
@@ -102,7 +102,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
 
     /**
      * Sets the allowedMethods property value. The allowedMethods property
-     *  @param array<string>|null $value Value to set for the allowedMethods property.
+     * @param array<string>|null $value Value to set for the allowedMethods property.
     */
     public function setAllowedMethods(?array $value): void {
         $this->getBackingStore()->set('allowedMethods', $value);
@@ -110,7 +110,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
 
     /**
      * Sets the allowedOrigins property value. The allowedOrigins property
-     *  @param array<string>|null $value Value to set for the allowedOrigins property.
+     * @param array<string>|null $value Value to set for the allowedOrigins property.
     */
     public function setAllowedOrigins(?array $value): void {
         $this->getBackingStore()->set('allowedOrigins', $value);
@@ -118,7 +118,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
 
     /**
      * Sets the maxAgeInSeconds property value. The maxAgeInSeconds property
-     *  @param int|null $value Value to set for the maxAgeInSeconds property.
+     * @param int|null $value Value to set for the maxAgeInSeconds property.
     */
     public function setMaxAgeInSeconds(?int $value): void {
         $this->getBackingStore()->set('maxAgeInSeconds', $value);
@@ -126,7 +126,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
 
     /**
      * Sets the resource property value. The resource property
-     *  @param string|null $value Value to set for the resource property.
+     * @param string|null $value Value to set for the resource property.
     */
     public function setResource(?string $value): void {
         $this->getBackingStore()->set('resource', $value);

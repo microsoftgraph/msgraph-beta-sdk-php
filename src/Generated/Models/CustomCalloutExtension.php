@@ -105,7 +105,7 @@ class CustomCalloutExtension extends Entity implements Parsable
 
     /**
      * Sets the authenticationConfiguration property value. Configuration for securing the API call to the logic app. For example, using OAuth client credentials flow.
-     *  @param CustomExtensionAuthenticationConfiguration|null $value Value to set for the authenticationConfiguration property.
+     * @param CustomExtensionAuthenticationConfiguration|null $value Value to set for the authenticationConfiguration property.
     */
     public function setAuthenticationConfiguration(?CustomExtensionAuthenticationConfiguration $value): void {
         $this->getBackingStore()->set('authenticationConfiguration', $value);
@@ -113,7 +113,7 @@ class CustomCalloutExtension extends Entity implements Parsable
 
     /**
      * Sets the clientConfiguration property value. HTTP connection settings that define how long Azure AD can wait for a connection to a logic app, how many times you can retry a timed-out connection and the exception scenarios when retries are allowed.
-     *  @param CustomExtensionClientConfiguration|null $value Value to set for the clientConfiguration property.
+     * @param CustomExtensionClientConfiguration|null $value Value to set for the clientConfiguration property.
     */
     public function setClientConfiguration(?CustomExtensionClientConfiguration $value): void {
         $this->getBackingStore()->set('clientConfiguration', $value);
@@ -121,7 +121,7 @@ class CustomCalloutExtension extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description for the customCalloutExtension object.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -129,7 +129,7 @@ class CustomCalloutExtension extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name for the customCalloutExtension object.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -137,7 +137,7 @@ class CustomCalloutExtension extends Entity implements Parsable
 
     /**
      * Sets the endpointConfiguration property value. The type and details for configuring the endpoint to call the logic app's workflow.
-     *  @param CustomExtensionEndpointConfiguration|null $value Value to set for the endpointConfiguration property.
+     * @param CustomExtensionEndpointConfiguration|null $value Value to set for the endpointConfiguration property.
     */
     public function setEndpointConfiguration(?CustomExtensionEndpointConfiguration $value): void {
         $this->getBackingStore()->set('endpointConfiguration', $value);

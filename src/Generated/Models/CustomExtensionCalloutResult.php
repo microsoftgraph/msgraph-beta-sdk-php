@@ -96,7 +96,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
 
     /**
      * Sets the calloutDateTime property value. The calloutDateTime property
-     *  @param DateTime|null $value Value to set for the calloutDateTime property.
+     * @param DateTime|null $value Value to set for the calloutDateTime property.
     */
     public function setCalloutDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('calloutDateTime', $value);
@@ -104,7 +104,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
 
     /**
      * Sets the customExtensionId property value. The customExtensionId property
-     *  @param string|null $value Value to set for the customExtensionId property.
+     * @param string|null $value Value to set for the customExtensionId property.
     */
     public function setCustomExtensionId(?string $value): void {
         $this->getBackingStore()->set('customExtensionId', $value);
@@ -112,7 +112,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
 
     /**
      * Sets the errorCode property value. The errorCode property
-     *  @param int|null $value Value to set for the errorCode property.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -120,7 +120,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
 
     /**
      * Sets the httpStatus property value. The httpStatus property
-     *  @param int|null $value Value to set for the httpStatus property.
+     * @param int|null $value Value to set for the httpStatus property.
     */
     public function setHttpStatus(?int $value): void {
         $this->getBackingStore()->set('httpStatus', $value);
@@ -128,7 +128,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
 
     /**
      * Sets the numberOfAttempts property value. The numberOfAttempts property
-     *  @param int|null $value Value to set for the numberOfAttempts property.
+     * @param int|null $value Value to set for the numberOfAttempts property.
     */
     public function setNumberOfAttempts(?int $value): void {
         $this->getBackingStore()->set('numberOfAttempts', $value);

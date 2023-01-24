@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\R
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property members for administrativeUnits
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

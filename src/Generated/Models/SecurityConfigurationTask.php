@@ -83,7 +83,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
-     * Gets the managedDeviceCount property value. The number of vulnerable devices.
+     * Gets the managedDeviceCount property value. The number of vulnerable devices. Valid values 0 to 65536
      * @return int|null
     */
     public function getManagedDeviceCount(): ?int {
@@ -115,7 +115,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
 
     /**
      * Sets the applicablePlatform property value. The endpoint security configuration applicable platform.
-     *  @param EndpointSecurityConfigurationApplicablePlatform|null $value Value to set for the applicablePlatform property.
+     * @param EndpointSecurityConfigurationApplicablePlatform|null $value Value to set for the applicablePlatform property.
     */
     public function setApplicablePlatform(?EndpointSecurityConfigurationApplicablePlatform $value): void {
         $this->getBackingStore()->set('applicablePlatform', $value);
@@ -123,7 +123,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
 
     /**
      * Sets the endpointSecurityPolicy property value. The endpoint security policy type.
-     *  @param EndpointSecurityConfigurationType|null $value Value to set for the endpointSecurityPolicy property.
+     * @param EndpointSecurityConfigurationType|null $value Value to set for the endpointSecurityPolicy property.
     */
     public function setEndpointSecurityPolicy(?EndpointSecurityConfigurationType $value): void {
         $this->getBackingStore()->set('endpointSecurityPolicy', $value);
@@ -131,7 +131,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
 
     /**
      * Sets the endpointSecurityPolicyProfile property value. The endpoint security policy profile type.
-     *  @param EndpointSecurityConfigurationProfileType|null $value Value to set for the endpointSecurityPolicyProfile property.
+     * @param EndpointSecurityConfigurationProfileType|null $value Value to set for the endpointSecurityPolicyProfile property.
     */
     public function setEndpointSecurityPolicyProfile(?EndpointSecurityConfigurationProfileType $value): void {
         $this->getBackingStore()->set('endpointSecurityPolicyProfile', $value);
@@ -139,7 +139,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
 
     /**
      * Sets the insights property value. Information about the mitigation.
-     *  @param string|null $value Value to set for the insights property.
+     * @param string|null $value Value to set for the insights property.
     */
     public function setInsights(?string $value): void {
         $this->getBackingStore()->set('insights', $value);
@@ -147,15 +147,15 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
 
     /**
      * Sets the intendedSettings property value. The intended settings and their values.
-     *  @param array<KeyValuePair>|null $value Value to set for the intendedSettings property.
+     * @param array<KeyValuePair>|null $value Value to set for the intendedSettings property.
     */
     public function setIntendedSettings(?array $value): void {
         $this->getBackingStore()->set('intendedSettings', $value);
     }
 
     /**
-     * Sets the managedDeviceCount property value. The number of vulnerable devices.
-     *  @param int|null $value Value to set for the managedDeviceCount property.
+     * Sets the managedDeviceCount property value. The number of vulnerable devices. Valid values 0 to 65536
+     * @param int|null $value Value to set for the managedDeviceCount property.
     */
     public function setManagedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('managedDeviceCount', $value);
@@ -163,7 +163,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
 
     /**
      * Sets the managedDevices property value. The vulnerable managed devices.
-     *  @param array<VulnerableManagedDevice>|null $value Value to set for the managedDevices property.
+     * @param array<VulnerableManagedDevice>|null $value Value to set for the managedDevices property.
     */
     public function setManagedDevices(?array $value): void {
         $this->getBackingStore()->set('managedDevices', $value);

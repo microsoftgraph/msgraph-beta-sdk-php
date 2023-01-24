@@ -8,6 +8,9 @@ use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\ServicePri
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\User\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}/owners/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**

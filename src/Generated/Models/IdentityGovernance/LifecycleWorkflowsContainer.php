@@ -106,7 +106,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
 
     /**
      * Sets the customTaskExtensions property value. The customTaskExtension instance.
-     *  @param array<CustomTaskExtension>|null $value Value to set for the customTaskExtensions property.
+     * @param array<CustomTaskExtension>|null $value Value to set for the customTaskExtensions property.
     */
     public function setCustomTaskExtensions(?array $value): void {
         $this->getBackingStore()->set('customTaskExtensions', $value);
@@ -114,7 +114,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
 
     /**
      * Sets the deletedItems property value. Deleted workflows in your lifecycle workflows instance.
-     *  @param DeletedItemContainer|null $value Value to set for the deletedItems property.
+     * @param DeletedItemContainer|null $value Value to set for the deletedItems property.
     */
     public function setDeletedItems(?DeletedItemContainer $value): void {
         $this->getBackingStore()->set('deletedItems', $value);
@@ -122,7 +122,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
 
     /**
      * Sets the settings property value. The settings property
-     *  @param LifecycleManagementSettings|null $value Value to set for the settings property.
+     * @param LifecycleManagementSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?LifecycleManagementSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -130,7 +130,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
 
     /**
      * Sets the taskDefinitions property value. The definition of tasks within the lifecycle workflows instance.
-     *  @param array<TaskDefinition>|null $value Value to set for the taskDefinitions property.
+     * @param array<TaskDefinition>|null $value Value to set for the taskDefinitions property.
     */
     public function setTaskDefinitions(?array $value): void {
         $this->getBackingStore()->set('taskDefinitions', $value);
@@ -138,7 +138,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
 
     /**
      * Sets the workflows property value. The workflows in the lifecycle workflows instance.
-     *  @param array<Workflow>|null $value Value to set for the workflows property.
+     * @param array<Workflow>|null $value Value to set for the workflows property.
     */
     public function setWorkflows(?array $value): void {
         $this->getBackingStore()->set('workflows', $value);
@@ -146,7 +146,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
 
     /**
      * Sets the workflowTemplates property value. The workflow templates in the lifecycle workflow instance.
-     *  @param array<WorkflowTemplate>|null $value Value to set for the workflowTemplates property.
+     * @param array<WorkflowTemplate>|null $value Value to set for the workflowTemplates property.
     */
     public function setWorkflowTemplates(?array $value): void {
         $this->getBackingStore()->set('workflowTemplates', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Wind
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the windowsProtectionState objects and their properties.
+*/
 class WindowsProtectionStatesRequestBuilderGetQueryParameters 
 {
     /**

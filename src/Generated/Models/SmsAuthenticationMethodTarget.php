@@ -54,7 +54,7 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implement
 
     /**
      * Sets the isUsableForSignIn property value. Determines if users can use this authentication method to sign in to Azure AD. true if users can use this method for primary authentication, otherwise false.
-     *  @param bool|null $value Value to set for the isUsableForSignIn property.
+     * @param bool|null $value Value to set for the isUsableForSignIn property.
     */
     public function setIsUsableForSignIn(?bool $value): void {
         $this->getBackingStore()->set('isUsableForSignIn', $value);

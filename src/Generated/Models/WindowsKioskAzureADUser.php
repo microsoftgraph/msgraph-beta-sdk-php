@@ -65,7 +65,7 @@ class WindowsKioskAzureADUser extends WindowsKioskUser implements Parsable
 
     /**
      * Sets the userId property value. The ID of the AzureAD user that will be locked to this kiosk configuration
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -73,7 +73,7 @@ class WindowsKioskAzureADUser extends WindowsKioskUser implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The user accounts that will be locked to this kiosk configuration
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

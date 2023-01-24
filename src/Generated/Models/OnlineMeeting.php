@@ -185,6 +185,7 @@ class OnlineMeeting extends Entity implements Parsable
             'transcripts' => fn(ParseNode $n) => $o->setTranscripts($n->getCollectionOfObjectValues([CallTranscript::class, 'createFromDiscriminatorValue'])),
             'videoTeleconferenceId' => fn(ParseNode $n) => $o->setVideoTeleconferenceId($n->getStringValue()),
             'virtualAppointment' => fn(ParseNode $n) => $o->setVirtualAppointment($n->getObjectValue([VirtualAppointment::class, 'createFromDiscriminatorValue'])),
+            'watermarkProtection' => fn(ParseNode $n) => $o->setWatermarkProtection($n->getObjectValue([WatermarkProtectionValues::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -325,6 +326,14 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
+     * Gets the watermarkProtection property value. The watermarkProtection property
+     * @return WatermarkProtectionValues|null
+    */
+    public function getWatermarkProtection(): ?WatermarkProtectionValues {
+        return $this->getBackingStore()->get('watermarkProtection');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -362,11 +371,12 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('transcripts', $this->getTranscripts());
         $writer->writeStringValue('videoTeleconferenceId', $this->getVideoTeleconferenceId());
         $writer->writeObjectValue('virtualAppointment', $this->getVirtualAppointment());
+        $writer->writeObjectValue('watermarkProtection', $this->getWatermarkProtection());
     }
 
     /**
      * Sets the allowAttendeeToEnableCamera property value. Indicates whether attendees can turn on their camera.
-     *  @param bool|null $value Value to set for the allowAttendeeToEnableCamera property.
+     * @param bool|null $value Value to set for the allowAttendeeToEnableCamera property.
     */
     public function setAllowAttendeeToEnableCamera(?bool $value): void {
         $this->getBackingStore()->set('allowAttendeeToEnableCamera', $value);
@@ -374,7 +384,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the allowAttendeeToEnableMic property value. Indicates whether attendees can turn on their microphone.
-     *  @param bool|null $value Value to set for the allowAttendeeToEnableMic property.
+     * @param bool|null $value Value to set for the allowAttendeeToEnableMic property.
     */
     public function setAllowAttendeeToEnableMic(?bool $value): void {
         $this->getBackingStore()->set('allowAttendeeToEnableMic', $value);
@@ -382,7 +392,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
-     *  @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
+     * @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
     */
     public function setAllowedPresenters(?OnlineMeetingPresenters $value): void {
         $this->getBackingStore()->set('allowedPresenters', $value);
@@ -390,7 +400,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the allowTeamworkReactions property value. Indicates if Teams reactions are enabled for the meeting.
-     *  @param bool|null $value Value to set for the allowTeamworkReactions property.
+     * @param bool|null $value Value to set for the allowTeamworkReactions property.
     */
     public function setAllowTeamworkReactions(?bool $value): void {
         $this->getBackingStore()->set('allowTeamworkReactions', $value);
@@ -398,7 +408,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the alternativeRecording property value. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
-     *  @param StreamInterface|null $value Value to set for the alternativeRecording property.
+     * @param StreamInterface|null $value Value to set for the alternativeRecording property.
     */
     public function setAlternativeRecording(?StreamInterface $value): void {
         $this->getBackingStore()->set('alternativeRecording', $value);
@@ -406,7 +416,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the anonymizeIdentityForRoles property value. The anonymizeIdentityForRoles property
-     *  @param array<OnlineMeetingRole>|null $value Value to set for the anonymizeIdentityForRoles property.
+     * @param array<OnlineMeetingRole>|null $value Value to set for the anonymizeIdentityForRoles property.
     */
     public function setAnonymizeIdentityForRoles(?array $value): void {
         $this->getBackingStore()->set('anonymizeIdentityForRoles', $value);
@@ -414,7 +424,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the attendanceReports property value. The attendance reports of an online meeting. Read-only.
-     *  @param array<MeetingAttendanceReport>|null $value Value to set for the attendanceReports property.
+     * @param array<MeetingAttendanceReport>|null $value Value to set for the attendanceReports property.
     */
     public function setAttendanceReports(?array $value): void {
         $this->getBackingStore()->set('attendanceReports', $value);
@@ -422,7 +432,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
-     *  @param StreamInterface|null $value Value to set for the attendeeReport property.
+     * @param StreamInterface|null $value Value to set for the attendeeReport property.
     */
     public function setAttendeeReport(?StreamInterface $value): void {
         $this->getBackingStore()->set('attendeeReport', $value);
@@ -430,7 +440,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the audioConferencing property value. The phone access (dial-in) information for an online meeting. Read-only.
-     *  @param AudioConferencing|null $value Value to set for the audioConferencing property.
+     * @param AudioConferencing|null $value Value to set for the audioConferencing property.
     */
     public function setAudioConferencing(?AudioConferencing $value): void {
         $this->getBackingStore()->set('audioConferencing', $value);
@@ -438,7 +448,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the broadcastSettings property value. Settings related to a live event.
-     *  @param BroadcastMeetingSettings|null $value Value to set for the broadcastSettings property.
+     * @param BroadcastMeetingSettings|null $value Value to set for the broadcastSettings property.
     */
     public function setBroadcastSettings(?BroadcastMeetingSettings $value): void {
         $this->getBackingStore()->set('broadcastSettings', $value);
@@ -446,7 +456,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the capabilities property value. The capabilities property
-     *  @param array<MeetingCapabilities>|null $value Value to set for the capabilities property.
+     * @param array<MeetingCapabilities>|null $value Value to set for the capabilities property.
     */
     public function setCapabilities(?array $value): void {
         $this->getBackingStore()->set('capabilities', $value);
@@ -454,7 +464,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the chatInfo property value. The chat information associated with this online meeting.
-     *  @param ChatInfo|null $value Value to set for the chatInfo property.
+     * @param ChatInfo|null $value Value to set for the chatInfo property.
     */
     public function setChatInfo(?ChatInfo $value): void {
         $this->getBackingStore()->set('chatInfo', $value);
@@ -462,7 +472,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the creationDateTime property value. The meeting creation time in UTC. Read-only.
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
+     * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('creationDateTime', $value);
@@ -470,7 +480,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the endDateTime property value. The meeting end time in UTC.
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -478,7 +488,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the externalId property value. The external ID. A custom ID. Optional.
-     *  @param string|null $value Value to set for the externalId property.
+     * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
         $this->getBackingStore()->set('externalId', $value);
@@ -486,7 +496,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the isBroadcast property value. Indicates whether this is a Teams live event.
-     *  @param bool|null $value Value to set for the isBroadcast property.
+     * @param bool|null $value Value to set for the isBroadcast property.
     */
     public function setIsBroadcast(?bool $value): void {
         $this->getBackingStore()->set('isBroadcast', $value);
@@ -494,7 +504,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the isEntryExitAnnounced property value. Indicates whether to announce when callers join or leave.
-     *  @param bool|null $value Value to set for the isEntryExitAnnounced property.
+     * @param bool|null $value Value to set for the isEntryExitAnnounced property.
     */
     public function setIsEntryExitAnnounced(?bool $value): void {
         $this->getBackingStore()->set('isEntryExitAnnounced', $value);
@@ -502,7 +512,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the joinInformation property value. The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only.
-     *  @param ItemBody|null $value Value to set for the joinInformation property.
+     * @param ItemBody|null $value Value to set for the joinInformation property.
     */
     public function setJoinInformation(?ItemBody $value): void {
         $this->getBackingStore()->set('joinInformation', $value);
@@ -510,7 +520,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
-     *  @param JoinMeetingIdSettings|null $value Value to set for the joinMeetingIdSettings property.
+     * @param JoinMeetingIdSettings|null $value Value to set for the joinMeetingIdSettings property.
     */
     public function setJoinMeetingIdSettings(?JoinMeetingIdSettings $value): void {
         $this->getBackingStore()->set('joinMeetingIdSettings', $value);
@@ -518,7 +528,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the joinUrl property value. The joinUrl property
-     *  @param string|null $value Value to set for the joinUrl property.
+     * @param string|null $value Value to set for the joinUrl property.
     */
     public function setJoinUrl(?string $value): void {
         $this->getBackingStore()->set('joinUrl', $value);
@@ -526,7 +536,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the joinWebUrl property value. The join URL of the online meeting. Read-only.
-     *  @param string|null $value Value to set for the joinWebUrl property.
+     * @param string|null $value Value to set for the joinWebUrl property.
     */
     public function setJoinWebUrl(?string $value): void {
         $this->getBackingStore()->set('joinWebUrl', $value);
@@ -534,7 +544,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the lobbyBypassSettings property value. Specifies which participants can bypass the meeting lobby.
-     *  @param LobbyBypassSettings|null $value Value to set for the lobbyBypassSettings property.
+     * @param LobbyBypassSettings|null $value Value to set for the lobbyBypassSettings property.
     */
     public function setLobbyBypassSettings(?LobbyBypassSettings $value): void {
         $this->getBackingStore()->set('lobbyBypassSettings', $value);
@@ -542,7 +552,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the meetingAttendanceReport property value. The meetingAttendanceReport property
-     *  @param MeetingAttendanceReport|null $value Value to set for the meetingAttendanceReport property.
+     * @param MeetingAttendanceReport|null $value Value to set for the meetingAttendanceReport property.
     */
     public function setMeetingAttendanceReport(?MeetingAttendanceReport $value): void {
         $this->getBackingStore()->set('meetingAttendanceReport', $value);
@@ -550,7 +560,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the participants property value. The participants associated with the online meeting. This includes the organizer and the attendees.
-     *  @param MeetingParticipants|null $value Value to set for the participants property.
+     * @param MeetingParticipants|null $value Value to set for the participants property.
     */
     public function setParticipants(?MeetingParticipants $value): void {
         $this->getBackingStore()->set('participants', $value);
@@ -558,7 +568,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the recordAutomatically property value. Indicates whether to record the meeting automatically.
-     *  @param bool|null $value Value to set for the recordAutomatically property.
+     * @param bool|null $value Value to set for the recordAutomatically property.
     */
     public function setRecordAutomatically(?bool $value): void {
         $this->getBackingStore()->set('recordAutomatically', $value);
@@ -566,7 +576,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the recording property value. The content stream of the recording of a Teams live event. Read-only.
-     *  @param StreamInterface|null $value Value to set for the recording property.
+     * @param StreamInterface|null $value Value to set for the recording property.
     */
     public function setRecording(?StreamInterface $value): void {
         $this->getBackingStore()->set('recording', $value);
@@ -574,7 +584,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the registration property value. The registration that has been enabled for an online meeting. One online meeting can only have one registration enabled.
-     *  @param MeetingRegistration|null $value Value to set for the registration property.
+     * @param MeetingRegistration|null $value Value to set for the registration property.
     */
     public function setRegistration(?MeetingRegistration $value): void {
         $this->getBackingStore()->set('registration', $value);
@@ -582,7 +592,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the startDateTime property value. The meeting start time in UTC.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -590,7 +600,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the subject property value. The subject of the online meeting.
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -598,7 +608,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the transcripts property value. The transcripts of an online meeting. Read-only.
-     *  @param array<CallTranscript>|null $value Value to set for the transcripts property.
+     * @param array<CallTranscript>|null $value Value to set for the transcripts property.
     */
     public function setTranscripts(?array $value): void {
         $this->getBackingStore()->set('transcripts', $value);
@@ -606,7 +616,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the videoTeleconferenceId property value. The video teleconferencing ID. Read-only.
-     *  @param string|null $value Value to set for the videoTeleconferenceId property.
+     * @param string|null $value Value to set for the videoTeleconferenceId property.
     */
     public function setVideoTeleconferenceId(?string $value): void {
         $this->getBackingStore()->set('videoTeleconferenceId', $value);
@@ -614,10 +624,18 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the virtualAppointment property value. The virtualAppointment property
-     *  @param VirtualAppointment|null $value Value to set for the virtualAppointment property.
+     * @param VirtualAppointment|null $value Value to set for the virtualAppointment property.
     */
     public function setVirtualAppointment(?VirtualAppointment $value): void {
         $this->getBackingStore()->set('virtualAppointment', $value);
+    }
+
+    /**
+     * Sets the watermarkProtection property value. The watermarkProtection property
+     * @param WatermarkProtectionValues|null $value Value to set for the watermarkProtection property.
+    */
+    public function setWatermarkProtection(?WatermarkProtectionValues $value): void {
+        $this->getBackingStore()->set('watermarkProtection', $value);
     }
 
 }

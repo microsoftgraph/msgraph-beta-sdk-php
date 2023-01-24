@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceResources\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from governanceResources by key (id)
+*/
 class GovernanceResourceItemRequestBuilderGetQueryParameters 
 {
     /**

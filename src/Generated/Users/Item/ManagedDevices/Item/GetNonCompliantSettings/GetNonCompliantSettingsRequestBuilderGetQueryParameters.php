@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetNonCo
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getNonCompliantSettings
+*/
 class GetNonCompliantSettingsRequestBuilderGetQueryParameters 
 {
     /**

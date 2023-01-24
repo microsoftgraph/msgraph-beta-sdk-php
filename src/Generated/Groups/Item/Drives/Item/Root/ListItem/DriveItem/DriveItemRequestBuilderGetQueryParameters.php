@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Root\ListItem\D
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
+*/
 class DriveItemRequestBuilderGetQueryParameters 
 {
     /**

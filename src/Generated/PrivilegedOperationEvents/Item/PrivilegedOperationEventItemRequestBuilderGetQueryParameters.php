@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedOperationEvents\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from privilegedOperationEvents by key (id)
+*/
 class PrivilegedOperationEventItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -185,7 +185,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the businessFlowTemplateId property value. The business flow template identifier. Required on create.  This value is case sensitive.
-     *  @param string|null $value Value to set for the businessFlowTemplateId property.
+     * @param string|null $value Value to set for the businessFlowTemplateId property.
     */
     public function setBusinessFlowTemplateId(?string $value): void {
         $this->getBackingStore()->set('businessFlowTemplateId', $value);
@@ -193,7 +193,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The user who created this review.
-     *  @param UserIdentity|null $value Value to set for the createdBy property.
+     * @param UserIdentity|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?UserIdentity $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -201,7 +201,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the decisions property value. The collection of decisions for this access review.
-     *  @param array<AccessReviewDecision>|null $value Value to set for the decisions property.
+     * @param array<AccessReviewDecision>|null $value Value to set for the decisions property.
     */
     public function setDecisions(?array $value): void {
         $this->getBackingStore()->set('decisions', $value);
@@ -209,7 +209,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description provided by the access review creator, to show to the reviewers.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -217,7 +217,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The access review name. Required on create.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -225,7 +225,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the endDateTime property value. The DateTime when the review is scheduled to end. This must be at least one day later than the start date.  Required on create.
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -233,7 +233,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the instances property value. The collection of access reviews instances past, present and future, if this object is a recurring access review.
-     *  @param array<AccessReview>|null $value Value to set for the instances property.
+     * @param array<AccessReview>|null $value Value to set for the instances property.
     */
     public function setInstances(?array $value): void {
         $this->getBackingStore()->set('instances', $value);
@@ -241,7 +241,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the myDecisions property value. The collection of decisions for the caller, if the caller is a reviewer.
-     *  @param array<AccessReviewDecision>|null $value Value to set for the myDecisions property.
+     * @param array<AccessReviewDecision>|null $value Value to set for the myDecisions property.
     */
     public function setMyDecisions(?array $value): void {
         $this->getBackingStore()->set('myDecisions', $value);
@@ -249,7 +249,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the reviewedEntity property value. The object for which the access reviews is reviewing the access rights assignments. This can be the group for the review of memberships of users in a group, or the app for a review of assignments of users to an application. Required on create.
-     *  @param Identity|null $value Value to set for the reviewedEntity property.
+     * @param Identity|null $value Value to set for the reviewedEntity property.
     */
     public function setReviewedEntity(?Identity $value): void {
         $this->getBackingStore()->set('reviewedEntity', $value);
@@ -257,7 +257,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the reviewers property value. The collection of reviewers for an access review, if access review reviewerType is of type delegated.
-     *  @param array<AccessReviewReviewer>|null $value Value to set for the reviewers property.
+     * @param array<AccessReviewReviewer>|null $value Value to set for the reviewers property.
     */
     public function setReviewers(?array $value): void {
         $this->getBackingStore()->set('reviewers', $value);
@@ -265,7 +265,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the reviewerType property value. The relationship type of reviewer to the target object, one of self, delegated or entityOwners. Required on create.
-     *  @param string|null $value Value to set for the reviewerType property.
+     * @param string|null $value Value to set for the reviewerType property.
     */
     public function setReviewerType(?string $value): void {
         $this->getBackingStore()->set('reviewerType', $value);
@@ -273,7 +273,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the settings property value. The settings of an accessReview, see type definition below.
-     *  @param AccessReviewSettings|null $value Value to set for the settings property.
+     * @param AccessReviewSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?AccessReviewSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -281,7 +281,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the startDateTime property value. The DateTime when the review is scheduled to be start.  This could be a date in the future.  Required on create.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -289,7 +289,7 @@ class AccessReview extends Entity implements Parsable
 
     /**
      * Sets the status property value. This read-only field specifies the status of an accessReview. The typical states include Initializing, NotStarted, Starting,InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Extern
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The external partner settings on a Cloud PC.
+*/
 class CloudPcExternalPartnerSettingItemRequestBuilderGetQueryParameters 
 {
     /**

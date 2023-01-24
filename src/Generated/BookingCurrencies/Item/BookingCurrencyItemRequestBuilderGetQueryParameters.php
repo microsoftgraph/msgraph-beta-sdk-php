@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\BookingCurrencies\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the **id** property, which is the currency code, to specify the currency.
+*/
 class BookingCurrencyItemRequestBuilderGetQueryParameters 
 {
     /**

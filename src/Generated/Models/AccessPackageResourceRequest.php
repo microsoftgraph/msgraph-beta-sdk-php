@@ -145,7 +145,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResource property value. The accessPackageResource property
-     *  @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
+     * @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
     */
     public function setAccessPackageResource(?AccessPackageResource $value): void {
         $this->getBackingStore()->set('accessPackageResource', $value);
@@ -153,7 +153,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the catalogId property value. The unique ID of the access package catalog.
-     *  @param string|null $value Value to set for the catalogId property.
+     * @param string|null $value Value to set for the catalogId property.
     */
     public function setCatalogId(?string $value): void {
         $this->getBackingStore()->set('catalogId', $value);
@@ -161,7 +161,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the executeImmediately property value. The executeImmediately property
-     *  @param bool|null $value Value to set for the executeImmediately property.
+     * @param bool|null $value Value to set for the executeImmediately property.
     */
     public function setExecuteImmediately(?bool $value): void {
         $this->getBackingStore()->set('executeImmediately', $value);
@@ -169,7 +169,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the expirationDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -177,7 +177,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the isValidationOnly property value. If set, does not add the resource.
-     *  @param bool|null $value Value to set for the isValidationOnly property.
+     * @param bool|null $value Value to set for the isValidationOnly property.
     */
     public function setIsValidationOnly(?bool $value): void {
         $this->getBackingStore()->set('isValidationOnly', $value);
@@ -185,7 +185,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the justification property value. The requestor's justification for adding or removing the resource.
-     *  @param string|null $value Value to set for the justification property.
+     * @param string|null $value Value to set for the justification property.
     */
     public function setJustification(?string $value): void {
         $this->getBackingStore()->set('justification', $value);
@@ -193,7 +193,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the requestor property value. Read-only. Nullable. Supports $expand.
-     *  @param AccessPackageSubject|null $value Value to set for the requestor property.
+     * @param AccessPackageSubject|null $value Value to set for the requestor property.
     */
     public function setRequestor(?AccessPackageSubject $value): void {
         $this->getBackingStore()->set('requestor', $value);
@@ -201,7 +201,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the requestState property value. The outcome of whether the service was able to add the resource to the catalog.  The value is Delivered if the resource was added or removed. Read-Only.
-     *  @param string|null $value Value to set for the requestState property.
+     * @param string|null $value Value to set for the requestState property.
     */
     public function setRequestState(?string $value): void {
         $this->getBackingStore()->set('requestState', $value);
@@ -209,7 +209,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the requestStatus property value. The requestStatus property
-     *  @param string|null $value Value to set for the requestStatus property.
+     * @param string|null $value Value to set for the requestStatus property.
     */
     public function setRequestStatus(?string $value): void {
         $this->getBackingStore()->set('requestStatus', $value);
@@ -217,7 +217,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
 
     /**
      * Sets the requestType property value. Use AdminAdd to add a resource, if the caller is an administrator or resource owner, AdminUpdate to update a resource, or AdminRemove to remove a resource.
-     *  @param string|null $value Value to set for the requestType property.
+     * @param string|null $value Value to set for the requestType property.
     */
     public function setRequestType(?string $value): void {
         $this->getBackingStore()->set('requestType', $value);

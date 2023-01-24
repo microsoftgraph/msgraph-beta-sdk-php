@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Configuration.
+*/
 class DeviceConfiguration extends Entity implements Parsable 
 {
     /**
@@ -357,7 +360,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of assignments for the device configuration profile.
-     *  @param array<DeviceConfigurationAssignment>|null $value Value to set for the assignments property.
+     * @param array<DeviceConfigurationAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -365,7 +368,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. DateTime the object was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -373,7 +376,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the description property value. Admin provided description of the Device Configuration.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -381,7 +384,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the deviceManagementApplicabilityRuleDeviceMode property value. The device mode applicability rule for this Policy.
-     *  @param DeviceManagementApplicabilityRuleDeviceMode|null $value Value to set for the deviceManagementApplicabilityRuleDeviceMode property.
+     * @param DeviceManagementApplicabilityRuleDeviceMode|null $value Value to set for the deviceManagementApplicabilityRuleDeviceMode property.
     */
     public function setDeviceManagementApplicabilityRuleDeviceMode(?DeviceManagementApplicabilityRuleDeviceMode $value): void {
         $this->getBackingStore()->set('deviceManagementApplicabilityRuleDeviceMode', $value);
@@ -389,7 +392,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the deviceManagementApplicabilityRuleOsEdition property value. The OS edition applicability for this Policy.
-     *  @param DeviceManagementApplicabilityRuleOsEdition|null $value Value to set for the deviceManagementApplicabilityRuleOsEdition property.
+     * @param DeviceManagementApplicabilityRuleOsEdition|null $value Value to set for the deviceManagementApplicabilityRuleOsEdition property.
     */
     public function setDeviceManagementApplicabilityRuleOsEdition(?DeviceManagementApplicabilityRuleOsEdition $value): void {
         $this->getBackingStore()->set('deviceManagementApplicabilityRuleOsEdition', $value);
@@ -397,7 +400,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the deviceManagementApplicabilityRuleOsVersion property value. The OS version applicability rule for this Policy.
-     *  @param DeviceManagementApplicabilityRuleOsVersion|null $value Value to set for the deviceManagementApplicabilityRuleOsVersion property.
+     * @param DeviceManagementApplicabilityRuleOsVersion|null $value Value to set for the deviceManagementApplicabilityRuleOsVersion property.
     */
     public function setDeviceManagementApplicabilityRuleOsVersion(?DeviceManagementApplicabilityRuleOsVersion $value): void {
         $this->getBackingStore()->set('deviceManagementApplicabilityRuleOsVersion', $value);
@@ -405,7 +408,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the deviceSettingStateSummaries property value. Device Configuration Setting State Device Summary
-     *  @param array<SettingStateDeviceSummary>|null $value Value to set for the deviceSettingStateSummaries property.
+     * @param array<SettingStateDeviceSummary>|null $value Value to set for the deviceSettingStateSummaries property.
     */
     public function setDeviceSettingStateSummaries(?array $value): void {
         $this->getBackingStore()->set('deviceSettingStateSummaries', $value);
@@ -413,7 +416,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the deviceStatuses property value. Device configuration installation status by device.
-     *  @param array<DeviceConfigurationDeviceStatus>|null $value Value to set for the deviceStatuses property.
+     * @param array<DeviceConfigurationDeviceStatus>|null $value Value to set for the deviceStatuses property.
     */
     public function setDeviceStatuses(?array $value): void {
         $this->getBackingStore()->set('deviceStatuses', $value);
@@ -421,7 +424,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the deviceStatusOverview property value. Device Configuration devices status overview
-     *  @param DeviceConfigurationDeviceOverview|null $value Value to set for the deviceStatusOverview property.
+     * @param DeviceConfigurationDeviceOverview|null $value Value to set for the deviceStatusOverview property.
     */
     public function setDeviceStatusOverview(?DeviceConfigurationDeviceOverview $value): void {
         $this->getBackingStore()->set('deviceStatusOverview', $value);
@@ -429,7 +432,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Admin provided name of the device configuration.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -437,7 +440,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the groupAssignments property value. The list of group assignments for the device configuration profile.
-     *  @param array<DeviceConfigurationGroupAssignment>|null $value Value to set for the groupAssignments property.
+     * @param array<DeviceConfigurationGroupAssignment>|null $value Value to set for the groupAssignments property.
     */
     public function setGroupAssignments(?array $value): void {
         $this->getBackingStore()->set('groupAssignments', $value);
@@ -445,7 +448,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. DateTime the object was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -453,7 +456,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -461,7 +464,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the supportsScopeTags property value. Indicates whether or not the underlying Device Configuration supports the assignment of scope tags. Assigning to the ScopeTags property is not allowed when this value is false and entities will not be visible to scoped users. This occurs for Legacy policies created in Silverlight and can be resolved by deleting and recreating the policy in the Azure Portal. This property is read-only.
-     *  @param bool|null $value Value to set for the supportsScopeTags property.
+     * @param bool|null $value Value to set for the supportsScopeTags property.
     */
     public function setSupportsScopeTags(?bool $value): void {
         $this->getBackingStore()->set('supportsScopeTags', $value);
@@ -469,7 +472,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the userStatuses property value. Device configuration installation status by user.
-     *  @param array<DeviceConfigurationUserStatus>|null $value Value to set for the userStatuses property.
+     * @param array<DeviceConfigurationUserStatus>|null $value Value to set for the userStatuses property.
     */
     public function setUserStatuses(?array $value): void {
         $this->getBackingStore()->set('userStatuses', $value);
@@ -477,7 +480,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the userStatusOverview property value. Device Configuration users status overview
-     *  @param DeviceConfigurationUserOverview|null $value Value to set for the userStatusOverview property.
+     * @param DeviceConfigurationUserOverview|null $value Value to set for the userStatusOverview property.
     */
     public function setUserStatusOverview(?DeviceConfigurationUserOverview $value): void {
         $this->getBackingStore()->set('userStatusOverview', $value);
@@ -485,7 +488,7 @@ class DeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the version property value. Version of the device configuration.
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);

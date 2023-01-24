@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of related Setting Definitions. This property is read-only.
+*/
 class DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**

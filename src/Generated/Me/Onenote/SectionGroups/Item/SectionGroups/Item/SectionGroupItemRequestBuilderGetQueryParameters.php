@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Onenote\SectionGroups\Item\SectionGr
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The section groups in the section. Read-only. Nullable.
+*/
 class SectionGroupItemRequestBuilderGetQueryParameters 
 {
     /**

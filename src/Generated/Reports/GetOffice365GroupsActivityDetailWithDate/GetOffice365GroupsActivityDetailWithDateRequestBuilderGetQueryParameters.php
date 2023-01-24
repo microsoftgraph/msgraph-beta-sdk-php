@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetOffice365GroupsActivityDetai
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getOffice365GroupsActivityDetail
+*/
 class GetOffice365GroupsActivityDetailWithDateRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The user experience analytics work from anywhere model performance
+*/
 class UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters 
 {
     /**

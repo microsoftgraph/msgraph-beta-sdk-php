@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Communications\CallRecords\GetPstnCalls
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getPstnCalls
+*/
 class GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters 
 {
     /**

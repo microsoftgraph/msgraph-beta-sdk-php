@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents a booking customer or staff member.
+*/
 class BookingPerson extends BookingNamedEntity implements Parsable 
 {
     /**
@@ -63,7 +66,7 @@ class BookingPerson extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the emailAddress property value. The email address of the person.
-     *  @param string|null $value Value to set for the emailAddress property.
+     * @param string|null $value Value to set for the emailAddress property.
     */
     public function setEmailAddress(?string $value): void {
         $this->getBackingStore()->set('emailAddress', $value);

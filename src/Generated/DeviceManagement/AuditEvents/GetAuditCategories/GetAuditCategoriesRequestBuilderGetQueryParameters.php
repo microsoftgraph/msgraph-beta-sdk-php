@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AuditEvents\GetAuditCa
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getAuditCategories
+*/
 class GetAuditCategoriesRequestBuilderGetQueryParameters 
 {
     /**

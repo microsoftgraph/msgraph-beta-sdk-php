@@ -94,7 +94,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
 
     /**
      * Sets the authenticationContextClassReferences property value. Read-only. Nullable. Returns a collection of the specified authentication context class references.
-     *  @param array<AuthenticationContextClassReference>|null $value Value to set for the authenticationContextClassReferences property.
+     * @param array<AuthenticationContextClassReference>|null $value Value to set for the authenticationContextClassReferences property.
     */
     public function setAuthenticationContextClassReferences(?array $value): void {
         $this->getBackingStore()->set('authenticationContextClassReferences', $value);
@@ -102,7 +102,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
 
     /**
      * Sets the authenticationStrengths property value. Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy .
-     *  @param AuthenticationStrengthRoot|null $value Value to set for the authenticationStrengths property.
+     * @param AuthenticationStrengthRoot|null $value Value to set for the authenticationStrengths property.
     */
     public function setAuthenticationStrengths(?AuthenticationStrengthRoot $value): void {
         $this->getBackingStore()->set('authenticationStrengths', $value);
@@ -110,7 +110,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
 
     /**
      * Sets the namedLocations property value. Read-only. Nullable. Returns a collection of the specified named locations.
-     *  @param array<NamedLocation>|null $value Value to set for the namedLocations property.
+     * @param array<NamedLocation>|null $value Value to set for the namedLocations property.
     */
     public function setNamedLocations(?array $value): void {
         $this->getBackingStore()->set('namedLocations', $value);
@@ -118,7 +118,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
 
     /**
      * Sets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
-     *  @param array<ConditionalAccessPolicy>|null $value Value to set for the policies property.
+     * @param array<ConditionalAccessPolicy>|null $value Value to set for the policies property.
     */
     public function setPolicies(?array $value): void {
         $this->getBackingStore()->set('policies', $value);
@@ -126,7 +126,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
 
     /**
      * Sets the templates property value. Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
-     *  @param array<ConditionalAccessTemplate>|null $value Value to set for the templates property.
+     * @param array<ConditionalAccessTemplate>|null $value Value to set for the templates property.
     */
     public function setTemplates(?array $value): void {
         $this->getBackingStore()->set('templates', $value);

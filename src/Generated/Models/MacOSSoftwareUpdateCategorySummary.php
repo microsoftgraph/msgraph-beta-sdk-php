@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * MacOS software update category summary report for a device and user
+*/
 class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable 
 {
     /**
@@ -135,7 +138,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The device ID.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -143,7 +146,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the report
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -151,7 +154,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
 
     /**
      * Sets the failedUpdateCount property value. Number of failed updates on the device
-     *  @param int|null $value Value to set for the failedUpdateCount property.
+     * @param int|null $value Value to set for the failedUpdateCount property.
     */
     public function setFailedUpdateCount(?int $value): void {
         $this->getBackingStore()->set('failedUpdateCount', $value);
@@ -159,7 +162,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
 
     /**
      * Sets the lastUpdatedDateTime property value. Last date time the report for this device was updated.
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -167,7 +170,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
 
     /**
      * Sets the successfulUpdateCount property value. Number of successful updates on the device
-     *  @param int|null $value Value to set for the successfulUpdateCount property.
+     * @param int|null $value Value to set for the successfulUpdateCount property.
     */
     public function setSuccessfulUpdateCount(?int $value): void {
         $this->getBackingStore()->set('successfulUpdateCount', $value);
@@ -175,7 +178,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
 
     /**
      * Sets the totalUpdateCount property value. Number of total updates on the device
-     *  @param int|null $value Value to set for the totalUpdateCount property.
+     * @param int|null $value Value to set for the totalUpdateCount property.
     */
     public function setTotalUpdateCount(?int $value): void {
         $this->getBackingStore()->set('totalUpdateCount', $value);
@@ -183,7 +186,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
 
     /**
      * Sets the updateCategory property value. MacOS Software Update Category
-     *  @param MacOSSoftwareUpdateCategory|null $value Value to set for the updateCategory property.
+     * @param MacOSSoftwareUpdateCategory|null $value Value to set for the updateCategory property.
     */
     public function setUpdateCategory(?MacOSSoftwareUpdateCategory $value): void {
         $this->getBackingStore()->set('updateCategory', $value);
@@ -191,7 +194,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
 
     /**
      * Sets the updateStateSummaries property value. Summary of the update states.
-     *  @param array<MacOSSoftwareUpdateStateSummary>|null $value Value to set for the updateStateSummaries property.
+     * @param array<MacOSSoftwareUpdateStateSummary>|null $value Value to set for the updateStateSummaries property.
     */
     public function setUpdateStateSummaries(?array $value): void {
         $this->getBackingStore()->set('updateStateSummaries', $value);
@@ -199,7 +202,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
 
     /**
      * Sets the userId property value. The user ID.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

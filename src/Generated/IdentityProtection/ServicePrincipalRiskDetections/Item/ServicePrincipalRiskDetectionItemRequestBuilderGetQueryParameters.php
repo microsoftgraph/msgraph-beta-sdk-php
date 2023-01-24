@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\ServicePrincipalRisk
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents information about detected at-risk service principals in an Azure AD tenant.
+*/
 class ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParameters 
 {
     /**

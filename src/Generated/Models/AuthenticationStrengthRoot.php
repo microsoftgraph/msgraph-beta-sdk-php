@@ -74,7 +74,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
 
     /**
      * Sets the authenticationCombinations property value. A collection of all valid authentication method combinations in the system.
-     *  @param array<AuthenticationMethodModes>|null $value Value to set for the authenticationCombinations property.
+     * @param array<AuthenticationMethodModes>|null $value Value to set for the authenticationCombinations property.
     */
     public function setAuthenticationCombinations(?array $value): void {
         $this->getBackingStore()->set('authenticationCombinations', $value);
@@ -82,7 +82,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
 
     /**
      * Sets the authenticationMethodModes property value. Names and descriptions of all valid authentication method modes in the system.
-     *  @param array<AuthenticationMethodModeDetail>|null $value Value to set for the authenticationMethodModes property.
+     * @param array<AuthenticationMethodModeDetail>|null $value Value to set for the authenticationMethodModes property.
     */
     public function setAuthenticationMethodModes(?array $value): void {
         $this->getBackingStore()->set('authenticationMethodModes', $value);
@@ -90,7 +90,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
 
     /**
      * Sets the policies property value. A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
-     *  @param array<AuthenticationStrengthPolicy>|null $value Value to set for the policies property.
+     * @param array<AuthenticationStrengthPolicy>|null $value Value to set for the policies property.
     */
     public function setPolicies(?array $value): void {
         $this->getBackingStore()->set('policies', $value);

@@ -107,7 +107,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
 
     /**
      * Sets the content property value. The contents of the uploaded ADMX file.
-     *  @param StreamInterface|null $value Value to set for the content property.
+     * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -115,7 +115,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
 
     /**
      * Sets the defaultLanguageCode property value. The default language of the uploaded ADMX file.
-     *  @param string|null $value Value to set for the defaultLanguageCode property.
+     * @param string|null $value Value to set for the defaultLanguageCode property.
     */
     public function setDefaultLanguageCode(?string $value): void {
         $this->getBackingStore()->set('defaultLanguageCode', $value);
@@ -123,7 +123,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
 
     /**
      * Sets the groupPolicyOperations property value. The list of operations on the uploaded ADMX file.
-     *  @param array<GroupPolicyOperation>|null $value Value to set for the groupPolicyOperations property.
+     * @param array<GroupPolicyOperation>|null $value Value to set for the groupPolicyOperations property.
     */
     public function setGroupPolicyOperations(?array $value): void {
         $this->getBackingStore()->set('groupPolicyOperations', $value);
@@ -131,7 +131,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
 
     /**
      * Sets the groupPolicyUploadedLanguageFiles property value. The list of ADML files associated with the uploaded ADMX file.
-     *  @param array<GroupPolicyUploadedLanguageFile>|null $value Value to set for the groupPolicyUploadedLanguageFiles property.
+     * @param array<GroupPolicyUploadedLanguageFile>|null $value Value to set for the groupPolicyUploadedLanguageFiles property.
     */
     public function setGroupPolicyUploadedLanguageFiles(?array $value): void {
         $this->getBackingStore()->set('groupPolicyUploadedLanguageFiles', $value);
@@ -139,7 +139,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
 
     /**
      * Sets the status property value. Type of Group Policy uploaded definition file status.
-     *  @param GroupPolicyUploadedDefinitionFileStatus|null $value Value to set for the status property.
+     * @param GroupPolicyUploadedDefinitionFileStatus|null $value Value to set for the status property.
     */
     public function setStatus(?GroupPolicyUploadedDefinitionFileStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -147,7 +147,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
 
     /**
      * Sets the uploadDateTime property value. The uploaded time of the uploaded ADMX file.
-     *  @param DateTime|null $value Value to set for the uploadDateTime property.
+     * @param DateTime|null $value Value to set for the uploadDateTime property.
     */
     public function setUploadDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('uploadDateTime', $value);

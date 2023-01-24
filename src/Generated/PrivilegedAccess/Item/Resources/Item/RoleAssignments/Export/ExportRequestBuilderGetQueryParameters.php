@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\Resources\Item\Ro
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function export
+*/
 class ExportRequestBuilderGetQueryParameters 
 {
     /**

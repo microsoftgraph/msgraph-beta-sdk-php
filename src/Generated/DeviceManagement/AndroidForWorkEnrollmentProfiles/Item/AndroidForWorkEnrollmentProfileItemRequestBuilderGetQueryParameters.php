@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollme
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Android for Work enrollment profile entities.
+*/
 class AndroidForWorkEnrollmentProfileItemRequestBuilderGetQueryParameters 
 {
     /**

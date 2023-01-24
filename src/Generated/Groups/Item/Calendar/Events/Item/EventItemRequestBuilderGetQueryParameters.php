@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\Events\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The events in the calendar. Navigation property. Read-only.
+*/
 class EventItemRequestBuilderGetQueryParameters 
 {
     /**

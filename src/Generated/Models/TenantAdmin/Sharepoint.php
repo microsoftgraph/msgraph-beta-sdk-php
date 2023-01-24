@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Sharepoint extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new sharepoint and sets the default values.
+     * Instantiates a new Sharepoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,7 +55,7 @@ class Sharepoint extends Entity implements Parsable
 
     /**
      * Sets the settings property value. Represents the tenant-level settings for SharePoint and OneDrive.
-     *  @param Settings|null $value Value to set for the settings property.
+     * @param Settings|null $value Value to set for the settings property.
     */
     public function setSettings(?Settings $value): void {
         $this->getBackingStore()->set('settings', $value);

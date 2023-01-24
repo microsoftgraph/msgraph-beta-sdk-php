@@ -64,7 +64,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
 
     /**
      * Sets the storageAccountId property value. The ID of the storage account.
-     *  @param string|null $value Value to set for the storageAccountId property.
+     * @param string|null $value Value to set for the storageAccountId property.
     */
     public function setStorageAccountId(?string $value): void {
         $this->getBackingStore()->set('storageAccountId', $value);
@@ -72,7 +72,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
 
     /**
      * Sets the storageAccountName property value. The name of the storage account.
-     *  @param string|null $value Value to set for the storageAccountName property.
+     * @param string|null $value Value to set for the storageAccountName property.
     */
     public function setStorageAccountName(?string $value): void {
         $this->getBackingStore()->set('storageAccountName', $value);

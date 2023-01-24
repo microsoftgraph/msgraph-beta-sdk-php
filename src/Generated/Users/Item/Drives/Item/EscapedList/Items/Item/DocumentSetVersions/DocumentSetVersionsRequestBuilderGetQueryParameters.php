@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\Item
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the versions of a document set item in a list.
+*/
 class DocumentSetVersionsRequestBuilderGetQueryParameters 
 {
     /**

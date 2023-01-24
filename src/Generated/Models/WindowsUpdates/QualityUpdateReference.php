@@ -73,7 +73,7 @@ class QualityUpdateReference extends WindowsUpdateReference implements Parsable
 
     /**
      * Sets the classification property value. Specifies the classification of the referenced content. Supports a subset of the values for qualityUpdateClassification. Possible values are: security, unknownFutureValue.
-     *  @param QualityUpdateClassification|null $value Value to set for the classification property.
+     * @param QualityUpdateClassification|null $value Value to set for the classification property.
     */
     public function setClassification(?QualityUpdateClassification $value): void {
         $this->getBackingStore()->set('classification', $value);
@@ -81,7 +81,7 @@ class QualityUpdateReference extends WindowsUpdateReference implements Parsable
 
     /**
      * Sets the releaseDateTime property value. Specifies a quality update in the given servicingChannel with the given classification by date (i.e. the last update published on the specified date). Default value is security.
-     *  @param DateTime|null $value Value to set for the releaseDateTime property.
+     * @param DateTime|null $value Value to set for the releaseDateTime property.
     */
     public function setReleaseDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('releaseDateTime', $value);

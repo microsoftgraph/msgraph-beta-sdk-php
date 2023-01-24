@@ -8,6 +8,9 @@ use Microsoft\Graph\Beta\Generated\Me\Authentication\MicrosoftAuthenticatorMetho
 use Microsoft\Graph\Beta\Generated\Me\Authentication\MicrosoftAuthenticatorMethods\Item\Device\RegisteredOwners\Item\User\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /me/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod-id}/device/registeredOwners/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**

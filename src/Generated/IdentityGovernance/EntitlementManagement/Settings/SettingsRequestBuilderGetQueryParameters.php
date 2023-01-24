@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties of an entitlementManagementSettings object.
+*/
 class SettingsRequestBuilderGetQueryParameters 
 {
     /**

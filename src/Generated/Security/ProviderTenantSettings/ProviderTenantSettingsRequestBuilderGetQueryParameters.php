@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get providerTenantSettings from security
+*/
 class ProviderTenantSettingsRequestBuilderGetQueryParameters 
 {
     /**

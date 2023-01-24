@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Authenticati
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy .
+*/
 class AuthenticationStrengthsRequestBuilderGetQueryParameters 
 {
     /**

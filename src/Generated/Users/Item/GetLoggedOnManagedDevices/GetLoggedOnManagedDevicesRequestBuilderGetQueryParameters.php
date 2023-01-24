@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\GetLoggedOnManagedDevices;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getLoggedOnManagedDevices
+*/
 class GetLoggedOnManagedDevicesRequestBuilderGetQueryParameters 
 {
     /**

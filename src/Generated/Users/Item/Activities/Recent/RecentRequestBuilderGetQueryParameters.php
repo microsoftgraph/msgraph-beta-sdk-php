@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Activities\Recent;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function recent
+*/
 class RecentRequestBuilderGetQueryParameters 
 {
     /**

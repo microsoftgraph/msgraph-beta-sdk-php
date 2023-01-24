@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\AttendanceReport
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The attendance reports of an online meeting. Read-only.
+*/
 class MeetingAttendanceReportItemRequestBuilderGetQueryParameters 
 {
     /**

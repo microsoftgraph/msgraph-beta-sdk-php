@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\GetSupportedCloudPcRem
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getSupportedCloudPcRemoteActions
+*/
 class GetSupportedCloudPcRemoteActionsRequestBuilderGetQueryParameters 
 {
     /**

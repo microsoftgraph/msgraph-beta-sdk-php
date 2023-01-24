@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistanceSettin
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The remote assistance settings singleton
+*/
 class RemoteAssistanceSettingsRequestBuilderGetQueryParameters 
 {
     /**

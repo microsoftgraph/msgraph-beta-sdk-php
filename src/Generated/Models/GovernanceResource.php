@@ -155,7 +155,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the resource.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -163,7 +163,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the externalId property value. The external id of the resource, representing its original id in the external system. For example, a subscription resource's external id can be '/subscriptions/c14ae696-5e0c-4e5d-88cc-bef6637737ac'.
-     *  @param string|null $value Value to set for the externalId property.
+     * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
         $this->getBackingStore()->set('externalId', $value);
@@ -171,7 +171,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the parent property value. Read-only. The parent resource. for pimforazurerbac scenario, it can represent the subscription the resource belongs to.
-     *  @param GovernanceResource|null $value Value to set for the parent property.
+     * @param GovernanceResource|null $value Value to set for the parent property.
     */
     public function setParent(?GovernanceResource $value): void {
         $this->getBackingStore()->set('parent', $value);
@@ -179,7 +179,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the registeredDateTime property value. Represents the date time when the resource is registered in PIM.
-     *  @param DateTime|null $value Value to set for the registeredDateTime property.
+     * @param DateTime|null $value Value to set for the registeredDateTime property.
     */
     public function setRegisteredDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('registeredDateTime', $value);
@@ -187,7 +187,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the registeredRoot property value. The externalId of the resource's root scope that is registered in PIM. The root scope can be the parent, grandparent, or higher ancestor resources.
-     *  @param string|null $value Value to set for the registeredRoot property.
+     * @param string|null $value Value to set for the registeredRoot property.
     */
     public function setRegisteredRoot(?string $value): void {
         $this->getBackingStore()->set('registeredRoot', $value);
@@ -195,7 +195,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the roleAssignmentRequests property value. The collection of role assignment requests for the resource.
-     *  @param array<GovernanceRoleAssignmentRequest>|null $value Value to set for the roleAssignmentRequests property.
+     * @param array<GovernanceRoleAssignmentRequest>|null $value Value to set for the roleAssignmentRequests property.
     */
     public function setRoleAssignmentRequests(?array $value): void {
         $this->getBackingStore()->set('roleAssignmentRequests', $value);
@@ -203,7 +203,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the roleAssignments property value. The collection of role assignments for the resource.
-     *  @param array<GovernanceRoleAssignment>|null $value Value to set for the roleAssignments property.
+     * @param array<GovernanceRoleAssignment>|null $value Value to set for the roleAssignments property.
     */
     public function setRoleAssignments(?array $value): void {
         $this->getBackingStore()->set('roleAssignments', $value);
@@ -211,7 +211,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the roleDefinitions property value. The collection of role defintions for the resource.
-     *  @param array<GovernanceRoleDefinition>|null $value Value to set for the roleDefinitions property.
+     * @param array<GovernanceRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
     public function setRoleDefinitions(?array $value): void {
         $this->getBackingStore()->set('roleDefinitions', $value);
@@ -219,7 +219,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the roleSettings property value. The collection of role settings for the resource.
-     *  @param array<GovernanceRoleSetting>|null $value Value to set for the roleSettings property.
+     * @param array<GovernanceRoleSetting>|null $value Value to set for the roleSettings property.
     */
     public function setRoleSettings(?array $value): void {
         $this->getBackingStore()->set('roleSettings', $value);
@@ -227,7 +227,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of a given resource. For example, it could represent whether the resource is locked or not (values: Active/Locked). Note: This property may be extended in the future to support more scenarios.
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -235,7 +235,7 @@ class GovernanceResource extends Entity implements Parsable
 
     /**
      * Sets the type property value. Required. Resource type. For example, for Azure resources, the type could be 'Subscription', 'ResourceGroup', 'Microsoft.Sql/server', etc.
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);

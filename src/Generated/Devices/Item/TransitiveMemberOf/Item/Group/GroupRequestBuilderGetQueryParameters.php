@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\TransitiveMemberOf\Item\Gr
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.group
+*/
 class GroupRequestBuilderGetQueryParameters 
 {
     /**

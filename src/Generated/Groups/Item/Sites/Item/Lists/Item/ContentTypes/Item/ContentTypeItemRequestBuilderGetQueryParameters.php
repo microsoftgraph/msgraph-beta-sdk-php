@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Conte
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get contentTypes from groups
+*/
 class ContentTypeItemRequestBuilderGetQueryParameters 
 {
     /**

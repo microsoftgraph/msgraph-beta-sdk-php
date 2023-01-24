@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Setting Template
+*/
 class DeviceManagementConfigurationSettingTemplate extends Entity implements Parsable 
 {
     /**
@@ -64,7 +67,7 @@ class DeviceManagementConfigurationSettingTemplate extends Entity implements Par
 
     /**
      * Sets the settingDefinitions property value. List of related Setting Definitions
-     *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the settingDefinitions property.
+     * @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the settingDefinitions property.
     */
     public function setSettingDefinitions(?array $value): void {
         $this->getBackingStore()->set('settingDefinitions', $value);
@@ -72,7 +75,7 @@ class DeviceManagementConfigurationSettingTemplate extends Entity implements Par
 
     /**
      * Sets the settingInstanceTemplate property value. Setting Instance Template
-     *  @param DeviceManagementConfigurationSettingInstanceTemplate|null $value Value to set for the settingInstanceTemplate property.
+     * @param DeviceManagementConfigurationSettingInstanceTemplate|null $value Value to set for the settingInstanceTemplate property.
     */
     public function setSettingInstanceTemplate(?DeviceManagementConfigurationSettingInstanceTemplate $value): void {
         $this->getBackingStore()->set('settingInstanceTemplate', $value);

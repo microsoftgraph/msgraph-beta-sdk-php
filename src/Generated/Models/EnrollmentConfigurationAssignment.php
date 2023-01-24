@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Enrollment Configuration Assignment
+*/
 class EnrollmentConfigurationAssignment extends Entity implements Parsable 
 {
     /**
@@ -74,7 +77,7 @@ class EnrollmentConfigurationAssignment extends Entity implements Parsable
 
     /**
      * Sets the source property value. Represents source of assignment.
-     *  @param DeviceAndAppManagementAssignmentSource|null $value Value to set for the source property.
+     * @param DeviceAndAppManagementAssignmentSource|null $value Value to set for the source property.
     */
     public function setSource(?DeviceAndAppManagementAssignmentSource $value): void {
         $this->getBackingStore()->set('source', $value);
@@ -82,7 +85,7 @@ class EnrollmentConfigurationAssignment extends Entity implements Parsable
 
     /**
      * Sets the sourceId property value. Identifier for resource used for deployment to a group
-     *  @param string|null $value Value to set for the sourceId property.
+     * @param string|null $value Value to set for the sourceId property.
     */
     public function setSourceId(?string $value): void {
         $this->getBackingStore()->set('sourceId', $value);
@@ -90,7 +93,7 @@ class EnrollmentConfigurationAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. Represents an assignment to managed devices in the tenant
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

@@ -75,7 +75,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
 
     /**
      * Sets the installTimeSettings property value. The install time settings to apply for this app assignment.
-     *  @param WinGetAppInstallTimeSettings|null $value Value to set for the installTimeSettings property.
+     * @param WinGetAppInstallTimeSettings|null $value Value to set for the installTimeSettings property.
     */
     public function setInstallTimeSettings(?WinGetAppInstallTimeSettings $value): void {
         $this->getBackingStore()->set('installTimeSettings', $value);
@@ -83,7 +83,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
 
     /**
      * Sets the notifications property value. Contains value for notification status.
-     *  @param WinGetAppNotification|null $value Value to set for the notifications property.
+     * @param WinGetAppNotification|null $value Value to set for the notifications property.
     */
     public function setNotifications(?WinGetAppNotification $value): void {
         $this->getBackingStore()->set('notifications', $value);
@@ -91,7 +91,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
 
     /**
      * Sets the restartSettings property value. The reboot settings to apply for this app assignment.
-     *  @param WinGetAppRestartSettings|null $value Value to set for the restartSettings property.
+     * @param WinGetAppRestartSettings|null $value Value to set for the restartSettings property.
     */
     public function setRestartSettings(?WinGetAppRestartSettings $value): void {
         $this->getBackingStore()->set('restartSettings', $value);

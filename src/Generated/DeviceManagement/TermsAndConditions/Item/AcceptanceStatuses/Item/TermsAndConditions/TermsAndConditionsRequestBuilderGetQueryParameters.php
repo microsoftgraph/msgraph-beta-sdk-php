@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Navigation link to the terms and conditions that are assigned.
+*/
 class TermsAndConditionsRequestBuilderGetQueryParameters 
 {
     /**

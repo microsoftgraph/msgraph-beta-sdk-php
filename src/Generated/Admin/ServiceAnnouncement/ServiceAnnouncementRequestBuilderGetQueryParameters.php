@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A container for service communications resources. Read-only.
+*/
 class ServiceAnnouncementRequestBuilderGetQueryParameters 
 {
     /**

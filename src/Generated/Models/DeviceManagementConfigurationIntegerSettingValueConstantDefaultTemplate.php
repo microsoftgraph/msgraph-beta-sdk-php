@@ -55,7 +55,7 @@ class DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate ex
 
     /**
      * Sets the constantValue property value. Default Constant Value. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the constantValue property.
+     * @param int|null $value Value to set for the constantValue property.
     */
     public function setConstantValue(?int $value): void {
         $this->getBackingStore()->set('constantValue', $value);

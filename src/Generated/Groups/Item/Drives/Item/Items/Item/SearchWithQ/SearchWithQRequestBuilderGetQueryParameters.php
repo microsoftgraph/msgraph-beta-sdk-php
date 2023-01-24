@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Items\Item\Sear
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function search
+*/
 class SearchWithQRequestBuilderGetQueryParameters 
 {
     /**

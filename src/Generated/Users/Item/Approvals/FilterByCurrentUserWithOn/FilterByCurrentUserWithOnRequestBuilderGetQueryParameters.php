@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Approvals\FilterByCurrentUse
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function filterByCurrentUser
+*/
 class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters 
 {
     /**

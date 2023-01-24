@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The entity represents an group policy operation.
+*/
 class GroupPolicyOperation extends Entity implements Parsable 
 {
     /**
@@ -85,7 +88,7 @@ class GroupPolicyOperation extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -93,7 +96,7 @@ class GroupPolicyOperation extends Entity implements Parsable
 
     /**
      * Sets the operationStatus property value. Type of Group Policy operation status.
-     *  @param GroupPolicyOperationStatus|null $value Value to set for the operationStatus property.
+     * @param GroupPolicyOperationStatus|null $value Value to set for the operationStatus property.
     */
     public function setOperationStatus(?GroupPolicyOperationStatus $value): void {
         $this->getBackingStore()->set('operationStatus', $value);
@@ -101,7 +104,7 @@ class GroupPolicyOperation extends Entity implements Parsable
 
     /**
      * Sets the operationType property value. Type of Group Policy operation.
-     *  @param GroupPolicyOperationType|null $value Value to set for the operationType property.
+     * @param GroupPolicyOperationType|null $value Value to set for the operationType property.
     */
     public function setOperationType(?GroupPolicyOperationType $value): void {
         $this->getBackingStore()->set('operationType', $value);
@@ -109,7 +112,7 @@ class GroupPolicyOperation extends Entity implements Parsable
 
     /**
      * Sets the statusDetails property value. The group policy operation status detail.
-     *  @param string|null $value Value to set for the statusDetails property.
+     * @param string|null $value Value to set for the statusDetails property.
     */
     public function setStatusDetails(?string $value): void {
         $this->getBackingStore()->set('statusDetails', $value);

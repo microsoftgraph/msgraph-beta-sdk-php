@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\S
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of a lifecycleManagementSettings object.
+*/
 class SettingsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\FollowedSites\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get followedSites from me
+*/
 class SiteItemRequestBuilderGetQueryParameters 
 {
     /**

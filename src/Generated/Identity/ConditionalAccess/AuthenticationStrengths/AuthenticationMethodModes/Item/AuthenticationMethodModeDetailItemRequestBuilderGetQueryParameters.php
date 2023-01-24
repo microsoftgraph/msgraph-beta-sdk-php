@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Authenticati
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Names and descriptions of all valid authentication method modes in the system.
+*/
 class AuthenticationMethodModeDetailItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\App
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the items of type microsoft.graph.application in the microsoft.graph.directoryObject collection
+*/
 class ApplicationRequestBuilderGetQueryParameters 
 {
     /**

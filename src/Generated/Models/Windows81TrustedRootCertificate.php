@@ -76,7 +76,7 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
 
     /**
      * Sets the certFileName property value. File name to display in UI.
-     *  @param string|null $value Value to set for the certFileName property.
+     * @param string|null $value Value to set for the certFileName property.
     */
     public function setCertFileName(?string $value): void {
         $this->getBackingStore()->set('certFileName', $value);
@@ -84,7 +84,7 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
 
     /**
      * Sets the destinationStore property value. Possible values for the Certificate Destination Store.
-     *  @param CertificateDestinationStore|null $value Value to set for the destinationStore property.
+     * @param CertificateDestinationStore|null $value Value to set for the destinationStore property.
     */
     public function setDestinationStore(?CertificateDestinationStore $value): void {
         $this->getBackingStore()->set('destinationStore', $value);
@@ -92,7 +92,7 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
 
     /**
      * Sets the trustedRootCertificate property value. Trusted Root Certificate
-     *  @param StreamInterface|null $value Value to set for the trustedRootCertificate property.
+     * @param StreamInterface|null $value Value to set for the trustedRootCertificate property.
     */
     public function setTrustedRootCertificate(?StreamInterface $value): void {
         $this->getBackingStore()->set('trustedRootCertificate', $value);

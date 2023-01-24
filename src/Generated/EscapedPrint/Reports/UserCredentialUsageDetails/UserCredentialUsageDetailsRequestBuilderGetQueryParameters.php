@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsag
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of userCredentialUsageDetails objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
+*/
 class UserCredentialUsageDetailsRequestBuilderGetQueryParameters 
 {
     /**

@@ -176,7 +176,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the autoAcceptEula property value. The value to accept the EULA automatically on the enduser's device.
-     *  @param bool|null $value Value to set for the autoAcceptEula property.
+     * @param bool|null $value Value to set for the autoAcceptEula property.
     */
     public function setAutoAcceptEula(?bool $value): void {
         $this->getBackingStore()->set('autoAcceptEula', $value);
@@ -184,7 +184,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the excludedApps property value. The property to represent the apps which are excluded from the selected Office365 Product Id.
-     *  @param ExcludedApps|null $value Value to set for the excludedApps property.
+     * @param ExcludedApps|null $value Value to set for the excludedApps property.
     */
     public function setExcludedApps(?ExcludedApps $value): void {
         $this->getBackingStore()->set('excludedApps', $value);
@@ -192,7 +192,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the installProgressDisplayLevel property value. The Enum to specify the level of display for the Installation Progress Setup UI on the Device.
-     *  @param OfficeSuiteInstallProgressDisplayLevel|null $value Value to set for the installProgressDisplayLevel property.
+     * @param OfficeSuiteInstallProgressDisplayLevel|null $value Value to set for the installProgressDisplayLevel property.
     */
     public function setInstallProgressDisplayLevel(?OfficeSuiteInstallProgressDisplayLevel $value): void {
         $this->getBackingStore()->set('installProgressDisplayLevel', $value);
@@ -200,7 +200,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the localesToInstall property value. The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/library/cc179219(v=office.16).aspx
-     *  @param array<string>|null $value Value to set for the localesToInstall property.
+     * @param array<string>|null $value Value to set for the localesToInstall property.
     */
     public function setLocalesToInstall(?array $value): void {
         $this->getBackingStore()->set('localesToInstall', $value);
@@ -208,7 +208,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the officeConfigurationXml property value. The property to represent the XML configuration file that can be specified for Office ProPlus Apps. Takes precedence over all other properties. When present, the XML configuration file will be used to create the app.
-     *  @param StreamInterface|null $value Value to set for the officeConfigurationXml property.
+     * @param StreamInterface|null $value Value to set for the officeConfigurationXml property.
     */
     public function setOfficeConfigurationXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('officeConfigurationXml', $value);
@@ -216,7 +216,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the officePlatformArchitecture property value. Contains properties for Windows architecture.
-     *  @param WindowsArchitecture|null $value Value to set for the officePlatformArchitecture property.
+     * @param WindowsArchitecture|null $value Value to set for the officePlatformArchitecture property.
     */
     public function setOfficePlatformArchitecture(?WindowsArchitecture $value): void {
         $this->getBackingStore()->set('officePlatformArchitecture', $value);
@@ -224,7 +224,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the officeSuiteAppDefaultFileFormat property value. Describes the OfficeSuiteApp file format types that can be selected.
-     *  @param OfficeSuiteDefaultFileFormatType|null $value Value to set for the officeSuiteAppDefaultFileFormat property.
+     * @param OfficeSuiteDefaultFileFormatType|null $value Value to set for the officeSuiteAppDefaultFileFormat property.
     */
     public function setOfficeSuiteAppDefaultFileFormat(?OfficeSuiteDefaultFileFormatType $value): void {
         $this->getBackingStore()->set('officeSuiteAppDefaultFileFormat', $value);
@@ -232,7 +232,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the productIds property value. The Product Ids that represent the Office365 Suite SKU.
-     *  @param array<OfficeProductId>|null $value Value to set for the productIds property.
+     * @param array<OfficeProductId>|null $value Value to set for the productIds property.
     */
     public function setProductIds(?array $value): void {
         $this->getBackingStore()->set('productIds', $value);
@@ -240,7 +240,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the shouldUninstallOlderVersionsOfOffice property value. The property to determine whether to uninstall existing Office MSI if an Office365 app suite is deployed to the device or not.
-     *  @param bool|null $value Value to set for the shouldUninstallOlderVersionsOfOffice property.
+     * @param bool|null $value Value to set for the shouldUninstallOlderVersionsOfOffice property.
     */
     public function setShouldUninstallOlderVersionsOfOffice(?bool $value): void {
         $this->getBackingStore()->set('shouldUninstallOlderVersionsOfOffice', $value);
@@ -248,7 +248,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the targetVersion property value. The property to represent the specific target version for the Office365 app suite that should be remained deployed on the devices.
-     *  @param string|null $value Value to set for the targetVersion property.
+     * @param string|null $value Value to set for the targetVersion property.
     */
     public function setTargetVersion(?string $value): void {
         $this->getBackingStore()->set('targetVersion', $value);
@@ -256,7 +256,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the updateChannel property value. The Enum to specify the Office365 Updates Channel.
-     *  @param OfficeUpdateChannel|null $value Value to set for the updateChannel property.
+     * @param OfficeUpdateChannel|null $value Value to set for the updateChannel property.
     */
     public function setUpdateChannel(?OfficeUpdateChannel $value): void {
         $this->getBackingStore()->set('updateChannel', $value);
@@ -264,7 +264,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the updateVersion property value. The property to represent the update version in which the specific target version is available for the Office365 app suite.
-     *  @param string|null $value Value to set for the updateVersion property.
+     * @param string|null $value Value to set for the updateVersion property.
     */
     public function setUpdateVersion(?string $value): void {
         $this->getBackingStore()->set('updateVersion', $value);
@@ -272,7 +272,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the useSharedComputerActivation property value. The property to represent that whether the shared computer activation is used not for Office365 app suite.
-     *  @param bool|null $value Value to set for the useSharedComputerActivation property.
+     * @param bool|null $value Value to set for the useSharedComputerActivation property.
     */
     public function setUseSharedComputerActivation(?bool $value): void {
         $this->getBackingStore()->set('useSharedComputerActivation', $value);

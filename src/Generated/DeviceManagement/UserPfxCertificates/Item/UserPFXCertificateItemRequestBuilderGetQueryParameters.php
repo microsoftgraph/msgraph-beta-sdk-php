@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of PFX certificates associated with a user.
+*/
 class UserPFXCertificateItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -85,7 +85,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Sets the alternateUrl property value. The alternateUrl property
-     *  @param string|null $value Value to set for the alternateUrl property.
+     * @param string|null $value Value to set for the alternateUrl property.
     */
     public function setAlternateUrl(?string $value): void {
         $this->getBackingStore()->set('alternateUrl', $value);
@@ -93,7 +93,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Sets the corsConfigurations property value. The corsConfigurations property
-     *  @param array<CorsConfiguration_v2>|null $value Value to set for the corsConfigurations property.
+     * @param array<CorsConfiguration_v2>|null $value Value to set for the corsConfigurations property.
     */
     public function setCorsConfigurations(?array $value): void {
         $this->getBackingStore()->set('corsConfigurations', $value);
@@ -101,7 +101,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Sets the externalUrl property value. The externalUrl property
-     *  @param string|null $value Value to set for the externalUrl property.
+     * @param string|null $value Value to set for the externalUrl property.
     */
     public function setExternalUrl(?string $value): void {
         $this->getBackingStore()->set('externalUrl', $value);
@@ -109,7 +109,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
 
     /**
      * Sets the internalUrl property value. The internalUrl property
-     *  @param string|null $value Value to set for the internalUrl property.
+     * @param string|null $value Value to set for the internalUrl property.
     */
     public function setInternalUrl(?string $value): void {
         $this->getBackingStore()->set('internalUrl', $value);

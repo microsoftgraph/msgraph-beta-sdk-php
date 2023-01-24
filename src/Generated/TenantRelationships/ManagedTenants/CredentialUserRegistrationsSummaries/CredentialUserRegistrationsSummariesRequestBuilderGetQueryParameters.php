@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Cred
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the credentialUserRegistrationsSummary objects and their properties.
+*/
 class CredentialUserRegistrationsSummariesRequestBuilderGetQueryParameters 
 {
     /**

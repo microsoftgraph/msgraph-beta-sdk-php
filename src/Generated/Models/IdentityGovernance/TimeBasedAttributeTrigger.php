@@ -65,7 +65,7 @@ class TimeBasedAttributeTrigger extends WorkflowExecutionTrigger implements Pars
 
     /**
      * Sets the offsetInDays property value. How many days before or after the time-based attribute specified the workflow should trigger. For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date. The value can range between -60 and 60 days.
-     *  @param int|null $value Value to set for the offsetInDays property.
+     * @param int|null $value Value to set for the offsetInDays property.
     */
     public function setOffsetInDays(?int $value): void {
         $this->getBackingStore()->set('offsetInDays', $value);
@@ -73,7 +73,7 @@ class TimeBasedAttributeTrigger extends WorkflowExecutionTrigger implements Pars
 
     /**
      * Sets the timeBasedAttribute property value. The timeBasedAttribute property
-     *  @param WorkflowTriggerTimeBasedAttribute|null $value Value to set for the timeBasedAttribute property.
+     * @param WorkflowTriggerTimeBasedAttribute|null $value Value to set for the timeBasedAttribute property.
     */
     public function setTimeBasedAttribute(?WorkflowTriggerTimeBasedAttribute $value): void {
         $this->getBackingStore()->set('timeBasedAttribute', $value);

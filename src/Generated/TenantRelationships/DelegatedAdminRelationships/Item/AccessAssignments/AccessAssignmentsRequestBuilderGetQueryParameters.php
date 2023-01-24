@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelat
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the delegatedAdminAccessAssignment objects and their properties.
+*/
 class AccessAssignmentsRequestBuilderGetQueryParameters 
 {
     /**

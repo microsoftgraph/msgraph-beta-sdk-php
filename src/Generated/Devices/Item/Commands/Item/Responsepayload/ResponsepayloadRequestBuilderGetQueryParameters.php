@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\Commands\Item\Responsepayl
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get responsepayload from devices
+*/
 class ResponsepayloadRequestBuilderGetQueryParameters 
 {
     /**

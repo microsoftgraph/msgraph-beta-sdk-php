@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLab
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get sublabels from me
+*/
 class SublabelsRequestBuilderGetQueryParameters 
 {
     /**

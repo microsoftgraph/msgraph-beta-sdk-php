@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Tags\A
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function asHierarchy
+*/
 class AsHierarchyRequestBuilderGetQueryParameters 
 {
     /**

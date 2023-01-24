@@ -65,7 +65,7 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the AzureAD group that will be locked to this kiosk configuration
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -73,7 +73,7 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
 
     /**
      * Sets the groupId property value. The ID of the AzureAD group that will be locked to this kiosk configuration
-     *  @param string|null $value Value to set for the groupId property.
+     * @param string|null $value Value to set for the groupId property.
     */
     public function setGroupId(?string $value): void {
         $this->getBackingStore()->set('groupId', $value);

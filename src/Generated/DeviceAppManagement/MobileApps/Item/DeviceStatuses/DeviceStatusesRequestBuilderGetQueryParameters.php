@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Dev
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of installation states for this mobile app.
+*/
 class DeviceStatusesRequestBuilderGetQueryParameters 
 {
     /**

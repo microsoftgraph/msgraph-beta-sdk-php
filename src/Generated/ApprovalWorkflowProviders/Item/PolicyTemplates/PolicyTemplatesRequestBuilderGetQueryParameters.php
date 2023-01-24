@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\PolicyTe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get policyTemplates from approvalWorkflowProviders
+*/
 class PolicyTemplatesRequestBuilderGetQueryParameters 
 {
     /**

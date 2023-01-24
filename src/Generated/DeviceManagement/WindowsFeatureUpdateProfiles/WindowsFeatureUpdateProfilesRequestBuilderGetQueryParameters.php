@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdatePr
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of windows feature update profiles
+*/
 class WindowsFeatureUpdateProfilesRequestBuilderGetQueryParameters 
 {
     /**

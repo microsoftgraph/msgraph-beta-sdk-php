@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Profile\Awards;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of personAward objects from a user's profile.
+*/
 class AwardsRequestBuilderGetQueryParameters 
 {
     /**

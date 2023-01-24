@@ -8,6 +8,9 @@ use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\ServicePrincipa
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\User\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /applications/{application-id}/owners/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\RosterPlans;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the list of plannerPlans that are contained by the plannerRosters of which the user is a member.
+*/
 class RosterPlansRequestBuilderGetQueryParameters 
 {
     /**

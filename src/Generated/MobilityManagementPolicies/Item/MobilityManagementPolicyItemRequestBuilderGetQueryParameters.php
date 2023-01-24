@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from mobilityManagementPolicies by key (id)
+*/
 class MobilityManagementPolicyItemRequestBuilderGetQueryParameters 
 {
     /**

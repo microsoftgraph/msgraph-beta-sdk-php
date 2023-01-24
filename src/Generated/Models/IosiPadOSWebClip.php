@@ -65,7 +65,7 @@ class IosiPadOSWebClip extends MobileApp implements Parsable
 
     /**
      * Sets the appUrl property value. The web app URL.
-     *  @param string|null $value Value to set for the appUrl property.
+     * @param string|null $value Value to set for the appUrl property.
     */
     public function setAppUrl(?string $value): void {
         $this->getBackingStore()->set('appUrl', $value);
@@ -73,7 +73,7 @@ class IosiPadOSWebClip extends MobileApp implements Parsable
 
     /**
      * Sets the useManagedBrowser property value. Whether or not to use managed browser. When true, the app will be required to be opened in an Intune-protected browser. When false, the app will not be required to be opened in an Intune-protected browser.
-     *  @param bool|null $value Value to set for the useManagedBrowser property.
+     * @param bool|null $value Value to set for the useManagedBrowser property.
     */
     public function setUseManagedBrowser(?bool $value): void {
         $this->getBackingStore()->set('useManagedBrowser', $value);

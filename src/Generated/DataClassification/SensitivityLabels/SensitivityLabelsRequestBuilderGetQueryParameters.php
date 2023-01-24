@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get sensitivityLabels from dataClassification
+*/
 class SensitivityLabelsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents an attack simulation training campaign in a tenant.
+*/
 class SimulationItemRequestBuilderGetQueryParameters 
 {
     /**

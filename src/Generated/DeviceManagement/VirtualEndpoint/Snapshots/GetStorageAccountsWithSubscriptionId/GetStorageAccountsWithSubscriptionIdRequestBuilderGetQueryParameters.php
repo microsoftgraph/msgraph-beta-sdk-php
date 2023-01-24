@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapsh
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getStorageAccounts
+*/
 class GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters 
 {
     /**

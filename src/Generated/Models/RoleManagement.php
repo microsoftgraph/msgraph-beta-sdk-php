@@ -120,7 +120,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the cloudPC property value. The cloudPC property
-     *  @param RbacApplicationMultiple|null $value Value to set for the cloudPC property.
+     * @param RbacApplicationMultiple|null $value Value to set for the cloudPC property.
     */
     public function setCloudPC(?RbacApplicationMultiple $value): void {
         $this->getBackingStore()->set('cloudPC', $value);
@@ -144,7 +144,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceManagement property value. The RbacApplication for Device Management
-     *  @param RbacApplicationMultiple|null $value Value to set for the deviceManagement property.
+     * @param RbacApplicationMultiple|null $value Value to set for the deviceManagement property.
     */
     public function setDeviceManagement(?RbacApplicationMultiple $value): void {
         $this->getBackingStore()->set('deviceManagement', $value);
@@ -152,7 +152,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the directory property value. The directory property
-     *  @param RbacApplication|null $value Value to set for the directory property.
+     * @param RbacApplication|null $value Value to set for the directory property.
     */
     public function setDirectory(?RbacApplication $value): void {
         $this->getBackingStore()->set('directory', $value);
@@ -160,7 +160,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the entitlementManagement property value. The RbacApplication for Entitlement Management
-     *  @param RbacApplication|null $value Value to set for the entitlementManagement property.
+     * @param RbacApplication|null $value Value to set for the entitlementManagement property.
     */
     public function setEntitlementManagement(?RbacApplication $value): void {
         $this->getBackingStore()->set('entitlementManagement', $value);
@@ -168,7 +168,7 @@ class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

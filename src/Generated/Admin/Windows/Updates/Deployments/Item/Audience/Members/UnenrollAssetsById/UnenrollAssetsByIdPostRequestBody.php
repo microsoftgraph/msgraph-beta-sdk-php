@@ -101,7 +101,7 @@ class UnenrollAssetsByIdPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -109,7 +109,7 @@ class UnenrollAssetsByIdPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -117,7 +117,7 @@ class UnenrollAssetsByIdPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the ids property value. The ids property
-     *  @param array<string>|null $value Value to set for the ids property.
+     * @param array<string>|null $value Value to set for the ids property.
     */
     public function setIds(?array $value): void {
         $this->getBackingStore()->set('ids', $value);
@@ -125,7 +125,7 @@ class UnenrollAssetsByIdPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the memberEntityType property value. The memberEntityType property
-     *  @param string|null $value Value to set for the memberEntityType property.
+     * @param string|null $value Value to set for the memberEntityType property.
     */
     public function setMemberEntityType(?string $value): void {
         $this->getBackingStore()->set('memberEntityType', $value);
@@ -133,7 +133,7 @@ class UnenrollAssetsByIdPostRequestBody implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the updateCategory property value. The updateCategory property
-     *  @param UpdateCategory|null $value Value to set for the updateCategory property.
+     * @param UpdateCategory|null $value Value to set for the updateCategory property.
     */
     public function setUpdateCategory(?UpdateCategory $value): void {
         $this->getBackingStore()->set('updateCategory', $value);

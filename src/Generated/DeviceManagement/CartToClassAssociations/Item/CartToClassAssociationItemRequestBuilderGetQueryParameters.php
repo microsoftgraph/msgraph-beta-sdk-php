@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CartToClassAssociation
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Cart To Class Associations.
+*/
 class CartToClassAssociationItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\FindRoomsWithRoomList;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function findRooms
+*/
 class FindRoomsWithRoomListRequestBuilderGetQueryParameters 
 {
     /**

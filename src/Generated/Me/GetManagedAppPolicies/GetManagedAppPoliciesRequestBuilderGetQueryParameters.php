@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\GetManagedAppPolicies;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Gets app restrictions for a given user.
+*/
 class GetManagedAppPoliciesRequestBuilderGetQueryParameters 
 {
     /**

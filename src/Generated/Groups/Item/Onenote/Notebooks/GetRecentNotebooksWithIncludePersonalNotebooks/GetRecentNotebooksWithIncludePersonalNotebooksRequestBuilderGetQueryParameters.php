@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\Notebooks\GetRecent
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getRecentNotebooks
+*/
 class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters 
 {
     /**

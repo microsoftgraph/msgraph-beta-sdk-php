@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook\SupportedTimeZonesWithTimeZo
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function supportedTimeZones
+*/
 class SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters 
 {
     /**

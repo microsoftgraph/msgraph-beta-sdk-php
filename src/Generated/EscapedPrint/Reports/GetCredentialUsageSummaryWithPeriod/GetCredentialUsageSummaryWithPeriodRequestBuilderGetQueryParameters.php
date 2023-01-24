@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetCredentialUsage
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getCredentialUsageSummary
+*/
 class GetCredentialUsageSummaryWithPeriodRequestBuilderGetQueryParameters 
 {
     /**

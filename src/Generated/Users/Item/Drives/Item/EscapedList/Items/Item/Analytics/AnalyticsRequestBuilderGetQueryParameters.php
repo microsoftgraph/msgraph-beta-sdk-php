@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\Item
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Analytics about the view activities that took place on this item.
+*/
 class AnalyticsRequestBuilderGetQueryParameters 
 {
     /**

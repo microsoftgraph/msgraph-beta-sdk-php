@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\AllowedUsers\I
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\AllowedUsers\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedUsers/{user-id}
+*/
 class UserItemRequestBuilder 
 {
     /**

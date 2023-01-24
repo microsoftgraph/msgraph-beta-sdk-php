@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\MobileAppTroubleshootingEvents\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of mobile app troubleshooting events for this user.
+*/
 class MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters 
 {
     /**

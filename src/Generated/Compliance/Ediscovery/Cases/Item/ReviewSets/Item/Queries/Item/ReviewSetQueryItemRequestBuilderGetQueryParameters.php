@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Review
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get queries from compliance
+*/
 class ReviewSetQueryItemRequestBuilderGetQueryParameters 
 {
     /**

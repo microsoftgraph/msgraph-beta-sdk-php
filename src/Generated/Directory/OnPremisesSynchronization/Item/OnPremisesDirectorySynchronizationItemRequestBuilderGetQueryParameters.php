@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A container for on-premises directory synchronization functionalities that are available for the organization.
+*/
 class OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters 
 {
     /**

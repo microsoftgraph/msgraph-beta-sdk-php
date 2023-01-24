@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get all the mail folders in the specified user's mailbox, including any mail search folders. By default, this operation does not return hidden folders. Use a query parameter _includeHiddenFolders_ to include them in the response.
+*/
 class MailFoldersRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of device shell scripts associated with the tenant.
+*/
 class DeviceShellScriptsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkSettings
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The singleton Android for Work settings entity.
+*/
 class AndroidForWorkSettingsRequestBuilderGetQueryParameters 
 {
     /**

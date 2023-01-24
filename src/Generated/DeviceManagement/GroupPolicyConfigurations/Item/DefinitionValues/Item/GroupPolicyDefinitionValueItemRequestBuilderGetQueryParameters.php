@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurati
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of enabled or disabled group policy definition values for the configuration.
+*/
 class GroupPolicyDefinitionValueItemRequestBuilderGetQueryParameters 
 {
     /**

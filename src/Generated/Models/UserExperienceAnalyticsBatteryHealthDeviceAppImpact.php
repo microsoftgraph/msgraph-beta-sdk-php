@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health device app impact entity contains battery usage related information at an app level for a given device.
+*/
 class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity implements Parsable 
 {
     /**
@@ -104,7 +107,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
 
     /**
      * Sets the appDisplayName property value. User friendly display name for the app. Eg: Outlook
-     *  @param string|null $value Value to set for the appDisplayName property.
+     * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
         $this->getBackingStore()->set('appDisplayName', $value);
@@ -112,7 +115,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
 
     /**
      * Sets the appName property value. App name. Eg: oltk.exe
-     *  @param string|null $value Value to set for the appName property.
+     * @param string|null $value Value to set for the appName property.
     */
     public function setAppName(?string $value): void {
         $this->getBackingStore()->set('appName', $value);
@@ -120,7 +123,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
 
     /**
      * Sets the appPublisher property value. App publisher. Eg: Microsoft Corporation
-     *  @param string|null $value Value to set for the appPublisher property.
+     * @param string|null $value Value to set for the appPublisher property.
     */
     public function setAppPublisher(?string $value): void {
         $this->getBackingStore()->set('appPublisher', $value);
@@ -128,7 +131,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
 
     /**
      * Sets the batteryUsagePercentage property value. The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the batteryUsagePercentage property.
+     * @param float|null $value Value to set for the batteryUsagePercentage property.
     */
     public function setBatteryUsagePercentage(?float $value): void {
         $this->getBackingStore()->set('batteryUsagePercentage', $value);
@@ -136,7 +139,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
 
     /**
      * Sets the deviceId property value. The unique identifier of the device, Intune DeviceID or SCCM device id.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -144,7 +147,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
 
     /**
      * Sets the isForegroundApp property value. true if the user had active interaction with the app.
-     *  @param bool|null $value Value to set for the isForegroundApp property.
+     * @param bool|null $value Value to set for the isForegroundApp property.
     */
     public function setIsForegroundApp(?bool $value): void {
         $this->getBackingStore()->set('isForegroundApp', $value);

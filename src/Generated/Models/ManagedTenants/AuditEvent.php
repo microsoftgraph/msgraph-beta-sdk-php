@@ -176,7 +176,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the activity property value. A string which uniquely represents the operation that occurred. Required. Read-only.
-     *  @param string|null $value Value to set for the activity property.
+     * @param string|null $value Value to set for the activity property.
     */
     public function setActivity(?string $value): void {
         $this->getBackingStore()->set('activity', $value);
@@ -184,7 +184,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the activityDateTime property value. The time when the activity ocurred. Required. Read-only.
-     *  @param DateTime|null $value Value to set for the activityDateTime property.
+     * @param DateTime|null $value Value to set for the activityDateTime property.
     */
     public function setActivityDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('activityDateTime', $value);
@@ -192,7 +192,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the activityId property value. The identifier of the activity request that made the audit event. Required. Read-only.
-     *  @param string|null $value Value to set for the activityId property.
+     * @param string|null $value Value to set for the activityId property.
     */
     public function setActivityId(?string $value): void {
         $this->getBackingStore()->set('activityId', $value);
@@ -200,7 +200,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the category property value. A category which represents a logical grouping of activities. Required. Read-only.
-     *  @param string|null $value Value to set for the category property.
+     * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -208,7 +208,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the httpVerb property value. The HTTP verb that was used when making the API request. Required. Read-only.
-     *  @param string|null $value Value to set for the httpVerb property.
+     * @param string|null $value Value to set for the httpVerb property.
     */
     public function setHttpVerb(?string $value): void {
         $this->getBackingStore()->set('httpVerb', $value);
@@ -216,7 +216,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the initiatedByAppId property value. The identifier of the app that was used to make the request. Required. Read-only.
-     *  @param string|null $value Value to set for the initiatedByAppId property.
+     * @param string|null $value Value to set for the initiatedByAppId property.
     */
     public function setInitiatedByAppId(?string $value): void {
         $this->getBackingStore()->set('initiatedByAppId', $value);
@@ -224,7 +224,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the initiatedByUpn property value. The UPN of the user who initiated the activity. Required. Read-only.
-     *  @param string|null $value Value to set for the initiatedByUpn property.
+     * @param string|null $value Value to set for the initiatedByUpn property.
     */
     public function setInitiatedByUpn(?string $value): void {
         $this->getBackingStore()->set('initiatedByUpn', $value);
@@ -232,7 +232,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the initiatedByUserId property value. The identifier of the user who initiated the activity. Required. Read-only.
-     *  @param string|null $value Value to set for the initiatedByUserId property.
+     * @param string|null $value Value to set for the initiatedByUserId property.
     */
     public function setInitiatedByUserId(?string $value): void {
         $this->getBackingStore()->set('initiatedByUserId', $value);
@@ -240,7 +240,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the ipAddress property value. The IP address of where the activity was initiated. This may be an IPv4 or IPv6 address. Required. Read-only.
-     *  @param string|null $value Value to set for the ipAddress property.
+     * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
         $this->getBackingStore()->set('ipAddress', $value);
@@ -248,7 +248,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the requestBody property value. The raw HTTP request body. Some sensitive information may be removed.
-     *  @param string|null $value Value to set for the requestBody property.
+     * @param string|null $value Value to set for the requestBody property.
     */
     public function setRequestBody(?string $value): void {
         $this->getBackingStore()->set('requestBody', $value);
@@ -256,7 +256,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the requestUrl property value. The raw HTTP request URL. Required. Read-only.
-     *  @param string|null $value Value to set for the requestUrl property.
+     * @param string|null $value Value to set for the requestUrl property.
     */
     public function setRequestUrl(?string $value): void {
         $this->getBackingStore()->set('requestUrl', $value);
@@ -264,7 +264,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the tenantIds property value. The collection of Azure Active Directory tenant identifiers for the managed tenants that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantIds property.
+     * @param string|null $value Value to set for the tenantIds property.
     */
     public function setTenantIds(?string $value): void {
         $this->getBackingStore()->set('tenantIds', $value);
@@ -272,7 +272,7 @@ class AuditEvent extends Entity implements Parsable
 
     /**
      * Sets the tenantNames property value. The collection of tenant names that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantNames property.
+     * @param string|null $value Value to set for the tenantNames property.
     */
     public function setTenantNames(?string $value): void {
         $this->getBackingStore()->set('tenantNames', $value);

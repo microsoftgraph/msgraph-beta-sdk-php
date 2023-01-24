@@ -55,7 +55,7 @@ class UrlThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the webUrl property value. Denotes the webUrl that needs to be submitted.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Deployments created using the deployment service. Read-only.
+*/
 class DeploymentItemRequestBuilderGetQueryParameters 
 {
     /**

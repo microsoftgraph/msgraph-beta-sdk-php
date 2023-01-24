@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The group policy file associated with the definition.
+*/
 class DefinitionFileRequestBuilderGetQueryParameters 
 {
     /**

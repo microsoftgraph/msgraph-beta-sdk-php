@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\A
 use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\AppliesTo\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /directory/featureRolloutPolicies/{featureRolloutPolicy-id}/appliesTo/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Ef
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the unifiedRoleManagementPolicyRule resources from the effectiveRules navigation property. To retrieve rules for a policy that applies to Azure RBAC, use the Azure REST PIM API for role management policies.
+*/
 class EffectiveRulesRequestBuilderGetQueryParameters 
 {
     /**

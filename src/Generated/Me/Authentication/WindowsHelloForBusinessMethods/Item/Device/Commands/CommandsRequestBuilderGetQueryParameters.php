@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusine
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Set of commands sent to this device.
+*/
 class CommandsRequestBuilderGetQueryParameters 
 {
     /**

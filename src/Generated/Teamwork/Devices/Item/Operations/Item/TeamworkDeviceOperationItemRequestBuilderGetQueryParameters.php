@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Operations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The async operations on the device.
+*/
 class TeamworkDeviceOperationItemRequestBuilderGetQueryParameters 
 {
     /**

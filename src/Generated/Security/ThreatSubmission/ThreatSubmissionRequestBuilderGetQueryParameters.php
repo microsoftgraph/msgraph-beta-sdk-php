@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatSubmission;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A threat submission sent to Microsoft; for example, a suspicious email threat, URL threat, or file threat.
+*/
 class ThreatSubmissionRequestBuilderGetQueryParameters 
 {
     /**

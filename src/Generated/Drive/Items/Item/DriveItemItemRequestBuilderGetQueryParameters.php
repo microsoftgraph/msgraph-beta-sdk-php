@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drive\Items\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * All items contained in the drive. Read-only. Nullable.
+*/
 class DriveItemItemRequestBuilderGetQueryParameters 
 {
     /**

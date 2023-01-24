@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Device
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getSourceImages
+*/
 class GetSourceImagesRequestBuilderGetQueryParameters 
 {
     /**

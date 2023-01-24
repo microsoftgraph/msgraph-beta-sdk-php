@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Root\Permission
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The set of permissions for the item. Read-only. Nullable.
+*/
 class PermissionItemRequestBuilderGetQueryParameters 
 {
     /**

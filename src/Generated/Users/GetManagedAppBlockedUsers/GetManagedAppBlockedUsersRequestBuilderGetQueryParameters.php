@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\GetManagedAppBlockedUsers;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getManagedAppBlockedUsers
+*/
 class GetManagedAppBlockedUsersRequestBuilderGetQueryParameters 
 {
     /**

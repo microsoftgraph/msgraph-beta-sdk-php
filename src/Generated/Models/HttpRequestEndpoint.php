@@ -55,7 +55,7 @@ class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration implement
 
     /**
      * Sets the targetUrl property value. The targetUrl property
-     *  @param string|null $value Value to set for the targetUrl property.
+     * @param string|null $value Value to set for the targetUrl property.
     */
     public function setTargetUrl(?string $value): void {
         $this->getBackingStore()->set('targetUrl', $value);

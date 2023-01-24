@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Approvals\Item\Steps\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get steps from users
+*/
 class ApprovalStepItemRequestBuilderGetQueryParameters 
 {
     /**

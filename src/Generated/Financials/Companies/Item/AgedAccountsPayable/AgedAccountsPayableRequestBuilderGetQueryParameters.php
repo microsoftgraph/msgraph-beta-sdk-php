@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\AgedAccountsP
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get agedAccountsPayable from financials
+*/
 class AgedAccountsPayableRequestBuilderGetQueryParameters 
 {
     /**

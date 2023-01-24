@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get labels from security
+*/
 class LabelsRequestBuilderGetQueryParameters 
 {
     /**

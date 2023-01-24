@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The related lifecycle workflow task.Supports $filter(eq, ne) and $expand.
+*/
 class TaskRequestBuilderGetQueryParameters 
 {
     /**

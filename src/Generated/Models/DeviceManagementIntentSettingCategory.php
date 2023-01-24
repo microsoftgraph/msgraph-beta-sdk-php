@@ -54,7 +54,7 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
 
     /**
      * Sets the settings property value. The settings this category contains
-     *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the settings property.
+     * @param array<DeviceManagementSettingInstance>|null $value Value to set for the settings property.
     */
     public function setSettings(?array $value): void {
         $this->getBackingStore()->set('settings', $value);

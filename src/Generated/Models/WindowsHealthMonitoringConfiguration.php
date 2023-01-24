@@ -75,7 +75,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the allowDeviceHealthMonitoring property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the allowDeviceHealthMonitoring property.
+     * @param Enablement|null $value Value to set for the allowDeviceHealthMonitoring property.
     */
     public function setAllowDeviceHealthMonitoring(?Enablement $value): void {
         $this->getBackingStore()->set('allowDeviceHealthMonitoring', $value);
@@ -83,7 +83,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the configDeviceHealthMonitoringCustomScope property value. Specifies custom set of events collected from the device where health monitoring is enabled
-     *  @param string|null $value Value to set for the configDeviceHealthMonitoringCustomScope property.
+     * @param string|null $value Value to set for the configDeviceHealthMonitoringCustomScope property.
     */
     public function setConfigDeviceHealthMonitoringCustomScope(?string $value): void {
         $this->getBackingStore()->set('configDeviceHealthMonitoringCustomScope', $value);
@@ -91,7 +91,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the configDeviceHealthMonitoringScope property value. Device health monitoring scope
-     *  @param WindowsHealthMonitoringScope|null $value Value to set for the configDeviceHealthMonitoringScope property.
+     * @param WindowsHealthMonitoringScope|null $value Value to set for the configDeviceHealthMonitoringScope property.
     */
     public function setConfigDeviceHealthMonitoringScope(?WindowsHealthMonitoringScope $value): void {
         $this->getBackingStore()->set('configDeviceHealthMonitoringScope', $value);

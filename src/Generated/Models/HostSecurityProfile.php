@@ -225,7 +225,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
-     *  @param string|null $value Value to set for the azureSubscriptionId property.
+     * @param string|null $value Value to set for the azureSubscriptionId property.
     */
     public function setAzureSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('azureSubscriptionId', $value);
@@ -233,7 +233,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
-     *  @param string|null $value Value to set for the azureTenantId property.
+     * @param string|null $value Value to set for the azureTenantId property.
     */
     public function setAzureTenantId(?string $value): void {
         $this->getBackingStore()->set('azureTenantId', $value);
@@ -241,7 +241,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the firstSeenDateTime property value. The firstSeenDateTime property
-     *  @param DateTime|null $value Value to set for the firstSeenDateTime property.
+     * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('firstSeenDateTime', $value);
@@ -249,7 +249,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the fqdn property value. The fqdn property
-     *  @param string|null $value Value to set for the fqdn property.
+     * @param string|null $value Value to set for the fqdn property.
     */
     public function setFqdn(?string $value): void {
         $this->getBackingStore()->set('fqdn', $value);
@@ -257,7 +257,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the isAzureAdJoined property value. The isAzureAdJoined property
-     *  @param bool|null $value Value to set for the isAzureAdJoined property.
+     * @param bool|null $value Value to set for the isAzureAdJoined property.
     */
     public function setIsAzureAdJoined(?bool $value): void {
         $this->getBackingStore()->set('isAzureAdJoined', $value);
@@ -265,7 +265,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the isAzureAdRegistered property value. The isAzureAdRegistered property
-     *  @param bool|null $value Value to set for the isAzureAdRegistered property.
+     * @param bool|null $value Value to set for the isAzureAdRegistered property.
     */
     public function setIsAzureAdRegistered(?bool $value): void {
         $this->getBackingStore()->set('isAzureAdRegistered', $value);
@@ -273,7 +273,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the isHybridAzureDomainJoined property value. The isHybridAzureDomainJoined property
-     *  @param bool|null $value Value to set for the isHybridAzureDomainJoined property.
+     * @param bool|null $value Value to set for the isHybridAzureDomainJoined property.
     */
     public function setIsHybridAzureDomainJoined(?bool $value): void {
         $this->getBackingStore()->set('isHybridAzureDomainJoined', $value);
@@ -281,7 +281,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the lastSeenDateTime property value. The lastSeenDateTime property
-     *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
+     * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSeenDateTime', $value);
@@ -289,7 +289,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the logonUsers property value. The logonUsers property
-     *  @param array<LogonUser>|null $value Value to set for the logonUsers property.
+     * @param array<LogonUser>|null $value Value to set for the logonUsers property.
     */
     public function setLogonUsers(?array $value): void {
         $this->getBackingStore()->set('logonUsers', $value);
@@ -297,7 +297,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the netBiosName property value. The netBiosName property
-     *  @param string|null $value Value to set for the netBiosName property.
+     * @param string|null $value Value to set for the netBiosName property.
     */
     public function setNetBiosName(?string $value): void {
         $this->getBackingStore()->set('netBiosName', $value);
@@ -305,7 +305,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the networkInterfaces property value. The networkInterfaces property
-     *  @param array<NetworkInterface>|null $value Value to set for the networkInterfaces property.
+     * @param array<NetworkInterface>|null $value Value to set for the networkInterfaces property.
     */
     public function setNetworkInterfaces(?array $value): void {
         $this->getBackingStore()->set('networkInterfaces', $value);
@@ -313,7 +313,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the os property value. The os property
-     *  @param string|null $value Value to set for the os property.
+     * @param string|null $value Value to set for the os property.
     */
     public function setOs(?string $value): void {
         $this->getBackingStore()->set('os', $value);
@@ -321,7 +321,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. The osVersion property
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -329,7 +329,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the parentHost property value. The parentHost property
-     *  @param string|null $value Value to set for the parentHost property.
+     * @param string|null $value Value to set for the parentHost property.
     */
     public function setParentHost(?string $value): void {
         $this->getBackingStore()->set('parentHost', $value);
@@ -337,7 +337,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the relatedHostIds property value. The relatedHostIds property
-     *  @param array<string>|null $value Value to set for the relatedHostIds property.
+     * @param array<string>|null $value Value to set for the relatedHostIds property.
     */
     public function setRelatedHostIds(?array $value): void {
         $this->getBackingStore()->set('relatedHostIds', $value);
@@ -345,7 +345,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the riskScore property value. The riskScore property
-     *  @param string|null $value Value to set for the riskScore property.
+     * @param string|null $value Value to set for the riskScore property.
     */
     public function setRiskScore(?string $value): void {
         $this->getBackingStore()->set('riskScore', $value);
@@ -353,7 +353,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the tags property value. The tags property
-     *  @param array<string>|null $value Value to set for the tags property.
+     * @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {
         $this->getBackingStore()->set('tags', $value);
@@ -361,7 +361,7 @@ class HostSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
-     *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
+     * @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
     public function setVendorInformation(?SecurityVendorInformation $value): void {
         $this->getBackingStore()->set('vendorInformation', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationCon
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Summary of policies in conflict state for this account.
+*/
 class DeviceConfigurationConflictSummaryRequestBuilderGetQueryParameters 
 {
     /**

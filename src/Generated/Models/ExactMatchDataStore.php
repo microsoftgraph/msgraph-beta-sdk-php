@@ -54,7 +54,7 @@ class ExactMatchDataStore extends ExactMatchDataStoreBase implements Parsable
 
     /**
      * Sets the sessions property value. The sessions property
-     *  @param array<ExactMatchSession>|null $value Value to set for the sessions property.
+     * @param array<ExactMatchSession>|null $value Value to set for the sessions property.
     */
     public function setSessions(?array $value): void {
         $this->getBackingStore()->set('sessions', $value);

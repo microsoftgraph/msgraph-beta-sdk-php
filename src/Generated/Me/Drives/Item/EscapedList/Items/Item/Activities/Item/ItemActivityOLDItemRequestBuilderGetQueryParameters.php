@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Drives\Item\EscapedList\Items\Item\A
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of recent activities that took place on this item.
+*/
 class ItemActivityOLDItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -235,7 +235,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the advancedThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
-     *  @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
+     * @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
     */
     public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionRequiredSecurityLevel', $value);
@@ -243,7 +243,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection .
-     *  @param bool|null $value Value to set for the deviceThreatProtectionEnabled property.
+     * @param bool|null $value Value to set for the deviceThreatProtectionEnabled property.
     */
     public function setDeviceThreatProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('deviceThreatProtectionEnabled', $value);
@@ -251,7 +251,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
-     *  @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
+     * @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
     */
     public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
         $this->getBackingStore()->set('deviceThreatProtectionRequiredSecurityLevel', $value);
@@ -259,7 +259,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the managedEmailProfileRequired property value. Indicates whether or not to require a managed email profile.
-     *  @param bool|null $value Value to set for the managedEmailProfileRequired property.
+     * @param bool|null $value Value to set for the managedEmailProfileRequired property.
     */
     public function setManagedEmailProfileRequired(?bool $value): void {
         $this->getBackingStore()->set('managedEmailProfileRequired', $value);
@@ -267,7 +267,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the osMaximumBuildVersion property value. Maximum IOS build version.
-     *  @param string|null $value Value to set for the osMaximumBuildVersion property.
+     * @param string|null $value Value to set for the osMaximumBuildVersion property.
     */
     public function setOsMaximumBuildVersion(?string $value): void {
         $this->getBackingStore()->set('osMaximumBuildVersion', $value);
@@ -275,7 +275,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the osMaximumVersion property value. Maximum IOS version.
-     *  @param string|null $value Value to set for the osMaximumVersion property.
+     * @param string|null $value Value to set for the osMaximumVersion property.
     */
     public function setOsMaximumVersion(?string $value): void {
         $this->getBackingStore()->set('osMaximumVersion', $value);
@@ -283,7 +283,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the osMinimumBuildVersion property value. Minimum IOS build version.
-     *  @param string|null $value Value to set for the osMinimumBuildVersion property.
+     * @param string|null $value Value to set for the osMinimumBuildVersion property.
     */
     public function setOsMinimumBuildVersion(?string $value): void {
         $this->getBackingStore()->set('osMinimumBuildVersion', $value);
@@ -291,7 +291,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the osMinimumVersion property value. Minimum IOS version.
-     *  @param string|null $value Value to set for the osMinimumVersion property.
+     * @param string|null $value Value to set for the osMinimumVersion property.
     */
     public function setOsMinimumVersion(?string $value): void {
         $this->getBackingStore()->set('osMinimumVersion', $value);
@@ -299,7 +299,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the passcodeBlockSimple property value. Indicates whether or not to block simple passcodes.
-     *  @param bool|null $value Value to set for the passcodeBlockSimple property.
+     * @param bool|null $value Value to set for the passcodeBlockSimple property.
     */
     public function setPasscodeBlockSimple(?bool $value): void {
         $this->getBackingStore()->set('passcodeBlockSimple', $value);
@@ -307,7 +307,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the passcodeExpirationDays property value. Number of days before the passcode expires. Valid values 1 to 65535
-     *  @param int|null $value Value to set for the passcodeExpirationDays property.
+     * @param int|null $value Value to set for the passcodeExpirationDays property.
     */
     public function setPasscodeExpirationDays(?int $value): void {
         $this->getBackingStore()->set('passcodeExpirationDays', $value);
@@ -315,7 +315,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the passcodeMinimumCharacterSetCount property value. The number of character sets required in the password.
-     *  @param int|null $value Value to set for the passcodeMinimumCharacterSetCount property.
+     * @param int|null $value Value to set for the passcodeMinimumCharacterSetCount property.
     */
     public function setPasscodeMinimumCharacterSetCount(?int $value): void {
         $this->getBackingStore()->set('passcodeMinimumCharacterSetCount', $value);
@@ -323,7 +323,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the passcodeMinimumLength property value. Minimum length of passcode. Valid values 4 to 14
-     *  @param int|null $value Value to set for the passcodeMinimumLength property.
+     * @param int|null $value Value to set for the passcodeMinimumLength property.
     */
     public function setPasscodeMinimumLength(?int $value): void {
         $this->getBackingStore()->set('passcodeMinimumLength', $value);
@@ -331,7 +331,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the passcodeMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a passcode is required.
-     *  @param int|null $value Value to set for the passcodeMinutesOfInactivityBeforeLock property.
+     * @param int|null $value Value to set for the passcodeMinutesOfInactivityBeforeLock property.
     */
     public function setPasscodeMinutesOfInactivityBeforeLock(?int $value): void {
         $this->getBackingStore()->set('passcodeMinutesOfInactivityBeforeLock', $value);
@@ -339,7 +339,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the passcodeMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
-     *  @param int|null $value Value to set for the passcodeMinutesOfInactivityBeforeScreenTimeout property.
+     * @param int|null $value Value to set for the passcodeMinutesOfInactivityBeforeScreenTimeout property.
     */
     public function setPasscodeMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
         $this->getBackingStore()->set('passcodeMinutesOfInactivityBeforeScreenTimeout', $value);
@@ -347,7 +347,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the passcodePreviousPasscodeBlockCount property value. Number of previous passcodes to block. Valid values 1 to 24
-     *  @param int|null $value Value to set for the passcodePreviousPasscodeBlockCount property.
+     * @param int|null $value Value to set for the passcodePreviousPasscodeBlockCount property.
     */
     public function setPasscodePreviousPasscodeBlockCount(?int $value): void {
         $this->getBackingStore()->set('passcodePreviousPasscodeBlockCount', $value);
@@ -355,7 +355,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the passcodeRequired property value. Indicates whether or not to require a passcode.
-     *  @param bool|null $value Value to set for the passcodeRequired property.
+     * @param bool|null $value Value to set for the passcodeRequired property.
     */
     public function setPasscodeRequired(?bool $value): void {
         $this->getBackingStore()->set('passcodeRequired', $value);
@@ -363,7 +363,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the passcodeRequiredType property value. Possible values of required passwords.
-     *  @param RequiredPasswordType|null $value Value to set for the passcodeRequiredType property.
+     * @param RequiredPasswordType|null $value Value to set for the passcodeRequiredType property.
     */
     public function setPasscodeRequiredType(?RequiredPasswordType $value): void {
         $this->getBackingStore()->set('passcodeRequiredType', $value);
@@ -371,7 +371,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the restrictedApps property value. Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.
-     *  @param array<AppListItem>|null $value Value to set for the restrictedApps property.
+     * @param array<AppListItem>|null $value Value to set for the restrictedApps property.
     */
     public function setRestrictedApps(?array $value): void {
         $this->getBackingStore()->set('restrictedApps', $value);
@@ -379,7 +379,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
 
     /**
      * Sets the securityBlockJailbrokenDevices property value. Devices must not be jailbroken or rooted.
-     *  @param bool|null $value Value to set for the securityBlockJailbrokenDevices property.
+     * @param bool|null $value Value to set for the securityBlockJailbrokenDevices property.
     */
     public function setSecurityBlockJailbrokenDevices(?bool $value): void {
         $this->getBackingStore()->set('securityBlockJailbrokenDevices', $value);

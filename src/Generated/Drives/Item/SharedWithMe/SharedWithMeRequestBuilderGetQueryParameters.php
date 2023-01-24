@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\SharedWithMe;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function sharedWithMe
+*/
 class SharedWithMeRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecord
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getPortalNotifications
+*/
 class GetPortalNotificationsRequestBuilderGetQueryParameters 
 {
     /**

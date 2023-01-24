@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPayme
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get customerPaymentJournals from financials
+*/
 class CustomerPaymentJournalItemRequestBuilderGetQueryParameters 
 {
     /**

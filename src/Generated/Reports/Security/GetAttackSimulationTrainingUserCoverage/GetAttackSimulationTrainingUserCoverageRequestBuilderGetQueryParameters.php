@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\Security\GetAttackSimulationTra
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getAttackSimulationTrainingUserCoverage
+*/
 class GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters 
 {
     /**

@@ -55,7 +55,7 @@ class OnTokenIssuanceStartListener extends AuthenticationEventListener implement
 
     /**
      * Sets the handler property value. The handler property
-     *  @param OnTokenIssuanceStartHandler|null $value Value to set for the handler property.
+     * @param OnTokenIssuanceStartHandler|null $value Value to set for the handler property.
     */
     public function setHandler(?OnTokenIssuanceStartHandler $value): void {
         $this->getBackingStore()->set('handler', $value);

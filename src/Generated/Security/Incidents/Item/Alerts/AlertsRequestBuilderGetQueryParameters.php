@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Incidents\Item\Alerts;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of related alerts. Supports $expand.
+*/
 class AlertsRequestBuilderGetQueryParameters 
 {
     /**

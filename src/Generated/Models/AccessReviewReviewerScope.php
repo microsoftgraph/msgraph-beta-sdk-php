@@ -75,7 +75,7 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
 
     /**
      * Sets the query property value. The query specifying who will be the reviewer.
-     *  @param string|null $value Value to set for the query property.
+     * @param string|null $value Value to set for the query property.
     */
     public function setQuery(?string $value): void {
         $this->getBackingStore()->set('query', $value);
@@ -83,7 +83,7 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
 
     /**
      * Sets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query, for example, ./manager, is specified. Possible value: decisions.
-     *  @param string|null $value Value to set for the queryRoot property.
+     * @param string|null $value Value to set for the queryRoot property.
     */
     public function setQueryRoot(?string $value): void {
         $this->getBackingStore()->set('queryRoot', $value);
@@ -91,7 +91,7 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
 
     /**
      * Sets the queryType property value. The type of query. Examples include MicrosoftGraph and ARM.
-     *  @param string|null $value Value to set for the queryType property.
+     * @param string|null $value Value to set for the queryType property.
     */
     public function setQueryType(?string $value): void {
         $this->getBackingStore()->set('queryType', $value);

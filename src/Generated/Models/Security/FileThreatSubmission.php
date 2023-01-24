@@ -63,7 +63,7 @@ class FileThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the fileName property value. It specifies the file name to be submitted.
-     *  @param string|null $value Value to set for the fileName property.
+     * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
         $this->getBackingStore()->set('fileName', $value);

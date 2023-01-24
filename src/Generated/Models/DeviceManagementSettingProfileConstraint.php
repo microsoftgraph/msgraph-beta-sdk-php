@@ -65,7 +65,7 @@ class DeviceManagementSettingProfileConstraint extends DeviceManagementConstrain
 
     /**
      * Sets the source property value. The source of the entity
-     *  @param string|null $value Value to set for the source property.
+     * @param string|null $value Value to set for the source property.
     */
     public function setSource(?string $value): void {
         $this->getBackingStore()->set('source', $value);
@@ -73,7 +73,7 @@ class DeviceManagementSettingProfileConstraint extends DeviceManagementConstrain
 
     /**
      * Sets the types property value. A collection of types this entity carries
-     *  @param array<string>|null $value Value to set for the types property.
+     * @param array<string>|null $value Value to set for the types property.
     */
     public function setTypes(?array $value): void {
         $this->getBackingStore()->set('types', $value);

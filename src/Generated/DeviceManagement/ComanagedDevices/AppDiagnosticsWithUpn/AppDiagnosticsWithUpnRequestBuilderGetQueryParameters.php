@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\AppDi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function appDiagnostics
+*/
 class AppDiagnosticsWithUpnRequestBuilderGetQueryParameters 
 {
     /**

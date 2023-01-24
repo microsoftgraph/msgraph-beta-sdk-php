@@ -125,7 +125,7 @@ class GroupPolicyCategory extends Entity implements Parsable
 
     /**
      * Sets the children property value. The children categories
-     *  @param array<GroupPolicyCategory>|null $value Value to set for the children property.
+     * @param array<GroupPolicyCategory>|null $value Value to set for the children property.
     */
     public function setChildren(?array $value): void {
         $this->getBackingStore()->set('children', $value);
@@ -133,7 +133,7 @@ class GroupPolicyCategory extends Entity implements Parsable
 
     /**
      * Sets the definitionFile property value. The id of the definition file the category came from
-     *  @param GroupPolicyDefinitionFile|null $value Value to set for the definitionFile property.
+     * @param GroupPolicyDefinitionFile|null $value Value to set for the definitionFile property.
     */
     public function setDefinitionFile(?GroupPolicyDefinitionFile $value): void {
         $this->getBackingStore()->set('definitionFile', $value);
@@ -141,7 +141,7 @@ class GroupPolicyCategory extends Entity implements Parsable
 
     /**
      * Sets the definitions property value. The immediate GroupPolicyDefinition children of the category
-     *  @param array<GroupPolicyDefinition>|null $value Value to set for the definitions property.
+     * @param array<GroupPolicyDefinition>|null $value Value to set for the definitions property.
     */
     public function setDefinitions(?array $value): void {
         $this->getBackingStore()->set('definitions', $value);
@@ -149,7 +149,7 @@ class GroupPolicyCategory extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The string id of the category's display name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -157,7 +157,7 @@ class GroupPolicyCategory extends Entity implements Parsable
 
     /**
      * Sets the ingestionSource property value. Category Ingestion source
-     *  @param IngestionSource|null $value Value to set for the ingestionSource property.
+     * @param IngestionSource|null $value Value to set for the ingestionSource property.
     */
     public function setIngestionSource(?IngestionSource $value): void {
         $this->getBackingStore()->set('ingestionSource', $value);
@@ -165,7 +165,7 @@ class GroupPolicyCategory extends Entity implements Parsable
 
     /**
      * Sets the isRoot property value. Defines if the category is a root category
-     *  @param bool|null $value Value to set for the isRoot property.
+     * @param bool|null $value Value to set for the isRoot property.
     */
     public function setIsRoot(?bool $value): void {
         $this->getBackingStore()->set('isRoot', $value);
@@ -173,7 +173,7 @@ class GroupPolicyCategory extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -181,7 +181,7 @@ class GroupPolicyCategory extends Entity implements Parsable
 
     /**
      * Sets the parent property value. The parent category
-     *  @param GroupPolicyCategory|null $value Value to set for the parent property.
+     * @param GroupPolicyCategory|null $value Value to set for the parent property.
     */
     public function setParent(?GroupPolicyCategory $value): void {
         $this->getBackingStore()->set('parent', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Sets;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of all sets available in the term store.
+*/
 class SetsRequestBuilderGetQueryParameters 
 {
     /**

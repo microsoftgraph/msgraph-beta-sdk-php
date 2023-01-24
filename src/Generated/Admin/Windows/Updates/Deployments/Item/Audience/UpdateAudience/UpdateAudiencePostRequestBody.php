@@ -111,7 +111,7 @@ class UpdateAudiencePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the addExclusions property value. The addExclusions property
-     *  @param array<UpdatableAsset>|null $value Value to set for the addExclusions property.
+     * @param array<UpdatableAsset>|null $value Value to set for the addExclusions property.
     */
     public function setAddExclusions(?array $value): void {
         $this->getBackingStore()->set('addExclusions', $value);
@@ -119,7 +119,7 @@ class UpdateAudiencePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -127,7 +127,7 @@ class UpdateAudiencePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the addMembers property value. The addMembers property
-     *  @param array<UpdatableAsset>|null $value Value to set for the addMembers property.
+     * @param array<UpdatableAsset>|null $value Value to set for the addMembers property.
     */
     public function setAddMembers(?array $value): void {
         $this->getBackingStore()->set('addMembers', $value);
@@ -135,7 +135,7 @@ class UpdateAudiencePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -143,7 +143,7 @@ class UpdateAudiencePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the removeExclusions property value. The removeExclusions property
-     *  @param array<UpdatableAsset>|null $value Value to set for the removeExclusions property.
+     * @param array<UpdatableAsset>|null $value Value to set for the removeExclusions property.
     */
     public function setRemoveExclusions(?array $value): void {
         $this->getBackingStore()->set('removeExclusions', $value);
@@ -151,7 +151,7 @@ class UpdateAudiencePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the removeMembers property value. The removeMembers property
-     *  @param array<UpdatableAsset>|null $value Value to set for the removeMembers property.
+     * @param array<UpdatableAsset>|null $value Value to set for the removeMembers property.
     */
     public function setRemoveMembers(?array $value): void {
         $this->getBackingStore()->set('removeMembers', $value);

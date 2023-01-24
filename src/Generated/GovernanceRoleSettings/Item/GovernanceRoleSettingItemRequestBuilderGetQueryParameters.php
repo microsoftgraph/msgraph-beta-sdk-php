@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceRoleSettings\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from governanceRoleSettings by key (id)
+*/
 class GovernanceRoleSettingItemRequestBuilderGetQueryParameters 
 {
     /**

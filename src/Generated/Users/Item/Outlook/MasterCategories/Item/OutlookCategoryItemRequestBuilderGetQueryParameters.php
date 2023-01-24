@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\MasterCategories\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A list of categories defined for the user.
+*/
 class OutlookCategoryItemRequestBuilderGetQueryParameters 
 {
     /**

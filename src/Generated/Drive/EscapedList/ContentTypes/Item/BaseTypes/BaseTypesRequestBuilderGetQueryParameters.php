@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drive\EscapedList\ContentTypes\Item\Bas
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of content types that are ancestors of this content type.
+*/
 class BaseTypesRequestBuilderGetQueryParameters 
 {
     /**

@@ -110,7 +110,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the appLogDecryptionAlgorithm property value. The appLogDecryptionAlgorithm property
-     *  @param AppLogDecryptionAlgorithm|null $value Value to set for the appLogDecryptionAlgorithm property.
+     * @param AppLogDecryptionAlgorithm|null $value Value to set for the appLogDecryptionAlgorithm property.
     */
     public function setAppLogDecryptionAlgorithm(?AppLogDecryptionAlgorithm $value): void {
         $this->getBackingStore()->set('appLogDecryptionAlgorithm', $value);
@@ -126,7 +126,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -134,7 +134,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the decryptionKey property value. DecryptionKey as string
-     *  @param string|null $value Value to set for the decryptionKey property.
+     * @param string|null $value Value to set for the decryptionKey property.
     */
     public function setDecryptionKey(?string $value): void {
         $this->getBackingStore()->set('decryptionKey', $value);
@@ -142,7 +142,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the downloadUrl property value. Download SAS Url for completed AppLogUploadRequest
-     *  @param string|null $value Value to set for the downloadUrl property.
+     * @param string|null $value Value to set for the downloadUrl property.
     */
     public function setDownloadUrl(?string $value): void {
         $this->getBackingStore()->set('downloadUrl', $value);
@@ -150,7 +150,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

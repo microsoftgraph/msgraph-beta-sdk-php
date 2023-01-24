@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCustomAttributeS
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The managed devices that executes the device management script.
+*/
 class ManagedDeviceRequestBuilderGetQueryParameters 
 {
     /**

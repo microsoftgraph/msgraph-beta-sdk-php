@@ -104,7 +104,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the role definition.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -112,7 +112,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the externalId property value. The external id of the role definition.
-     *  @param string|null $value Value to set for the externalId property.
+     * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
         $this->getBackingStore()->set('externalId', $value);
@@ -120,7 +120,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the resource property value. Read-only. The associated resource for the role definition.
-     *  @param GovernanceResource|null $value Value to set for the resource property.
+     * @param GovernanceResource|null $value Value to set for the resource property.
     */
     public function setResource(?GovernanceResource $value): void {
         $this->getBackingStore()->set('resource', $value);
@@ -128,7 +128,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the resourceId property value. Required. The id of the resource associated with the role definition.
-     *  @param string|null $value Value to set for the resourceId property.
+     * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
         $this->getBackingStore()->set('resourceId', $value);
@@ -136,7 +136,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the roleSetting property value. The associated role setting for the role definition.
-     *  @param GovernanceRoleSetting|null $value Value to set for the roleSetting property.
+     * @param GovernanceRoleSetting|null $value Value to set for the roleSetting property.
     */
     public function setRoleSetting(?GovernanceRoleSetting $value): void {
         $this->getBackingStore()->set('roleSetting', $value);
@@ -144,7 +144,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the templateId property value. The templateId property
-     *  @param string|null $value Value to set for the templateId property.
+     * @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value): void {
         $this->getBackingStore()->set('templateId', $value);

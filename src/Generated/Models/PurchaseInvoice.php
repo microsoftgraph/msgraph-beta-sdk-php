@@ -336,7 +336,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the buyFromAddress property value. The buyFromAddress property
-     *  @param PostalAddressType|null $value Value to set for the buyFromAddress property.
+     * @param PostalAddressType|null $value Value to set for the buyFromAddress property.
     */
     public function setBuyFromAddress(?PostalAddressType $value): void {
         $this->getBackingStore()->set('buyFromAddress', $value);
@@ -344,7 +344,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the currency property value. The currency property
-     *  @param Currency|null $value Value to set for the currency property.
+     * @param Currency|null $value Value to set for the currency property.
     */
     public function setCurrency(?Currency $value): void {
         $this->getBackingStore()->set('currency', $value);
@@ -352,7 +352,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the currencyCode property value. The currencyCode property
-     *  @param string|null $value Value to set for the currencyCode property.
+     * @param string|null $value Value to set for the currencyCode property.
     */
     public function setCurrencyCode(?string $value): void {
         $this->getBackingStore()->set('currencyCode', $value);
@@ -360,7 +360,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the currencyId property value. The currencyId property
-     *  @param string|null $value Value to set for the currencyId property.
+     * @param string|null $value Value to set for the currencyId property.
     */
     public function setCurrencyId(?string $value): void {
         $this->getBackingStore()->set('currencyId', $value);
@@ -368,7 +368,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the discountAmount property value. The discountAmount property
-     *  @param string|null $value Value to set for the discountAmount property.
+     * @param string|null $value Value to set for the discountAmount property.
     */
     public function setDiscountAmount(?string $value): void {
         $this->getBackingStore()->set('discountAmount', $value);
@@ -376,7 +376,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the discountAppliedBeforeTax property value. The discountAppliedBeforeTax property
-     *  @param bool|null $value Value to set for the discountAppliedBeforeTax property.
+     * @param bool|null $value Value to set for the discountAppliedBeforeTax property.
     */
     public function setDiscountAppliedBeforeTax(?bool $value): void {
         $this->getBackingStore()->set('discountAppliedBeforeTax', $value);
@@ -384,7 +384,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the dueDate property value. The dueDate property
-     *  @param Date|null $value Value to set for the dueDate property.
+     * @param Date|null $value Value to set for the dueDate property.
     */
     public function setDueDate(?Date $value): void {
         $this->getBackingStore()->set('dueDate', $value);
@@ -392,7 +392,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the invoiceDate property value. The invoiceDate property
-     *  @param Date|null $value Value to set for the invoiceDate property.
+     * @param Date|null $value Value to set for the invoiceDate property.
     */
     public function setInvoiceDate(?Date $value): void {
         $this->getBackingStore()->set('invoiceDate', $value);
@@ -400,7 +400,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -408,7 +408,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the number property value. The number property
-     *  @param string|null $value Value to set for the number property.
+     * @param string|null $value Value to set for the number property.
     */
     public function setNumber(?string $value): void {
         $this->getBackingStore()->set('number', $value);
@@ -416,7 +416,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the payToAddress property value. The payToAddress property
-     *  @param PostalAddressType|null $value Value to set for the payToAddress property.
+     * @param PostalAddressType|null $value Value to set for the payToAddress property.
     */
     public function setPayToAddress(?PostalAddressType $value): void {
         $this->getBackingStore()->set('payToAddress', $value);
@@ -424,7 +424,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the payToContact property value. The payToContact property
-     *  @param string|null $value Value to set for the payToContact property.
+     * @param string|null $value Value to set for the payToContact property.
     */
     public function setPayToContact(?string $value): void {
         $this->getBackingStore()->set('payToContact', $value);
@@ -432,7 +432,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the payToName property value. The payToName property
-     *  @param string|null $value Value to set for the payToName property.
+     * @param string|null $value Value to set for the payToName property.
     */
     public function setPayToName(?string $value): void {
         $this->getBackingStore()->set('payToName', $value);
@@ -440,7 +440,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the payToVendorId property value. The payToVendorId property
-     *  @param string|null $value Value to set for the payToVendorId property.
+     * @param string|null $value Value to set for the payToVendorId property.
     */
     public function setPayToVendorId(?string $value): void {
         $this->getBackingStore()->set('payToVendorId', $value);
@@ -448,7 +448,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the payToVendorNumber property value. The payToVendorNumber property
-     *  @param string|null $value Value to set for the payToVendorNumber property.
+     * @param string|null $value Value to set for the payToVendorNumber property.
     */
     public function setPayToVendorNumber(?string $value): void {
         $this->getBackingStore()->set('payToVendorNumber', $value);
@@ -456,7 +456,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the pricesIncludeTax property value. The pricesIncludeTax property
-     *  @param bool|null $value Value to set for the pricesIncludeTax property.
+     * @param bool|null $value Value to set for the pricesIncludeTax property.
     */
     public function setPricesIncludeTax(?bool $value): void {
         $this->getBackingStore()->set('pricesIncludeTax', $value);
@@ -464,7 +464,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the purchaseInvoiceLines property value. The purchaseInvoiceLines property
-     *  @param array<PurchaseInvoiceLine>|null $value Value to set for the purchaseInvoiceLines property.
+     * @param array<PurchaseInvoiceLine>|null $value Value to set for the purchaseInvoiceLines property.
     */
     public function setPurchaseInvoiceLines(?array $value): void {
         $this->getBackingStore()->set('purchaseInvoiceLines', $value);
@@ -472,7 +472,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the shipToAddress property value. The shipToAddress property
-     *  @param PostalAddressType|null $value Value to set for the shipToAddress property.
+     * @param PostalAddressType|null $value Value to set for the shipToAddress property.
     */
     public function setShipToAddress(?PostalAddressType $value): void {
         $this->getBackingStore()->set('shipToAddress', $value);
@@ -480,7 +480,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the shipToContact property value. The shipToContact property
-     *  @param string|null $value Value to set for the shipToContact property.
+     * @param string|null $value Value to set for the shipToContact property.
     */
     public function setShipToContact(?string $value): void {
         $this->getBackingStore()->set('shipToContact', $value);
@@ -488,7 +488,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the shipToName property value. The shipToName property
-     *  @param string|null $value Value to set for the shipToName property.
+     * @param string|null $value Value to set for the shipToName property.
     */
     public function setShipToName(?string $value): void {
         $this->getBackingStore()->set('shipToName', $value);
@@ -496,7 +496,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -504,7 +504,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the totalAmountExcludingTax property value. The totalAmountExcludingTax property
-     *  @param string|null $value Value to set for the totalAmountExcludingTax property.
+     * @param string|null $value Value to set for the totalAmountExcludingTax property.
     */
     public function setTotalAmountExcludingTax(?string $value): void {
         $this->getBackingStore()->set('totalAmountExcludingTax', $value);
@@ -512,7 +512,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the totalAmountIncludingTax property value. The totalAmountIncludingTax property
-     *  @param string|null $value Value to set for the totalAmountIncludingTax property.
+     * @param string|null $value Value to set for the totalAmountIncludingTax property.
     */
     public function setTotalAmountIncludingTax(?string $value): void {
         $this->getBackingStore()->set('totalAmountIncludingTax', $value);
@@ -520,7 +520,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the totalTaxAmount property value. The totalTaxAmount property
-     *  @param string|null $value Value to set for the totalTaxAmount property.
+     * @param string|null $value Value to set for the totalTaxAmount property.
     */
     public function setTotalTaxAmount(?string $value): void {
         $this->getBackingStore()->set('totalTaxAmount', $value);
@@ -528,7 +528,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the vendor property value. The vendor property
-     *  @param Vendor|null $value Value to set for the vendor property.
+     * @param Vendor|null $value Value to set for the vendor property.
     */
     public function setVendor(?Vendor $value): void {
         $this->getBackingStore()->set('vendor', $value);
@@ -536,7 +536,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the vendorId property value. The vendorId property
-     *  @param string|null $value Value to set for the vendorId property.
+     * @param string|null $value Value to set for the vendorId property.
     */
     public function setVendorId(?string $value): void {
         $this->getBackingStore()->set('vendorId', $value);
@@ -544,7 +544,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the vendorInvoiceNumber property value. The vendorInvoiceNumber property
-     *  @param string|null $value Value to set for the vendorInvoiceNumber property.
+     * @param string|null $value Value to set for the vendorInvoiceNumber property.
     */
     public function setVendorInvoiceNumber(?string $value): void {
         $this->getBackingStore()->set('vendorInvoiceNumber', $value);
@@ -552,7 +552,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the vendorName property value. The vendorName property
-     *  @param string|null $value Value to set for the vendorName property.
+     * @param string|null $value Value to set for the vendorName property.
     */
     public function setVendorName(?string $value): void {
         $this->getBackingStore()->set('vendorName', $value);
@@ -560,7 +560,7 @@ class PurchaseInvoice extends Entity implements Parsable
 
     /**
      * Sets the vendorNumber property value. The vendorNumber property
-     *  @param string|null $value Value to set for the vendorNumber property.
+     * @param string|null $value Value to set for the vendorNumber property.
     */
     public function setVendorNumber(?string $value): void {
         $this->getBackingStore()->set('vendorNumber', $value);

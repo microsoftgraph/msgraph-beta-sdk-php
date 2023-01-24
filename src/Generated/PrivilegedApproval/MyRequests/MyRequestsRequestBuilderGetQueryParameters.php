@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedApproval\MyRequests;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function myRequests
+*/
 class MyRequestsRequestBuilderGetQueryParameters 
 {
     /**

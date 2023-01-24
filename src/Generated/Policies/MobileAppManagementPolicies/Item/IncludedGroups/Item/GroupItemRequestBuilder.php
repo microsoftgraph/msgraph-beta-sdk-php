@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\It
 use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /policies/mobileAppManagementPolicies/{mobilityManagementPolicy-id}/includedGroups/{group-id}
+*/
 class GroupItemRequestBuilder 
 {
     /**

@@ -26,7 +26,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the appliedCategories property value. The appliedCategories property
+     * Gets the appliedCategories property value. Rules and restrictions for applied categories. This value does not currently support overrides. Accepted values for the default rule and individual overrides are allow, block.
      * @return PlannerFieldRules|null
     */
     public function getAppliedCategories(): ?PlannerFieldRules {
@@ -34,7 +34,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the assignments property value. The assignments property
+     * Gets the assignments property value. Rules and restrictions for assignments. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are allow, add, addSelf, addOther, remove, removeSelf, removeOther, block.
      * @return PlannerFieldRules|null
     */
     public function getAssignments(): ?PlannerFieldRules {
@@ -42,7 +42,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the checkLists property value. The checkLists property
+     * Gets the checkLists property value. Rules and restrictions for checklist. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are allow, add, remove, update, check, reorder, block.
      * @return PlannerFieldRules|null
     */
     public function getCheckLists(): ?PlannerFieldRules {
@@ -50,7 +50,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the delete property value. The delete property
+     * Gets the delete property value. Rules and restrictions for deleting the task. Accepted values are allow and block.
      * @return array<string>|null
     */
     public function getDelete(): ?array {
@@ -58,7 +58,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the dueDate property value. The dueDate property
+     * Gets the dueDate property value. Rules and restrictions for changing the due date of the task. Accepted values are allow and block.
      * @return array<string>|null
     */
     public function getDueDate(): ?array {
@@ -90,7 +90,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the move property value. The move property
+     * Gets the move property value. Rules and restrictions for moving the task between buckets or plans. Accepted values are allow, moveBetweenPlans, moveBetweenBuckets, and block.
      * @return array<string>|null
     */
     public function getMove(): ?array {
@@ -98,7 +98,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the notes property value. The notes property
+     * Gets the notes property value. Rules and restrictions for changing the notes of the task. Accepted values are allow and block.
      * @return array<string>|null
     */
     public function getNotes(): ?array {
@@ -106,7 +106,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the order property value. The order property
+     * Gets the order property value. Rules and restrictions for changing the order of the task. Accepted values are allow and block.
      * @return array<string>|null
     */
     public function getOrder(): ?array {
@@ -114,7 +114,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the percentComplete property value. The percentComplete property
+     * Gets the percentComplete property value. Rules and restrictions for changing the completion percentage of the task. Accepted values are allow, setToComplete, setToNotStarted, setToInProgress, and block.
      * @return array<string>|null
     */
     public function getPercentComplete(): ?array {
@@ -122,7 +122,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the previewType property value. The previewType property
+     * Gets the previewType property value. Rules and restrictions for changing the preview type of the task. Accepted values are allow and block.
      * @return array<string>|null
     */
     public function getPreviewType(): ?array {
@@ -130,7 +130,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. Rules and restrictions for changing the priority of the task. Accepted values are allow and block.
      * @return array<string>|null
     */
     public function getPriority(): ?array {
@@ -138,7 +138,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the references property value. The references property
+     * Gets the references property value. Rules and restrictions for references. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are allow, add, remove, block.
      * @return PlannerFieldRules|null
     */
     public function getReferences(): ?PlannerFieldRules {
@@ -146,7 +146,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the startDate property value. The startDate property
+     * Gets the startDate property value. Rules and restrictions for changing the start date of the task. Accepted values are allow and block.
      * @return array<string>|null
     */
     public function getStartDate(): ?array {
@@ -154,7 +154,7 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Rules and restrictions for changing the title of the task. Accepted values are allow and block.
      * @return array<string>|null
     */
     public function getTitle(): ?array {
@@ -184,112 +184,112 @@ class PlannerTaskPropertyRule extends PlannerPropertyRule implements Parsable
     }
 
     /**
-     * Sets the appliedCategories property value. The appliedCategories property
-     *  @param PlannerFieldRules|null $value Value to set for the appliedCategories property.
+     * Sets the appliedCategories property value. Rules and restrictions for applied categories. This value does not currently support overrides. Accepted values for the default rule and individual overrides are allow, block.
+     * @param PlannerFieldRules|null $value Value to set for the appliedCategories property.
     */
     public function setAppliedCategories(?PlannerFieldRules $value): void {
         $this->getBackingStore()->set('appliedCategories', $value);
     }
 
     /**
-     * Sets the assignments property value. The assignments property
-     *  @param PlannerFieldRules|null $value Value to set for the assignments property.
+     * Sets the assignments property value. Rules and restrictions for assignments. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are allow, add, addSelf, addOther, remove, removeSelf, removeOther, block.
+     * @param PlannerFieldRules|null $value Value to set for the assignments property.
     */
     public function setAssignments(?PlannerFieldRules $value): void {
         $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
-     * Sets the checkLists property value. The checkLists property
-     *  @param PlannerFieldRules|null $value Value to set for the checkLists property.
+     * Sets the checkLists property value. Rules and restrictions for checklist. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are allow, add, remove, update, check, reorder, block.
+     * @param PlannerFieldRules|null $value Value to set for the checkLists property.
     */
     public function setCheckLists(?PlannerFieldRules $value): void {
         $this->getBackingStore()->set('checkLists', $value);
     }
 
     /**
-     * Sets the delete property value. The delete property
-     *  @param array<string>|null $value Value to set for the delete property.
+     * Sets the delete property value. Rules and restrictions for deleting the task. Accepted values are allow and block.
+     * @param array<string>|null $value Value to set for the delete property.
     */
     public function setDelete(?array $value): void {
         $this->getBackingStore()->set('delete', $value);
     }
 
     /**
-     * Sets the dueDate property value. The dueDate property
-     *  @param array<string>|null $value Value to set for the dueDate property.
+     * Sets the dueDate property value. Rules and restrictions for changing the due date of the task. Accepted values are allow and block.
+     * @param array<string>|null $value Value to set for the dueDate property.
     */
     public function setDueDate(?array $value): void {
         $this->getBackingStore()->set('dueDate', $value);
     }
 
     /**
-     * Sets the move property value. The move property
-     *  @param array<string>|null $value Value to set for the move property.
+     * Sets the move property value. Rules and restrictions for moving the task between buckets or plans. Accepted values are allow, moveBetweenPlans, moveBetweenBuckets, and block.
+     * @param array<string>|null $value Value to set for the move property.
     */
     public function setMove(?array $value): void {
         $this->getBackingStore()->set('move', $value);
     }
 
     /**
-     * Sets the notes property value. The notes property
-     *  @param array<string>|null $value Value to set for the notes property.
+     * Sets the notes property value. Rules and restrictions for changing the notes of the task. Accepted values are allow and block.
+     * @param array<string>|null $value Value to set for the notes property.
     */
     public function setNotes(?array $value): void {
         $this->getBackingStore()->set('notes', $value);
     }
 
     /**
-     * Sets the order property value. The order property
-     *  @param array<string>|null $value Value to set for the order property.
+     * Sets the order property value. Rules and restrictions for changing the order of the task. Accepted values are allow and block.
+     * @param array<string>|null $value Value to set for the order property.
     */
     public function setOrder(?array $value): void {
         $this->getBackingStore()->set('order', $value);
     }
 
     /**
-     * Sets the percentComplete property value. The percentComplete property
-     *  @param array<string>|null $value Value to set for the percentComplete property.
+     * Sets the percentComplete property value. Rules and restrictions for changing the completion percentage of the task. Accepted values are allow, setToComplete, setToNotStarted, setToInProgress, and block.
+     * @param array<string>|null $value Value to set for the percentComplete property.
     */
     public function setPercentComplete(?array $value): void {
         $this->getBackingStore()->set('percentComplete', $value);
     }
 
     /**
-     * Sets the previewType property value. The previewType property
-     *  @param array<string>|null $value Value to set for the previewType property.
+     * Sets the previewType property value. Rules and restrictions for changing the preview type of the task. Accepted values are allow and block.
+     * @param array<string>|null $value Value to set for the previewType property.
     */
     public function setPreviewType(?array $value): void {
         $this->getBackingStore()->set('previewType', $value);
     }
 
     /**
-     * Sets the priority property value. The priority property
-     *  @param array<string>|null $value Value to set for the priority property.
+     * Sets the priority property value. Rules and restrictions for changing the priority of the task. Accepted values are allow and block.
+     * @param array<string>|null $value Value to set for the priority property.
     */
     public function setPriority(?array $value): void {
         $this->getBackingStore()->set('priority', $value);
     }
 
     /**
-     * Sets the references property value. The references property
-     *  @param PlannerFieldRules|null $value Value to set for the references property.
+     * Sets the references property value. Rules and restrictions for references. Allowed overrides are userCreated and applicationCreated. Accepted values for the default rule and individual overrides are allow, add, remove, block.
+     * @param PlannerFieldRules|null $value Value to set for the references property.
     */
     public function setReferences(?PlannerFieldRules $value): void {
         $this->getBackingStore()->set('references', $value);
     }
 
     /**
-     * Sets the startDate property value. The startDate property
-     *  @param array<string>|null $value Value to set for the startDate property.
+     * Sets the startDate property value. Rules and restrictions for changing the start date of the task. Accepted values are allow and block.
+     * @param array<string>|null $value Value to set for the startDate property.
     */
     public function setStartDate(?array $value): void {
         $this->getBackingStore()->set('startDate', $value);
     }
 
     /**
-     * Sets the title property value. The title property
-     *  @param array<string>|null $value Value to set for the title property.
+     * Sets the title property value. Rules and restrictions for changing the title of the task. Accepted values are allow and block.
+     * @param array<string>|null $value Value to set for the title property.
     */
     public function setTitle(?array $value): void {
         $this->getBackingStore()->set('title', $value);

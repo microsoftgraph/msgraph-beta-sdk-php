@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The PolicySet of Policies and Applications
+*/
 class PolicySetItemRequestBuilderGetQueryParameters 
 {
     /**

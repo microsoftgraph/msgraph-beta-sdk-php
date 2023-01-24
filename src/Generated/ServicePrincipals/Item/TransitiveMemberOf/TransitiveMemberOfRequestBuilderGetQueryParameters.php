@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TransitiveMember
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get transitiveMemberOf from servicePrincipals
+*/
 class TransitiveMemberOfRequestBuilderGetQueryParameters 
 {
     /**

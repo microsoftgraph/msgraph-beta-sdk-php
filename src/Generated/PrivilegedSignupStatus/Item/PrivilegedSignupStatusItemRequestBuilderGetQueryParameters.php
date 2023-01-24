@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from privilegedSignupStatus by key (id)
+*/
 class PrivilegedSignupStatusItemRequestBuilderGetQueryParameters 
 {
     /**

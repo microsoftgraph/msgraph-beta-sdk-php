@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetOffice365Servic
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getOffice365ServicesUserCounts
+*/
 class GetOffice365ServicesUserCountsWithPeriodRequestBuilderGetQueryParameters 
 {
     /**

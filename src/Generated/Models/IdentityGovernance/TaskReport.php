@@ -166,7 +166,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the completedDateTime property value. The date time that the associated run completed. Value is null if the run has not completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param DateTime|null $value Value to set for the completedDateTime property.
+     * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
@@ -174,7 +174,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the failedUsersCount property value. The number of users in the run execution for which the associated task failed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param int|null $value Value to set for the failedUsersCount property.
+     * @param int|null $value Value to set for the failedUsersCount property.
     */
     public function setFailedUsersCount(?int $value): void {
         $this->getBackingStore()->set('failedUsersCount', $value);
@@ -182,7 +182,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the lastUpdatedDateTime property value. The date and time that the task report was last updated.
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -190,7 +190,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the processingStatus property value. The processingStatus property
-     *  @param LifecycleWorkflowProcessingStatus|null $value Value to set for the processingStatus property.
+     * @param LifecycleWorkflowProcessingStatus|null $value Value to set for the processingStatus property.
     */
     public function setProcessingStatus(?LifecycleWorkflowProcessingStatus $value): void {
         $this->getBackingStore()->set('processingStatus', $value);
@@ -198,7 +198,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the runId property value. The unique identifier of the associated run.
-     *  @param string|null $value Value to set for the runId property.
+     * @param string|null $value Value to set for the runId property.
     */
     public function setRunId(?string $value): void {
         $this->getBackingStore()->set('runId', $value);
@@ -206,7 +206,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the startedDateTime property value. The date time that the associated run started. Value is null if the run has not started.
-     *  @param DateTime|null $value Value to set for the startedDateTime property.
+     * @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startedDateTime', $value);
@@ -214,7 +214,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the successfulUsersCount property value. The number of users in the run execution for which the associated task succeeded.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param int|null $value Value to set for the successfulUsersCount property.
+     * @param int|null $value Value to set for the successfulUsersCount property.
     */
     public function setSuccessfulUsersCount(?int $value): void {
         $this->getBackingStore()->set('successfulUsersCount', $value);
@@ -222,7 +222,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the task property value. The task property
-     *  @param Task|null $value Value to set for the task property.
+     * @param Task|null $value Value to set for the task property.
     */
     public function setTask(?Task $value): void {
         $this->getBackingStore()->set('task', $value);
@@ -230,7 +230,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the taskDefinition property value. The taskDefinition property
-     *  @param TaskDefinition|null $value Value to set for the taskDefinition property.
+     * @param TaskDefinition|null $value Value to set for the taskDefinition property.
     */
     public function setTaskDefinition(?TaskDefinition $value): void {
         $this->getBackingStore()->set('taskDefinition', $value);
@@ -238,7 +238,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the taskProcessingResults property value. The related lifecycle workflow taskProcessingResults.
-     *  @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
+     * @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
     */
     public function setTaskProcessingResults(?array $value): void {
         $this->getBackingStore()->set('taskProcessingResults', $value);
@@ -246,7 +246,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the totalUsersCount property value. The total number of users in the run execution for which the associated task was scheduled to execute.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param int|null $value Value to set for the totalUsersCount property.
+     * @param int|null $value Value to set for the totalUsersCount property.
     */
     public function setTotalUsersCount(?int $value): void {
         $this->getBackingStore()->set('totalUsersCount', $value);
@@ -254,7 +254,7 @@ class TaskReport extends Entity implements Parsable
 
     /**
      * Sets the unprocessedUsersCount property value. The number of users in the run execution for which the associated task is queued, in progress, or canceled.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param int|null $value Value to set for the unprocessedUsersCount property.
+     * @param int|null $value Value to set for the unprocessedUsersCount property.
     */
     public function setUnprocessedUsersCount(?int $value): void {
         $this->getBackingStore()->set('unprocessedUsersCount', $value);

@@ -55,7 +55,7 @@ class CommunicationsUserIdentity extends Identity implements Parsable
 
     /**
      * Sets the tenantId property value. The user's tenant ID.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

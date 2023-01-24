@@ -55,7 +55,7 @@ class WorkflowVersion extends WorkflowBase implements Parsable
 
     /**
      * Sets the versionNumber property value. The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param int|null $value Value to set for the versionNumber property.
+     * @param int|null $value Value to set for the versionNumber property.
     */
     public function setVersionNumber(?int $value): void {
         $this->getBackingStore()->set('versionNumber', $value);

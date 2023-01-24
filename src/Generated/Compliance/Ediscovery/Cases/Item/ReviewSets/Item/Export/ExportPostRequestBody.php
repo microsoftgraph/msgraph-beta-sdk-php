@@ -132,7 +132,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -140,7 +140,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the azureBlobContainer property value. The azureBlobContainer property
-     *  @param string|null $value Value to set for the azureBlobContainer property.
+     * @param string|null $value Value to set for the azureBlobContainer property.
     */
     public function setAzureBlobContainer(?string $value): void {
         $this->getBackingStore()->set('azureBlobContainer', $value);
@@ -148,7 +148,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the azureBlobToken property value. The azureBlobToken property
-     *  @param string|null $value Value to set for the azureBlobToken property.
+     * @param string|null $value Value to set for the azureBlobToken property.
     */
     public function setAzureBlobToken(?string $value): void {
         $this->getBackingStore()->set('azureBlobToken', $value);
@@ -156,7 +156,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +164,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -172,7 +172,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the exportOptions property value. The exportOptions property
-     *  @param ExportOptions|null $value Value to set for the exportOptions property.
+     * @param ExportOptions|null $value Value to set for the exportOptions property.
     */
     public function setExportOptions(?ExportOptions $value): void {
         $this->getBackingStore()->set('exportOptions', $value);
@@ -180,7 +180,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the exportStructure property value. The exportStructure property
-     *  @param ExportFileStructure|null $value Value to set for the exportStructure property.
+     * @param ExportFileStructure|null $value Value to set for the exportStructure property.
     */
     public function setExportStructure(?ExportFileStructure $value): void {
         $this->getBackingStore()->set('exportStructure', $value);
@@ -188,7 +188,7 @@ class ExportPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the outputName property value. The outputName property
-     *  @param string|null $value Value to set for the outputName property.
+     * @param string|null $value Value to set for the outputName property.
     */
     public function setOutputName(?string $value): void {
         $this->getBackingStore()->set('outputName', $value);

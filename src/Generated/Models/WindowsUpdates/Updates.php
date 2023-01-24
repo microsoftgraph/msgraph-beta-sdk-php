@@ -85,7 +85,7 @@ class Updates extends Entity implements Parsable
 
     /**
      * Sets the catalog property value. Catalog of content that can be approved for deployment by the deployment service. Read-only.
-     *  @param Catalog|null $value Value to set for the catalog property.
+     * @param Catalog|null $value Value to set for the catalog property.
     */
     public function setCatalog(?Catalog $value): void {
         $this->getBackingStore()->set('catalog', $value);
@@ -93,7 +93,7 @@ class Updates extends Entity implements Parsable
 
     /**
      * Sets the deployments property value. Deployments created using the deployment service. Read-only.
-     *  @param array<Deployment>|null $value Value to set for the deployments property.
+     * @param array<Deployment>|null $value Value to set for the deployments property.
     */
     public function setDeployments(?array $value): void {
         $this->getBackingStore()->set('deployments', $value);
@@ -101,7 +101,7 @@ class Updates extends Entity implements Parsable
 
     /**
      * Sets the resourceConnections property value. Service connections to external resources such as analytics workspaces.
-     *  @param array<ResourceConnection>|null $value Value to set for the resourceConnections property.
+     * @param array<ResourceConnection>|null $value Value to set for the resourceConnections property.
     */
     public function setResourceConnections(?array $value): void {
         $this->getBackingStore()->set('resourceConnections', $value);
@@ -109,7 +109,7 @@ class Updates extends Entity implements Parsable
 
     /**
      * Sets the updatableAssets property value. Assets registered with the deployment service that can receive updates. Read-only.
-     *  @param array<UpdatableAsset>|null $value Value to set for the updatableAssets property.
+     * @param array<UpdatableAsset>|null $value Value to set for the updatableAssets property.
     */
     public function setUpdatableAssets(?array $value): void {
         $this->getBackingStore()->set('updatableAssets', $value);

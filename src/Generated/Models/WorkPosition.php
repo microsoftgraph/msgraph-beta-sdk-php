@@ -95,7 +95,7 @@ class WorkPosition extends ItemFacet implements Parsable
 
     /**
      * Sets the categories property value. Categories that the user has associated with this position.
-     *  @param array<string>|null $value Value to set for the categories property.
+     * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -103,7 +103,7 @@ class WorkPosition extends ItemFacet implements Parsable
 
     /**
      * Sets the colleagues property value. Colleagues that are associated with this position.
-     *  @param array<RelatedPerson>|null $value Value to set for the colleagues property.
+     * @param array<RelatedPerson>|null $value Value to set for the colleagues property.
     */
     public function setColleagues(?array $value): void {
         $this->getBackingStore()->set('colleagues', $value);
@@ -111,7 +111,7 @@ class WorkPosition extends ItemFacet implements Parsable
 
     /**
      * Sets the detail property value. The detail property
-     *  @param PositionDetail|null $value Value to set for the detail property.
+     * @param PositionDetail|null $value Value to set for the detail property.
     */
     public function setDetail(?PositionDetail $value): void {
         $this->getBackingStore()->set('detail', $value);
@@ -119,7 +119,7 @@ class WorkPosition extends ItemFacet implements Parsable
 
     /**
      * Sets the isCurrent property value. Denotes whether or not the position is current.
-     *  @param bool|null $value Value to set for the isCurrent property.
+     * @param bool|null $value Value to set for the isCurrent property.
     */
     public function setIsCurrent(?bool $value): void {
         $this->getBackingStore()->set('isCurrent', $value);
@@ -127,7 +127,7 @@ class WorkPosition extends ItemFacet implements Parsable
 
     /**
      * Sets the manager property value. Contains detail of the user's manager in this position.
-     *  @param RelatedPerson|null $value Value to set for the manager property.
+     * @param RelatedPerson|null $value Value to set for the manager property.
     */
     public function setManager(?RelatedPerson $value): void {
         $this->getBackingStore()->set('manager', $value);

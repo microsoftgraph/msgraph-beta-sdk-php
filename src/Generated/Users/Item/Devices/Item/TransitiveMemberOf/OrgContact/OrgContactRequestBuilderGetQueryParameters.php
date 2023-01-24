@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\TransitiveMembe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the items of type microsoft.graph.orgContact in the microsoft.graph.directoryObject collection
+*/
 class OrgContactRequestBuilderGetQueryParameters 
 {
     /**

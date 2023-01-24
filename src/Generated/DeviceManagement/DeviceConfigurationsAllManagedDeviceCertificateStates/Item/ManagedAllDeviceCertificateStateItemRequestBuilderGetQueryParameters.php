@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAl
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Summary of all certificates for all devices.
+*/
 class ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters 
 {
     /**

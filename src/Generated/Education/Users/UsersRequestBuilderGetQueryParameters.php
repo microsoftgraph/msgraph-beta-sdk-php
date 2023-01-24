@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Users;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of user objects. These user objects will include education-specific properties.
+*/
 class UsersRequestBuilderGetQueryParameters 
 {
     /**

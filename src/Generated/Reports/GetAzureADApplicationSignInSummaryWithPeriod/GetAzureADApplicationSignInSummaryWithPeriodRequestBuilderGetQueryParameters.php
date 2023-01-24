@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetAzureADApplicationSignInSumm
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getAzureADApplicationSignInSummary
+*/
 class GetAzureADApplicationSignInSummaryWithPeriodRequestBuilderGetQueryParameters 
 {
     /**

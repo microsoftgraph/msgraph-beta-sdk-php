@@ -105,7 +105,7 @@ class Currency extends Entity implements Parsable
 
     /**
      * Sets the amountDecimalPlaces property value. The amountDecimalPlaces property
-     *  @param string|null $value Value to set for the amountDecimalPlaces property.
+     * @param string|null $value Value to set for the amountDecimalPlaces property.
     */
     public function setAmountDecimalPlaces(?string $value): void {
         $this->getBackingStore()->set('amountDecimalPlaces', $value);
@@ -113,7 +113,7 @@ class Currency extends Entity implements Parsable
 
     /**
      * Sets the amountRoundingPrecision property value. The amountRoundingPrecision property
-     *  @param string|null $value Value to set for the amountRoundingPrecision property.
+     * @param string|null $value Value to set for the amountRoundingPrecision property.
     */
     public function setAmountRoundingPrecision(?string $value): void {
         $this->getBackingStore()->set('amountRoundingPrecision', $value);
@@ -121,7 +121,7 @@ class Currency extends Entity implements Parsable
 
     /**
      * Sets the code property value. The code property
-     *  @param string|null $value Value to set for the code property.
+     * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
         $this->getBackingStore()->set('code', $value);
@@ -129,7 +129,7 @@ class Currency extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -137,7 +137,7 @@ class Currency extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -145,7 +145,7 @@ class Currency extends Entity implements Parsable
 
     /**
      * Sets the symbol property value. The symbol property
-     *  @param string|null $value Value to set for the symbol property.
+     * @param string|null $value Value to set for the symbol property.
     */
     public function setSymbol(?string $value): void {
         $this->getBackingStore()->set('symbol', $value);

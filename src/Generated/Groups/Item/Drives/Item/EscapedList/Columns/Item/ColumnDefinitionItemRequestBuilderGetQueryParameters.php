@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\EscapedList\Col
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get columns from groups
+*/
 class ColumnDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**

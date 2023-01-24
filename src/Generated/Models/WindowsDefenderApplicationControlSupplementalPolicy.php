@@ -156,7 +156,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the assignments property value. The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
-     *  @param array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $value Value to set for the assignments property.
+     * @param array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -164,7 +164,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the content property value. The WindowsDefenderApplicationControl supplemental policy content in byte array format.
-     *  @param StreamInterface|null $value Value to set for the content property.
+     * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -172,7 +172,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the contentFileName property value. The WindowsDefenderApplicationControl supplemental policy content's file name.
-     *  @param string|null $value Value to set for the contentFileName property.
+     * @param string|null $value Value to set for the contentFileName property.
     */
     public function setContentFileName(?string $value): void {
         $this->getBackingStore()->set('contentFileName', $value);
@@ -180,7 +180,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the creationDateTime property value. The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded.
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
+     * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('creationDateTime', $value);
@@ -188,7 +188,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the deploySummary property value. WindowsDefenderApplicationControl supplemental policy deployment summary.
-     *  @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null $value Value to set for the deploySummary property.
+     * @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null $value Value to set for the deploySummary property.
     */
     public function setDeploySummary(?WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $value): void {
         $this->getBackingStore()->set('deploySummary', $value);
@@ -196,7 +196,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the description property value. The description of WindowsDefenderApplicationControl supplemental policy.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -204,7 +204,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the deviceStatuses property value. The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
-     *  @param array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null $value Value to set for the deviceStatuses property.
+     * @param array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null $value Value to set for the deviceStatuses property.
     */
     public function setDeviceStatuses(?array $value): void {
         $this->getBackingStore()->set('deviceStatuses', $value);
@@ -212,7 +212,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the displayName property value. The display name of WindowsDefenderApplicationControl supplemental policy.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -220,7 +220,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -228,7 +228,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -236,7 +236,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the version property value. The WindowsDefenderApplicationControl supplemental policy's version.
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

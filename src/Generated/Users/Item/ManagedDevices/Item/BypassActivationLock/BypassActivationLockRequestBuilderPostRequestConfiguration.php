@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\BypassAc
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class BypassActivationLockRequestBuilderPostRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     

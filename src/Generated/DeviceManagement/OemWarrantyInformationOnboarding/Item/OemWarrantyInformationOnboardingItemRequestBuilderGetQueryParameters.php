@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformation
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of OEM Warranty Statuses
+*/
 class OemWarrantyInformationOnboardingItemRequestBuilderGetQueryParameters 
 {
     /**

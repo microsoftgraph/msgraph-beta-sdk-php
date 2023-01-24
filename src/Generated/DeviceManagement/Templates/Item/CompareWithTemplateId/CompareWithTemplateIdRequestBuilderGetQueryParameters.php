@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Compare
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function compare
+*/
 class CompareWithTemplateIdRequestBuilderGetQueryParameters 
 {
     /**

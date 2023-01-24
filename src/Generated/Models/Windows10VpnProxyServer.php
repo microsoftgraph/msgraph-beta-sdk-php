@@ -55,7 +55,7 @@ class Windows10VpnProxyServer extends VpnProxyServer implements Parsable
 
     /**
      * Sets the bypassProxyServerForLocalAddress property value. Bypass proxy server for local address.
-     *  @param bool|null $value Value to set for the bypassProxyServerForLocalAddress property.
+     * @param bool|null $value Value to set for the bypassProxyServerForLocalAddress property.
     */
     public function setBypassProxyServerForLocalAddress(?bool $value): void {
         $this->getBackingStore()->set('bypassProxyServerForLocalAddress', $value);

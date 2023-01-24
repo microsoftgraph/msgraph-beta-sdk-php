@@ -106,7 +106,7 @@ class Deployment extends Entity implements Parsable
 
     /**
      * Sets the audience property value. Specifies the audience to which content is deployed.
-     *  @param DeploymentAudience|null $value Value to set for the audience property.
+     * @param DeploymentAudience|null $value Value to set for the audience property.
     */
     public function setAudience(?DeploymentAudience $value): void {
         $this->getBackingStore()->set('audience', $value);
@@ -114,7 +114,7 @@ class Deployment extends Entity implements Parsable
 
     /**
      * Sets the content property value. Specifies what content to deploy. Cannot be changed. Returned by default.
-     *  @param DeployableContent|null $value Value to set for the content property.
+     * @param DeployableContent|null $value Value to set for the content property.
     */
     public function setContent(?DeployableContent $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -122,7 +122,7 @@ class Deployment extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the deployment was created. Returned by default. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -130,7 +130,7 @@ class Deployment extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the deployment was last modified. Returned by default. Read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -138,7 +138,7 @@ class Deployment extends Entity implements Parsable
 
     /**
      * Sets the settings property value. Settings specified on the specific deployment governing how to deploy content. Returned by default.
-     *  @param DeploymentSettings|null $value Value to set for the settings property.
+     * @param DeploymentSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?DeploymentSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -146,7 +146,7 @@ class Deployment extends Entity implements Parsable
 
     /**
      * Sets the state property value. Execution status of the deployment. Returned by default.
-     *  @param DeploymentState|null $value Value to set for the state property.
+     * @param DeploymentState|null $value Value to set for the state property.
     */
     public function setState(?DeploymentState $value): void {
         $this->getBackingStore()->set('state', $value);

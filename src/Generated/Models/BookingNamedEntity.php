@@ -65,7 +65,7 @@ class BookingNamedEntity extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. A name for the derived entity, which interfaces with customers.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties used to assign a device management script to a group.
+*/
 class DeviceHealthScriptAssignment extends Entity implements Parsable 
 {
     /**
@@ -74,7 +77,7 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
 
     /**
      * Sets the runRemediationScript property value. Determine whether we want to run detection script only or run both detection script and remediation script
-     *  @param bool|null $value Value to set for the runRemediationScript property.
+     * @param bool|null $value Value to set for the runRemediationScript property.
     */
     public function setRunRemediationScript(?bool $value): void {
         $this->getBackingStore()->set('runRemediationScript', $value);
@@ -82,7 +85,7 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
 
     /**
      * Sets the runSchedule property value. Script run schedule for the target group
-     *  @param DeviceHealthScriptRunSchedule|null $value Value to set for the runSchedule property.
+     * @param DeviceHealthScriptRunSchedule|null $value Value to set for the runSchedule property.
     */
     public function setRunSchedule(?DeviceHealthScriptRunSchedule $value): void {
         $this->getBackingStore()->set('runSchedule', $value);
@@ -90,7 +93,7 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. The Azure Active Directory group we are targeting the script to
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

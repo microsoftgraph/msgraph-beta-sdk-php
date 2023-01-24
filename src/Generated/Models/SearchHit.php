@@ -103,6 +103,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
             '_summary' => fn(ParseNode $n) => $o->set_summary($n->getStringValue()),
             'contentSource' => fn(ParseNode $n) => $o->setContentSource($n->getStringValue()),
             'hitId' => fn(ParseNode $n) => $o->setHitId($n->getStringValue()),
+            'isCollapsed' => fn(ParseNode $n) => $o->setIsCollapsed($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rank' => fn(ParseNode $n) => $o->setRank($n->getIntegerValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
@@ -117,6 +118,14 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function getHitId(): ?string {
         return $this->getBackingStore()->get('hitId');
+    }
+
+    /**
+     * Gets the isCollapsed property value. The isCollapsed property
+     * @return bool|null
+    */
+    public function getIsCollapsed(): ?bool {
+        return $this->getBackingStore()->get('isCollapsed');
     }
 
     /**
@@ -166,6 +175,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('contentSource', $this->getContentSource());
         $writer->writeStringValue('hitId', $this->getHitId());
+        $writer->writeBooleanValue('isCollapsed', $this->getIsCollapsed());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('rank', $this->getRank());
         $writer->writeObjectValue('resource', $this->getResource());
@@ -180,7 +190,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the _id property value. The _id property
-     *  @param string|null $value Value to set for the _id property.
+     * @param string|null $value Value to set for the _id property.
     */
     public function set_id(?string $value): void {
         $this->getBackingStore()->set('_id', $value);
@@ -188,7 +198,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the _score property value. The _score property
-     *  @param int|null $value Value to set for the _score property.
+     * @param int|null $value Value to set for the _score property.
     */
     public function set_score(?int $value): void {
         $this->getBackingStore()->set('_score', $value);
@@ -196,7 +206,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the _source property value. The _source property
-     *  @param Entity|null $value Value to set for the _source property.
+     * @param Entity|null $value Value to set for the _source property.
     */
     public function set_source(?Entity $value): void {
         $this->getBackingStore()->set('_source', $value);
@@ -204,7 +214,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the _summary property value. The _summary property
-     *  @param string|null $value Value to set for the _summary property.
+     * @param string|null $value Value to set for the _summary property.
     */
     public function set_summary(?string $value): void {
         $this->getBackingStore()->set('_summary', $value);
@@ -212,7 +222,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -220,7 +230,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -228,7 +238,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the contentSource property value. The name of the content source which the externalItem is part of .
-     *  @param string|null $value Value to set for the contentSource property.
+     * @param string|null $value Value to set for the contentSource property.
     */
     public function setContentSource(?string $value): void {
         $this->getBackingStore()->set('contentSource', $value);
@@ -236,15 +246,23 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the hitId property value. The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
-     *  @param string|null $value Value to set for the hitId property.
+     * @param string|null $value Value to set for the hitId property.
     */
     public function setHitId(?string $value): void {
         $this->getBackingStore()->set('hitId', $value);
     }
 
     /**
+     * Sets the isCollapsed property value. The isCollapsed property
+     * @param bool|null $value Value to set for the isCollapsed property.
+    */
+    public function setIsCollapsed(?bool $value): void {
+        $this->getBackingStore()->set('isCollapsed', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -252,7 +270,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the rank property value. The rank or the order of the result.
-     *  @param int|null $value Value to set for the rank property.
+     * @param int|null $value Value to set for the rank property.
     */
     public function setRank(?int $value): void {
         $this->getBackingStore()->set('rank', $value);
@@ -260,7 +278,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the resource property value. The resource property
-     *  @param Entity|null $value Value to set for the resource property.
+     * @param Entity|null $value Value to set for the resource property.
     */
     public function setResource(?Entity $value): void {
         $this->getBackingStore()->set('resource', $value);
@@ -268,7 +286,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
-     *  @param string|null $value Value to set for the resultTemplateId property.
+     * @param string|null $value Value to set for the resultTemplateId property.
     */
     public function setResultTemplateId(?string $value): void {
         $this->getBackingStore()->set('resultTemplateId', $value);
@@ -276,7 +294,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the summary property value. A summary of the result, if a summary is available.
-     *  @param string|null $value Value to set for the summary property.
+     * @param string|null $value Value to set for the summary property.
     */
     public function setSummary(?string $value): void {
         $this->getBackingStore()->set('summary', $value);

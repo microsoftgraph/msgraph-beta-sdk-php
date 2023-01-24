@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleDefinition
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function assignedPrincipals
+*/
 class AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilderGetQueryParameters 
 {
     /**

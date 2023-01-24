@@ -55,7 +55,7 @@ class DeviceManagementSettingAbstractImplementationConstraint extends DeviceMana
 
     /**
      * Sets the allowedAbstractImplementationDefinitionIds property value. List of value which means not configured for the setting
-     *  @param array<string>|null $value Value to set for the allowedAbstractImplementationDefinitionIds property.
+     * @param array<string>|null $value Value to set for the allowedAbstractImplementationDefinitionIds property.
     */
     public function setAllowedAbstractImplementationDefinitionIds(?array $value): void {
         $this->getBackingStore()->set('allowedAbstractImplementationDefinitionIds', $value);

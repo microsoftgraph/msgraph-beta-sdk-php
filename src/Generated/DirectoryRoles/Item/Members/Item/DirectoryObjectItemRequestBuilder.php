@@ -11,6 +11,9 @@ use Microsoft\Graph\Beta\Generated\DirectoryRoles\Item\Members\Item\ServicePrinc
 use Microsoft\Graph\Beta\Generated\DirectoryRoles\Item\Members\Item\User\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /directoryRoles/{directoryRole-id}/members/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Get
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getRelatedAppStates
+*/
 class GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilderGetQueryParameters 
 {
     /**

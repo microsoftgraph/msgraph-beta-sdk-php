@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Drives\Item\Root\ListItem\Activities
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get listItem from me
+*/
 class ListItemRequestBuilderGetQueryParameters 
 {
     /**

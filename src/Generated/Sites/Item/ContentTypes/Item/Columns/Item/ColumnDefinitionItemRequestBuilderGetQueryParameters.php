@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\ContentTypes\Item\Columns\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of column definitions for this contentType.
+*/
 class ColumnDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**

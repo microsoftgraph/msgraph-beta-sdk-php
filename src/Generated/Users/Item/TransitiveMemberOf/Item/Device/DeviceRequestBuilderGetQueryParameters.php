@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\Item\Devi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.device
+*/
 class DeviceRequestBuilderGetQueryParameters 
 {
     /**

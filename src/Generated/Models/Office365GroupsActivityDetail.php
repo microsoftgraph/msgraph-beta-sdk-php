@@ -255,7 +255,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the exchangeMailboxStorageUsedInBytes property value. The storage used of the group mailbox.
-     *  @param int|null $value Value to set for the exchangeMailboxStorageUsedInBytes property.
+     * @param int|null $value Value to set for the exchangeMailboxStorageUsedInBytes property.
     */
     public function setExchangeMailboxStorageUsedInBytes(?int $value): void {
         $this->getBackingStore()->set('exchangeMailboxStorageUsedInBytes', $value);
@@ -263,7 +263,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the exchangeMailboxTotalItemCount property value. The number of items in the group mailbox.
-     *  @param int|null $value Value to set for the exchangeMailboxTotalItemCount property.
+     * @param int|null $value Value to set for the exchangeMailboxTotalItemCount property.
     */
     public function setExchangeMailboxTotalItemCount(?int $value): void {
         $this->getBackingStore()->set('exchangeMailboxTotalItemCount', $value);
@@ -271,7 +271,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the exchangeReceivedEmailCount property value. The number of email that the group mailbox received.
-     *  @param int|null $value Value to set for the exchangeReceivedEmailCount property.
+     * @param int|null $value Value to set for the exchangeReceivedEmailCount property.
     */
     public function setExchangeReceivedEmailCount(?int $value): void {
         $this->getBackingStore()->set('exchangeReceivedEmailCount', $value);
@@ -279,7 +279,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the externalMemberCount property value. The group external member count.
-     *  @param int|null $value Value to set for the externalMemberCount property.
+     * @param int|null $value Value to set for the externalMemberCount property.
     */
     public function setExternalMemberCount(?int $value): void {
         $this->getBackingStore()->set('externalMemberCount', $value);
@@ -287,7 +287,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the groupDisplayName property value. The display name of the group.
-     *  @param string|null $value Value to set for the groupDisplayName property.
+     * @param string|null $value Value to set for the groupDisplayName property.
     */
     public function setGroupDisplayName(?string $value): void {
         $this->getBackingStore()->set('groupDisplayName', $value);
@@ -295,7 +295,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the groupId property value. The group id.
-     *  @param string|null $value Value to set for the groupId property.
+     * @param string|null $value Value to set for the groupId property.
     */
     public function setGroupId(?string $value): void {
         $this->getBackingStore()->set('groupId', $value);
@@ -303,7 +303,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the groupType property value. The group type. Possible values are: Public or Private.
-     *  @param string|null $value Value to set for the groupType property.
+     * @param string|null $value Value to set for the groupType property.
     */
     public function setGroupType(?string $value): void {
         $this->getBackingStore()->set('groupType', $value);
@@ -311,7 +311,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the isDeleted property value. Whether this user has been deleted or soft deleted.
-     *  @param bool|null $value Value to set for the isDeleted property.
+     * @param bool|null $value Value to set for the isDeleted property.
     */
     public function setIsDeleted(?bool $value): void {
         $this->getBackingStore()->set('isDeleted', $value);
@@ -319,7 +319,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the lastActivityDate property value. The last activity date for the following scenarios:  group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
-     *  @param Date|null $value Value to set for the lastActivityDate property.
+     * @param Date|null $value Value to set for the lastActivityDate property.
     */
     public function setLastActivityDate(?Date $value): void {
         $this->getBackingStore()->set('lastActivityDate', $value);
@@ -327,7 +327,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the memberCount property value. The group member count.
-     *  @param int|null $value Value to set for the memberCount property.
+     * @param int|null $value Value to set for the memberCount property.
     */
     public function setMemberCount(?int $value): void {
         $this->getBackingStore()->set('memberCount', $value);
@@ -335,7 +335,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the ownerPrincipalName property value. The group owner principal name.
-     *  @param string|null $value Value to set for the ownerPrincipalName property.
+     * @param string|null $value Value to set for the ownerPrincipalName property.
     */
     public function setOwnerPrincipalName(?string $value): void {
         $this->getBackingStore()->set('ownerPrincipalName', $value);
@@ -343,7 +343,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
-     *  @param string|null $value Value to set for the reportPeriod property.
+     * @param string|null $value Value to set for the reportPeriod property.
     */
     public function setReportPeriod(?string $value): void {
         $this->getBackingStore()->set('reportPeriod', $value);
@@ -351,7 +351,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
-     *  @param Date|null $value Value to set for the reportRefreshDate property.
+     * @param Date|null $value Value to set for the reportRefreshDate property.
     */
     public function setReportRefreshDate(?Date $value): void {
         $this->getBackingStore()->set('reportRefreshDate', $value);
@@ -359,7 +359,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the sharePointActiveFileCount property value. The number of active files in SharePoint Group site.
-     *  @param int|null $value Value to set for the sharePointActiveFileCount property.
+     * @param int|null $value Value to set for the sharePointActiveFileCount property.
     */
     public function setSharePointActiveFileCount(?int $value): void {
         $this->getBackingStore()->set('sharePointActiveFileCount', $value);
@@ -367,7 +367,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the sharePointSiteStorageUsedInBytes property value. The storage used by SharePoint Group site.
-     *  @param int|null $value Value to set for the sharePointSiteStorageUsedInBytes property.
+     * @param int|null $value Value to set for the sharePointSiteStorageUsedInBytes property.
     */
     public function setSharePointSiteStorageUsedInBytes(?int $value): void {
         $this->getBackingStore()->set('sharePointSiteStorageUsedInBytes', $value);
@@ -375,7 +375,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the sharePointTotalFileCount property value. The total number of files in SharePoint Group site.
-     *  @param int|null $value Value to set for the sharePointTotalFileCount property.
+     * @param int|null $value Value to set for the sharePointTotalFileCount property.
     */
     public function setSharePointTotalFileCount(?int $value): void {
         $this->getBackingStore()->set('sharePointTotalFileCount', $value);
@@ -383,7 +383,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the teamsChannelMessagesCount property value. The teamsChannelMessagesCount property
-     *  @param int|null $value Value to set for the teamsChannelMessagesCount property.
+     * @param int|null $value Value to set for the teamsChannelMessagesCount property.
     */
     public function setTeamsChannelMessagesCount(?int $value): void {
         $this->getBackingStore()->set('teamsChannelMessagesCount', $value);
@@ -391,7 +391,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the teamsMeetingsOrganizedCount property value. The teamsMeetingsOrganizedCount property
-     *  @param int|null $value Value to set for the teamsMeetingsOrganizedCount property.
+     * @param int|null $value Value to set for the teamsMeetingsOrganizedCount property.
     */
     public function setTeamsMeetingsOrganizedCount(?int $value): void {
         $this->getBackingStore()->set('teamsMeetingsOrganizedCount', $value);
@@ -399,7 +399,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the yammerLikedMessageCount property value. The number of messages liked in Yammer groups.
-     *  @param int|null $value Value to set for the yammerLikedMessageCount property.
+     * @param int|null $value Value to set for the yammerLikedMessageCount property.
     */
     public function setYammerLikedMessageCount(?int $value): void {
         $this->getBackingStore()->set('yammerLikedMessageCount', $value);
@@ -407,7 +407,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the yammerPostedMessageCount property value. The number of messages posted to Yammer groups.
-     *  @param int|null $value Value to set for the yammerPostedMessageCount property.
+     * @param int|null $value Value to set for the yammerPostedMessageCount property.
     */
     public function setYammerPostedMessageCount(?int $value): void {
         $this->getBackingStore()->set('yammerPostedMessageCount', $value);
@@ -415,7 +415,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
 
     /**
      * Sets the yammerReadMessageCount property value. The number of messages read in Yammer groups.
-     *  @param int|null $value Value to set for the yammerReadMessageCount property.
+     * @param int|null $value Value to set for the yammerReadMessageCount property.
     */
     public function setYammerReadMessageCount(?int $value): void {
         $this->getBackingStore()->set('yammerReadMessageCount', $value);

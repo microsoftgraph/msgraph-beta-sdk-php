@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand.
+*/
 class RoleDefinitionRequestBuilderGetQueryParameters 
 {
     /**

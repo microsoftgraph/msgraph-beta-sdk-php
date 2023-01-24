@@ -155,7 +155,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the allowedToSignUpEmailBasedSubscriptions property value. Indicates whether users can sign up for email based subscriptions.
-     *  @param bool|null $value Value to set for the allowedToSignUpEmailBasedSubscriptions property.
+     * @param bool|null $value Value to set for the allowedToSignUpEmailBasedSubscriptions property.
     */
     public function setAllowedToSignUpEmailBasedSubscriptions(?bool $value): void {
         $this->getBackingStore()->set('allowedToSignUpEmailBasedSubscriptions', $value);
@@ -163,7 +163,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the allowedToUseSSPR property value. Indicates whether the Self-Serve Password Reset feature can be used by users on the tenant.
-     *  @param bool|null $value Value to set for the allowedToUseSSPR property.
+     * @param bool|null $value Value to set for the allowedToUseSSPR property.
     */
     public function setAllowedToUseSSPR(?bool $value): void {
         $this->getBackingStore()->set('allowedToUseSSPR', $value);
@@ -171,7 +171,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the allowEmailVerifiedUsersToJoinOrganization property value. Indicates whether a user can join the tenant by email validation.
-     *  @param bool|null $value Value to set for the allowEmailVerifiedUsersToJoinOrganization property.
+     * @param bool|null $value Value to set for the allowEmailVerifiedUsersToJoinOrganization property.
     */
     public function setAllowEmailVerifiedUsersToJoinOrganization(?bool $value): void {
         $this->getBackingStore()->set('allowEmailVerifiedUsersToJoinOrganization', $value);
@@ -179,7 +179,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the allowInvitesFrom property value. Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone. everyone is the default setting for all cloud environments except US Government. See more in the table below.
-     *  @param AllowInvitesFrom|null $value Value to set for the allowInvitesFrom property.
+     * @param AllowInvitesFrom|null $value Value to set for the allowInvitesFrom property.
     */
     public function setAllowInvitesFrom(?AllowInvitesFrom $value): void {
         $this->getBackingStore()->set('allowInvitesFrom', $value);
@@ -187,7 +187,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the allowUserConsentForRiskyApps property value. Indicates whether user consent for risky apps is allowed. We recommend to keep this as false.
-     *  @param bool|null $value Value to set for the allowUserConsentForRiskyApps property.
+     * @param bool|null $value Value to set for the allowUserConsentForRiskyApps property.
     */
     public function setAllowUserConsentForRiskyApps(?bool $value): void {
         $this->getBackingStore()->set('allowUserConsentForRiskyApps', $value);
@@ -195,7 +195,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the blockMsolPowerShell property value. To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This does not affect Azure AD Connect or Microsoft Graph.
-     *  @param bool|null $value Value to set for the blockMsolPowerShell property.
+     * @param bool|null $value Value to set for the blockMsolPowerShell property.
     */
     public function setBlockMsolPowerShell(?bool $value): void {
         $this->getBackingStore()->set('blockMsolPowerShell', $value);
@@ -203,7 +203,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the defaultUserRoleOverrides property value. The defaultUserRoleOverrides property
-     *  @param array<DefaultUserRoleOverride>|null $value Value to set for the defaultUserRoleOverrides property.
+     * @param array<DefaultUserRoleOverride>|null $value Value to set for the defaultUserRoleOverrides property.
     */
     public function setDefaultUserRoleOverrides(?array $value): void {
         $this->getBackingStore()->set('defaultUserRoleOverrides', $value);
@@ -211,7 +211,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the defaultUserRolePermissions property value. The defaultUserRolePermissions property
-     *  @param DefaultUserRolePermissions|null $value Value to set for the defaultUserRolePermissions property.
+     * @param DefaultUserRolePermissions|null $value Value to set for the defaultUserRolePermissions property.
     */
     public function setDefaultUserRolePermissions(?DefaultUserRolePermissions $value): void {
         $this->getBackingStore()->set('defaultUserRolePermissions', $value);
@@ -219,7 +219,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the enabledPreviewFeatures property value. List of features enabled for private preview on the tenant.
-     *  @param array<string>|null $value Value to set for the enabledPreviewFeatures property.
+     * @param array<string>|null $value Value to set for the enabledPreviewFeatures property.
     */
     public function setEnabledPreviewFeatures(?array $value): void {
         $this->getBackingStore()->set('enabledPreviewFeatures', $value);
@@ -227,7 +227,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the guestUserRoleId property value. Represents role templateId for the role that should be granted to guest user. Refer to List unifiedRoleDefinitions to find the list of available role templates. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).
-     *  @param string|null $value Value to set for the guestUserRoleId property.
+     * @param string|null $value Value to set for the guestUserRoleId property.
     */
     public function setGuestUserRoleId(?string $value): void {
         $this->getBackingStore()->set('guestUserRoleId', $value);
@@ -235,7 +235,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the permissionGrantPolicyIdsAssignedToDefaultUserRole property value. Indicates if user consent to apps is allowed, and if it is, which app consent policy (permissionGrantPolicy) governs the permission for users to grant consent. Values should be in the format managePermissionGrantsForSelf.{id}, where {id} is the id of a built-in or custom app consent policy. An empty list indicates user consent to apps is disabled.
-     *  @param array<string>|null $value Value to set for the permissionGrantPolicyIdsAssignedToDefaultUserRole property.
+     * @param array<string>|null $value Value to set for the permissionGrantPolicyIdsAssignedToDefaultUserRole property.
     */
     public function setPermissionGrantPolicyIdsAssignedToDefaultUserRole(?array $value): void {
         $this->getBackingStore()->set('permissionGrantPolicyIdsAssignedToDefaultUserRole', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Authenticati
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
+*/
 class PoliciesRequestBuilderGetQueryParameters 
 {
     /**

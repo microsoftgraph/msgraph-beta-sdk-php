@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get tenantRelationships
+*/
 class TenantRelationshipsRequestBuilderGetQueryParameters 
 {
     /**

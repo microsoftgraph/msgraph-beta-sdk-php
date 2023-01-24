@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Violation of restricted apps configuration profile per device per user
+*/
 class RestrictedAppsViolation extends Entity implements Parsable 
 {
     /**
@@ -134,7 +137,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
 
     /**
      * Sets the deviceConfigurationId property value. Device configuration profile unique identifier, must be Guid
-     *  @param string|null $value Value to set for the deviceConfigurationId property.
+     * @param string|null $value Value to set for the deviceConfigurationId property.
     */
     public function setDeviceConfigurationId(?string $value): void {
         $this->getBackingStore()->set('deviceConfigurationId', $value);
@@ -142,7 +145,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
 
     /**
      * Sets the deviceConfigurationName property value. Device configuration profile name
-     *  @param string|null $value Value to set for the deviceConfigurationName property.
+     * @param string|null $value Value to set for the deviceConfigurationName property.
     */
     public function setDeviceConfigurationName(?string $value): void {
         $this->getBackingStore()->set('deviceConfigurationName', $value);
@@ -150,7 +153,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. Device name
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -158,7 +161,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceId property value. Managed device unique identifier, must be Guid
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -166,7 +169,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
 
     /**
      * Sets the platformType property value. Supported platform types for policies.
-     *  @param PolicyPlatformType|null $value Value to set for the platformType property.
+     * @param PolicyPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?PolicyPlatformType $value): void {
         $this->getBackingStore()->set('platformType', $value);
@@ -174,7 +177,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
 
     /**
      * Sets the restrictedApps property value. List of violated restricted apps
-     *  @param array<ManagedDeviceReportedApp>|null $value Value to set for the restrictedApps property.
+     * @param array<ManagedDeviceReportedApp>|null $value Value to set for the restrictedApps property.
     */
     public function setRestrictedApps(?array $value): void {
         $this->getBackingStore()->set('restrictedApps', $value);
@@ -182,7 +185,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
 
     /**
      * Sets the restrictedAppsState property value. Restricted apps state
-     *  @param RestrictedAppsState|null $value Value to set for the restrictedAppsState property.
+     * @param RestrictedAppsState|null $value Value to set for the restrictedAppsState property.
     */
     public function setRestrictedAppsState(?RestrictedAppsState $value): void {
         $this->getBackingStore()->set('restrictedAppsState', $value);
@@ -190,7 +193,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
 
     /**
      * Sets the userId property value. User unique identifier, must be Guid
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -198,7 +201,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
 
     /**
      * Sets the userName property value. User name
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);

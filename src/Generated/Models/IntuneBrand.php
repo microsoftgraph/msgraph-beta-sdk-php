@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
+*/
 class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -360,7 +363,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -368,7 +371,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -376,7 +379,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the companyPortalBlockedActions property value. Collection of blocked actions on the company portal as per platform and device ownership types.
-     *  @param array<CompanyPortalBlockedAction>|null $value Value to set for the companyPortalBlockedActions property.
+     * @param array<CompanyPortalBlockedAction>|null $value Value to set for the companyPortalBlockedActions property.
     */
     public function setCompanyPortalBlockedActions(?array $value): void {
         $this->getBackingStore()->set('companyPortalBlockedActions', $value);
@@ -384,7 +387,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the contactITEmailAddress property value. Email address of the person/organization responsible for IT support.
-     *  @param string|null $value Value to set for the contactITEmailAddress property.
+     * @param string|null $value Value to set for the contactITEmailAddress property.
     */
     public function setContactITEmailAddress(?string $value): void {
         $this->getBackingStore()->set('contactITEmailAddress', $value);
@@ -392,7 +395,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the contactITName property value. Name of the person/organization responsible for IT support.
-     *  @param string|null $value Value to set for the contactITName property.
+     * @param string|null $value Value to set for the contactITName property.
     */
     public function setContactITName(?string $value): void {
         $this->getBackingStore()->set('contactITName', $value);
@@ -400,7 +403,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the contactITNotes property value. Text comments regarding the person/organization responsible for IT support.
-     *  @param string|null $value Value to set for the contactITNotes property.
+     * @param string|null $value Value to set for the contactITNotes property.
     */
     public function setContactITNotes(?string $value): void {
         $this->getBackingStore()->set('contactITNotes', $value);
@@ -408,7 +411,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the contactITPhoneNumber property value. Phone number of the person/organization responsible for IT support.
-     *  @param string|null $value Value to set for the contactITPhoneNumber property.
+     * @param string|null $value Value to set for the contactITPhoneNumber property.
     */
     public function setContactITPhoneNumber(?string $value): void {
         $this->getBackingStore()->set('contactITPhoneNumber', $value);
@@ -416,7 +419,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the customCanSeePrivacyMessage property value. The custom privacy message used to explain what the organization can see and do on managed devices.
-     *  @param string|null $value Value to set for the customCanSeePrivacyMessage property.
+     * @param string|null $value Value to set for the customCanSeePrivacyMessage property.
     */
     public function setCustomCanSeePrivacyMessage(?string $value): void {
         $this->getBackingStore()->set('customCanSeePrivacyMessage', $value);
@@ -424,7 +427,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the customCantSeePrivacyMessage property value. The custom privacy message used to explain what the organization can’t see or do on managed devices.
-     *  @param string|null $value Value to set for the customCantSeePrivacyMessage property.
+     * @param string|null $value Value to set for the customCantSeePrivacyMessage property.
     */
     public function setCustomCantSeePrivacyMessage(?string $value): void {
         $this->getBackingStore()->set('customCantSeePrivacyMessage', $value);
@@ -432,7 +435,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the customPrivacyMessage property value. The custom privacy message used to explain what the organization can’t see or do on managed devices.
-     *  @param string|null $value Value to set for the customPrivacyMessage property.
+     * @param string|null $value Value to set for the customPrivacyMessage property.
     */
     public function setCustomPrivacyMessage(?string $value): void {
         $this->getBackingStore()->set('customPrivacyMessage', $value);
@@ -440,7 +443,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the darkBackgroundLogo property value. Logo image displayed in Company Portal apps which have a dark background behind the logo.
-     *  @param MimeContent|null $value Value to set for the darkBackgroundLogo property.
+     * @param MimeContent|null $value Value to set for the darkBackgroundLogo property.
     */
     public function setDarkBackgroundLogo(?MimeContent $value): void {
         $this->getBackingStore()->set('darkBackgroundLogo', $value);
@@ -448,7 +451,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the disableClientTelemetry property value. Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.
-     *  @param bool|null $value Value to set for the disableClientTelemetry property.
+     * @param bool|null $value Value to set for the disableClientTelemetry property.
     */
     public function setDisableClientTelemetry(?bool $value): void {
         $this->getBackingStore()->set('disableClientTelemetry', $value);
@@ -456,7 +459,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. Company/organization name that is displayed to end users.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -464,7 +467,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the enrollmentAvailability property value. Options available for enrollment flow customization
-     *  @param EnrollmentAvailabilityOptions|null $value Value to set for the enrollmentAvailability property.
+     * @param EnrollmentAvailabilityOptions|null $value Value to set for the enrollmentAvailability property.
     */
     public function setEnrollmentAvailability(?EnrollmentAvailabilityOptions $value): void {
         $this->getBackingStore()->set('enrollmentAvailability', $value);
@@ -472,7 +475,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isFactoryResetDisabled property value. Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices.
-     *  @param bool|null $value Value to set for the isFactoryResetDisabled property.
+     * @param bool|null $value Value to set for the isFactoryResetDisabled property.
     */
     public function setIsFactoryResetDisabled(?bool $value): void {
         $this->getBackingStore()->set('isFactoryResetDisabled', $value);
@@ -480,7 +483,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isRemoveDeviceDisabled property value. Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices.
-     *  @param bool|null $value Value to set for the isRemoveDeviceDisabled property.
+     * @param bool|null $value Value to set for the isRemoveDeviceDisabled property.
     */
     public function setIsRemoveDeviceDisabled(?bool $value): void {
         $this->getBackingStore()->set('isRemoveDeviceDisabled', $value);
@@ -488,7 +491,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the landingPageCustomizedImage property value. Customized image displayed in Company Portal app landing page
-     *  @param MimeContent|null $value Value to set for the landingPageCustomizedImage property.
+     * @param MimeContent|null $value Value to set for the landingPageCustomizedImage property.
     */
     public function setLandingPageCustomizedImage(?MimeContent $value): void {
         $this->getBackingStore()->set('landingPageCustomizedImage', $value);
@@ -496,7 +499,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lightBackgroundLogo property value. Logo image displayed in Company Portal apps which have a light background behind the logo.
-     *  @param MimeContent|null $value Value to set for the lightBackgroundLogo property.
+     * @param MimeContent|null $value Value to set for the lightBackgroundLogo property.
     */
     public function setLightBackgroundLogo(?MimeContent $value): void {
         $this->getBackingStore()->set('lightBackgroundLogo', $value);
@@ -504,7 +507,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -512,7 +515,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the onlineSupportSiteName property value. Display name of the company/organization’s IT helpdesk site.
-     *  @param string|null $value Value to set for the onlineSupportSiteName property.
+     * @param string|null $value Value to set for the onlineSupportSiteName property.
     */
     public function setOnlineSupportSiteName(?string $value): void {
         $this->getBackingStore()->set('onlineSupportSiteName', $value);
@@ -520,7 +523,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the onlineSupportSiteUrl property value. URL to the company/organization’s IT helpdesk site.
-     *  @param string|null $value Value to set for the onlineSupportSiteUrl property.
+     * @param string|null $value Value to set for the onlineSupportSiteUrl property.
     */
     public function setOnlineSupportSiteUrl(?string $value): void {
         $this->getBackingStore()->set('onlineSupportSiteUrl', $value);
@@ -528,7 +531,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the privacyUrl property value. URL to the company/organization’s privacy policy.
-     *  @param string|null $value Value to set for the privacyUrl property.
+     * @param string|null $value Value to set for the privacyUrl property.
     */
     public function setPrivacyUrl(?string $value): void {
         $this->getBackingStore()->set('privacyUrl', $value);
@@ -536,7 +539,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of scope tags assigned to the default branding profile
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -544,7 +547,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sendDeviceOwnershipChangePushNotification property value. Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
-     *  @param bool|null $value Value to set for the sendDeviceOwnershipChangePushNotification property.
+     * @param bool|null $value Value to set for the sendDeviceOwnershipChangePushNotification property.
     */
     public function setSendDeviceOwnershipChangePushNotification(?bool $value): void {
         $this->getBackingStore()->set('sendDeviceOwnershipChangePushNotification', $value);
@@ -552,7 +555,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the showAzureADEnterpriseApps property value. Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
-     *  @param bool|null $value Value to set for the showAzureADEnterpriseApps property.
+     * @param bool|null $value Value to set for the showAzureADEnterpriseApps property.
     */
     public function setShowAzureADEnterpriseApps(?bool $value): void {
         $this->getBackingStore()->set('showAzureADEnterpriseApps', $value);
@@ -560,7 +563,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the showConfigurationManagerApps property value. Boolean that indicates if ConfigurationManagerApps will be shown in Company Portal
-     *  @param bool|null $value Value to set for the showConfigurationManagerApps property.
+     * @param bool|null $value Value to set for the showConfigurationManagerApps property.
     */
     public function setShowConfigurationManagerApps(?bool $value): void {
         $this->getBackingStore()->set('showConfigurationManagerApps', $value);
@@ -568,7 +571,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the showDisplayNameNextToLogo property value. Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
-     *  @param bool|null $value Value to set for the showDisplayNameNextToLogo property.
+     * @param bool|null $value Value to set for the showDisplayNameNextToLogo property.
     */
     public function setShowDisplayNameNextToLogo(?bool $value): void {
         $this->getBackingStore()->set('showDisplayNameNextToLogo', $value);
@@ -576,7 +579,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the showLogo property value. Boolean that represents whether the administrator-supplied logo images are shown or not shown.
-     *  @param bool|null $value Value to set for the showLogo property.
+     * @param bool|null $value Value to set for the showLogo property.
     */
     public function setShowLogo(?bool $value): void {
         $this->getBackingStore()->set('showLogo', $value);
@@ -584,7 +587,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the showNameNextToLogo property value. Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
-     *  @param bool|null $value Value to set for the showNameNextToLogo property.
+     * @param bool|null $value Value to set for the showNameNextToLogo property.
     */
     public function setShowNameNextToLogo(?bool $value): void {
         $this->getBackingStore()->set('showNameNextToLogo', $value);
@@ -592,7 +595,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the showOfficeWebApps property value. Boolean that indicates if Office WebApps will be shown in Company Portal
-     *  @param bool|null $value Value to set for the showOfficeWebApps property.
+     * @param bool|null $value Value to set for the showOfficeWebApps property.
     */
     public function setShowOfficeWebApps(?bool $value): void {
         $this->getBackingStore()->set('showOfficeWebApps', $value);
@@ -600,7 +603,7 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the themeColor property value. Primary theme color used in the Company Portal applications and web portal.
-     *  @param RgbColor|null $value Value to set for the themeColor property.
+     * @param RgbColor|null $value Value to set for the themeColor property.
     */
     public function setThemeColor(?RgbColor $value): void {
         $this->getBackingStore()->set('themeColor', $value);

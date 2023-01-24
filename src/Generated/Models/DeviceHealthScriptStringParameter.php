@@ -55,7 +55,7 @@ class DeviceHealthScriptStringParameter extends DeviceHealthScriptParameter impl
 
     /**
      * Sets the defaultValue property value. The default value of string param
-     *  @param string|null $value Value to set for the defaultValue property.
+     * @param string|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?string $value): void {
         $this->getBackingStore()->set('defaultValue', $value);

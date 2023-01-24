@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Drives\Item\Root\Permission
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class RevokeGrantsRequestBuilderPostRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     

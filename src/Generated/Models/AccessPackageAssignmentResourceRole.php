@@ -114,7 +114,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignments property value. The access package assignments resulting in this role assignment. Read-only. Nullable.
-     *  @param array<AccessPackageAssignment>|null $value Value to set for the accessPackageAssignments property.
+     * @param array<AccessPackageAssignment>|null $value Value to set for the accessPackageAssignments property.
     */
     public function setAccessPackageAssignments(?array $value): void {
         $this->getBackingStore()->set('accessPackageAssignments', $value);
@@ -122,7 +122,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceRole property value. The accessPackageResourceRole property
-     *  @param AccessPackageResourceRole|null $value Value to set for the accessPackageResourceRole property.
+     * @param AccessPackageResourceRole|null $value Value to set for the accessPackageResourceRole property.
     */
     public function setAccessPackageResourceRole(?AccessPackageResourceRole $value): void {
         $this->getBackingStore()->set('accessPackageResourceRole', $value);
@@ -130,7 +130,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceScope property value. The accessPackageResourceScope property
-     *  @param AccessPackageResourceScope|null $value Value to set for the accessPackageResourceScope property.
+     * @param AccessPackageResourceScope|null $value Value to set for the accessPackageResourceScope property.
     */
     public function setAccessPackageResourceScope(?AccessPackageResourceScope $value): void {
         $this->getBackingStore()->set('accessPackageResourceScope', $value);
@@ -138,7 +138,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
 
     /**
      * Sets the accessPackageSubject property value. Read-only. Nullable. Supports $filter (eq) on objectId and $expand query parameters.
-     *  @param AccessPackageSubject|null $value Value to set for the accessPackageSubject property.
+     * @param AccessPackageSubject|null $value Value to set for the accessPackageSubject property.
     */
     public function setAccessPackageSubject(?AccessPackageSubject $value): void {
         $this->getBackingStore()->set('accessPackageSubject', $value);
@@ -146,7 +146,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
 
     /**
      * Sets the originId property value. A unique identifier relative to the origin system, corresponding to the originId property of the accessPackageResourceRole.
-     *  @param string|null $value Value to set for the originId property.
+     * @param string|null $value Value to set for the originId property.
     */
     public function setOriginId(?string $value): void {
         $this->getBackingStore()->set('originId', $value);
@@ -154,7 +154,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
 
     /**
      * Sets the originSystem property value. The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.
-     *  @param string|null $value Value to set for the originSystem property.
+     * @param string|null $value Value to set for the originSystem property.
     */
     public function setOriginSystem(?string $value): void {
         $this->getBackingStore()->set('originSystem', $value);
@@ -162,7 +162,7 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
 
     /**
      * Sets the status property value. The value is PendingFulfillment when the access package assignment has not yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);

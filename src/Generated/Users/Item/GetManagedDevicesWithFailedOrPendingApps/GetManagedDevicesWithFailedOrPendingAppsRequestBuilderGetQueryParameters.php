@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\GetManagedDevicesWithFailedO
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieves the list of devices with failed or pending apps
+*/
 class GetManagedDevicesWithFailedOrPendingAppsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermission
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getEffectivePermissions
+*/
 class GetEffectivePermissionsRequestBuilderGetQueryParameters 
 {
     /**

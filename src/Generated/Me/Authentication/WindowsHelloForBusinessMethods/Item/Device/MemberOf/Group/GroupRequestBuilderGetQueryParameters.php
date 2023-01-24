@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusine
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the items of type microsoft.graph.group in the microsoft.graph.directoryObject collection
+*/
 class GroupRequestBuilderGetQueryParameters 
 {
     /**

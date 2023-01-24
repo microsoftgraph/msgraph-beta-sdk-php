@@ -85,7 +85,7 @@ class CatalogEntry extends Entity implements Parsable
 
     /**
      * Sets the deployableUntilDateTime property value. The date on which the content is no longer available to deploy using the service. Read-only.
-     *  @param DateTime|null $value Value to set for the deployableUntilDateTime property.
+     * @param DateTime|null $value Value to set for the deployableUntilDateTime property.
     */
     public function setDeployableUntilDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deployableUntilDateTime', $value);
@@ -93,7 +93,7 @@ class CatalogEntry extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the content. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -101,7 +101,7 @@ class CatalogEntry extends Entity implements Parsable
 
     /**
      * Sets the releaseDateTime property value. The release date for the content. Read-only.
-     *  @param DateTime|null $value Value to set for the releaseDateTime property.
+     * @param DateTime|null $value Value to set for the releaseDateTime property.
     */
     public function setReleaseDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('releaseDateTime', $value);

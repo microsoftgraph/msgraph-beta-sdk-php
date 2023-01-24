@@ -65,7 +65,7 @@ class Monitoring extends Entity implements Parsable
 
     /**
      * Sets the alertRecords property value. The collection of records of alert events.
-     *  @param array<AlertRecord>|null $value Value to set for the alertRecords property.
+     * @param array<AlertRecord>|null $value Value to set for the alertRecords property.
     */
     public function setAlertRecords(?array $value): void {
         $this->getBackingStore()->set('alertRecords', $value);
@@ -73,7 +73,7 @@ class Monitoring extends Entity implements Parsable
 
     /**
      * Sets the alertRules property value. The collection of alert rules.
-     *  @param array<AlertRule>|null $value Value to set for the alertRules property.
+     * @param array<AlertRule>|null $value Value to set for the alertRules property.
     */
     public function setAlertRules(?array $value): void {
         $this->getBackingStore()->set('alertRules', $value);

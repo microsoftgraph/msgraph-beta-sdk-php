@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The operations available to interact with the multi-tenant management platform.
+*/
 class ManagedTenantsRequestBuilderGetQueryParameters 
 {
     /**

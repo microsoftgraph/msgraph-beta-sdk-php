@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\SchedulingGro
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The logical grouping of users in the schedule (usually by role).
+*/
 class SchedulingGroupItemRequestBuilderGetQueryParameters 
 {
     /**

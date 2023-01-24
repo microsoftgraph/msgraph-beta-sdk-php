@@ -275,7 +275,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the accessibilityScreenDisabled property value. Indicates if Accessibility screen is disabled
-     *  @param bool|null $value Value to set for the accessibilityScreenDisabled property.
+     * @param bool|null $value Value to set for the accessibilityScreenDisabled property.
     */
     public function setAccessibilityScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('accessibilityScreenDisabled', $value);
@@ -283,7 +283,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the autoUnlockWithWatchDisabled property value. Indicates if UnlockWithWatch screen is disabled
-     *  @param bool|null $value Value to set for the autoUnlockWithWatchDisabled property.
+     * @param bool|null $value Value to set for the autoUnlockWithWatchDisabled property.
     */
     public function setAutoUnlockWithWatchDisabled(?bool $value): void {
         $this->getBackingStore()->set('autoUnlockWithWatchDisabled', $value);
@@ -291,7 +291,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the chooseYourLockScreenDisabled property value. Indicates if iCloud Documents and Desktop screen is disabled
-     *  @param bool|null $value Value to set for the chooseYourLockScreenDisabled property.
+     * @param bool|null $value Value to set for the chooseYourLockScreenDisabled property.
     */
     public function setChooseYourLockScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('chooseYourLockScreenDisabled', $value);
@@ -299,7 +299,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the dontAutoPopulatePrimaryAccountInfo property value. Indicates whether Setup Assistant will auto populate the primary account information
-     *  @param bool|null $value Value to set for the dontAutoPopulatePrimaryAccountInfo property.
+     * @param bool|null $value Value to set for the dontAutoPopulatePrimaryAccountInfo property.
     */
     public function setDontAutoPopulatePrimaryAccountInfo(?bool $value): void {
         $this->getBackingStore()->set('dontAutoPopulatePrimaryAccountInfo', $value);
@@ -307,7 +307,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the enableRestrictEditing property value. Indicates whether the user will enable blockediting
-     *  @param bool|null $value Value to set for the enableRestrictEditing property.
+     * @param bool|null $value Value to set for the enableRestrictEditing property.
     */
     public function setEnableRestrictEditing(?bool $value): void {
         $this->getBackingStore()->set('enableRestrictEditing', $value);
@@ -315,7 +315,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the fileVaultDisabled property value. Indicates if file vault is disabled
-     *  @param bool|null $value Value to set for the fileVaultDisabled property.
+     * @param bool|null $value Value to set for the fileVaultDisabled property.
     */
     public function setFileVaultDisabled(?bool $value): void {
         $this->getBackingStore()->set('fileVaultDisabled', $value);
@@ -323,7 +323,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the iCloudDiagnosticsDisabled property value. Indicates if iCloud Analytics screen is disabled
-     *  @param bool|null $value Value to set for the iCloudDiagnosticsDisabled property.
+     * @param bool|null $value Value to set for the iCloudDiagnosticsDisabled property.
     */
     public function setICloudDiagnosticsDisabled(?bool $value): void {
         $this->getBackingStore()->set('iCloudDiagnosticsDisabled', $value);
@@ -331,7 +331,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the iCloudStorageDisabled property value. Indicates if iCloud Documents and Desktop screen is disabled
-     *  @param bool|null $value Value to set for the iCloudStorageDisabled property.
+     * @param bool|null $value Value to set for the iCloudStorageDisabled property.
     */
     public function setICloudStorageDisabled(?bool $value): void {
         $this->getBackingStore()->set('iCloudStorageDisabled', $value);
@@ -339,7 +339,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the isLocalPrimaryAccount property value. Indicates whether the profile is a local account
-     *  @param bool|null $value Value to set for the isLocalPrimaryAccount property.
+     * @param bool|null $value Value to set for the isLocalPrimaryAccount property.
     */
     public function setIsLocalPrimaryAccount(?bool $value): void {
         $this->getBackingStore()->set('isLocalPrimaryAccount', $value);
@@ -347,7 +347,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the isPrimaryUser property value. Indicates whether the profile is a primary user
-     *  @param bool|null $value Value to set for the isPrimaryUser property.
+     * @param bool|null $value Value to set for the isPrimaryUser property.
     */
     public function setIsPrimaryUser(?bool $value): void {
         $this->getBackingStore()->set('isPrimaryUser', $value);
@@ -355,7 +355,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the lockPrimaryAccountInfo property value. Indicates whether the primary account information will be locked
-     *  @param bool|null $value Value to set for the lockPrimaryAccountInfo property.
+     * @param bool|null $value Value to set for the lockPrimaryAccountInfo property.
     */
     public function setLockPrimaryAccountInfo(?bool $value): void {
         $this->getBackingStore()->set('lockPrimaryAccountInfo', $value);
@@ -363,7 +363,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the managedLocalUserShortName property value. Indicates whether or not this is the short name of the local account to manage
-     *  @param bool|null $value Value to set for the managedLocalUserShortName property.
+     * @param bool|null $value Value to set for the managedLocalUserShortName property.
     */
     public function setManagedLocalUserShortName(?bool $value): void {
         $this->getBackingStore()->set('managedLocalUserShortName', $value);
@@ -371,7 +371,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the passCodeDisabled property value. Indicates if Passcode setup pane is disabled
-     *  @param bool|null $value Value to set for the passCodeDisabled property.
+     * @param bool|null $value Value to set for the passCodeDisabled property.
     */
     public function setPassCodeDisabled(?bool $value): void {
         $this->getBackingStore()->set('passCodeDisabled', $value);
@@ -379,7 +379,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the prefillAccountInfo property value. Indicates whether the user will prefill their account info
-     *  @param bool|null $value Value to set for the prefillAccountInfo property.
+     * @param bool|null $value Value to set for the prefillAccountInfo property.
     */
     public function setPrefillAccountInfo(?bool $value): void {
         $this->getBackingStore()->set('prefillAccountInfo', $value);
@@ -387,7 +387,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the primaryAccountFullName property value. Indicates what the full name for the primary account is
-     *  @param string|null $value Value to set for the primaryAccountFullName property.
+     * @param string|null $value Value to set for the primaryAccountFullName property.
     */
     public function setPrimaryAccountFullName(?string $value): void {
         $this->getBackingStore()->set('primaryAccountFullName', $value);
@@ -395,7 +395,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the primaryAccountUserName property value. Indicates what the account name for the primary account is
-     *  @param string|null $value Value to set for the primaryAccountUserName property.
+     * @param string|null $value Value to set for the primaryAccountUserName property.
     */
     public function setPrimaryAccountUserName(?string $value): void {
         $this->getBackingStore()->set('primaryAccountUserName', $value);
@@ -403,7 +403,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the primaryUser property value. Indicates who the primary user of the profile is
-     *  @param string|null $value Value to set for the primaryUser property.
+     * @param string|null $value Value to set for the primaryUser property.
     */
     public function setPrimaryUser(?string $value): void {
         $this->getBackingStore()->set('primaryUser', $value);
@@ -411,7 +411,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the primaryUserFullName property value. Indicates who the primary user of the profile is
-     *  @param string|null $value Value to set for the primaryUserFullName property.
+     * @param string|null $value Value to set for the primaryUserFullName property.
     */
     public function setPrimaryUserFullName(?string $value): void {
         $this->getBackingStore()->set('primaryUserFullName', $value);
@@ -419,7 +419,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the registrationDisabled property value. Indicates if registration is disabled
-     *  @param bool|null $value Value to set for the registrationDisabled property.
+     * @param bool|null $value Value to set for the registrationDisabled property.
     */
     public function setRegistrationDisabled(?bool $value): void {
         $this->getBackingStore()->set('registrationDisabled', $value);
@@ -427,7 +427,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the requestRequiresNetworkTether property value. Indicates if the device is network-tethered to run the command
-     *  @param bool|null $value Value to set for the requestRequiresNetworkTether property.
+     * @param bool|null $value Value to set for the requestRequiresNetworkTether property.
     */
     public function setRequestRequiresNetworkTether(?bool $value): void {
         $this->getBackingStore()->set('requestRequiresNetworkTether', $value);
@@ -435,7 +435,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the setPrimarySetupAccountAsRegularUser property value. Indicates whether Setup Assistant will set the account as a regular user
-     *  @param bool|null $value Value to set for the setPrimarySetupAccountAsRegularUser property.
+     * @param bool|null $value Value to set for the setPrimarySetupAccountAsRegularUser property.
     */
     public function setSetPrimarySetupAccountAsRegularUser(?bool $value): void {
         $this->getBackingStore()->set('setPrimarySetupAccountAsRegularUser', $value);
@@ -443,7 +443,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the skipPrimarySetupAccountCreation property value. Indicates whether Setup Assistant will skip the user interface for primary account setup
-     *  @param bool|null $value Value to set for the skipPrimarySetupAccountCreation property.
+     * @param bool|null $value Value to set for the skipPrimarySetupAccountCreation property.
     */
     public function setSkipPrimarySetupAccountCreation(?bool $value): void {
         $this->getBackingStore()->set('skipPrimarySetupAccountCreation', $value);
@@ -451,7 +451,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
 
     /**
      * Sets the zoomDisabled property value. Indicates if zoom setup pane is disabled
-     *  @param bool|null $value Value to set for the zoomDisabled property.
+     * @param bool|null $value Value to set for the zoomDisabled property.
     */
     public function setZoomDisabled(?bool $value): void {
         $this->getBackingStore()->set('zoomDisabled', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\EscapedList\Colu
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get columns from users
+*/
 class ColumnDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**

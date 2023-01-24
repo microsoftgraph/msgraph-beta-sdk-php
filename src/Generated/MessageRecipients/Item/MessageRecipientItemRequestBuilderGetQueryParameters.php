@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\MessageRecipients\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from messageRecipients by key (id)
+*/
 class MessageRecipientItemRequestBuilderGetQueryParameters 
 {
     /**

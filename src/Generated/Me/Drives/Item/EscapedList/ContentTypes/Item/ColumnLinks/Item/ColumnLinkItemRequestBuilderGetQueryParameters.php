@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Drives\Item\EscapedList\ContentTypes
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of columns that are required by this content type
+*/
 class ColumnLinkItemRequestBuilderGetQueryParameters 
 {
     /**

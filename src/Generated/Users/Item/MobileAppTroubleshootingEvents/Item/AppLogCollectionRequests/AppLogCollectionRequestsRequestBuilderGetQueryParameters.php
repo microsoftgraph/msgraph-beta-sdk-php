@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEven
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection property of AppLogUploadRequest.
+*/
 class AppLogCollectionRequestsRequestBuilderGetQueryParameters 
 {
     /**

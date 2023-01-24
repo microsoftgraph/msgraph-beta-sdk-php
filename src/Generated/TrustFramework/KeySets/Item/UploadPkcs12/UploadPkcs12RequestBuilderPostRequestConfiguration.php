@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadPkcs1
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class UploadPkcs12RequestBuilderPostRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     

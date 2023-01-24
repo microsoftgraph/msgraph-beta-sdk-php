@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The enrollment profiles.
+*/
 class EnrollmentProfileItemRequestBuilderGetQueryParameters 
 {
     /**

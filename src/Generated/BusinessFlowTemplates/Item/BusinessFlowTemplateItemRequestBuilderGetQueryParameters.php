@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\BusinessFlowTemplates\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from businessFlowTemplates by key (id)
+*/
 class BusinessFlowTemplateItemRequestBuilderGetQueryParameters 
 {
     /**

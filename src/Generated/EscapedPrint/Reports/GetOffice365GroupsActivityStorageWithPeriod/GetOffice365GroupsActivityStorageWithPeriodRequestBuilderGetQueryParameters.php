@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetOffice365Groups
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getOffice365GroupsActivityStorage
+*/
 class GetOffice365GroupsActivityStorageWithPeriodRequestBuilderGetQueryParameters 
 {
     /**

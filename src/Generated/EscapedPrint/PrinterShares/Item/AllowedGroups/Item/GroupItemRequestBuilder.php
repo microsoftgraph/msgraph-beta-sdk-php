@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\Allowed
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /print/printerShares/{printerShare-id}/allowedGroups/{group-id}
+*/
 class GroupItemRequestBuilder 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\AllMessages;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function allMessages
+*/
 class AllMessagesRequestBuilderGetQueryParameters 
 {
     /**

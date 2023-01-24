@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Clou
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the cloudPcConnection objects and their properties.
+*/
 class CloudPcConnectionsRequestBuilderGetQueryParameters 
 {
     /**

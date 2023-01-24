@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\Item\Ru
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of rules like approval rules and expiration rules. Supports $expand.
+*/
 class UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParameters 
 {
     /**

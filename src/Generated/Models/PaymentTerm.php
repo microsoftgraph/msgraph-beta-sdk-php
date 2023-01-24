@@ -115,7 +115,7 @@ class PaymentTerm extends Entity implements Parsable
 
     /**
      * Sets the calculateDiscountOnCreditMemos property value. The calculateDiscountOnCreditMemos property
-     *  @param bool|null $value Value to set for the calculateDiscountOnCreditMemos property.
+     * @param bool|null $value Value to set for the calculateDiscountOnCreditMemos property.
     */
     public function setCalculateDiscountOnCreditMemos(?bool $value): void {
         $this->getBackingStore()->set('calculateDiscountOnCreditMemos', $value);
@@ -123,7 +123,7 @@ class PaymentTerm extends Entity implements Parsable
 
     /**
      * Sets the code property value. The code property
-     *  @param string|null $value Value to set for the code property.
+     * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
         $this->getBackingStore()->set('code', $value);
@@ -131,7 +131,7 @@ class PaymentTerm extends Entity implements Parsable
 
     /**
      * Sets the discountDateCalculation property value. The discountDateCalculation property
-     *  @param string|null $value Value to set for the discountDateCalculation property.
+     * @param string|null $value Value to set for the discountDateCalculation property.
     */
     public function setDiscountDateCalculation(?string $value): void {
         $this->getBackingStore()->set('discountDateCalculation', $value);
@@ -139,7 +139,7 @@ class PaymentTerm extends Entity implements Parsable
 
     /**
      * Sets the discountPercent property value. The discountPercent property
-     *  @param string|null $value Value to set for the discountPercent property.
+     * @param string|null $value Value to set for the discountPercent property.
     */
     public function setDiscountPercent(?string $value): void {
         $this->getBackingStore()->set('discountPercent', $value);
@@ -147,7 +147,7 @@ class PaymentTerm extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -155,7 +155,7 @@ class PaymentTerm extends Entity implements Parsable
 
     /**
      * Sets the dueDateCalculation property value. The dueDateCalculation property
-     *  @param string|null $value Value to set for the dueDateCalculation property.
+     * @param string|null $value Value to set for the dueDateCalculation property.
     */
     public function setDueDateCalculation(?string $value): void {
         $this->getBackingStore()->set('dueDateCalculation', $value);
@@ -163,7 +163,7 @@ class PaymentTerm extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);

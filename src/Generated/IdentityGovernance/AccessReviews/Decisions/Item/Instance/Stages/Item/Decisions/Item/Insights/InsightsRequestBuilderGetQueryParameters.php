@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Insights are recommendations to reviewers on whether to approve or deny a decision. There can be multiple insights associated with an accessReviewInstanceDecisionItem.
+*/
 class InsightsRequestBuilderGetQueryParameters 
 {
     /**

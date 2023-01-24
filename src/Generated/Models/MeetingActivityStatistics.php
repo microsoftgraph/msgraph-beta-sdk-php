@@ -106,7 +106,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the afterHours property value. Time spent on meetings outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the afterHours property.
+     * @param DateInterval|null $value Value to set for the afterHours property.
     */
     public function setAfterHours(?DateInterval $value): void {
         $this->getBackingStore()->set('afterHours', $value);
@@ -114,7 +114,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the conflicting property value. Time spent in conflicting meetings (meetings that overlap with other meetings that the person accepted and where the person’s status is set to Busy). The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the conflicting property.
+     * @param DateInterval|null $value Value to set for the conflicting property.
     */
     public function setConflicting(?DateInterval $value): void {
         $this->getBackingStore()->set('conflicting', $value);
@@ -122,7 +122,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the long property value. Time spent in long meetings (more than an hour in duration). The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the long property.
+     * @param DateInterval|null $value Value to set for the long property.
     */
     public function setLong(?DateInterval $value): void {
         $this->getBackingStore()->set('long', $value);
@@ -130,7 +130,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the multitasking property value. Time spent in meetings where the person was multitasking (read/sent more than a minimum number of emails and/or sent more than a minimum number of messages in Teams or in Skype for Business). The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the multitasking property.
+     * @param DateInterval|null $value Value to set for the multitasking property.
     */
     public function setMultitasking(?DateInterval $value): void {
         $this->getBackingStore()->set('multitasking', $value);
@@ -138,7 +138,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the organized property value. Time spent in meetings organized by the user. The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the organized property.
+     * @param DateInterval|null $value Value to set for the organized property.
     */
     public function setOrganized(?DateInterval $value): void {
         $this->getBackingStore()->set('organized', $value);
@@ -146,7 +146,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the recurring property value. Time spent on recurring meetings. The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the recurring property.
+     * @param DateInterval|null $value Value to set for the recurring property.
     */
     public function setRecurring(?DateInterval $value): void {
         $this->getBackingStore()->set('recurring', $value);

@@ -95,7 +95,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
 
     /**
      * Sets the activeDevices property value. Number of active devices within the tenant. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the activeDevices property.
+     * @param int|null $value Value to set for the activeDevices property.
     */
     public function setActiveDevices(?int $value): void {
         $this->getBackingStore()->set('activeDevices', $value);
@@ -103,7 +103,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
 
     /**
      * Sets the batteryRuntimeFair property value. Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the batteryRuntimeFair property.
+     * @param int|null $value Value to set for the batteryRuntimeFair property.
     */
     public function setBatteryRuntimeFair(?int $value): void {
         $this->getBackingStore()->set('batteryRuntimeFair', $value);
@@ -111,7 +111,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
 
     /**
      * Sets the batteryRuntimeGood property value. Number of devices  whose active runtime is greater than 5 hours. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the batteryRuntimeGood property.
+     * @param int|null $value Value to set for the batteryRuntimeGood property.
     */
     public function setBatteryRuntimeGood(?int $value): void {
         $this->getBackingStore()->set('batteryRuntimeGood', $value);
@@ -119,7 +119,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
 
     /**
      * Sets the batteryRuntimePoor property value. Number of devices whose active runtime is lesser than 3 hours. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the batteryRuntimePoor property.
+     * @param int|null $value Value to set for the batteryRuntimePoor property.
     */
     public function setBatteryRuntimePoor(?int $value): void {
         $this->getBackingStore()->set('batteryRuntimePoor', $value);
@@ -127,7 +127,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
 
     /**
      * Sets the lastRefreshedDateTime property value. Recorded date time of this runtime details instance.
-     *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\ApplicationSignInD
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the applicationSignInDetailedSummary objects.
+*/
 class ApplicationSignInDetailedSummaryRequestBuilderGetQueryParameters 
 {
     /**

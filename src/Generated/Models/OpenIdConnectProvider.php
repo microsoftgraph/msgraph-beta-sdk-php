@@ -104,7 +104,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
 
     /**
      * Sets the claimsMapping property value. After the OIDC provider sends an ID token back to Azure AD, Azure AD needs to be able to map the claims from the received token to the claims that Azure AD recognizes and uses. This complex type captures that mapping. It is a required property.
-     *  @param ClaimsMapping|null $value Value to set for the claimsMapping property.
+     * @param ClaimsMapping|null $value Value to set for the claimsMapping property.
     */
     public function setClaimsMapping(?ClaimsMapping $value): void {
         $this->getBackingStore()->set('claimsMapping', $value);
@@ -112,7 +112,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
 
     /**
      * Sets the domainHint property value. The domain hint can be used to skip directly to the sign-in page of the specified identity provider, instead of having the user make a selection among the list of available identity providers.
-     *  @param string|null $value Value to set for the domainHint property.
+     * @param string|null $value Value to set for the domainHint property.
     */
     public function setDomainHint(?string $value): void {
         $this->getBackingStore()->set('domainHint', $value);
@@ -120,7 +120,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
 
     /**
      * Sets the metadataUrl property value. The URL for the metadata document of the OpenID Connect identity provider. Every OpenID Connect identity provider describes a metadata document that contains most of the information required to perform sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. The OpenID Connect metadata document is always located at an endpoint that ends in .well-known/openid-configuration . For the OpenID Connect identity provider you are looking to add, you will need to provide the metadata URL. It is a required property and is read only after creation.
-     *  @param string|null $value Value to set for the metadataUrl property.
+     * @param string|null $value Value to set for the metadataUrl property.
     */
     public function setMetadataUrl(?string $value): void {
         $this->getBackingStore()->set('metadataUrl', $value);
@@ -128,7 +128,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
 
     /**
      * Sets the responseMode property value. The responseMode property
-     *  @param OpenIdConnectResponseMode|null $value Value to set for the responseMode property.
+     * @param OpenIdConnectResponseMode|null $value Value to set for the responseMode property.
     */
     public function setResponseMode(?OpenIdConnectResponseMode $value): void {
         $this->getBackingStore()->set('responseMode', $value);
@@ -136,7 +136,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
 
     /**
      * Sets the responseType property value. The responseType property
-     *  @param OpenIdConnectResponseTypes|null $value Value to set for the responseType property.
+     * @param OpenIdConnectResponseTypes|null $value Value to set for the responseType property.
     */
     public function setResponseType(?OpenIdConnectResponseTypes $value): void {
         $this->getBackingStore()->set('responseType', $value);
@@ -144,7 +144,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
 
     /**
      * Sets the scope property value. Scope defines the information and permissions you are looking to gather from your custom identity provider. OpenID Connect requests must contain the openid scope value in order to receive the ID token from the identity provider. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended separated by space. For more details about the scope limitations see RFC6749 Section 3.3. It is a required property.
-     *  @param string|null $value Value to set for the scope property.
+     * @param string|null $value Value to set for the scope property.
     */
     public function setScope(?string $value): void {
         $this->getBackingStore()->set('scope', $value);

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Describes a relationship between two mobile apps.
+*/
 class MobileAppRelationship extends Entity implements Parsable 
 {
     /**
@@ -102,7 +105,7 @@ class MobileAppRelationship extends Entity implements Parsable
 
     /**
      * Sets the targetDisplayName property value. The target mobile app's display name.
-     *  @param string|null $value Value to set for the targetDisplayName property.
+     * @param string|null $value Value to set for the targetDisplayName property.
     */
     public function setTargetDisplayName(?string $value): void {
         $this->getBackingStore()->set('targetDisplayName', $value);
@@ -110,7 +113,7 @@ class MobileAppRelationship extends Entity implements Parsable
 
     /**
      * Sets the targetDisplayVersion property value. The target mobile app's display version.
-     *  @param string|null $value Value to set for the targetDisplayVersion property.
+     * @param string|null $value Value to set for the targetDisplayVersion property.
     */
     public function setTargetDisplayVersion(?string $value): void {
         $this->getBackingStore()->set('targetDisplayVersion', $value);
@@ -118,7 +121,7 @@ class MobileAppRelationship extends Entity implements Parsable
 
     /**
      * Sets the targetId property value. The target mobile app's app id.
-     *  @param string|null $value Value to set for the targetId property.
+     * @param string|null $value Value to set for the targetId property.
     */
     public function setTargetId(?string $value): void {
         $this->getBackingStore()->set('targetId', $value);
@@ -126,7 +129,7 @@ class MobileAppRelationship extends Entity implements Parsable
 
     /**
      * Sets the targetPublisher property value. The target mobile app's publisher.
-     *  @param string|null $value Value to set for the targetPublisher property.
+     * @param string|null $value Value to set for the targetPublisher property.
     */
     public function setTargetPublisher(?string $value): void {
         $this->getBackingStore()->set('targetPublisher', $value);
@@ -134,7 +137,7 @@ class MobileAppRelationship extends Entity implements Parsable
 
     /**
      * Sets the targetType property value. Indicates whether the target of a relationship is the parent or the child in the relationship.
-     *  @param MobileAppRelationshipType|null $value Value to set for the targetType property.
+     * @param MobileAppRelationshipType|null $value Value to set for the targetType property.
     */
     public function setTargetType(?MobileAppRelationshipType $value): void {
         $this->getBackingStore()->set('targetType', $value);

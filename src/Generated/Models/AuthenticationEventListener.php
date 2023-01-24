@@ -57,7 +57,6 @@ class AuthenticationEventListener extends Entity implements Parsable
             'authenticationEventsFlowId' => fn(ParseNode $n) => $o->setAuthenticationEventsFlowId($n->getStringValue()),
             'conditions' => fn(ParseNode $n) => $o->setConditions($n->getObjectValue([AuthenticationConditions::class, 'createFromDiscriminatorValue'])),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -70,14 +69,6 @@ class AuthenticationEventListener extends Entity implements Parsable
     }
 
     /**
-     * Gets the tags property value. The tags property
-     * @return array<KeyValuePair>|null
-    */
-    public function getTags(): ?array {
-        return $this->getBackingStore()->get('tags');
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -86,12 +77,11 @@ class AuthenticationEventListener extends Entity implements Parsable
         $writer->writeStringValue('authenticationEventsFlowId', $this->getAuthenticationEventsFlowId());
         $writer->writeObjectValue('conditions', $this->getConditions());
         $writer->writeIntegerValue('priority', $this->getPriority());
-        $writer->writeCollectionOfObjectValues('tags', $this->getTags());
     }
 
     /**
      * Sets the authenticationEventsFlowId property value. The authenticationEventsFlowId property
-     *  @param string|null $value Value to set for the authenticationEventsFlowId property.
+     * @param string|null $value Value to set for the authenticationEventsFlowId property.
     */
     public function setAuthenticationEventsFlowId(?string $value): void {
         $this->getBackingStore()->set('authenticationEventsFlowId', $value);
@@ -99,7 +89,7 @@ class AuthenticationEventListener extends Entity implements Parsable
 
     /**
      * Sets the conditions property value. The conditions property
-     *  @param AuthenticationConditions|null $value Value to set for the conditions property.
+     * @param AuthenticationConditions|null $value Value to set for the conditions property.
     */
     public function setConditions(?AuthenticationConditions $value): void {
         $this->getBackingStore()->set('conditions', $value);
@@ -107,18 +97,10 @@ class AuthenticationEventListener extends Entity implements Parsable
 
     /**
      * Sets the priority property value. The priority property
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
-    }
-
-    /**
-     * Sets the tags property value. The tags property
-     *  @param array<KeyValuePair>|null $value Value to set for the tags property.
-    */
-    public function setTags(?array $value): void {
-        $this->getBackingStore()->set('tags', $value);
     }
 
 }

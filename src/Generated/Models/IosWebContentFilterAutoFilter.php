@@ -65,7 +65,7 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
 
     /**
      * Sets the allowedUrls property value. Additional URLs allowed for access
-     *  @param array<string>|null $value Value to set for the allowedUrls property.
+     * @param array<string>|null $value Value to set for the allowedUrls property.
     */
     public function setAllowedUrls(?array $value): void {
         $this->getBackingStore()->set('allowedUrls', $value);
@@ -73,7 +73,7 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
 
     /**
      * Sets the blockedUrls property value. Additional URLs blocked for access
-     *  @param array<string>|null $value Value to set for the blockedUrls property.
+     * @param array<string>|null $value Value to set for the blockedUrls property.
     */
     public function setBlockedUrls(?array $value): void {
         $this->getBackingStore()->set('blockedUrls', $value);

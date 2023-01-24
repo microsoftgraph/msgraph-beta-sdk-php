@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\EnterpriseCodeSigni
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Windows Enterprise Code Signing Certificate.
+*/
 class EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters 
 {
     /**

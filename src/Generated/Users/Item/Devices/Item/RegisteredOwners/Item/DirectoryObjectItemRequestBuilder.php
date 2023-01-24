@@ -8,6 +8,9 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\Item
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredOwners\Item\User\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /users/{user-id}/devices/{device-id}/registeredOwners/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**

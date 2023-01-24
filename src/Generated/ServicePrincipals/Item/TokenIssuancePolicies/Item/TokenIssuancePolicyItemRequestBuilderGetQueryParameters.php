@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenIssuancePol
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+*/
 class TokenIssuancePolicyItemRequestBuilderGetQueryParameters 
 {
     /**

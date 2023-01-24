@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\Security;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
+*/
 class SecurityRequestBuilderGetQueryParameters 
 {
     /**

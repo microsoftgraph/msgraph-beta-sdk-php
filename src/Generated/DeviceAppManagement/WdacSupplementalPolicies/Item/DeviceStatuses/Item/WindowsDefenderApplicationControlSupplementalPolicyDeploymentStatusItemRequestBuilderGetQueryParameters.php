@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPol
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
+*/
 class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilderGetQueryParameters 
 {
     /**

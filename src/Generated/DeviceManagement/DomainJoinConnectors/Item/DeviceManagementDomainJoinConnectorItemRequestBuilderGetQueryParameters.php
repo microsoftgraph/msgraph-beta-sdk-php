@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A list of connector objects.
+*/
 class DeviceManagementDomainJoinConnectorItemRequestBuilderGetQueryParameters 
 {
     /**

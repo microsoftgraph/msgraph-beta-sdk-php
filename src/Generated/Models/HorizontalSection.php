@@ -74,7 +74,7 @@ class HorizontalSection extends Entity implements Parsable
 
     /**
      * Sets the columns property value. The set of vertical columns in this section.
-     *  @param array<HorizontalSectionColumn>|null $value Value to set for the columns property.
+     * @param array<HorizontalSectionColumn>|null $value Value to set for the columns property.
     */
     public function setColumns(?array $value): void {
         $this->getBackingStore()->set('columns', $value);
@@ -82,7 +82,7 @@ class HorizontalSection extends Entity implements Parsable
 
     /**
      * Sets the emphasis property value. Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.
-     *  @param SectionEmphasisType|null $value Value to set for the emphasis property.
+     * @param SectionEmphasisType|null $value Value to set for the emphasis property.
     */
     public function setEmphasis(?SectionEmphasisType $value): void {
         $this->getBackingStore()->set('emphasis', $value);
@@ -90,7 +90,7 @@ class HorizontalSection extends Entity implements Parsable
 
     /**
      * Sets the layout property value. Layout type of the section. The possible values are: none, oneColumn, twoColumns, threeColumns, oneThirdLeftColumn, oneThirdRightColumn, fullWidth, unknownFutureValue.
-     *  @param HorizontalSectionLayoutType|null $value Value to set for the layout property.
+     * @param HorizontalSectionLayoutType|null $value Value to set for the layout property.
     */
     public function setLayout(?HorizontalSectionLayoutType $value): void {
         $this->getBackingStore()->set('layout', $value);

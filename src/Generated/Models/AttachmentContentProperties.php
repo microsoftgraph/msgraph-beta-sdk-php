@@ -55,7 +55,7 @@ class AttachmentContentProperties extends ContentProperties implements Parsable
 
     /**
      * Sets the currentLabel property value. The currentLabel property
-     *  @param CurrentLabel|null $value Value to set for the currentLabel property.
+     * @param CurrentLabel|null $value Value to set for the currentLabel property.
     */
     public function setCurrentLabel(?CurrentLabel $value): void {
         $this->getBackingStore()->set('currentLabel', $value);

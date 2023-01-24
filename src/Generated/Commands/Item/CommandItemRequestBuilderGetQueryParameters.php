@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Commands\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from commands by key (id)
+*/
 class CommandItemRequestBuilderGetQueryParameters 
 {
     /**

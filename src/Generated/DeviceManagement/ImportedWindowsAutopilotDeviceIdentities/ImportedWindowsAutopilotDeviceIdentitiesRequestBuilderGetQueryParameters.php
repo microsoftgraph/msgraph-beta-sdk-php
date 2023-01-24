@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedWindowsAutopil
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of imported Windows autopilot devices.
+*/
 class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\AllowedUsers\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property allowedUsers for print
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

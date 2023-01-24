@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetP
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getPlatformSupportedProperties
+*/
 class GetPlatformSupportedPropertiesWithPlatformRequestBuilderGetQueryParameters 
 {
     /**

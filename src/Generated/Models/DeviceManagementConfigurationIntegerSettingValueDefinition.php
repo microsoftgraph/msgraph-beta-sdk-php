@@ -65,7 +65,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinition extends DeviceM
 
     /**
      * Sets the maximumValue property value. Maximum allowed value of the integer
-     *  @param int|null $value Value to set for the maximumValue property.
+     * @param int|null $value Value to set for the maximumValue property.
     */
     public function setMaximumValue(?int $value): void {
         $this->getBackingStore()->set('maximumValue', $value);
@@ -73,7 +73,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinition extends DeviceM
 
     /**
      * Sets the minimumValue property value. Minimum allowed value of the integer
-     *  @param int|null $value Value to set for the minimumValue property.
+     * @param int|null $value Value to set for the minimumValue property.
     */
     public function setMinimumValue(?int $value): void {
         $this->getBackingStore()->set('minimumValue', $value);

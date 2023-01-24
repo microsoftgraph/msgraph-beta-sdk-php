@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Analytics;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get analytics from users
+*/
 class AnalyticsRequestBuilderGetQueryParameters 
 {
     /**

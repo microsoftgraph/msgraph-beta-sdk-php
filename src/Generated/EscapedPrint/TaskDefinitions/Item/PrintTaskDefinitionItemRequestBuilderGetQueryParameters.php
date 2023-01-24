@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\TaskDefinitions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get taskDefinitions from print
+*/
 class PrintTaskDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**

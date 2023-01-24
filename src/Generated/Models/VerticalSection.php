@@ -64,7 +64,7 @@ class VerticalSection extends Entity implements Parsable
 
     /**
      * Sets the emphasis property value. Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.
-     *  @param SectionEmphasisType|null $value Value to set for the emphasis property.
+     * @param SectionEmphasisType|null $value Value to set for the emphasis property.
     */
     public function setEmphasis(?SectionEmphasisType $value): void {
         $this->getBackingStore()->set('emphasis', $value);
@@ -72,7 +72,7 @@ class VerticalSection extends Entity implements Parsable
 
     /**
      * Sets the webparts property value. The set of web parts in this section.
-     *  @param array<WebPart>|null $value Value to set for the webparts property.
+     * @param array<WebPart>|null $value Value to set for the webparts property.
     */
     public function setWebparts(?array $value): void {
         $this->getBackingStore()->set('webparts', $value);

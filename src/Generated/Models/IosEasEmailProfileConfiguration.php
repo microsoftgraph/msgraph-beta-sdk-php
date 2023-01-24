@@ -315,7 +315,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the accountName property value. Account name.
-     *  @param string|null $value Value to set for the accountName property.
+     * @param string|null $value Value to set for the accountName property.
     */
     public function setAccountName(?string $value): void {
         $this->getBackingStore()->set('accountName', $value);
@@ -323,7 +323,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the authenticationMethod property value. Authentication method for this Email profile. Possible values are: usernameAndPassword, certificate, derivedCredential.
-     *  @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?EasAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -331,7 +331,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the blockMovingMessagesToOtherEmailAccounts property value. Indicates whether or not to block moving messages to other email accounts.
-     *  @param bool|null $value Value to set for the blockMovingMessagesToOtherEmailAccounts property.
+     * @param bool|null $value Value to set for the blockMovingMessagesToOtherEmailAccounts property.
     */
     public function setBlockMovingMessagesToOtherEmailAccounts(?bool $value): void {
         $this->getBackingStore()->set('blockMovingMessagesToOtherEmailAccounts', $value);
@@ -339,7 +339,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the blockSendingEmailFromThirdPartyApps property value. Indicates whether or not to block sending email from third party apps.
-     *  @param bool|null $value Value to set for the blockSendingEmailFromThirdPartyApps property.
+     * @param bool|null $value Value to set for the blockSendingEmailFromThirdPartyApps property.
     */
     public function setBlockSendingEmailFromThirdPartyApps(?bool $value): void {
         $this->getBackingStore()->set('blockSendingEmailFromThirdPartyApps', $value);
@@ -347,7 +347,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the blockSyncingRecentlyUsedEmailAddresses property value. Indicates whether or not to block syncing recently used email addresses, for instance - when composing new email.
-     *  @param bool|null $value Value to set for the blockSyncingRecentlyUsedEmailAddresses property.
+     * @param bool|null $value Value to set for the blockSyncingRecentlyUsedEmailAddresses property.
     */
     public function setBlockSyncingRecentlyUsedEmailAddresses(?bool $value): void {
         $this->getBackingStore()->set('blockSyncingRecentlyUsedEmailAddresses', $value);
@@ -355,7 +355,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
-     *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
+     * @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
     public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
         $this->getBackingStore()->set('derivedCredentialSettings', $value);
@@ -363,7 +363,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
-     *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
+     * @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
     public function setDurationOfEmailToSync(?EmailSyncDuration $value): void {
         $this->getBackingStore()->set('durationOfEmailToSync', $value);
@@ -371,7 +371,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the easServices property value. Exchange data to sync. Possible values are: none, calendars, contacts, email, notes, reminders.
-     *  @param EasServices|null $value Value to set for the easServices property.
+     * @param EasServices|null $value Value to set for the easServices property.
     */
     public function setEasServices(?EasServices $value): void {
         $this->getBackingStore()->set('easServices', $value);
@@ -379,7 +379,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the easServicesUserOverrideEnabled property value. Allow users to change sync settings.
-     *  @param bool|null $value Value to set for the easServicesUserOverrideEnabled property.
+     * @param bool|null $value Value to set for the easServicesUserOverrideEnabled property.
     */
     public function setEasServicesUserOverrideEnabled(?bool $value): void {
         $this->getBackingStore()->set('easServicesUserOverrideEnabled', $value);
@@ -387,7 +387,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the emailAddressSource property value. Possible values for username source or email source.
-     *  @param UserEmailSource|null $value Value to set for the emailAddressSource property.
+     * @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
     public function setEmailAddressSource(?UserEmailSource $value): void {
         $this->getBackingStore()->set('emailAddressSource', $value);
@@ -395,7 +395,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the encryptionCertificateType property value. Encryption Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
-     *  @param EmailCertificateType|null $value Value to set for the encryptionCertificateType property.
+     * @param EmailCertificateType|null $value Value to set for the encryptionCertificateType property.
     */
     public function setEncryptionCertificateType(?EmailCertificateType $value): void {
         $this->getBackingStore()->set('encryptionCertificateType', $value);
@@ -403,7 +403,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the hostName property value. Exchange location that (URL) that the native mail app connects to.
-     *  @param string|null $value Value to set for the hostName property.
+     * @param string|null $value Value to set for the hostName property.
     */
     public function setHostName(?string $value): void {
         $this->getBackingStore()->set('hostName', $value);
@@ -411,7 +411,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the identityCertificate property value. Identity certificate.
-     *  @param IosCertificateProfileBase|null $value Value to set for the identityCertificate property.
+     * @param IosCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
     public function setIdentityCertificate(?IosCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
@@ -419,7 +419,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the perAppVPNProfileId property value. Profile ID of the Per-App VPN policy to be used to access emails from the native Mail client
-     *  @param string|null $value Value to set for the perAppVPNProfileId property.
+     * @param string|null $value Value to set for the perAppVPNProfileId property.
     */
     public function setPerAppVPNProfileId(?string $value): void {
         $this->getBackingStore()->set('perAppVPNProfileId', $value);
@@ -427,7 +427,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the requireSmime property value. Indicates whether or not to use S/MIME certificate.
-     *  @param bool|null $value Value to set for the requireSmime property.
+     * @param bool|null $value Value to set for the requireSmime property.
     */
     public function setRequireSmime(?bool $value): void {
         $this->getBackingStore()->set('requireSmime', $value);
@@ -435,7 +435,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the requireSsl property value. Indicates whether or not to use SSL.
-     *  @param bool|null $value Value to set for the requireSsl property.
+     * @param bool|null $value Value to set for the requireSsl property.
     */
     public function setRequireSsl(?bool $value): void {
         $this->getBackingStore()->set('requireSsl', $value);
@@ -443,7 +443,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the signingCertificateType property value. Signing Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
-     *  @param EmailCertificateType|null $value Value to set for the signingCertificateType property.
+     * @param EmailCertificateType|null $value Value to set for the signingCertificateType property.
     */
     public function setSigningCertificateType(?EmailCertificateType $value): void {
         $this->getBackingStore()->set('signingCertificateType', $value);
@@ -451,7 +451,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the smimeEnablePerMessageSwitch property value. Indicates whether or not to allow unencrypted emails.
-     *  @param bool|null $value Value to set for the smimeEnablePerMessageSwitch property.
+     * @param bool|null $value Value to set for the smimeEnablePerMessageSwitch property.
     */
     public function setSmimeEnablePerMessageSwitch(?bool $value): void {
         $this->getBackingStore()->set('smimeEnablePerMessageSwitch', $value);
@@ -459,7 +459,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the smimeEncryptByDefaultEnabled property value. If set to true S/MIME encryption is enabled by default.
-     *  @param bool|null $value Value to set for the smimeEncryptByDefaultEnabled property.
+     * @param bool|null $value Value to set for the smimeEncryptByDefaultEnabled property.
     */
     public function setSmimeEncryptByDefaultEnabled(?bool $value): void {
         $this->getBackingStore()->set('smimeEncryptByDefaultEnabled', $value);
@@ -467,7 +467,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the smimeEncryptByDefaultUserOverrideEnabled property value. If set to true, the user can toggle the encryption by default setting.
-     *  @param bool|null $value Value to set for the smimeEncryptByDefaultUserOverrideEnabled property.
+     * @param bool|null $value Value to set for the smimeEncryptByDefaultUserOverrideEnabled property.
     */
     public function setSmimeEncryptByDefaultUserOverrideEnabled(?bool $value): void {
         $this->getBackingStore()->set('smimeEncryptByDefaultUserOverrideEnabled', $value);
@@ -475,7 +475,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the smimeEncryptionCertificate property value. S/MIME encryption certificate.
-     *  @param IosCertificateProfile|null $value Value to set for the smimeEncryptionCertificate property.
+     * @param IosCertificateProfile|null $value Value to set for the smimeEncryptionCertificate property.
     */
     public function setSmimeEncryptionCertificate(?IosCertificateProfile $value): void {
         $this->getBackingStore()->set('smimeEncryptionCertificate', $value);
@@ -483,7 +483,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the smimeEncryptionCertificateUserOverrideEnabled property value. If set to true the user can select the S/MIME encryption identity.
-     *  @param bool|null $value Value to set for the smimeEncryptionCertificateUserOverrideEnabled property.
+     * @param bool|null $value Value to set for the smimeEncryptionCertificateUserOverrideEnabled property.
     */
     public function setSmimeEncryptionCertificateUserOverrideEnabled(?bool $value): void {
         $this->getBackingStore()->set('smimeEncryptionCertificateUserOverrideEnabled', $value);
@@ -491,7 +491,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the smimeSigningCertificate property value. S/MIME signing certificate.
-     *  @param IosCertificateProfile|null $value Value to set for the smimeSigningCertificate property.
+     * @param IosCertificateProfile|null $value Value to set for the smimeSigningCertificate property.
     */
     public function setSmimeSigningCertificate(?IosCertificateProfile $value): void {
         $this->getBackingStore()->set('smimeSigningCertificate', $value);
@@ -499,7 +499,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the smimeSigningCertificateUserOverrideEnabled property value. If set to true, the user can select the signing identity.
-     *  @param bool|null $value Value to set for the smimeSigningCertificateUserOverrideEnabled property.
+     * @param bool|null $value Value to set for the smimeSigningCertificateUserOverrideEnabled property.
     */
     public function setSmimeSigningCertificateUserOverrideEnabled(?bool $value): void {
         $this->getBackingStore()->set('smimeSigningCertificateUserOverrideEnabled', $value);
@@ -507,7 +507,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the smimeSigningEnabled property value. If set to true S/MIME signing is enabled for this account
-     *  @param bool|null $value Value to set for the smimeSigningEnabled property.
+     * @param bool|null $value Value to set for the smimeSigningEnabled property.
     */
     public function setSmimeSigningEnabled(?bool $value): void {
         $this->getBackingStore()->set('smimeSigningEnabled', $value);
@@ -515,7 +515,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the smimeSigningUserOverrideEnabled property value. If set to true, the user can toggle S/MIME signing on or off.
-     *  @param bool|null $value Value to set for the smimeSigningUserOverrideEnabled property.
+     * @param bool|null $value Value to set for the smimeSigningUserOverrideEnabled property.
     */
     public function setSmimeSigningUserOverrideEnabled(?bool $value): void {
         $this->getBackingStore()->set('smimeSigningUserOverrideEnabled', $value);
@@ -523,7 +523,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
 
     /**
      * Sets the useOAuth property value. Specifies whether the connection should use OAuth for authentication.
-     *  @param bool|null $value Value to set for the useOAuth property.
+     * @param bool|null $value Value to set for the useOAuth property.
     */
     public function setUseOAuth(?bool $value): void {
         $this->getBackingStore()->set('useOAuth', $value);

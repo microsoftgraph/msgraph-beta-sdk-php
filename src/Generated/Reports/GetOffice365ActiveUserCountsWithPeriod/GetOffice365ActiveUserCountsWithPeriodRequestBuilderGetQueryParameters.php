@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActiveUserCountsWit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getOffice365ActiveUserCounts
+*/
 class GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetQueryParameters 
 {
     /**

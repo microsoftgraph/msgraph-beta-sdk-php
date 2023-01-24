@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RiskDetections\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from riskDetections by key (id)
+*/
 class RiskDetectionItemRequestBuilderGetQueryParameters 
 {
     /**

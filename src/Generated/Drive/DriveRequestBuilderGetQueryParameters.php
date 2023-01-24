@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drive;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get drive
+*/
 class DriveRequestBuilderGetQueryParameters 
 {
     /**

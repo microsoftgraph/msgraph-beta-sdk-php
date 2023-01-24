@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Entity that acts as a container for the functionality of the Windows Update for Business deployment service. Read-only.
+*/
 class UpdatesRequestBuilderGetQueryParameters 
 {
     /**

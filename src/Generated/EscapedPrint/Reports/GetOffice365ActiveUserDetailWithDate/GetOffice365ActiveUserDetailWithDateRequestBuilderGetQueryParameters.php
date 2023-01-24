@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetOffice365Active
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function getOffice365ActiveUserDetail
+*/
 class GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters 
 {
     /**

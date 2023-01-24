@@ -265,7 +265,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the advancedThreatProtectionRequiredSecurityLevel property value. MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
-     *  @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
+     * @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
     */
     public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionRequiredSecurityLevel', $value);
@@ -273,7 +273,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection.
-     *  @param bool|null $value Value to set for the deviceThreatProtectionEnabled property.
+     * @param bool|null $value Value to set for the deviceThreatProtectionEnabled property.
     */
     public function setDeviceThreatProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('deviceThreatProtectionEnabled', $value);
@@ -281,7 +281,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
-     *  @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
+     * @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
     */
     public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
         $this->getBackingStore()->set('deviceThreatProtectionRequiredSecurityLevel', $value);
@@ -289,7 +289,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the minAndroidSecurityPatchLevel property value. Minimum Android security patch level.
-     *  @param string|null $value Value to set for the minAndroidSecurityPatchLevel property.
+     * @param string|null $value Value to set for the minAndroidSecurityPatchLevel property.
     */
     public function setMinAndroidSecurityPatchLevel(?string $value): void {
         $this->getBackingStore()->set('minAndroidSecurityPatchLevel', $value);
@@ -297,7 +297,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the osMaximumVersion property value. Maximum Android version.
-     *  @param string|null $value Value to set for the osMaximumVersion property.
+     * @param string|null $value Value to set for the osMaximumVersion property.
     */
     public function setOsMaximumVersion(?string $value): void {
         $this->getBackingStore()->set('osMaximumVersion', $value);
@@ -305,7 +305,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the osMinimumVersion property value. Minimum Android version.
-     *  @param string|null $value Value to set for the osMinimumVersion property.
+     * @param string|null $value Value to set for the osMinimumVersion property.
     */
     public function setOsMinimumVersion(?string $value): void {
         $this->getBackingStore()->set('osMinimumVersion', $value);
@@ -313,7 +313,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordExpirationDays property value. Number of days before the password expires. Valid values 1 to 365
-     *  @param int|null $value Value to set for the passwordExpirationDays property.
+     * @param int|null $value Value to set for the passwordExpirationDays property.
     */
     public function setPasswordExpirationDays(?int $value): void {
         $this->getBackingStore()->set('passwordExpirationDays', $value);
@@ -321,7 +321,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordMinimumLength property value. Minimum password length. Valid values 4 to 16
-     *  @param int|null $value Value to set for the passwordMinimumLength property.
+     * @param int|null $value Value to set for the passwordMinimumLength property.
     */
     public function setPasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLength', $value);
@@ -329,7 +329,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordMinimumLetterCharacters property value. Indicates the minimum number of letter characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumLetterCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumLetterCharacters property.
     */
     public function setPasswordMinimumLetterCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLetterCharacters', $value);
@@ -337,7 +337,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordMinimumLowerCaseCharacters property value. Indicates the minimum number of lower case characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumLowerCaseCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumLowerCaseCharacters property.
     */
     public function setPasswordMinimumLowerCaseCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLowerCaseCharacters', $value);
@@ -345,7 +345,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordMinimumNonLetterCharacters property value. Indicates the minimum number of non-letter characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumNonLetterCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumNonLetterCharacters property.
     */
     public function setPasswordMinimumNonLetterCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumNonLetterCharacters', $value);
@@ -353,7 +353,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordMinimumNumericCharacters property value. Indicates the minimum number of numeric characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumNumericCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumNumericCharacters property.
     */
     public function setPasswordMinimumNumericCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumNumericCharacters', $value);
@@ -361,7 +361,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordMinimumSymbolCharacters property value. Indicates the minimum number of symbol characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumSymbolCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumSymbolCharacters property.
     */
     public function setPasswordMinimumSymbolCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumSymbolCharacters', $value);
@@ -369,7 +369,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordMinimumUpperCaseCharacters property value. Indicates the minimum number of upper case letter characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumUpperCaseCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumUpperCaseCharacters property.
     */
     public function setPasswordMinimumUpperCaseCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumUpperCaseCharacters', $value);
@@ -377,7 +377,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a password is required.
-     *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeLock property.
+     * @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeLock property.
     */
     public function setPasswordMinutesOfInactivityBeforeLock(?int $value): void {
         $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeLock', $value);
@@ -385,7 +385,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordPreviousPasswordCountToBlock property value. Number of previous passwords to block. Valid values 1 to 24
-     *  @param int|null $value Value to set for the passwordPreviousPasswordCountToBlock property.
+     * @param int|null $value Value to set for the passwordPreviousPasswordCountToBlock property.
     */
     public function setPasswordPreviousPasswordCountToBlock(?int $value): void {
         $this->getBackingStore()->set('passwordPreviousPasswordCountToBlock', $value);
@@ -393,7 +393,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordRequired property value. Require a password to unlock device.
-     *  @param bool|null $value Value to set for the passwordRequired property.
+     * @param bool|null $value Value to set for the passwordRequired property.
     */
     public function setPasswordRequired(?bool $value): void {
         $this->getBackingStore()->set('passwordRequired', $value);
@@ -401,7 +401,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     *  @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
@@ -409,7 +409,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the securityRequireIntuneAppIntegrity property value. If setting is set to true, checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Playstore. If the check fails, the device will be reported as non-compliant.
-     *  @param bool|null $value Value to set for the securityRequireIntuneAppIntegrity property.
+     * @param bool|null $value Value to set for the securityRequireIntuneAppIntegrity property.
     */
     public function setSecurityRequireIntuneAppIntegrity(?bool $value): void {
         $this->getBackingStore()->set('securityRequireIntuneAppIntegrity', $value);
@@ -417,7 +417,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the securityRequireSafetyNetAttestationBasicIntegrity property value. Require the device to pass the SafetyNet basic integrity check.
-     *  @param bool|null $value Value to set for the securityRequireSafetyNetAttestationBasicIntegrity property.
+     * @param bool|null $value Value to set for the securityRequireSafetyNetAttestationBasicIntegrity property.
     */
     public function setSecurityRequireSafetyNetAttestationBasicIntegrity(?bool $value): void {
         $this->getBackingStore()->set('securityRequireSafetyNetAttestationBasicIntegrity', $value);
@@ -425,7 +425,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the securityRequireSafetyNetAttestationCertifiedDevice property value. Require the device to pass the SafetyNet certified device check.
-     *  @param bool|null $value Value to set for the securityRequireSafetyNetAttestationCertifiedDevice property.
+     * @param bool|null $value Value to set for the securityRequireSafetyNetAttestationCertifiedDevice property.
     */
     public function setSecurityRequireSafetyNetAttestationCertifiedDevice(?bool $value): void {
         $this->getBackingStore()->set('securityRequireSafetyNetAttestationCertifiedDevice', $value);
@@ -433,7 +433,7 @@ class AndroidDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implemen
 
     /**
      * Sets the storageRequireEncryption property value. Require encryption on Android devices.
-     *  @param bool|null $value Value to set for the storageRequireEncryption property.
+     * @param bool|null $value Value to set for the storageRequireEncryption property.
     */
     public function setStorageRequireEncryption(?bool $value): void {
         $this->getBackingStore()->set('storageRequireEncryption', $value);
