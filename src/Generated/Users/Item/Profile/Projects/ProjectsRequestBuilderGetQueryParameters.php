@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Projects;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of projectParticipation objects from a user's profile.
+*/
 class ProjectsRequestBuilderGetQueryParameters 
 {
     /**

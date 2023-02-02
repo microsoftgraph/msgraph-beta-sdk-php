@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics metric contains the score and units of a metric of a user experience anlaytics category.
+*/
 class UserExperienceAnalyticsMetric extends Entity implements Parsable 
 {
     /**
@@ -64,7 +67,7 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
 
     /**
      * Sets the unit property value. The unit of the user experience analytics metric.
-     *  @param string|null $value Value to set for the unit property.
+     * @param string|null $value Value to set for the unit property.
     */
     public function setUnit(?string $value): void {
         $this->getBackingStore()->set('unit', $value);
@@ -72,7 +75,7 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
 
     /**
      * Sets the value property value. The value of the user experience analytics metric.
-     *  @param float|null $value Value to set for the value property.
+     * @param float|null $value Value to set for the value property.
     */
     public function setValue(?float $value): void {
         $this->getBackingStore()->set('value', $value);

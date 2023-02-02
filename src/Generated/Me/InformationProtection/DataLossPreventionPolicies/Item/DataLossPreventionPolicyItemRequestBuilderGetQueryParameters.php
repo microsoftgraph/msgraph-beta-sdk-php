@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\DataLossPreven
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get dataLossPreventionPolicies from me
+*/
 class DataLossPreventionPolicyItemRequestBuilderGetQueryParameters 
 {
     /**

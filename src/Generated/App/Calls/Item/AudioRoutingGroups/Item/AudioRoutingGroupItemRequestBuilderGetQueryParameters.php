@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\AudioRoutingGroups\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get audioRoutingGroups from app
+*/
 class AudioRoutingGroupItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -55,7 +55,7 @@ class UpdatableAssetGroup extends UpdatableAsset implements Parsable
 
     /**
      * Sets the members property value. Members of the group. Read-only.
-     *  @param array<UpdatableAsset>|null $value Value to set for the members property.
+     * @param array<UpdatableAsset>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);

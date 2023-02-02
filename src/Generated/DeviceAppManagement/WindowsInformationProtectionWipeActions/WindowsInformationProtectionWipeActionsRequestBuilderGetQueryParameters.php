@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsInformationP
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Windows information protection wipe actions.
+*/
 class WindowsInformationProtectionWipeActionsRequestBuilderGetQueryParameters 
 {
     /**

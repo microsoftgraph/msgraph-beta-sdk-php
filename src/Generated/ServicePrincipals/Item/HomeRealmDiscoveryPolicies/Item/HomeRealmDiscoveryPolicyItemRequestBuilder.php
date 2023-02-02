@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\HomeRealmDiscove
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\HomeRealmDiscoveryPolicies\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}/homeRealmDiscoveryPolicies/{homeRealmDiscoveryPolicy-id}
+*/
 class HomeRealmDiscoveryPolicyItemRequestBuilder 
 {
     /**
@@ -33,11 +36,15 @@ class HomeRealmDiscoveryPolicyItemRequestBuilder
      * Instantiates a new HomeRealmDiscoveryPolicyItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $homeRealmDiscoveryPolicyId key: id of homeRealmDiscoveryPolicy
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $homeRealmDiscoveryPolicyId = null) {
         $this->urlTemplate = '{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/homeRealmDiscoveryPolicies/{homeRealmDiscoveryPolicy%2Did}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['homeRealmDiscoveryPolicyId'] = $homeRealmDiscoveryPolicyId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
 }

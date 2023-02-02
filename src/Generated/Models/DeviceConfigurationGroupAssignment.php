@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device configuration group assignment.
+*/
 class DeviceConfigurationGroupAssignment extends Entity implements Parsable 
 {
     /**
@@ -74,7 +77,7 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
 
     /**
      * Sets the deviceConfiguration property value. The navigation link to the Device Configuration being targeted.
-     *  @param DeviceConfiguration|null $value Value to set for the deviceConfiguration property.
+     * @param DeviceConfiguration|null $value Value to set for the deviceConfiguration property.
     */
     public function setDeviceConfiguration(?DeviceConfiguration $value): void {
         $this->getBackingStore()->set('deviceConfiguration', $value);
@@ -82,7 +85,7 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
 
     /**
      * Sets the excludeGroup property value. Indicates if this group is should be excluded. Defaults that the group should be included
-     *  @param bool|null $value Value to set for the excludeGroup property.
+     * @param bool|null $value Value to set for the excludeGroup property.
     */
     public function setExcludeGroup(?bool $value): void {
         $this->getBackingStore()->set('excludeGroup', $value);
@@ -90,7 +93,7 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
 
     /**
      * Sets the targetGroupId property value. The Id of the AAD group we are targeting the device configuration to.
-     *  @param string|null $value Value to set for the targetGroupId property.
+     * @param string|null $value Value to set for the targetGroupId property.
     */
     public function setTargetGroupId(?string $value): void {
         $this->getBackingStore()->set('targetGroupId', $value);

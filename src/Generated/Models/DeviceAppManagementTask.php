@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A device app management task.
+*/
 class DeviceAppManagementTask extends Entity implements Parsable 
 {
     /**
@@ -154,7 +157,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the assignedTo property value. The name or email of the admin this task is assigned to.
-     *  @param string|null $value Value to set for the assignedTo property.
+     * @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value): void {
         $this->getBackingStore()->set('assignedTo', $value);
@@ -162,7 +165,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the category property value. Device app management task category.
-     *  @param DeviceAppManagementTaskCategory|null $value Value to set for the category property.
+     * @param DeviceAppManagementTaskCategory|null $value Value to set for the category property.
     */
     public function setCategory(?DeviceAppManagementTaskCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -170,7 +173,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The created date.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -178,7 +181,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the creator property value. The email address of the creator.
-     *  @param string|null $value Value to set for the creator property.
+     * @param string|null $value Value to set for the creator property.
     */
     public function setCreator(?string $value): void {
         $this->getBackingStore()->set('creator', $value);
@@ -186,7 +189,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the creatorNotes property value. Notes from the creator.
-     *  @param string|null $value Value to set for the creatorNotes property.
+     * @param string|null $value Value to set for the creatorNotes property.
     */
     public function setCreatorNotes(?string $value): void {
         $this->getBackingStore()->set('creatorNotes', $value);
@@ -194,7 +197,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -202,7 +205,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -210,7 +213,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the dueDateTime property value. The due date.
-     *  @param DateTime|null $value Value to set for the dueDateTime property.
+     * @param DateTime|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('dueDateTime', $value);
@@ -218,7 +221,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the priority property value. Device app management task priority.
-     *  @param DeviceAppManagementTaskPriority|null $value Value to set for the priority property.
+     * @param DeviceAppManagementTaskPriority|null $value Value to set for the priority property.
     */
     public function setPriority(?DeviceAppManagementTaskPriority $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -226,7 +229,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
 
     /**
      * Sets the status property value. Device app management task status.
-     *  @param DeviceAppManagementTaskStatus|null $value Value to set for the status property.
+     * @param DeviceAppManagementTaskStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceAppManagementTaskStatus $value): void {
         $this->getBackingStore()->set('status', $value);

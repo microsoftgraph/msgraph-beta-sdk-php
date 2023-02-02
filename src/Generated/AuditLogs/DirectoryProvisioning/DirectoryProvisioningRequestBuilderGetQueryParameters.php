@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get directoryProvisioning from auditLogs
+*/
 class DirectoryProvisioningRequestBuilderGetQueryParameters 
 {
     /**

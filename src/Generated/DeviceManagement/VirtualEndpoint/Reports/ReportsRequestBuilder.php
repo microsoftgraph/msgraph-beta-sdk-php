@@ -7,22 +7,24 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\ExportJobs\ExportJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\ExportJobs\Item\CloudPcExportJobItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetDailyAggregatedRemoteConnectionReports\GetDailyAggregatedRemoteConnectionReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRealTimeRemoteConnectionLatencyWithCloudPcId\GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRealTimeRemoteConnectionStatusWithCloudPcId\GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRemoteConnectionHistoricalReports\GetRemoteConnectionHistoricalReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetSharedUseLicenseUsageReport\GetSharedUseLicenseUsageReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetTotalAggregatedRemoteConnectionReports\GetTotalAggregatedRemoteConnectionReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\MicrosoftGraphGetDailyAggregatedRemoteConnectionReports\GetDailyAggregatedRemoteConnectionReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\MicrosoftGraphGetRealTimeRemoteConnectionLatencyWithCloudPcId\GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\MicrosoftGraphGetRealTimeRemoteConnectionStatusWithCloudPcId\GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\MicrosoftGraphGetRemoteConnectionHistoricalReports\GetRemoteConnectionHistoricalReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\MicrosoftGraphGetSharedUseLicenseUsageReport\GetSharedUseLicenseUsageReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\MicrosoftGraphGetTotalAggregatedRemoteConnectionReports\GetTotalAggregatedRemoteConnectionReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcReports;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the reports property of the microsoft.graph.virtualEndpoint entity.
+*/
 class ReportsRequestBuilder 
 {
     /**
@@ -35,28 +37,28 @@ class ReportsRequestBuilder
     /**
      * Provides operations to call the getDailyAggregatedRemoteConnectionReports method.
     */
-    public function getDailyAggregatedRemoteConnectionReports(): GetDailyAggregatedRemoteConnectionReportsRequestBuilder {
+    public function microsoftGraphGetDailyAggregatedRemoteConnectionReports(): GetDailyAggregatedRemoteConnectionReportsRequestBuilder {
         return new GetDailyAggregatedRemoteConnectionReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getRemoteConnectionHistoricalReports method.
     */
-    public function getRemoteConnectionHistoricalReports(): GetRemoteConnectionHistoricalReportsRequestBuilder {
+    public function microsoftGraphGetRemoteConnectionHistoricalReports(): GetRemoteConnectionHistoricalReportsRequestBuilder {
         return new GetRemoteConnectionHistoricalReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getSharedUseLicenseUsageReport method.
     */
-    public function getSharedUseLicenseUsageReport(): GetSharedUseLicenseUsageReportRequestBuilder {
+    public function microsoftGraphGetSharedUseLicenseUsageReport(): GetSharedUseLicenseUsageReportRequestBuilder {
         return new GetSharedUseLicenseUsageReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getTotalAggregatedRemoteConnectionReports method.
     */
-    public function getTotalAggregatedRemoteConnectionReports(): GetTotalAggregatedRemoteConnectionReportsRequestBuilder {
+    public function microsoftGraphGetTotalAggregatedRemoteConnectionReports(): GetTotalAggregatedRemoteConnectionReportsRequestBuilder {
         return new GetTotalAggregatedRemoteConnectionReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
@@ -89,17 +91,16 @@ class ReportsRequestBuilder
     /**
      * Delete navigation property reports for deviceManagement
      * @param ReportsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ReportsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ReportsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -119,17 +120,16 @@ class ReportsRequestBuilder
     /**
      * Cloud PC related reports.
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [CloudPcReports::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [CloudPcReports::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -140,7 +140,7 @@ class ReportsRequestBuilder
      * @param string $cloudPcId Usage: cloudPcId='{cloudPcId}'
      * @return GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder
     */
-    public function getRealTimeRemoteConnectionLatencyWithCloudPcId(string $cloudPcId): GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder {
+    public function microsoftGraphGetRealTimeRemoteConnectionLatencyWithCloudPcId(string $cloudPcId): GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder {
         return new GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder($this->pathParameters, $this->requestAdapter, $cloudPcId);
     }
 
@@ -149,7 +149,7 @@ class ReportsRequestBuilder
      * @param string $cloudPcId Usage: cloudPcId='{cloudPcId}'
      * @return GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder
     */
-    public function getRealTimeRemoteConnectionStatusWithCloudPcId(string $cloudPcId): GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder {
+    public function microsoftGraphGetRealTimeRemoteConnectionStatusWithCloudPcId(string $cloudPcId): GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder {
         return new GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder($this->pathParameters, $this->requestAdapter, $cloudPcId);
     }
 
@@ -157,17 +157,16 @@ class ReportsRequestBuilder
      * Update the navigation property reports in deviceManagement
      * @param CloudPcReports $body The request body
      * @param ReportsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(CloudPcReports $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(CloudPcReports $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [CloudPcReports::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [CloudPcReports::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -185,7 +184,7 @@ class ReportsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -204,10 +203,10 @@ class ReportsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -230,10 +229,10 @@ class ReportsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

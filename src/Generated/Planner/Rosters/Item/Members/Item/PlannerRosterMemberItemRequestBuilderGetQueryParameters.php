@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Members\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieves the members of the plannerRoster.
+*/
 class PlannerRosterMemberItemRequestBuilderGetQueryParameters 
 {
     /**

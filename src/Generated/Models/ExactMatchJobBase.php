@@ -104,7 +104,7 @@ class ExactMatchJobBase extends Entity implements Parsable
 
     /**
      * Sets the completionDateTime property value. The completionDateTime property
-     *  @param DateTime|null $value Value to set for the completionDateTime property.
+     * @param DateTime|null $value Value to set for the completionDateTime property.
     */
     public function setCompletionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completionDateTime', $value);
@@ -112,7 +112,7 @@ class ExactMatchJobBase extends Entity implements Parsable
 
     /**
      * Sets the creationDateTime property value. The creationDateTime property
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
+     * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('creationDateTime', $value);
@@ -120,7 +120,7 @@ class ExactMatchJobBase extends Entity implements Parsable
 
     /**
      * Sets the error property value. The error property
-     *  @param ClassificationError|null $value Value to set for the error property.
+     * @param ClassificationError|null $value Value to set for the error property.
     */
     public function setError(?ClassificationError $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -128,7 +128,7 @@ class ExactMatchJobBase extends Entity implements Parsable
 
     /**
      * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -136,7 +136,7 @@ class ExactMatchJobBase extends Entity implements Parsable
 
     /**
      * Sets the startDateTime property value. The startDateTime property
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);

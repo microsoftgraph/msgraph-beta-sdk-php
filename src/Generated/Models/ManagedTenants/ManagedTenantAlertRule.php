@@ -196,7 +196,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the alertDisplayName property value. The alertDisplayName property
-     *  @param string|null $value Value to set for the alertDisplayName property.
+     * @param string|null $value Value to set for the alertDisplayName property.
     */
     public function setAlertDisplayName(?string $value): void {
         $this->getBackingStore()->set('alertDisplayName', $value);
@@ -204,7 +204,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the alerts property value. The alerts property
-     *  @param array<ManagedTenantAlert>|null $value Value to set for the alerts property.
+     * @param array<ManagedTenantAlert>|null $value Value to set for the alerts property.
     */
     public function setAlerts(?array $value): void {
         $this->getBackingStore()->set('alerts', $value);
@@ -212,7 +212,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the alertTTL property value. The alertTTL property
-     *  @param int|null $value Value to set for the alertTTL property.
+     * @param int|null $value Value to set for the alertTTL property.
     */
     public function setAlertTTL(?int $value): void {
         $this->getBackingStore()->set('alertTTL', $value);
@@ -220,7 +220,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
-     *  @param string|null $value Value to set for the createdByUserId property.
+     * @param string|null $value Value to set for the createdByUserId property.
     */
     public function setCreatedByUserId(?string $value): void {
         $this->getBackingStore()->set('createdByUserId', $value);
@@ -228,7 +228,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -236,7 +236,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -244,7 +244,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -252,7 +252,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
-     *  @param string|null $value Value to set for the lastActionByUserId property.
+     * @param string|null $value Value to set for the lastActionByUserId property.
     */
     public function setLastActionByUserId(?string $value): void {
         $this->getBackingStore()->set('lastActionByUserId', $value);
@@ -260,7 +260,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -268,7 +268,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the lastRunDateTime property value. The lastRunDateTime property
-     *  @param DateTime|null $value Value to set for the lastRunDateTime property.
+     * @param DateTime|null $value Value to set for the lastRunDateTime property.
     */
     public function setLastRunDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRunDateTime', $value);
@@ -276,7 +276,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the notificationFinalDestinations property value. The notificationFinalDestinations property
-     *  @param NotificationDestination|null $value Value to set for the notificationFinalDestinations property.
+     * @param NotificationDestination|null $value Value to set for the notificationFinalDestinations property.
     */
     public function setNotificationFinalDestinations(?NotificationDestination $value): void {
         $this->getBackingStore()->set('notificationFinalDestinations', $value);
@@ -284,7 +284,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the ruleDefinition property value. The ruleDefinition property
-     *  @param ManagedTenantAlertRuleDefinition|null $value Value to set for the ruleDefinition property.
+     * @param ManagedTenantAlertRuleDefinition|null $value Value to set for the ruleDefinition property.
     */
     public function setRuleDefinition(?ManagedTenantAlertRuleDefinition $value): void {
         $this->getBackingStore()->set('ruleDefinition', $value);
@@ -292,7 +292,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the severity property value. The severity property
-     *  @param AlertSeverity|null $value Value to set for the severity property.
+     * @param AlertSeverity|null $value Value to set for the severity property.
     */
     public function setSeverity(?AlertSeverity $value): void {
         $this->getBackingStore()->set('severity', $value);
@@ -300,7 +300,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the targets property value. The targets property
-     *  @param array<NotificationTarget>|null $value Value to set for the targets property.
+     * @param array<NotificationTarget>|null $value Value to set for the targets property.
     */
     public function setTargets(?array $value): void {
         $this->getBackingStore()->set('targets', $value);
@@ -308,7 +308,7 @@ class ManagedTenantAlertRule extends Entity implements Parsable
 
     /**
      * Sets the tenantIds property value. The tenantIds property
-     *  @param array<TenantInfo>|null $value Value to set for the tenantIds property.
+     * @param array<TenantInfo>|null $value Value to set for the tenantIds property.
     */
     public function setTenantIds(?array $value): void {
         $this->getBackingStore()->set('tenantIds', $value);

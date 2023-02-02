@@ -58,8 +58,7 @@ class SearchQuery implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'query_string' => fn(ParseNode $n) => $o->setQuery_string($n->getObjectValue([SearchQueryString::class, 'createFromDiscriminatorValue'])),
-            'queryString' => fn(ParseNode $n) => $o->setQueryString($n->getStringValue()),
+            'query_string' => fn(ParseNode $n) => $o->setQueryString($n->getObjectValue([SearchQueryString::class, 'createFromDiscriminatorValue'])),
             'queryTemplate' => fn(ParseNode $n) => $o->setQueryTemplate($n->getStringValue()),
         ];
     }
@@ -76,16 +75,8 @@ class SearchQuery implements AdditionalDataHolder, BackedModel, Parsable
      * Gets the query_string property value. The query_string property
      * @return SearchQueryString|null
     */
-    public function getQuery_string(): ?SearchQueryString {
+    public function getQueryString(): ?SearchQueryString {
         return $this->getBackingStore()->get('query_string');
-    }
-
-    /**
-     * Gets the queryString property value. The search query containing the search terms. Required.
-     * @return string|null
-    */
-    public function getQueryString(): ?string {
-        return $this->getBackingStore()->get('queryString');
     }
 
     /**
@@ -102,15 +93,14 @@ class SearchQuery implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeStringValue('queryString', $this->getQueryString());
         $writer->writeStringValue('queryTemplate', $this->getQueryTemplate());
-        $writer->writeObjectValue('query_string', $this->getQuery_string());
+        $writer->writeObjectValue('query_string', $this->getQueryString());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +108,7 @@ class SearchQuery implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +116,7 @@ class SearchQuery implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -134,23 +124,15 @@ class SearchQuery implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the query_string property value. The query_string property
-     *  @param SearchQueryString|null $value Value to set for the query_string property.
+     * @param SearchQueryString|null $value Value to set for the query_string property.
     */
-    public function setQuery_string(?SearchQueryString $value): void {
+    public function setQueryString(?SearchQueryString $value): void {
         $this->getBackingStore()->set('query_string', $value);
     }
 
     /**
-     * Sets the queryString property value. The search query containing the search terms. Required.
-     *  @param string|null $value Value to set for the queryString property.
-    */
-    public function setQueryString(?string $value): void {
-        $this->getBackingStore()->set('queryString', $value);
-    }
-
-    /**
      * Sets the queryTemplate property value. Provides a way to decorate the query string. Supports both KQL and query variables. Optional.
-     *  @param string|null $value Value to set for the queryTemplate property.
+     * @param string|null $value Value to set for the queryTemplate property.
     */
     public function setQueryTemplate(?string $value): void {
         $this->getBackingStore()->set('queryTemplate', $value);

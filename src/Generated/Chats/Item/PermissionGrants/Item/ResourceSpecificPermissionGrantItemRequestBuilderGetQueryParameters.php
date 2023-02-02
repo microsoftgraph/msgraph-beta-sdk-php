@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Chats\Item\PermissionGrants\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of permissions granted to apps for the chat.
+*/
 class ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters 
 {
     /**

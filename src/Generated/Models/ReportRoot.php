@@ -184,7 +184,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the applicationSignInDetailedSummary property value. Represents a detailed summary of an application sign-in.
-     *  @param array<ApplicationSignInDetailedSummary>|null $value Value to set for the applicationSignInDetailedSummary property.
+     * @param array<ApplicationSignInDetailedSummary>|null $value Value to set for the applicationSignInDetailedSummary property.
     */
     public function setApplicationSignInDetailedSummary(?array $value): void {
         $this->getBackingStore()->set('applicationSignInDetailedSummary', $value);
@@ -192,7 +192,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the authenticationMethods property value. Container for navigation properties for Azure AD authentication methods resources.
-     *  @param AuthenticationMethodsRoot|null $value Value to set for the authenticationMethods property.
+     * @param AuthenticationMethodsRoot|null $value Value to set for the authenticationMethods property.
     */
     public function setAuthenticationMethods(?AuthenticationMethodsRoot $value): void {
         $this->getBackingStore()->set('authenticationMethods', $value);
@@ -200,7 +200,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the credentialUserRegistrationDetails property value. Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
-     *  @param array<CredentialUserRegistrationDetails>|null $value Value to set for the credentialUserRegistrationDetails property.
+     * @param array<CredentialUserRegistrationDetails>|null $value Value to set for the credentialUserRegistrationDetails property.
     */
     public function setCredentialUserRegistrationDetails(?array $value): void {
         $this->getBackingStore()->set('credentialUserRegistrationDetails', $value);
@@ -208,7 +208,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the dailyPrintUsage property value. The dailyPrintUsage property
-     *  @param array<PrintUsage>|null $value Value to set for the dailyPrintUsage property.
+     * @param array<PrintUsage>|null $value Value to set for the dailyPrintUsage property.
     */
     public function setDailyPrintUsage(?array $value): void {
         $this->getBackingStore()->set('dailyPrintUsage', $value);
@@ -216,7 +216,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the dailyPrintUsageByPrinter property value. The dailyPrintUsageByPrinter property
-     *  @param array<PrintUsageByPrinter>|null $value Value to set for the dailyPrintUsageByPrinter property.
+     * @param array<PrintUsageByPrinter>|null $value Value to set for the dailyPrintUsageByPrinter property.
     */
     public function setDailyPrintUsageByPrinter(?array $value): void {
         $this->getBackingStore()->set('dailyPrintUsageByPrinter', $value);
@@ -224,7 +224,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the dailyPrintUsageByUser property value. The dailyPrintUsageByUser property
-     *  @param array<PrintUsageByUser>|null $value Value to set for the dailyPrintUsageByUser property.
+     * @param array<PrintUsageByUser>|null $value Value to set for the dailyPrintUsageByUser property.
     */
     public function setDailyPrintUsageByUser(?array $value): void {
         $this->getBackingStore()->set('dailyPrintUsageByUser', $value);
@@ -232,7 +232,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the dailyPrintUsageSummariesByPrinter property value. The dailyPrintUsageSummariesByPrinter property
-     *  @param array<PrintUsageByPrinter>|null $value Value to set for the dailyPrintUsageSummariesByPrinter property.
+     * @param array<PrintUsageByPrinter>|null $value Value to set for the dailyPrintUsageSummariesByPrinter property.
     */
     public function setDailyPrintUsageSummariesByPrinter(?array $value): void {
         $this->getBackingStore()->set('dailyPrintUsageSummariesByPrinter', $value);
@@ -240,7 +240,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the dailyPrintUsageSummariesByUser property value. The dailyPrintUsageSummariesByUser property
-     *  @param array<PrintUsageByUser>|null $value Value to set for the dailyPrintUsageSummariesByUser property.
+     * @param array<PrintUsageByUser>|null $value Value to set for the dailyPrintUsageSummariesByUser property.
     */
     public function setDailyPrintUsageSummariesByUser(?array $value): void {
         $this->getBackingStore()->set('dailyPrintUsageSummariesByUser', $value);
@@ -248,7 +248,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the monthlyPrintUsageByPrinter property value. The monthlyPrintUsageByPrinter property
-     *  @param array<PrintUsageByPrinter>|null $value Value to set for the monthlyPrintUsageByPrinter property.
+     * @param array<PrintUsageByPrinter>|null $value Value to set for the monthlyPrintUsageByPrinter property.
     */
     public function setMonthlyPrintUsageByPrinter(?array $value): void {
         $this->getBackingStore()->set('monthlyPrintUsageByPrinter', $value);
@@ -256,7 +256,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the monthlyPrintUsageByUser property value. The monthlyPrintUsageByUser property
-     *  @param array<PrintUsageByUser>|null $value Value to set for the monthlyPrintUsageByUser property.
+     * @param array<PrintUsageByUser>|null $value Value to set for the monthlyPrintUsageByUser property.
     */
     public function setMonthlyPrintUsageByUser(?array $value): void {
         $this->getBackingStore()->set('monthlyPrintUsageByUser', $value);
@@ -264,7 +264,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the monthlyPrintUsageSummariesByPrinter property value. The monthlyPrintUsageSummariesByPrinter property
-     *  @param array<PrintUsageByPrinter>|null $value Value to set for the monthlyPrintUsageSummariesByPrinter property.
+     * @param array<PrintUsageByPrinter>|null $value Value to set for the monthlyPrintUsageSummariesByPrinter property.
     */
     public function setMonthlyPrintUsageSummariesByPrinter(?array $value): void {
         $this->getBackingStore()->set('monthlyPrintUsageSummariesByPrinter', $value);
@@ -272,7 +272,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the monthlyPrintUsageSummariesByUser property value. The monthlyPrintUsageSummariesByUser property
-     *  @param array<PrintUsageByUser>|null $value Value to set for the monthlyPrintUsageSummariesByUser property.
+     * @param array<PrintUsageByUser>|null $value Value to set for the monthlyPrintUsageSummariesByUser property.
     */
     public function setMonthlyPrintUsageSummariesByUser(?array $value): void {
         $this->getBackingStore()->set('monthlyPrintUsageSummariesByUser', $value);
@@ -280,7 +280,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the security property value. Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
-     *  @param SecurityReportsRoot|null $value Value to set for the security property.
+     * @param SecurityReportsRoot|null $value Value to set for the security property.
     */
     public function setSecurity(?SecurityReportsRoot $value): void {
         $this->getBackingStore()->set('security', $value);
@@ -288,7 +288,7 @@ class ReportRoot extends Entity implements Parsable
 
     /**
      * Sets the userCredentialUsageDetails property value. Represents the self-service password reset (SSPR) usage for a given tenant.
-     *  @param array<UserCredentialUsageDetails>|null $value Value to set for the userCredentialUsageDetails property.
+     * @param array<UserCredentialUsageDetails>|null $value Value to set for the userCredentialUsageDetails property.
     */
     public function setUserCredentialUsageDetails(?array $value): void {
         $this->getBackingStore()->set('userCredentialUsageDetails', $value);

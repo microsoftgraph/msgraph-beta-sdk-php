@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardP
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a collection of profileCardProperty resources of an organization. Each resource is identified by its **directoryPropertyName** property.
+*/
 class ProfileCardPropertiesRequestBuilderGetQueryParameters 
 {
     /**

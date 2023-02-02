@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Oauth2Permission
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
+*/
 class OAuth2PermissionGrantItemRequestBuilderGetQueryParameters 
 {
     /**

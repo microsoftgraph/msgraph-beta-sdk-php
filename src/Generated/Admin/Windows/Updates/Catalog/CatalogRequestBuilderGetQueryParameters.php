@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get catalog from admin
+*/
 class CatalogRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScript
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of device compliance scripts associated with the tenant.
+*/
 class DeviceComplianceScriptItemRequestBuilderGetQueryParameters 
 {
     /**

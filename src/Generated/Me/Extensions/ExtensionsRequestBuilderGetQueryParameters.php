@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Extensions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of open extensions defined for the user. Supports $expand. Nullable.
+*/
 class ExtensionsRequestBuilderGetQueryParameters 
 {
     /**

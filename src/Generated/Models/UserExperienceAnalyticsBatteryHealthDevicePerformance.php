@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health device performance entity contains device level battery information.
+*/
 class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity implements Parsable 
 {
     /**
@@ -134,7 +137,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
 
     /**
      * Sets the batteryAgeInDays property value. Estimated battery age. Unit in days. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the batteryAgeInDays property.
+     * @param int|null $value Value to set for the batteryAgeInDays property.
     */
     public function setBatteryAgeInDays(?int $value): void {
         $this->getBackingStore()->set('batteryAgeInDays', $value);
@@ -142,7 +145,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
 
     /**
      * Sets the deviceBatteryHealthScore property value. A weighted average of a device’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the deviceBatteryHealthScore property.
+     * @param int|null $value Value to set for the deviceBatteryHealthScore property.
     */
     public function setDeviceBatteryHealthScore(?int $value): void {
         $this->getBackingStore()->set('deviceBatteryHealthScore', $value);
@@ -150,7 +153,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
 
     /**
      * Sets the deviceId property value. The unique identifier of the device, Intune DeviceID.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -158,7 +161,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
 
     /**
      * Sets the deviceName property value. Device friendly name.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -166,7 +169,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
 
     /**
      * Sets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the estimatedRuntimeInMinutes property.
+     * @param int|null $value Value to set for the estimatedRuntimeInMinutes property.
     */
     public function setEstimatedRuntimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('estimatedRuntimeInMinutes', $value);
@@ -174,7 +177,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
 
     /**
      * Sets the healthStatus property value. The healthStatus property
-     *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
+     * @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
         $this->getBackingStore()->set('healthStatus', $value);
@@ -182,7 +185,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
 
     /**
      * Sets the manufacturer property value. The manufacturer name of the device.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -190,7 +193,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
 
     /**
      * Sets the maxCapacityPercentage property value. Ratio of current capacity and design capacity of the battery with the lowest capacity. Unit in percentage and values range from 0-100. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the maxCapacityPercentage property.
+     * @param int|null $value Value to set for the maxCapacityPercentage property.
     */
     public function setMaxCapacityPercentage(?int $value): void {
         $this->getBackingStore()->set('maxCapacityPercentage', $value);
@@ -198,7 +201,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
 
     /**
      * Sets the model property value. The model name of the device.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);

@@ -54,7 +54,7 @@ class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError implem
 
     /**
      * Sets the settingName property value. Setting name for the rule with error.
-     *  @param string|null $value Value to set for the settingName property.
+     * @param string|null $value Value to set for the settingName property.
     */
     public function setSettingName(?string $value): void {
         $this->getBackingStore()->set('settingName', $value);

@@ -225,7 +225,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the assignedTo property value. The name of the person who has been assigned the task in Outlook. Read-only.
-     *  @param string|null $value Value to set for the assignedTo property.
+     * @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value): void {
         $this->getBackingStore()->set('assignedTo', $value);
@@ -233,7 +233,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
-     *  @param array<Attachment>|null $value Value to set for the attachments property.
+     * @param array<Attachment>|null $value Value to set for the attachments property.
     */
     public function setAttachments(?array $value): void {
         $this->getBackingStore()->set('attachments', $value);
@@ -241,7 +241,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the body property value. The task body that typically contains information about the task. Note that only HTML type is supported.
-     *  @param ItemBody|null $value Value to set for the body property.
+     * @param ItemBody|null $value Value to set for the body property.
     */
     public function setBody(?ItemBody $value): void {
         $this->getBackingStore()->set('body', $value);
@@ -249,7 +249,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the completedDateTime property value. The date in the specified time zone that the task was finished.
-     *  @param DateTimeTimeZone|null $value Value to set for the completedDateTime property.
+     * @param DateTimeTimeZone|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTimeTimeZone $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
@@ -257,7 +257,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the dueDateTime property value. The date in the specified time zone that the task is to be finished.
-     *  @param DateTimeTimeZone|null $value Value to set for the dueDateTime property.
+     * @param DateTimeTimeZone|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTimeTimeZone $value): void {
         $this->getBackingStore()->set('dueDateTime', $value);
@@ -265,7 +265,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the hasAttachments property value. Set to true if the task has attachments.
-     *  @param bool|null $value Value to set for the hasAttachments property.
+     * @param bool|null $value Value to set for the hasAttachments property.
     */
     public function setHasAttachments(?bool $value): void {
         $this->getBackingStore()->set('hasAttachments', $value);
@@ -273,7 +273,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the importance property value. The importance property
-     *  @param Importance|null $value Value to set for the importance property.
+     * @param Importance|null $value Value to set for the importance property.
     */
     public function setImportance(?Importance $value): void {
         $this->getBackingStore()->set('importance', $value);
@@ -281,7 +281,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the isReminderOn property value. The isReminderOn property
-     *  @param bool|null $value Value to set for the isReminderOn property.
+     * @param bool|null $value Value to set for the isReminderOn property.
     */
     public function setIsReminderOn(?bool $value): void {
         $this->getBackingStore()->set('isReminderOn', $value);
@@ -289,7 +289,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the task. Read-only. Nullable.
-     *  @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
+     * @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
     */
     public function setMultiValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('multiValueExtendedProperties', $value);
@@ -297,7 +297,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the owner property value. The owner property
-     *  @param string|null $value Value to set for the owner property.
+     * @param string|null $value Value to set for the owner property.
     */
     public function setOwner(?string $value): void {
         $this->getBackingStore()->set('owner', $value);
@@ -305,7 +305,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the parentFolderId property value. The parentFolderId property
-     *  @param string|null $value Value to set for the parentFolderId property.
+     * @param string|null $value Value to set for the parentFolderId property.
     */
     public function setParentFolderId(?string $value): void {
         $this->getBackingStore()->set('parentFolderId', $value);
@@ -313,7 +313,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the recurrence property value. The recurrence property
-     *  @param PatternedRecurrence|null $value Value to set for the recurrence property.
+     * @param PatternedRecurrence|null $value Value to set for the recurrence property.
     */
     public function setRecurrence(?PatternedRecurrence $value): void {
         $this->getBackingStore()->set('recurrence', $value);
@@ -321,7 +321,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the reminderDateTime property value. The reminderDateTime property
-     *  @param DateTimeTimeZone|null $value Value to set for the reminderDateTime property.
+     * @param DateTimeTimeZone|null $value Value to set for the reminderDateTime property.
     */
     public function setReminderDateTime(?DateTimeTimeZone $value): void {
         $this->getBackingStore()->set('reminderDateTime', $value);
@@ -329,7 +329,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the sensitivity property value. The sensitivity property
-     *  @param Sensitivity|null $value Value to set for the sensitivity property.
+     * @param Sensitivity|null $value Value to set for the sensitivity property.
     */
     public function setSensitivity(?Sensitivity $value): void {
         $this->getBackingStore()->set('sensitivity', $value);
@@ -337,7 +337,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the task. Read-only. Nullable.
-     *  @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
+     * @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
     public function setSingleValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('singleValueExtendedProperties', $value);
@@ -345,7 +345,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the startDateTime property value. The startDateTime property
-     *  @param DateTimeTimeZone|null $value Value to set for the startDateTime property.
+     * @param DateTimeTimeZone|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTimeTimeZone $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -353,7 +353,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param TaskStatus|null $value Value to set for the status property.
+     * @param TaskStatus|null $value Value to set for the status property.
     */
     public function setStatus(?TaskStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -361,7 +361,7 @@ class OutlookTask extends OutlookItem implements Parsable
 
     /**
      * Sets the subject property value. The subject property
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);

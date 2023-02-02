@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AppRoleAssignments;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entities from appRoleAssignments
+*/
 class AppRoleAssignmentsRequestBuilderGetQueryParameters 
 {
     /**

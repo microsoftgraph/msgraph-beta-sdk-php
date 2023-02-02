@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceResources\Item\Parent;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. The parent resource. for pimforazurerbac scenario, it can represent the subscription the resource belongs to.
+*/
 class ParentRequestBuilderGetQueryParameters 
 {
     /**

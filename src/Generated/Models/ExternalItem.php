@@ -74,7 +74,7 @@ class ExternalItem extends Entity implements Parsable
 
     /**
      * Sets the acl property value. The acl property
-     *  @param array<Acl>|null $value Value to set for the acl property.
+     * @param array<Acl>|null $value Value to set for the acl property.
     */
     public function setAcl(?array $value): void {
         $this->getBackingStore()->set('acl', $value);
@@ -82,7 +82,7 @@ class ExternalItem extends Entity implements Parsable
 
     /**
      * Sets the content property value. The content property
-     *  @param ExternalItemContent|null $value Value to set for the content property.
+     * @param ExternalItemContent|null $value Value to set for the content property.
     */
     public function setContent(?ExternalItemContent $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -90,7 +90,7 @@ class ExternalItem extends Entity implements Parsable
 
     /**
      * Sets the properties property value. The properties property
-     *  @param Properties|null $value Value to set for the properties property.
+     * @param Properties|null $value Value to set for the properties property.
     */
     public function setProperties(?Properties $value): void {
         $this->getBackingStore()->set('properties', $value);

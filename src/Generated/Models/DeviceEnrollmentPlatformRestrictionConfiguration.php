@@ -65,7 +65,7 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
 
     /**
      * Sets the platformRestriction property value. Restrictions based on platform, platform operating system version, and device ownership
-     *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the platformRestriction property.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the platformRestriction property.
     */
     public function setPlatformRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('platformRestriction', $value);
@@ -73,7 +73,7 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
 
     /**
      * Sets the platformType property value. This enum indicates the platform type for which the enrollment restriction applies.
-     *  @param EnrollmentRestrictionPlatformType|null $value Value to set for the platformType property.
+     * @param EnrollmentRestrictionPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?EnrollmentRestrictionPlatformType $value): void {
         $this->getBackingStore()->set('platformType', $value);

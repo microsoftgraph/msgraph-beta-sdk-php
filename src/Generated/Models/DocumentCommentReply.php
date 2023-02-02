@@ -64,7 +64,7 @@ class DocumentCommentReply extends Entity implements Parsable
 
     /**
      * Sets the content property value. The content property
-     *  @param string|null $value Value to set for the content property.
+     * @param string|null $value Value to set for the content property.
     */
     public function setContent(?string $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -72,7 +72,7 @@ class DocumentCommentReply extends Entity implements Parsable
 
     /**
      * Sets the location property value. The location property
-     *  @param string|null $value Value to set for the location property.
+     * @param string|null $value Value to set for the location property.
     */
     public function setLocation(?string $value): void {
         $this->getBackingStore()->set('location', $value);

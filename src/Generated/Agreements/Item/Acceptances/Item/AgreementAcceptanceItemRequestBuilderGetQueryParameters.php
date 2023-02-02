@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Agreements\Item\Acceptances\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. Information about acceptances of this agreement.
+*/
 class AgreementAcceptanceItemRequestBuilderGetQueryParameters 
 {
     /**

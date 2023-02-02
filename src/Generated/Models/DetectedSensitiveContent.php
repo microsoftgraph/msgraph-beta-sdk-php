@@ -101,7 +101,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Sets the classificationAttributes property value. The classificationAttributes property
-     *  @param array<ClassificationAttribute>|null $value Value to set for the classificationAttributes property.
+     * @param array<ClassificationAttribute>|null $value Value to set for the classificationAttributes property.
     */
     public function setClassificationAttributes(?array $value): void {
         $this->getBackingStore()->set('classificationAttributes', $value);
@@ -109,7 +109,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Sets the classificationMethod property value. The classificationMethod property
-     *  @param ClassificationMethod|null $value Value to set for the classificationMethod property.
+     * @param ClassificationMethod|null $value Value to set for the classificationMethod property.
     */
     public function setClassificationMethod(?ClassificationMethod $value): void {
         $this->getBackingStore()->set('classificationMethod', $value);
@@ -117,7 +117,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Sets the matches property value. The matches property
-     *  @param array<SensitiveContentLocation>|null $value Value to set for the matches property.
+     * @param array<SensitiveContentLocation>|null $value Value to set for the matches property.
     */
     public function setMatches(?array $value): void {
         $this->getBackingStore()->set('matches', $value);
@@ -125,7 +125,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Sets the scope property value. The scope property
-     *  @param SensitiveTypeScope|null $value Value to set for the scope property.
+     * @param SensitiveTypeScope|null $value Value to set for the scope property.
     */
     public function setScope(?SensitiveTypeScope $value): void {
         $this->getBackingStore()->set('scope', $value);
@@ -133,7 +133,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
 
     /**
      * Sets the sensitiveTypeSource property value. The sensitiveTypeSource property
-     *  @param SensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
+     * @param SensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
     */
     public function setSensitiveTypeSource(?SensitiveTypeSource $value): void {
         $this->getBackingStore()->set('sensitiveTypeSource', $value);

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnPremisesAgent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OnPremisesAgent and sets the default values.
+     * Instantiates a new onPremisesAgent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -94,7 +94,7 @@ class OnPremisesAgent extends Entity implements Parsable
 
     /**
      * Sets the agentGroups property value. List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.
-     *  @param array<OnPremisesAgentGroup>|null $value Value to set for the agentGroups property.
+     * @param array<OnPremisesAgentGroup>|null $value Value to set for the agentGroups property.
     */
     public function setAgentGroups(?array $value): void {
         $this->getBackingStore()->set('agentGroups', $value);
@@ -102,7 +102,7 @@ class OnPremisesAgent extends Entity implements Parsable
 
     /**
      * Sets the externalIp property value. The external IP address as detected by the service for the agent machine. Read-only
-     *  @param string|null $value Value to set for the externalIp property.
+     * @param string|null $value Value to set for the externalIp property.
     */
     public function setExternalIp(?string $value): void {
         $this->getBackingStore()->set('externalIp', $value);
@@ -110,7 +110,7 @@ class OnPremisesAgent extends Entity implements Parsable
 
     /**
      * Sets the machineName property value. The name of the machine that the aggent is running on. Read-only
-     *  @param string|null $value Value to set for the machineName property.
+     * @param string|null $value Value to set for the machineName property.
     */
     public function setMachineName(?string $value): void {
         $this->getBackingStore()->set('machineName', $value);
@@ -118,7 +118,7 @@ class OnPremisesAgent extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param AgentStatus|null $value Value to set for the status property.
+     * @param AgentStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AgentStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -126,7 +126,7 @@ class OnPremisesAgent extends Entity implements Parsable
 
     /**
      * Sets the supportedPublishingTypes property value. The supportedPublishingTypes property
-     *  @param array<OnPremisesPublishingType>|null $value Value to set for the supportedPublishingTypes property.
+     * @param array<OnPremisesPublishingType>|null $value Value to set for the supportedPublishingTypes property.
     */
     public function setSupportedPublishingTypes(?array $value): void {
         $this->getBackingStore()->set('supportedPublishingTypes', $value);

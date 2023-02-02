@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of autopilot events for the tenant.
+*/
 class DeviceManagementAutopilotEventItemRequestBuilderGetQueryParameters 
 {
     /**

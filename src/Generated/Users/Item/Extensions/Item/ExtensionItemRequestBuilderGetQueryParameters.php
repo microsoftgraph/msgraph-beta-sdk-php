@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Extensions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of open extensions defined for the user. Supports $expand. Nullable.
+*/
 class ExtensionItemRequestBuilderGetQueryParameters 
 {
     /**

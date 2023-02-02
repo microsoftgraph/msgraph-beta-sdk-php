@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Activities\Item\HistoryItems
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get historyItems from users
+*/
 class ActivityHistoryItemItemRequestBuilderGetQueryParameters 
 {
     /**

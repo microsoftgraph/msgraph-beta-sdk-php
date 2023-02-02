@@ -94,7 +94,7 @@ class OrganizationSettings extends Entity implements Parsable
 
     /**
      * Sets the contactInsights property value. Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
-     *  @param InsightsSettings|null $value Value to set for the contactInsights property.
+     * @param InsightsSettings|null $value Value to set for the contactInsights property.
     */
     public function setContactInsights(?InsightsSettings $value): void {
         $this->getBackingStore()->set('contactInsights', $value);
@@ -102,7 +102,7 @@ class OrganizationSettings extends Entity implements Parsable
 
     /**
      * Sets the itemInsights property value. Contains the properties that are configured by an administrator for the visibility of Microsoft Graph-derived insights, between a user and other items in Microsoft 365, such as documents or sites. List itemInsights returns the settings to display or return item insights in an organization.
-     *  @param InsightsSettings|null $value Value to set for the itemInsights property.
+     * @param InsightsSettings|null $value Value to set for the itemInsights property.
     */
     public function setItemInsights(?InsightsSettings $value): void {
         $this->getBackingStore()->set('itemInsights', $value);
@@ -110,7 +110,7 @@ class OrganizationSettings extends Entity implements Parsable
 
     /**
      * Sets the microsoftApplicationDataAccess property value. The microsoftApplicationDataAccess property
-     *  @param MicrosoftApplicationDataAccessSettings|null $value Value to set for the microsoftApplicationDataAccess property.
+     * @param MicrosoftApplicationDataAccessSettings|null $value Value to set for the microsoftApplicationDataAccess property.
     */
     public function setMicrosoftApplicationDataAccess(?MicrosoftApplicationDataAccessSettings $value): void {
         $this->getBackingStore()->set('microsoftApplicationDataAccess', $value);
@@ -118,7 +118,7 @@ class OrganizationSettings extends Entity implements Parsable
 
     /**
      * Sets the peopleInsights property value. Contains the properties that are configured by an administrator for the visibility of a list of people relevant and working with a user in Microsoft 365. List peopleInsights returns the settings to display or return people insights in an organization.
-     *  @param InsightsSettings|null $value Value to set for the peopleInsights property.
+     * @param InsightsSettings|null $value Value to set for the peopleInsights property.
     */
     public function setPeopleInsights(?InsightsSettings $value): void {
         $this->getBackingStore()->set('peopleInsights', $value);
@@ -126,7 +126,7 @@ class OrganizationSettings extends Entity implements Parsable
 
     /**
      * Sets the profileCardProperties property value. Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
-     *  @param array<ProfileCardProperty>|null $value Value to set for the profileCardProperties property.
+     * @param array<ProfileCardProperty>|null $value Value to set for the profileCardProperties property.
     */
     public function setProfileCardProperties(?array $value): void {
         $this->getBackingStore()->set('profileCardProperties', $value);

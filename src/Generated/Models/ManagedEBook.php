@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * An abstract class containing the base properties for Managed eBook.
+*/
 class ManagedEBook extends Entity implements Parsable 
 {
     /**
@@ -192,7 +195,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of assignments for this eBook.
-     *  @param array<ManagedEBookAssignment>|null $value Value to set for the assignments property.
+     * @param array<ManagedEBookAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -200,7 +203,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the categories property value. The list of categories for this eBook.
-     *  @param array<ManagedEBookCategory>|null $value Value to set for the categories property.
+     * @param array<ManagedEBookCategory>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -208,7 +211,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time when the eBook file was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -216,7 +219,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -224,7 +227,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the deviceStates property value. The list of installation states for this eBook.
-     *  @param array<DeviceInstallState>|null $value Value to set for the deviceStates property.
+     * @param array<DeviceInstallState>|null $value Value to set for the deviceStates property.
     */
     public function setDeviceStates(?array $value): void {
         $this->getBackingStore()->set('deviceStates', $value);
@@ -232,7 +235,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the eBook.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -240,7 +243,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the informationUrl property value. The more information Url.
-     *  @param string|null $value Value to set for the informationUrl property.
+     * @param string|null $value Value to set for the informationUrl property.
     */
     public function setInformationUrl(?string $value): void {
         $this->getBackingStore()->set('informationUrl', $value);
@@ -248,7 +251,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the installSummary property value. Mobile App Install Summary.
-     *  @param EBookInstallSummary|null $value Value to set for the installSummary property.
+     * @param EBookInstallSummary|null $value Value to set for the installSummary property.
     */
     public function setInstallSummary(?EBookInstallSummary $value): void {
         $this->getBackingStore()->set('installSummary', $value);
@@ -256,7 +259,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the largeCover property value. Book cover.
-     *  @param MimeContent|null $value Value to set for the largeCover property.
+     * @param MimeContent|null $value Value to set for the largeCover property.
     */
     public function setLargeCover(?MimeContent $value): void {
         $this->getBackingStore()->set('largeCover', $value);
@@ -264,7 +267,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the eBook was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -272,7 +275,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the privacyInformationUrl property value. The privacy statement Url.
-     *  @param string|null $value Value to set for the privacyInformationUrl property.
+     * @param string|null $value Value to set for the privacyInformationUrl property.
     */
     public function setPrivacyInformationUrl(?string $value): void {
         $this->getBackingStore()->set('privacyInformationUrl', $value);
@@ -280,7 +283,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the publishedDateTime property value. The date and time when the eBook was published.
-     *  @param DateTime|null $value Value to set for the publishedDateTime property.
+     * @param DateTime|null $value Value to set for the publishedDateTime property.
     */
     public function setPublishedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('publishedDateTime', $value);
@@ -288,7 +291,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the publisher property value. Publisher.
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -296,7 +299,7 @@ class ManagedEBook extends Entity implements Parsable
 
     /**
      * Sets the userStateSummary property value. The list of installation states for this eBook.
-     *  @param array<UserInstallStateSummary>|null $value Value to set for the userStateSummary property.
+     * @param array<UserInstallStateSummary>|null $value Value to set for the userStateSummary property.
     */
     public function setUserStateSummary(?array $value): void {
         $this->getBackingStore()->set('userStateSummary', $value);

@@ -65,7 +65,7 @@ class ExactMatchUploadAgent extends Entity implements Parsable
 
     /**
      * Sets the creationDateTime property value. The creationDateTime property
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
+     * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('creationDateTime', $value);
@@ -73,7 +73,7 @@ class ExactMatchUploadAgent extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);

@@ -75,7 +75,7 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
 
     /**
      * Sets the logicAppWorkflowName property value. The name of the logic app.
-     *  @param string|null $value Value to set for the logicAppWorkflowName property.
+     * @param string|null $value Value to set for the logicAppWorkflowName property.
     */
     public function setLogicAppWorkflowName(?string $value): void {
         $this->getBackingStore()->set('logicAppWorkflowName', $value);
@@ -83,7 +83,7 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
 
     /**
      * Sets the resourceGroupName property value. The Azure resource group name for the logic app.
-     *  @param string|null $value Value to set for the resourceGroupName property.
+     * @param string|null $value Value to set for the resourceGroupName property.
     */
     public function setResourceGroupName(?string $value): void {
         $this->getBackingStore()->set('resourceGroupName', $value);
@@ -91,7 +91,7 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
 
     /**
      * Sets the subscriptionId property value. Identifier of the Azure subscription for the logic app.
-     *  @param string|null $value Value to set for the subscriptionId property.
+     * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('subscriptionId', $value);

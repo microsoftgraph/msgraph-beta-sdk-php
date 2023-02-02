@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\ManagedAppRegistrations;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Zero or more managed app registrations that belong to the user.
+*/
 class ManagedAppRegistrationsRequestBuilderGetQueryParameters 
 {
     /**

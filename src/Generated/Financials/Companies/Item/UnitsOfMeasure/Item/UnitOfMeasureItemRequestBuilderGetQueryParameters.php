@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\UnitsOfMeasur
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get unitsOfMeasure from financials
+*/
 class UnitOfMeasureItemRequestBuilderGetQueryParameters 
 {
     /**

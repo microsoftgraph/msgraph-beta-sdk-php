@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Items of the PolicySet with maximum count 100.
+*/
 class PolicySetItemItemRequestBuilderGetQueryParameters 
 {
     /**

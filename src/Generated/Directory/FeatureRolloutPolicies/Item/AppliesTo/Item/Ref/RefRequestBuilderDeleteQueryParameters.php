@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\A
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property appliesTo for directory
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

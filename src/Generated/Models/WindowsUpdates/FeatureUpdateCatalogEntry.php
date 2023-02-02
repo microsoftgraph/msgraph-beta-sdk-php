@@ -55,7 +55,7 @@ class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
 
     /**
      * Sets the version property value. The version of the feature update. Read-only.
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

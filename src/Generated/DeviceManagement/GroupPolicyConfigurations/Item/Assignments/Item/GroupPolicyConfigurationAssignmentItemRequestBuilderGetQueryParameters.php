@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurati
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of group assignments for the configuration.
+*/
 class GroupPolicyConfigurationAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**

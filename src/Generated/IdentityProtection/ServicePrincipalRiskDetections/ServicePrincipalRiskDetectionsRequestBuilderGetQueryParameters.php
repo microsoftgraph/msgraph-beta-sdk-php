@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\ServicePrincipalRisk
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
+*/
 class ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters 
 {
     /**

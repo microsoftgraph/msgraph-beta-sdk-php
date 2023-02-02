@@ -8,17 +8,19 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\Endpoint\EndpointRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\ServicePrincipal\ServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\User\UserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\MicrosoftGraphEndpoint\EndpointRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\MicrosoftGraphServicePrincipal\ServicePrincipalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\MicrosoftGraphUser\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
+*/
 class RegisteredUsersRequestBuilder 
 {
     /**
@@ -31,8 +33,22 @@ class RegisteredUsersRequestBuilder
     /**
      * Casts the previous resource to endpoint.
     */
-    public function endpoint(): EndpointRequestBuilder {
+    public function microsoftGraphEndpoint(): EndpointRequestBuilder {
         return new EndpointRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to servicePrincipal.
+    */
+    public function microsoftGraphServicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to user.
+    */
+    public function microsoftGraphUser(): UserRequestBuilder {
+        return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -46,23 +62,9 @@ class RegisteredUsersRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * Casts the previous resource to servicePrincipal.
-    */
-    public function servicePrincipal(): ServicePrincipalRequestBuilder {
-        return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
-    
-    /**
-     * Casts the previous resource to user.
-    */
-    public function user(): UserRequestBuilder {
-        return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * Instantiates a new RegisteredUsersRequestBuilder and sets the default values.
@@ -78,17 +80,17 @@ class RegisteredUsersRequestBuilder
     /**
      * Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.
      * @param RegisteredUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/device-list-registeredusers?view=graph-rest-1.0 Find more info here
     */
-    public function get(?RegisteredUsersRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?RegisteredUsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -104,10 +106,10 @@ class RegisteredUsersRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);

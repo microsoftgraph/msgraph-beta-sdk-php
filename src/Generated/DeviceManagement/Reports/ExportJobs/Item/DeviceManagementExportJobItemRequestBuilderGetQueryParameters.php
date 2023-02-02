@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\ExportJobs\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Entity representing a job to export a report
+*/
 class DeviceManagementExportJobItemRequestBuilderGetQueryParameters 
 {
     /**

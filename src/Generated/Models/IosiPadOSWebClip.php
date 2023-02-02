@@ -26,7 +26,7 @@ class IosiPadOSWebClip extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the appUrl property value. The web app URL.
+     * Gets the appUrl property value. Indicates iOS/iPadOS web clip app URL. Example: 'https://www.contoso.com'
      * @return string|null
     */
     public function getAppUrl(): ?string {
@@ -46,7 +46,7 @@ class IosiPadOSWebClip extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the useManagedBrowser property value. Whether or not to use managed browser. When true, the app will be required to be opened in an Intune-protected browser. When false, the app will not be required to be opened in an Intune-protected browser.
+     * Gets the useManagedBrowser property value. Whether or not to use managed browser. When TRUE, the app will be required to be opened in Microsoft Edge. When FALSE, the app will not be required to be opened in Microsoft Edge. By default, this property is set to FALSE.
      * @return bool|null
     */
     public function getUseManagedBrowser(): ?bool {
@@ -64,16 +64,16 @@ class IosiPadOSWebClip extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the appUrl property value. The web app URL.
-     *  @param string|null $value Value to set for the appUrl property.
+     * Sets the appUrl property value. Indicates iOS/iPadOS web clip app URL. Example: 'https://www.contoso.com'
+     * @param string|null $value Value to set for the appUrl property.
     */
     public function setAppUrl(?string $value): void {
         $this->getBackingStore()->set('appUrl', $value);
     }
 
     /**
-     * Sets the useManagedBrowser property value. Whether or not to use managed browser. When true, the app will be required to be opened in an Intune-protected browser. When false, the app will not be required to be opened in an Intune-protected browser.
-     *  @param bool|null $value Value to set for the useManagedBrowser property.
+     * Sets the useManagedBrowser property value. Whether or not to use managed browser. When TRUE, the app will be required to be opened in Microsoft Edge. When FALSE, the app will not be required to be opened in Microsoft Edge. By default, this property is set to FALSE.
+     * @param bool|null $value Value to set for the useManagedBrowser property.
     */
     public function setUseManagedBrowser(?bool $value): void {
         $this->getBackingStore()->set('useManagedBrowser', $value);

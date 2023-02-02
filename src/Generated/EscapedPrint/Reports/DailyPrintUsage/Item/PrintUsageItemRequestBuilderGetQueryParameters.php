@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsage\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get dailyPrintUsage from print
+*/
 class PrintUsageItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\De
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * All applications currently installed on the device
+*/
 class DetectedAppItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -94,7 +94,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResource property value. The accessPackageResource property
-     *  @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
+     * @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
     */
     public function setAccessPackageResource(?AccessPackageResource $value): void {
         $this->getBackingStore()->set('accessPackageResource', $value);
@@ -102,7 +102,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
 
     /**
      * Sets the description property value. A description for the resource role.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -110,7 +110,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the resource role such as the role defined by the application.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -118,7 +118,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
 
     /**
      * Sets the originId property value. The unique identifier of the resource role in the origin system. For a SharePoint Online site, the originId will be the sequence number of the role in the site.
-     *  @param string|null $value Value to set for the originId property.
+     * @param string|null $value Value to set for the originId property.
     */
     public function setOriginId(?string $value): void {
         $this->getBackingStore()->set('originId', $value);
@@ -126,7 +126,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
 
     /**
      * Sets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
-     *  @param string|null $value Value to set for the originSystem property.
+     * @param string|null $value Value to set for the originSystem property.
     */
     public function setOriginSystem(?string $value): void {
         $this->getBackingStore()->set('originSystem', $value);

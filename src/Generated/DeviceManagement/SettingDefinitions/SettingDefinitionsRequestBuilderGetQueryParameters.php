@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\SettingDefinitions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The device management intent setting definitions
+*/
 class SettingDefinitionsRequestBuilderGetQueryParameters 
 {
     /**

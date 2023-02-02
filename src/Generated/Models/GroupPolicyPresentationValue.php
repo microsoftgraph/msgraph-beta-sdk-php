@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The base presentation value entity that stores the value for a single group policy presentation.
+*/
 class GroupPolicyPresentationValue extends Entity implements Parsable 
 {
     /**
@@ -97,7 +100,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the object was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -105,7 +108,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
 
     /**
      * Sets the definitionValue property value. The group policy definition value associated with the presentation value.
-     *  @param GroupPolicyDefinitionValue|null $value Value to set for the definitionValue property.
+     * @param GroupPolicyDefinitionValue|null $value Value to set for the definitionValue property.
     */
     public function setDefinitionValue(?GroupPolicyDefinitionValue $value): void {
         $this->getBackingStore()->set('definitionValue', $value);
@@ -113,7 +116,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the object was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -121,7 +124,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
 
     /**
      * Sets the presentation property value. The group policy presentation associated with the presentation value.
-     *  @param GroupPolicyPresentation|null $value Value to set for the presentation property.
+     * @param GroupPolicyPresentation|null $value Value to set for the presentation property.
     */
     public function setPresentation(?GroupPolicyPresentation $value): void {
         $this->getBackingStore()->set('presentation', $value);

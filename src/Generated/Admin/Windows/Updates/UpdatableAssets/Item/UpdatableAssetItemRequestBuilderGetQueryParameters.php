@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get updatableAssets from admin
+*/
 class UpdatableAssetItemRequestBuilderGetQueryParameters 
 {
     /**

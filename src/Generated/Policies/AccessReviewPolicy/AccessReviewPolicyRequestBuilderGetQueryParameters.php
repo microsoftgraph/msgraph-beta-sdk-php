@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AccessReviewPolicy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of an accessReviewPolicy object.
+*/
 class AccessReviewPolicyRequestBuilderGetQueryParameters 
 {
     /**

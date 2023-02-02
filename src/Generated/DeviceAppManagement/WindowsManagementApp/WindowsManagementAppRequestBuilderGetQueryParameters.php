@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagementAp
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Windows management app.
+*/
 class WindowsManagementAppRequestBuilderGetQueryParameters 
 {
     /**

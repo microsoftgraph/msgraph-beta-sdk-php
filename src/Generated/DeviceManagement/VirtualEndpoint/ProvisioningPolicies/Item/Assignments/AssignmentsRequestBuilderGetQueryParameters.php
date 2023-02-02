@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Provis
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A defined collection of provisioning policy assignments. Represents the set of Microsoft 365 groups and security groups in Azure AD that have provisioning policy assigned. Returned only on $expand. See an example of getting the assignments relationship.
+*/
 class AssignmentsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\Hori
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of WebParts in this column.
+*/
 class WebPartItemRequestBuilderGetQueryParameters 
 {
     /**

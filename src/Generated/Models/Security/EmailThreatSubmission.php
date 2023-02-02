@@ -144,7 +144,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the attackSimulationInfo property value. If the email is phishing simulation, this field will not be null.
-     *  @param AttackSimulationInfo|null $value Value to set for the attackSimulationInfo property.
+     * @param AttackSimulationInfo|null $value Value to set for the attackSimulationInfo property.
     */
     public function setAttackSimulationInfo(?AttackSimulationInfo $value): void {
         $this->getBackingStore()->set('attackSimulationInfo', $value);
@@ -152,7 +152,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the internetMessageId property value. Specifies the internet message id of the email being submitted. This information is present in the email header.
-     *  @param string|null $value Value to set for the internetMessageId property.
+     * @param string|null $value Value to set for the internetMessageId property.
     */
     public function setInternetMessageId(?string $value): void {
         $this->getBackingStore()->set('internetMessageId', $value);
@@ -160,7 +160,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the originalCategory property value. The original category of the submission. The possible values are: notJunk, spam, phishing, malware and unkownFutureValue.
-     *  @param SubmissionCategory|null $value Value to set for the originalCategory property.
+     * @param SubmissionCategory|null $value Value to set for the originalCategory property.
     */
     public function setOriginalCategory(?SubmissionCategory $value): void {
         $this->getBackingStore()->set('originalCategory', $value);
@@ -168,7 +168,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the receivedDateTime property value. Specifies the date and time stamp when the email was received.
-     *  @param DateTime|null $value Value to set for the receivedDateTime property.
+     * @param DateTime|null $value Value to set for the receivedDateTime property.
     */
     public function setReceivedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('receivedDateTime', $value);
@@ -176,7 +176,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the recipientEmailAddress property value. Specifies the email address (in smtp format) of the recipient who received the email.
-     *  @param string|null $value Value to set for the recipientEmailAddress property.
+     * @param string|null $value Value to set for the recipientEmailAddress property.
     */
     public function setRecipientEmailAddress(?string $value): void {
         $this->getBackingStore()->set('recipientEmailAddress', $value);
@@ -184,7 +184,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the sender property value. Specifies the email address of the sender.
-     *  @param string|null $value Value to set for the sender property.
+     * @param string|null $value Value to set for the sender property.
     */
     public function setSender(?string $value): void {
         $this->getBackingStore()->set('sender', $value);
@@ -192,7 +192,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the senderIP property value. Specifies the IP address of the sender.
-     *  @param string|null $value Value to set for the senderIP property.
+     * @param string|null $value Value to set for the senderIP property.
     */
     public function setSenderIP(?string $value): void {
         $this->getBackingStore()->set('senderIP', $value);
@@ -200,7 +200,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the subject property value. Specifies the subject of the email .
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -208,7 +208,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
 
     /**
      * Sets the tenantAllowOrBlockListAction property value. It is used to automatically add allows for the components such as URL, file, sender; which are deemed bad by Microsoft so that similar messages in the future can be allowed.
-     *  @param TenantAllowOrBlockListAction|null $value Value to set for the tenantAllowOrBlockListAction property.
+     * @param TenantAllowOrBlockListAction|null $value Value to set for the tenantAllowOrBlockListAction property.
     */
     public function setTenantAllowOrBlockListAction(?TenantAllowOrBlockListAction $value): void {
         $this->getBackingStore()->set('tenantAllowOrBlockListAction', $value);

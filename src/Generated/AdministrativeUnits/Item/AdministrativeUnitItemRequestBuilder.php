@@ -5,15 +5,15 @@ namespace Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Extensions\Item\ExtensionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\MembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Restore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\MicrosoftGraphCheckMemberGroups\CheckMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\MicrosoftGraphCheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\MicrosoftGraphGetMemberGroups\GetMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\MicrosoftGraphGetMemberObjects\GetMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\MicrosoftGraphRestore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\ScopedRoleMembers\Item\ScopedRoleMembershipItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\ScopedRoleMembers\ScopedRoleMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdministrativeUnit;
@@ -21,27 +21,15 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the collection of administrativeUnit entities.
+*/
 class AdministrativeUnitItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the checkMemberGroups method.
-    */
-    public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
-        return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the checkMemberObjects method.
-    */
-    public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
-        return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the extensions property of the microsoft.graph.administrativeUnit entity.
     */
@@ -50,24 +38,45 @@ class AdministrativeUnitItemRequestBuilder
     }
     
     /**
+     * Provides operations to manage the members property of the microsoft.graph.administrativeUnit entity.
+    */
+    public function members(): MembersRequestBuilder {
+        return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkMemberGroups method.
+    */
+    public function microsoftGraphCheckMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkMemberObjects method.
+    */
+    public function microsoftGraphCheckMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the getMemberGroups method.
     */
-    public function getMemberGroups(): GetMemberGroupsRequestBuilder {
+    public function microsoftGraphGetMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getMemberObjects method.
     */
-    public function getMemberObjects(): GetMemberObjectsRequestBuilder {
+    public function microsoftGraphGetMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the members property of the microsoft.graph.administrativeUnit entity.
+     * Provides operations to call the restore method.
     */
-    public function members(): MembersRequestBuilder {
-        return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphRestore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -79,13 +88,6 @@ class AdministrativeUnitItemRequestBuilder
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
-    
-    /**
-     * Provides operations to call the restore method.
-    */
-    public function restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
@@ -103,27 +105,31 @@ class AdministrativeUnitItemRequestBuilder
      * Instantiates a new AdministrativeUnitItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $administrativeUnitId key: id of administrativeUnit
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $administrativeUnitId = null) {
         $this->urlTemplate = '{+baseurl}/administrativeUnits/{administrativeUnit%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['administrativeUnitId'] = $administrativeUnitId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
     /**
      * Delete an administrativeUnit.
      * @param AdministrativeUnitItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/administrativeunit-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?AdministrativeUnitItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?AdministrativeUnitItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -143,24 +149,24 @@ class AdministrativeUnitItemRequestBuilder
     /**
      * Retrieve the properties and relationships of an administrativeUnit object. Since the **administrativeUnit** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **administrativeUnit** instance.
      * @param AdministrativeUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/administrativeunit-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?AdministrativeUnitItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?AdministrativeUnitItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AdministrativeUnit::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [AdministrativeUnit::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.administrativeUnits.item.members.item collection
+     * Gets an item from the Microsoft/Graph/Beta/Generated.administrativeUnits.item.members.item collection
      * @param string $id Unique identifier of the item
      * @return DirectoryObjectItemRequestBuilder
     */
@@ -174,17 +180,17 @@ class AdministrativeUnitItemRequestBuilder
      * Update the properties of an administrativeUnit object.
      * @param AdministrativeUnit $body The request body
      * @param AdministrativeUnitItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/administrativeunit-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(AdministrativeUnit $body, ?AdministrativeUnitItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(AdministrativeUnit $body, ?AdministrativeUnitItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AdministrativeUnit::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [AdministrativeUnit::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -213,7 +219,7 @@ class AdministrativeUnitItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -232,10 +238,10 @@ class AdministrativeUnitItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -258,10 +264,10 @@ class AdministrativeUnitItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

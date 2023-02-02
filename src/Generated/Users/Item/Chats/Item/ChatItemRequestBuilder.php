@@ -7,43 +7,38 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\Chat;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\HideForUser\HideForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\InstalledApps\InstalledAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\InstalledApps\Item\TeamsAppInstallationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\LastMessagePreview\LastMessagePreviewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\MarkChatReadForUser\MarkChatReadForUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\MarkChatUnreadForUser\MarkChatUnreadForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Members\Item\ConversationMemberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\ChatMessageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\MessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\MicrosoftGraphHideForUser\HideForUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\MicrosoftGraphMarkChatReadForUser\MarkChatReadForUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\MicrosoftGraphMarkChatUnreadForUser\MarkChatUnreadForUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\MicrosoftGraphSendActivityNotification\SendActivityNotificationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\MicrosoftGraphUnhideForUser\UnhideForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Operations\Item\TeamsAsyncOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PermissionGrants\PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PinnedMessages\Item\PinnedChatMessageInfoItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PinnedMessages\PinnedMessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\SendActivityNotification\SendActivityNotificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Tabs\Item\TeamsTabItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Tabs\TabsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\UnhideForUser\UnhideForUserRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the chats property of the microsoft.graph.user entity.
+*/
 class ChatItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the hideForUser method.
-    */
-    public function hideForUser(): HideForUserRequestBuilder {
-        return new HideForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
     */
@@ -59,20 +54,6 @@ class ChatItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the markChatReadForUser method.
-    */
-    public function markChatReadForUser(): MarkChatReadForUserRequestBuilder {
-        return new MarkChatReadForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the markChatUnreadForUser method.
-    */
-    public function markChatUnreadForUser(): MarkChatUnreadForUserRequestBuilder {
-        return new MarkChatUnreadForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the members property of the microsoft.graph.chat entity.
     */
     public function members(): MembersRequestBuilder {
@@ -84,6 +65,41 @@ class ChatItemRequestBuilder
     */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the hideForUser method.
+    */
+    public function microsoftGraphHideForUser(): HideForUserRequestBuilder {
+        return new HideForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the markChatReadForUser method.
+    */
+    public function microsoftGraphMarkChatReadForUser(): MarkChatReadForUserRequestBuilder {
+        return new MarkChatReadForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the markChatUnreadForUser method.
+    */
+    public function microsoftGraphMarkChatUnreadForUser(): MarkChatUnreadForUserRequestBuilder {
+        return new MarkChatUnreadForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the sendActivityNotification method.
+    */
+    public function microsoftGraphSendActivityNotification(): SendActivityNotificationRequestBuilder {
+        return new SendActivityNotificationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unhideForUser method.
+    */
+    public function microsoftGraphUnhideForUser(): UnhideForUserRequestBuilder {
+        return new UnhideForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -118,24 +134,10 @@ class ChatItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * Provides operations to call the sendActivityNotification method.
-    */
-    public function sendActivityNotification(): SendActivityNotificationRequestBuilder {
-        return new SendActivityNotificationRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
     */
     public function tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the unhideForUser method.
-    */
-    public function unhideForUser(): UnhideForUserRequestBuilder {
-        return new UnhideForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -147,27 +149,30 @@ class ChatItemRequestBuilder
      * Instantiates a new ChatItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $chatId key: id of chat
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $chatId = null) {
         $this->urlTemplate = '{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['chatId'] = $chatId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
     /**
      * Delete navigation property chats for users
      * @param ChatItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ChatItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ChatItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -176,17 +181,16 @@ class ChatItemRequestBuilder
     /**
      * Get chats from users
      * @param ChatItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ChatItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ChatItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Chat::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Chat::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -240,17 +244,16 @@ class ChatItemRequestBuilder
      * Update the navigation property chats in users
      * @param Chat $body The request body
      * @param ChatItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Chat $body, ?ChatItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Chat $body, ?ChatItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Chat::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Chat::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -301,7 +304,7 @@ class ChatItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -320,10 +323,10 @@ class ChatItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -346,10 +349,10 @@ class ChatItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Sea
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Adds the results of the eDiscovery search to the specified reviewSet.
+*/
 class AddToReviewSetOperationRequestBuilderGetQueryParameters 
 {
     /**

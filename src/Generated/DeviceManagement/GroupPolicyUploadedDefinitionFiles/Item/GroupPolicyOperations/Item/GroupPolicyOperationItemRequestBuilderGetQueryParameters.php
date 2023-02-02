@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyUploadedDef
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of operations on the uploaded ADMX file.
+*/
 class GroupPolicyOperationItemRequestBuilderGetQueryParameters 
 {
     /**

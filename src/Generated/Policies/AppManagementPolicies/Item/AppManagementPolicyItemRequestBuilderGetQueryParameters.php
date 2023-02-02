@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AppManagementPolicies\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
+*/
 class AppManagementPolicyItemRequestBuilderGetQueryParameters 
 {
     /**

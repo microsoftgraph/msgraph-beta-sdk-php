@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptio
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Encryption report for devices in this account
+*/
 class ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters 
 {
     /**

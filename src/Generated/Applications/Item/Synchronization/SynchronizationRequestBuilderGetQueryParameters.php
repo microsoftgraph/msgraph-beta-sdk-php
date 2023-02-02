@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get synchronization from applications
+*/
 class SynchronizationRequestBuilderGetQueryParameters 
 {
     /**

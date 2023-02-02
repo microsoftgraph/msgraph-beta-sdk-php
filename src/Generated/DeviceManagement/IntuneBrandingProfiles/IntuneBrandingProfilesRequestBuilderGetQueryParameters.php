@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Intune branding profiles targeted to AAD groups
+*/
 class IntuneBrandingProfilesRequestBuilderGetQueryParameters 
 {
     /**

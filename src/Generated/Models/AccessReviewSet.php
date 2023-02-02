@@ -84,7 +84,7 @@ class AccessReviewSet extends Entity implements Parsable
 
     /**
      * Sets the decisions property value. Represents an Azure AD access review decision on an instance of a review.
-     *  @param array<AccessReviewInstanceDecisionItem>|null $value Value to set for the decisions property.
+     * @param array<AccessReviewInstanceDecisionItem>|null $value Value to set for the decisions property.
     */
     public function setDecisions(?array $value): void {
         $this->getBackingStore()->set('decisions', $value);
@@ -92,7 +92,7 @@ class AccessReviewSet extends Entity implements Parsable
 
     /**
      * Sets the definitions property value. Represents the template and scheduling for an access review.
-     *  @param array<AccessReviewScheduleDefinition>|null $value Value to set for the definitions property.
+     * @param array<AccessReviewScheduleDefinition>|null $value Value to set for the definitions property.
     */
     public function setDefinitions(?array $value): void {
         $this->getBackingStore()->set('definitions', $value);
@@ -100,7 +100,7 @@ class AccessReviewSet extends Entity implements Parsable
 
     /**
      * Sets the historyDefinitions property value. Represents a collection of access review history data and the scopes used to collect that data.
-     *  @param array<AccessReviewHistoryDefinition>|null $value Value to set for the historyDefinitions property.
+     * @param array<AccessReviewHistoryDefinition>|null $value Value to set for the historyDefinitions property.
     */
     public function setHistoryDefinitions(?array $value): void {
         $this->getBackingStore()->set('historyDefinitions', $value);
@@ -108,7 +108,7 @@ class AccessReviewSet extends Entity implements Parsable
 
     /**
      * Sets the policy property value. Resource that enables administrators to manage directory-level access review policies in their tenant.
-     *  @param AccessReviewPolicy|null $value Value to set for the policy property.
+     * @param AccessReviewPolicy|null $value Value to set for the policy property.
     */
     public function setPolicy(?AccessReviewPolicy $value): void {
         $this->getBackingStore()->set('policy', $value);

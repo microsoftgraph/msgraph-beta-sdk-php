@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Device Configuration Setting State Device Summary
+*/
 class DeviceSettingStateSummariesRequestBuilderGetQueryParameters 
 {
     /**

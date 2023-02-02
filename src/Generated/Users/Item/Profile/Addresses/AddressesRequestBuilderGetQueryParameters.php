@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Addresses;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the itemAddress resources from the **addresses** navigation property.
+*/
 class AddressesRequestBuilderGetQueryParameters 
 {
     /**

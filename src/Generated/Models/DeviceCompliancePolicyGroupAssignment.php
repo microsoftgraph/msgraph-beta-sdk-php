@@ -74,7 +74,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
 
     /**
      * Sets the deviceCompliancePolicy property value. The navigation link to the  device compliance polic targeted.
-     *  @param DeviceCompliancePolicy|null $value Value to set for the deviceCompliancePolicy property.
+     * @param DeviceCompliancePolicy|null $value Value to set for the deviceCompliancePolicy property.
     */
     public function setDeviceCompliancePolicy(?DeviceCompliancePolicy $value): void {
         $this->getBackingStore()->set('deviceCompliancePolicy', $value);
@@ -82,7 +82,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
 
     /**
      * Sets the excludeGroup property value. Indicates if this group is should be excluded. Defaults that the group should be included
-     *  @param bool|null $value Value to set for the excludeGroup property.
+     * @param bool|null $value Value to set for the excludeGroup property.
     */
     public function setExcludeGroup(?bool $value): void {
         $this->getBackingStore()->set('excludeGroup', $value);
@@ -90,7 +90,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
 
     /**
      * Sets the targetGroupId property value. The Id of the AAD group we are targeting the device compliance policy to.
-     *  @param string|null $value Value to set for the targetGroupId property.
+     * @param string|null $value Value to set for the targetGroupId property.
     */
     public function setTargetGroupId(?string $value): void {
         $this->getBackingStore()->set('targetGroupId', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\HomeRealmDiscove
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property homeRealmDiscoveryPolicies for servicePrincipals
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

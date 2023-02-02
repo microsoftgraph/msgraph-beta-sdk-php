@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\ExtensionProperties\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+*/
 class ExtensionPropertyItemRequestBuilderGetQueryParameters 
 {
     /**

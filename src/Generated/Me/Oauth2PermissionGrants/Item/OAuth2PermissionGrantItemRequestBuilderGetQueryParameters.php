@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Oauth2PermissionGrants\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get oauth2PermissionGrants from me
+*/
 class OAuth2PermissionGrantItemRequestBuilderGetQueryParameters 
 {
     /**

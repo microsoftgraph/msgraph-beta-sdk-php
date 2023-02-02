@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of all ConfigurationSettings
+*/
 class ConfigurationSettingsRequestBuilderGetQueryParameters 
 {
     /**

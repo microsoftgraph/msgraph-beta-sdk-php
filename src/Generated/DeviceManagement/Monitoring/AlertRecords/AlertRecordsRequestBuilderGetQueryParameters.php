@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecord
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the alertRecord objects and their properties.
+*/
 class AlertRecordsRequestBuilderGetQueryParameters 
 {
     /**

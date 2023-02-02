@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcSnapshot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcSnapshot and sets the default values.
+     * Instantiates a new cloudPcSnapshot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -85,7 +85,7 @@ class CloudPcSnapshot extends Entity implements Parsable
 
     /**
      * Sets the cloudPcId property value. The unique identifier for the Cloud PC.
-     *  @param string|null $value Value to set for the cloudPcId property.
+     * @param string|null $value Value to set for the cloudPcId property.
     */
     public function setCloudPcId(?string $value): void {
         $this->getBackingStore()->set('cloudPcId', $value);
@@ -93,7 +93,7 @@ class CloudPcSnapshot extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time at which the snapshot was taken. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -101,7 +101,7 @@ class CloudPcSnapshot extends Entity implements Parsable
 
     /**
      * Sets the lastRestoredDateTime property value. The date and time at which the snapshot was last used to restore the Cloud PC device. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the lastRestoredDateTime property.
+     * @param DateTime|null $value Value to set for the lastRestoredDateTime property.
     */
     public function setLastRestoredDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRestoredDateTime', $value);
@@ -109,7 +109,7 @@ class CloudPcSnapshot extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the Cloud PC snapshot. The possible values are: ready, unknownFutureValue.
-     *  @param CloudPcSnapshotStatus|null $value Value to set for the status property.
+     * @param CloudPcSnapshotStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcSnapshotStatus $value): void {
         $this->getBackingStore()->set('status', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScript
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of run states for the device compliance script across all devices
+*/
 class DeviceRunStatesRequestBuilderGetQueryParameters 
 {
     /**

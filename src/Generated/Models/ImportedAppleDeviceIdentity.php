@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The importedAppleDeviceIdentity resource represents the imported device identity of an Apple device .
+*/
 class ImportedAppleDeviceIdentity extends Entity implements Parsable 
 {
     /**
@@ -162,7 +165,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Created Date Time of the device
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -170,7 +173,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the device
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -178,7 +181,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the discoverySource property value. The discoverySource property
-     *  @param DiscoverySource|null $value Value to set for the discoverySource property.
+     * @param DiscoverySource|null $value Value to set for the discoverySource property.
     */
     public function setDiscoverySource(?DiscoverySource $value): void {
         $this->getBackingStore()->set('discoverySource', $value);
@@ -186,7 +189,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the enrollmentState property value. The enrollmentState property
-     *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
+     * @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
     public function setEnrollmentState(?EnrollmentState $value): void {
         $this->getBackingStore()->set('enrollmentState', $value);
@@ -194,7 +197,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the isDeleted property value. Indicates if the device is deleted from Apple Business Manager
-     *  @param bool|null $value Value to set for the isDeleted property.
+     * @param bool|null $value Value to set for the isDeleted property.
     */
     public function setIsDeleted(?bool $value): void {
         $this->getBackingStore()->set('isDeleted', $value);
@@ -202,7 +205,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the isSupervised property value. Indicates if the Apple device is supervised. More information is at: https://support.apple.com/en-us/HT202837
-     *  @param bool|null $value Value to set for the isSupervised property.
+     * @param bool|null $value Value to set for the isSupervised property.
     */
     public function setIsSupervised(?bool $value): void {
         $this->getBackingStore()->set('isSupervised', $value);
@@ -210,7 +213,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the lastContactedDateTime property value. Last Contacted Date Time of the device
-     *  @param DateTime|null $value Value to set for the lastContactedDateTime property.
+     * @param DateTime|null $value Value to set for the lastContactedDateTime property.
     */
     public function setLastContactedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastContactedDateTime', $value);
@@ -218,7 +221,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the platform property value. The platform property
-     *  @param Platform|null $value Value to set for the platform property.
+     * @param Platform|null $value Value to set for the platform property.
     */
     public function setPlatform(?Platform $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -226,7 +229,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the requestedEnrollmentProfileAssignmentDateTime property value. The time enrollment profile was assigned to the device
-     *  @param DateTime|null $value Value to set for the requestedEnrollmentProfileAssignmentDateTime property.
+     * @param DateTime|null $value Value to set for the requestedEnrollmentProfileAssignmentDateTime property.
     */
     public function setRequestedEnrollmentProfileAssignmentDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('requestedEnrollmentProfileAssignmentDateTime', $value);
@@ -234,7 +237,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the requestedEnrollmentProfileId property value. Enrollment profile Id admin intends to apply to the device during next enrollment
-     *  @param string|null $value Value to set for the requestedEnrollmentProfileId property.
+     * @param string|null $value Value to set for the requestedEnrollmentProfileId property.
     */
     public function setRequestedEnrollmentProfileId(?string $value): void {
         $this->getBackingStore()->set('requestedEnrollmentProfileId', $value);
@@ -242,7 +245,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the serialNumber property value. Device serial number
-     *  @param string|null $value Value to set for the serialNumber property.
+     * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
         $this->getBackingStore()->set('serialNumber', $value);

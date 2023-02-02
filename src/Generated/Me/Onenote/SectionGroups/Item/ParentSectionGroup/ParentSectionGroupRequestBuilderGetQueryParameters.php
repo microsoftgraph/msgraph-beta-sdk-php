@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Onenote\SectionGroups\Item\ParentSec
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The section group that contains the section group. Read-only.
+*/
 class ParentSectionGroupRequestBuilderGetQueryParameters 
 {
     /**

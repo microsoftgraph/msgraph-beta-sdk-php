@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePr
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of windows quality update profiles
+*/
 class WindowsQualityUpdateProfileItemRequestBuilderGetQueryParameters 
 {
     /**

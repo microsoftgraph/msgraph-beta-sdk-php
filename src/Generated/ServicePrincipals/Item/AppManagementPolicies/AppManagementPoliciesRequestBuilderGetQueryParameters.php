@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppManagementPol
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The appManagementPolicy applied to this service principal.
+*/
 class AppManagementPoliciesRequestBuilderGetQueryParameters 
 {
     /**

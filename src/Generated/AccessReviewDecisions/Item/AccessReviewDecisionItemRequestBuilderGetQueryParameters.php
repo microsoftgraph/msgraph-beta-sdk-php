@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviewDecisions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from accessReviewDecisions by key
+*/
 class AccessReviewDecisionItemRequestBuilderGetQueryParameters 
 {
     /**

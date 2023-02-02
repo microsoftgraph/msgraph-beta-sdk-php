@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get updates from admin
+*/
 class UpdatesRequestBuilderGetQueryParameters 
 {
     /**

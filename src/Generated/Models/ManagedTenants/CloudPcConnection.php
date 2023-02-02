@@ -96,7 +96,7 @@ class CloudPcConnection extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the cloud PC connection. Required. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -104,7 +104,7 @@ class CloudPcConnection extends Entity implements Parsable
 
     /**
      * Sets the healthCheckStatus property value. The health status of the cloud PC connection. Possible values are: pending, running, passed, failed, unknownFutureValue.  Required. Read-only.
-     *  @param string|null $value Value to set for the healthCheckStatus property.
+     * @param string|null $value Value to set for the healthCheckStatus property.
     */
     public function setHealthCheckStatus(?string $value): void {
         $this->getBackingStore()->set('healthCheckStatus', $value);
@@ -112,7 +112,7 @@ class CloudPcConnection extends Entity implements Parsable
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only.
-     *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);
@@ -120,7 +120,7 @@ class CloudPcConnection extends Entity implements Parsable
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantDisplayName property.
+     * @param string|null $value Value to set for the tenantDisplayName property.
     */
     public function setTenantDisplayName(?string $value): void {
         $this->getBackingStore()->set('tenantDisplayName', $value);
@@ -128,7 +128,7 @@ class CloudPcConnection extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

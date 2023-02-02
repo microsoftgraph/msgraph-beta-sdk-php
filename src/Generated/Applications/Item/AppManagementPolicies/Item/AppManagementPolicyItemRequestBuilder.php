@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies
 use Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /applications/{application-id}/appManagementPolicies/{appManagementPolicy-id}
+*/
 class AppManagementPolicyItemRequestBuilder 
 {
     /**
@@ -33,11 +36,15 @@ class AppManagementPolicyItemRequestBuilder
      * Instantiates a new AppManagementPolicyItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $appManagementPolicyId key: id of appManagementPolicy
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $appManagementPolicyId = null) {
         $this->urlTemplate = '{+baseurl}/applications/{application%2Did}/appManagementPolicies/{appManagementPolicy%2Did}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['appManagementPolicyId'] = $appManagementPolicyId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
 }

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\InformationProtection\SensitivityLabels
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get sensitivityLabels from informationProtection
+*/
 class SensitivityLabelsRequestBuilderGetQueryParameters 
 {
     /**

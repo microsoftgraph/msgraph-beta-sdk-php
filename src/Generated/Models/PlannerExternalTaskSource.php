@@ -115,7 +115,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
 
     /**
      * Sets the contextScenarioId property value. Nullable. An identifier for the scenario associated with this external source. This should be in reverse DNS format. For example, Contoso company owned application for customer support would have a value like 'com.constoso.customerSupport'.
-     *  @param string|null $value Value to set for the contextScenarioId property.
+     * @param string|null $value Value to set for the contextScenarioId property.
     */
     public function setContextScenarioId(?string $value): void {
         $this->getBackingStore()->set('contextScenarioId', $value);
@@ -123,7 +123,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
 
     /**
      * Sets the displayLinkType property value. Specifies how an application should display the link to the associated plannerExternalTaskSource. The possible values are: none, default.
-     *  @param PlannerExternalTaskSourceDisplayType|null $value Value to set for the displayLinkType property.
+     * @param PlannerExternalTaskSourceDisplayType|null $value Value to set for the displayLinkType property.
     */
     public function setDisplayLinkType(?PlannerExternalTaskSourceDisplayType $value): void {
         $this->getBackingStore()->set('displayLinkType', $value);
@@ -131,7 +131,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
 
     /**
      * Sets the displayNameSegments property value. The segments of the name of the external experience. Segments represent a hierarchical structure that allows other apps to display the relationship.
-     *  @param array<string>|null $value Value to set for the displayNameSegments property.
+     * @param array<string>|null $value Value to set for the displayNameSegments property.
     */
     public function setDisplayNameSegments(?array $value): void {
         $this->getBackingStore()->set('displayNameSegments', $value);
@@ -139,7 +139,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
 
     /**
      * Sets the externalContextId property value. Nullable. The id of the external entity's containing entity or context.
-     *  @param string|null $value Value to set for the externalContextId property.
+     * @param string|null $value Value to set for the externalContextId property.
     */
     public function setExternalContextId(?string $value): void {
         $this->getBackingStore()->set('externalContextId', $value);
@@ -147,7 +147,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
 
     /**
      * Sets the externalObjectId property value. Nullable. The id of the entity that an external service associates with a task.
-     *  @param string|null $value Value to set for the externalObjectId property.
+     * @param string|null $value Value to set for the externalObjectId property.
     */
     public function setExternalObjectId(?string $value): void {
         $this->getBackingStore()->set('externalObjectId', $value);
@@ -155,7 +155,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
 
     /**
      * Sets the externalObjectVersion property value. Nullable. The external Item Version for the object specified by the externalObjectId.
-     *  @param string|null $value Value to set for the externalObjectVersion property.
+     * @param string|null $value Value to set for the externalObjectVersion property.
     */
     public function setExternalObjectVersion(?string $value): void {
         $this->getBackingStore()->set('externalObjectVersion', $value);
@@ -163,7 +163,7 @@ class PlannerExternalTaskSource extends PlannerTaskCreation implements Parsable
 
     /**
      * Sets the webUrl property value. Nullable. URL of the user experience represented by the associated plannerExternalTaskSource.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

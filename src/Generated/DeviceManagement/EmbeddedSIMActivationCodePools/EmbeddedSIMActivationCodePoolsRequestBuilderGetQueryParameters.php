@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationC
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The embedded SIM activation code pools created by this account.
+*/
 class EmbeddedSIMActivationCodePoolsRequestBuilderGetQueryParameters 
 {
     /**

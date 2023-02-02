@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from governanceRoleAssignmentRequests by key
+*/
 class GovernanceRoleAssignmentRequestItemRequestBuilderGetQueryParameters 
 {
     /**

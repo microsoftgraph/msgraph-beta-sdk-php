@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+*/
 class InReplyToRequestBuilderGetQueryParameters 
 {
     /**

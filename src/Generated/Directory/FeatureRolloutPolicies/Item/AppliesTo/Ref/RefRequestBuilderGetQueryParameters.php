@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\A
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Nullable. Specifies a list of directoryObjects that feature is enabled for.
+*/
 class RefRequestBuilderGetQueryParameters 
 {
     /**

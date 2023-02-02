@@ -55,7 +55,7 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation im
 
     /**
      * Sets the defaultChecked property value. Default value for the check box. The default value is false.
-     *  @param bool|null $value Value to set for the defaultChecked property.
+     * @param bool|null $value Value to set for the defaultChecked property.
     */
     public function setDefaultChecked(?bool $value): void {
         $this->getBackingStore()->set('defaultChecked', $value);

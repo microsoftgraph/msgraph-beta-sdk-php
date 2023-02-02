@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreement
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+*/
 class FilesRequestBuilderGetQueryParameters 
 {
     /**

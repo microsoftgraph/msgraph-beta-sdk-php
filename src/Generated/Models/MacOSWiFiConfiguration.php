@@ -152,7 +152,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectAutomatically property value. Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
-     *  @param bool|null $value Value to set for the connectAutomatically property.
+     * @param bool|null $value Value to set for the connectAutomatically property.
     */
     public function setConnectAutomatically(?bool $value): void {
         $this->getBackingStore()->set('connectAutomatically', $value);
@@ -160,7 +160,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectWhenNetworkNameIsHidden property value. Connect when the network is not broadcasting its name (SSID). When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
-     *  @param bool|null $value Value to set for the connectWhenNetworkNameIsHidden property.
+     * @param bool|null $value Value to set for the connectWhenNetworkNameIsHidden property.
     */
     public function setConnectWhenNetworkNameIsHidden(?bool $value): void {
         $this->getBackingStore()->set('connectWhenNetworkNameIsHidden', $value);
@@ -168,7 +168,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the networkName property value. Network Name
-     *  @param string|null $value Value to set for the networkName property.
+     * @param string|null $value Value to set for the networkName property.
     */
     public function setNetworkName(?string $value): void {
         $this->getBackingStore()->set('networkName', $value);
@@ -176,7 +176,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the preSharedKey property value. This is the pre-shared key for WPA Personal Wi-Fi network.
-     *  @param string|null $value Value to set for the preSharedKey property.
+     * @param string|null $value Value to set for the preSharedKey property.
     */
     public function setPreSharedKey(?string $value): void {
         $this->getBackingStore()->set('preSharedKey', $value);
@@ -184,7 +184,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxyAutomaticConfigurationUrl property value. URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
-     *  @param string|null $value Value to set for the proxyAutomaticConfigurationUrl property.
+     * @param string|null $value Value to set for the proxyAutomaticConfigurationUrl property.
     */
     public function setProxyAutomaticConfigurationUrl(?string $value): void {
         $this->getBackingStore()->set('proxyAutomaticConfigurationUrl', $value);
@@ -192,7 +192,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxyManualAddress property value. IP Address or DNS hostname of the proxy server when manual configuration is selected.
-     *  @param string|null $value Value to set for the proxyManualAddress property.
+     * @param string|null $value Value to set for the proxyManualAddress property.
     */
     public function setProxyManualAddress(?string $value): void {
         $this->getBackingStore()->set('proxyManualAddress', $value);
@@ -200,7 +200,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxyManualPort property value. Port of the proxy server when manual configuration is selected.
-     *  @param int|null $value Value to set for the proxyManualPort property.
+     * @param int|null $value Value to set for the proxyManualPort property.
     */
     public function setProxyManualPort(?int $value): void {
         $this->getBackingStore()->set('proxyManualPort', $value);
@@ -208,7 +208,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxySettings property value. Wi-Fi Proxy Settings.
-     *  @param WiFiProxySetting|null $value Value to set for the proxySettings property.
+     * @param WiFiProxySetting|null $value Value to set for the proxySettings property.
     */
     public function setProxySettings(?WiFiProxySetting $value): void {
         $this->getBackingStore()->set('proxySettings', $value);
@@ -216,7 +216,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the ssid property value. This is the name of the Wi-Fi network that is broadcast to all devices.
-     *  @param string|null $value Value to set for the ssid property.
+     * @param string|null $value Value to set for the ssid property.
     */
     public function setSsid(?string $value): void {
         $this->getBackingStore()->set('ssid', $value);
@@ -224,7 +224,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the wiFiSecurityType property value. Wi-Fi Security Types.
-     *  @param WiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
+     * @param WiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
     */
     public function setWiFiSecurityType(?WiFiSecurityType $value): void {
         $this->getBackingStore()->set('wiFiSecurityType', $value);

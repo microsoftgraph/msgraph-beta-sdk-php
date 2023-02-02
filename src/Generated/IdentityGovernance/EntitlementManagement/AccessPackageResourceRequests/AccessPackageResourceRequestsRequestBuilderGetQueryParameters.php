@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of accessPackageResourceRequest objects.
+*/
 class AccessPackageResourceRequestsRequestBuilderGetQueryParameters 
 {
     /**

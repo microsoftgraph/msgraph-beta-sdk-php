@@ -95,7 +95,7 @@ class StatusDetails extends StatusBase implements Parsable
 
     /**
      * Sets the additionalDetails property value. Additional details in case of error.
-     *  @param string|null $value Value to set for the additionalDetails property.
+     * @param string|null $value Value to set for the additionalDetails property.
     */
     public function setAdditionalDetails(?string $value): void {
         $this->getBackingStore()->set('additionalDetails', $value);
@@ -103,7 +103,7 @@ class StatusDetails extends StatusBase implements Parsable
 
     /**
      * Sets the errorCategory property value. Categorizes the error code. Possible values are Failure, NonServiceFailure, Success.
-     *  @param ProvisioningStatusErrorCategory|null $value Value to set for the errorCategory property.
+     * @param ProvisioningStatusErrorCategory|null $value Value to set for the errorCategory property.
     */
     public function setErrorCategory(?ProvisioningStatusErrorCategory $value): void {
         $this->getBackingStore()->set('errorCategory', $value);
@@ -111,7 +111,7 @@ class StatusDetails extends StatusBase implements Parsable
 
     /**
      * Sets the errorCode property value. Unique error code if any occurred. Learn more
-     *  @param string|null $value Value to set for the errorCode property.
+     * @param string|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?string $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -119,7 +119,7 @@ class StatusDetails extends StatusBase implements Parsable
 
     /**
      * Sets the reason property value. Summarizes the status and describes why the status happened.
-     *  @param string|null $value Value to set for the reason property.
+     * @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value): void {
         $this->getBackingStore()->set('reason', $value);
@@ -127,7 +127,7 @@ class StatusDetails extends StatusBase implements Parsable
 
     /**
      * Sets the recommendedAction property value. Provides the resolution for the corresponding error.
-     *  @param string|null $value Value to set for the recommendedAction property.
+     * @param string|null $value Value to set for the recommendedAction property.
     */
     public function setRecommendedAction(?string $value): void {
         $this->getBackingStore()->set('recommendedAction', $value);

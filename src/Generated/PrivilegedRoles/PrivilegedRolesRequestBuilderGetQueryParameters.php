@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoles;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of privilegedRole objects. To filter the results from the query, use the standard OData ``$filter`` expressions in the URIs.
+*/
 class PrivilegedRolesRequestBuilderGetQueryParameters 
 {
     /**

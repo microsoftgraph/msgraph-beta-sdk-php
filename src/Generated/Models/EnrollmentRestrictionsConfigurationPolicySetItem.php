@@ -65,7 +65,7 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem imp
 
     /**
      * Sets the limit property value. Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.
-     *  @param int|null $value Value to set for the limit property.
+     * @param int|null $value Value to set for the limit property.
     */
     public function setLimit(?int $value): void {
         $this->getBackingStore()->set('limit', $value);
@@ -73,7 +73,7 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem imp
 
     /**
      * Sets the priority property value. Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);

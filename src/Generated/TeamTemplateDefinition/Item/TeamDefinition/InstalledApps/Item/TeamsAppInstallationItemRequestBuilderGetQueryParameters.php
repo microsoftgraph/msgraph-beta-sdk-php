@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The apps installed in this team.
+*/
 class TeamsAppInstallationItemRequestBuilderGetQueryParameters 
 {
     /**

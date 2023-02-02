@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Me;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\ActivateServicePlan\ActivateServicePlanRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Activities\Item\UserActivityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AgreementAcceptances\AgreementAcceptancesRequestBuilder;
@@ -19,7 +18,6 @@ use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignments\AppRoleAssignmentsReque
 use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Approvals\ApprovalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Approvals\Item\ApprovalItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\AssignLicense\AssignLicenseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Authentication\AuthenticationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\CalendarGroupsRequestBuilder;
@@ -27,11 +25,8 @@ use Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\CalendarGroupItemReque
 use Microsoft\Graph\Beta\Generated\Me\Calendars\CalendarsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendars\Item\CalendarItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\CalendarViewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ChangePassword\ChangePasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\ChatsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Chats\Item\ChatItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\CloudPCsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\CloudPCItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ContactFolders\ContactFoldersRequestBuilder;
@@ -50,31 +45,13 @@ use Microsoft\Graph\Beta\Generated\Me\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Drives\Item\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Events\EventsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ExportDeviceAndAppManagementData\ExportDeviceAndAppManagementDataRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ExportDeviceAndAppManagementDataWithSkipWithTop\ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ExportPersonalData\ExportPersonalDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Extensions\Item\ExtensionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\FindMeetingTimes\FindMeetingTimesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\FindRoomLists\FindRoomListsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\FindRooms\FindRoomsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\FindRoomsWithRoomList\FindRoomsWithRoomListRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\FollowedSites\FollowedSitesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\FollowedSites\Item\SiteItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\GetEffectiveDeviceEnrollmentConfigurations\GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\GetLoggedOnManagedDevices\GetLoggedOnManagedDevicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\GetMailTips\GetMailTipsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\GetManagedAppDiagnosticStatuses\GetManagedAppDiagnosticStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\GetManagedAppPolicies\GetManagedAppPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\GetManagedDevicesWithAppFailures\GetManagedDevicesWithAppFailuresRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\GetManagedDevicesWithFailedOrPendingApps\GetManagedDevicesWithFailedOrPendingAppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\GetMemberGroups\GetMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InferenceClassification\InferenceClassificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Insights\InsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\InvalidateAllRefreshTokens\InvalidateAllRefreshTokensRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\IsManagedAppUserBlocked\IsManagedAppUserBlockedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\JoinedGroups\JoinedGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\JoinedTeams\Item\TeamItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\JoinedTeams\JoinedTeamsRequestBuilder;
@@ -90,6 +67,41 @@ use Microsoft\Graph\Beta\Generated\Me\Manager\ManagerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MemberOf\MemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Messages\Item\MessageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Messages\MessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphActivateServicePlan\ActivateServicePlanRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphAssignLicense\AssignLicenseRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphChangePassword\ChangePasswordRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphCheckMemberGroups\CheckMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphCheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphExportDeviceAndAppManagementData\ExportDeviceAndAppManagementDataRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphExportDeviceAndAppManagementDataWithSkipWithTop\ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphExportPersonalData\ExportPersonalDataRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphFindMeetingTimes\FindMeetingTimesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphFindRoomLists\FindRoomListsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphFindRooms\FindRoomsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphFindRoomsWithRoomList\FindRoomsWithRoomListRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphGetEffectiveDeviceEnrollmentConfigurations\GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphGetLoggedOnManagedDevices\GetLoggedOnManagedDevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphGetMailTips\GetMailTipsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphGetManagedAppDiagnosticStatuses\GetManagedAppDiagnosticStatusesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphGetManagedAppPolicies\GetManagedAppPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphGetManagedDevicesWithAppFailures\GetManagedDevicesWithAppFailuresRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphGetManagedDevicesWithFailedOrPendingApps\GetManagedDevicesWithFailedOrPendingAppsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphGetMemberGroups\GetMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphGetMemberObjects\GetMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphInvalidateAllRefreshTokens\InvalidateAllRefreshTokensRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphIsManagedAppUserBlocked\IsManagedAppUserBlockedRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphReminderViewWithStartDateTimeWithEndDateTime\ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphRemoveAllDevicesFromManagement\RemoveAllDevicesFromManagementRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphReprocessLicenseAssignment\ReprocessLicenseAssignmentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphRestore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphRevokeSignInSessions\RevokeSignInSessionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphSendMail\SendMailRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphTranslateExchangeIds\TranslateExchangeIdsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphUnblockManagedApps\UnblockManagedAppsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphWipeAndBlockManagedApps\WipeAndBlockManagedAppsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphWipeManagedAppRegistrationByDeviceTag\WipeManagedAppRegistrationByDeviceTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphWipeManagedAppRegistrationsByAzureAdDeviceId\WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MicrosoftGraphWipeManagedAppRegistrationsByDeviceTag\WipeManagedAppRegistrationsByDeviceTagRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MobileAppIntentAndStates\Item\MobileAppIntentAndStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MobileAppIntentAndStates\MobileAppIntentAndStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MobileAppTroubleshootingEvents\Item\MobileAppTroubleshootingEventItemRequestBuilder;
@@ -115,49 +127,32 @@ use Microsoft\Graph\Beta\Generated\Me\Planner\PlannerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Presence\PresenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Profile\ProfileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\RegisteredDevices\RegisteredDevicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ReminderViewWithStartDateTimeWithEndDateTime\ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\RemoveAllDevicesFromManagement\RemoveAllDevicesFromManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ReprocessLicenseAssignment\ReprocessLicenseAssignmentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\RevokeSignInSessions\RevokeSignInSessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ScopedRoleMemberOf\Item\ScopedRoleMembershipItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ScopedRoleMemberOf\ScopedRoleMemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Security\SecurityRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\SendMail\SendMailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Teamwork\TeamworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Todo\TodoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\TransitiveReports\TransitiveReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\TranslateExchangeIds\TranslateExchangeIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\UnblockManagedApps\UnblockManagedAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\UsageRights\Item\UsageRightItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\UsageRights\UsageRightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\WindowsInformationProtectionDeviceRegistrations\Item\WindowsInformationProtectionDeviceRegistrationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\WindowsInformationProtectionDeviceRegistrations\WindowsInformationProtectionDeviceRegistrationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\WipeAndBlockManagedApps\WipeAndBlockManagedAppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\WipeManagedAppRegistrationByDeviceTag\WipeManagedAppRegistrationByDeviceTagRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\WipeManagedAppRegistrationsByAzureAdDeviceId\WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\WipeManagedAppRegistrationsByDeviceTag\WipeManagedAppRegistrationsByDeviceTagRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\User;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the user singleton.
+*/
 class MeRequestBuilder 
 {
-    /**
-     * Provides operations to call the activateServicePlan method.
-    */
-    public function activateServicePlan(): ActivateServicePlanRequestBuilder {
-        return new ActivateServicePlanRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the activities property of the microsoft.graph.user entity.
     */
@@ -208,13 +203,6 @@ class MeRequestBuilder
     }
     
     /**
-     * Provides operations to call the assignLicense method.
-    */
-    public function assignLicense(): AssignLicenseRequestBuilder {
-        return new AssignLicenseRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the authentication property of the microsoft.graph.user entity.
     */
     public function authentication(): AuthenticationRequestBuilder {
@@ -250,31 +238,10 @@ class MeRequestBuilder
     }
     
     /**
-     * Provides operations to call the changePassword method.
-    */
-    public function changePassword(): ChangePasswordRequestBuilder {
-        return new ChangePasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the chats property of the microsoft.graph.user entity.
     */
     public function chats(): ChatsRequestBuilder {
         return new ChatsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the checkMemberGroups method.
-    */
-    public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
-        return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the checkMemberObjects method.
-    */
-    public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
-        return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -355,13 +322,6 @@ class MeRequestBuilder
     }
     
     /**
-     * Provides operations to call the exportPersonalData method.
-    */
-    public function exportPersonalData(): ExportPersonalDataRequestBuilder {
-        return new ExportPersonalDataRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the extensions property of the microsoft.graph.user entity.
     */
     public function extensions(): ExtensionsRequestBuilder {
@@ -369,38 +329,10 @@ class MeRequestBuilder
     }
     
     /**
-     * Provides operations to call the findMeetingTimes method.
-    */
-    public function findMeetingTimes(): FindMeetingTimesRequestBuilder {
-        return new FindMeetingTimesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the followedSites property of the microsoft.graph.user entity.
     */
     public function followedSites(): FollowedSitesRequestBuilder {
         return new FollowedSitesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getMailTips method.
-    */
-    public function getMailTips(): GetMailTipsRequestBuilder {
-        return new GetMailTipsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getMemberGroups method.
-    */
-    public function getMemberGroups(): GetMemberGroupsRequestBuilder {
-        return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getMemberObjects method.
-    */
-    public function getMemberObjects(): GetMemberObjectsRequestBuilder {
-        return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -422,13 +354,6 @@ class MeRequestBuilder
     */
     public function insights(): InsightsRequestBuilder {
         return new InsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the invalidateAllRefreshTokens method.
-    */
-    public function invalidateAllRefreshTokens(): InvalidateAllRefreshTokensRequestBuilder {
-        return new InvalidateAllRefreshTokensRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -492,6 +417,230 @@ class MeRequestBuilder
     */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the activateServicePlan method.
+    */
+    public function microsoftGraphActivateServicePlan(): ActivateServicePlanRequestBuilder {
+        return new ActivateServicePlanRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the assignLicense method.
+    */
+    public function microsoftGraphAssignLicense(): AssignLicenseRequestBuilder {
+        return new AssignLicenseRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the changePassword method.
+    */
+    public function microsoftGraphChangePassword(): ChangePasswordRequestBuilder {
+        return new ChangePasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkMemberGroups method.
+    */
+    public function microsoftGraphCheckMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkMemberObjects method.
+    */
+    public function microsoftGraphCheckMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the exportDeviceAndAppManagementData method.
+    */
+    public function microsoftGraphExportDeviceAndAppManagementData(): ExportDeviceAndAppManagementDataRequestBuilder {
+        return new ExportDeviceAndAppManagementDataRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the exportPersonalData method.
+    */
+    public function microsoftGraphExportPersonalData(): ExportPersonalDataRequestBuilder {
+        return new ExportPersonalDataRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the findMeetingTimes method.
+    */
+    public function microsoftGraphFindMeetingTimes(): FindMeetingTimesRequestBuilder {
+        return new FindMeetingTimesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the findRoomLists method.
+    */
+    public function microsoftGraphFindRoomLists(): FindRoomListsRequestBuilder {
+        return new FindRoomListsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the findRooms method.
+    */
+    public function microsoftGraphFindRooms(): FindRoomsRequestBuilder {
+        return new FindRoomsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getEffectiveDeviceEnrollmentConfigurations method.
+    */
+    public function microsoftGraphGetEffectiveDeviceEnrollmentConfigurations(): GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder {
+        return new GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getLoggedOnManagedDevices method.
+    */
+    public function microsoftGraphGetLoggedOnManagedDevices(): GetLoggedOnManagedDevicesRequestBuilder {
+        return new GetLoggedOnManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMailTips method.
+    */
+    public function microsoftGraphGetMailTips(): GetMailTipsRequestBuilder {
+        return new GetMailTipsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getManagedAppDiagnosticStatuses method.
+    */
+    public function microsoftGraphGetManagedAppDiagnosticStatuses(): GetManagedAppDiagnosticStatusesRequestBuilder {
+        return new GetManagedAppDiagnosticStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getManagedAppPolicies method.
+    */
+    public function microsoftGraphGetManagedAppPolicies(): GetManagedAppPoliciesRequestBuilder {
+        return new GetManagedAppPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getManagedDevicesWithAppFailures method.
+    */
+    public function microsoftGraphGetManagedDevicesWithAppFailures(): GetManagedDevicesWithAppFailuresRequestBuilder {
+        return new GetManagedDevicesWithAppFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getManagedDevicesWithFailedOrPendingApps method.
+    */
+    public function microsoftGraphGetManagedDevicesWithFailedOrPendingApps(): GetManagedDevicesWithFailedOrPendingAppsRequestBuilder {
+        return new GetManagedDevicesWithFailedOrPendingAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMemberGroups method.
+    */
+    public function microsoftGraphGetMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMemberObjects method.
+    */
+    public function microsoftGraphGetMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the invalidateAllRefreshTokens method.
+    */
+    public function microsoftGraphInvalidateAllRefreshTokens(): InvalidateAllRefreshTokensRequestBuilder {
+        return new InvalidateAllRefreshTokensRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the isManagedAppUserBlocked method.
+    */
+    public function microsoftGraphIsManagedAppUserBlocked(): IsManagedAppUserBlockedRequestBuilder {
+        return new IsManagedAppUserBlockedRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeAllDevicesFromManagement method.
+    */
+    public function microsoftGraphRemoveAllDevicesFromManagement(): RemoveAllDevicesFromManagementRequestBuilder {
+        return new RemoveAllDevicesFromManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the reprocessLicenseAssignment method.
+    */
+    public function microsoftGraphReprocessLicenseAssignment(): ReprocessLicenseAssignmentRequestBuilder {
+        return new ReprocessLicenseAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the restore method.
+    */
+    public function microsoftGraphRestore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the revokeSignInSessions method.
+    */
+    public function microsoftGraphRevokeSignInSessions(): RevokeSignInSessionsRequestBuilder {
+        return new RevokeSignInSessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the sendMail method.
+    */
+    public function microsoftGraphSendMail(): SendMailRequestBuilder {
+        return new SendMailRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the translateExchangeIds method.
+    */
+    public function microsoftGraphTranslateExchangeIds(): TranslateExchangeIdsRequestBuilder {
+        return new TranslateExchangeIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unblockManagedApps method.
+    */
+    public function microsoftGraphUnblockManagedApps(): UnblockManagedAppsRequestBuilder {
+        return new UnblockManagedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the wipeAndBlockManagedApps method.
+    */
+    public function microsoftGraphWipeAndBlockManagedApps(): WipeAndBlockManagedAppsRequestBuilder {
+        return new WipeAndBlockManagedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the wipeManagedAppRegistrationByDeviceTag method.
+    */
+    public function microsoftGraphWipeManagedAppRegistrationByDeviceTag(): WipeManagedAppRegistrationByDeviceTagRequestBuilder {
+        return new WipeManagedAppRegistrationByDeviceTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the wipeManagedAppRegistrationsByAzureAdDeviceId method.
+    */
+    public function microsoftGraphWipeManagedAppRegistrationsByAzureAdDeviceId(): WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder {
+        return new WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method.
+    */
+    public function microsoftGraphWipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
+        return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -619,37 +768,9 @@ class MeRequestBuilder
     }
     
     /**
-     * Provides operations to call the removeAllDevicesFromManagement method.
-    */
-    public function removeAllDevicesFromManagement(): RemoveAllDevicesFromManagementRequestBuilder {
-        return new RemoveAllDevicesFromManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the reprocessLicenseAssignment method.
-    */
-    public function reprocessLicenseAssignment(): ReprocessLicenseAssignmentRequestBuilder {
-        return new ReprocessLicenseAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
-    
-    /**
-     * Provides operations to call the restore method.
-    */
-    public function restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the revokeSignInSessions method.
-    */
-    public function revokeSignInSessions(): RevokeSignInSessionsRequestBuilder {
-        return new RevokeSignInSessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
@@ -663,13 +784,6 @@ class MeRequestBuilder
     */
     public function security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the sendMail method.
-    */
-    public function sendMail(): SendMailRequestBuilder {
-        return new SendMailRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -708,20 +822,6 @@ class MeRequestBuilder
     }
     
     /**
-     * Provides operations to call the translateExchangeIds method.
-    */
-    public function translateExchangeIds(): TranslateExchangeIdsRequestBuilder {
-        return new TranslateExchangeIdsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the unblockManagedApps method.
-    */
-    public function unblockManagedApps(): UnblockManagedAppsRequestBuilder {
-        return new UnblockManagedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
@@ -738,34 +838,6 @@ class MeRequestBuilder
     */
     public function windowsInformationProtectionDeviceRegistrations(): WindowsInformationProtectionDeviceRegistrationsRequestBuilder {
         return new WindowsInformationProtectionDeviceRegistrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the wipeAndBlockManagedApps method.
-    */
-    public function wipeAndBlockManagedApps(): WipeAndBlockManagedAppsRequestBuilder {
-        return new WipeAndBlockManagedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the wipeManagedAppRegistrationByDeviceTag method.
-    */
-    public function wipeManagedAppRegistrationByDeviceTag(): WipeManagedAppRegistrationByDeviceTagRequestBuilder {
-        return new WipeManagedAppRegistrationByDeviceTagRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the wipeManagedAppRegistrationsByAzureAdDeviceId method.
-    */
-    public function wipeManagedAppRegistrationsByAzureAdDeviceId(): WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder {
-        return new WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method.
-    */
-    public function wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
-        return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1000,24 +1072,6 @@ class MeRequestBuilder
     }
 
     /**
-     * Provides operations to call the exportDeviceAndAppManagementData method.
-     * @return ExportDeviceAndAppManagementDataRequestBuilder
-    */
-    public function exportDeviceAndAppManagementData(): ExportDeviceAndAppManagementDataRequestBuilder {
-        return new ExportDeviceAndAppManagementDataRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the exportDeviceAndAppManagementData method.
-     * @param int $skip Usage: skip={skip}
-     * @param int $top Usage: top={top}
-     * @return ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder
-    */
-    public function exportDeviceAndAppManagementDataWithSkipWithTop(int $skip, int $top): ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder {
-        return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder($this->pathParameters, $this->requestAdapter, $skip, $top);
-    }
-
-    /**
      * Provides operations to manage the extensions property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ExtensionItemRequestBuilder
@@ -1026,31 +1080,6 @@ class MeRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['extension%2Did'] = $id;
         return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the findRoomLists method.
-     * @return FindRoomListsRequestBuilder
-    */
-    public function findRoomLists(): FindRoomListsRequestBuilder {
-        return new FindRoomListsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the findRooms method.
-     * @return FindRoomsRequestBuilder
-    */
-    public function findRooms(): FindRoomsRequestBuilder {
-        return new FindRoomsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the findRooms method.
-     * @param string $roomList Usage: RoomList='{RoomList}'
-     * @return FindRoomsWithRoomListRequestBuilder
-    */
-    public function findRoomsWithRoomList(string $roomList): FindRoomsWithRoomListRequestBuilder {
-        return new FindRoomsWithRoomListRequestBuilder($this->pathParameters, $this->requestAdapter, $roomList);
     }
 
     /**
@@ -1065,78 +1094,22 @@ class MeRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
+     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param MeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0 Find more info here
     */
-    public function get(?MeRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?MeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getEffectiveDeviceEnrollmentConfigurations method.
-     * @return GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder
-    */
-    public function getEffectiveDeviceEnrollmentConfigurations(): GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder {
-        return new GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getLoggedOnManagedDevices method.
-     * @return GetLoggedOnManagedDevicesRequestBuilder
-    */
-    public function getLoggedOnManagedDevices(): GetLoggedOnManagedDevicesRequestBuilder {
-        return new GetLoggedOnManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getManagedAppDiagnosticStatuses method.
-     * @return GetManagedAppDiagnosticStatusesRequestBuilder
-    */
-    public function getManagedAppDiagnosticStatuses(): GetManagedAppDiagnosticStatusesRequestBuilder {
-        return new GetManagedAppDiagnosticStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getManagedAppPolicies method.
-     * @return GetManagedAppPoliciesRequestBuilder
-    */
-    public function getManagedAppPolicies(): GetManagedAppPoliciesRequestBuilder {
-        return new GetManagedAppPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getManagedDevicesWithAppFailures method.
-     * @return GetManagedDevicesWithAppFailuresRequestBuilder
-    */
-    public function getManagedDevicesWithAppFailures(): GetManagedDevicesWithAppFailuresRequestBuilder {
-        return new GetManagedDevicesWithAppFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getManagedDevicesWithFailedOrPendingApps method.
-     * @return GetManagedDevicesWithFailedOrPendingAppsRequestBuilder
-    */
-    public function getManagedDevicesWithFailedOrPendingApps(): GetManagedDevicesWithFailedOrPendingAppsRequestBuilder {
-        return new GetManagedDevicesWithFailedOrPendingAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the isManagedAppUserBlocked method.
-     * @return IsManagedAppUserBlockedRequestBuilder
-    */
-    public function isManagedAppUserBlocked(): IsManagedAppUserBlockedRequestBuilder {
-        return new IsManagedAppUserBlockedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -1214,6 +1187,35 @@ class MeRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['message%2Did'] = $id;
         return new MessageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to call the exportDeviceAndAppManagementData method.
+     * @param int $skip Usage: skip={skip}
+     * @param int $top Usage: top={top}
+     * @return ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder
+    */
+    public function microsoftGraphExportDeviceAndAppManagementDataWithSkipWithTop(int $skip, int $top): ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder {
+        return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder($this->pathParameters, $this->requestAdapter, $skip, $top);
+    }
+
+    /**
+     * Provides operations to call the findRooms method.
+     * @param string $roomList Usage: RoomList='{RoomList}'
+     * @return FindRoomsWithRoomListRequestBuilder
+    */
+    public function microsoftGraphFindRoomsWithRoomList(string $roomList): FindRoomsWithRoomListRequestBuilder {
+        return new FindRoomsWithRoomListRequestBuilder($this->pathParameters, $this->requestAdapter, $roomList);
+    }
+
+    /**
+     * Provides operations to call the reminderView method.
+     * @param string $endDateTime Usage: EndDateTime='{EndDateTime}'
+     * @param string $startDateTime Usage: StartDateTime='{StartDateTime}'
+     * @return ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder
+    */
+    public function microsoftGraphReminderViewWithStartDateTimeWithEndDateTime(string $endDateTime, string $startDateTime): ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
+        return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
@@ -1297,17 +1299,17 @@ class MeRequestBuilder
      * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
      * @param User $body The request body
      * @param MeRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(User $body, ?MeRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(User $body, ?MeRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -1358,16 +1360,6 @@ class MeRequestBuilder
     }
 
     /**
-     * Provides operations to call the reminderView method.
-     * @param string $endDateTime Usage: EndDateTime='{EndDateTime}'
-     * @param string $startDateTime Usage: StartDateTime='{StartDateTime}'
-     * @return ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder
-    */
-    public function reminderViewWithStartDateTimeWithEndDateTime(string $endDateTime, string $startDateTime): ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
-    }
-
-    /**
      * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
      * @param string $id Unique identifier of the item
      * @return ScopedRoleMembershipItemRequestBuilder
@@ -1379,7 +1371,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
+     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param MeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -1388,10 +1380,10 @@ class MeRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -1414,10 +1406,10 @@ class MeRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

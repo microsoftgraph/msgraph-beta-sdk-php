@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of membership records associated with the channel.
+*/
 class ConversationMemberItemRequestBuilderGetQueryParameters 
 {
     /**

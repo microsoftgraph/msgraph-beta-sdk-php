@@ -8,19 +8,21 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnenotePage;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Sections\Item\Pages\Item\Content\ContentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Sections\Item\Pages\Item\CopyToSection\CopyToSectionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Sections\Item\Pages\Item\OnenotePatchContent\OnenotePatchContentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Sections\Item\Pages\Item\MicrosoftGraphCopyToSection\CopyToSectionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Sections\Item\Pages\Item\MicrosoftGraphOnenotePatchContent\OnenotePatchContentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Sections\Item\Pages\Item\MicrosoftGraphPreview\PreviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Sections\Item\Pages\Item\ParentNotebook\ParentNotebookRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Sections\Item\Pages\Item\ParentSection\ParentSectionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Sections\Item\Pages\Item\Preview\PreviewRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
+*/
 class OnenotePageItemRequestBuilder 
 {
     /**
@@ -33,15 +35,22 @@ class OnenotePageItemRequestBuilder
     /**
      * Provides operations to call the copyToSection method.
     */
-    public function copyToSection(): CopyToSectionRequestBuilder {
+    public function microsoftGraphCopyToSection(): CopyToSectionRequestBuilder {
         return new CopyToSectionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the onenotePatchContent method.
     */
-    public function onenotePatchContent(): OnenotePatchContentRequestBuilder {
+    public function microsoftGraphOnenotePatchContent(): OnenotePatchContentRequestBuilder {
         return new OnenotePatchContentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the preview method.
+    */
+    public function microsoftGraphPreview(): PreviewRequestBuilder {
+        return new PreviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -77,27 +86,30 @@ class OnenotePageItemRequestBuilder
      * Instantiates a new OnenotePageItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $onenotePageId key: id of onenotePage
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $onenotePageId = null) {
         $this->urlTemplate = '{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}/pages/{onenotePage%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['onenotePageId'] = $onenotePageId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
     /**
      * Delete navigation property pages for sites
      * @param OnenotePageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?OnenotePageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?OnenotePageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -106,17 +118,16 @@ class OnenotePageItemRequestBuilder
     /**
      * The collection of pages in the section.  Read-only. Nullable.
      * @param OnenotePageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?OnenotePageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?OnenotePageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [OnenotePage::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [OnenotePage::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -126,28 +137,19 @@ class OnenotePageItemRequestBuilder
      * Update the navigation property pages in sites
      * @param OnenotePage $body The request body
      * @param OnenotePageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(OnenotePage $body, ?OnenotePageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(OnenotePage $body, ?OnenotePageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [OnenotePage::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [OnenotePage::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the preview method.
-     * @return PreviewRequestBuilder
-    */
-    public function preview(): PreviewRequestBuilder {
-        return new PreviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -162,7 +164,7 @@ class OnenotePageItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -181,10 +183,10 @@ class OnenotePageItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -207,10 +209,10 @@ class OnenotePageItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

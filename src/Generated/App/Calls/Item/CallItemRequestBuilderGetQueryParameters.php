@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\App\Calls\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get calls from app
+*/
 class CallItemRequestBuilderGetQueryParameters 
 {
     /**

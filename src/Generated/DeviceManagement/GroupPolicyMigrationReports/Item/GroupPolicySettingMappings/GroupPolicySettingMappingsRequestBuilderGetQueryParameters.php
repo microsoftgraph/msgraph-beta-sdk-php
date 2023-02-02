@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationRe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A list of group policy settings to MDM/Intune mappings.
+*/
 class GroupPolicySettingMappingsRequestBuilderGetQueryParameters 
 {
     /**

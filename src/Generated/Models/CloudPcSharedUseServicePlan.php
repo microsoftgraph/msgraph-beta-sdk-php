@@ -74,7 +74,7 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -82,7 +82,7 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
 
     /**
      * Sets the totalCount property value. The totalCount property
-     *  @param int|null $value Value to set for the totalCount property.
+     * @param int|null $value Value to set for the totalCount property.
     */
     public function setTotalCount(?int $value): void {
         $this->getBackingStore()->set('totalCount', $value);
@@ -90,7 +90,7 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
 
     /**
      * Sets the usedCount property value. The usedCount property
-     *  @param int|null $value Value to set for the usedCount property.
+     * @param int|null $value Value to set for the usedCount property.
     */
     public function setUsedCount(?int $value): void {
         $this->getBackingStore()->set('usedCount', $value);

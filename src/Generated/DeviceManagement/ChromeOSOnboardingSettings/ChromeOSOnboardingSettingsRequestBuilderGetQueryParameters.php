@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSett
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of ChromeOSOnboardingSettings settings associated with account.
+*/
 class ChromeOSOnboardingSettingsRequestBuilderGetQueryParameters 
 {
     /**

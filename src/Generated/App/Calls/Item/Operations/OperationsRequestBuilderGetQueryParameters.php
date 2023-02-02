@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\Operations;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get operations from app
+*/
 class OperationsRequestBuilderGetQueryParameters 
 {
     /**

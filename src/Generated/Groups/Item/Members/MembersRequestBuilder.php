@@ -5,33 +5,28 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Members;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Members\Application\ApplicationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Members\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Members\Device\DeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Members\Group\GroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Members\OrgContact\OrgContactRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Members\MicrosoftGraphApplication\ApplicationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Members\MicrosoftGraphDevice\DeviceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Members\MicrosoftGraphGroup\GroupRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Members\MicrosoftGraphOrgContact\OrgContactRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Members\MicrosoftGraphServicePrincipal\ServicePrincipalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Members\MicrosoftGraphUser\UserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Members\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Members\ServicePrincipal\ServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Members\User\UserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the members property of the microsoft.graph.group entity.
+*/
 class MembersRequestBuilder 
 {
-    /**
-     * Casts the previous resource to application.
-    */
-    public function application(): ApplicationRequestBuilder {
-        return new ApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to count the resources in the collection.
     */
@@ -40,24 +35,45 @@ class MembersRequestBuilder
     }
     
     /**
+     * Casts the previous resource to application.
+    */
+    public function microsoftGraphApplication(): ApplicationRequestBuilder {
+        return new ApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Casts the previous resource to device.
     */
-    public function device(): DeviceRequestBuilder {
+    public function microsoftGraphDevice(): DeviceRequestBuilder {
         return new DeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Casts the previous resource to group.
     */
-    public function group(): GroupRequestBuilder {
+    public function microsoftGraphGroup(): GroupRequestBuilder {
         return new GroupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Casts the previous resource to orgContact.
     */
-    public function orgContact(): OrgContactRequestBuilder {
+    public function microsoftGraphOrgContact(): OrgContactRequestBuilder {
         return new OrgContactRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to servicePrincipal.
+    */
+    public function microsoftGraphServicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to user.
+    */
+    public function microsoftGraphUser(): UserRequestBuilder {
+        return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -78,23 +94,9 @@ class MembersRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * Casts the previous resource to servicePrincipal.
-    */
-    public function servicePrincipal(): ServicePrincipalRequestBuilder {
-        return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
-    
-    /**
-     * Casts the previous resource to user.
-    */
-    public function user(): UserRequestBuilder {
-        return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * Instantiates a new MembersRequestBuilder and sets the default values.
@@ -110,17 +112,17 @@ class MembersRequestBuilder
     /**
      * Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/group-list-members?view=graph-rest-1.0 Find more info here
     */
-    public function get(?MembersRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?MembersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -136,10 +138,10 @@ class MembersRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);

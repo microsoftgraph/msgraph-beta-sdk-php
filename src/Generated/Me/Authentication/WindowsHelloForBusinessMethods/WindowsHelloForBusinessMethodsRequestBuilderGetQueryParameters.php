@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Authentication\WindowsHelloForBusine
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+*/
 class WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters 
 {
     /**

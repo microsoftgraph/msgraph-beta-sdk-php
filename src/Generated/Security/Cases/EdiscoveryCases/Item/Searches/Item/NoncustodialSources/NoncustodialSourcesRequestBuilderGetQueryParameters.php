@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Sea
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * noncustodialDataSource sources that are included in the eDiscovery search
+*/
 class NoncustodialSourcesRequestBuilderGetQueryParameters 
 {
     /**

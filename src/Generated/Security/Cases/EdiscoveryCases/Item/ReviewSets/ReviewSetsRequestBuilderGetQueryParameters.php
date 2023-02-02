@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Rev
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
+*/
 class ReviewSetsRequestBuilderGetQueryParameters 
 {
     /**

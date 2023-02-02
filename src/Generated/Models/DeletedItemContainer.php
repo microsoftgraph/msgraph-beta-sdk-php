@@ -55,7 +55,7 @@ class DeletedItemContainer extends Entity implements Parsable
 
     /**
      * Sets the workflows property value. Deleted workflows that end up in the deletedItemsContainer.
-     *  @param array<Workflow>|null $value Value to set for the workflows property.
+     * @param array<Workflow>|null $value Value to set for the workflows property.
     */
     public function setWorkflows(?array $value): void {
         $this->getBackingStore()->set('workflows', $value);

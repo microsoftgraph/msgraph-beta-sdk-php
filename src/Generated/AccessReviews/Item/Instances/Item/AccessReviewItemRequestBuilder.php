@@ -5,38 +5,61 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Decisions\DecisionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MicrosoftGraphApplyDecisions\ApplyDecisionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MicrosoftGraphResetDecisions\ResetDecisionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MicrosoftGraphSendReminder\SendReminderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MicrosoftGraphStop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MyDecisions\MyDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\ResetDecisions\ResetDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Reviewers\Item\AccessReviewReviewerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Reviewers\ReviewersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\SendReminder\SendReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Stop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReview;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the instances property of the microsoft.graph.accessReview entity.
+*/
 class AccessReviewItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the applyDecisions method.
-    */
-    public function applyDecisions(): ApplyDecisionsRequestBuilder {
-        return new ApplyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
     */
     public function decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the applyDecisions method.
+    */
+    public function microsoftGraphApplyDecisions(): ApplyDecisionsRequestBuilder {
+        return new ApplyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the resetDecisions method.
+    */
+    public function microsoftGraphResetDecisions(): ResetDecisionsRequestBuilder {
+        return new ResetDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the sendReminder method.
+    */
+    public function microsoftGraphSendReminder(): SendReminderRequestBuilder {
+        return new SendReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the stop method.
+    */
+    public function microsoftGraphStop(): StopRequestBuilder {
+        return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -57,31 +80,10 @@ class AccessReviewItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * Provides operations to call the resetDecisions method.
-    */
-    public function resetDecisions(): ResetDecisionsRequestBuilder {
-        return new ResetDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the reviewers property of the microsoft.graph.accessReview entity.
     */
     public function reviewers(): ReviewersRequestBuilder {
         return new ReviewersRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the sendReminder method.
-    */
-    public function sendReminder(): SendReminderRequestBuilder {
-        return new SendReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the stop method.
-    */
-    public function stop(): StopRequestBuilder {
-        return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -93,11 +95,15 @@ class AccessReviewItemRequestBuilder
      * Instantiates a new AccessReviewItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $accessReviewId1 key: id of accessReview
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $accessReviewId1 = null) {
         $this->urlTemplate = '{+baseurl}/accessReviews/{accessReview%2Did}/instances/{accessReview%2Did1}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['accessReviewId1'] = $accessReviewId1;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
     /**
@@ -114,17 +120,16 @@ class AccessReviewItemRequestBuilder
     /**
      * Delete navigation property instances for accessReviews
      * @param AccessReviewItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?AccessReviewItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?AccessReviewItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -133,17 +138,16 @@ class AccessReviewItemRequestBuilder
     /**
      * The collection of access reviews instances past, present and future, if this object is a recurring access review.
      * @param AccessReviewItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?AccessReviewItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?AccessReviewItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AccessReview::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [AccessReview::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -164,17 +168,16 @@ class AccessReviewItemRequestBuilder
      * Update the navigation property instances in accessReviews
      * @param AccessReview $body The request body
      * @param AccessReviewItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(AccessReview $body, ?AccessReviewItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(AccessReview $body, ?AccessReviewItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AccessReview::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [AccessReview::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -203,7 +206,7 @@ class AccessReviewItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -222,10 +225,10 @@ class AccessReviewItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -248,10 +251,10 @@ class AccessReviewItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

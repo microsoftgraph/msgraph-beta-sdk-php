@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get recommendations from directory
+*/
 class RecommendationsRequestBuilderGetQueryParameters 
 {
     /**

@@ -2307,7 +2307,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardAllowCameraMicrophoneRedirection property value. Gets or sets whether applications inside Microsoft Defender Application Guard can access the device’s camera and microphone.
-     *  @param bool|null $value Value to set for the applicationGuardAllowCameraMicrophoneRedirection property.
+     * @param bool|null $value Value to set for the applicationGuardAllowCameraMicrophoneRedirection property.
     */
     public function setApplicationGuardAllowCameraMicrophoneRedirection(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardAllowCameraMicrophoneRedirection', $value);
@@ -2315,7 +2315,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardAllowFileSaveOnHost property value. Allow users to download files from Edge in the application guard container and save them on the host file system
-     *  @param bool|null $value Value to set for the applicationGuardAllowFileSaveOnHost property.
+     * @param bool|null $value Value to set for the applicationGuardAllowFileSaveOnHost property.
     */
     public function setApplicationGuardAllowFileSaveOnHost(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardAllowFileSaveOnHost', $value);
@@ -2323,7 +2323,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardAllowPersistence property value. Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)
-     *  @param bool|null $value Value to set for the applicationGuardAllowPersistence property.
+     * @param bool|null $value Value to set for the applicationGuardAllowPersistence property.
     */
     public function setApplicationGuardAllowPersistence(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardAllowPersistence', $value);
@@ -2331,7 +2331,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardAllowPrintToLocalPrinters property value. Allow printing to Local Printers from Container
-     *  @param bool|null $value Value to set for the applicationGuardAllowPrintToLocalPrinters property.
+     * @param bool|null $value Value to set for the applicationGuardAllowPrintToLocalPrinters property.
     */
     public function setApplicationGuardAllowPrintToLocalPrinters(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardAllowPrintToLocalPrinters', $value);
@@ -2339,7 +2339,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardAllowPrintToNetworkPrinters property value. Allow printing to Network Printers from Container
-     *  @param bool|null $value Value to set for the applicationGuardAllowPrintToNetworkPrinters property.
+     * @param bool|null $value Value to set for the applicationGuardAllowPrintToNetworkPrinters property.
     */
     public function setApplicationGuardAllowPrintToNetworkPrinters(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardAllowPrintToNetworkPrinters', $value);
@@ -2347,7 +2347,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardAllowPrintToPDF property value. Allow printing to PDF from Container
-     *  @param bool|null $value Value to set for the applicationGuardAllowPrintToPDF property.
+     * @param bool|null $value Value to set for the applicationGuardAllowPrintToPDF property.
     */
     public function setApplicationGuardAllowPrintToPDF(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardAllowPrintToPDF', $value);
@@ -2355,7 +2355,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardAllowPrintToXPS property value. Allow printing to XPS from Container
-     *  @param bool|null $value Value to set for the applicationGuardAllowPrintToXPS property.
+     * @param bool|null $value Value to set for the applicationGuardAllowPrintToXPS property.
     */
     public function setApplicationGuardAllowPrintToXPS(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardAllowPrintToXPS', $value);
@@ -2363,7 +2363,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardAllowVirtualGPU property value. Allow application guard to use virtual GPU
-     *  @param bool|null $value Value to set for the applicationGuardAllowVirtualGPU property.
+     * @param bool|null $value Value to set for the applicationGuardAllowVirtualGPU property.
     */
     public function setApplicationGuardAllowVirtualGPU(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardAllowVirtualGPU', $value);
@@ -2371,7 +2371,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardBlockClipboardSharing property value. Possible values for applicationGuardBlockClipboardSharingType
-     *  @param ApplicationGuardBlockClipboardSharingType|null $value Value to set for the applicationGuardBlockClipboardSharing property.
+     * @param ApplicationGuardBlockClipboardSharingType|null $value Value to set for the applicationGuardBlockClipboardSharing property.
     */
     public function setApplicationGuardBlockClipboardSharing(?ApplicationGuardBlockClipboardSharingType $value): void {
         $this->getBackingStore()->set('applicationGuardBlockClipboardSharing', $value);
@@ -2379,7 +2379,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardBlockFileTransfer property value. Possible values for applicationGuardBlockFileTransfer
-     *  @param ApplicationGuardBlockFileTransferType|null $value Value to set for the applicationGuardBlockFileTransfer property.
+     * @param ApplicationGuardBlockFileTransferType|null $value Value to set for the applicationGuardBlockFileTransfer property.
     */
     public function setApplicationGuardBlockFileTransfer(?ApplicationGuardBlockFileTransferType $value): void {
         $this->getBackingStore()->set('applicationGuardBlockFileTransfer', $value);
@@ -2387,7 +2387,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardBlockNonEnterpriseContent property value. Block enterprise sites to load non-enterprise content, such as third party plug-ins
-     *  @param bool|null $value Value to set for the applicationGuardBlockNonEnterpriseContent property.
+     * @param bool|null $value Value to set for the applicationGuardBlockNonEnterpriseContent property.
     */
     public function setApplicationGuardBlockNonEnterpriseContent(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardBlockNonEnterpriseContent', $value);
@@ -2395,7 +2395,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardCertificateThumbprints property value. Allows certain device level Root Certificates to be shared with the Microsoft Defender Application Guard container.
-     *  @param array<string>|null $value Value to set for the applicationGuardCertificateThumbprints property.
+     * @param array<string>|null $value Value to set for the applicationGuardCertificateThumbprints property.
     */
     public function setApplicationGuardCertificateThumbprints(?array $value): void {
         $this->getBackingStore()->set('applicationGuardCertificateThumbprints', $value);
@@ -2403,7 +2403,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardEnabled property value. Enable Windows Defender Application Guard
-     *  @param bool|null $value Value to set for the applicationGuardEnabled property.
+     * @param bool|null $value Value to set for the applicationGuardEnabled property.
     */
     public function setApplicationGuardEnabled(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardEnabled', $value);
@@ -2411,7 +2411,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardEnabledOptions property value. Possible values for ApplicationGuardEnabledOptions
-     *  @param ApplicationGuardEnabledOptions|null $value Value to set for the applicationGuardEnabledOptions property.
+     * @param ApplicationGuardEnabledOptions|null $value Value to set for the applicationGuardEnabledOptions property.
     */
     public function setApplicationGuardEnabledOptions(?ApplicationGuardEnabledOptions $value): void {
         $this->getBackingStore()->set('applicationGuardEnabledOptions', $value);
@@ -2419,7 +2419,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the applicationGuardForceAuditing property value. Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)
-     *  @param bool|null $value Value to set for the applicationGuardForceAuditing property.
+     * @param bool|null $value Value to set for the applicationGuardForceAuditing property.
     */
     public function setApplicationGuardForceAuditing(?bool $value): void {
         $this->getBackingStore()->set('applicationGuardForceAuditing', $value);
@@ -2427,7 +2427,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the appLockerApplicationControl property value. Possible values of AppLocker Application Control Types
-     *  @param AppLockerApplicationControlType|null $value Value to set for the appLockerApplicationControl property.
+     * @param AppLockerApplicationControlType|null $value Value to set for the appLockerApplicationControl property.
     */
     public function setAppLockerApplicationControl(?AppLockerApplicationControlType $value): void {
         $this->getBackingStore()->set('appLockerApplicationControl', $value);
@@ -2435,7 +2435,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the bitLockerAllowStandardUserEncryption property value. Allows the admin to allow standard users to enable encrpytion during Azure AD Join.
-     *  @param bool|null $value Value to set for the bitLockerAllowStandardUserEncryption property.
+     * @param bool|null $value Value to set for the bitLockerAllowStandardUserEncryption property.
     */
     public function setBitLockerAllowStandardUserEncryption(?bool $value): void {
         $this->getBackingStore()->set('bitLockerAllowStandardUserEncryption', $value);
@@ -2443,7 +2443,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the bitLockerDisableWarningForOtherDiskEncryption property value. Allows the Admin to disable the warning prompt for other disk encryption on the user machines.
-     *  @param bool|null $value Value to set for the bitLockerDisableWarningForOtherDiskEncryption property.
+     * @param bool|null $value Value to set for the bitLockerDisableWarningForOtherDiskEncryption property.
     */
     public function setBitLockerDisableWarningForOtherDiskEncryption(?bool $value): void {
         $this->getBackingStore()->set('bitLockerDisableWarningForOtherDiskEncryption', $value);
@@ -2451,7 +2451,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the bitLockerEnableStorageCardEncryptionOnMobile property value. Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU.
-     *  @param bool|null $value Value to set for the bitLockerEnableStorageCardEncryptionOnMobile property.
+     * @param bool|null $value Value to set for the bitLockerEnableStorageCardEncryptionOnMobile property.
     */
     public function setBitLockerEnableStorageCardEncryptionOnMobile(?bool $value): void {
         $this->getBackingStore()->set('bitLockerEnableStorageCardEncryptionOnMobile', $value);
@@ -2459,7 +2459,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the bitLockerEncryptDevice property value. Allows the admin to require encryption to be turned on using BitLocker.
-     *  @param bool|null $value Value to set for the bitLockerEncryptDevice property.
+     * @param bool|null $value Value to set for the bitLockerEncryptDevice property.
     */
     public function setBitLockerEncryptDevice(?bool $value): void {
         $this->getBackingStore()->set('bitLockerEncryptDevice', $value);
@@ -2467,7 +2467,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the bitLockerFixedDrivePolicy property value. BitLocker Fixed Drive Policy.
-     *  @param BitLockerFixedDrivePolicy|null $value Value to set for the bitLockerFixedDrivePolicy property.
+     * @param BitLockerFixedDrivePolicy|null $value Value to set for the bitLockerFixedDrivePolicy property.
     */
     public function setBitLockerFixedDrivePolicy(?BitLockerFixedDrivePolicy $value): void {
         $this->getBackingStore()->set('bitLockerFixedDrivePolicy', $value);
@@ -2475,7 +2475,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the bitLockerRecoveryPasswordRotation property value. BitLocker recovery password rotation type
-     *  @param BitLockerRecoveryPasswordRotationType|null $value Value to set for the bitLockerRecoveryPasswordRotation property.
+     * @param BitLockerRecoveryPasswordRotationType|null $value Value to set for the bitLockerRecoveryPasswordRotation property.
     */
     public function setBitLockerRecoveryPasswordRotation(?BitLockerRecoveryPasswordRotationType $value): void {
         $this->getBackingStore()->set('bitLockerRecoveryPasswordRotation', $value);
@@ -2483,7 +2483,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the bitLockerRemovableDrivePolicy property value. BitLocker Removable Drive Policy.
-     *  @param BitLockerRemovableDrivePolicy|null $value Value to set for the bitLockerRemovableDrivePolicy property.
+     * @param BitLockerRemovableDrivePolicy|null $value Value to set for the bitLockerRemovableDrivePolicy property.
     */
     public function setBitLockerRemovableDrivePolicy(?BitLockerRemovableDrivePolicy $value): void {
         $this->getBackingStore()->set('bitLockerRemovableDrivePolicy', $value);
@@ -2491,7 +2491,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the bitLockerSystemDrivePolicy property value. BitLocker System Drive Policy.
-     *  @param BitLockerSystemDrivePolicy|null $value Value to set for the bitLockerSystemDrivePolicy property.
+     * @param BitLockerSystemDrivePolicy|null $value Value to set for the bitLockerSystemDrivePolicy property.
     */
     public function setBitLockerSystemDrivePolicy(?BitLockerSystemDrivePolicy $value): void {
         $this->getBackingStore()->set('bitLockerSystemDrivePolicy', $value);
@@ -2499,7 +2499,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAdditionalGuardedFolders property value. List of folder paths to be added to the list of protected folders
-     *  @param array<string>|null $value Value to set for the defenderAdditionalGuardedFolders property.
+     * @param array<string>|null $value Value to set for the defenderAdditionalGuardedFolders property.
     */
     public function setDefenderAdditionalGuardedFolders(?array $value): void {
         $this->getBackingStore()->set('defenderAdditionalGuardedFolders', $value);
@@ -2507,7 +2507,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAdobeReaderLaunchChildProcess property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderAdobeReaderLaunchChildProcess property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderAdobeReaderLaunchChildProcess property.
     */
     public function setDefenderAdobeReaderLaunchChildProcess(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderAdobeReaderLaunchChildProcess', $value);
@@ -2515,7 +2515,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAdvancedRansomewareProtectionType property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderAdvancedRansomewareProtectionType property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderAdvancedRansomewareProtectionType property.
     */
     public function setDefenderAdvancedRansomewareProtectionType(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderAdvancedRansomewareProtectionType', $value);
@@ -2523,7 +2523,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowBehaviorMonitoring property value. Allows or disallows Windows Defender Behavior Monitoring functionality.
-     *  @param bool|null $value Value to set for the defenderAllowBehaviorMonitoring property.
+     * @param bool|null $value Value to set for the defenderAllowBehaviorMonitoring property.
     */
     public function setDefenderAllowBehaviorMonitoring(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowBehaviorMonitoring', $value);
@@ -2531,7 +2531,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowCloudProtection property value. To best protect your PC, Windows Defender will send information to Microsoft about any problems it finds. Microsoft will analyze that information, learn more about problems affecting you and other customers, and offer improved solutions.
-     *  @param bool|null $value Value to set for the defenderAllowCloudProtection property.
+     * @param bool|null $value Value to set for the defenderAllowCloudProtection property.
     */
     public function setDefenderAllowCloudProtection(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowCloudProtection', $value);
@@ -2539,7 +2539,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowEndUserAccess property value. Allows or disallows user access to the Windows Defender UI. If disallowed, all Windows Defender notifications will also be suppressed.
-     *  @param bool|null $value Value to set for the defenderAllowEndUserAccess property.
+     * @param bool|null $value Value to set for the defenderAllowEndUserAccess property.
     */
     public function setDefenderAllowEndUserAccess(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowEndUserAccess', $value);
@@ -2547,7 +2547,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowIntrusionPreventionSystem property value. Allows or disallows Windows Defender Intrusion Prevention functionality.
-     *  @param bool|null $value Value to set for the defenderAllowIntrusionPreventionSystem property.
+     * @param bool|null $value Value to set for the defenderAllowIntrusionPreventionSystem property.
     */
     public function setDefenderAllowIntrusionPreventionSystem(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowIntrusionPreventionSystem', $value);
@@ -2555,7 +2555,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowOnAccessProtection property value. Allows or disallows Windows Defender On Access Protection functionality.
-     *  @param bool|null $value Value to set for the defenderAllowOnAccessProtection property.
+     * @param bool|null $value Value to set for the defenderAllowOnAccessProtection property.
     */
     public function setDefenderAllowOnAccessProtection(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowOnAccessProtection', $value);
@@ -2563,7 +2563,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowRealTimeMonitoring property value. Allows or disallows Windows Defender Realtime Monitoring functionality.
-     *  @param bool|null $value Value to set for the defenderAllowRealTimeMonitoring property.
+     * @param bool|null $value Value to set for the defenderAllowRealTimeMonitoring property.
     */
     public function setDefenderAllowRealTimeMonitoring(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowRealTimeMonitoring', $value);
@@ -2571,7 +2571,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowScanArchiveFiles property value. Allows or disallows scanning of archives.
-     *  @param bool|null $value Value to set for the defenderAllowScanArchiveFiles property.
+     * @param bool|null $value Value to set for the defenderAllowScanArchiveFiles property.
     */
     public function setDefenderAllowScanArchiveFiles(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowScanArchiveFiles', $value);
@@ -2579,7 +2579,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowScanDownloads property value. Allows or disallows Windows Defender IOAVP Protection functionality.
-     *  @param bool|null $value Value to set for the defenderAllowScanDownloads property.
+     * @param bool|null $value Value to set for the defenderAllowScanDownloads property.
     */
     public function setDefenderAllowScanDownloads(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowScanDownloads', $value);
@@ -2587,7 +2587,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowScanNetworkFiles property value. Allows or disallows a scanning of network files.
-     *  @param bool|null $value Value to set for the defenderAllowScanNetworkFiles property.
+     * @param bool|null $value Value to set for the defenderAllowScanNetworkFiles property.
     */
     public function setDefenderAllowScanNetworkFiles(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowScanNetworkFiles', $value);
@@ -2595,7 +2595,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowScanRemovableDrivesDuringFullScan property value. Allows or disallows a full scan of removable drives. During a quick scan, removable drives may still be scanned.
-     *  @param bool|null $value Value to set for the defenderAllowScanRemovableDrivesDuringFullScan property.
+     * @param bool|null $value Value to set for the defenderAllowScanRemovableDrivesDuringFullScan property.
     */
     public function setDefenderAllowScanRemovableDrivesDuringFullScan(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowScanRemovableDrivesDuringFullScan', $value);
@@ -2603,7 +2603,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAllowScanScriptsLoadedInInternetExplorer property value. Allows or disallows Windows Defender Script Scanning functionality.
-     *  @param bool|null $value Value to set for the defenderAllowScanScriptsLoadedInInternetExplorer property.
+     * @param bool|null $value Value to set for the defenderAllowScanScriptsLoadedInInternetExplorer property.
     */
     public function setDefenderAllowScanScriptsLoadedInInternetExplorer(?bool $value): void {
         $this->getBackingStore()->set('defenderAllowScanScriptsLoadedInInternetExplorer', $value);
@@ -2611,7 +2611,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderAttackSurfaceReductionExcludedPaths property value. List of exe files and folders to be excluded from attack surface reduction rules
-     *  @param array<string>|null $value Value to set for the defenderAttackSurfaceReductionExcludedPaths property.
+     * @param array<string>|null $value Value to set for the defenderAttackSurfaceReductionExcludedPaths property.
     */
     public function setDefenderAttackSurfaceReductionExcludedPaths(?array $value): void {
         $this->getBackingStore()->set('defenderAttackSurfaceReductionExcludedPaths', $value);
@@ -2619,7 +2619,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderBlockEndUserAccess property value. Allows or disallows user access to the Windows Defender UI. If disallowed, all Windows Defender notifications will also be suppressed.
-     *  @param bool|null $value Value to set for the defenderBlockEndUserAccess property.
+     * @param bool|null $value Value to set for the defenderBlockEndUserAccess property.
     */
     public function setDefenderBlockEndUserAccess(?bool $value): void {
         $this->getBackingStore()->set('defenderBlockEndUserAccess', $value);
@@ -2627,7 +2627,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderBlockPersistenceThroughWmiType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderBlockPersistenceThroughWmiType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderBlockPersistenceThroughWmiType property.
     */
     public function setDefenderBlockPersistenceThroughWmiType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderBlockPersistenceThroughWmiType', $value);
@@ -2635,7 +2635,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderCheckForSignaturesBeforeRunningScan property value. This policy setting allows you to manage whether a check for new virus and spyware definitions will occur before running a scan.
-     *  @param bool|null $value Value to set for the defenderCheckForSignaturesBeforeRunningScan property.
+     * @param bool|null $value Value to set for the defenderCheckForSignaturesBeforeRunningScan property.
     */
     public function setDefenderCheckForSignaturesBeforeRunningScan(?bool $value): void {
         $this->getBackingStore()->set('defenderCheckForSignaturesBeforeRunningScan', $value);
@@ -2643,7 +2643,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderCloudBlockLevel property value. Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. Possible values are: notConfigured, high, highPlus, zeroTolerance.
-     *  @param DefenderCloudBlockLevelType|null $value Value to set for the defenderCloudBlockLevel property.
+     * @param DefenderCloudBlockLevelType|null $value Value to set for the defenderCloudBlockLevel property.
     */
     public function setDefenderCloudBlockLevel(?DefenderCloudBlockLevelType $value): void {
         $this->getBackingStore()->set('defenderCloudBlockLevel', $value);
@@ -2651,7 +2651,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderCloudExtendedTimeoutInSeconds property value. Added in Windows 10, version 1709. This feature allows Windows Defender Antivirus to block a suspicious file for up to 60 seconds, and scan it in the cloud to make sure it's safe. Value type is integer, range is 0 - 50. This feature depends on three other MAPS settings the must all be enabled- 'Configure the 'Block at First Sight' feature; 'Join Microsoft MAPS'; 'Send file samples when further analysis is required'. Valid values 0 to 50
-     *  @param int|null $value Value to set for the defenderCloudExtendedTimeoutInSeconds property.
+     * @param int|null $value Value to set for the defenderCloudExtendedTimeoutInSeconds property.
     */
     public function setDefenderCloudExtendedTimeoutInSeconds(?int $value): void {
         $this->getBackingStore()->set('defenderCloudExtendedTimeoutInSeconds', $value);
@@ -2659,7 +2659,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDaysBeforeDeletingQuarantinedMalware property value. Time period (in days) that quarantine items will be stored on the system. Valid values 0 to 90
-     *  @param int|null $value Value to set for the defenderDaysBeforeDeletingQuarantinedMalware property.
+     * @param int|null $value Value to set for the defenderDaysBeforeDeletingQuarantinedMalware property.
     */
     public function setDefenderDaysBeforeDeletingQuarantinedMalware(?int $value): void {
         $this->getBackingStore()->set('defenderDaysBeforeDeletingQuarantinedMalware', $value);
@@ -2667,7 +2667,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDetectedMalwareActions property value. Allows an administrator to specify any valid threat severity levels and the corresponding default action ID to take.
-     *  @param DefenderDetectedMalwareActions|null $value Value to set for the defenderDetectedMalwareActions property.
+     * @param DefenderDetectedMalwareActions|null $value Value to set for the defenderDetectedMalwareActions property.
     */
     public function setDefenderDetectedMalwareActions(?DefenderDetectedMalwareActions $value): void {
         $this->getBackingStore()->set('defenderDetectedMalwareActions', $value);
@@ -2675,7 +2675,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableBehaviorMonitoring property value. Allows or disallows Windows Defender Behavior Monitoring functionality.
-     *  @param bool|null $value Value to set for the defenderDisableBehaviorMonitoring property.
+     * @param bool|null $value Value to set for the defenderDisableBehaviorMonitoring property.
     */
     public function setDefenderDisableBehaviorMonitoring(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableBehaviorMonitoring', $value);
@@ -2683,7 +2683,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableCatchupFullScan property value. This policy setting allows you to configure catch-up scans for scheduled full scans. A catch-up scan is a scan that is initiated because a regularly scheduled scan was missed. Usually these scheduled scans are missed because the computer was turned off at the scheduled time.
-     *  @param bool|null $value Value to set for the defenderDisableCatchupFullScan property.
+     * @param bool|null $value Value to set for the defenderDisableCatchupFullScan property.
     */
     public function setDefenderDisableCatchupFullScan(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableCatchupFullScan', $value);
@@ -2691,7 +2691,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableCatchupQuickScan property value. This policy setting allows you to configure catch-up scans for scheduled quick scans. A catch-up scan is a scan that is initiated because a regularly scheduled scan was missed. Usually these scheduled scans are missed because the computer was turned off at the scheduled time.
-     *  @param bool|null $value Value to set for the defenderDisableCatchupQuickScan property.
+     * @param bool|null $value Value to set for the defenderDisableCatchupQuickScan property.
     */
     public function setDefenderDisableCatchupQuickScan(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableCatchupQuickScan', $value);
@@ -2699,7 +2699,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableCloudProtection property value. To best protect your PC, Windows Defender will send information to Microsoft about any problems it finds. Microsoft will analyze that information, learn more about problems affecting you and other customers, and offer improved solutions.
-     *  @param bool|null $value Value to set for the defenderDisableCloudProtection property.
+     * @param bool|null $value Value to set for the defenderDisableCloudProtection property.
     */
     public function setDefenderDisableCloudProtection(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableCloudProtection', $value);
@@ -2707,7 +2707,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableIntrusionPreventionSystem property value. Allows or disallows Windows Defender Intrusion Prevention functionality.
-     *  @param bool|null $value Value to set for the defenderDisableIntrusionPreventionSystem property.
+     * @param bool|null $value Value to set for the defenderDisableIntrusionPreventionSystem property.
     */
     public function setDefenderDisableIntrusionPreventionSystem(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableIntrusionPreventionSystem', $value);
@@ -2715,7 +2715,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableOnAccessProtection property value. Allows or disallows Windows Defender On Access Protection functionality.
-     *  @param bool|null $value Value to set for the defenderDisableOnAccessProtection property.
+     * @param bool|null $value Value to set for the defenderDisableOnAccessProtection property.
     */
     public function setDefenderDisableOnAccessProtection(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableOnAccessProtection', $value);
@@ -2723,7 +2723,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableRealTimeMonitoring property value. Allows or disallows Windows Defender Realtime Monitoring functionality.
-     *  @param bool|null $value Value to set for the defenderDisableRealTimeMonitoring property.
+     * @param bool|null $value Value to set for the defenderDisableRealTimeMonitoring property.
     */
     public function setDefenderDisableRealTimeMonitoring(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableRealTimeMonitoring', $value);
@@ -2731,7 +2731,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableScanArchiveFiles property value. Allows or disallows scanning of archives.
-     *  @param bool|null $value Value to set for the defenderDisableScanArchiveFiles property.
+     * @param bool|null $value Value to set for the defenderDisableScanArchiveFiles property.
     */
     public function setDefenderDisableScanArchiveFiles(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableScanArchiveFiles', $value);
@@ -2739,7 +2739,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableScanDownloads property value. Allows or disallows Windows Defender IOAVP Protection functionality.
-     *  @param bool|null $value Value to set for the defenderDisableScanDownloads property.
+     * @param bool|null $value Value to set for the defenderDisableScanDownloads property.
     */
     public function setDefenderDisableScanDownloads(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableScanDownloads', $value);
@@ -2747,7 +2747,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableScanNetworkFiles property value. Allows or disallows a scanning of network files.
-     *  @param bool|null $value Value to set for the defenderDisableScanNetworkFiles property.
+     * @param bool|null $value Value to set for the defenderDisableScanNetworkFiles property.
     */
     public function setDefenderDisableScanNetworkFiles(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableScanNetworkFiles', $value);
@@ -2755,7 +2755,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableScanRemovableDrivesDuringFullScan property value. Allows or disallows a full scan of removable drives. During a quick scan, removable drives may still be scanned.
-     *  @param bool|null $value Value to set for the defenderDisableScanRemovableDrivesDuringFullScan property.
+     * @param bool|null $value Value to set for the defenderDisableScanRemovableDrivesDuringFullScan property.
     */
     public function setDefenderDisableScanRemovableDrivesDuringFullScan(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableScanRemovableDrivesDuringFullScan', $value);
@@ -2763,7 +2763,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderDisableScanScriptsLoadedInInternetExplorer property value. Allows or disallows Windows Defender Script Scanning functionality.
-     *  @param bool|null $value Value to set for the defenderDisableScanScriptsLoadedInInternetExplorer property.
+     * @param bool|null $value Value to set for the defenderDisableScanScriptsLoadedInInternetExplorer property.
     */
     public function setDefenderDisableScanScriptsLoadedInInternetExplorer(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableScanScriptsLoadedInInternetExplorer', $value);
@@ -2771,7 +2771,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderEmailContentExecution property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderEmailContentExecution property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderEmailContentExecution property.
     */
     public function setDefenderEmailContentExecution(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderEmailContentExecution', $value);
@@ -2779,7 +2779,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderEmailContentExecutionType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderEmailContentExecutionType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderEmailContentExecutionType property.
     */
     public function setDefenderEmailContentExecutionType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderEmailContentExecutionType', $value);
@@ -2787,7 +2787,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderEnableLowCpuPriority property value. This policy setting allows you to enable or disable low CPU priority for scheduled scans.
-     *  @param bool|null $value Value to set for the defenderEnableLowCpuPriority property.
+     * @param bool|null $value Value to set for the defenderEnableLowCpuPriority property.
     */
     public function setDefenderEnableLowCpuPriority(?bool $value): void {
         $this->getBackingStore()->set('defenderEnableLowCpuPriority', $value);
@@ -2795,7 +2795,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderEnableScanIncomingMail property value. Allows or disallows scanning of email.
-     *  @param bool|null $value Value to set for the defenderEnableScanIncomingMail property.
+     * @param bool|null $value Value to set for the defenderEnableScanIncomingMail property.
     */
     public function setDefenderEnableScanIncomingMail(?bool $value): void {
         $this->getBackingStore()->set('defenderEnableScanIncomingMail', $value);
@@ -2803,7 +2803,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderEnableScanMappedNetworkDrivesDuringFullScan property value. Allows or disallows a full scan of mapped network drives.
-     *  @param bool|null $value Value to set for the defenderEnableScanMappedNetworkDrivesDuringFullScan property.
+     * @param bool|null $value Value to set for the defenderEnableScanMappedNetworkDrivesDuringFullScan property.
     */
     public function setDefenderEnableScanMappedNetworkDrivesDuringFullScan(?bool $value): void {
         $this->getBackingStore()->set('defenderEnableScanMappedNetworkDrivesDuringFullScan', $value);
@@ -2811,7 +2811,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderExploitProtectionXml property value. Xml content containing information regarding exploit protection details.
-     *  @param StreamInterface|null $value Value to set for the defenderExploitProtectionXml property.
+     * @param StreamInterface|null $value Value to set for the defenderExploitProtectionXml property.
     */
     public function setDefenderExploitProtectionXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('defenderExploitProtectionXml', $value);
@@ -2819,7 +2819,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderExploitProtectionXmlFileName property value. Name of the file from which DefenderExploitProtectionXml was obtained.
-     *  @param string|null $value Value to set for the defenderExploitProtectionXmlFileName property.
+     * @param string|null $value Value to set for the defenderExploitProtectionXmlFileName property.
     */
     public function setDefenderExploitProtectionXmlFileName(?string $value): void {
         $this->getBackingStore()->set('defenderExploitProtectionXmlFileName', $value);
@@ -2827,7 +2827,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderFileExtensionsToExclude property value. File extensions to exclude from scans and real time protection.
-     *  @param array<string>|null $value Value to set for the defenderFileExtensionsToExclude property.
+     * @param array<string>|null $value Value to set for the defenderFileExtensionsToExclude property.
     */
     public function setDefenderFileExtensionsToExclude(?array $value): void {
         $this->getBackingStore()->set('defenderFileExtensionsToExclude', $value);
@@ -2835,7 +2835,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderFilesAndFoldersToExclude property value. Files and folder to exclude from scans and real time protection.
-     *  @param array<string>|null $value Value to set for the defenderFilesAndFoldersToExclude property.
+     * @param array<string>|null $value Value to set for the defenderFilesAndFoldersToExclude property.
     */
     public function setDefenderFilesAndFoldersToExclude(?array $value): void {
         $this->getBackingStore()->set('defenderFilesAndFoldersToExclude', $value);
@@ -2843,7 +2843,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderGuardedFoldersAllowedAppPaths property value. List of paths to exe that are allowed to access protected folders
-     *  @param array<string>|null $value Value to set for the defenderGuardedFoldersAllowedAppPaths property.
+     * @param array<string>|null $value Value to set for the defenderGuardedFoldersAllowedAppPaths property.
     */
     public function setDefenderGuardedFoldersAllowedAppPaths(?array $value): void {
         $this->getBackingStore()->set('defenderGuardedFoldersAllowedAppPaths', $value);
@@ -2851,7 +2851,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderGuardMyFoldersType property value. Possible values of Folder Protection
-     *  @param FolderProtectionType|null $value Value to set for the defenderGuardMyFoldersType property.
+     * @param FolderProtectionType|null $value Value to set for the defenderGuardMyFoldersType property.
     */
     public function setDefenderGuardMyFoldersType(?FolderProtectionType $value): void {
         $this->getBackingStore()->set('defenderGuardMyFoldersType', $value);
@@ -2859,7 +2859,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderNetworkProtectionType property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderNetworkProtectionType property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderNetworkProtectionType property.
     */
     public function setDefenderNetworkProtectionType(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderNetworkProtectionType', $value);
@@ -2867,7 +2867,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderOfficeAppsExecutableContentCreationOrLaunch property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeAppsExecutableContentCreationOrLaunch property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderOfficeAppsExecutableContentCreationOrLaunch property.
     */
     public function setDefenderOfficeAppsExecutableContentCreationOrLaunch(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderOfficeAppsExecutableContentCreationOrLaunch', $value);
@@ -2875,7 +2875,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderOfficeAppsExecutableContentCreationOrLaunchType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeAppsExecutableContentCreationOrLaunchType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeAppsExecutableContentCreationOrLaunchType property.
     */
     public function setDefenderOfficeAppsExecutableContentCreationOrLaunchType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderOfficeAppsExecutableContentCreationOrLaunchType', $value);
@@ -2883,7 +2883,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderOfficeAppsLaunchChildProcess property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeAppsLaunchChildProcess property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderOfficeAppsLaunchChildProcess property.
     */
     public function setDefenderOfficeAppsLaunchChildProcess(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderOfficeAppsLaunchChildProcess', $value);
@@ -2891,7 +2891,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderOfficeAppsLaunchChildProcessType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeAppsLaunchChildProcessType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeAppsLaunchChildProcessType property.
     */
     public function setDefenderOfficeAppsLaunchChildProcessType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderOfficeAppsLaunchChildProcessType', $value);
@@ -2899,7 +2899,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderOfficeAppsOtherProcessInjection property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeAppsOtherProcessInjection property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderOfficeAppsOtherProcessInjection property.
     */
     public function setDefenderOfficeAppsOtherProcessInjection(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderOfficeAppsOtherProcessInjection', $value);
@@ -2907,7 +2907,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderOfficeAppsOtherProcessInjectionType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeAppsOtherProcessInjectionType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeAppsOtherProcessInjectionType property.
     */
     public function setDefenderOfficeAppsOtherProcessInjectionType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderOfficeAppsOtherProcessInjectionType', $value);
@@ -2915,7 +2915,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderOfficeCommunicationAppsLaunchChildProcess property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeCommunicationAppsLaunchChildProcess property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderOfficeCommunicationAppsLaunchChildProcess property.
     */
     public function setDefenderOfficeCommunicationAppsLaunchChildProcess(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderOfficeCommunicationAppsLaunchChildProcess', $value);
@@ -2923,7 +2923,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderOfficeMacroCodeAllowWin32Imports property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeMacroCodeAllowWin32Imports property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderOfficeMacroCodeAllowWin32Imports property.
     */
     public function setDefenderOfficeMacroCodeAllowWin32Imports(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderOfficeMacroCodeAllowWin32Imports', $value);
@@ -2931,7 +2931,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderOfficeMacroCodeAllowWin32ImportsType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeMacroCodeAllowWin32ImportsType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeMacroCodeAllowWin32ImportsType property.
     */
     public function setDefenderOfficeMacroCodeAllowWin32ImportsType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderOfficeMacroCodeAllowWin32ImportsType', $value);
@@ -2939,7 +2939,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderPotentiallyUnwantedAppAction property value. Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
-     *  @param DefenderProtectionType|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
     */
     public function setDefenderPotentiallyUnwantedAppAction(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderPotentiallyUnwantedAppAction', $value);
@@ -2947,7 +2947,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderPreventCredentialStealingType property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderPreventCredentialStealingType property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderPreventCredentialStealingType property.
     */
     public function setDefenderPreventCredentialStealingType(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderPreventCredentialStealingType', $value);
@@ -2955,7 +2955,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderProcessCreation property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderProcessCreation property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderProcessCreation property.
     */
     public function setDefenderProcessCreation(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderProcessCreation', $value);
@@ -2963,7 +2963,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderProcessCreationType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderProcessCreationType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderProcessCreationType property.
     */
     public function setDefenderProcessCreationType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderProcessCreationType', $value);
@@ -2971,7 +2971,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderProcessesToExclude property value. Processes to exclude from scans and real time protection.
-     *  @param array<string>|null $value Value to set for the defenderProcessesToExclude property.
+     * @param array<string>|null $value Value to set for the defenderProcessesToExclude property.
     */
     public function setDefenderProcessesToExclude(?array $value): void {
         $this->getBackingStore()->set('defenderProcessesToExclude', $value);
@@ -2979,7 +2979,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScanDirection property value. Controls which sets of files should be monitored. Possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
-     *  @param DefenderRealtimeScanDirection|null $value Value to set for the defenderScanDirection property.
+     * @param DefenderRealtimeScanDirection|null $value Value to set for the defenderScanDirection property.
     */
     public function setDefenderScanDirection(?DefenderRealtimeScanDirection $value): void {
         $this->getBackingStore()->set('defenderScanDirection', $value);
@@ -2987,7 +2987,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScanMaxCpuPercentage property value. Represents the average CPU load factor for the Windows Defender scan (in percent). The default value is 50. Valid values 0 to 100
-     *  @param int|null $value Value to set for the defenderScanMaxCpuPercentage property.
+     * @param int|null $value Value to set for the defenderScanMaxCpuPercentage property.
     */
     public function setDefenderScanMaxCpuPercentage(?int $value): void {
         $this->getBackingStore()->set('defenderScanMaxCpuPercentage', $value);
@@ -2995,7 +2995,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScanType property value. Selects whether to perform a quick scan or full scan. Possible values are: userDefined, disabled, quick, full.
-     *  @param DefenderScanType|null $value Value to set for the defenderScanType property.
+     * @param DefenderScanType|null $value Value to set for the defenderScanType property.
     */
     public function setDefenderScanType(?DefenderScanType $value): void {
         $this->getBackingStore()->set('defenderScanType', $value);
@@ -3003,7 +3003,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScheduledQuickScanTime property value. Selects the time of day that the Windows Defender quick scan should run. For example, a value of 0=12:00AM, a value of 60=1:00AM, a value of 120=2:00, and so on, up to a value of 1380=11:00PM. The default value is 120
-     *  @param Time|null $value Value to set for the defenderScheduledQuickScanTime property.
+     * @param Time|null $value Value to set for the defenderScheduledQuickScanTime property.
     */
     public function setDefenderScheduledQuickScanTime(?Time $value): void {
         $this->getBackingStore()->set('defenderScheduledQuickScanTime', $value);
@@ -3011,7 +3011,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScheduledScanDay property value. Selects the day that the Windows Defender scan should run. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
-     *  @param WeeklySchedule|null $value Value to set for the defenderScheduledScanDay property.
+     * @param WeeklySchedule|null $value Value to set for the defenderScheduledScanDay property.
     */
     public function setDefenderScheduledScanDay(?WeeklySchedule $value): void {
         $this->getBackingStore()->set('defenderScheduledScanDay', $value);
@@ -3019,7 +3019,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScheduledScanTime property value. Selects the time of day that the Windows Defender scan should run.
-     *  @param Time|null $value Value to set for the defenderScheduledScanTime property.
+     * @param Time|null $value Value to set for the defenderScheduledScanTime property.
     */
     public function setDefenderScheduledScanTime(?Time $value): void {
         $this->getBackingStore()->set('defenderScheduledScanTime', $value);
@@ -3027,7 +3027,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScriptDownloadedPayloadExecution property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderScriptDownloadedPayloadExecution property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderScriptDownloadedPayloadExecution property.
     */
     public function setDefenderScriptDownloadedPayloadExecution(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderScriptDownloadedPayloadExecution', $value);
@@ -3035,7 +3035,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScriptDownloadedPayloadExecutionType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderScriptDownloadedPayloadExecutionType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderScriptDownloadedPayloadExecutionType property.
     */
     public function setDefenderScriptDownloadedPayloadExecutionType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderScriptDownloadedPayloadExecutionType', $value);
@@ -3043,7 +3043,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScriptObfuscatedMacroCode property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderScriptObfuscatedMacroCode property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderScriptObfuscatedMacroCode property.
     */
     public function setDefenderScriptObfuscatedMacroCode(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderScriptObfuscatedMacroCode', $value);
@@ -3051,7 +3051,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderScriptObfuscatedMacroCodeType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderScriptObfuscatedMacroCodeType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderScriptObfuscatedMacroCodeType property.
     */
     public function setDefenderScriptObfuscatedMacroCodeType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderScriptObfuscatedMacroCodeType', $value);
@@ -3059,7 +3059,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterBlockExploitProtectionOverride property value. Indicates whether or not to block user from overriding Exploit Protection settings.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterBlockExploitProtectionOverride property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterBlockExploitProtectionOverride property.
     */
     public function setDefenderSecurityCenterBlockExploitProtectionOverride(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterBlockExploitProtectionOverride', $value);
@@ -3067,7 +3067,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableAccountUI property value. Used to disable the display of the account protection area.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableAccountUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableAccountUI property.
     */
     public function setDefenderSecurityCenterDisableAccountUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableAccountUI', $value);
@@ -3075,7 +3075,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableAppBrowserUI property value. Used to disable the display of the app and browser protection area.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableAppBrowserUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableAppBrowserUI property.
     */
     public function setDefenderSecurityCenterDisableAppBrowserUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableAppBrowserUI', $value);
@@ -3083,7 +3083,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableClearTpmUI property value. Used to disable the display of the Clear TPM button.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableClearTpmUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableClearTpmUI property.
     */
     public function setDefenderSecurityCenterDisableClearTpmUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableClearTpmUI', $value);
@@ -3091,7 +3091,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableFamilyUI property value. Used to disable the display of the family options area.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableFamilyUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableFamilyUI property.
     */
     public function setDefenderSecurityCenterDisableFamilyUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableFamilyUI', $value);
@@ -3099,7 +3099,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableHardwareUI property value. Used to disable the display of the hardware protection area.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableHardwareUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableHardwareUI property.
     */
     public function setDefenderSecurityCenterDisableHardwareUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableHardwareUI', $value);
@@ -3107,7 +3107,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableHealthUI property value. Used to disable the display of the device performance and health area.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableHealthUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableHealthUI property.
     */
     public function setDefenderSecurityCenterDisableHealthUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableHealthUI', $value);
@@ -3115,7 +3115,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableNetworkUI property value. Used to disable the display of the firewall and network protection area.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableNetworkUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableNetworkUI property.
     */
     public function setDefenderSecurityCenterDisableNetworkUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableNetworkUI', $value);
@@ -3123,7 +3123,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableNotificationAreaUI property value. Used to disable the display of the notification area control. The user needs to either sign out and sign in or reboot the computer for this setting to take effect.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableNotificationAreaUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableNotificationAreaUI property.
     */
     public function setDefenderSecurityCenterDisableNotificationAreaUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableNotificationAreaUI', $value);
@@ -3131,7 +3131,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableRansomwareUI property value. Used to disable the display of the ransomware protection area.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableRansomwareUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableRansomwareUI property.
     */
     public function setDefenderSecurityCenterDisableRansomwareUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableRansomwareUI', $value);
@@ -3139,7 +3139,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableSecureBootUI property value. Used to disable the display of the secure boot area under Device security.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableSecureBootUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableSecureBootUI property.
     */
     public function setDefenderSecurityCenterDisableSecureBootUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableSecureBootUI', $value);
@@ -3147,7 +3147,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableTroubleshootingUI property value. Used to disable the display of the security process troubleshooting under Device security.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableTroubleshootingUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableTroubleshootingUI property.
     */
     public function setDefenderSecurityCenterDisableTroubleshootingUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableTroubleshootingUI', $value);
@@ -3155,7 +3155,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableVirusUI property value. Used to disable the display of the virus and threat protection area.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableVirusUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableVirusUI property.
     */
     public function setDefenderSecurityCenterDisableVirusUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableVirusUI', $value);
@@ -3163,7 +3163,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI property value. Used to disable the display of update TPM Firmware when a vulnerable firmware is detected.
-     *  @param bool|null $value Value to set for the defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI property.
+     * @param bool|null $value Value to set for the defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI property.
     */
     public function setDefenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI(?bool $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI', $value);
@@ -3171,7 +3171,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterHelpEmail property value. The email address that is displayed to users.
-     *  @param string|null $value Value to set for the defenderSecurityCenterHelpEmail property.
+     * @param string|null $value Value to set for the defenderSecurityCenterHelpEmail property.
     */
     public function setDefenderSecurityCenterHelpEmail(?string $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterHelpEmail', $value);
@@ -3179,7 +3179,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterHelpPhone property value. The phone number or Skype ID that is displayed to users.
-     *  @param string|null $value Value to set for the defenderSecurityCenterHelpPhone property.
+     * @param string|null $value Value to set for the defenderSecurityCenterHelpPhone property.
     */
     public function setDefenderSecurityCenterHelpPhone(?string $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterHelpPhone', $value);
@@ -3187,7 +3187,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterHelpURL property value. The help portal URL this is displayed to users.
-     *  @param string|null $value Value to set for the defenderSecurityCenterHelpURL property.
+     * @param string|null $value Value to set for the defenderSecurityCenterHelpURL property.
     */
     public function setDefenderSecurityCenterHelpURL(?string $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterHelpURL', $value);
@@ -3195,7 +3195,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterITContactDisplay property value. Possible values for defenderSecurityCenterITContactDisplay
-     *  @param DefenderSecurityCenterITContactDisplayType|null $value Value to set for the defenderSecurityCenterITContactDisplay property.
+     * @param DefenderSecurityCenterITContactDisplayType|null $value Value to set for the defenderSecurityCenterITContactDisplay property.
     */
     public function setDefenderSecurityCenterITContactDisplay(?DefenderSecurityCenterITContactDisplayType $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterITContactDisplay', $value);
@@ -3203,7 +3203,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterNotificationsFromApp property value. Possible values for defenderSecurityCenterNotificationsFromApp
-     *  @param DefenderSecurityCenterNotificationsFromAppType|null $value Value to set for the defenderSecurityCenterNotificationsFromApp property.
+     * @param DefenderSecurityCenterNotificationsFromAppType|null $value Value to set for the defenderSecurityCenterNotificationsFromApp property.
     */
     public function setDefenderSecurityCenterNotificationsFromApp(?DefenderSecurityCenterNotificationsFromAppType $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterNotificationsFromApp', $value);
@@ -3211,7 +3211,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSecurityCenterOrganizationDisplayName property value. The company name that is displayed to the users.
-     *  @param string|null $value Value to set for the defenderSecurityCenterOrganizationDisplayName property.
+     * @param string|null $value Value to set for the defenderSecurityCenterOrganizationDisplayName property.
     */
     public function setDefenderSecurityCenterOrganizationDisplayName(?string $value): void {
         $this->getBackingStore()->set('defenderSecurityCenterOrganizationDisplayName', $value);
@@ -3219,7 +3219,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSignatureUpdateIntervalInHours property value. Specifies the interval (in hours) that will be used to check for signatures, so instead of using the ScheduleDay and ScheduleTime the check for new signatures will be set according to the interval. Valid values 0 to 24
-     *  @param int|null $value Value to set for the defenderSignatureUpdateIntervalInHours property.
+     * @param int|null $value Value to set for the defenderSignatureUpdateIntervalInHours property.
     */
     public function setDefenderSignatureUpdateIntervalInHours(?int $value): void {
         $this->getBackingStore()->set('defenderSignatureUpdateIntervalInHours', $value);
@@ -3227,7 +3227,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
-     *  @param DefenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
+     * @param DefenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
     */
     public function setDefenderSubmitSamplesConsentType(?DefenderSubmitSamplesConsentType $value): void {
         $this->getBackingStore()->set('defenderSubmitSamplesConsentType', $value);
@@ -3235,7 +3235,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderUntrustedExecutable property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderUntrustedExecutable property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderUntrustedExecutable property.
     */
     public function setDefenderUntrustedExecutable(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderUntrustedExecutable', $value);
@@ -3243,7 +3243,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderUntrustedExecutableType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderUntrustedExecutableType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderUntrustedExecutableType property.
     */
     public function setDefenderUntrustedExecutableType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderUntrustedExecutableType', $value);
@@ -3251,7 +3251,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderUntrustedUSBProcess property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderUntrustedUSBProcess property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderUntrustedUSBProcess property.
     */
     public function setDefenderUntrustedUSBProcess(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderUntrustedUSBProcess', $value);
@@ -3259,7 +3259,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the defenderUntrustedUSBProcessType property value. Possible values of Defender Attack Surface Reduction Rules
-     *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderUntrustedUSBProcessType property.
+     * @param DefenderAttackSurfaceType|null $value Value to set for the defenderUntrustedUSBProcessType property.
     */
     public function setDefenderUntrustedUSBProcessType(?DefenderAttackSurfaceType $value): void {
         $this->getBackingStore()->set('defenderUntrustedUSBProcessType', $value);
@@ -3267,7 +3267,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the deviceGuardEnableSecureBootWithDMA property value. This property will be deprecated in May 2019 and will be replaced with property DeviceGuardSecureBootWithDMA. Specifies whether Platform Security Level is enabled at next reboot.
-     *  @param bool|null $value Value to set for the deviceGuardEnableSecureBootWithDMA property.
+     * @param bool|null $value Value to set for the deviceGuardEnableSecureBootWithDMA property.
     */
     public function setDeviceGuardEnableSecureBootWithDMA(?bool $value): void {
         $this->getBackingStore()->set('deviceGuardEnableSecureBootWithDMA', $value);
@@ -3275,7 +3275,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the deviceGuardEnableVirtualizationBasedSecurity property value. Turns On Virtualization Based Security(VBS).
-     *  @param bool|null $value Value to set for the deviceGuardEnableVirtualizationBasedSecurity property.
+     * @param bool|null $value Value to set for the deviceGuardEnableVirtualizationBasedSecurity property.
     */
     public function setDeviceGuardEnableVirtualizationBasedSecurity(?bool $value): void {
         $this->getBackingStore()->set('deviceGuardEnableVirtualizationBasedSecurity', $value);
@@ -3283,7 +3283,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the deviceGuardLaunchSystemGuard property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the deviceGuardLaunchSystemGuard property.
+     * @param Enablement|null $value Value to set for the deviceGuardLaunchSystemGuard property.
     */
     public function setDeviceGuardLaunchSystemGuard(?Enablement $value): void {
         $this->getBackingStore()->set('deviceGuardLaunchSystemGuard', $value);
@@ -3291,7 +3291,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the deviceGuardLocalSystemAuthorityCredentialGuardSettings property value. Possible values of Credential Guard settings.
-     *  @param DeviceGuardLocalSystemAuthorityCredentialGuardType|null $value Value to set for the deviceGuardLocalSystemAuthorityCredentialGuardSettings property.
+     * @param DeviceGuardLocalSystemAuthorityCredentialGuardType|null $value Value to set for the deviceGuardLocalSystemAuthorityCredentialGuardSettings property.
     */
     public function setDeviceGuardLocalSystemAuthorityCredentialGuardSettings(?DeviceGuardLocalSystemAuthorityCredentialGuardType $value): void {
         $this->getBackingStore()->set('deviceGuardLocalSystemAuthorityCredentialGuardSettings', $value);
@@ -3299,7 +3299,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the deviceGuardSecureBootWithDMA property value. Possible values of Secure Boot with DMA
-     *  @param SecureBootWithDMAType|null $value Value to set for the deviceGuardSecureBootWithDMA property.
+     * @param SecureBootWithDMAType|null $value Value to set for the deviceGuardSecureBootWithDMA property.
     */
     public function setDeviceGuardSecureBootWithDMA(?SecureBootWithDMAType $value): void {
         $this->getBackingStore()->set('deviceGuardSecureBootWithDMA', $value);
@@ -3307,7 +3307,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the dmaGuardDeviceEnumerationPolicy property value. Possible values of the DmaGuardDeviceEnumerationPolicy.
-     *  @param DmaGuardDeviceEnumerationPolicyType|null $value Value to set for the dmaGuardDeviceEnumerationPolicy property.
+     * @param DmaGuardDeviceEnumerationPolicyType|null $value Value to set for the dmaGuardDeviceEnumerationPolicy property.
     */
     public function setDmaGuardDeviceEnumerationPolicy(?DmaGuardDeviceEnumerationPolicyType $value): void {
         $this->getBackingStore()->set('dmaGuardDeviceEnumerationPolicy', $value);
@@ -3315,7 +3315,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallBlockStatefulFTP property value. Blocks stateful FTP connections to the device
-     *  @param bool|null $value Value to set for the firewallBlockStatefulFTP property.
+     * @param bool|null $value Value to set for the firewallBlockStatefulFTP property.
     */
     public function setFirewallBlockStatefulFTP(?bool $value): void {
         $this->getBackingStore()->set('firewallBlockStatefulFTP', $value);
@@ -3323,7 +3323,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallCertificateRevocationListCheckMethod property value. Possible values for firewallCertificateRevocationListCheckMethod
-     *  @param FirewallCertificateRevocationListCheckMethodType|null $value Value to set for the firewallCertificateRevocationListCheckMethod property.
+     * @param FirewallCertificateRevocationListCheckMethodType|null $value Value to set for the firewallCertificateRevocationListCheckMethod property.
     */
     public function setFirewallCertificateRevocationListCheckMethod(?FirewallCertificateRevocationListCheckMethodType $value): void {
         $this->getBackingStore()->set('firewallCertificateRevocationListCheckMethod', $value);
@@ -3331,7 +3331,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallIdleTimeoutForSecurityAssociationInSeconds property value. Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600
-     *  @param int|null $value Value to set for the firewallIdleTimeoutForSecurityAssociationInSeconds property.
+     * @param int|null $value Value to set for the firewallIdleTimeoutForSecurityAssociationInSeconds property.
     */
     public function setFirewallIdleTimeoutForSecurityAssociationInSeconds(?int $value): void {
         $this->getBackingStore()->set('firewallIdleTimeoutForSecurityAssociationInSeconds', $value);
@@ -3339,7 +3339,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallIPSecExemptionsAllowDHCP property value. Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic
-     *  @param bool|null $value Value to set for the firewallIPSecExemptionsAllowDHCP property.
+     * @param bool|null $value Value to set for the firewallIPSecExemptionsAllowDHCP property.
     */
     public function setFirewallIPSecExemptionsAllowDHCP(?bool $value): void {
         $this->getBackingStore()->set('firewallIPSecExemptionsAllowDHCP', $value);
@@ -3347,7 +3347,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallIPSecExemptionsAllowICMP property value. Configures IPSec exemptions to allow ICMP
-     *  @param bool|null $value Value to set for the firewallIPSecExemptionsAllowICMP property.
+     * @param bool|null $value Value to set for the firewallIPSecExemptionsAllowICMP property.
     */
     public function setFirewallIPSecExemptionsAllowICMP(?bool $value): void {
         $this->getBackingStore()->set('firewallIPSecExemptionsAllowICMP', $value);
@@ -3355,7 +3355,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallIPSecExemptionsAllowNeighborDiscovery property value. Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes
-     *  @param bool|null $value Value to set for the firewallIPSecExemptionsAllowNeighborDiscovery property.
+     * @param bool|null $value Value to set for the firewallIPSecExemptionsAllowNeighborDiscovery property.
     */
     public function setFirewallIPSecExemptionsAllowNeighborDiscovery(?bool $value): void {
         $this->getBackingStore()->set('firewallIPSecExemptionsAllowNeighborDiscovery', $value);
@@ -3363,7 +3363,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallIPSecExemptionsAllowRouterDiscovery property value. Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes
-     *  @param bool|null $value Value to set for the firewallIPSecExemptionsAllowRouterDiscovery property.
+     * @param bool|null $value Value to set for the firewallIPSecExemptionsAllowRouterDiscovery property.
     */
     public function setFirewallIPSecExemptionsAllowRouterDiscovery(?bool $value): void {
         $this->getBackingStore()->set('firewallIPSecExemptionsAllowRouterDiscovery', $value);
@@ -3371,7 +3371,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallIPSecExemptionsNone property value. Configures IPSec exemptions to no exemptions
-     *  @param bool|null $value Value to set for the firewallIPSecExemptionsNone property.
+     * @param bool|null $value Value to set for the firewallIPSecExemptionsNone property.
     */
     public function setFirewallIPSecExemptionsNone(?bool $value): void {
         $this->getBackingStore()->set('firewallIPSecExemptionsNone', $value);
@@ -3379,7 +3379,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallMergeKeyingModuleSettings property value. If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set
-     *  @param bool|null $value Value to set for the firewallMergeKeyingModuleSettings property.
+     * @param bool|null $value Value to set for the firewallMergeKeyingModuleSettings property.
     */
     public function setFirewallMergeKeyingModuleSettings(?bool $value): void {
         $this->getBackingStore()->set('firewallMergeKeyingModuleSettings', $value);
@@ -3387,7 +3387,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallPacketQueueingMethod property value. Possible values for firewallPacketQueueingMethod
-     *  @param FirewallPacketQueueingMethodType|null $value Value to set for the firewallPacketQueueingMethod property.
+     * @param FirewallPacketQueueingMethodType|null $value Value to set for the firewallPacketQueueingMethod property.
     */
     public function setFirewallPacketQueueingMethod(?FirewallPacketQueueingMethodType $value): void {
         $this->getBackingStore()->set('firewallPacketQueueingMethod', $value);
@@ -3395,7 +3395,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallPreSharedKeyEncodingMethod property value. Possible values for firewallPreSharedKeyEncodingMethod
-     *  @param FirewallPreSharedKeyEncodingMethodType|null $value Value to set for the firewallPreSharedKeyEncodingMethod property.
+     * @param FirewallPreSharedKeyEncodingMethodType|null $value Value to set for the firewallPreSharedKeyEncodingMethod property.
     */
     public function setFirewallPreSharedKeyEncodingMethod(?FirewallPreSharedKeyEncodingMethodType $value): void {
         $this->getBackingStore()->set('firewallPreSharedKeyEncodingMethod', $value);
@@ -3403,7 +3403,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallProfileDomain property value. Configures the firewall profile settings for domain networks
-     *  @param WindowsFirewallNetworkProfile|null $value Value to set for the firewallProfileDomain property.
+     * @param WindowsFirewallNetworkProfile|null $value Value to set for the firewallProfileDomain property.
     */
     public function setFirewallProfileDomain(?WindowsFirewallNetworkProfile $value): void {
         $this->getBackingStore()->set('firewallProfileDomain', $value);
@@ -3411,7 +3411,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallProfilePrivate property value. Configures the firewall profile settings for private networks
-     *  @param WindowsFirewallNetworkProfile|null $value Value to set for the firewallProfilePrivate property.
+     * @param WindowsFirewallNetworkProfile|null $value Value to set for the firewallProfilePrivate property.
     */
     public function setFirewallProfilePrivate(?WindowsFirewallNetworkProfile $value): void {
         $this->getBackingStore()->set('firewallProfilePrivate', $value);
@@ -3419,7 +3419,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallProfilePublic property value. Configures the firewall profile settings for public networks
-     *  @param WindowsFirewallNetworkProfile|null $value Value to set for the firewallProfilePublic property.
+     * @param WindowsFirewallNetworkProfile|null $value Value to set for the firewallProfilePublic property.
     */
     public function setFirewallProfilePublic(?WindowsFirewallNetworkProfile $value): void {
         $this->getBackingStore()->set('firewallProfilePublic', $value);
@@ -3427,7 +3427,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the firewallRules property value. Configures the firewall rule settings. This collection can contain a maximum of 150 elements.
-     *  @param array<WindowsFirewallRule>|null $value Value to set for the firewallRules property.
+     * @param array<WindowsFirewallRule>|null $value Value to set for the firewallRules property.
     */
     public function setFirewallRules(?array $value): void {
         $this->getBackingStore()->set('firewallRules', $value);
@@ -3435,7 +3435,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the lanManagerAuthenticationLevel property value. Possible values for LanManagerAuthenticationLevel
-     *  @param LanManagerAuthenticationLevel|null $value Value to set for the lanManagerAuthenticationLevel property.
+     * @param LanManagerAuthenticationLevel|null $value Value to set for the lanManagerAuthenticationLevel property.
     */
     public function setLanManagerAuthenticationLevel(?LanManagerAuthenticationLevel $value): void {
         $this->getBackingStore()->set('lanManagerAuthenticationLevel', $value);
@@ -3443,7 +3443,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the lanManagerWorkstationDisableInsecureGuestLogons property value. If enabled,the SMB client will allow insecure guest logons. If not configured, the SMB client will reject insecure guest logons.
-     *  @param bool|null $value Value to set for the lanManagerWorkstationDisableInsecureGuestLogons property.
+     * @param bool|null $value Value to set for the lanManagerWorkstationDisableInsecureGuestLogons property.
     */
     public function setLanManagerWorkstationDisableInsecureGuestLogons(?bool $value): void {
         $this->getBackingStore()->set('lanManagerWorkstationDisableInsecureGuestLogons', $value);
@@ -3451,7 +3451,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAdministratorAccountName property value. Define a different account name to be associated with the security identifier (SID) for the account 'Administrator'.
-     *  @param string|null $value Value to set for the localSecurityOptionsAdministratorAccountName property.
+     * @param string|null $value Value to set for the localSecurityOptionsAdministratorAccountName property.
     */
     public function setLocalSecurityOptionsAdministratorAccountName(?string $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAdministratorAccountName', $value);
@@ -3459,7 +3459,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAdministratorElevationPromptBehavior property value. Possible values for LocalSecurityOptionsAdministratorElevationPromptBehavior
-     *  @param LocalSecurityOptionsAdministratorElevationPromptBehaviorType|null $value Value to set for the localSecurityOptionsAdministratorElevationPromptBehavior property.
+     * @param LocalSecurityOptionsAdministratorElevationPromptBehaviorType|null $value Value to set for the localSecurityOptionsAdministratorElevationPromptBehavior property.
     */
     public function setLocalSecurityOptionsAdministratorElevationPromptBehavior(?LocalSecurityOptionsAdministratorElevationPromptBehaviorType $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAdministratorElevationPromptBehavior', $value);
@@ -3467,7 +3467,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares property value. This security setting determines whether to allows anonymous users to perform certain activities, such as enumerating the names of domain accounts and network shares.
-     *  @param bool|null $value Value to set for the localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares property.
+     * @param bool|null $value Value to set for the localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares property.
     */
     public function setLocalSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares', $value);
@@ -3475,7 +3475,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAllowPKU2UAuthenticationRequests property value. Block PKU2U authentication requests to this device to use online identities.
-     *  @param bool|null $value Value to set for the localSecurityOptionsAllowPKU2UAuthenticationRequests property.
+     * @param bool|null $value Value to set for the localSecurityOptionsAllowPKU2UAuthenticationRequests property.
     */
     public function setLocalSecurityOptionsAllowPKU2UAuthenticationRequests(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAllowPKU2UAuthenticationRequests', $value);
@@ -3483,7 +3483,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager property value. Edit the default Security Descriptor Definition Language string to allow or deny users and groups to make remote calls to the SAM.
-     *  @param string|null $value Value to set for the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager property.
+     * @param string|null $value Value to set for the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager property.
     */
     public function setLocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager(?string $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager', $value);
@@ -3491,7 +3491,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool property value. UI helper boolean for LocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager entity
-     *  @param bool|null $value Value to set for the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool property.
+     * @param bool|null $value Value to set for the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool property.
     */
     public function setLocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool', $value);
@@ -3499,7 +3499,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn property value. This security setting determines whether a computer can be shut down without having to log on to Windows.
-     *  @param bool|null $value Value to set for the localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn property.
+     * @param bool|null $value Value to set for the localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn property.
     */
     public function setLocalSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn', $value);
@@ -3507,7 +3507,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAllowUIAccessApplicationElevation property value. Allow UIAccess apps to prompt for elevation without using the secure desktop.
-     *  @param bool|null $value Value to set for the localSecurityOptionsAllowUIAccessApplicationElevation property.
+     * @param bool|null $value Value to set for the localSecurityOptionsAllowUIAccessApplicationElevation property.
     */
     public function setLocalSecurityOptionsAllowUIAccessApplicationElevation(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAllowUIAccessApplicationElevation', $value);
@@ -3515,7 +3515,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAllowUIAccessApplicationsForSecureLocations property value. Allow UIAccess apps to prompt for elevation without using the secure desktop.Default is enabled
-     *  @param bool|null $value Value to set for the localSecurityOptionsAllowUIAccessApplicationsForSecureLocations property.
+     * @param bool|null $value Value to set for the localSecurityOptionsAllowUIAccessApplicationsForSecureLocations property.
     */
     public function setLocalSecurityOptionsAllowUIAccessApplicationsForSecureLocations(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAllowUIAccessApplicationsForSecureLocations', $value);
@@ -3523,7 +3523,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsAllowUndockWithoutHavingToLogon property value. Prevent a portable computer from being undocked without having to log in.
-     *  @param bool|null $value Value to set for the localSecurityOptionsAllowUndockWithoutHavingToLogon property.
+     * @param bool|null $value Value to set for the localSecurityOptionsAllowUndockWithoutHavingToLogon property.
     */
     public function setLocalSecurityOptionsAllowUndockWithoutHavingToLogon(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsAllowUndockWithoutHavingToLogon', $value);
@@ -3531,7 +3531,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsBlockMicrosoftAccounts property value. Prevent users from adding new Microsoft accounts to this computer.
-     *  @param bool|null $value Value to set for the localSecurityOptionsBlockMicrosoftAccounts property.
+     * @param bool|null $value Value to set for the localSecurityOptionsBlockMicrosoftAccounts property.
     */
     public function setLocalSecurityOptionsBlockMicrosoftAccounts(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsBlockMicrosoftAccounts', $value);
@@ -3539,7 +3539,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsBlockRemoteLogonWithBlankPassword property value. Enable Local accounts that are not password protected to log on from locations other than the physical device.Default is enabled
-     *  @param bool|null $value Value to set for the localSecurityOptionsBlockRemoteLogonWithBlankPassword property.
+     * @param bool|null $value Value to set for the localSecurityOptionsBlockRemoteLogonWithBlankPassword property.
     */
     public function setLocalSecurityOptionsBlockRemoteLogonWithBlankPassword(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsBlockRemoteLogonWithBlankPassword', $value);
@@ -3547,7 +3547,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsBlockRemoteOpticalDriveAccess property value. Enabling this settings allows only interactively logged on user to access CD-ROM media.
-     *  @param bool|null $value Value to set for the localSecurityOptionsBlockRemoteOpticalDriveAccess property.
+     * @param bool|null $value Value to set for the localSecurityOptionsBlockRemoteOpticalDriveAccess property.
     */
     public function setLocalSecurityOptionsBlockRemoteOpticalDriveAccess(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsBlockRemoteOpticalDriveAccess', $value);
@@ -3555,7 +3555,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsBlockUsersInstallingPrinterDrivers property value. Restrict installing printer drivers as part of connecting to a shared printer to admins only.
-     *  @param bool|null $value Value to set for the localSecurityOptionsBlockUsersInstallingPrinterDrivers property.
+     * @param bool|null $value Value to set for the localSecurityOptionsBlockUsersInstallingPrinterDrivers property.
     */
     public function setLocalSecurityOptionsBlockUsersInstallingPrinterDrivers(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsBlockUsersInstallingPrinterDrivers', $value);
@@ -3563,7 +3563,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsClearVirtualMemoryPageFile property value. This security setting determines whether the virtual memory pagefile is cleared when the system is shut down.
-     *  @param bool|null $value Value to set for the localSecurityOptionsClearVirtualMemoryPageFile property.
+     * @param bool|null $value Value to set for the localSecurityOptionsClearVirtualMemoryPageFile property.
     */
     public function setLocalSecurityOptionsClearVirtualMemoryPageFile(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsClearVirtualMemoryPageFile', $value);
@@ -3571,7 +3571,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsClientDigitallySignCommunicationsAlways property value. This security setting determines whether packet signing is required by the SMB client component.
-     *  @param bool|null $value Value to set for the localSecurityOptionsClientDigitallySignCommunicationsAlways property.
+     * @param bool|null $value Value to set for the localSecurityOptionsClientDigitallySignCommunicationsAlways property.
     */
     public function setLocalSecurityOptionsClientDigitallySignCommunicationsAlways(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsClientDigitallySignCommunicationsAlways', $value);
@@ -3579,7 +3579,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers property value. If this security setting is enabled, the Server Message Block (SMB) redirector is allowed to send plaintext passwords to non-Microsoft SMB servers that do not support password encryption during authentication.
-     *  @param bool|null $value Value to set for the localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers property.
+     * @param bool|null $value Value to set for the localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers property.
     */
     public function setLocalSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers', $value);
@@ -3587,7 +3587,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation property value. App installations requiring elevated privileges will prompt for admin credentials.Default is enabled
-     *  @param bool|null $value Value to set for the localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation property.
+     * @param bool|null $value Value to set for the localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation property.
     */
     public function setLocalSecurityOptionsDetectApplicationInstallationsAndPromptForElevation(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation', $value);
@@ -3595,7 +3595,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsDisableAdministratorAccount property value. Determines whether the Local Administrator account is enabled or disabled.
-     *  @param bool|null $value Value to set for the localSecurityOptionsDisableAdministratorAccount property.
+     * @param bool|null $value Value to set for the localSecurityOptionsDisableAdministratorAccount property.
     */
     public function setLocalSecurityOptionsDisableAdministratorAccount(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsDisableAdministratorAccount', $value);
@@ -3603,7 +3603,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees property value. This security setting determines whether the SMB client attempts to negotiate SMB packet signing.
-     *  @param bool|null $value Value to set for the localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees property.
+     * @param bool|null $value Value to set for the localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees property.
     */
     public function setLocalSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees', $value);
@@ -3611,7 +3611,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsDisableGuestAccount property value. Determines if the Guest account is enabled or disabled.
-     *  @param bool|null $value Value to set for the localSecurityOptionsDisableGuestAccount property.
+     * @param bool|null $value Value to set for the localSecurityOptionsDisableGuestAccount property.
     */
     public function setLocalSecurityOptionsDisableGuestAccount(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsDisableGuestAccount', $value);
@@ -3619,7 +3619,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsDisableServerDigitallySignCommunicationsAlways property value. This security setting determines whether packet signing is required by the SMB server component.
-     *  @param bool|null $value Value to set for the localSecurityOptionsDisableServerDigitallySignCommunicationsAlways property.
+     * @param bool|null $value Value to set for the localSecurityOptionsDisableServerDigitallySignCommunicationsAlways property.
     */
     public function setLocalSecurityOptionsDisableServerDigitallySignCommunicationsAlways(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsDisableServerDigitallySignCommunicationsAlways', $value);
@@ -3627,7 +3627,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees property value. This security setting determines whether the SMB server will negotiate SMB packet signing with clients that request it.
-     *  @param bool|null $value Value to set for the localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees property.
+     * @param bool|null $value Value to set for the localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees property.
     */
     public function setLocalSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees', $value);
@@ -3635,7 +3635,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts property value. This security setting determines what additional permissions will be granted for anonymous connections to the computer.
-     *  @param bool|null $value Value to set for the localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts property.
+     * @param bool|null $value Value to set for the localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts property.
     */
     public function setLocalSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts', $value);
@@ -3643,7 +3643,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsDoNotRequireCtrlAltDel property value. Require CTRL+ALT+DEL to be pressed before a user can log on.
-     *  @param bool|null $value Value to set for the localSecurityOptionsDoNotRequireCtrlAltDel property.
+     * @param bool|null $value Value to set for the localSecurityOptionsDoNotRequireCtrlAltDel property.
     */
     public function setLocalSecurityOptionsDoNotRequireCtrlAltDel(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsDoNotRequireCtrlAltDel', $value);
@@ -3651,7 +3651,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange property value. This security setting determines if, at the next password change, the LAN Manager (LM) hash value for the new password is stored. It’s not stored by default.
-     *  @param bool|null $value Value to set for the localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange property.
+     * @param bool|null $value Value to set for the localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange property.
     */
     public function setLocalSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange', $value);
@@ -3659,7 +3659,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property value. Possible values for LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
-     *  @param LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null $value Value to set for the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property.
+     * @param LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null $value Value to set for the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property.
     */
     public function setLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser(?LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType $value): void {
         $this->getBackingStore()->set('localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser', $value);
@@ -3667,7 +3667,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsGuestAccountName property value. Define a different account name to be associated with the security identifier (SID) for the account 'Guest'.
-     *  @param string|null $value Value to set for the localSecurityOptionsGuestAccountName property.
+     * @param string|null $value Value to set for the localSecurityOptionsGuestAccountName property.
     */
     public function setLocalSecurityOptionsGuestAccountName(?string $value): void {
         $this->getBackingStore()->set('localSecurityOptionsGuestAccountName', $value);
@@ -3675,7 +3675,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsHideLastSignedInUser property value. Do not display the username of the last person who signed in on this device.
-     *  @param bool|null $value Value to set for the localSecurityOptionsHideLastSignedInUser property.
+     * @param bool|null $value Value to set for the localSecurityOptionsHideLastSignedInUser property.
     */
     public function setLocalSecurityOptionsHideLastSignedInUser(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsHideLastSignedInUser', $value);
@@ -3683,7 +3683,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsHideUsernameAtSignIn property value. Do not display the username of the person signing in to this device after credentials are entered and before the device’s desktop is shown.
-     *  @param bool|null $value Value to set for the localSecurityOptionsHideUsernameAtSignIn property.
+     * @param bool|null $value Value to set for the localSecurityOptionsHideUsernameAtSignIn property.
     */
     public function setLocalSecurityOptionsHideUsernameAtSignIn(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsHideUsernameAtSignIn', $value);
@@ -3691,7 +3691,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsInformationDisplayedOnLockScreen property value. Possible values for LocalSecurityOptionsInformationDisplayedOnLockScreen
-     *  @param LocalSecurityOptionsInformationDisplayedOnLockScreenType|null $value Value to set for the localSecurityOptionsInformationDisplayedOnLockScreen property.
+     * @param LocalSecurityOptionsInformationDisplayedOnLockScreenType|null $value Value to set for the localSecurityOptionsInformationDisplayedOnLockScreen property.
     */
     public function setLocalSecurityOptionsInformationDisplayedOnLockScreen(?LocalSecurityOptionsInformationDisplayedOnLockScreenType $value): void {
         $this->getBackingStore()->set('localSecurityOptionsInformationDisplayedOnLockScreen', $value);
@@ -3699,7 +3699,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsInformationShownOnLockScreen property value. Possible values for LocalSecurityOptionsInformationShownOnLockScreenType
-     *  @param LocalSecurityOptionsInformationShownOnLockScreenType|null $value Value to set for the localSecurityOptionsInformationShownOnLockScreen property.
+     * @param LocalSecurityOptionsInformationShownOnLockScreenType|null $value Value to set for the localSecurityOptionsInformationShownOnLockScreen property.
     */
     public function setLocalSecurityOptionsInformationShownOnLockScreen(?LocalSecurityOptionsInformationShownOnLockScreenType $value): void {
         $this->getBackingStore()->set('localSecurityOptionsInformationShownOnLockScreen', $value);
@@ -3707,7 +3707,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsLogOnMessageText property value. Set message text for users attempting to log in.
-     *  @param string|null $value Value to set for the localSecurityOptionsLogOnMessageText property.
+     * @param string|null $value Value to set for the localSecurityOptionsLogOnMessageText property.
     */
     public function setLocalSecurityOptionsLogOnMessageText(?string $value): void {
         $this->getBackingStore()->set('localSecurityOptionsLogOnMessageText', $value);
@@ -3715,7 +3715,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsLogOnMessageTitle property value. Set message title for users attempting to log in.
-     *  @param string|null $value Value to set for the localSecurityOptionsLogOnMessageTitle property.
+     * @param string|null $value Value to set for the localSecurityOptionsLogOnMessageTitle property.
     */
     public function setLocalSecurityOptionsLogOnMessageTitle(?string $value): void {
         $this->getBackingStore()->set('localSecurityOptionsLogOnMessageTitle', $value);
@@ -3723,7 +3723,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsMachineInactivityLimit property value. Define maximum minutes of inactivity on the interactive desktop’s login screen until the screen saver runs. Valid values 0 to 9999
-     *  @param int|null $value Value to set for the localSecurityOptionsMachineInactivityLimit property.
+     * @param int|null $value Value to set for the localSecurityOptionsMachineInactivityLimit property.
     */
     public function setLocalSecurityOptionsMachineInactivityLimit(?int $value): void {
         $this->getBackingStore()->set('localSecurityOptionsMachineInactivityLimit', $value);
@@ -3731,7 +3731,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsMachineInactivityLimitInMinutes property value. Define maximum minutes of inactivity on the interactive desktop’s login screen until the screen saver runs. Valid values 0 to 9999
-     *  @param int|null $value Value to set for the localSecurityOptionsMachineInactivityLimitInMinutes property.
+     * @param int|null $value Value to set for the localSecurityOptionsMachineInactivityLimitInMinutes property.
     */
     public function setLocalSecurityOptionsMachineInactivityLimitInMinutes(?int $value): void {
         $this->getBackingStore()->set('localSecurityOptionsMachineInactivityLimitInMinutes', $value);
@@ -3739,7 +3739,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients property value. Possible values for LocalSecurityOptionsMinimumSessionSecurity
-     *  @param LocalSecurityOptionsMinimumSessionSecurity|null $value Value to set for the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients property.
+     * @param LocalSecurityOptionsMinimumSessionSecurity|null $value Value to set for the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients property.
     */
     public function setLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients(?LocalSecurityOptionsMinimumSessionSecurity $value): void {
         $this->getBackingStore()->set('localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients', $value);
@@ -3747,7 +3747,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers property value. Possible values for LocalSecurityOptionsMinimumSessionSecurity
-     *  @param LocalSecurityOptionsMinimumSessionSecurity|null $value Value to set for the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers property.
+     * @param LocalSecurityOptionsMinimumSessionSecurity|null $value Value to set for the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers property.
     */
     public function setLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers(?LocalSecurityOptionsMinimumSessionSecurity $value): void {
         $this->getBackingStore()->set('localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers', $value);
@@ -3755,7 +3755,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsOnlyElevateSignedExecutables property value. Enforce PKI certification path validation for a given executable file before it is permitted to run.
-     *  @param bool|null $value Value to set for the localSecurityOptionsOnlyElevateSignedExecutables property.
+     * @param bool|null $value Value to set for the localSecurityOptionsOnlyElevateSignedExecutables property.
     */
     public function setLocalSecurityOptionsOnlyElevateSignedExecutables(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsOnlyElevateSignedExecutables', $value);
@@ -3763,7 +3763,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares property value. By default, this security setting restricts anonymous access to shares and pipes to the settings for named pipes that can be accessed anonymously and Shares that can be accessed anonymously
-     *  @param bool|null $value Value to set for the localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares property.
+     * @param bool|null $value Value to set for the localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares property.
     */
     public function setLocalSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares', $value);
@@ -3771,7 +3771,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsSmartCardRemovalBehavior property value. Possible values for LocalSecurityOptionsSmartCardRemovalBehaviorType
-     *  @param LocalSecurityOptionsSmartCardRemovalBehaviorType|null $value Value to set for the localSecurityOptionsSmartCardRemovalBehavior property.
+     * @param LocalSecurityOptionsSmartCardRemovalBehaviorType|null $value Value to set for the localSecurityOptionsSmartCardRemovalBehavior property.
     */
     public function setLocalSecurityOptionsSmartCardRemovalBehavior(?LocalSecurityOptionsSmartCardRemovalBehaviorType $value): void {
         $this->getBackingStore()->set('localSecurityOptionsSmartCardRemovalBehavior', $value);
@@ -3779,7 +3779,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsStandardUserElevationPromptBehavior property value. Possible values for LocalSecurityOptionsStandardUserElevationPromptBehavior
-     *  @param LocalSecurityOptionsStandardUserElevationPromptBehaviorType|null $value Value to set for the localSecurityOptionsStandardUserElevationPromptBehavior property.
+     * @param LocalSecurityOptionsStandardUserElevationPromptBehaviorType|null $value Value to set for the localSecurityOptionsStandardUserElevationPromptBehavior property.
     */
     public function setLocalSecurityOptionsStandardUserElevationPromptBehavior(?LocalSecurityOptionsStandardUserElevationPromptBehaviorType $value): void {
         $this->getBackingStore()->set('localSecurityOptionsStandardUserElevationPromptBehavior', $value);
@@ -3787,7 +3787,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation property value. Enable all elevation requests to go to the interactive user's desktop rather than the secure desktop. Prompt behavior policy settings for admins and standard users are used.
-     *  @param bool|null $value Value to set for the localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation property.
+     * @param bool|null $value Value to set for the localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation property.
     */
     public function setLocalSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation', $value);
@@ -3795,7 +3795,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsUseAdminApprovalMode property value. Defines whether the built-in admin account uses Admin Approval Mode or runs all apps with full admin privileges.Default is enabled
-     *  @param bool|null $value Value to set for the localSecurityOptionsUseAdminApprovalMode property.
+     * @param bool|null $value Value to set for the localSecurityOptionsUseAdminApprovalMode property.
     */
     public function setLocalSecurityOptionsUseAdminApprovalMode(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsUseAdminApprovalMode', $value);
@@ -3803,7 +3803,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsUseAdminApprovalModeForAdministrators property value. Define whether Admin Approval Mode and all UAC policy settings are enabled, default is enabled
-     *  @param bool|null $value Value to set for the localSecurityOptionsUseAdminApprovalModeForAdministrators property.
+     * @param bool|null $value Value to set for the localSecurityOptionsUseAdminApprovalModeForAdministrators property.
     */
     public function setLocalSecurityOptionsUseAdminApprovalModeForAdministrators(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsUseAdminApprovalModeForAdministrators', $value);
@@ -3811,7 +3811,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations property value. Virtualize file and registry write failures to per user locations
-     *  @param bool|null $value Value to set for the localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations property.
+     * @param bool|null $value Value to set for the localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations property.
     */
     public function setLocalSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations(?bool $value): void {
         $this->getBackingStore()->set('localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations', $value);
@@ -3819,7 +3819,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the smartScreenBlockOverrideForFiles property value. Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.
-     *  @param bool|null $value Value to set for the smartScreenBlockOverrideForFiles property.
+     * @param bool|null $value Value to set for the smartScreenBlockOverrideForFiles property.
     */
     public function setSmartScreenBlockOverrideForFiles(?bool $value): void {
         $this->getBackingStore()->set('smartScreenBlockOverrideForFiles', $value);
@@ -3827,7 +3827,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the smartScreenEnableInShell property value. Allows IT Admins to configure SmartScreen for Windows.
-     *  @param bool|null $value Value to set for the smartScreenEnableInShell property.
+     * @param bool|null $value Value to set for the smartScreenEnableInShell property.
     */
     public function setSmartScreenEnableInShell(?bool $value): void {
         $this->getBackingStore()->set('smartScreenEnableInShell', $value);
@@ -3835,7 +3835,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsAccessCredentialManagerAsTrustedCaller property value. This user right is used by Credential Manager during Backup/Restore. Users' saved credentials might be compromised if this privilege is given to other entities. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsAccessCredentialManagerAsTrustedCaller property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsAccessCredentialManagerAsTrustedCaller property.
     */
     public function setUserRightsAccessCredentialManagerAsTrustedCaller(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsAccessCredentialManagerAsTrustedCaller', $value);
@@ -3843,7 +3843,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsActAsPartOfTheOperatingSystem property value. This user right allows a process to impersonate any user without authentication. The process can therefore gain access to the same local resources as that user. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsActAsPartOfTheOperatingSystem property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsActAsPartOfTheOperatingSystem property.
     */
     public function setUserRightsActAsPartOfTheOperatingSystem(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsActAsPartOfTheOperatingSystem', $value);
@@ -3851,7 +3851,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsAllowAccessFromNetwork property value. This user right determines which users and groups are allowed to connect to the computer over the network. State Allowed is supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsAllowAccessFromNetwork property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsAllowAccessFromNetwork property.
     */
     public function setUserRightsAllowAccessFromNetwork(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsAllowAccessFromNetwork', $value);
@@ -3859,7 +3859,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsBackupData property value. This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when backing up files and directories. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsBackupData property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsBackupData property.
     */
     public function setUserRightsBackupData(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsBackupData', $value);
@@ -3867,7 +3867,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsBlockAccessFromNetwork property value. This user right determines which users and groups are block from connecting to the computer over the network. State Block is supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsBlockAccessFromNetwork property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsBlockAccessFromNetwork property.
     */
     public function setUserRightsBlockAccessFromNetwork(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsBlockAccessFromNetwork', $value);
@@ -3875,7 +3875,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsChangeSystemTime property value. This user right determines which users and groups can change the time and date on the internal clock of the computer. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsChangeSystemTime property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsChangeSystemTime property.
     */
     public function setUserRightsChangeSystemTime(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsChangeSystemTime', $value);
@@ -3883,7 +3883,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsCreateGlobalObjects property value. This security setting determines whether users can create global objects that are available to all sessions. Users who can create global objects could affect processes that run under other users' sessions, which could lead to application failure or data corruption. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreateGlobalObjects property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreateGlobalObjects property.
     */
     public function setUserRightsCreateGlobalObjects(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsCreateGlobalObjects', $value);
@@ -3891,7 +3891,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsCreatePageFile property value. This user right determines which users and groups can call an internal API to create and change the size of a page file. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreatePageFile property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreatePageFile property.
     */
     public function setUserRightsCreatePageFile(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsCreatePageFile', $value);
@@ -3899,7 +3899,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsCreatePermanentSharedObjects property value. This user right determines which accounts can be used by processes to create a directory object using the object manager. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreatePermanentSharedObjects property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreatePermanentSharedObjects property.
     */
     public function setUserRightsCreatePermanentSharedObjects(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsCreatePermanentSharedObjects', $value);
@@ -3907,7 +3907,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsCreateSymbolicLinks property value. This user right determines if the user can create a symbolic link from the computer to which they are logged on. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreateSymbolicLinks property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreateSymbolicLinks property.
     */
     public function setUserRightsCreateSymbolicLinks(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsCreateSymbolicLinks', $value);
@@ -3915,7 +3915,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsCreateToken property value. This user right determines which users/groups can be used by processes to create a token that can then be used to get access to any local resources when the process uses an internal API to create an access token. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreateToken property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsCreateToken property.
     */
     public function setUserRightsCreateToken(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsCreateToken', $value);
@@ -3923,7 +3923,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsDebugPrograms property value. This user right determines which users can attach a debugger to any process or to the kernel. Only states NotConfigured and Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsDebugPrograms property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsDebugPrograms property.
     */
     public function setUserRightsDebugPrograms(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsDebugPrograms', $value);
@@ -3931,7 +3931,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsDelegation property value. This user right determines which users can set the Trusted for Delegation setting on a user or computer object. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsDelegation property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsDelegation property.
     */
     public function setUserRightsDelegation(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsDelegation', $value);
@@ -3939,7 +3939,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsDenyLocalLogOn property value. This user right determines which users cannot log on to the computer. States NotConfigured, Blocked are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsDenyLocalLogOn property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsDenyLocalLogOn property.
     */
     public function setUserRightsDenyLocalLogOn(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsDenyLocalLogOn', $value);
@@ -3947,7 +3947,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsGenerateSecurityAudits property value. This user right determines which accounts can be used by a process to add entries to the security log. The security log is used to trace unauthorized system access.  Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsGenerateSecurityAudits property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsGenerateSecurityAudits property.
     */
     public function setUserRightsGenerateSecurityAudits(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsGenerateSecurityAudits', $value);
@@ -3955,7 +3955,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsImpersonateClient property value. Assigning this user right to a user allows programs running on behalf of that user to impersonate a client. Requiring this user right for this kind of impersonation prevents an unauthorized user from convincing a client to connect to a service that they have created and then impersonating that client, which can elevate the unauthorized user's permissions to administrative or system levels. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsImpersonateClient property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsImpersonateClient property.
     */
     public function setUserRightsImpersonateClient(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsImpersonateClient', $value);
@@ -3963,7 +3963,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsIncreaseSchedulingPriority property value. This user right determines which accounts can use a process with Write Property access to another process to increase the execution priority assigned to the other process. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsIncreaseSchedulingPriority property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsIncreaseSchedulingPriority property.
     */
     public function setUserRightsIncreaseSchedulingPriority(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsIncreaseSchedulingPriority', $value);
@@ -3971,7 +3971,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsLoadUnloadDrivers property value. This user right determines which users can dynamically load and unload device drivers or other code in to kernel mode. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsLoadUnloadDrivers property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsLoadUnloadDrivers property.
     */
     public function setUserRightsLoadUnloadDrivers(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsLoadUnloadDrivers', $value);
@@ -3979,7 +3979,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsLocalLogOn property value. This user right determines which users can log on to the computer. States NotConfigured, Allowed are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsLocalLogOn property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsLocalLogOn property.
     */
     public function setUserRightsLocalLogOn(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsLocalLogOn', $value);
@@ -3987,7 +3987,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsLockMemory property value. This user right determines which accounts can use a process to keep data in physical memory, which prevents the system from paging the data to virtual memory on disk. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsLockMemory property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsLockMemory property.
     */
     public function setUserRightsLockMemory(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsLockMemory', $value);
@@ -3995,7 +3995,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsManageAuditingAndSecurityLogs property value. This user right determines which users can specify object access auditing options for individual resources, such as files, Active Directory objects, and registry keys. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsManageAuditingAndSecurityLogs property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsManageAuditingAndSecurityLogs property.
     */
     public function setUserRightsManageAuditingAndSecurityLogs(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsManageAuditingAndSecurityLogs', $value);
@@ -4003,7 +4003,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsManageVolumes property value. This user right determines which users and groups can run maintenance tasks on a volume, such as remote defragmentation. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsManageVolumes property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsManageVolumes property.
     */
     public function setUserRightsManageVolumes(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsManageVolumes', $value);
@@ -4011,7 +4011,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsModifyFirmwareEnvironment property value. This user right determines who can modify firmware environment values. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsModifyFirmwareEnvironment property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsModifyFirmwareEnvironment property.
     */
     public function setUserRightsModifyFirmwareEnvironment(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsModifyFirmwareEnvironment', $value);
@@ -4019,7 +4019,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsModifyObjectLabels property value. This user right determines which user accounts can modify the integrity label of objects, such as files, registry keys, or processes owned by other users. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsModifyObjectLabels property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsModifyObjectLabels property.
     */
     public function setUserRightsModifyObjectLabels(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsModifyObjectLabels', $value);
@@ -4027,7 +4027,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsProfileSingleProcess property value. This user right determines which users can use performance monitoring tools to monitor the performance of system processes. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsProfileSingleProcess property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsProfileSingleProcess property.
     */
     public function setUserRightsProfileSingleProcess(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsProfileSingleProcess', $value);
@@ -4035,7 +4035,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsRemoteDesktopServicesLogOn property value. This user right determines which users and groups are prohibited from logging on as a Remote Desktop Services client. Only states NotConfigured and Blocked are supported
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsRemoteDesktopServicesLogOn property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsRemoteDesktopServicesLogOn property.
     */
     public function setUserRightsRemoteDesktopServicesLogOn(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsRemoteDesktopServicesLogOn', $value);
@@ -4043,7 +4043,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsRemoteShutdown property value. This user right determines which users are allowed to shut down a computer from a remote location on the network. Misuse of this user right can result in a denial of service. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsRemoteShutdown property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsRemoteShutdown property.
     */
     public function setUserRightsRemoteShutdown(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsRemoteShutdown', $value);
@@ -4051,7 +4051,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsRestoreData property value. This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when restoring backed up files and directories, and determines which users can set any valid security principal as the owner of an object. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsRestoreData property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsRestoreData property.
     */
     public function setUserRightsRestoreData(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsRestoreData', $value);
@@ -4059,7 +4059,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the userRightsTakeOwnership property value. This user right determines which users can take ownership of any securable object in the system, including Active Directory objects, files and folders, printers, registry keys, processes, and threads. Only states NotConfigured and Allowed are supported.
-     *  @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsTakeOwnership property.
+     * @param DeviceManagementUserRightsSetting|null $value Value to set for the userRightsTakeOwnership property.
     */
     public function setUserRightsTakeOwnership(?DeviceManagementUserRightsSetting $value): void {
         $this->getBackingStore()->set('userRightsTakeOwnership', $value);
@@ -4067,7 +4067,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the windowsDefenderTamperProtection property value. Defender TamperProtection setting options
-     *  @param WindowsDefenderTamperProtectionOptions|null $value Value to set for the windowsDefenderTamperProtection property.
+     * @param WindowsDefenderTamperProtectionOptions|null $value Value to set for the windowsDefenderTamperProtection property.
     */
     public function setWindowsDefenderTamperProtection(?WindowsDefenderTamperProtectionOptions $value): void {
         $this->getBackingStore()->set('windowsDefenderTamperProtection', $value);
@@ -4075,7 +4075,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the xboxServicesAccessoryManagementServiceStartupMode property value. Possible values of xbox service start type
-     *  @param ServiceStartType|null $value Value to set for the xboxServicesAccessoryManagementServiceStartupMode property.
+     * @param ServiceStartType|null $value Value to set for the xboxServicesAccessoryManagementServiceStartupMode property.
     */
     public function setXboxServicesAccessoryManagementServiceStartupMode(?ServiceStartType $value): void {
         $this->getBackingStore()->set('xboxServicesAccessoryManagementServiceStartupMode', $value);
@@ -4083,7 +4083,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the xboxServicesEnableXboxGameSaveTask property value. This setting determines whether xbox game save is enabled (1) or disabled (0).
-     *  @param bool|null $value Value to set for the xboxServicesEnableXboxGameSaveTask property.
+     * @param bool|null $value Value to set for the xboxServicesEnableXboxGameSaveTask property.
     */
     public function setXboxServicesEnableXboxGameSaveTask(?bool $value): void {
         $this->getBackingStore()->set('xboxServicesEnableXboxGameSaveTask', $value);
@@ -4091,7 +4091,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the xboxServicesLiveAuthManagerServiceStartupMode property value. Possible values of xbox service start type
-     *  @param ServiceStartType|null $value Value to set for the xboxServicesLiveAuthManagerServiceStartupMode property.
+     * @param ServiceStartType|null $value Value to set for the xboxServicesLiveAuthManagerServiceStartupMode property.
     */
     public function setXboxServicesLiveAuthManagerServiceStartupMode(?ServiceStartType $value): void {
         $this->getBackingStore()->set('xboxServicesLiveAuthManagerServiceStartupMode', $value);
@@ -4099,7 +4099,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the xboxServicesLiveGameSaveServiceStartupMode property value. Possible values of xbox service start type
-     *  @param ServiceStartType|null $value Value to set for the xboxServicesLiveGameSaveServiceStartupMode property.
+     * @param ServiceStartType|null $value Value to set for the xboxServicesLiveGameSaveServiceStartupMode property.
     */
     public function setXboxServicesLiveGameSaveServiceStartupMode(?ServiceStartType $value): void {
         $this->getBackingStore()->set('xboxServicesLiveGameSaveServiceStartupMode', $value);
@@ -4107,7 +4107,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the xboxServicesLiveNetworkingServiceStartupMode property value. Possible values of xbox service start type
-     *  @param ServiceStartType|null $value Value to set for the xboxServicesLiveNetworkingServiceStartupMode property.
+     * @param ServiceStartType|null $value Value to set for the xboxServicesLiveNetworkingServiceStartupMode property.
     */
     public function setXboxServicesLiveNetworkingServiceStartupMode(?ServiceStartType $value): void {
         $this->getBackingStore()->set('xboxServicesLiveNetworkingServiceStartupMode', $value);

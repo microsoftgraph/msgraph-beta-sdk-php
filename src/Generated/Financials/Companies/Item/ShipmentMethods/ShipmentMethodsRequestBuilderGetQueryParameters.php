@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\ShipmentMetho
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get shipmentMethods from financials
+*/
 class ShipmentMethodsRequestBuilderGetQueryParameters 
 {
     /**

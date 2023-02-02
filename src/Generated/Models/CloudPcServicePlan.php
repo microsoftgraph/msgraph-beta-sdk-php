@@ -42,6 +42,7 @@ class CloudPcServicePlan extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'ramInGB' => fn(ParseNode $n) => $o->setRamInGB($n->getIntegerValue()),
             'storageInGB' => fn(ParseNode $n) => $o->setStorageInGB($n->getIntegerValue()),
+            'supportedSolution' => fn(ParseNode $n) => $o->setSupportedSolution($n->getEnumValue(CloudPcManagementService::class)),
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcServicePlanType::class)),
             'userProfileInGB' => fn(ParseNode $n) => $o->setUserProfileInGB($n->getIntegerValue()),
             'vCpuCount' => fn(ParseNode $n) => $o->setVCpuCount($n->getIntegerValue()),
@@ -62,6 +63,14 @@ class CloudPcServicePlan extends Entity implements Parsable
     */
     public function getStorageInGB(): ?int {
         return $this->getBackingStore()->get('storageInGB');
+    }
+
+    /**
+     * Gets the supportedSolution property value. The supportedSolution property
+     * @return CloudPcManagementService|null
+    */
+    public function getSupportedSolution(): ?CloudPcManagementService {
+        return $this->getBackingStore()->get('supportedSolution');
     }
 
     /**
@@ -97,6 +106,7 @@ class CloudPcServicePlan extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('ramInGB', $this->getRamInGB());
         $writer->writeIntegerValue('storageInGB', $this->getStorageInGB());
+        $writer->writeEnumValue('supportedSolution', $this->getSupportedSolution());
         $writer->writeEnumValue('type', $this->getType());
         $writer->writeIntegerValue('userProfileInGB', $this->getUserProfileInGB());
         $writer->writeIntegerValue('vCpuCount', $this->getVCpuCount());
@@ -104,7 +114,7 @@ class CloudPcServicePlan extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name for the service plan. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -112,7 +122,7 @@ class CloudPcServicePlan extends Entity implements Parsable
 
     /**
      * Sets the ramInGB property value. The size of the RAM in GB. Read-only.
-     *  @param int|null $value Value to set for the ramInGB property.
+     * @param int|null $value Value to set for the ramInGB property.
     */
     public function setRamInGB(?int $value): void {
         $this->getBackingStore()->set('ramInGB', $value);
@@ -120,15 +130,23 @@ class CloudPcServicePlan extends Entity implements Parsable
 
     /**
      * Sets the storageInGB property value. The size of the OS Disk in GB. Read-only.
-     *  @param int|null $value Value to set for the storageInGB property.
+     * @param int|null $value Value to set for the storageInGB property.
     */
     public function setStorageInGB(?int $value): void {
         $this->getBackingStore()->set('storageInGB', $value);
     }
 
     /**
+     * Sets the supportedSolution property value. The supportedSolution property
+     * @param CloudPcManagementService|null $value Value to set for the supportedSolution property.
+    */
+    public function setSupportedSolution(?CloudPcManagementService $value): void {
+        $this->getBackingStore()->set('supportedSolution', $value);
+    }
+
+    /**
      * Sets the type property value. The type of the service plan. Possible values are: enterprise, business, unknownFutureValue. Read-only.
-     *  @param CloudPcServicePlanType|null $value Value to set for the type property.
+     * @param CloudPcServicePlanType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcServicePlanType $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -136,7 +154,7 @@ class CloudPcServicePlan extends Entity implements Parsable
 
     /**
      * Sets the userProfileInGB property value. The size of the user profile disk in GB. Read-only.
-     *  @param int|null $value Value to set for the userProfileInGB property.
+     * @param int|null $value Value to set for the userProfileInGB property.
     */
     public function setUserProfileInGB(?int $value): void {
         $this->getBackingStore()->set('userProfileInGB', $value);
@@ -144,7 +162,7 @@ class CloudPcServicePlan extends Entity implements Parsable
 
     /**
      * Sets the vCpuCount property value. The number of vCPUs. Read-only.
-     *  @param int|null $value Value to set for the vCpuCount property.
+     * @param int|null $value Value to set for the vCpuCount property.
     */
     public function setVCpuCount(?int $value): void {
         $this->getBackingStore()->set('vCpuCount', $value);

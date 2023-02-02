@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Servic
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Cloud PC service plans.
+*/
 class CloudPcServicePlanItemRequestBuilderGetQueryParameters 
 {
     /**

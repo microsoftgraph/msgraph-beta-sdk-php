@@ -167,7 +167,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the address property value. The address property
-     *  @param PostalAddressType|null $value Value to set for the address property.
+     * @param PostalAddressType|null $value Value to set for the address property.
     */
     public function setAddress(?PostalAddressType $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -175,7 +175,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the currencyCode property value. The currencyCode property
-     *  @param string|null $value Value to set for the currencyCode property.
+     * @param string|null $value Value to set for the currencyCode property.
     */
     public function setCurrencyCode(?string $value): void {
         $this->getBackingStore()->set('currencyCode', $value);
@@ -183,7 +183,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the currentFiscalYearStartDate property value. The currentFiscalYearStartDate property
-     *  @param Date|null $value Value to set for the currentFiscalYearStartDate property.
+     * @param Date|null $value Value to set for the currentFiscalYearStartDate property.
     */
     public function setCurrentFiscalYearStartDate(?Date $value): void {
         $this->getBackingStore()->set('currentFiscalYearStartDate', $value);
@@ -191,7 +191,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -199,7 +199,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the email property value. The email property
-     *  @param string|null $value Value to set for the email property.
+     * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
@@ -207,7 +207,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the faxNumber property value. The faxNumber property
-     *  @param string|null $value Value to set for the faxNumber property.
+     * @param string|null $value Value to set for the faxNumber property.
     */
     public function setFaxNumber(?string $value): void {
         $this->getBackingStore()->set('faxNumber', $value);
@@ -215,7 +215,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the industry property value. The industry property
-     *  @param string|null $value Value to set for the industry property.
+     * @param string|null $value Value to set for the industry property.
     */
     public function setIndustry(?string $value): void {
         $this->getBackingStore()->set('industry', $value);
@@ -223,7 +223,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -231,7 +231,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the phoneNumber property value. The phoneNumber property
-     *  @param string|null $value Value to set for the phoneNumber property.
+     * @param string|null $value Value to set for the phoneNumber property.
     */
     public function setPhoneNumber(?string $value): void {
         $this->getBackingStore()->set('phoneNumber', $value);
@@ -239,7 +239,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the picture property value. The picture property
-     *  @param StreamInterface|null $value Value to set for the picture property.
+     * @param StreamInterface|null $value Value to set for the picture property.
     */
     public function setPicture(?StreamInterface $value): void {
         $this->getBackingStore()->set('picture', $value);
@@ -247,7 +247,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the taxRegistrationNumber property value. The taxRegistrationNumber property
-     *  @param string|null $value Value to set for the taxRegistrationNumber property.
+     * @param string|null $value Value to set for the taxRegistrationNumber property.
     */
     public function setTaxRegistrationNumber(?string $value): void {
         $this->getBackingStore()->set('taxRegistrationNumber', $value);
@@ -255,7 +255,7 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Sets the website property value. The website property
-     *  @param string|null $value Value to set for the website property.
+     * @param string|null $value Value to set for the website property.
     */
     public function setWebsite(?string $value): void {
         $this->getBackingStore()->set('website', $value);

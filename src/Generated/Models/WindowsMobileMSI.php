@@ -105,7 +105,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
 
     /**
      * Sets the commandLine property value. The command line.
-     *  @param string|null $value Value to set for the commandLine property.
+     * @param string|null $value Value to set for the commandLine property.
     */
     public function setCommandLine(?string $value): void {
         $this->getBackingStore()->set('commandLine', $value);
@@ -113,7 +113,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
 
     /**
      * Sets the identityVersion property value. The identity version.
-     *  @param string|null $value Value to set for the identityVersion property.
+     * @param string|null $value Value to set for the identityVersion property.
     */
     public function setIdentityVersion(?string $value): void {
         $this->getBackingStore()->set('identityVersion', $value);
@@ -121,7 +121,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
 
     /**
      * Sets the ignoreVersionDetection property value. A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.
-     *  @param bool|null $value Value to set for the ignoreVersionDetection property.
+     * @param bool|null $value Value to set for the ignoreVersionDetection property.
     */
     public function setIgnoreVersionDetection(?bool $value): void {
         $this->getBackingStore()->set('ignoreVersionDetection', $value);
@@ -129,7 +129,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
 
     /**
      * Sets the productCode property value. The product code.
-     *  @param string|null $value Value to set for the productCode property.
+     * @param string|null $value Value to set for the productCode property.
     */
     public function setProductCode(?string $value): void {
         $this->getBackingStore()->set('productCode', $value);
@@ -137,7 +137,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
 
     /**
      * Sets the productVersion property value. The product version of Windows Mobile MSI Line of Business (LoB) app.
-     *  @param string|null $value Value to set for the productVersion property.
+     * @param string|null $value Value to set for the productVersion property.
     */
     public function setProductVersion(?string $value): void {
         $this->getBackingStore()->set('productVersion', $value);
@@ -145,7 +145,7 @@ class WindowsMobileMSI extends MobileLobApp implements Parsable
 
     /**
      * Sets the useDeviceContext property value. Indicates whether to install a dual-mode MSI in the device context. If true, app will be installed for all users. If false, app will be installed per-user. If null, service will use the MSI package's default install context. In case of dual-mode MSI, this default will be per-user.  Cannot be set for non-dual-mode apps.  Cannot be changed after initial creation of the application.
-     *  @param bool|null $value Value to set for the useDeviceContext property.
+     * @param bool|null $value Value to set for the useDeviceContext property.
     */
     public function setUseDeviceContext(?bool $value): void {
         $this->getBackingStore()->set('useDeviceContext', $value);

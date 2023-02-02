@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Not
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the list of authored notes associated with a subject rights request. 
+*/
 class NotesRequestBuilderGetQueryParameters 
 {
     /**

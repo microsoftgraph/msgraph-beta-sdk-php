@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device startup score history.
+*/
 class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable 
 {
     /**
@@ -55,7 +58,7 @@ class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable
 
     /**
      * Sets the startupDateTime property value. The user experience analytics device startup date time.
-     *  @param DateTime|null $value Value to set for the startupDateTime property.
+     * @param DateTime|null $value Value to set for the startupDateTime property.
     */
     public function setStartupDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startupDateTime', $value);

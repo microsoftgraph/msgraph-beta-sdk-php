@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollectio
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A list of ConfigManagerCollection
+*/
 class ConfigManagerCollectionItemRequestBuilderGetQueryParameters 
 {
     /**

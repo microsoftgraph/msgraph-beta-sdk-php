@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\UserFlowIden
 use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\UserFlowIdentityProviders\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/userFlowIdentityProviders/{identityProviderBase-id}
+*/
 class IdentityProviderBaseItemRequestBuilder 
 {
     /**
@@ -33,11 +36,15 @@ class IdentityProviderBaseItemRequestBuilder
      * Instantiates a new IdentityProviderBaseItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $identityProviderBaseId key: id of identityProviderBase
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $identityProviderBaseId = null) {
         $this->urlTemplate = '{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userFlowIdentityProviders/{identityProviderBase%2Did}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['identityProviderBaseId'] = $identityProviderBaseId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
 }

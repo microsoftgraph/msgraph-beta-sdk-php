@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * High level run summary for device health script.
+*/
 class RunSummaryRequestBuilderGetQueryParameters 
 {
     /**

@@ -26,6 +26,7 @@ class LongRunningOperation extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.attackSimulationOperation': return new AttackSimulationOperation();
                 case '#microsoft.graph.richLongRunningOperation': return new RichLongRunningOperation();
             }
         }
@@ -33,7 +34,7 @@ class LongRunningOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The start time of the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -56,7 +57,7 @@ class LongRunningOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastActionDateTime property value. The lastActionDateTime property
+     * Gets the lastActionDateTime property value. The time of the last action in the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
@@ -64,7 +65,7 @@ class LongRunningOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceLocation property value. The resourceLocation property
+     * Gets the resourceLocation property value. URI of the resource that the operation is performed on.
      * @return string|null
     */
     public function getResourceLocation(): ?string {
@@ -72,7 +73,7 @@ class LongRunningOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
      * @return LongRunningOperationStatus|null
     */
     public function getStatus(): ?LongRunningOperationStatus {
@@ -80,7 +81,7 @@ class LongRunningOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the statusDetail property value. The statusDetail property
+     * Gets the statusDetail property value. Details about the status of the operation.
      * @return string|null
     */
     public function getStatusDetail(): ?string {
@@ -101,40 +102,40 @@ class LongRunningOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * Sets the createdDateTime property value. The start time of the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
-     * Sets the lastActionDateTime property value. The lastActionDateTime property
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * Sets the lastActionDateTime property value. The time of the last action in the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
     }
 
     /**
-     * Sets the resourceLocation property value. The resourceLocation property
-     *  @param string|null $value Value to set for the resourceLocation property.
+     * Sets the resourceLocation property value. URI of the resource that the operation is performed on.
+     * @param string|null $value Value to set for the resourceLocation property.
     */
     public function setResourceLocation(?string $value): void {
         $this->getBackingStore()->set('resourceLocation', $value);
     }
 
     /**
-     * Sets the status property value. The status property
-     *  @param LongRunningOperationStatus|null $value Value to set for the status property.
+     * Sets the status property value. The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
+     * @param LongRunningOperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?LongRunningOperationStatus $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 
     /**
-     * Sets the statusDetail property value. The statusDetail property
-     *  @param string|null $value Value to set for the statusDetail property.
+     * Sets the statusDetail property value. Details about the status of the operation.
+     * @param string|null $value Value to set for the statusDetail property.
     */
     public function setStatusDetail(?string $value): void {
         $this->getBackingStore()->set('statusDetail', $value);

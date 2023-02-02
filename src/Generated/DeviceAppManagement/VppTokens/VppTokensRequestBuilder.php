@@ -6,19 +6,21 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\GetLicensesForAppWithBundleId\GetLicensesForAppWithBundleIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\SyncLicenseCounts\SyncLicenseCountsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\MicrosoftGraphGetLicensesForAppWithBundleId\GetLicensesForAppWithBundleIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\MicrosoftGraphSyncLicenseCounts\SyncLicenseCountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\VppToken;
 use Microsoft\Graph\Beta\Generated\Models\VppTokenCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
+*/
 class VppTokensRequestBuilder 
 {
     /**
@@ -26,6 +28,13 @@ class VppTokensRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the syncLicenseCounts method.
+    */
+    public function microsoftGraphSyncLicenseCounts(): SyncLicenseCountsRequestBuilder {
+        return new SyncLicenseCountsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -37,13 +46,6 @@ class VppTokensRequestBuilder
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
-    
-    /**
-     * Provides operations to call the syncLicenseCounts method.
-    */
-    public function syncLicenseCounts(): SyncLicenseCountsRequestBuilder {
-        return new SyncLicenseCountsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
@@ -64,17 +66,16 @@ class VppTokensRequestBuilder
     /**
      * List of Vpp tokens for this organization.
      * @param VppTokensRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?VppTokensRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?VppTokensRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [VppTokenCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [VppTokenCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -85,7 +86,7 @@ class VppTokensRequestBuilder
      * @param string $bundleId Usage: bundleId='{bundleId}'
      * @return GetLicensesForAppWithBundleIdRequestBuilder
     */
-    public function getLicensesForAppWithBundleId(string $bundleId): GetLicensesForAppWithBundleIdRequestBuilder {
+    public function microsoftGraphGetLicensesForAppWithBundleId(string $bundleId): GetLicensesForAppWithBundleIdRequestBuilder {
         return new GetLicensesForAppWithBundleIdRequestBuilder($this->pathParameters, $this->requestAdapter, $bundleId);
     }
 
@@ -93,17 +94,16 @@ class VppTokensRequestBuilder
      * Create new navigation property to vppTokens for deviceAppManagement
      * @param VppToken $body The request body
      * @param VppTokensRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function post(VppToken $body, ?VppTokensRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function post(VppToken $body, ?VppTokensRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [VppToken::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [VppToken::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -119,10 +119,10 @@ class VppTokensRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -145,10 +145,10 @@ class VppTokensRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

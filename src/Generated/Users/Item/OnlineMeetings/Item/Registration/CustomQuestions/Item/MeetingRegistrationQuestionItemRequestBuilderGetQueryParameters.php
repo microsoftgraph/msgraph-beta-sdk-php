@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Registra
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Custom registration questions.
+*/
 class MeetingRegistrationQuestionItemRequestBuilderGetQueryParameters 
 {
     /**

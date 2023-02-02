@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Histor
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the instances of an access review history definition created in the last 30 days.
+*/
 class InstancesRequestBuilderGetQueryParameters 
 {
     /**

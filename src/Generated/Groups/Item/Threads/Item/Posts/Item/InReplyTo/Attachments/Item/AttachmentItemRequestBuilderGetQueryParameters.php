@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\InR
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
+*/
 class AttachmentItemRequestBuilderGetQueryParameters 
 {
     /**

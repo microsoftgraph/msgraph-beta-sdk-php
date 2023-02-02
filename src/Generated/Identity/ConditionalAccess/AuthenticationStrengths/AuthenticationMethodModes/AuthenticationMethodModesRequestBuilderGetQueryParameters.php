@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Authenticati
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of **authenticationMethodModes** objects and their properties.
+*/
 class AuthenticationMethodModesRequestBuilderGetQueryParameters 
 {
     /**

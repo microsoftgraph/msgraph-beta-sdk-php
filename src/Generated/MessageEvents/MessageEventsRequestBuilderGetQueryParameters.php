@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\MessageEvents;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entities from messageEvents
+*/
 class MessageEventsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Instanc
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get exceptionOccurrences from users
+*/
 class ExceptionOccurrencesRequestBuilderGetQueryParameters 
 {
     /**

@@ -75,7 +75,7 @@ class WinGetApp extends MobileApp implements Parsable
 
     /**
      * Sets the installExperience property value. The install experience settings associated with this application, which are used to ensure the desired install experiences on the target device are taken into account. This includes the account type (System or User) that actions should be run as on target devices. Required at creation time.
-     *  @param WinGetAppInstallExperience|null $value Value to set for the installExperience property.
+     * @param WinGetAppInstallExperience|null $value Value to set for the installExperience property.
     */
     public function setInstallExperience(?WinGetAppInstallExperience $value): void {
         $this->getBackingStore()->set('installExperience', $value);
@@ -83,7 +83,7 @@ class WinGetApp extends MobileApp implements Parsable
 
     /**
      * Sets the manifestHash property value. Hash of package metadata properties used to validate that the application matches the metadata in the source repository.
-     *  @param string|null $value Value to set for the manifestHash property.
+     * @param string|null $value Value to set for the manifestHash property.
     */
     public function setManifestHash(?string $value): void {
         $this->getBackingStore()->set('manifestHash', $value);
@@ -91,7 +91,7 @@ class WinGetApp extends MobileApp implements Parsable
 
     /**
      * Sets the packageIdentifier property value. The PackageIdentifier from the WinGet source repository REST API. This also maps to the Id when using the WinGet client command line application. Required at creation time, cannot be modified on existing objects.
-     *  @param string|null $value Value to set for the packageIdentifier property.
+     * @param string|null $value Value to set for the packageIdentifier property.
     */
     public function setPackageIdentifier(?string $value): void {
         $this->getBackingStore()->set('packageIdentifier', $value);

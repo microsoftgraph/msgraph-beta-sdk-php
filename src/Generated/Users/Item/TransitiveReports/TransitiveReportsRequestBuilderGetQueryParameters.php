@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The transitive reports for a user. Read-only.
+*/
 class TransitiveReportsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Monitoring;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get monitoring
+*/
 class MonitoringRequestBuilderGetQueryParameters 
 {
     /**

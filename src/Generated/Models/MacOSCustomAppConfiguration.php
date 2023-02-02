@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomAppConfiguration resource.
+*/
 class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new MacOSCustomAppConfiguration and sets the default values.
+     * Instantiates a new macOSCustomAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -76,7 +79,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the bundleId property value. Bundle id for targeting.
-     *  @param string|null $value Value to set for the bundleId property.
+     * @param string|null $value Value to set for the bundleId property.
     */
     public function setBundleId(?string $value): void {
         $this->getBackingStore()->set('bundleId', $value);
@@ -84,7 +87,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the configurationXml property value. Configuration xml. (UTF8 encoded byte array)
-     *  @param StreamInterface|null $value Value to set for the configurationXml property.
+     * @param StreamInterface|null $value Value to set for the configurationXml property.
     */
     public function setConfigurationXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('configurationXml', $value);
@@ -92,7 +95,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the fileName property value. Configuration file name (.plist
-     *  @param string|null $value Value to set for the fileName property.
+     * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
         $this->getBackingStore()->set('fileName', $value);

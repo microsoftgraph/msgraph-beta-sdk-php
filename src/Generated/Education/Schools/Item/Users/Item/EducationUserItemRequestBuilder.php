@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Schools\Item\Users\Item;
 use Microsoft\Graph\Beta\Generated\Education\Schools\Item\Users\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /education/schools/{educationSchool-id}/users/{educationUser-id}
+*/
 class EducationUserItemRequestBuilder 
 {
     /**
@@ -33,11 +36,15 @@ class EducationUserItemRequestBuilder
      * Instantiates a new EducationUserItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $educationUserId key: id of educationUser
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $educationUserId = null) {
         $this->urlTemplate = '{+baseurl}/education/schools/{educationSchool%2Did}/users/{educationUser%2Did}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['educationUserId'] = $educationUserId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
 }

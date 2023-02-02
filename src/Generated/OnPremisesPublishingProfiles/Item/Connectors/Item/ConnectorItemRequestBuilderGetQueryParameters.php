@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Conne
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
+*/
 class ConnectorItemRequestBuilderGetQueryParameters 
 {
     /**

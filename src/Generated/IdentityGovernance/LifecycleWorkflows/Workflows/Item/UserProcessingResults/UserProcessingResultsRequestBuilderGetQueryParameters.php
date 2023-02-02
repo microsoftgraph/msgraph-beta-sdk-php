@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the **userProcessingResult** resources for a workflow.
+*/
 class UserProcessingResultsRequestBuilderGetQueryParameters 
 {
     /**

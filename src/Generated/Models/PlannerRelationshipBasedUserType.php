@@ -55,7 +55,7 @@ class PlannerRelationshipBasedUserType extends PlannerTaskConfigurationRoleBase 
 
     /**
      * Sets the role property value. The role property
-     *  @param PlannerRelationshipUserRoles|null $value Value to set for the role property.
+     * @param PlannerRelationshipUserRoles|null $value Value to set for the role property.
     */
     public function setRole(?PlannerRelationshipUserRoles $value): void {
         $this->getBackingStore()->set('role', $value);

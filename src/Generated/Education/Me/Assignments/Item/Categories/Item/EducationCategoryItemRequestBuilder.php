@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Categorie
 use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Categories\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /education/me/assignments/{educationAssignment-id}/categories/{educationCategory-id}
+*/
 class EducationCategoryItemRequestBuilder 
 {
     /**
@@ -33,11 +36,15 @@ class EducationCategoryItemRequestBuilder
      * Instantiates a new EducationCategoryItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $educationCategoryId key: id of educationCategory
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $educationCategoryId = null) {
         $this->urlTemplate = '{+baseurl}/education/me/assignments/{educationAssignment%2Did}/categories/{educationCategory%2Did}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['educationCategoryId'] = $educationCategoryId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
 }

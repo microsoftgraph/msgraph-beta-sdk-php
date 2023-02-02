@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custod
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The group associated with the unifiedGroupSource.
+*/
 class GroupRequestBuilderGetQueryParameters 
 {
     /**

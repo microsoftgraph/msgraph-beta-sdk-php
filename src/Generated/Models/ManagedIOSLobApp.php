@@ -116,7 +116,7 @@ class ManagedIOSLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the applicableDeviceType property value. Contains properties of the possible iOS device types the mobile app can run on.
-     *  @param IosDeviceType|null $value Value to set for the applicableDeviceType property.
+     * @param IosDeviceType|null $value Value to set for the applicableDeviceType property.
     */
     public function setApplicableDeviceType(?IosDeviceType $value): void {
         $this->getBackingStore()->set('applicableDeviceType', $value);
@@ -124,7 +124,7 @@ class ManagedIOSLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the buildNumber property value. The build number of managed iOS Line of Business (LoB) app.
-     *  @param string|null $value Value to set for the buildNumber property.
+     * @param string|null $value Value to set for the buildNumber property.
     */
     public function setBuildNumber(?string $value): void {
         $this->getBackingStore()->set('buildNumber', $value);
@@ -132,7 +132,7 @@ class ManagedIOSLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the bundleId property value. The Identity Name.
-     *  @param string|null $value Value to set for the bundleId property.
+     * @param string|null $value Value to set for the bundleId property.
     */
     public function setBundleId(?string $value): void {
         $this->getBackingStore()->set('bundleId', $value);
@@ -140,7 +140,7 @@ class ManagedIOSLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the expirationDateTime property value. The expiration time.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -148,7 +148,7 @@ class ManagedIOSLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the identityVersion property value. The identity version.
-     *  @param string|null $value Value to set for the identityVersion property.
+     * @param string|null $value Value to set for the identityVersion property.
     */
     public function setIdentityVersion(?string $value): void {
         $this->getBackingStore()->set('identityVersion', $value);
@@ -156,7 +156,7 @@ class ManagedIOSLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
-     *  @param IosMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
+     * @param IosMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?IosMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
@@ -164,7 +164,7 @@ class ManagedIOSLobApp extends ManagedMobileLobApp implements Parsable
 
     /**
      * Sets the versionNumber property value. The version number of managed iOS Line of Business (LoB) app.
-     *  @param string|null $value Value to set for the versionNumber property.
+     * @param string|null $value Value to set for the versionNumber property.
     */
     public function setVersionNumber(?string $value): void {
         $this->getBackingStore()->set('versionNumber', $value);

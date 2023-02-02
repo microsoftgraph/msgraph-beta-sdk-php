@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignment
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. If this is an active assignment and created due to activation on an eligible assignment, it represents the object of that eligible assignment; Otherwise, the value is null.
+*/
 class LinkedEligibleRoleAssignmentRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\Vert
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The set of web parts in this section.
+*/
 class WebpartsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\OpenShifts;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List openshift objects in a team.
+*/
 class OpenShiftsRequestBuilderGetQueryParameters 
 {
     /**

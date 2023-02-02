@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The values of the columns set on this list item.
+*/
 class FieldsRequestBuilderGetQueryParameters 
 {
     /**

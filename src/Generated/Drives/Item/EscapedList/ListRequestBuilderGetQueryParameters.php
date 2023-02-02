@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+*/
 class ListRequestBuilderGetQueryParameters 
 {
     /**

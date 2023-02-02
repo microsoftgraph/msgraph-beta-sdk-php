@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\Commands\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Set of commands sent to this device.
+*/
 class CommandItemRequestBuilderGetQueryParameters 
 {
     /**

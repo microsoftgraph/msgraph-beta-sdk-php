@@ -66,7 +66,7 @@ class CallTranscript extends Entity implements Parsable
 
     /**
      * Sets the content property value. A field representing the content of the transcript. Read-only.
-     *  @param StreamInterface|null $value Value to set for the content property.
+     * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -74,7 +74,7 @@ class CallTranscript extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Date and time at which the transcript was created. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);

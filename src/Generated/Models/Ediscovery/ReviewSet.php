@@ -87,7 +87,7 @@ class ReviewSet extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The user who created the review set. Read-only.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -95,7 +95,7 @@ class ReviewSet extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The datetime when the review set was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -103,7 +103,7 @@ class ReviewSet extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The review set name. The name is unique with a maximum limit of 64 characters.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -111,7 +111,7 @@ class ReviewSet extends Entity implements Parsable
 
     /**
      * Sets the queries property value. The queries property
-     *  @param array<ReviewSetQuery>|null $value Value to set for the queries property.
+     * @param array<ReviewSetQuery>|null $value Value to set for the queries property.
     */
     public function setQueries(?array $value): void {
         $this->getBackingStore()->set('queries', $value);

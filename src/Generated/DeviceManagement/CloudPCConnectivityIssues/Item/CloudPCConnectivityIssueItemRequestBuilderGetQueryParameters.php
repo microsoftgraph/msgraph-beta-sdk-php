@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CloudPCConnectivityIss
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of CloudPC Connectivity Issue.
+*/
 class CloudPCConnectivityIssueItemRequestBuilderGetQueryParameters 
 {
     /**

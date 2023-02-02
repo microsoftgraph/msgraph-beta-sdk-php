@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\Instances\Item\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get exceptionOccurrences from groups
+*/
 class ExceptionOccurrencesRequestBuilderGetQueryParameters 
 {
     /**

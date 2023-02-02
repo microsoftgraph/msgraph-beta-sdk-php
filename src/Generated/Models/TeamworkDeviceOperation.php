@@ -135,7 +135,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
 
     /**
      * Sets the completedDateTime property value. Time at which the operation reached a final state (for example, Successful, Failed, and Cancelled).
-     *  @param DateTime|null $value Value to set for the completedDateTime property.
+     * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
@@ -143,7 +143,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. Identity of the user who created the device operation.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -151,7 +151,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The UTC date and time when the device operation was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -159,7 +159,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
 
     /**
      * Sets the error property value. Error details are available only in case of a failed status.
-     *  @param OperationError|null $value Value to set for the error property.
+     * @param OperationError|null $value Value to set for the error property.
     */
     public function setError(?OperationError $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -167,7 +167,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
 
     /**
      * Sets the lastActionBy property value. Identity of the user who last modified the device operation.
-     *  @param IdentitySet|null $value Value to set for the lastActionBy property.
+     * @param IdentitySet|null $value Value to set for the lastActionBy property.
     */
     public function setLastActionBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastActionBy', $value);
@@ -175,7 +175,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. The UTC date and time when the device operation was last modified.
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -183,7 +183,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
 
     /**
      * Sets the operationType property value. The operationType property
-     *  @param TeamworkDeviceOperationType|null $value Value to set for the operationType property.
+     * @param TeamworkDeviceOperationType|null $value Value to set for the operationType property.
     */
     public function setOperationType(?TeamworkDeviceOperationType $value): void {
         $this->getBackingStore()->set('operationType', $value);
@@ -191,7 +191,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
 
     /**
      * Sets the startedDateTime property value. Time at which the operation was started.
-     *  @param DateTime|null $value Value to set for the startedDateTime property.
+     * @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startedDateTime', $value);
@@ -199,7 +199,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
 
     /**
      * Sets the status property value. The current status of the async operation, for example, Queued, Scheduled, InProgress,  Successful, Cancelled, and Failed.
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ScopedRoleMemberOf\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The scoped-role administrative unit memberships for this user. Read-only. Nullable.
+*/
 class ScopedRoleMembershipItemRequestBuilderGetQueryParameters 
 {
     /**

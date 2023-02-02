@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Privacy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get privacy
+*/
 class PrivacyRequestBuilderGetQueryParameters 
 {
     /**

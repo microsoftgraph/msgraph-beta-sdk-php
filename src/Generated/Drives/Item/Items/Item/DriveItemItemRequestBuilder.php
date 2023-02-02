@@ -8,44 +8,47 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Activities\Item\ItemActivityOLDItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Analytics\AnalyticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\AssignSensitivityLabel\AssignSensitivityLabelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Checkin\CheckinRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Checkout\CheckoutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Children\ChildrenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Content\ContentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Copy\CopyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateLink\CreateLinkRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\CreateUploadSession\CreateUploadSessionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\DeltaWithToken\DeltaWithTokenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ExtractSensitivityLabels\ExtractSensitivityLabelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Follow\FollowRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Invite\InviteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ListItem\ListItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphAssignSensitivityLabel\AssignSensitivityLabelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphCheckin\CheckinRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphCheckout\CheckoutRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphCopy\CopyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphCreateLink\CreateLinkRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphCreateUploadSession\CreateUploadSessionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphDelta\DeltaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphDeltaWithToken\DeltaWithTokenRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphExtractSensitivityLabels\ExtractSensitivityLabelsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphFollow\FollowRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphInvite\InviteRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphPreview\PreviewRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphRestore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphSearchWithQ\SearchWithQRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphUnfollow\UnfollowRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\MicrosoftGraphValidatePermission\ValidatePermissionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Permissions\Item\PermissionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Permissions\PermissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Preview\PreviewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\SearchWithQ\SearchWithQRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Subscriptions\Item\SubscriptionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Thumbnails\Item\ThumbnailSetItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Thumbnails\ThumbnailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Unfollow\UnfollowRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ValidatePermission\ValidatePermissionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Versions\Item\DriveItemVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Versions\VersionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\WorkbookRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DriveItem;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the items property of the microsoft.graph.drive entity.
+*/
 class DriveItemItemRequestBuilder 
 {
     /**
@@ -63,27 +66,6 @@ class DriveItemItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the assignSensitivityLabel method.
-    */
-    public function assignSensitivityLabel(): AssignSensitivityLabelRequestBuilder {
-        return new AssignSensitivityLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the checkin method.
-    */
-    public function checkin(): CheckinRequestBuilder {
-        return new CheckinRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the checkout method.
-    */
-    public function checkout(): CheckoutRequestBuilder {
-        return new CheckoutRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
     */
     public function children(): ChildrenRequestBuilder {
@@ -98,52 +80,108 @@ class DriveItemItemRequestBuilder
     }
     
     /**
+     * Provides operations to manage the listItem property of the microsoft.graph.driveItem entity.
+    */
+    public function listItem(): ListItemRequestBuilder {
+        return new ListItemRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the assignSensitivityLabel method.
+    */
+    public function microsoftGraphAssignSensitivityLabel(): AssignSensitivityLabelRequestBuilder {
+        return new AssignSensitivityLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkin method.
+    */
+    public function microsoftGraphCheckin(): CheckinRequestBuilder {
+        return new CheckinRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkout method.
+    */
+    public function microsoftGraphCheckout(): CheckoutRequestBuilder {
+        return new CheckoutRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the copy method.
     */
-    public function copy(): CopyRequestBuilder {
+    public function microsoftGraphCopy(): CopyRequestBuilder {
         return new CopyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the createLink method.
     */
-    public function createLink(): CreateLinkRequestBuilder {
+    public function microsoftGraphCreateLink(): CreateLinkRequestBuilder {
         return new CreateLinkRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the createUploadSession method.
     */
-    public function createUploadSession(): CreateUploadSessionRequestBuilder {
+    public function microsoftGraphCreateUploadSession(): CreateUploadSessionRequestBuilder {
         return new CreateUploadSessionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delta method.
+    */
+    public function microsoftGraphDelta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the extractSensitivityLabels method.
     */
-    public function extractSensitivityLabels(): ExtractSensitivityLabelsRequestBuilder {
+    public function microsoftGraphExtractSensitivityLabels(): ExtractSensitivityLabelsRequestBuilder {
         return new ExtractSensitivityLabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the follow method.
     */
-    public function follow(): FollowRequestBuilder {
+    public function microsoftGraphFollow(): FollowRequestBuilder {
         return new FollowRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the invite method.
     */
-    public function invite(): InviteRequestBuilder {
+    public function microsoftGraphInvite(): InviteRequestBuilder {
         return new InviteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the listItem property of the microsoft.graph.driveItem entity.
+     * Provides operations to call the preview method.
     */
-    public function listItem(): ListItemRequestBuilder {
-        return new ListItemRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphPreview(): PreviewRequestBuilder {
+        return new PreviewRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the restore method.
+    */
+    public function microsoftGraphRestore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unfollow method.
+    */
+    public function microsoftGraphUnfollow(): UnfollowRequestBuilder {
+        return new UnfollowRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the validatePermission method.
+    */
+    public function microsoftGraphValidatePermission(): ValidatePermissionRequestBuilder {
+        return new ValidatePermissionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -159,23 +197,9 @@ class DriveItemItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the preview method.
-    */
-    public function preview(): PreviewRequestBuilder {
-        return new PreviewRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
-    
-    /**
-     * Provides operations to call the restore method.
-    */
-    public function restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
@@ -192,29 +216,22 @@ class DriveItemItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the unfollow method.
-    */
-    public function unfollow(): UnfollowRequestBuilder {
-        return new UnfollowRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
-    
-    /**
-     * Provides operations to call the validatePermission method.
-    */
-    public function validatePermission(): ValidatePermissionRequestBuilder {
-        return new ValidatePermissionRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
     */
     public function versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the workbook property of the microsoft.graph.driveItem entity.
+    */
+    public function workbook(): WorkbookRequestBuilder {
+        return new WorkbookRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -243,38 +260,51 @@ class DriveItemItemRequestBuilder
      * Instantiates a new DriveItemItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $driveItemId key: id of driveItem
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $driveItemId = null) {
         $this->urlTemplate = '{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['driveItemId'] = $driveItemId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
     /**
      * Delete navigation property items for drives
      * @param DriveItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?DriveItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?DriveItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to call the delta method.
-     * @return DeltaRequestBuilder
+     * All items contained in the drive. Read-only. Nullable.
+     * @param DriveItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise
     */
-    public function delta(): DeltaRequestBuilder {
-        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function get(?DriveItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toGetRequestInformation($requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [DriveItem::class, 'createFromDiscriminatorValue'], $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
     }
 
     /**
@@ -282,27 +312,8 @@ class DriveItemItemRequestBuilder
      * @param string $token Usage: token='{token}'
      * @return DeltaWithTokenRequestBuilder
     */
-    public function deltaWithToken(string $token): DeltaWithTokenRequestBuilder {
+    public function microsoftGraphDeltaWithToken(string $token): DeltaWithTokenRequestBuilder {
         return new DeltaWithTokenRequestBuilder($this->pathParameters, $this->requestAdapter, $token);
-    }
-
-    /**
-     * All items contained in the drive. Read-only. Nullable.
-     * @param DriveItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @return Promise
-    */
-    public function get(?DriveItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DriveItem::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
     }
 
     /**
@@ -312,25 +323,33 @@ class DriveItemItemRequestBuilder
      * @param string $startDateTime Usage: startDateTime='{startDateTime}'
      * @return GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
     */
-    public function getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string $endDateTime, string $interval, string $startDateTime): GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+    public function microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string $endDateTime, string $interval, string $startDateTime): GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
         return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $interval, $startDateTime);
+    }
+
+    /**
+     * Provides operations to call the search method.
+     * @param string $q Usage: q='{q}'
+     * @return SearchWithQRequestBuilder
+    */
+    public function microsoftGraphSearchWithQ(string $q): SearchWithQRequestBuilder {
+        return new SearchWithQRequestBuilder($this->pathParameters, $this->requestAdapter, $q);
     }
 
     /**
      * Update the navigation property items in drives
      * @param DriveItem $body The request body
      * @param DriveItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(DriveItem $body, ?DriveItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(DriveItem $body, ?DriveItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DriveItem::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DriveItem::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -345,15 +364,6 @@ class DriveItemItemRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['permission%2Did'] = $id;
         return new PermissionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the search method.
-     * @param string $q Usage: q='{q}'
-     * @return SearchWithQRequestBuilder
-    */
-    public function searchWithQ(string $q): SearchWithQRequestBuilder {
-        return new SearchWithQRequestBuilder($this->pathParameters, $this->requestAdapter, $q);
     }
 
     /**
@@ -390,7 +400,7 @@ class DriveItemItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -409,10 +419,10 @@ class DriveItemItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -435,10 +445,10 @@ class DriveItemItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

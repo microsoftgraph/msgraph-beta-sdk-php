@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of all reusable settings
+*/
 class ReusableSettingsRequestBuilderGetQueryParameters 
 {
     /**

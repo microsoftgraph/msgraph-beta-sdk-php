@@ -136,7 +136,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Sets the content property value. The Windows Symantec Code-Signing Certificate in the raw data format.
-     *  @param StreamInterface|null $value Value to set for the content property.
+     * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -144,7 +144,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Sets the expirationDateTime property value. The Cert Expiration Date.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -152,7 +152,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Sets the issuer property value. The Issuer value for the cert.
-     *  @param string|null $value Value to set for the issuer property.
+     * @param string|null $value Value to set for the issuer property.
     */
     public function setIssuer(?string $value): void {
         $this->getBackingStore()->set('issuer', $value);
@@ -160,7 +160,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Sets the issuerName property value. The Issuer Name for the cert.
-     *  @param string|null $value Value to set for the issuerName property.
+     * @param string|null $value Value to set for the issuerName property.
     */
     public function setIssuerName(?string $value): void {
         $this->getBackingStore()->set('issuerName', $value);
@@ -168,7 +168,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Sets the password property value. The Password required for .pfx file.
-     *  @param string|null $value Value to set for the password property.
+     * @param string|null $value Value to set for the password property.
     */
     public function setPassword(?string $value): void {
         $this->getBackingStore()->set('password', $value);
@@ -176,7 +176,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param CertificateStatus|null $value Value to set for the status property.
+     * @param CertificateStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CertificateStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -184,7 +184,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Sets the subject property value. The Subject value for the cert.
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -192,7 +192,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Sets the subjectName property value. The Subject Name for the cert.
-     *  @param string|null $value Value to set for the subjectName property.
+     * @param string|null $value Value to set for the subjectName property.
     */
     public function setSubjectName(?string $value): void {
         $this->getBackingStore()->set('subjectName', $value);
@@ -200,7 +200,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Sets the uploadDateTime property value. The Type of the CodeSigning Cert as Symantec Cert.
-     *  @param DateTime|null $value Value to set for the uploadDateTime property.
+     * @param DateTime|null $value Value to set for the uploadDateTime property.
     */
     public function setUploadDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('uploadDateTime', $value);

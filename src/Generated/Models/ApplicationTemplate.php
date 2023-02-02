@@ -144,7 +144,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the categories property value. The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.
-     *  @param array<string>|null $value Value to set for the categories property.
+     * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -152,7 +152,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the description property value. A description of the application.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -160,7 +160,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the application.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -168,7 +168,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the homePageUrl property value. The home page URL of the application.
-     *  @param string|null $value Value to set for the homePageUrl property.
+     * @param string|null $value Value to set for the homePageUrl property.
     */
     public function setHomePageUrl(?string $value): void {
         $this->getBackingStore()->set('homePageUrl', $value);
@@ -176,7 +176,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the informationalUrls property value. The informationalUrls property
-     *  @param InformationalUrls|null $value Value to set for the informationalUrls property.
+     * @param InformationalUrls|null $value Value to set for the informationalUrls property.
     */
     public function setInformationalUrls(?InformationalUrls $value): void {
         $this->getBackingStore()->set('informationalUrls', $value);
@@ -184,7 +184,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the logoUrl property value. The URL to get the logo for this application.
-     *  @param string|null $value Value to set for the logoUrl property.
+     * @param string|null $value Value to set for the logoUrl property.
     */
     public function setLogoUrl(?string $value): void {
         $this->getBackingStore()->set('logoUrl', $value);
@@ -192,7 +192,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the publisher property value. The name of the publisher for this application.
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -200,7 +200,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the supportedClaimConfiguration property value. The supportedClaimConfiguration property
-     *  @param SupportedClaimConfiguration|null $value Value to set for the supportedClaimConfiguration property.
+     * @param SupportedClaimConfiguration|null $value Value to set for the supportedClaimConfiguration property.
     */
     public function setSupportedClaimConfiguration(?SupportedClaimConfiguration $value): void {
         $this->getBackingStore()->set('supportedClaimConfiguration', $value);
@@ -208,7 +208,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the supportedProvisioningTypes property value. The list of provisioning modes supported by this application. The only valid value is sync.
-     *  @param array<string>|null $value Value to set for the supportedProvisioningTypes property.
+     * @param array<string>|null $value Value to set for the supportedProvisioningTypes property.
     */
     public function setSupportedProvisioningTypes(?array $value): void {
         $this->getBackingStore()->set('supportedProvisioningTypes', $value);
@@ -216,7 +216,7 @@ class ApplicationTemplate extends Entity implements Parsable
 
     /**
      * Sets the supportedSingleSignOnModes property value. The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported.
-     *  @param array<string>|null $value Value to set for the supportedSingleSignOnModes property.
+     * @param array<string>|null $value Value to set for the supportedSingleSignOnModes property.
     */
     public function setSupportedSingleSignOnModes(?array $value): void {
         $this->getBackingStore()->set('supportedSingleSignOnModes', $value);

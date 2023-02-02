@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\RosterPlans\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
+*/
 class PlannerPlanItemRequestBuilderGetQueryParameters 
 {
     /**

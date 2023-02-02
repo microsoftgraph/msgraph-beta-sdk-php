@@ -54,7 +54,7 @@ class AdminReportSettings extends Entity implements Parsable
 
     /**
      * Sets the displayConcealedNames property value. If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.
-     *  @param bool|null $value Value to set for the displayConcealedNames property.
+     * @param bool|null $value Value to set for the displayConcealedNames property.
     */
     public function setDisplayConcealedNames(?bool $value): void {
         $this->getBackingStore()->set('displayConcealedNames', $value);

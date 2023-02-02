@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdatePro
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Driver inventories for this profile.
+*/
 class DriverInventoriesRequestBuilderGetQueryParameters 
 {
     /**

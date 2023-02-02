@@ -6,18 +6,20 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\SummarizeDevicePerformanceDevicesWithSummarizeBy\SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\MicrosoftGraphSummarizeDevicePerformanceDevicesWithSummarizeBy\SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDevicePerformance;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDevicePerformanceCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.
+*/
 class UserExperienceAnalyticsDevicePerformanceRequestBuilder 
 {
     /**
@@ -56,37 +58,16 @@ class UserExperienceAnalyticsDevicePerformanceRequestBuilder
     /**
      * User experience analytics device performance
      * @param UserExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?UserExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?UserExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [UserExperienceAnalyticsDevicePerformanceCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
-    }
-
-    /**
-     * Create new navigation property to userExperienceAnalyticsDevicePerformance for deviceManagement
-     * @param UserExperienceAnalyticsDevicePerformance $body The request body
-     * @param UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @return Promise
-    */
-    public function post(UserExperienceAnalyticsDevicePerformance $body, ?UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, [UserExperienceAnalyticsDevicePerformance::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [UserExperienceAnalyticsDevicePerformanceCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -97,8 +78,27 @@ class UserExperienceAnalyticsDevicePerformanceRequestBuilder
      * @param string $summarizeBy Usage: summarizeBy='{summarizeBy}'
      * @return SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder
     */
-    public function summarizeDevicePerformanceDevicesWithSummarizeBy(string $summarizeBy): SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder {
+    public function microsoftGraphSummarizeDevicePerformanceDevicesWithSummarizeBy(string $summarizeBy): SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder {
         return new SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder($this->pathParameters, $this->requestAdapter, $summarizeBy);
+    }
+
+    /**
+     * Create new navigation property to userExperienceAnalyticsDevicePerformance for deviceManagement
+     * @param UserExperienceAnalyticsDevicePerformance $body The request body
+     * @param UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise
+    */
+    public function post(UserExperienceAnalyticsDevicePerformance $body, ?UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [UserExperienceAnalyticsDevicePerformance::class, 'createFromDiscriminatorValue'], $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
     }
 
     /**
@@ -111,10 +111,10 @@ class UserExperienceAnalyticsDevicePerformanceRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -137,10 +137,10 @@ class UserExperienceAnalyticsDevicePerformanceRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

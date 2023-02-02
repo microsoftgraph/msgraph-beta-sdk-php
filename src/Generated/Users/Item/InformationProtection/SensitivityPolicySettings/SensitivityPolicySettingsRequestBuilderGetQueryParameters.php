@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Sensit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get sensitivityPolicySettings from users
+*/
 class SensitivityPolicySettingsRequestBuilderGetQueryParameters 
 {
     /**

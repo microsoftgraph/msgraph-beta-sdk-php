@@ -65,7 +65,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
 
     /**
      * Sets the isSingleLineQuestion property value. Indicates whether the answer will be in single or multiple line format.
-     *  @param bool|null $value Value to set for the isSingleLineQuestion property.
+     * @param bool|null $value Value to set for the isSingleLineQuestion property.
     */
     public function setIsSingleLineQuestion(?bool $value): void {
         $this->getBackingStore()->set('isSingleLineQuestion', $value);
@@ -73,7 +73,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
 
     /**
      * Sets the regexPattern property value. This is the regex pattern that the corresponding text answer must follow.
-     *  @param string|null $value Value to set for the regexPattern property.
+     * @param string|null $value Value to set for the regexPattern property.
     */
     public function setRegexPattern(?string $value): void {
         $this->getBackingStore()->set('regexPattern', $value);

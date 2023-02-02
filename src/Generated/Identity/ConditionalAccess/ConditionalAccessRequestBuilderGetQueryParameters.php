@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * the entry point for the Conditional Access (CA) object model.
+*/
 class ConditionalAccessRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook\TaskFolders\Item\MultiValueE
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.
+*/
 class MultiValueExtendedPropertiesRequestBuilderGetQueryParameters 
 {
     /**

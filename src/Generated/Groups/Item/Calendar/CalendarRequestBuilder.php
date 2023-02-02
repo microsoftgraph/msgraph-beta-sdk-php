@@ -5,12 +5,12 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Calendar;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\AllowedCalendarSharingRolesWithUser\AllowedCalendarSharingRolesWithUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarPermissions\CalendarPermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarPermissions\Item\CalendarPermissionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\CalendarView\CalendarViewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\Events\EventsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\GetSchedule\GetScheduleRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\MicrosoftGraphAllowedCalendarSharingRolesWithUser\AllowedCalendarSharingRolesWithUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\MicrosoftGraphGetSchedule\GetScheduleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\MultiValueExtendedProperties\Item\MultiValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\SingleValueExtendedProperties\Item\SingleValueLegacyExtendedPropertyItemRequestBuilder;
@@ -20,11 +20,13 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the calendar property of the microsoft.graph.group entity.
+*/
 class CalendarRequestBuilder 
 {
     /**
@@ -51,7 +53,7 @@ class CalendarRequestBuilder
     /**
      * Provides operations to call the getSchedule method.
     */
-    public function getSchedule(): GetScheduleRequestBuilder {
+    public function microsoftGraphGetSchedule(): GetScheduleRequestBuilder {
         return new GetScheduleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
@@ -84,15 +86,6 @@ class CalendarRequestBuilder
     */
     private string $urlTemplate;
     
-    /**
-     * Provides operations to call the allowedCalendarSharingRoles method.
-     * @param string $user Usage: User='{User}'
-     * @return AllowedCalendarSharingRolesWithUserRequestBuilder
-    */
-    public function allowedCalendarSharingRolesWithUser(string $user): AllowedCalendarSharingRolesWithUserRequestBuilder {
-        return new AllowedCalendarSharingRolesWithUserRequestBuilder($this->pathParameters, $this->requestAdapter, $user);
-    }
-
     /**
      * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
      * @param string $id Unique identifier of the item
@@ -140,20 +133,28 @@ class CalendarRequestBuilder
     /**
      * The group's calendar. Read-only.
      * @param CalendarRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?CalendarRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?CalendarRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Calendar::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Calendar::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
+    }
+
+    /**
+     * Provides operations to call the allowedCalendarSharingRoles method.
+     * @param string $user Usage: User='{User}'
+     * @return AllowedCalendarSharingRolesWithUserRequestBuilder
+    */
+    public function microsoftGraphAllowedCalendarSharingRolesWithUser(string $user): AllowedCalendarSharingRolesWithUserRequestBuilder {
+        return new AllowedCalendarSharingRolesWithUserRequestBuilder($this->pathParameters, $this->requestAdapter, $user);
     }
 
     /**
@@ -188,10 +189,10 @@ class CalendarRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);

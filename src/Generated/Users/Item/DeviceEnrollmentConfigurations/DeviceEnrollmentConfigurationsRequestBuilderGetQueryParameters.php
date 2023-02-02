@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfiguratio
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get enrollment configurations targeted to the user
+*/
 class DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters 
 {
     /**

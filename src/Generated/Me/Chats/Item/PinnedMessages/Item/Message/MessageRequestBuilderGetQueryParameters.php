@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Chats\Item\PinnedMessages\Item\Messa
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents details about the chat message that is pinned.
+*/
 class MessageRequestBuilderGetQueryParameters 
 {
     /**

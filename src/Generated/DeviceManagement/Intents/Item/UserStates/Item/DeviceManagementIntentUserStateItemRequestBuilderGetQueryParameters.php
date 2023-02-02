@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserState
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of states of all users that the intent is applied to
+*/
 class DeviceManagementIntentUserStateItemRequestBuilderGetQueryParameters 
 {
     /**

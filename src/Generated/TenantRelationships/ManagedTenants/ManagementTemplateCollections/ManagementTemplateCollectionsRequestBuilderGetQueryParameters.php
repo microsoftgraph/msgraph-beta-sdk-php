@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get managementTemplateCollections from tenantRelationships
+*/
 class ManagementTemplateCollectionsRequestBuilderGetQueryParameters 
 {
     /**

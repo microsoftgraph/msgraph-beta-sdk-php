@@ -65,7 +65,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
 
     /**
      * Sets the enrollments property value. Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
-     *  @param array<UpdatableAssetEnrollment>|null $value Value to set for the enrollments property.
+     * @param array<UpdatableAssetEnrollment>|null $value Value to set for the enrollments property.
     */
     public function setEnrollments(?array $value): void {
         $this->getBackingStore()->set('enrollments', $value);
@@ -73,7 +73,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
 
     /**
      * Sets the errors property value. Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
-     *  @param array<UpdatableAssetError>|null $value Value to set for the errors property.
+     * @param array<UpdatableAssetError>|null $value Value to set for the errors property.
     */
     public function setErrors(?array $value): void {
         $this->getBackingStore()->set('errors', $value);

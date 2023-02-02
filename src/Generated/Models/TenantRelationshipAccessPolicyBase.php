@@ -62,7 +62,7 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable
 
     /**
      * Sets the definition property value. The definition property
-     *  @param array<string>|null $value Value to set for the definition property.
+     * @param array<string>|null $value Value to set for the definition property.
     */
     public function setDefinition(?array $value): void {
         $this->getBackingStore()->set('definition', $value);

@@ -75,7 +75,7 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
 
     /**
      * Sets the statuses property value. The collection of deployment status for each instance of a management action. Optional.
-     *  @param array<ManagementActionDeploymentStatus>|null $value Value to set for the statuses property.
+     * @param array<ManagementActionDeploymentStatus>|null $value Value to set for the statuses property.
     */
     public function setStatuses(?array $value): void {
         $this->getBackingStore()->set('statuses', $value);
@@ -83,7 +83,7 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
 
     /**
      * Sets the tenantGroupId property value. The identifier for the tenant group that is associated with the management action. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantGroupId property.
+     * @param string|null $value Value to set for the tenantGroupId property.
     */
     public function setTenantGroupId(?string $value): void {
         $this->getBackingStore()->set('tenantGroupId', $value);
@@ -91,7 +91,7 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

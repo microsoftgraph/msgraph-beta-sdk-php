@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of co-managed devices report
+*/
 class ComanagedDevicesRequestBuilderGetQueryParameters 
 {
     /**

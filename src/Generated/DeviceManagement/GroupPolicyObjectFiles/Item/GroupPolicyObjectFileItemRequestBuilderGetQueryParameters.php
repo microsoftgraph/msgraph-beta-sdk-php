@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyObjectFiles
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A list of Group Policy Object files uploaded.
+*/
 class GroupPolicyObjectFileItemRequestBuilderGetQueryParameters 
 {
     /**

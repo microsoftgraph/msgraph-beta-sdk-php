@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of updatableAssetGroup objects and their properties. This operation filters on the fully qualified resource type, `microsoft.graph.windowsUpdates.updatableAssetGroup`, which inherits from updatableAsset.
+*/
 class UpdatableAssetsRequestBuilderGetQueryParameters 
 {
     /**

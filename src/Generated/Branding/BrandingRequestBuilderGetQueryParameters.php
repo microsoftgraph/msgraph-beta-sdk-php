@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Branding;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get branding
+*/
 class BrandingRequestBuilderGetQueryParameters 
 {
     /**

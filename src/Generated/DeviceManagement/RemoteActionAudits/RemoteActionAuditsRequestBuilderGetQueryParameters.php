@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of device remote action audits with the tenant.
+*/
 class RemoteActionAuditsRequestBuilderGetQueryParameters 
 {
     /**

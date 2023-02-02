@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskDetections;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties of a collection of **riskDetection** objects.
+*/
 class RiskDetectionsRequestBuilderGetQueryParameters 
 {
     /**

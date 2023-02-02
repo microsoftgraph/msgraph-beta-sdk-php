@@ -54,7 +54,7 @@ class AuthenticationMethodsRoot extends Entity implements Parsable
 
     /**
      * Sets the userRegistrationDetails property value. Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multi-factor authentication, self-service password reset, and passwordless authentication).
-     *  @param array<UserRegistrationDetails>|null $value Value to set for the userRegistrationDetails property.
+     * @param array<UserRegistrationDetails>|null $value Value to set for the userRegistrationDetails property.
     */
     public function setUserRegistrationDetails(?array $value): void {
         $this->getBackingStore()->set('userRegistrationDetails', $value);

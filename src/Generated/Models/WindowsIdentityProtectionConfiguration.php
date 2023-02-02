@@ -185,7 +185,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the enhancedAntiSpoofingForFacialFeaturesEnabled property value. Boolean value used to enable enhanced anti-spoofing for facial feature recognition on Windows Hello face authentication.
-     *  @param bool|null $value Value to set for the enhancedAntiSpoofingForFacialFeaturesEnabled property.
+     * @param bool|null $value Value to set for the enhancedAntiSpoofingForFacialFeaturesEnabled property.
     */
     public function setEnhancedAntiSpoofingForFacialFeaturesEnabled(?bool $value): void {
         $this->getBackingStore()->set('enhancedAntiSpoofingForFacialFeaturesEnabled', $value);
@@ -193,7 +193,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the pinExpirationInDays property value. Integer value specifies the period (in days) that a PIN can be used before the system requires the user to change it. Valid values are 0 to 730 inclusive. Valid values 0 to 730
-     *  @param int|null $value Value to set for the pinExpirationInDays property.
+     * @param int|null $value Value to set for the pinExpirationInDays property.
     */
     public function setPinExpirationInDays(?int $value): void {
         $this->getBackingStore()->set('pinExpirationInDays', $value);
@@ -201,7 +201,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the pinLowercaseCharactersUsage property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the pinLowercaseCharactersUsage property.
+     * @param ConfigurationUsage|null $value Value to set for the pinLowercaseCharactersUsage property.
     */
     public function setPinLowercaseCharactersUsage(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('pinLowercaseCharactersUsage', $value);
@@ -209,7 +209,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the pinMaximumLength property value. Integer value that sets the maximum number of characters allowed for the work PIN. Valid values are 4 to 127 inclusive and greater than or equal to the value set for the minimum PIN. Valid values 4 to 127
-     *  @param int|null $value Value to set for the pinMaximumLength property.
+     * @param int|null $value Value to set for the pinMaximumLength property.
     */
     public function setPinMaximumLength(?int $value): void {
         $this->getBackingStore()->set('pinMaximumLength', $value);
@@ -217,7 +217,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the pinMinimumLength property value. Integer value that sets the minimum number of characters required for the Windows Hello for Business PIN. Valid values are 4 to 127 inclusive and less than or equal to the value set for the maximum PIN. Valid values 4 to 127
-     *  @param int|null $value Value to set for the pinMinimumLength property.
+     * @param int|null $value Value to set for the pinMinimumLength property.
     */
     public function setPinMinimumLength(?int $value): void {
         $this->getBackingStore()->set('pinMinimumLength', $value);
@@ -225,7 +225,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the pinPreviousBlockCount property value. Controls the ability to prevent users from using past PINs. This must be set between 0 and 50, inclusive, and the current PIN of the user is included in that count. If set to 0, previous PINs are not stored. PIN history is not preserved through a PIN reset. Valid values 0 to 50
-     *  @param int|null $value Value to set for the pinPreviousBlockCount property.
+     * @param int|null $value Value to set for the pinPreviousBlockCount property.
     */
     public function setPinPreviousBlockCount(?int $value): void {
         $this->getBackingStore()->set('pinPreviousBlockCount', $value);
@@ -233,7 +233,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the pinRecoveryEnabled property value. Boolean value that enables a user to change their PIN by using the Windows Hello for Business PIN recovery service.
-     *  @param bool|null $value Value to set for the pinRecoveryEnabled property.
+     * @param bool|null $value Value to set for the pinRecoveryEnabled property.
     */
     public function setPinRecoveryEnabled(?bool $value): void {
         $this->getBackingStore()->set('pinRecoveryEnabled', $value);
@@ -241,7 +241,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the pinSpecialCharactersUsage property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the pinSpecialCharactersUsage property.
+     * @param ConfigurationUsage|null $value Value to set for the pinSpecialCharactersUsage property.
     */
     public function setPinSpecialCharactersUsage(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('pinSpecialCharactersUsage', $value);
@@ -249,7 +249,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the pinUppercaseCharactersUsage property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the pinUppercaseCharactersUsage property.
+     * @param ConfigurationUsage|null $value Value to set for the pinUppercaseCharactersUsage property.
     */
     public function setPinUppercaseCharactersUsage(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('pinUppercaseCharactersUsage', $value);
@@ -257,7 +257,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the securityDeviceRequired property value. Controls whether to require a Trusted Platform Module (TPM) for provisioning Windows Hello for Business. A TPM provides an additional security benefit in that data stored on it cannot be used on other devices. If set to False, all devices can provision Windows Hello for Business even if there is not a usable TPM.
-     *  @param bool|null $value Value to set for the securityDeviceRequired property.
+     * @param bool|null $value Value to set for the securityDeviceRequired property.
     */
     public function setSecurityDeviceRequired(?bool $value): void {
         $this->getBackingStore()->set('securityDeviceRequired', $value);
@@ -265,7 +265,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the unlockWithBiometricsEnabled property value. Controls the use of biometric gestures, such as face and fingerprint, as an alternative to the Windows Hello for Business PIN.  If set to False, biometric gestures are not allowed. Users must still configure a PIN as a backup in case of failures.
-     *  @param bool|null $value Value to set for the unlockWithBiometricsEnabled property.
+     * @param bool|null $value Value to set for the unlockWithBiometricsEnabled property.
     */
     public function setUnlockWithBiometricsEnabled(?bool $value): void {
         $this->getBackingStore()->set('unlockWithBiometricsEnabled', $value);
@@ -273,7 +273,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the useCertificatesForOnPremisesAuthEnabled property value. Boolean value that enables Windows Hello for Business to use certificates to authenticate on-premise resources.
-     *  @param bool|null $value Value to set for the useCertificatesForOnPremisesAuthEnabled property.
+     * @param bool|null $value Value to set for the useCertificatesForOnPremisesAuthEnabled property.
     */
     public function setUseCertificatesForOnPremisesAuthEnabled(?bool $value): void {
         $this->getBackingStore()->set('useCertificatesForOnPremisesAuthEnabled', $value);
@@ -281,7 +281,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the useSecurityKeyForSignin property value. Boolean value used to enable the Windows Hello security key as a logon credential.
-     *  @param bool|null $value Value to set for the useSecurityKeyForSignin property.
+     * @param bool|null $value Value to set for the useSecurityKeyForSignin property.
     */
     public function setUseSecurityKeyForSignin(?bool $value): void {
         $this->getBackingStore()->set('useSecurityKeyForSignin', $value);
@@ -289,7 +289,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the windowsHelloForBusinessBlocked property value. Boolean value that blocks Windows Hello for Business as a method for signing into Windows.
-     *  @param bool|null $value Value to set for the windowsHelloForBusinessBlocked property.
+     * @param bool|null $value Value to set for the windowsHelloForBusinessBlocked property.
     */
     public function setWindowsHelloForBusinessBlocked(?bool $value): void {
         $this->getBackingStore()->set('windowsHelloForBusinessBlocked', $value);

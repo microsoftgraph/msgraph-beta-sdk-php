@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Commands\Item\Responsepayload;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get responsepayload from commands
+*/
 class ResponsepayloadRequestBuilderGetQueryParameters 
 {
     /**

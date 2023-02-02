@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\Messages\Item\Multi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of multi-value extended properties defined for the message. Nullable.
+*/
 class MultiValueLegacyExtendedPropertyItemRequestBuilderGetQueryParameters 
 {
     /**

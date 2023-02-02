@@ -155,7 +155,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the activity property value. Friendly name of the activity. Optional.
-     *  @param string|null $value Value to set for the activity property.
+     * @param string|null $value Value to set for the activity property.
     */
     public function setActivity(?string $value): void {
         $this->getBackingStore()->set('activity', $value);
@@ -163,7 +163,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the activityDateTime property value. The date time in UTC when the activity was performed. Read-only.
-     *  @param DateTime|null $value Value to set for the activityDateTime property.
+     * @param DateTime|null $value Value to set for the activityDateTime property.
     */
     public function setActivityDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('activityDateTime', $value);
@@ -171,7 +171,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the activityOperationType property value. The activityOperationType property
-     *  @param CloudPcAuditActivityOperationType|null $value Value to set for the activityOperationType property.
+     * @param CloudPcAuditActivityOperationType|null $value Value to set for the activityOperationType property.
     */
     public function setActivityOperationType(?CloudPcAuditActivityOperationType $value): void {
         $this->getBackingStore()->set('activityOperationType', $value);
@@ -179,7 +179,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the activityResult property value. The activityResult property
-     *  @param CloudPcAuditActivityResult|null $value Value to set for the activityResult property.
+     * @param CloudPcAuditActivityResult|null $value Value to set for the activityResult property.
     */
     public function setActivityResult(?CloudPcAuditActivityResult $value): void {
         $this->getBackingStore()->set('activityResult', $value);
@@ -187,7 +187,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the activityType property value. The type of activity that was performed. Read-only.
-     *  @param string|null $value Value to set for the activityType property.
+     * @param string|null $value Value to set for the activityType property.
     */
     public function setActivityType(?string $value): void {
         $this->getBackingStore()->set('activityType', $value);
@@ -195,7 +195,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the actor property value. The actor property
-     *  @param CloudPcAuditActor|null $value Value to set for the actor property.
+     * @param CloudPcAuditActor|null $value Value to set for the actor property.
     */
     public function setActor(?CloudPcAuditActor $value): void {
         $this->getBackingStore()->set('actor', $value);
@@ -203,7 +203,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the category property value. The category property
-     *  @param CloudPcAuditCategory|null $value Value to set for the category property.
+     * @param CloudPcAuditCategory|null $value Value to set for the category property.
     */
     public function setCategory(?CloudPcAuditCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -211,7 +211,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the componentName property value. Component name. Read-only.
-     *  @param string|null $value Value to set for the componentName property.
+     * @param string|null $value Value to set for the componentName property.
     */
     public function setComponentName(?string $value): void {
         $this->getBackingStore()->set('componentName', $value);
@@ -219,7 +219,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the correlationId property value. The client request identifier, used to correlate activity within the system. Read-only.
-     *  @param string|null $value Value to set for the correlationId property.
+     * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
         $this->getBackingStore()->set('correlationId', $value);
@@ -227,7 +227,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Event display name. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -235,7 +235,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
 
     /**
      * Sets the resources property value. List of cloudPcAuditResource objects. Read-only.
-     *  @param array<CloudPcAuditResource>|null $value Value to set for the resources property.
+     * @param array<CloudPcAuditResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
         $this->getBackingStore()->set('resources', $value);

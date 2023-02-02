@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing information about the payloads on which filter has been applied.
+*/
 class AssignmentFilterEvaluationStatusDetails extends Entity implements Parsable 
 {
     /**
@@ -54,7 +57,7 @@ class AssignmentFilterEvaluationStatusDetails extends Entity implements Parsable
 
     /**
      * Sets the payloadId property value. PayloadId on which filter has been applied.
-     *  @param string|null $value Value to set for the payloadId property.
+     * @param string|null $value Value to set for the payloadId property.
     */
     public function setPayloadId(?string $value): void {
         $this->getBackingStore()->set('payloadId', $value);

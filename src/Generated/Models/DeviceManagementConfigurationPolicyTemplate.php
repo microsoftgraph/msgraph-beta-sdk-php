@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Management Configuration Policy Template
+*/
 class DeviceManagementConfigurationPolicyTemplate extends Entity implements Parsable 
 {
     /**
@@ -162,7 +165,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the allowUnmanagedSettings property value. Allow unmanaged setting templates
-     *  @param bool|null $value Value to set for the allowUnmanagedSettings property.
+     * @param bool|null $value Value to set for the allowUnmanagedSettings property.
     */
     public function setAllowUnmanagedSettings(?bool $value): void {
         $this->getBackingStore()->set('allowUnmanagedSettings', $value);
@@ -170,7 +173,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the baseId property value. Template base identifier
-     *  @param string|null $value Value to set for the baseId property.
+     * @param string|null $value Value to set for the baseId property.
     */
     public function setBaseId(?string $value): void {
         $this->getBackingStore()->set('baseId', $value);
@@ -178,7 +181,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the description property value. Template description
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -186,7 +189,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the displayName property value. Template display name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -194,7 +197,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the displayVersion property value. Description of template version
-     *  @param string|null $value Value to set for the displayVersion property.
+     * @param string|null $value Value to set for the displayVersion property.
     */
     public function setDisplayVersion(?string $value): void {
         $this->getBackingStore()->set('displayVersion', $value);
@@ -202,7 +205,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the lifecycleState property value. Describes current lifecycle state of a template
-     *  @param DeviceManagementTemplateLifecycleState|null $value Value to set for the lifecycleState property.
+     * @param DeviceManagementTemplateLifecycleState|null $value Value to set for the lifecycleState property.
     */
     public function setLifecycleState(?DeviceManagementTemplateLifecycleState $value): void {
         $this->getBackingStore()->set('lifecycleState', $value);
@@ -210,7 +213,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the platforms property value. Supported platform types.
-     *  @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
+     * @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?DeviceManagementConfigurationPlatforms $value): void {
         $this->getBackingStore()->set('platforms', $value);
@@ -218,7 +221,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the settingTemplateCount property value. Number of setting templates. Valid values 0 to 2147483647. This property is read-only.
-     *  @param int|null $value Value to set for the settingTemplateCount property.
+     * @param int|null $value Value to set for the settingTemplateCount property.
     */
     public function setSettingTemplateCount(?int $value): void {
         $this->getBackingStore()->set('settingTemplateCount', $value);
@@ -226,7 +229,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the settingTemplates property value. Setting templates
-     *  @param array<DeviceManagementConfigurationSettingTemplate>|null $value Value to set for the settingTemplates property.
+     * @param array<DeviceManagementConfigurationSettingTemplate>|null $value Value to set for the settingTemplates property.
     */
     public function setSettingTemplates(?array $value): void {
         $this->getBackingStore()->set('settingTemplates', $value);
@@ -234,7 +237,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the technologies property value. Describes which technology this setting can be deployed with
-     *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
+     * @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value): void {
         $this->getBackingStore()->set('technologies', $value);
@@ -242,7 +245,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the templateFamily property value. Describes the TemplateFamily for the Template entity
-     *  @param DeviceManagementConfigurationTemplateFamily|null $value Value to set for the templateFamily property.
+     * @param DeviceManagementConfigurationTemplateFamily|null $value Value to set for the templateFamily property.
     */
     public function setTemplateFamily(?DeviceManagementConfigurationTemplateFamily $value): void {
         $this->getBackingStore()->set('templateFamily', $value);
@@ -250,7 +253,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
 
     /**
      * Sets the version property value. Template version. Valid values 1 to 2147483647. This property is read-only.
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);

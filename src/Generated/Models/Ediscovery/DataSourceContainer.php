@@ -124,7 +124,7 @@ class DataSourceContainer extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Created date and time of the dataSourceContainer entity.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -132,7 +132,7 @@ class DataSourceContainer extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name of the dataSourceContainer entity.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -140,7 +140,7 @@ class DataSourceContainer extends Entity implements Parsable
 
     /**
      * Sets the holdStatus property value. The holdStatus property
-     *  @param DataSourceHoldStatus|null $value Value to set for the holdStatus property.
+     * @param DataSourceHoldStatus|null $value Value to set for the holdStatus property.
     */
     public function setHoldStatus(?DataSourceHoldStatus $value): void {
         $this->getBackingStore()->set('holdStatus', $value);
@@ -148,7 +148,7 @@ class DataSourceContainer extends Entity implements Parsable
 
     /**
      * Sets the lastIndexOperation property value. The lastIndexOperation property
-     *  @param CaseIndexOperation|null $value Value to set for the lastIndexOperation property.
+     * @param CaseIndexOperation|null $value Value to set for the lastIndexOperation property.
     */
     public function setLastIndexOperation(?CaseIndexOperation $value): void {
         $this->getBackingStore()->set('lastIndexOperation', $value);
@@ -156,7 +156,7 @@ class DataSourceContainer extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified date and time of the dataSourceContainer.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -164,7 +164,7 @@ class DataSourceContainer extends Entity implements Parsable
 
     /**
      * Sets the releasedDateTime property value. Date and time that the dataSourceContainer was released from the case.
-     *  @param DateTime|null $value Value to set for the releasedDateTime property.
+     * @param DateTime|null $value Value to set for the releasedDateTime property.
     */
     public function setReleasedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('releasedDateTime', $value);
@@ -172,7 +172,7 @@ class DataSourceContainer extends Entity implements Parsable
 
     /**
      * Sets the status property value. Latest status of the dataSourceContainer. Possible values are: Active, Released.
-     *  @param DataSourceContainerStatus|null $value Value to set for the status property.
+     * @param DataSourceContainerStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DataSourceContainerStatus $value): void {
         $this->getBackingStore()->set('status', $value);

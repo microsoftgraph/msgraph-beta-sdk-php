@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Search\Bookmarks\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Administrative answer in Microsoft Search results for common search queries in an organization.
+*/
 class BookmarkItemRequestBuilderGetQueryParameters 
 {
     /**

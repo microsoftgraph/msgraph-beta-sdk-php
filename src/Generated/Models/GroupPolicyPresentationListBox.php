@@ -65,7 +65,7 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
 
     /**
      * Sets the explicitValue property value. If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.
-     *  @param bool|null $value Value to set for the explicitValue property.
+     * @param bool|null $value Value to set for the explicitValue property.
     */
     public function setExplicitValue(?bool $value): void {
         $this->getBackingStore()->set('explicitValue', $value);
@@ -73,7 +73,7 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
 
     /**
      * Sets the valuePrefix property value. Not yet documented
-     *  @param string|null $value Value to set for the valuePrefix property.
+     * @param string|null $value Value to set for the valuePrefix property.
     */
     public function setValuePrefix(?string $value): void {
         $this->getBackingStore()->set('valuePrefix', $value);

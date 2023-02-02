@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The id of the definition file the category came from
+*/
 class DefinitionFileRequestBuilderGetQueryParameters 
 {
     /**

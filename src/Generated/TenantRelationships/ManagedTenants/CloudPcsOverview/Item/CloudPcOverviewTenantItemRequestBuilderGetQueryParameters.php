@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Clou
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Overview of cloud PC information across managed tenants.
+*/
 class CloudPcOverviewTenantItemRequestBuilderGetQueryParameters 
 {
     /**

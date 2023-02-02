@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Sets\Item\ParentGr
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The parent [group] that contains the set.
+*/
 class ParentGroupRequestBuilderGetQueryParameters 
 {
     /**

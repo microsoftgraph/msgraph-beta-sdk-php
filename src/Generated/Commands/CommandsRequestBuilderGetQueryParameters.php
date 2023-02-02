@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Commands;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entities from commands
+*/
 class CommandsRequestBuilderGetQueryParameters 
 {
     /**

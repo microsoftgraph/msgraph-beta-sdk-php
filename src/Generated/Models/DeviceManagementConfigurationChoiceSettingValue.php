@@ -65,7 +65,7 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
 
     /**
      * Sets the children property value. Child settings.
-     *  @param array<DeviceManagementConfigurationSettingInstance>|null $value Value to set for the children property.
+     * @param array<DeviceManagementConfigurationSettingInstance>|null $value Value to set for the children property.
     */
     public function setChildren(?array $value): void {
         $this->getBackingStore()->set('children', $value);
@@ -73,7 +73,7 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
 
     /**
      * Sets the value property value. Choice setting value: an OptionDefinition ItemId.
-     *  @param string|null $value Value to set for the value property.
+     * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);

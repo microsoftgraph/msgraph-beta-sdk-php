@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\Allowed
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /print/printerShares/{printerShare-id}/allowedGroups/{group-id}
+*/
 class GroupItemRequestBuilder 
 {
     /**
@@ -33,11 +36,15 @@ class GroupItemRequestBuilder
      * Instantiates a new GroupItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $groupId key: id of group
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $groupId = null) {
         $this->urlTemplate = '{+baseurl}/print/printerShares/{printerShare%2Did}/allowedGroups/{group%2Did}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
+        $urlTplParams = $pathParameters;
+        $urlTplParams['groupId'] = $groupId;
+        $this->pathParameters = array_merge($this->pathParameters, $urlTplParams);
     }
 
 }

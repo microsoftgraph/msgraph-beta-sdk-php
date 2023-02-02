@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Domains\Item\FederationConfiguration\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Domain settings configured by customer when federated with Azure AD. Supports $expand.
+*/
 class InternalDomainFederationItemRequestBuilderGetQueryParameters 
 {
     /**

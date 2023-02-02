@@ -75,7 +75,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
 
     /**
      * Sets the lastManualSyncTriggerDateTime property value. Last data sync date time with DDS service.
-     *  @param DateTime|null $value Value to set for the lastManualSyncTriggerDateTime property.
+     * @param DateTime|null $value Value to set for the lastManualSyncTriggerDateTime property.
     */
     public function setLastManualSyncTriggerDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastManualSyncTriggerDateTime', $value);
@@ -83,7 +83,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
 
     /**
      * Sets the lastSyncDateTime property value. Last data sync date time with DDS service.
-     *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
@@ -91,7 +91,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
 
     /**
      * Sets the syncStatus property value. The syncStatus property
-     *  @param WindowsAutopilotSyncStatus|null $value Value to set for the syncStatus property.
+     * @param WindowsAutopilotSyncStatus|null $value Value to set for the syncStatus property.
     */
     public function setSyncStatus(?WindowsAutopilotSyncStatus $value): void {
         $this->getBackingStore()->set('syncStatus', $value);

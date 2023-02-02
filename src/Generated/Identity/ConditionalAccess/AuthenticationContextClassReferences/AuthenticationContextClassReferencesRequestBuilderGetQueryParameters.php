@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Authenticati
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of authenticationContextClassReference objects.
+*/
 class AuthenticationContextClassReferencesRequestBuilderGetQueryParameters 
 {
     /**

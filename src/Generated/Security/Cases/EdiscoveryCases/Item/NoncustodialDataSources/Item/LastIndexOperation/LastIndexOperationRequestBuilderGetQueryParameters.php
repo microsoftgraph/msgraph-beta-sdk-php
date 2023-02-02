@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Non
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Operation entity that represents the latest indexing for the non-custodial data source.
+*/
 class LastIndexOperationRequestBuilderGetQueryParameters 
 {
     /**

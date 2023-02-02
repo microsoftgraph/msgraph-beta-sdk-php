@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The singleton ZebraFotaConnector associated with account.
+*/
 class ZebraFotaConnectorRequestBuilderGetQueryParameters 
 {
     /**

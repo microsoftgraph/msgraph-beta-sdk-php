@@ -87,7 +87,7 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
 
     /**
      * Sets the subject property value. The subject property
-     *  @param User|null $value Value to set for the subject property.
+     * @param User|null $value Value to set for the subject property.
     */
     public function setSubject(?User $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -95,7 +95,7 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
 
     /**
      * Sets the task property value. The task property
-     *  @param Task|null $value Value to set for the task property.
+     * @param Task|null $value Value to set for the task property.
     */
     public function setTask(?Task $value): void {
         $this->getBackingStore()->set('task', $value);
@@ -103,7 +103,7 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
 
     /**
      * Sets the taskProcessingresult property value. The taskProcessingresult property
-     *  @param TaskProcessingResult|null $value Value to set for the taskProcessingresult property.
+     * @param TaskProcessingResult|null $value Value to set for the taskProcessingresult property.
     */
     public function setTaskProcessingresult(?TaskProcessingResult $value): void {
         $this->getBackingStore()->set('taskProcessingresult', $value);
@@ -111,7 +111,7 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
 
     /**
      * Sets the workflow property value. The workflow property
-     *  @param Workflow|null $value Value to set for the workflow property.
+     * @param Workflow|null $value Value to set for the workflow property.
     */
     public function setWorkflow(?Workflow $value): void {
         $this->getBackingStore()->set('workflow', $value);

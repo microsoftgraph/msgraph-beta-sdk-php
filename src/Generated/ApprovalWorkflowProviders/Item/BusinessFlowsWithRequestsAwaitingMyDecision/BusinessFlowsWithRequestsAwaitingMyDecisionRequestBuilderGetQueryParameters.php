@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\Business
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get businessFlowsWithRequestsAwaitingMyDecision from approvalWorkflowProviders
+*/
 class BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderGetQueryParameters 
 {
     /**

@@ -180,7 +180,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the virtualNetworkLocation property value. The virtualNetworkLocation property
+     * Gets the virtualNetworkLocation property value. Indicates resource location of the virtual target network. Read-only, computed value.
      * @return string|null
     */
     public function getVirtualNetworkLocation(): ?string {
@@ -214,7 +214,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the adDomainName property value. The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Optional.
-     *  @param string|null $value Value to set for the adDomainName property.
+     * @param string|null $value Value to set for the adDomainName property.
     */
     public function setAdDomainName(?string $value): void {
         $this->getBackingStore()->set('adDomainName', $value);
@@ -222,7 +222,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the adDomainPassword property value. The password associated with adDomainUsername.
-     *  @param string|null $value Value to set for the adDomainPassword property.
+     * @param string|null $value Value to set for the adDomainPassword property.
     */
     public function setAdDomainPassword(?string $value): void {
         $this->getBackingStore()->set('adDomainPassword', $value);
@@ -230,7 +230,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the adDomainUsername property value. The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com. Optional.
-     *  @param string|null $value Value to set for the adDomainUsername property.
+     * @param string|null $value Value to set for the adDomainUsername property.
     */
     public function setAdDomainUsername(?string $value): void {
         $this->getBackingStore()->set('adDomainUsername', $value);
@@ -238,7 +238,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the alternateResourceUrl property value. The interface URL of the partner service's resource that links to this Azure network connection. Returned only on $select.
-     *  @param string|null $value Value to set for the alternateResourceUrl property.
+     * @param string|null $value Value to set for the alternateResourceUrl property.
     */
     public function setAlternateResourceUrl(?string $value): void {
         $this->getBackingStore()->set('alternateResourceUrl', $value);
@@ -246,7 +246,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the Azure network connection.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -254,7 +254,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the healthCheckStatus property value. The healthCheckStatus property
-     *  @param CloudPcOnPremisesConnectionStatus|null $value Value to set for the healthCheckStatus property.
+     * @param CloudPcOnPremisesConnectionStatus|null $value Value to set for the healthCheckStatus property.
     */
     public function setHealthCheckStatus(?CloudPcOnPremisesConnectionStatus $value): void {
         $this->getBackingStore()->set('healthCheckStatus', $value);
@@ -262,7 +262,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the healthCheckStatusDetails property value. The details of the connection's health checks and the corresponding results. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
-     *  @param CloudPcOnPremisesConnectionStatusDetails|null $value Value to set for the healthCheckStatusDetails property.
+     * @param CloudPcOnPremisesConnectionStatusDetails|null $value Value to set for the healthCheckStatusDetails property.
     */
     public function setHealthCheckStatusDetails(?CloudPcOnPremisesConnectionStatusDetails $value): void {
         $this->getBackingStore()->set('healthCheckStatusDetails', $value);
@@ -270,7 +270,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the inUse property value. When true, the Azure network connection is in use. When false, the connection is not in use. You cannot delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
-     *  @param bool|null $value Value to set for the inUse property.
+     * @param bool|null $value Value to set for the inUse property.
     */
     public function setInUse(?bool $value): void {
         $this->getBackingStore()->set('inUse', $value);
@@ -278,7 +278,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the managedBy property value. The managedBy property
-     *  @param CloudPcManagementService|null $value Value to set for the managedBy property.
+     * @param CloudPcManagementService|null $value Value to set for the managedBy property.
     */
     public function setManagedBy(?CloudPcManagementService $value): void {
         $this->getBackingStore()->set('managedBy', $value);
@@ -286,7 +286,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the organizationalUnit property value. The organizational unit (OU) in which the computer account is created. If left null, the OU that’s configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional.
-     *  @param string|null $value Value to set for the organizationalUnit property.
+     * @param string|null $value Value to set for the organizationalUnit property.
     */
     public function setOrganizationalUnit(?string $value): void {
         $this->getBackingStore()->set('organizationalUnit', $value);
@@ -294,7 +294,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the resourceGroupId property value. The ID of the target resource group. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}.
-     *  @param string|null $value Value to set for the resourceGroupId property.
+     * @param string|null $value Value to set for the resourceGroupId property.
     */
     public function setResourceGroupId(?string $value): void {
         $this->getBackingStore()->set('resourceGroupId', $value);
@@ -302,7 +302,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the subnetId property value. The ID of the target subnet. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkId}/subnets/{subnetName}.
-     *  @param string|null $value Value to set for the subnetId property.
+     * @param string|null $value Value to set for the subnetId property.
     */
     public function setSubnetId(?string $value): void {
         $this->getBackingStore()->set('subnetId', $value);
@@ -310,7 +310,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the subscriptionId property value. The ID of the target Azure subscription that’s associated with your tenant.
-     *  @param string|null $value Value to set for the subscriptionId property.
+     * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('subscriptionId', $value);
@@ -318,7 +318,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the subscriptionName property value. The name of the target Azure subscription. Read-only.
-     *  @param string|null $value Value to set for the subscriptionName property.
+     * @param string|null $value Value to set for the subscriptionName property.
     */
     public function setSubscriptionName(?string $value): void {
         $this->getBackingStore()->set('subscriptionName', $value);
@@ -326,7 +326,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the type property value. Specifies how the provisioned Cloud PC will be joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
-     *  @param CloudPcOnPremisesConnectionType|null $value Value to set for the type property.
+     * @param CloudPcOnPremisesConnectionType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcOnPremisesConnectionType $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -334,15 +334,15 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
 
     /**
      * Sets the virtualNetworkId property value. The ID of the target virtual network. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}.
-     *  @param string|null $value Value to set for the virtualNetworkId property.
+     * @param string|null $value Value to set for the virtualNetworkId property.
     */
     public function setVirtualNetworkId(?string $value): void {
         $this->getBackingStore()->set('virtualNetworkId', $value);
     }
 
     /**
-     * Sets the virtualNetworkLocation property value. The virtualNetworkLocation property
-     *  @param string|null $value Value to set for the virtualNetworkLocation property.
+     * Sets the virtualNetworkLocation property value. Indicates resource location of the virtual target network. Read-only, computed value.
+     * @param string|null $value Value to set for the virtualNetworkLocation property.
     */
     public function setVirtualNetworkLocation(?string $value): void {
         $this->getBackingStore()->set('virtualNetworkLocation', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\TaxGroups\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get taxGroups from financials
+*/
 class TaxGroupItemRequestBuilderGetQueryParameters 
 {
     /**

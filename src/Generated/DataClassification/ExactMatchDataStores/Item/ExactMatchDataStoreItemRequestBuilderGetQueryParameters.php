@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get exactMatchDataStores from dataClassification
+*/
 class ExactMatchDataStoreItemRequestBuilderGetQueryParameters 
 {
     /**

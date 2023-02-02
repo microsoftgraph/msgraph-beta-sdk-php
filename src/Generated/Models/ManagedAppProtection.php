@@ -516,7 +516,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedDataIngestionLocations property value. Data storage locations where a user may store managed data.
-     *  @param array<ManagedAppDataIngestionLocation>|null $value Value to set for the allowedDataIngestionLocations property.
+     * @param array<ManagedAppDataIngestionLocation>|null $value Value to set for the allowedDataIngestionLocations property.
     */
     public function setAllowedDataIngestionLocations(?array $value): void {
         $this->getBackingStore()->set('allowedDataIngestionLocations', $value);
@@ -524,7 +524,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
-     *  @param array<ManagedAppDataStorageLocation>|null $value Value to set for the allowedDataStorageLocations property.
+     * @param array<ManagedAppDataStorageLocation>|null $value Value to set for the allowedDataStorageLocations property.
     */
     public function setAllowedDataStorageLocations(?array $value): void {
         $this->getBackingStore()->set('allowedDataStorageLocations', $value);
@@ -532,7 +532,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedInboundDataTransferSources property value. Data can be transferred from/to these classes of apps
-     *  @param ManagedAppDataTransferLevel|null $value Value to set for the allowedInboundDataTransferSources property.
+     * @param ManagedAppDataTransferLevel|null $value Value to set for the allowedInboundDataTransferSources property.
     */
     public function setAllowedInboundDataTransferSources(?ManagedAppDataTransferLevel $value): void {
         $this->getBackingStore()->set('allowedInboundDataTransferSources', $value);
@@ -540,7 +540,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedOutboundClipboardSharingExceptionLength property value. Specify the number of characters that may be cut or copied from Org data and accounts to any application. This setting overrides the AllowedOutboundClipboardSharingLevel restriction. Default value of '0' means no exception is allowed.
-     *  @param int|null $value Value to set for the allowedOutboundClipboardSharingExceptionLength property.
+     * @param int|null $value Value to set for the allowedOutboundClipboardSharingExceptionLength property.
     */
     public function setAllowedOutboundClipboardSharingExceptionLength(?int $value): void {
         $this->getBackingStore()->set('allowedOutboundClipboardSharingExceptionLength', $value);
@@ -548,7 +548,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedOutboundClipboardSharingLevel property value. Represents the level to which the device's clipboard may be shared between apps
-     *  @param ManagedAppClipboardSharingLevel|null $value Value to set for the allowedOutboundClipboardSharingLevel property.
+     * @param ManagedAppClipboardSharingLevel|null $value Value to set for the allowedOutboundClipboardSharingLevel property.
     */
     public function setAllowedOutboundClipboardSharingLevel(?ManagedAppClipboardSharingLevel $value): void {
         $this->getBackingStore()->set('allowedOutboundClipboardSharingLevel', $value);
@@ -556,7 +556,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedOutboundDataTransferDestinations property value. Data can be transferred from/to these classes of apps
-     *  @param ManagedAppDataTransferLevel|null $value Value to set for the allowedOutboundDataTransferDestinations property.
+     * @param ManagedAppDataTransferLevel|null $value Value to set for the allowedOutboundDataTransferDestinations property.
     */
     public function setAllowedOutboundDataTransferDestinations(?ManagedAppDataTransferLevel $value): void {
         $this->getBackingStore()->set('allowedOutboundDataTransferDestinations', $value);
@@ -564,7 +564,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the appActionIfDeviceComplianceRequired property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDeviceComplianceRequired property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDeviceComplianceRequired property.
     */
     public function setAppActionIfDeviceComplianceRequired(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfDeviceComplianceRequired', $value);
@@ -572,7 +572,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the appActionIfMaximumPinRetriesExceeded property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfMaximumPinRetriesExceeded property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfMaximumPinRetriesExceeded property.
     */
     public function setAppActionIfMaximumPinRetriesExceeded(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfMaximumPinRetriesExceeded', $value);
@@ -580,7 +580,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Possible values are: block, wipe, warn.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
     */
     public function setAppActionIfUnableToAuthenticateUser(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfUnableToAuthenticateUser', $value);
@@ -588,7 +588,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the blockDataIngestionIntoOrganizationDocuments property value. Indicates whether a user can bring data into org documents.
-     *  @param bool|null $value Value to set for the blockDataIngestionIntoOrganizationDocuments property.
+     * @param bool|null $value Value to set for the blockDataIngestionIntoOrganizationDocuments property.
     */
     public function setBlockDataIngestionIntoOrganizationDocuments(?bool $value): void {
         $this->getBackingStore()->set('blockDataIngestionIntoOrganizationDocuments', $value);
@@ -596,7 +596,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the contactSyncBlocked property value. Indicates whether contacts can be synced to the user's device.
-     *  @param bool|null $value Value to set for the contactSyncBlocked property.
+     * @param bool|null $value Value to set for the contactSyncBlocked property.
     */
     public function setContactSyncBlocked(?bool $value): void {
         $this->getBackingStore()->set('contactSyncBlocked', $value);
@@ -604,7 +604,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the dataBackupBlocked property value. Indicates whether the backup of a managed app's data is blocked.
-     *  @param bool|null $value Value to set for the dataBackupBlocked property.
+     * @param bool|null $value Value to set for the dataBackupBlocked property.
     */
     public function setDataBackupBlocked(?bool $value): void {
         $this->getBackingStore()->set('dataBackupBlocked', $value);
@@ -612,7 +612,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the deviceComplianceRequired property value. Indicates whether device compliance is required.
-     *  @param bool|null $value Value to set for the deviceComplianceRequired property.
+     * @param bool|null $value Value to set for the deviceComplianceRequired property.
     */
     public function setDeviceComplianceRequired(?bool $value): void {
         $this->getBackingStore()->set('deviceComplianceRequired', $value);
@@ -620,7 +620,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the dialerRestrictionLevel property value. The classes of apps that are allowed to click-to-open a phone number, for making phone calls or sending text messages.
-     *  @param ManagedAppPhoneNumberRedirectLevel|null $value Value to set for the dialerRestrictionLevel property.
+     * @param ManagedAppPhoneNumberRedirectLevel|null $value Value to set for the dialerRestrictionLevel property.
     */
     public function setDialerRestrictionLevel(?ManagedAppPhoneNumberRedirectLevel $value): void {
         $this->getBackingStore()->set('dialerRestrictionLevel', $value);
@@ -628,7 +628,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the disableAppPinIfDevicePinIsSet property value. Indicates whether use of the app pin is required if the device pin is set.
-     *  @param bool|null $value Value to set for the disableAppPinIfDevicePinIsSet property.
+     * @param bool|null $value Value to set for the disableAppPinIfDevicePinIsSet property.
     */
     public function setDisableAppPinIfDevicePinIsSet(?bool $value): void {
         $this->getBackingStore()->set('disableAppPinIfDevicePinIsSet', $value);
@@ -636,7 +636,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the fingerprintBlocked property value. Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True.
-     *  @param bool|null $value Value to set for the fingerprintBlocked property.
+     * @param bool|null $value Value to set for the fingerprintBlocked property.
     */
     public function setFingerprintBlocked(?bool $value): void {
         $this->getBackingStore()->set('fingerprintBlocked', $value);
@@ -644,7 +644,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the gracePeriodToBlockAppsDuringOffClockHours property value. A grace period before blocking app access during off clock hours.
-     *  @param DateInterval|null $value Value to set for the gracePeriodToBlockAppsDuringOffClockHours property.
+     * @param DateInterval|null $value Value to set for the gracePeriodToBlockAppsDuringOffClockHours property.
     */
     public function setGracePeriodToBlockAppsDuringOffClockHours(?DateInterval $value): void {
         $this->getBackingStore()->set('gracePeriodToBlockAppsDuringOffClockHours', $value);
@@ -652,7 +652,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the managedBrowser property value. Type of managed browser
-     *  @param ManagedBrowserType|null $value Value to set for the managedBrowser property.
+     * @param ManagedBrowserType|null $value Value to set for the managedBrowser property.
     */
     public function setManagedBrowser(?ManagedBrowserType $value): void {
         $this->getBackingStore()->set('managedBrowser', $value);
@@ -660,7 +660,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the managedBrowserToOpenLinksRequired property value. Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)
-     *  @param bool|null $value Value to set for the managedBrowserToOpenLinksRequired property.
+     * @param bool|null $value Value to set for the managedBrowserToOpenLinksRequired property.
     */
     public function setManagedBrowserToOpenLinksRequired(?bool $value): void {
         $this->getBackingStore()->set('managedBrowserToOpenLinksRequired', $value);
@@ -668,7 +668,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the maximumAllowedDeviceThreatLevel property value. The maxium threat level allowed for an app to be compliant.
-     *  @param ManagedAppDeviceThreatLevel|null $value Value to set for the maximumAllowedDeviceThreatLevel property.
+     * @param ManagedAppDeviceThreatLevel|null $value Value to set for the maximumAllowedDeviceThreatLevel property.
     */
     public function setMaximumAllowedDeviceThreatLevel(?ManagedAppDeviceThreatLevel $value): void {
         $this->getBackingStore()->set('maximumAllowedDeviceThreatLevel', $value);
@@ -676,7 +676,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the maximumPinRetries property value. Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.
-     *  @param int|null $value Value to set for the maximumPinRetries property.
+     * @param int|null $value Value to set for the maximumPinRetries property.
     */
     public function setMaximumPinRetries(?int $value): void {
         $this->getBackingStore()->set('maximumPinRetries', $value);
@@ -684,7 +684,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the maximumRequiredOsVersion property value. Versions bigger than the specified version will block the managed app from accessing company data.
-     *  @param string|null $value Value to set for the maximumRequiredOsVersion property.
+     * @param string|null $value Value to set for the maximumRequiredOsVersion property.
     */
     public function setMaximumRequiredOsVersion(?string $value): void {
         $this->getBackingStore()->set('maximumRequiredOsVersion', $value);
@@ -692,7 +692,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the maximumWarningOsVersion property value. Versions bigger than the specified version will block the managed app from accessing company data.
-     *  @param string|null $value Value to set for the maximumWarningOsVersion property.
+     * @param string|null $value Value to set for the maximumWarningOsVersion property.
     */
     public function setMaximumWarningOsVersion(?string $value): void {
         $this->getBackingStore()->set('maximumWarningOsVersion', $value);
@@ -700,7 +700,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the maximumWipeOsVersion property value. Versions bigger than the specified version will block the managed app from accessing company data.
-     *  @param string|null $value Value to set for the maximumWipeOsVersion property.
+     * @param string|null $value Value to set for the maximumWipeOsVersion property.
     */
     public function setMaximumWipeOsVersion(?string $value): void {
         $this->getBackingStore()->set('maximumWipeOsVersion', $value);
@@ -708,7 +708,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumPinLength property value. Minimum pin length required for an app-level pin if PinRequired is set to True
-     *  @param int|null $value Value to set for the minimumPinLength property.
+     * @param int|null $value Value to set for the minimumPinLength property.
     */
     public function setMinimumPinLength(?int $value): void {
         $this->getBackingStore()->set('minimumPinLength', $value);
@@ -716,7 +716,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumRequiredAppVersion property value. Versions less than the specified version will block the managed app from accessing company data.
-     *  @param string|null $value Value to set for the minimumRequiredAppVersion property.
+     * @param string|null $value Value to set for the minimumRequiredAppVersion property.
     */
     public function setMinimumRequiredAppVersion(?string $value): void {
         $this->getBackingStore()->set('minimumRequiredAppVersion', $value);
@@ -724,7 +724,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumRequiredOsVersion property value. Versions less than the specified version will block the managed app from accessing company data.
-     *  @param string|null $value Value to set for the minimumRequiredOsVersion property.
+     * @param string|null $value Value to set for the minimumRequiredOsVersion property.
     */
     public function setMinimumRequiredOsVersion(?string $value): void {
         $this->getBackingStore()->set('minimumRequiredOsVersion', $value);
@@ -732,7 +732,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumWarningAppVersion property value. Versions less than the specified version will result in warning message on the managed app.
-     *  @param string|null $value Value to set for the minimumWarningAppVersion property.
+     * @param string|null $value Value to set for the minimumWarningAppVersion property.
     */
     public function setMinimumWarningAppVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWarningAppVersion', $value);
@@ -740,7 +740,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumWarningOsVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data.
-     *  @param string|null $value Value to set for the minimumWarningOsVersion property.
+     * @param string|null $value Value to set for the minimumWarningOsVersion property.
     */
     public function setMinimumWarningOsVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWarningOsVersion', $value);
@@ -748,7 +748,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumWipeAppVersion property value. Versions less than or equal to the specified version will wipe the managed app and the associated company data.
-     *  @param string|null $value Value to set for the minimumWipeAppVersion property.
+     * @param string|null $value Value to set for the minimumWipeAppVersion property.
     */
     public function setMinimumWipeAppVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipeAppVersion', $value);
@@ -756,7 +756,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the minimumWipeOsVersion property value. Versions less than or equal to the specified version will wipe the managed app and the associated company data.
-     *  @param string|null $value Value to set for the minimumWipeOsVersion property.
+     * @param string|null $value Value to set for the minimumWipeOsVersion property.
     */
     public function setMinimumWipeOsVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipeOsVersion', $value);
@@ -764,7 +764,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the mobileThreatDefensePartnerPriority property value. Indicates how to prioritize which Mobile Threat Defense (MTD) partner is enabled for a given platform, when more than one is enabled. An app can only be actively using a single Mobile Threat Defense partner. When NULL, Microsoft Defender will be given preference. Otherwise setting the value to defenderOverThirdPartyPartner or thirdPartyPartnerOverDefender will make explicit which partner to prioritize. Possible values are: null, defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender and unknownFutureValue. Default value is null. Possible values are: defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender, unknownFutureValue.
-     *  @param MobileThreatDefensePartnerPriority|null $value Value to set for the mobileThreatDefensePartnerPriority property.
+     * @param MobileThreatDefensePartnerPriority|null $value Value to set for the mobileThreatDefensePartnerPriority property.
     */
     public function setMobileThreatDefensePartnerPriority(?MobileThreatDefensePartnerPriority $value): void {
         $this->getBackingStore()->set('mobileThreatDefensePartnerPriority', $value);
@@ -772,7 +772,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the mobileThreatDefenseRemediationAction property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the mobileThreatDefenseRemediationAction property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the mobileThreatDefenseRemediationAction property.
     */
     public function setMobileThreatDefenseRemediationAction(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('mobileThreatDefenseRemediationAction', $value);
@@ -780,7 +780,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the notificationRestriction property value. Restrict managed app notification
-     *  @param ManagedAppNotificationRestriction|null $value Value to set for the notificationRestriction property.
+     * @param ManagedAppNotificationRestriction|null $value Value to set for the notificationRestriction property.
     */
     public function setNotificationRestriction(?ManagedAppNotificationRestriction $value): void {
         $this->getBackingStore()->set('notificationRestriction', $value);
@@ -788,7 +788,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the organizationalCredentialsRequired property value. Indicates whether organizational credentials are required for app use.
-     *  @param bool|null $value Value to set for the organizationalCredentialsRequired property.
+     * @param bool|null $value Value to set for the organizationalCredentialsRequired property.
     */
     public function setOrganizationalCredentialsRequired(?bool $value): void {
         $this->getBackingStore()->set('organizationalCredentialsRequired', $value);
@@ -796,7 +796,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the periodBeforePinReset property value. TimePeriod before the all-level pin must be reset if PinRequired is set to True.
-     *  @param DateInterval|null $value Value to set for the periodBeforePinReset property.
+     * @param DateInterval|null $value Value to set for the periodBeforePinReset property.
     */
     public function setPeriodBeforePinReset(?DateInterval $value): void {
         $this->getBackingStore()->set('periodBeforePinReset', $value);
@@ -804,7 +804,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the periodOfflineBeforeAccessCheck property value. The period after which access is checked when the device is not connected to the internet.
-     *  @param DateInterval|null $value Value to set for the periodOfflineBeforeAccessCheck property.
+     * @param DateInterval|null $value Value to set for the periodOfflineBeforeAccessCheck property.
     */
     public function setPeriodOfflineBeforeAccessCheck(?DateInterval $value): void {
         $this->getBackingStore()->set('periodOfflineBeforeAccessCheck', $value);
@@ -812,7 +812,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the periodOfflineBeforeWipeIsEnforced property value. The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.
-     *  @param DateInterval|null $value Value to set for the periodOfflineBeforeWipeIsEnforced property.
+     * @param DateInterval|null $value Value to set for the periodOfflineBeforeWipeIsEnforced property.
     */
     public function setPeriodOfflineBeforeWipeIsEnforced(?DateInterval $value): void {
         $this->getBackingStore()->set('periodOfflineBeforeWipeIsEnforced', $value);
@@ -820,7 +820,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the periodOnlineBeforeAccessCheck property value. The period after which access is checked when the device is connected to the internet.
-     *  @param DateInterval|null $value Value to set for the periodOnlineBeforeAccessCheck property.
+     * @param DateInterval|null $value Value to set for the periodOnlineBeforeAccessCheck property.
     */
     public function setPeriodOnlineBeforeAccessCheck(?DateInterval $value): void {
         $this->getBackingStore()->set('periodOnlineBeforeAccessCheck', $value);
@@ -828,7 +828,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the pinCharacterSet property value. Character set which is to be used for a user's app PIN
-     *  @param ManagedAppPinCharacterSet|null $value Value to set for the pinCharacterSet property.
+     * @param ManagedAppPinCharacterSet|null $value Value to set for the pinCharacterSet property.
     */
     public function setPinCharacterSet(?ManagedAppPinCharacterSet $value): void {
         $this->getBackingStore()->set('pinCharacterSet', $value);
@@ -836,7 +836,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the pinRequired property value. Indicates whether an app-level pin is required.
-     *  @param bool|null $value Value to set for the pinRequired property.
+     * @param bool|null $value Value to set for the pinRequired property.
     */
     public function setPinRequired(?bool $value): void {
         $this->getBackingStore()->set('pinRequired', $value);
@@ -844,7 +844,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the pinRequiredInsteadOfBiometricTimeout property value. Timeout in minutes for an app pin instead of non biometrics passcode
-     *  @param DateInterval|null $value Value to set for the pinRequiredInsteadOfBiometricTimeout property.
+     * @param DateInterval|null $value Value to set for the pinRequiredInsteadOfBiometricTimeout property.
     */
     public function setPinRequiredInsteadOfBiometricTimeout(?DateInterval $value): void {
         $this->getBackingStore()->set('pinRequiredInsteadOfBiometricTimeout', $value);
@@ -852,7 +852,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the previousPinBlockCount property value. Requires a pin to be unique from the number specified in this property.
-     *  @param int|null $value Value to set for the previousPinBlockCount property.
+     * @param int|null $value Value to set for the previousPinBlockCount property.
     */
     public function setPreviousPinBlockCount(?int $value): void {
         $this->getBackingStore()->set('previousPinBlockCount', $value);
@@ -860,7 +860,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the printBlocked property value. Indicates whether printing is allowed from managed apps.
-     *  @param bool|null $value Value to set for the printBlocked property.
+     * @param bool|null $value Value to set for the printBlocked property.
     */
     public function setPrintBlocked(?bool $value): void {
         $this->getBackingStore()->set('printBlocked', $value);
@@ -868,7 +868,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the saveAsBlocked property value. Indicates whether users may use the 'Save As' menu item to save a copy of protected files.
-     *  @param bool|null $value Value to set for the saveAsBlocked property.
+     * @param bool|null $value Value to set for the saveAsBlocked property.
     */
     public function setSaveAsBlocked(?bool $value): void {
         $this->getBackingStore()->set('saveAsBlocked', $value);
@@ -876,7 +876,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the simplePinBlocked property value. Indicates whether simplePin is blocked.
-     *  @param bool|null $value Value to set for the simplePinBlocked property.
+     * @param bool|null $value Value to set for the simplePinBlocked property.
     */
     public function setSimplePinBlocked(?bool $value): void {
         $this->getBackingStore()->set('simplePinBlocked', $value);

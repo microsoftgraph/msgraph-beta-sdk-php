@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Authentication\PasswordlessMicrosoft
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of a user's Microsoft Authenticator Passwordless Phone Sign-in method objects and their properties.
+*/
 class PasswordlessMicrosoftAuthenticatorMethodsRequestBuilderGetQueryParameters 
 {
     /**

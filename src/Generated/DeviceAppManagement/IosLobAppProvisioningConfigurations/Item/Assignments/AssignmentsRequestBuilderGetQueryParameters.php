@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioni
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The associated group assignments for IosLobAppProvisioningConfiguration.
+*/
 class AssignmentsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\UserFlowIden
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property userFlowIdentityProviders for identity
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

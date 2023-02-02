@@ -55,7 +55,7 @@ class UserGovernanceCriteria extends GovernanceCriteria implements Parsable
 
     /**
      * Sets the userId property value. The userId property
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

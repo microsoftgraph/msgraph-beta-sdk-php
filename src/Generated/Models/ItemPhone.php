@@ -75,7 +75,7 @@ class ItemPhone extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Friendly name the user has assigned this phone number.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -83,7 +83,7 @@ class ItemPhone extends ItemFacet implements Parsable
 
     /**
      * Sets the number property value. Phone number provided by the user.
-     *  @param string|null $value Value to set for the number property.
+     * @param string|null $value Value to set for the number property.
     */
     public function setNumber(?string $value): void {
         $this->getBackingStore()->set('number', $value);
@@ -91,7 +91,7 @@ class ItemPhone extends ItemFacet implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param PhoneType|null $value Value to set for the type property.
+     * @param PhoneType|null $value Value to set for the type property.
     */
     public function setType(?PhoneType $value): void {
         $this->getBackingStore()->set('type', $value);

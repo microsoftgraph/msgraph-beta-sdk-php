@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\OwnedDevices;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Devices that are owned by the user. Read-only. Nullable. Supports $expand.
+*/
 class OwnedDevicesRequestBuilderGetQueryParameters 
 {
     /**

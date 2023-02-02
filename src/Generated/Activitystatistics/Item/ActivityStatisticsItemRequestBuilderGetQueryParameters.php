@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Activitystatistics\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from activitystatistics by key
+*/
 class ActivityStatisticsItemRequestBuilderGetQueryParameters 
 {
     /**

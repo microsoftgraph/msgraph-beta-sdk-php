@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of deployment objects and their properties.
+*/
 class DeploymentsRequestBuilderGetQueryParameters 
 {
     /**

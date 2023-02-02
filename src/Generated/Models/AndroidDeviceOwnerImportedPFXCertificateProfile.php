@@ -85,7 +85,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
 
     /**
      * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-     *  @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
+     * @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
     */
     public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value): void {
         $this->getBackingStore()->set('certificateAccessType', $value);
@@ -93,7 +93,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
 
     /**
      * Sets the intendedPurpose property value. PFX Import Options.
-     *  @param IntendedPurpose|null $value Value to set for the intendedPurpose property.
+     * @param IntendedPurpose|null $value Value to set for the intendedPurpose property.
     */
     public function setIntendedPurpose(?IntendedPurpose $value): void {
         $this->getBackingStore()->set('intendedPurpose', $value);
@@ -101,7 +101,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-     *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
+     * @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
     public function setManagedDeviceCertificateStates(?array $value): void {
         $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
@@ -109,7 +109,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
 
     /**
      * Sets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
-     *  @param array<AndroidDeviceOwnerSilentCertificateAccess>|null $value Value to set for the silentCertificateAccessDetails property.
+     * @param array<AndroidDeviceOwnerSilentCertificateAccess>|null $value Value to set for the silentCertificateAccessDetails property.
     */
     public function setSilentCertificateAccessDetails(?array $value): void {
         $this->getBackingStore()->set('silentCertificateAccessDetails', $value);

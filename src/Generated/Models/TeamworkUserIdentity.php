@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkUserIdentity extends Identity implements Parsable 
 {
     /**
-     * Instantiates a new TeamworkUserIdentity and sets the default values.
+     * Instantiates a new teamworkUserIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,7 +55,7 @@ class TeamworkUserIdentity extends Identity implements Parsable
 
     /**
      * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
-     *  @param TeamworkUserIdentityType|null $value Value to set for the userIdentityType property.
+     * @param TeamworkUserIdentityType|null $value Value to set for the userIdentityType property.
     */
     public function setUserIdentityType(?TeamworkUserIdentityType $value): void {
         $this->getBackingStore()->set('userIdentityType', $value);

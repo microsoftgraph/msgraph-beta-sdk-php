@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\TaskTriggers
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A list of task triggers that are associated with the printer.
+*/
 class PrintTaskTriggerItemRequestBuilderGetQueryParameters 
 {
     /**
