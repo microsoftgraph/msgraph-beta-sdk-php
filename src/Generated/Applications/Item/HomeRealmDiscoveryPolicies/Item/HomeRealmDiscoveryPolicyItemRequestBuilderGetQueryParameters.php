@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPol
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get homeRealmDiscoveryPolicies from applications
+*/
 class HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters 
 {
     /**

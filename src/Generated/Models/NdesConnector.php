@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity which represents an OnPrem Ndes connector.
+*/
 class NdesConnector extends Entity implements Parsable 
 {
     /**
@@ -115,7 +118,7 @@ class NdesConnector extends Entity implements Parsable
 
     /**
      * Sets the connectorVersion property value. The build version of the Ndes Connector.
-     *  @param string|null $value Value to set for the connectorVersion property.
+     * @param string|null $value Value to set for the connectorVersion property.
     */
     public function setConnectorVersion(?string $value): void {
         $this->getBackingStore()->set('connectorVersion', $value);
@@ -123,7 +126,7 @@ class NdesConnector extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The friendly name of the Ndes Connector.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -131,7 +134,7 @@ class NdesConnector extends Entity implements Parsable
 
     /**
      * Sets the enrolledDateTime property value. Timestamp when on-prem certificate connector was enrolled in Intune.
-     *  @param DateTime|null $value Value to set for the enrolledDateTime property.
+     * @param DateTime|null $value Value to set for the enrolledDateTime property.
     */
     public function setEnrolledDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('enrolledDateTime', $value);
@@ -139,7 +142,7 @@ class NdesConnector extends Entity implements Parsable
 
     /**
      * Sets the lastConnectionDateTime property value. Last connection time for the Ndes Connector
-     *  @param DateTime|null $value Value to set for the lastConnectionDateTime property.
+     * @param DateTime|null $value Value to set for the lastConnectionDateTime property.
     */
     public function setLastConnectionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastConnectionDateTime', $value);
@@ -147,7 +150,7 @@ class NdesConnector extends Entity implements Parsable
 
     /**
      * Sets the machineName property value. Name of the machine running on-prem certificate connector service.
-     *  @param string|null $value Value to set for the machineName property.
+     * @param string|null $value Value to set for the machineName property.
     */
     public function setMachineName(?string $value): void {
         $this->getBackingStore()->set('machineName', $value);
@@ -155,7 +158,7 @@ class NdesConnector extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -163,7 +166,7 @@ class NdesConnector extends Entity implements Parsable
 
     /**
      * Sets the state property value. The current status of the Ndes Connector.
-     *  @param NdesConnectorState|null $value Value to set for the state property.
+     * @param NdesConnectorState|null $value Value to set for the state property.
     */
     public function setState(?NdesConnectorState $value): void {
         $this->getBackingStore()->set('state', $value);

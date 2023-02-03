@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignment
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get roleAssignmentApprovals from roleManagement
+*/
 class RoleAssignmentApprovalsRequestBuilderGetQueryParameters 
 {
     /**

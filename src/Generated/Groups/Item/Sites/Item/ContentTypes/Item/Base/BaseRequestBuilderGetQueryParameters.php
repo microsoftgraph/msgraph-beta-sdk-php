@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Parent contentType from which this content type is derived.
+*/
 class BaseRequestBuilderGetQueryParameters 
 {
     /**

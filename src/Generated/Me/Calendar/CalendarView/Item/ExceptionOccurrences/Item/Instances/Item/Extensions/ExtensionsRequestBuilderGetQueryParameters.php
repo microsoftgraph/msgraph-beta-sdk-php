@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Exception
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of open extensions defined for the event. Nullable.
+*/
 class ExtensionsRequestBuilderGetQueryParameters 
 {
     /**

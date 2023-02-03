@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Devices;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get devices from users
+*/
 class DevicesRequestBuilderGetQueryParameters 
 {
     /**

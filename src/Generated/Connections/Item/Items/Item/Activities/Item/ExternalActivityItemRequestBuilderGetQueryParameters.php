@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Connections\Item\Items\Item\Activities\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Write-only property. Returns results.
+*/
 class ExternalActivityItemRequestBuilderGetQueryParameters 
 {
     /**

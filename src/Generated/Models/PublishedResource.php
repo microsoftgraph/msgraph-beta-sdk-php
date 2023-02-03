@@ -84,7 +84,7 @@ class PublishedResource extends Entity implements Parsable
 
     /**
      * Sets the agentGroups property value. List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.
-     *  @param array<OnPremisesAgentGroup>|null $value Value to set for the agentGroups property.
+     * @param array<OnPremisesAgentGroup>|null $value Value to set for the agentGroups property.
     */
     public function setAgentGroups(?array $value): void {
         $this->getBackingStore()->set('agentGroups', $value);
@@ -92,7 +92,7 @@ class PublishedResource extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display Name of the publishedResource.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -100,7 +100,7 @@ class PublishedResource extends Entity implements Parsable
 
     /**
      * Sets the publishingType property value. The publishingType property
-     *  @param OnPremisesPublishingType|null $value Value to set for the publishingType property.
+     * @param OnPremisesPublishingType|null $value Value to set for the publishingType property.
     */
     public function setPublishingType(?OnPremisesPublishingType $value): void {
         $this->getBackingStore()->set('publishingType', $value);
@@ -108,7 +108,7 @@ class PublishedResource extends Entity implements Parsable
 
     /**
      * Sets the resourceName property value. Name of the publishedResource.
-     *  @param string|null $value Value to set for the resourceName property.
+     * @param string|null $value Value to set for the resourceName property.
     */
     public function setResourceName(?string $value): void {
         $this->getBackingStore()->set('resourceName', $value);

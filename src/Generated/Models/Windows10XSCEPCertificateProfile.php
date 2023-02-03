@@ -175,7 +175,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the certificateStore property value. CertificateStore types
-     *  @param CertificateStore|null $value Value to set for the certificateStore property.
+     * @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value): void {
         $this->getBackingStore()->set('certificateStore', $value);
@@ -183,7 +183,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
-     *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
+     * @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodScale', $value);
@@ -191,7 +191,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the certificateValidityPeriodValue property value. Value for the Certificate Validity Period
-     *  @param int|null $value Value to set for the certificateValidityPeriodValue property.
+     * @param int|null $value Value to set for the certificateValidityPeriodValue property.
     */
     public function setCertificateValidityPeriodValue(?int $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodValue', $value);
@@ -199,7 +199,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the extendedKeyUsages property value. Extended Key Usage (EKU) settings.
-     *  @param array<ExtendedKeyUsage>|null $value Value to set for the extendedKeyUsages property.
+     * @param array<ExtendedKeyUsage>|null $value Value to set for the extendedKeyUsages property.
     */
     public function setExtendedKeyUsages(?array $value): void {
         $this->getBackingStore()->set('extendedKeyUsages', $value);
@@ -207,7 +207,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the hashAlgorithm property value. SCEP Hash Algorithm.
-     *  @param array<HashAlgorithms>|null $value Value to set for the hashAlgorithm property.
+     * @param array<HashAlgorithms>|null $value Value to set for the hashAlgorithm property.
     */
     public function setHashAlgorithm(?array $value): void {
         $this->getBackingStore()->set('hashAlgorithm', $value);
@@ -215,7 +215,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the keySize property value. Key Size Options.
-     *  @param KeySize|null $value Value to set for the keySize property.
+     * @param KeySize|null $value Value to set for the keySize property.
     */
     public function setKeySize(?KeySize $value): void {
         $this->getBackingStore()->set('keySize', $value);
@@ -223,7 +223,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
-     *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
+     * @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
     public function setKeyStorageProvider(?KeyStorageProviderOption $value): void {
         $this->getBackingStore()->set('keyStorageProvider', $value);
@@ -231,7 +231,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the keyUsage property value. Key Usage Options.
-     *  @param KeyUsages|null $value Value to set for the keyUsage property.
+     * @param KeyUsages|null $value Value to set for the keyUsage property.
     */
     public function setKeyUsage(?KeyUsages $value): void {
         $this->getBackingStore()->set('keyUsage', $value);
@@ -239,7 +239,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the renewalThresholdPercentage property value. Certificate renewal threshold percentage
-     *  @param int|null $value Value to set for the renewalThresholdPercentage property.
+     * @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
     public function setRenewalThresholdPercentage(?int $value): void {
         $this->getBackingStore()->set('renewalThresholdPercentage', $value);
@@ -247,7 +247,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the rootCertificateId property value. Trusted Root Certificate ID
-     *  @param string|null $value Value to set for the rootCertificateId property.
+     * @param string|null $value Value to set for the rootCertificateId property.
     */
     public function setRootCertificateId(?string $value): void {
         $this->getBackingStore()->set('rootCertificateId', $value);
@@ -255,7 +255,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the scepServerUrls property value. SCEP Server Url(s).
-     *  @param array<string>|null $value Value to set for the scepServerUrls property.
+     * @param array<string>|null $value Value to set for the scepServerUrls property.
     */
     public function setScepServerUrls(?array $value): void {
         $this->getBackingStore()->set('scepServerUrls', $value);
@@ -263,7 +263,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the subjectAlternativeNameFormats property value. Custom AAD Attributes.
-     *  @param array<Windows10XCustomSubjectAlternativeName>|null $value Value to set for the subjectAlternativeNameFormats property.
+     * @param array<Windows10XCustomSubjectAlternativeName>|null $value Value to set for the subjectAlternativeNameFormats property.
     */
     public function setSubjectAlternativeNameFormats(?array $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameFormats', $value);
@@ -271,7 +271,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the subjectNameFormatString property value. Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-     *  @param string|null $value Value to set for the subjectNameFormatString property.
+     * @param string|null $value Value to set for the subjectNameFormatString property.
     */
     public function setSubjectNameFormatString(?string $value): void {
         $this->getBackingStore()->set('subjectNameFormatString', $value);

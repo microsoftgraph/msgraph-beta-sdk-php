@@ -95,7 +95,7 @@ class EventMessageRequest extends EventMessage implements Parsable
 
     /**
      * Sets the allowNewTimeProposals property value. True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
-     *  @param bool|null $value Value to set for the allowNewTimeProposals property.
+     * @param bool|null $value Value to set for the allowNewTimeProposals property.
     */
     public function setAllowNewTimeProposals(?bool $value): void {
         $this->getBackingStore()->set('allowNewTimeProposals', $value);
@@ -103,7 +103,7 @@ class EventMessageRequest extends EventMessage implements Parsable
 
     /**
      * Sets the previousEndDateTime property value. If the meeting update changes the meeting end time, this property specifies the previous meeting end time.
-     *  @param DateTimeTimeZone|null $value Value to set for the previousEndDateTime property.
+     * @param DateTimeTimeZone|null $value Value to set for the previousEndDateTime property.
     */
     public function setPreviousEndDateTime(?DateTimeTimeZone $value): void {
         $this->getBackingStore()->set('previousEndDateTime', $value);
@@ -111,7 +111,7 @@ class EventMessageRequest extends EventMessage implements Parsable
 
     /**
      * Sets the previousLocation property value. If the meeting update changes the meeting location, this property specifies the previous meeting location.
-     *  @param Location|null $value Value to set for the previousLocation property.
+     * @param Location|null $value Value to set for the previousLocation property.
     */
     public function setPreviousLocation(?Location $value): void {
         $this->getBackingStore()->set('previousLocation', $value);
@@ -119,7 +119,7 @@ class EventMessageRequest extends EventMessage implements Parsable
 
     /**
      * Sets the previousStartDateTime property value. If the meeting update changes the meeting start time, this property specifies the previous meeting start time.
-     *  @param DateTimeTimeZone|null $value Value to set for the previousStartDateTime property.
+     * @param DateTimeTimeZone|null $value Value to set for the previousStartDateTime property.
     */
     public function setPreviousStartDateTime(?DateTimeTimeZone $value): void {
         $this->getBackingStore()->set('previousStartDateTime', $value);
@@ -127,7 +127,7 @@ class EventMessageRequest extends EventMessage implements Parsable
 
     /**
      * Sets the responseRequested property value. Set to true if the sender would like the invitee to send a response to the requested meeting.
-     *  @param bool|null $value Value to set for the responseRequested property.
+     * @param bool|null $value Value to set for the responseRequested property.
     */
     public function setResponseRequested(?bool $value): void {
         $this->getBackingStore()->set('responseRequested', $value);

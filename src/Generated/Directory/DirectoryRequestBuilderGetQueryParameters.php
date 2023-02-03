@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get directory
+*/
 class DirectoryRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property tokenLifetimePolicies for applications
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

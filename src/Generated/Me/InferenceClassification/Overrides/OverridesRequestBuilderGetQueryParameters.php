@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\InferenceClassification\Overrides;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the Focused Inbox overrides that a user has set up to always classify messages from certain senders in specific ways. Each override corresponds to an SMTP address of a sender. Initially, a user does not have any overrides.
+*/
 class OverridesRequestBuilderGetQueryParameters 
 {
     /**

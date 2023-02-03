@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicyTem
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of all templates
+*/
 class ConfigurationPolicyTemplatesRequestBuilderGetQueryParameters 
 {
     /**

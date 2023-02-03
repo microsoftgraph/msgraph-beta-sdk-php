@@ -64,7 +64,7 @@ class InsightsSettings extends Entity implements Parsable
 
     /**
      * Sets the disabledForGroup property value. The ID of an Azure Active Directory group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
-     *  @param string|null $value Value to set for the disabledForGroup property.
+     * @param string|null $value Value to set for the disabledForGroup property.
     */
     public function setDisabledForGroup(?string $value): void {
         $this->getBackingStore()->set('disabledForGroup', $value);
@@ -72,7 +72,7 @@ class InsightsSettings extends Entity implements Parsable
 
     /**
      * Sets the isEnabledInOrganization property value. true if the specified type of insights are enabled for the organization; false if the specified type of insights are disabled for all users without exceptions. Default is true. Optional.
-     *  @param bool|null $value Value to set for the isEnabledInOrganization property.
+     * @param bool|null $value Value to set for the isEnabledInOrganization property.
     */
     public function setIsEnabledInOrganization(?bool $value): void {
         $this->getBackingStore()->set('isEnabledInOrganization', $value);

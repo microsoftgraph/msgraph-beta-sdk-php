@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagementEligibleDe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of co-management eligible devices report
+*/
 class ComanagementEligibleDeviceItemRequestBuilderGetQueryParameters 
 {
     /**

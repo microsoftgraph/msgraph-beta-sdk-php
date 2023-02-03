@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get cloudAppSecurityProfiles from security
+*/
 class CloudAppSecurityProfileItemRequestBuilderGetQueryParameters 
 {
     /**

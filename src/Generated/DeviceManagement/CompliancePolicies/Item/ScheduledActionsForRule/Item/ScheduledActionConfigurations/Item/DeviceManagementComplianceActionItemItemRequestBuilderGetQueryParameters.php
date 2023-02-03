@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of scheduled action configurations for this compliance policy. This collection can contain a maximum of 100 elements.
+*/
 class DeviceManagementComplianceActionItemItemRequestBuilderGetQueryParameters 
 {
     /**

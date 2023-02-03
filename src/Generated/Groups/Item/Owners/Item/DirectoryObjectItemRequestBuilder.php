@@ -2,43 +2,60 @@
 
 namespace Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item;
 
-use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\Application\ApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\Device\DeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\Group\GroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\OrgContact\OrgContactRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\MicrosoftGraphApplication\ApplicationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\MicrosoftGraphDevice\DeviceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\MicrosoftGraphGroup\GroupRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\MicrosoftGraphOrgContact\OrgContactRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\MicrosoftGraphServicePrincipal\ServicePrincipalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\MicrosoftGraphUser\UserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\ServicePrincipal\ServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Owners\Item\User\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /groups/{group-id}/owners/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**
      * Casts the previous resource to application.
     */
-    public function application(): ApplicationRequestBuilder {
+    public function microsoftGraphApplication(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Casts the previous resource to device.
     */
-    public function device(): DeviceRequestBuilder {
+    public function microsoftGraphDevice(): DeviceRequestBuilder {
         return new DeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Casts the previous resource to group.
     */
-    public function group(): GroupRequestBuilder {
+    public function microsoftGraphGroup(): GroupRequestBuilder {
         return new GroupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Casts the previous resource to orgContact.
     */
-    public function orgContact(): OrgContactRequestBuilder {
+    public function microsoftGraphOrgContact(): OrgContactRequestBuilder {
         return new OrgContactRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to servicePrincipal.
+    */
+    public function microsoftGraphServicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to user.
+    */
+    public function microsoftGraphUser(): UserRequestBuilder {
+        return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -59,33 +76,26 @@ class DirectoryObjectItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * Casts the previous resource to servicePrincipal.
-    */
-    public function servicePrincipal(): ServicePrincipalRequestBuilder {
-        return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
     
     /**
-     * Casts the previous resource to user.
-    */
-    public function user(): UserRequestBuilder {
-        return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $directoryObjectId key: id of directoryObject
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $directoryObjectId = null) {
         $this->urlTemplate = '{+baseurl}/groups/{group%2Did}/owners/{directoryObject%2Did}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['directoryObject%2Did'] = $directoryObjectId;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
 }

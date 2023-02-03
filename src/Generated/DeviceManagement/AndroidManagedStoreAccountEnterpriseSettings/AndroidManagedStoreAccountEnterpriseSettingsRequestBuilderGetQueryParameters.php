@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAcc
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The singleton Android managed store account enterprise settings entity.
+*/
 class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters 
 {
     /**

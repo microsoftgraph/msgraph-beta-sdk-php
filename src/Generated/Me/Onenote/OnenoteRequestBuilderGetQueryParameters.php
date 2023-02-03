@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Onenote;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get onenote from me
+*/
 class OnenoteRequestBuilderGetQueryParameters 
 {
     /**

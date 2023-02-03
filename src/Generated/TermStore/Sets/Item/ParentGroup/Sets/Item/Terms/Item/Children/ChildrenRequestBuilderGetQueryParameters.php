@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TermStore\Sets\Item\ParentGroup\Sets\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Children of current term.
+*/
 class ChildrenRequestBuilderGetQueryParameters 
 {
     /**

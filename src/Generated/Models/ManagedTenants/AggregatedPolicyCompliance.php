@@ -156,7 +156,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the compliancePolicyId property value. Identifier for the device compliance policy. Optional. Read-only.
-     *  @param string|null $value Value to set for the compliancePolicyId property.
+     * @param string|null $value Value to set for the compliancePolicyId property.
     */
     public function setCompliancePolicyId(?string $value): void {
         $this->getBackingStore()->set('compliancePolicyId', $value);
@@ -164,7 +164,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the compliancePolicyName property value. Name of the device compliance policy. Optional. Read-only.
-     *  @param string|null $value Value to set for the compliancePolicyName property.
+     * @param string|null $value Value to set for the compliancePolicyName property.
     */
     public function setCompliancePolicyName(?string $value): void {
         $this->getBackingStore()->set('compliancePolicyName', $value);
@@ -172,7 +172,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the compliancePolicyPlatform property value. Platform for the device compliance policy. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, androidAOSP, all. Optional. Read-only.
-     *  @param string|null $value Value to set for the compliancePolicyPlatform property.
+     * @param string|null $value Value to set for the compliancePolicyPlatform property.
     */
     public function setCompliancePolicyPlatform(?string $value): void {
         $this->getBackingStore()->set('compliancePolicyPlatform', $value);
@@ -180,7 +180,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the compliancePolicyType property value. The type of compliance policy. Optional. Read-only.
-     *  @param string|null $value Value to set for the compliancePolicyType property.
+     * @param string|null $value Value to set for the compliancePolicyType property.
     */
     public function setCompliancePolicyType(?string $value): void {
         $this->getBackingStore()->set('compliancePolicyType', $value);
@@ -188,7 +188,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);
@@ -196,7 +196,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the numberOfCompliantDevices property value. The number of devices that are in a compliant status. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCompliantDevices property.
+     * @param int|null $value Value to set for the numberOfCompliantDevices property.
     */
     public function setNumberOfCompliantDevices(?int $value): void {
         $this->getBackingStore()->set('numberOfCompliantDevices', $value);
@@ -204,7 +204,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the numberOfErrorDevices property value. The number of devices that are in an error status. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfErrorDevices property.
+     * @param int|null $value Value to set for the numberOfErrorDevices property.
     */
     public function setNumberOfErrorDevices(?int $value): void {
         $this->getBackingStore()->set('numberOfErrorDevices', $value);
@@ -212,7 +212,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the numberOfNonCompliantDevices property value. The number of device that are in a non-compliant status. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfNonCompliantDevices property.
+     * @param int|null $value Value to set for the numberOfNonCompliantDevices property.
     */
     public function setNumberOfNonCompliantDevices(?int $value): void {
         $this->getBackingStore()->set('numberOfNonCompliantDevices', $value);
@@ -220,7 +220,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the policyModifiedDateTime property value. The date and time the device policy was last modified. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the policyModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the policyModifiedDateTime property.
     */
     public function setPolicyModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('policyModifiedDateTime', $value);
@@ -228,7 +228,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantDisplayName property.
+     * @param string|null $value Value to set for the tenantDisplayName property.
     */
     public function setTenantDisplayName(?string $value): void {
         $this->getBackingStore()->set('tenantDisplayName', $value);
@@ -236,7 +236,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

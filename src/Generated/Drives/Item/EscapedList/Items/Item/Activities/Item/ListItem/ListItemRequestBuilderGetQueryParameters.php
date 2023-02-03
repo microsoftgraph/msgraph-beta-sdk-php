@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Acti
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get listItem from drives
+*/
 class ListItemRequestBuilderGetQueryParameters 
 {
     /**

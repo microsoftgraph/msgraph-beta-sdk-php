@@ -95,7 +95,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
 
     /**
      * Sets the certificateTemplateName property value. PKCS Certificate Template Name
-     *  @param string|null $value Value to set for the certificateTemplateName property.
+     * @param string|null $value Value to set for the certificateTemplateName property.
     */
     public function setCertificateTemplateName(?string $value): void {
         $this->getBackingStore()->set('certificateTemplateName', $value);
@@ -103,7 +103,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
 
     /**
      * Sets the certificationAuthority property value. PKCS Certification Authority
-     *  @param string|null $value Value to set for the certificationAuthority property.
+     * @param string|null $value Value to set for the certificationAuthority property.
     */
     public function setCertificationAuthority(?string $value): void {
         $this->getBackingStore()->set('certificationAuthority', $value);
@@ -111,7 +111,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
 
     /**
      * Sets the certificationAuthorityName property value. PKCS Certification Authority Name
-     *  @param string|null $value Value to set for the certificationAuthorityName property.
+     * @param string|null $value Value to set for the certificationAuthorityName property.
     */
     public function setCertificationAuthorityName(?string $value): void {
         $this->getBackingStore()->set('certificationAuthorityName', $value);
@@ -119,7 +119,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-     *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
+     * @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
     public function setManagedDeviceCertificateStates(?array $value): void {
         $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
@@ -127,7 +127,7 @@ class AndroidForWorkPkcsCertificateProfile extends AndroidForWorkCertificateProf
 
     /**
      * Sets the subjectAlternativeNameFormatString property value. Custom String that defines the AAD Attribute.
-     *  @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
+     * @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
     */
     public function setSubjectAlternativeNameFormatString(?string $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameFormatString', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CountriesRegi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get countriesRegions from financials
+*/
 class CountryRegionItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Privacy\SubjectRightsRequests\Item\Note
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of notes associated with the request.
+*/
 class AuthoredNoteItemRequestBuilderGetQueryParameters 
 {
     /**

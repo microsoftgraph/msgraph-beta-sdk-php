@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerL
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of MicrosoftTunnelServerLogCollectionResponse settings associated with account.
+*/
 class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderGetQueryParameters 
 {
     /**

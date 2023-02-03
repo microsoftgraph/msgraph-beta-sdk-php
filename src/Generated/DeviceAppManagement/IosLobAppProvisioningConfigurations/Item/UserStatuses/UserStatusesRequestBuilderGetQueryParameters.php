@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioni
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of user installation states for this mobile app configuration.
+*/
 class UserStatusesRequestBuilderGetQueryParameters 
 {
     /**

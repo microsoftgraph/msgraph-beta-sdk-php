@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * All items contained in the list.
+*/
 class ListItemItemRequestBuilderGetQueryParameters 
 {
     /**

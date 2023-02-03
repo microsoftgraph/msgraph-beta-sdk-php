@@ -65,7 +65,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the allowDeletedIdentitiesDataRemoval property value. Reserved for future use.
-     *  @param bool|null $value Value to set for the allowDeletedIdentitiesDataRemoval property.
+     * @param bool|null $value Value to set for the allowDeletedIdentitiesDataRemoval property.
     */
     public function setAllowDeletedIdentitiesDataRemoval(?bool $value): void {
         $this->getBackingStore()->set('allowDeletedIdentitiesDataRemoval', $value);
@@ -73,7 +73,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the allowExternalIdentitiesToLeave property value. Defines whether external users can leave the guest tenant. If set to false, self-service controls are disabled, and the admin of the guest tenant must manually remove the external user from the guest tenant. When the external user leaves the tenant, their data in the guest tenant is first soft-deleted then permanently deleted in 30 days.
-     *  @param bool|null $value Value to set for the allowExternalIdentitiesToLeave property.
+     * @param bool|null $value Value to set for the allowExternalIdentitiesToLeave property.
     */
     public function setAllowExternalIdentitiesToLeave(?bool $value): void {
         $this->getBackingStore()->set('allowExternalIdentitiesToLeave', $value);

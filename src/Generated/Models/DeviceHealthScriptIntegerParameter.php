@@ -55,7 +55,7 @@ class DeviceHealthScriptIntegerParameter extends DeviceHealthScriptParameter imp
 
     /**
      * Sets the defaultValue property value. The default value of Integer param. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the defaultValue property.
+     * @param int|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?int $value): void {
         $this->getBackingStore()->set('defaultValue', $value);

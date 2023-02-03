@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A new entity to represent driver inventories.
+*/
 class WindowsDriverUpdateInventory extends Entity implements Parsable 
 {
     /**
@@ -135,7 +138,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
 
     /**
      * Sets the applicableDeviceCount property value. The number of devices for which this driver is applicable.
-     *  @param int|null $value Value to set for the applicableDeviceCount property.
+     * @param int|null $value Value to set for the applicableDeviceCount property.
     */
     public function setApplicableDeviceCount(?int $value): void {
         $this->getBackingStore()->set('applicableDeviceCount', $value);
@@ -143,7 +146,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
 
     /**
      * Sets the approvalStatus property value. An enum type to represent approval status of a driver.
-     *  @param DriverApprovalStatus|null $value Value to set for the approvalStatus property.
+     * @param DriverApprovalStatus|null $value Value to set for the approvalStatus property.
     */
     public function setApprovalStatus(?DriverApprovalStatus $value): void {
         $this->getBackingStore()->set('approvalStatus', $value);
@@ -151,7 +154,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
 
     /**
      * Sets the category property value. An enum type to represent which category a driver belongs to.
-     *  @param DriverCategory|null $value Value to set for the category property.
+     * @param DriverCategory|null $value Value to set for the category property.
     */
     public function setCategory(?DriverCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -159,7 +162,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
 
     /**
      * Sets the deployDateTime property value. The date time when a driver should be deployed if approvalStatus is approved.
-     *  @param DateTime|null $value Value to set for the deployDateTime property.
+     * @param DateTime|null $value Value to set for the deployDateTime property.
     */
     public function setDeployDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deployDateTime', $value);
@@ -167,7 +170,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
 
     /**
      * Sets the driverClass property value. The class of the driver.
-     *  @param string|null $value Value to set for the driverClass property.
+     * @param string|null $value Value to set for the driverClass property.
     */
     public function setDriverClass(?string $value): void {
         $this->getBackingStore()->set('driverClass', $value);
@@ -175,7 +178,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
 
     /**
      * Sets the manufacturer property value. The manufacturer of the driver.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -183,7 +186,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name of the driver.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -191,7 +194,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
 
     /**
      * Sets the releaseDateTime property value. The release date time of the driver.
-     *  @param DateTime|null $value Value to set for the releaseDateTime property.
+     * @param DateTime|null $value Value to set for the releaseDateTime property.
     */
     public function setReleaseDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('releaseDateTime', $value);
@@ -199,7 +202,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
 
     /**
      * Sets the version property value. The version of the driver.
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

@@ -134,7 +134,7 @@ class Command extends Entity implements Parsable
 
     /**
      * Sets the appServiceName property value. The appServiceName property
-     *  @param string|null $value Value to set for the appServiceName property.
+     * @param string|null $value Value to set for the appServiceName property.
     */
     public function setAppServiceName(?string $value): void {
         $this->getBackingStore()->set('appServiceName', $value);
@@ -142,7 +142,7 @@ class Command extends Entity implements Parsable
 
     /**
      * Sets the error property value. The error property
-     *  @param string|null $value Value to set for the error property.
+     * @param string|null $value Value to set for the error property.
     */
     public function setError(?string $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -150,7 +150,7 @@ class Command extends Entity implements Parsable
 
     /**
      * Sets the packageFamilyName property value. The packageFamilyName property
-     *  @param string|null $value Value to set for the packageFamilyName property.
+     * @param string|null $value Value to set for the packageFamilyName property.
     */
     public function setPackageFamilyName(?string $value): void {
         $this->getBackingStore()->set('packageFamilyName', $value);
@@ -158,7 +158,7 @@ class Command extends Entity implements Parsable
 
     /**
      * Sets the payload property value. The payload property
-     *  @param PayloadRequest|null $value Value to set for the payload property.
+     * @param PayloadRequest|null $value Value to set for the payload property.
     */
     public function setPayload(?PayloadRequest $value): void {
         $this->getBackingStore()->set('payload', $value);
@@ -166,7 +166,7 @@ class Command extends Entity implements Parsable
 
     /**
      * Sets the permissionTicket property value. The permissionTicket property
-     *  @param string|null $value Value to set for the permissionTicket property.
+     * @param string|null $value Value to set for the permissionTicket property.
     */
     public function setPermissionTicket(?string $value): void {
         $this->getBackingStore()->set('permissionTicket', $value);
@@ -174,7 +174,7 @@ class Command extends Entity implements Parsable
 
     /**
      * Sets the postBackUri property value. The postBackUri property
-     *  @param string|null $value Value to set for the postBackUri property.
+     * @param string|null $value Value to set for the postBackUri property.
     */
     public function setPostBackUri(?string $value): void {
         $this->getBackingStore()->set('postBackUri', $value);
@@ -182,7 +182,7 @@ class Command extends Entity implements Parsable
 
     /**
      * Sets the responsepayload property value. The responsepayload property
-     *  @param PayloadResponse|null $value Value to set for the responsepayload property.
+     * @param PayloadResponse|null $value Value to set for the responsepayload property.
     */
     public function setResponsepayload(?PayloadResponse $value): void {
         $this->getBackingStore()->set('responsepayload', $value);
@@ -190,7 +190,7 @@ class Command extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -198,7 +198,7 @@ class Command extends Entity implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);

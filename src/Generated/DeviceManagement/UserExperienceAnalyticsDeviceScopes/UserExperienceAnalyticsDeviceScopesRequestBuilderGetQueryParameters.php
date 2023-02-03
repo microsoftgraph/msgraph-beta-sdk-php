@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The user experience analytics device scope entity contains device scope configuration use to apply filtering on the endpoint analytics reports.
+*/
 class UserExperienceAnalyticsDeviceScopesRequestBuilderGetQueryParameters 
 {
     /**

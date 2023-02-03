@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\MessageRules;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of rules that apply to the user's Inbox folder.
+*/
 class MessageRulesRequestBuilderGetQueryParameters 
 {
     /**

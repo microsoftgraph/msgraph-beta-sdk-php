@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsMappingPol
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property claimsMappingPolicies for servicePrincipals
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

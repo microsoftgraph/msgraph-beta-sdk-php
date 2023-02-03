@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Sharepoint;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A container for administrative resources to manage tenant-level settings for SharePoint and OneDrive.
+*/
 class SharepointRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMeth
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the authentication methods registered for the user as defined in the userRegistrationDetails object.
+*/
 class UserRegistrationDetailsRequestBuilderGetQueryParameters 
 {
     /**

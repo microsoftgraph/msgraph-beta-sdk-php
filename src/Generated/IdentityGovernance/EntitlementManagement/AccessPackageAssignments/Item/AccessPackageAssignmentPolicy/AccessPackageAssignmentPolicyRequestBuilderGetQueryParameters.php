@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. Nullable. Supports $filter (eq) on the id property
+*/
 class AccessPackageAssignmentPolicyRequestBuilderGetQueryParameters 
 {
     /**

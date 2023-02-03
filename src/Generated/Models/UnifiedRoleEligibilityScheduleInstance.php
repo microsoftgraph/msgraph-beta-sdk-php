@@ -85,7 +85,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
      * Sets the endDateTime property value. Time that the roleEligibilityScheduleInstance will expire.
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -93,7 +93,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
      * Sets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
-     *  @param string|null $value Value to set for the memberType property.
+     * @param string|null $value Value to set for the memberType property.
     */
     public function setMemberType(?string $value): void {
         $this->getBackingStore()->set('memberType', $value);
@@ -101,7 +101,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
      * Sets the roleEligibilityScheduleId property value. Identifier of the parent roleEligibilitySchedule for this instance.
-     *  @param string|null $value Value to set for the roleEligibilityScheduleId property.
+     * @param string|null $value Value to set for the roleEligibilityScheduleId property.
     */
     public function setRoleEligibilityScheduleId(?string $value): void {
         $this->getBackingStore()->set('roleEligibilityScheduleId', $value);
@@ -109,7 +109,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
      * Sets the startDateTime property value. Time that the roleEligibilityScheduleInstance will start.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);

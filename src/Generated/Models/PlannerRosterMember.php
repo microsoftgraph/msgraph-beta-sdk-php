@@ -74,7 +74,7 @@ class PlannerRosterMember extends Entity implements Parsable
 
     /**
      * Sets the roles property value. Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
-     *  @param array<string>|null $value Value to set for the roles property.
+     * @param array<string>|null $value Value to set for the roles property.
     */
     public function setRoles(?array $value): void {
         $this->getBackingStore()->set('roles', $value);
@@ -82,7 +82,7 @@ class PlannerRosterMember extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. Identifier of the tenant the user belongs to. Currently only the users from the same tenant can be added to a plannerRoster.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -90,7 +90,7 @@ class PlannerRosterMember extends Entity implements Parsable
 
     /**
      * Sets the userId property value. Identifier of the user.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

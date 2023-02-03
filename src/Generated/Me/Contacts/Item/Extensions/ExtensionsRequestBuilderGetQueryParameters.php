@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Contacts\Item\Extensions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of open extensions defined for the contact. Nullable.
+*/
 class ExtensionsRequestBuilderGetQueryParameters 
 {
     /**

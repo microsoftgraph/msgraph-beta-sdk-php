@@ -185,7 +185,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the activationUrl property value. The activationUrl property
-     *  @param string|null $value Value to set for the activationUrl property.
+     * @param string|null $value Value to set for the activationUrl property.
     */
     public function setActivationUrl(?string $value): void {
         $this->getBackingStore()->set('activationUrl', $value);
@@ -193,7 +193,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the activitySourceHost property value. The activitySourceHost property
-     *  @param string|null $value Value to set for the activitySourceHost property.
+     * @param string|null $value Value to set for the activitySourceHost property.
     */
     public function setActivitySourceHost(?string $value): void {
         $this->getBackingStore()->set('activitySourceHost', $value);
@@ -201,7 +201,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the appActivityId property value. The appActivityId property
-     *  @param string|null $value Value to set for the appActivityId property.
+     * @param string|null $value Value to set for the appActivityId property.
     */
     public function setAppActivityId(?string $value): void {
         $this->getBackingStore()->set('appActivityId', $value);
@@ -209,7 +209,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the appDisplayName property value. The appDisplayName property
-     *  @param string|null $value Value to set for the appDisplayName property.
+     * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
         $this->getBackingStore()->set('appDisplayName', $value);
@@ -217,7 +217,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the contentInfo property value. The contentInfo property
-     *  @param Json|null $value Value to set for the contentInfo property.
+     * @param Json|null $value Value to set for the contentInfo property.
     */
     public function setContentInfo(?Json $value): void {
         $this->getBackingStore()->set('contentInfo', $value);
@@ -225,7 +225,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the contentUrl property value. The contentUrl property
-     *  @param string|null $value Value to set for the contentUrl property.
+     * @param string|null $value Value to set for the contentUrl property.
     */
     public function setContentUrl(?string $value): void {
         $this->getBackingStore()->set('contentUrl', $value);
@@ -233,7 +233,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -241,7 +241,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the expirationDateTime property value. The expirationDateTime property
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -249,7 +249,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the fallbackUrl property value. The fallbackUrl property
-     *  @param string|null $value Value to set for the fallbackUrl property.
+     * @param string|null $value Value to set for the fallbackUrl property.
     */
     public function setFallbackUrl(?string $value): void {
         $this->getBackingStore()->set('fallbackUrl', $value);
@@ -257,7 +257,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the historyItems property value. The historyItems property
-     *  @param array<ActivityHistoryItem>|null $value Value to set for the historyItems property.
+     * @param array<ActivityHistoryItem>|null $value Value to set for the historyItems property.
     */
     public function setHistoryItems(?array $value): void {
         $this->getBackingStore()->set('historyItems', $value);
@@ -265,7 +265,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -273,7 +273,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param Status|null $value Value to set for the status property.
+     * @param Status|null $value Value to set for the status property.
     */
     public function setStatus(?Status $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -281,7 +281,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the userTimezone property value. The userTimezone property
-     *  @param string|null $value Value to set for the userTimezone property.
+     * @param string|null $value Value to set for the userTimezone property.
     */
     public function setUserTimezone(?string $value): void {
         $this->getBackingStore()->set('userTimezone', $value);
@@ -289,7 +289,7 @@ class UserActivity extends Entity implements Parsable
 
     /**
      * Sets the visualElements property value. The visualElements property
-     *  @param VisualInfo|null $value Value to set for the visualElements property.
+     * @param VisualInfo|null $value Value to set for the visualElements property.
     */
     public function setVisualElements(?VisualInfo $value): void {
         $this->getBackingStore()->set('visualElements', $value);

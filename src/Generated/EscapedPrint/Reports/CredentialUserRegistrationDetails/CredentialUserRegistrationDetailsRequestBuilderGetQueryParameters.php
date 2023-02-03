@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\CredentialUserRegi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of credentialUserRegistrationDetails objects for a given tenant.
+*/
 class CredentialUserRegistrationDetailsRequestBuilderGetQueryParameters 
 {
     /**

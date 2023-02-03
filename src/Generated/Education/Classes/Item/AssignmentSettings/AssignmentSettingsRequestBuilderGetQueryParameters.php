@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\AssignmentSettin
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of an educationAssignmentSettings object. Only teachers can perform this operation.
+*/
 class AssignmentSettingsRequestBuilderGetQueryParameters 
 {
     /**

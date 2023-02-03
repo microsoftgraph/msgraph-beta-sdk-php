@@ -26,6 +26,14 @@ class DeploymentAudience extends Entity implements Parsable
     }
 
     /**
+     * Gets the applicableContent property value. Content eligible to deploy to devices in the audience. Not nullable. Read-only.
+     * @return array<ApplicableContent>|null
+    */
+    public function getApplicableContent(): ?array {
+        return $this->getBackingStore()->get('applicableContent');
+    }
+
+    /**
      * Gets the exclusions property value. Specifies the assets to exclude from the audience.
      * @return array<UpdatableAsset>|null
     */
@@ -40,6 +48,7 @@ class DeploymentAudience extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'applicableContent' => fn(ParseNode $n) => $o->setApplicableContent($n->getCollectionOfObjectValues([ApplicableContent::class, 'createFromDiscriminatorValue'])),
             'exclusions' => fn(ParseNode $n) => $o->setExclusions($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -59,13 +68,22 @@ class DeploymentAudience extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('applicableContent', $this->getApplicableContent());
         $writer->writeCollectionOfObjectValues('exclusions', $this->getExclusions());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
     }
 
     /**
+     * Sets the applicableContent property value. Content eligible to deploy to devices in the audience. Not nullable. Read-only.
+     * @param array<ApplicableContent>|null $value Value to set for the applicableContent property.
+    */
+    public function setApplicableContent(?array $value): void {
+        $this->getBackingStore()->set('applicableContent', $value);
+    }
+
+    /**
      * Sets the exclusions property value. Specifies the assets to exclude from the audience.
-     *  @param array<UpdatableAsset>|null $value Value to set for the exclusions property.
+     * @param array<UpdatableAsset>|null $value Value to set for the exclusions property.
     */
     public function setExclusions(?array $value): void {
         $this->getBackingStore()->set('exclusions', $value);
@@ -73,7 +91,7 @@ class DeploymentAudience extends Entity implements Parsable
 
     /**
      * Sets the members property value. Specifies the assets to include in the audience.
-     *  @param array<UpdatableAsset>|null $value Value to set for the members property.
+     * @param array<UpdatableAsset>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);

@@ -174,7 +174,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the content property value. The content property
-     *  @param StreamInterface|null $value Value to set for the content property.
+     * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -182,7 +182,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the dateTime property value. The dateTime property
-     *  @param DateTime|null $value Value to set for the dateTime property.
+     * @param DateTime|null $value Value to set for the dateTime property.
     */
     public function setDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('dateTime', $value);
@@ -190,7 +190,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the extension property value. The extension property
-     *  @param string|null $value Value to set for the extension property.
+     * @param string|null $value Value to set for the extension property.
     */
     public function setExtension(?string $value): void {
         $this->getBackingStore()->set('extension', $value);
@@ -198,7 +198,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the extractedTextContent property value. The extractedTextContent property
-     *  @param StreamInterface|null $value Value to set for the extractedTextContent property.
+     * @param StreamInterface|null $value Value to set for the extractedTextContent property.
     */
     public function setExtractedTextContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('extractedTextContent', $value);
@@ -206,7 +206,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the mediaType property value. The mediaType property
-     *  @param string|null $value Value to set for the mediaType property.
+     * @param string|null $value Value to set for the mediaType property.
     */
     public function setMediaType(?string $value): void {
         $this->getBackingStore()->set('mediaType', $value);
@@ -214,7 +214,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -222,7 +222,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the otherProperties property value. The otherProperties property
-     *  @param StringValueDictionary|null $value Value to set for the otherProperties property.
+     * @param StringValueDictionary|null $value Value to set for the otherProperties property.
     */
     public function setOtherProperties(?StringValueDictionary $value): void {
         $this->getBackingStore()->set('otherProperties', $value);
@@ -230,7 +230,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the processingStatus property value. The processingStatus property
-     *  @param FileProcessingStatus|null $value Value to set for the processingStatus property.
+     * @param FileProcessingStatus|null $value Value to set for the processingStatus property.
     */
     public function setProcessingStatus(?FileProcessingStatus $value): void {
         $this->getBackingStore()->set('processingStatus', $value);
@@ -238,7 +238,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the senderOrAuthors property value. The senderOrAuthors property
-     *  @param array<string>|null $value Value to set for the senderOrAuthors property.
+     * @param array<string>|null $value Value to set for the senderOrAuthors property.
     */
     public function setSenderOrAuthors(?array $value): void {
         $this->getBackingStore()->set('senderOrAuthors', $value);
@@ -246,7 +246,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the size property value. The size property
-     *  @param int|null $value Value to set for the size property.
+     * @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value): void {
         $this->getBackingStore()->set('size', $value);
@@ -254,7 +254,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the sourceType property value. The sourceType property
-     *  @param SourceType|null $value Value to set for the sourceType property.
+     * @param SourceType|null $value Value to set for the sourceType property.
     */
     public function setSourceType(?SourceType $value): void {
         $this->getBackingStore()->set('sourceType', $value);
@@ -262,7 +262,7 @@ class File extends Entity implements Parsable
 
     /**
      * Sets the subjectTitle property value. The subjectTitle property
-     *  @param string|null $value Value to set for the subjectTitle property.
+     * @param string|null $value Value to set for the subjectTitle property.
     */
     public function setSubjectTitle(?string $value): void {
         $this->getBackingStore()->set('subjectTitle', $value);

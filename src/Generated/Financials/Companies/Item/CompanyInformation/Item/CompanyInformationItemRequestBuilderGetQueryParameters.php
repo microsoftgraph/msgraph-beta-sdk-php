@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CompanyInform
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get companyInformation from financials
+*/
 class CompanyInformationItemRequestBuilderGetQueryParameters 
 {
     /**

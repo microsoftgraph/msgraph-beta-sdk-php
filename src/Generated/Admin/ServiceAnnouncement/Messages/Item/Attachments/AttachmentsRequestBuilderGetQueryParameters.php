@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\Item
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of attachments associated with a service message.
+*/
 class AttachmentsRequestBuilderGetQueryParameters 
 {
     /**

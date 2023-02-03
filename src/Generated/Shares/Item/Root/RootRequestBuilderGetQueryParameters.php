@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Shares\Item\Root;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get root from shares
+*/
 class RootRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\Activities;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List the recent activities that took place on an item or under a hierarchy.
+*/
 class ActivitiesRequestBuilderGetQueryParameters 
 {
     /**

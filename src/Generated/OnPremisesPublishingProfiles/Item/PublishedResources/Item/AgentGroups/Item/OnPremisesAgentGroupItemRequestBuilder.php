@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Publi
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\Item\AgentGroups\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /onPremisesPublishingProfiles/{onPremisesPublishingProfile-id}/publishedResources/{publishedResource-id}/agentGroups/{onPremisesAgentGroup-id}
+*/
 class OnPremisesAgentGroupItemRequestBuilder 
 {
     /**
@@ -31,13 +34,20 @@ class OnPremisesAgentGroupItemRequestBuilder
     
     /**
      * Instantiates a new OnPremisesAgentGroupItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $onPremisesAgentGroupId key: id of onPremisesAgentGroup
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $onPremisesAgentGroupId = null) {
         $this->urlTemplate = '{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/publishedResources/{publishedResource%2Did}/agentGroups/{onPremisesAgentGroup%2Did}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['onPremisesAgentGroup%2Did'] = $onPremisesAgentGroupId;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
 }

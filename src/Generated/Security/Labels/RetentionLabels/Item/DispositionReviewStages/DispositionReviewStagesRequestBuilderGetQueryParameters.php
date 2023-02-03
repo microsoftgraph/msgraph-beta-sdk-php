@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\Di
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Review stages during which reviewers are notified to determine whether a document must be deleted or retained.
+*/
 class DispositionReviewStagesRequestBuilderGetQueryParameters 
 {
     /**

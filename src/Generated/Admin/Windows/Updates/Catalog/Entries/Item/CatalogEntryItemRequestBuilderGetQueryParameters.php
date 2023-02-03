@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Lists the content that you can approve for deployment. Read-only.
+*/
 class CatalogEntryItemRequestBuilderGetQueryParameters 
 {
     /**

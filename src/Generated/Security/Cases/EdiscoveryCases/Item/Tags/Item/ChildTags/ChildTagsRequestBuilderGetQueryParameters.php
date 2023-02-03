@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Tag
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Returns the tags that are a child of a tag.
+*/
 class ChildTagsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TrustFramework\Policies;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of trustFrameworkPolicies in the tenant/directory.
+*/
 class PoliciesRequestBuilderGetQueryParameters 
 {
     /**

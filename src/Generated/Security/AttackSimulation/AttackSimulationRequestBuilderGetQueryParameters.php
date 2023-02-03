@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Provides tenants capability to launch a simulated and realistic phishing attack and learn from it.
+*/
 class AttackSimulationRequestBuilderGetQueryParameters 
 {
     /**

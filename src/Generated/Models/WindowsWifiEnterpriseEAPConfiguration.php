@@ -315,7 +315,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     *  @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -323,7 +323,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the authenticationPeriodInSeconds property value. Specify the number of seconds for the client to wait after an authentication attempt before failing. Valid range 1-3600.
-     *  @param int|null $value Value to set for the authenticationPeriodInSeconds property.
+     * @param int|null $value Value to set for the authenticationPeriodInSeconds property.
     */
     public function setAuthenticationPeriodInSeconds(?int $value): void {
         $this->getBackingStore()->set('authenticationPeriodInSeconds', $value);
@@ -331,7 +331,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the authenticationRetryDelayPeriodInSeconds property value. Specify the number of seconds between a failed authentication and the next authentication attempt. Valid range 1-3600.
-     *  @param int|null $value Value to set for the authenticationRetryDelayPeriodInSeconds property.
+     * @param int|null $value Value to set for the authenticationRetryDelayPeriodInSeconds property.
     */
     public function setAuthenticationRetryDelayPeriodInSeconds(?int $value): void {
         $this->getBackingStore()->set('authenticationRetryDelayPeriodInSeconds', $value);
@@ -339,7 +339,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you’re using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest.
-     *  @param WifiAuthenticationType|null $value Value to set for the authenticationType property.
+     * @param WifiAuthenticationType|null $value Value to set for the authenticationType property.
     */
     public function setAuthenticationType(?WifiAuthenticationType $value): void {
         $this->getBackingStore()->set('authenticationType', $value);
@@ -347,7 +347,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the cacheCredentials property value. Specify whether to cache user credentials on the device so that users don’t need to keep entering them each time they connect.
-     *  @param bool|null $value Value to set for the cacheCredentials property.
+     * @param bool|null $value Value to set for the cacheCredentials property.
     */
     public function setCacheCredentials(?bool $value): void {
         $this->getBackingStore()->set('cacheCredentials', $value);
@@ -355,7 +355,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the disableUserPromptForServerValidation property value. Specify whether to prevent the user from being prompted to authorize new servers for trusted certification authorities when EAP type is selected as PEAP.
-     *  @param bool|null $value Value to set for the disableUserPromptForServerValidation property.
+     * @param bool|null $value Value to set for the disableUserPromptForServerValidation property.
     */
     public function setDisableUserPromptForServerValidation(?bool $value): void {
         $this->getBackingStore()->set('disableUserPromptForServerValidation', $value);
@@ -363,7 +363,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the eapolStartPeriodInSeconds property value. Specify the number of seconds to wait before sending an EAPOL (Extensible Authentication Protocol over LAN) Start message. Valid range 1-3600.
-     *  @param int|null $value Value to set for the eapolStartPeriodInSeconds property.
+     * @param int|null $value Value to set for the eapolStartPeriodInSeconds property.
     */
     public function setEapolStartPeriodInSeconds(?int $value): void {
         $this->getBackingStore()->set('eapolStartPeriodInSeconds', $value);
@@ -371,7 +371,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
-     *  @param EapType|null $value Value to set for the eapType property.
+     * @param EapType|null $value Value to set for the eapType property.
     */
     public function setEapType(?EapType $value): void {
         $this->getBackingStore()->set('eapType', $value);
@@ -379,7 +379,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the enablePairwiseMasterKeyCaching property value. Specify whether the wifi connection should enable pairwise master key caching.
-     *  @param bool|null $value Value to set for the enablePairwiseMasterKeyCaching property.
+     * @param bool|null $value Value to set for the enablePairwiseMasterKeyCaching property.
     */
     public function setEnablePairwiseMasterKeyCaching(?bool $value): void {
         $this->getBackingStore()->set('enablePairwiseMasterKeyCaching', $value);
@@ -387,7 +387,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the enablePreAuthentication property value. Specify whether pre-authentication should be enabled.
-     *  @param bool|null $value Value to set for the enablePreAuthentication property.
+     * @param bool|null $value Value to set for the enablePreAuthentication property.
     */
     public function setEnablePreAuthentication(?bool $value): void {
         $this->getBackingStore()->set('enablePreAuthentication', $value);
@@ -395,7 +395,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the identityCertificateForClientAuthentication property value. Specify identity certificate for client authentication.
-     *  @param WindowsCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
+     * @param WindowsCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
     */
     public function setIdentityCertificateForClientAuthentication(?WindowsCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificateForClientAuthentication', $value);
@@ -403,7 +403,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     *  @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
+     * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
     */
     public function setInnerAuthenticationProtocolForEAPTTLS(?NonEapAuthenticationMethodForEapTtlsType $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForEAPTTLS', $value);
@@ -411,7 +411,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the maximumAuthenticationFailures property value. Specify the maximum authentication failures allowed for a set of credentials. Valid range 1-100.
-     *  @param int|null $value Value to set for the maximumAuthenticationFailures property.
+     * @param int|null $value Value to set for the maximumAuthenticationFailures property.
     */
     public function setMaximumAuthenticationFailures(?int $value): void {
         $this->getBackingStore()->set('maximumAuthenticationFailures', $value);
@@ -419,7 +419,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the maximumAuthenticationTimeoutInSeconds property value. Specify maximum authentication timeout (in seconds).  Valid range: 1-120
-     *  @param int|null $value Value to set for the maximumAuthenticationTimeoutInSeconds property.
+     * @param int|null $value Value to set for the maximumAuthenticationTimeoutInSeconds property.
     */
     public function setMaximumAuthenticationTimeoutInSeconds(?int $value): void {
         $this->getBackingStore()->set('maximumAuthenticationTimeoutInSeconds', $value);
@@ -427,7 +427,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the maximumEAPOLStartMessages property value. Specifiy the maximum number of EAPOL (Extensible Authentication Protocol over LAN) Start messages to be sent before returning failure. Valid range 1-100.
-     *  @param int|null $value Value to set for the maximumEAPOLStartMessages property.
+     * @param int|null $value Value to set for the maximumEAPOLStartMessages property.
     */
     public function setMaximumEAPOLStartMessages(?int $value): void {
         $this->getBackingStore()->set('maximumEAPOLStartMessages', $value);
@@ -435,7 +435,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the maximumNumberOfPairwiseMasterKeysInCache property value. Specify maximum number of pairwise master keys in cache.  Valid range: 1-255
-     *  @param int|null $value Value to set for the maximumNumberOfPairwiseMasterKeysInCache property.
+     * @param int|null $value Value to set for the maximumNumberOfPairwiseMasterKeysInCache property.
     */
     public function setMaximumNumberOfPairwiseMasterKeysInCache(?int $value): void {
         $this->getBackingStore()->set('maximumNumberOfPairwiseMasterKeysInCache', $value);
@@ -443,7 +443,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the maximumPairwiseMasterKeyCacheTimeInMinutes property value. Specify maximum pairwise master key cache time (in minutes).  Valid range: 5-1440
-     *  @param int|null $value Value to set for the maximumPairwiseMasterKeyCacheTimeInMinutes property.
+     * @param int|null $value Value to set for the maximumPairwiseMasterKeyCacheTimeInMinutes property.
     */
     public function setMaximumPairwiseMasterKeyCacheTimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('maximumPairwiseMasterKeyCacheTimeInMinutes', $value);
@@ -451,7 +451,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the maximumPreAuthenticationAttempts property value. Specify maximum pre-authentication attempts.  Valid range: 1-16
-     *  @param int|null $value Value to set for the maximumPreAuthenticationAttempts property.
+     * @param int|null $value Value to set for the maximumPreAuthenticationAttempts property.
     */
     public function setMaximumPreAuthenticationAttempts(?int $value): void {
         $this->getBackingStore()->set('maximumPreAuthenticationAttempts', $value);
@@ -459,7 +459,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the networkSingleSignOn property value. Specify the network single sign on type. Possible values are: disabled, prelogon, postlogon.
-     *  @param NetworkSingleSignOnType|null $value Value to set for the networkSingleSignOn property.
+     * @param NetworkSingleSignOnType|null $value Value to set for the networkSingleSignOn property.
     */
     public function setNetworkSingleSignOn(?NetworkSingleSignOnType $value): void {
         $this->getBackingStore()->set('networkSingleSignOn', $value);
@@ -467,7 +467,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the outerIdentityPrivacyTemporaryValue property value. Specify the string to replace usernames for privacy when using EAP TTLS or PEAP.
-     *  @param string|null $value Value to set for the outerIdentityPrivacyTemporaryValue property.
+     * @param string|null $value Value to set for the outerIdentityPrivacyTemporaryValue property.
     */
     public function setOuterIdentityPrivacyTemporaryValue(?string $value): void {
         $this->getBackingStore()->set('outerIdentityPrivacyTemporaryValue', $value);
@@ -475,7 +475,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the performServerValidation property value. Specify whether to enable verification of server's identity by validating the certificate when EAP type is selected as PEAP.
-     *  @param bool|null $value Value to set for the performServerValidation property.
+     * @param bool|null $value Value to set for the performServerValidation property.
     */
     public function setPerformServerValidation(?bool $value): void {
         $this->getBackingStore()->set('performServerValidation', $value);
@@ -483,7 +483,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the promptForAdditionalAuthenticationCredentials property value. Specify whether the wifi connection should prompt for additional authentication credentials.
-     *  @param bool|null $value Value to set for the promptForAdditionalAuthenticationCredentials property.
+     * @param bool|null $value Value to set for the promptForAdditionalAuthenticationCredentials property.
     */
     public function setPromptForAdditionalAuthenticationCredentials(?bool $value): void {
         $this->getBackingStore()->set('promptForAdditionalAuthenticationCredentials', $value);
@@ -491,7 +491,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the requireCryptographicBinding property value. Specify whether to enable cryptographic binding when EAP type is selected as PEAP.
-     *  @param bool|null $value Value to set for the requireCryptographicBinding property.
+     * @param bool|null $value Value to set for the requireCryptographicBinding property.
     */
     public function setRequireCryptographicBinding(?bool $value): void {
         $this->getBackingStore()->set('requireCryptographicBinding', $value);
@@ -499,7 +499,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the rootCertificateForClientValidation property value. Specify root certificate for client validation.
-     *  @param Windows81TrustedRootCertificate|null $value Value to set for the rootCertificateForClientValidation property.
+     * @param Windows81TrustedRootCertificate|null $value Value to set for the rootCertificateForClientValidation property.
     */
     public function setRootCertificateForClientValidation(?Windows81TrustedRootCertificate $value): void {
         $this->getBackingStore()->set('rootCertificateForClientValidation', $value);
@@ -507,7 +507,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the rootCertificatesForServerValidation property value. Specify root certificate for server validation. This collection can contain a maximum of 500 elements.
-     *  @param array<Windows81TrustedRootCertificate>|null $value Value to set for the rootCertificatesForServerValidation property.
+     * @param array<Windows81TrustedRootCertificate>|null $value Value to set for the rootCertificatesForServerValidation property.
     */
     public function setRootCertificatesForServerValidation(?array $value): void {
         $this->getBackingStore()->set('rootCertificatesForServerValidation', $value);
@@ -515,7 +515,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the trustedServerCertificateNames property value. Specify trusted server certificate names.
-     *  @param array<string>|null $value Value to set for the trustedServerCertificateNames property.
+     * @param array<string>|null $value Value to set for the trustedServerCertificateNames property.
     */
     public function setTrustedServerCertificateNames(?array $value): void {
         $this->getBackingStore()->set('trustedServerCertificateNames', $value);
@@ -523,7 +523,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
 
     /**
      * Sets the userBasedVirtualLan property value. Specifiy whether to change the virtual LAN used by the device based on the user’s credentials. Cannot be used when NetworkSingleSignOnType is set to ​Disabled.
-     *  @param bool|null $value Value to set for the userBasedVirtualLan property.
+     * @param bool|null $value Value to set for the userBasedVirtualLan property.
     */
     public function setUserBasedVirtualLan(?bool $value): void {
         $this->getBackingStore()->set('userBasedVirtualLan', $value);

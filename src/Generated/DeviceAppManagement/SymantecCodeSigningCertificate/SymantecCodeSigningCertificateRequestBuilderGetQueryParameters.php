@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\SymantecCodeSigning
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The WinPhone Symantec Code Signing Certificate.
+*/
 class SymantecCodeSigningCertificateRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigu
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of MicrosoftTunnelConfiguration settings associated with account.
+*/
 class MicrosoftTunnelConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**

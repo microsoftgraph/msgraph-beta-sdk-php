@@ -95,7 +95,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the contentQuery property value. KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank.
-     *  @param string|null $value Value to set for the contentQuery property.
+     * @param string|null $value Value to set for the contentQuery property.
     */
     public function setContentQuery(?string $value): void {
         $this->getBackingStore()->set('contentQuery', $value);
@@ -103,7 +103,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the errors property value. Lists any errors that happened while placing the hold.
-     *  @param array<string>|null $value Value to set for the errors property.
+     * @param array<string>|null $value Value to set for the errors property.
     */
     public function setErrors(?array $value): void {
         $this->getBackingStore()->set('errors', $value);
@@ -111,7 +111,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the isEnabled property value. Indicates whether the hold is enabled and actively holding content.
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -119,7 +119,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the siteSources property value. Data sources that represent SharePoint sites.
-     *  @param array<SiteSource>|null $value Value to set for the siteSources property.
+     * @param array<SiteSource>|null $value Value to set for the siteSources property.
     */
     public function setSiteSources(?array $value): void {
         $this->getBackingStore()->set('siteSources', $value);
@@ -127,7 +127,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the userSources property value. Data sources that represent Exchange mailboxes.
-     *  @param array<UserSource>|null $value Value to set for the userSources property.
+     * @param array<UserSource>|null $value Value to set for the userSources property.
     */
     public function setUserSources(?array $value): void {
         $this->getBackingStore()->set('userSources', $value);

@@ -12,4 +12,5 @@ class WindowsAutopilotDeploymentState extends Enum {
     public const SUCCESS_WITH_TIMEOUT = 'successWithTimeout';
     public const NOT_ATTEMPTED = 'notAttempted';
     public const DISABLED = 'disabled';
+    public const SUCCESS_ON_RETRY = 'successOnRetry';
 }

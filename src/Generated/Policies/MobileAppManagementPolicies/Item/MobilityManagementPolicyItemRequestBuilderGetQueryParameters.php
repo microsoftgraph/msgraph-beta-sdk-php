@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The policy that defines auto-enrollment configuration for a mobility management (MDM or MAM) application.
+*/
 class MobilityManagementPolicyItemRequestBuilderGetQueryParameters 
 {
     /**

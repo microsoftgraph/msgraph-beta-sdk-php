@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The available group policy categories for this account.
+*/
 class GroupPolicyCategoriesRequestBuilderGetQueryParameters 
 {
     /**

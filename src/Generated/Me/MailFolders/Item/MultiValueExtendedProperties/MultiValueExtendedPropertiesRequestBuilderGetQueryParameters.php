@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\MultiValueExtendedP
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.
+*/
 class MultiValueExtendedPropertiesRequestBuilderGetQueryParameters 
 {
     /**

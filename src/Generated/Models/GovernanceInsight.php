@@ -63,7 +63,7 @@ class GovernanceInsight extends Entity implements Parsable
 
     /**
      * Sets the insightCreatedDateTime property value. Indicates when the insight was created.
-     *  @param DateTime|null $value Value to set for the insightCreatedDateTime property.
+     * @param DateTime|null $value Value to set for the insightCreatedDateTime property.
     */
     public function setInsightCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('insightCreatedDateTime', $value);

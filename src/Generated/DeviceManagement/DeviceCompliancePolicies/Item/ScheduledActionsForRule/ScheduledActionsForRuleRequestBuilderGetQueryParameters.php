@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolici
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of scheduled action for this rule
+*/
 class ScheduledActionsForRuleRequestBuilderGetQueryParameters 
 {
     /**

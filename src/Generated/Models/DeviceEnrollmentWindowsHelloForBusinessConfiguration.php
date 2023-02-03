@@ -175,7 +175,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the enhancedBiometricsState property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the enhancedBiometricsState property.
+     * @param Enablement|null $value Value to set for the enhancedBiometricsState property.
     */
     public function setEnhancedBiometricsState(?Enablement $value): void {
         $this->getBackingStore()->set('enhancedBiometricsState', $value);
@@ -183,7 +183,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the pinExpirationInDays property value. Controls the period of time (in days) that a PIN can be used before the system requires the user to change it. This must be set between 0 and 730, inclusive. If set to 0, the user's PIN will never expire
-     *  @param int|null $value Value to set for the pinExpirationInDays property.
+     * @param int|null $value Value to set for the pinExpirationInDays property.
     */
     public function setPinExpirationInDays(?int $value): void {
         $this->getBackingStore()->set('pinExpirationInDays', $value);
@@ -191,7 +191,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the pinLowercaseCharactersUsage property value. Windows Hello for Business pin usage options
-     *  @param WindowsHelloForBusinessPinUsage|null $value Value to set for the pinLowercaseCharactersUsage property.
+     * @param WindowsHelloForBusinessPinUsage|null $value Value to set for the pinLowercaseCharactersUsage property.
     */
     public function setPinLowercaseCharactersUsage(?WindowsHelloForBusinessPinUsage $value): void {
         $this->getBackingStore()->set('pinLowercaseCharactersUsage', $value);
@@ -199,7 +199,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the pinMaximumLength property value. Controls the maximum number of characters allowed for the Windows Hello for Business PIN. This value must be between 4 and 127, inclusive. This value must be greater than or equal to the value set for the minimum PIN.
-     *  @param int|null $value Value to set for the pinMaximumLength property.
+     * @param int|null $value Value to set for the pinMaximumLength property.
     */
     public function setPinMaximumLength(?int $value): void {
         $this->getBackingStore()->set('pinMaximumLength', $value);
@@ -207,7 +207,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the pinMinimumLength property value. Controls the minimum number of characters required for the Windows Hello for Business PIN.  This value must be between 4 and 127, inclusive, and less than or equal to the value set for the maximum PIN.
-     *  @param int|null $value Value to set for the pinMinimumLength property.
+     * @param int|null $value Value to set for the pinMinimumLength property.
     */
     public function setPinMinimumLength(?int $value): void {
         $this->getBackingStore()->set('pinMinimumLength', $value);
@@ -215,7 +215,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the pinPreviousBlockCount property value. Controls the ability to prevent users from using past PINs. This must be set between 0 and 50, inclusive, and the current PIN of the user is included in that count. If set to 0, previous PINs are not stored. PIN history is not preserved through a PIN reset.
-     *  @param int|null $value Value to set for the pinPreviousBlockCount property.
+     * @param int|null $value Value to set for the pinPreviousBlockCount property.
     */
     public function setPinPreviousBlockCount(?int $value): void {
         $this->getBackingStore()->set('pinPreviousBlockCount', $value);
@@ -223,7 +223,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the pinSpecialCharactersUsage property value. Windows Hello for Business pin usage options
-     *  @param WindowsHelloForBusinessPinUsage|null $value Value to set for the pinSpecialCharactersUsage property.
+     * @param WindowsHelloForBusinessPinUsage|null $value Value to set for the pinSpecialCharactersUsage property.
     */
     public function setPinSpecialCharactersUsage(?WindowsHelloForBusinessPinUsage $value): void {
         $this->getBackingStore()->set('pinSpecialCharactersUsage', $value);
@@ -231,7 +231,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the pinUppercaseCharactersUsage property value. Windows Hello for Business pin usage options
-     *  @param WindowsHelloForBusinessPinUsage|null $value Value to set for the pinUppercaseCharactersUsage property.
+     * @param WindowsHelloForBusinessPinUsage|null $value Value to set for the pinUppercaseCharactersUsage property.
     */
     public function setPinUppercaseCharactersUsage(?WindowsHelloForBusinessPinUsage $value): void {
         $this->getBackingStore()->set('pinUppercaseCharactersUsage', $value);
@@ -239,7 +239,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the remotePassportEnabled property value. Controls the use of Remote Windows Hello for Business. Remote Windows Hello for Business provides the ability for a portable, registered device to be usable as a companion for desktop authentication. The desktop must be Azure AD joined and the companion device must have a Windows Hello for Business PIN.
-     *  @param bool|null $value Value to set for the remotePassportEnabled property.
+     * @param bool|null $value Value to set for the remotePassportEnabled property.
     */
     public function setRemotePassportEnabled(?bool $value): void {
         $this->getBackingStore()->set('remotePassportEnabled', $value);
@@ -247,7 +247,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the securityDeviceRequired property value. Controls whether to require a Trusted Platform Module (TPM) for provisioning Windows Hello for Business. A TPM provides an additional security benefit in that data stored on it cannot be used on other devices. If set to False, all devices can provision Windows Hello for Business even if there is not a usable TPM.
-     *  @param bool|null $value Value to set for the securityDeviceRequired property.
+     * @param bool|null $value Value to set for the securityDeviceRequired property.
     */
     public function setSecurityDeviceRequired(?bool $value): void {
         $this->getBackingStore()->set('securityDeviceRequired', $value);
@@ -255,7 +255,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the securityKeyForSignIn property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the securityKeyForSignIn property.
+     * @param Enablement|null $value Value to set for the securityKeyForSignIn property.
     */
     public function setSecurityKeyForSignIn(?Enablement $value): void {
         $this->getBackingStore()->set('securityKeyForSignIn', $value);
@@ -263,7 +263,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the state property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the state property.
+     * @param Enablement|null $value Value to set for the state property.
     */
     public function setState(?Enablement $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -271,7 +271,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
 
     /**
      * Sets the unlockWithBiometricsEnabled property value. Controls the use of biometric gestures, such as face and fingerprint, as an alternative to the Windows Hello for Business PIN.  If set to False, biometric gestures are not allowed. Users must still configure a PIN as a backup in case of failures.
-     *  @param bool|null $value Value to set for the unlockWithBiometricsEnabled property.
+     * @param bool|null $value Value to set for the unlockWithBiometricsEnabled property.
     */
     public function setUnlockWithBiometricsEnabled(?bool $value): void {
         $this->getBackingStore()->set('unlockWithBiometricsEnabled', $value);

@@ -55,7 +55,7 @@ class SecurityBaselineCategoryStateSummary extends SecurityBaselineStateSummary 
 
     /**
      * Sets the displayName property value. The category name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

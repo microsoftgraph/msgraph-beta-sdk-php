@@ -55,7 +55,7 @@ class EducationIdentityMatchingConfiguration extends EducationIdentitySynchroniz
 
     /**
      * Sets the matchingOptions property value. Mapping between the user account and the options to use to uniquely identify the user to update.
-     *  @param array<EducationIdentityMatchingOptions>|null $value Value to set for the matchingOptions property.
+     * @param array<EducationIdentityMatchingOptions>|null $value Value to set for the matchingOptions property.
     */
     public function setMatchingOptions(?array $value): void {
         $this->getBackingStore()->set('matchingOptions', $value);

@@ -5,6 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\A
 use Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies\Item\AppliesTo\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /directory/featureRolloutPolicies/{featureRolloutPolicy-id}/appliesTo/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**
@@ -31,13 +34,20 @@ class DirectoryObjectItemRequestBuilder
     
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $directoryObjectId key: id of directoryObject
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $directoryObjectId = null) {
         $this->urlTemplate = '{+baseurl}/directory/featureRolloutPolicies/{featureRolloutPolicy%2Did}/appliesTo/{directoryObject%2Did}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['directoryObject%2Did'] = $directoryObjectId;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
 }

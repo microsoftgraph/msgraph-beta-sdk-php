@@ -5,34 +5,29 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\It
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\Assignments\Item\DeviceHealthScriptAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\DeviceRunStates\Item\DeviceHealthScriptDeviceStateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\GetGlobalScriptHighestAvailableVersion\GetGlobalScriptHighestAvailableVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\GetRemediationHistory\GetRemediationHistoryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\MicrosoftGraphAssign\AssignRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\MicrosoftGraphGetGlobalScriptHighestAvailableVersion\GetGlobalScriptHighestAvailableVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\MicrosoftGraphGetRemediationHistory\GetRemediationHistoryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\MicrosoftGraphUpdateGlobalScript\UpdateGlobalScriptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\RunSummary\RunSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts\Item\UpdateGlobalScript\UpdateGlobalScriptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScript;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the deviceHealthScripts property of the microsoft.graph.deviceManagement entity.
+*/
 class DeviceHealthScriptItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the assign method.
-    */
-    public function assign(): AssignRequestBuilder {
-        return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceHealthScript entity.
     */
@@ -48,10 +43,31 @@ class DeviceHealthScriptItemRequestBuilder
     }
     
     /**
+     * Provides operations to call the assign method.
+    */
+    public function microsoftGraphAssign(): AssignRequestBuilder {
+        return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the getGlobalScriptHighestAvailableVersion method.
     */
-    public function getGlobalScriptHighestAvailableVersion(): GetGlobalScriptHighestAvailableVersionRequestBuilder {
+    public function microsoftGraphGetGlobalScriptHighestAvailableVersion(): GetGlobalScriptHighestAvailableVersionRequestBuilder {
         return new GetGlobalScriptHighestAvailableVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getRemediationHistory method.
+    */
+    public function microsoftGraphGetRemediationHistory(): GetRemediationHistoryRequestBuilder {
+        return new GetRemediationHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the updateGlobalScript method.
+    */
+    public function microsoftGraphUpdateGlobalScript(): UpdateGlobalScriptRequestBuilder {
+        return new UpdateGlobalScriptRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -72,13 +88,6 @@ class DeviceHealthScriptItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the updateGlobalScript method.
-    */
-    public function updateGlobalScript(): UpdateGlobalScriptRequestBuilder {
-        return new UpdateGlobalScriptRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
@@ -91,34 +100,40 @@ class DeviceHealthScriptItemRequestBuilder
     public function assignmentsById(string $id): DeviceHealthScriptAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceHealthScriptAssignment%2Did'] = $id;
-        return new DeviceHealthScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceHealthScriptAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new DeviceHealthScriptItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $deviceHealthScriptId key: id of deviceHealthScript
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $deviceHealthScriptId = null) {
         $this->urlTemplate = '{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['deviceHealthScript%2Did'] = $deviceHealthScriptId;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property deviceHealthScripts for deviceManagement
      * @param DeviceHealthScriptItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?DeviceHealthScriptItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?DeviceHealthScriptItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -132,51 +147,41 @@ class DeviceHealthScriptItemRequestBuilder
     public function deviceRunStatesById(string $id): DeviceHealthScriptDeviceStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceHealthScriptDeviceState%2Did'] = $id;
-        return new DeviceHealthScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceHealthScriptDeviceStateItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * The list of device health scripts associated with the tenant.
      * @param DeviceHealthScriptItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?DeviceHealthScriptItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?DeviceHealthScriptItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceHealthScript::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceHealthScript::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to call the getRemediationHistory method.
-     * @return GetRemediationHistoryRequestBuilder
-    */
-    public function getRemediationHistory(): GetRemediationHistoryRequestBuilder {
-        return new GetRemediationHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
      * Update the navigation property deviceHealthScripts in deviceManagement
      * @param DeviceHealthScript $body The request body
      * @param DeviceHealthScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(DeviceHealthScript $body, ?DeviceHealthScriptItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(DeviceHealthScript $body, ?DeviceHealthScriptItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceHealthScript::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceHealthScript::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -194,7 +199,7 @@ class DeviceHealthScriptItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -213,10 +218,10 @@ class DeviceHealthScriptItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -239,10 +244,10 @@ class DeviceHealthScriptItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

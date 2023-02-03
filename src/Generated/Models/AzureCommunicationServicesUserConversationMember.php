@@ -55,7 +55,7 @@ class AzureCommunicationServicesUserConversationMember extends ConversationMembe
 
     /**
      * Sets the azureCommunicationServicesId property value. The azureCommunicationServicesId property
-     *  @param string|null $value Value to set for the azureCommunicationServicesId property.
+     * @param string|null $value Value to set for the azureCommunicationServicesId property.
     */
     public function setAzureCommunicationServicesId(?string $value): void {
         $this->getBackingStore()->set('azureCommunicationServicesId', $value);

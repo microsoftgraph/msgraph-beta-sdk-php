@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\MyDecisions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of decisions for the caller, if the caller is a reviewer.
+*/
 class AccessReviewDecisionItemRequestBuilderGetQueryParameters 
 {
     /**

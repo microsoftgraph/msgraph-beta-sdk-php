@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CustomQuestions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the bookingCustomQuestion resources associated with a bookingBusiness.
+*/
 class CustomQuestionsRequestBuilderGetQueryParameters 
 {
     /**

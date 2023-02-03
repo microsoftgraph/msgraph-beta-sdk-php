@@ -105,7 +105,7 @@ class TaskDefinition extends Entity implements Parsable
 
     /**
      * Sets the category property value. The category property
-     *  @param LifecycleTaskCategory|null $value Value to set for the category property.
+     * @param LifecycleTaskCategory|null $value Value to set for the category property.
     */
     public function setCategory(?LifecycleTaskCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -113,7 +113,7 @@ class TaskDefinition extends Entity implements Parsable
 
     /**
      * Sets the continueOnError property value. The continueOnError property
-     *  @param bool|null $value Value to set for the continueOnError property.
+     * @param bool|null $value Value to set for the continueOnError property.
     */
     public function setContinueOnError(?bool $value): void {
         $this->getBackingStore()->set('continueOnError', $value);
@@ -121,7 +121,7 @@ class TaskDefinition extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the taskDefinition.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -129,7 +129,7 @@ class TaskDefinition extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the taskDefinition.Supports $filter(eq, ne) and $orderby.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -137,7 +137,7 @@ class TaskDefinition extends Entity implements Parsable
 
     /**
      * Sets the parameters property value. The parameters that must be supplied when creating a workflow task object.Supports $filter(any).
-     *  @param array<Parameter>|null $value Value to set for the parameters property.
+     * @param array<Parameter>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value): void {
         $this->getBackingStore()->set('parameters', $value);
@@ -145,7 +145,7 @@ class TaskDefinition extends Entity implements Parsable
 
     /**
      * Sets the version property value. The version number of the taskDefinition. New records are pushed when we add support for new parameters.Supports $filter(ge, gt, le, lt, eq, ne) and $orderby.
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);

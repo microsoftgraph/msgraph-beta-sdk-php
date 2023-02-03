@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get exactMatchUploadAgents from dataClassification
+*/
 class ExactMatchUploadAgentsRequestBuilderGetQueryParameters 
 {
     /**

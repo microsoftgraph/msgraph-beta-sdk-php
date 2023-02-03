@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get purchaseInvoiceLines from financials
+*/
 class PurchaseInvoiceLinesRequestBuilderGetQueryParameters 
 {
     /**

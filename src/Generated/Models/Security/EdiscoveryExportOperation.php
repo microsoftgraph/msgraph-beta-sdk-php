@@ -134,7 +134,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the azureBlobContainer property value. The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.
-     *  @param string|null $value Value to set for the azureBlobContainer property.
+     * @param string|null $value Value to set for the azureBlobContainer property.
     */
     public function setAzureBlobContainer(?string $value): void {
         $this->getBackingStore()->set('azureBlobContainer', $value);
@@ -142,7 +142,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the azureBlobToken property value. The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location.
-     *  @param string|null $value Value to set for the azureBlobToken property.
+     * @param string|null $value Value to set for the azureBlobToken property.
     */
     public function setAzureBlobToken(?string $value): void {
         $this->getBackingStore()->set('azureBlobToken', $value);
@@ -150,7 +150,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the description property value. The description provided for the export.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -158,7 +158,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the exportOptions property value. The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags.
-     *  @param ExportOptions|null $value Value to set for the exportOptions property.
+     * @param ExportOptions|null $value Value to set for the exportOptions property.
     */
     public function setExportOptions(?ExportOptions $value): void {
         $this->getBackingStore()->set('exportOptions', $value);
@@ -166,7 +166,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the exportStructure property value. The options provided that specify the structure of the export. For more details, see reviewSet: export. Possible values are: none, directory, pst.
-     *  @param ExportFileStructure|null $value Value to set for the exportStructure property.
+     * @param ExportFileStructure|null $value Value to set for the exportStructure property.
     */
     public function setExportStructure(?ExportFileStructure $value): void {
         $this->getBackingStore()->set('exportStructure', $value);
@@ -174,7 +174,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the outputFolderId property value. The outputFolderId property
-     *  @param string|null $value Value to set for the outputFolderId property.
+     * @param string|null $value Value to set for the outputFolderId property.
     */
     public function setOutputFolderId(?string $value): void {
         $this->getBackingStore()->set('outputFolderId', $value);
@@ -182,7 +182,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the outputName property value. The name provided for the export.
-     *  @param string|null $value Value to set for the outputName property.
+     * @param string|null $value Value to set for the outputName property.
     */
     public function setOutputName(?string $value): void {
         $this->getBackingStore()->set('outputName', $value);
@@ -190,7 +190,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the reviewSet property value. Review set from where documents are exported.
-     *  @param EdiscoveryReviewSet|null $value Value to set for the reviewSet property.
+     * @param EdiscoveryReviewSet|null $value Value to set for the reviewSet property.
     */
     public function setReviewSet(?EdiscoveryReviewSet $value): void {
         $this->getBackingStore()->set('reviewSet', $value);
@@ -198,7 +198,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the reviewSetQuery property value. The review set query which is used to filter the documents for export.
-     *  @param EdiscoveryReviewSetQuery|null $value Value to set for the reviewSetQuery property.
+     * @param EdiscoveryReviewSetQuery|null $value Value to set for the reviewSetQuery property.
     */
     public function setReviewSetQuery(?EdiscoveryReviewSetQuery $value): void {
         $this->getBackingStore()->set('reviewSetQuery', $value);

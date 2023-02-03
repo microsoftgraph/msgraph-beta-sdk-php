@@ -7,35 +7,37 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Attachments\AttachmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Attachments\Item\AttachmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Copy\CopyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\CreateForward\CreateForwardRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\CreateReply\CreateReplyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\CreateReplyAll\CreateReplyAllRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Extensions\Item\ExtensionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Forward\ForwardRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Mentions\Item\MentionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Mentions\MentionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Move\MoveRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphCopy\CopyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphCreateForward\CreateForwardRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphCreateReply\CreateReplyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphCreateReplyAll\CreateReplyAllRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphForward\ForwardRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphMove\MoveRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphReply\ReplyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphReplyAll\ReplyAllRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphSend\SendRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MicrosoftGraphUnsubscribe\UnsubscribeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MultiValueExtendedProperties\Item\MultiValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Reply\ReplyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\ReplyAll\ReplyAllRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Send\SendRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\SingleValueExtendedProperties\Item\SingleValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Unsubscribe\UnsubscribeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\Messages\Item\Value\ContentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Message;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
+*/
 class MessageItemRequestBuilder 
 {
     /**
@@ -53,45 +55,10 @@ class MessageItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the copy method.
-    */
-    public function copy(): CopyRequestBuilder {
-        return new CopyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the createForward method.
-    */
-    public function createForward(): CreateForwardRequestBuilder {
-        return new CreateForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the createReply method.
-    */
-    public function createReply(): CreateReplyRequestBuilder {
-        return new CreateReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the createReplyAll method.
-    */
-    public function createReplyAll(): CreateReplyAllRequestBuilder {
-        return new CreateReplyAllRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the extensions property of the microsoft.graph.message entity.
     */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the forward method.
-    */
-    public function forward(): ForwardRequestBuilder {
-        return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -102,10 +69,73 @@ class MessageItemRequestBuilder
     }
     
     /**
+     * Provides operations to call the copy method.
+    */
+    public function microsoftGraphCopy(): CopyRequestBuilder {
+        return new CopyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the createForward method.
+    */
+    public function microsoftGraphCreateForward(): CreateForwardRequestBuilder {
+        return new CreateForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the createReply method.
+    */
+    public function microsoftGraphCreateReply(): CreateReplyRequestBuilder {
+        return new CreateReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the createReplyAll method.
+    */
+    public function microsoftGraphCreateReplyAll(): CreateReplyAllRequestBuilder {
+        return new CreateReplyAllRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the forward method.
+    */
+    public function microsoftGraphForward(): ForwardRequestBuilder {
+        return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the move method.
     */
-    public function move(): MoveRequestBuilder {
+    public function microsoftGraphMove(): MoveRequestBuilder {
         return new MoveRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the reply method.
+    */
+    public function microsoftGraphReply(): ReplyRequestBuilder {
+        return new ReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the replyAll method.
+    */
+    public function microsoftGraphReplyAll(): ReplyAllRequestBuilder {
+        return new ReplyAllRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the send method.
+    */
+    public function microsoftGraphSend(): SendRequestBuilder {
+        return new SendRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unsubscribe method.
+    */
+    public function microsoftGraphUnsubscribe(): UnsubscribeRequestBuilder {
+        return new UnsubscribeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -121,43 +151,15 @@ class MessageItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * Provides operations to call the reply method.
-    */
-    public function reply(): ReplyRequestBuilder {
-        return new ReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the replyAll method.
-    */
-    public function replyAll(): ReplyAllRequestBuilder {
-        return new ReplyAllRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
-    
-    /**
-     * Provides operations to call the send method.
-    */
-    public function send(): SendRequestBuilder {
-        return new SendRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.
     */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the unsubscribe method.
-    */
-    public function unsubscribe(): UnsubscribeRequestBuilder {
-        return new UnsubscribeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -173,34 +175,40 @@ class MessageItemRequestBuilder
     public function attachmentsById(string $id): AttachmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['attachment%2Did'] = $id;
-        return new AttachmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AttachmentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new MessageItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $messageId key: id of message
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $messageId = null) {
         $this->urlTemplate = '{+baseurl}/me/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/{message%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['message%2Did'] = $messageId;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property messages for me
      * @param MessageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?MessageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?MessageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -214,23 +222,22 @@ class MessageItemRequestBuilder
     public function extensionsById(string $id): ExtensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['extension%2Did'] = $id;
-        return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * The collection of messages in the mailFolder.
      * @param MessageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?MessageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?MessageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Message::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Message::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -244,7 +251,7 @@ class MessageItemRequestBuilder
     public function mentionsById(string $id): MentionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mention%2Did'] = $id;
-        return new MentionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MentionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -255,24 +262,23 @@ class MessageItemRequestBuilder
     public function multiValueExtendedPropertiesById(string $id): MultiValueLegacyExtendedPropertyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['multiValueLegacyExtendedProperty%2Did'] = $id;
-        return new MultiValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MultiValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Update the navigation property messages in me
      * @param Message $body The request body
      * @param MessageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Message $body, ?MessageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Message $body, ?MessageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Message::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Message::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -286,7 +292,7 @@ class MessageItemRequestBuilder
     public function singleValueExtendedPropertiesById(string $id): SingleValueLegacyExtendedPropertyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['singleValueLegacyExtendedProperty%2Did'] = $id;
-        return new SingleValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SingleValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -301,7 +307,7 @@ class MessageItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -320,10 +326,10 @@ class MessageItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -346,10 +352,10 @@ class MessageItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

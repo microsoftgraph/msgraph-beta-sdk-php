@@ -285,7 +285,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the appleIdDisabled property value. Indicates if Apple id setup pane is disabled
-     *  @param bool|null $value Value to set for the appleIdDisabled property.
+     * @param bool|null $value Value to set for the appleIdDisabled property.
     */
     public function setAppleIdDisabled(?bool $value): void {
         $this->getBackingStore()->set('appleIdDisabled', $value);
@@ -293,7 +293,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the applePayDisabled property value. Indicates if Apple pay setup pane is disabled
-     *  @param bool|null $value Value to set for the applePayDisabled property.
+     * @param bool|null $value Value to set for the applePayDisabled property.
     */
     public function setApplePayDisabled(?bool $value): void {
         $this->getBackingStore()->set('applePayDisabled', $value);
@@ -301,7 +301,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the awaitDeviceConfiguredConfirmation property value. Indicates if the device will need to wait for configured confirmation
-     *  @param bool|null $value Value to set for the awaitDeviceConfiguredConfirmation property.
+     * @param bool|null $value Value to set for the awaitDeviceConfiguredConfirmation property.
     */
     public function setAwaitDeviceConfiguredConfirmation(?bool $value): void {
         $this->getBackingStore()->set('awaitDeviceConfiguredConfirmation', $value);
@@ -309,7 +309,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the diagnosticsDisabled property value. Indicates if diagnostics setup pane is disabled
-     *  @param bool|null $value Value to set for the diagnosticsDisabled property.
+     * @param bool|null $value Value to set for the diagnosticsDisabled property.
     */
     public function setDiagnosticsDisabled(?bool $value): void {
         $this->getBackingStore()->set('diagnosticsDisabled', $value);
@@ -317,7 +317,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the enableSharedIPad property value. This indicates whether the device is to be enrolled in a mode which enables multi user scenarios. Only applicable in shared iPads.
-     *  @param bool|null $value Value to set for the enableSharedIPad property.
+     * @param bool|null $value Value to set for the enableSharedIPad property.
     */
     public function setEnableSharedIPad(?bool $value): void {
         $this->getBackingStore()->set('enableSharedIPad', $value);
@@ -325,7 +325,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the isDefault property value. Indicates if this is the default profile
-     *  @param bool|null $value Value to set for the isDefault property.
+     * @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value): void {
         $this->getBackingStore()->set('isDefault', $value);
@@ -333,7 +333,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the isMandatory property value. Indicates if the profile is mandatory
-     *  @param bool|null $value Value to set for the isMandatory property.
+     * @param bool|null $value Value to set for the isMandatory property.
     */
     public function setIsMandatory(?bool $value): void {
         $this->getBackingStore()->set('isMandatory', $value);
@@ -341,7 +341,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the iTunesPairingMode property value. The iTunesPairingMode property
-     *  @param ITunesPairingMode|null $value Value to set for the iTunesPairingMode property.
+     * @param ITunesPairingMode|null $value Value to set for the iTunesPairingMode property.
     */
     public function setITunesPairingMode(?ITunesPairingMode $value): void {
         $this->getBackingStore()->set('iTunesPairingMode', $value);
@@ -349,7 +349,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the locationDisabled property value. Indicates if Location service setup pane is disabled
-     *  @param bool|null $value Value to set for the locationDisabled property.
+     * @param bool|null $value Value to set for the locationDisabled property.
     */
     public function setLocationDisabled(?bool $value): void {
         $this->getBackingStore()->set('locationDisabled', $value);
@@ -357,7 +357,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the macOSFileVaultDisabled property value. Indicates if Mac OS file vault is disabled
-     *  @param bool|null $value Value to set for the macOSFileVaultDisabled property.
+     * @param bool|null $value Value to set for the macOSFileVaultDisabled property.
     */
     public function setMacOSFileVaultDisabled(?bool $value): void {
         $this->getBackingStore()->set('macOSFileVaultDisabled', $value);
@@ -365,7 +365,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the macOSRegistrationDisabled property value. Indicates if Mac OS registration is disabled
-     *  @param bool|null $value Value to set for the macOSRegistrationDisabled property.
+     * @param bool|null $value Value to set for the macOSRegistrationDisabled property.
     */
     public function setMacOSRegistrationDisabled(?bool $value): void {
         $this->getBackingStore()->set('macOSRegistrationDisabled', $value);
@@ -373,7 +373,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the managementCertificates property value. Management certificates for Apple Configurator
-     *  @param array<ManagementCertificateWithThumbprint>|null $value Value to set for the managementCertificates property.
+     * @param array<ManagementCertificateWithThumbprint>|null $value Value to set for the managementCertificates property.
     */
     public function setManagementCertificates(?array $value): void {
         $this->getBackingStore()->set('managementCertificates', $value);
@@ -381,7 +381,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the passCodeDisabled property value. Indicates if Passcode setup pane is disabled
-     *  @param bool|null $value Value to set for the passCodeDisabled property.
+     * @param bool|null $value Value to set for the passCodeDisabled property.
     */
     public function setPassCodeDisabled(?bool $value): void {
         $this->getBackingStore()->set('passCodeDisabled', $value);
@@ -389,7 +389,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the profileRemovalDisabled property value. Indicates if the profile removal option is disabled
-     *  @param bool|null $value Value to set for the profileRemovalDisabled property.
+     * @param bool|null $value Value to set for the profileRemovalDisabled property.
     */
     public function setProfileRemovalDisabled(?bool $value): void {
         $this->getBackingStore()->set('profileRemovalDisabled', $value);
@@ -397,7 +397,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the restoreBlocked property value. Indicates if Restore setup pane is blocked
-     *  @param bool|null $value Value to set for the restoreBlocked property.
+     * @param bool|null $value Value to set for the restoreBlocked property.
     */
     public function setRestoreBlocked(?bool $value): void {
         $this->getBackingStore()->set('restoreBlocked', $value);
@@ -405,7 +405,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the restoreFromAndroidDisabled property value. Indicates if Restore from Android is disabled
-     *  @param bool|null $value Value to set for the restoreFromAndroidDisabled property.
+     * @param bool|null $value Value to set for the restoreFromAndroidDisabled property.
     */
     public function setRestoreFromAndroidDisabled(?bool $value): void {
         $this->getBackingStore()->set('restoreFromAndroidDisabled', $value);
@@ -413,7 +413,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the sharedIPadMaximumUserCount property value. This specifies the maximum number of users that can use a shared iPad. Only applicable in shared iPad mode.
-     *  @param int|null $value Value to set for the sharedIPadMaximumUserCount property.
+     * @param int|null $value Value to set for the sharedIPadMaximumUserCount property.
     */
     public function setSharedIPadMaximumUserCount(?int $value): void {
         $this->getBackingStore()->set('sharedIPadMaximumUserCount', $value);
@@ -421,7 +421,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the siriDisabled property value. Indicates if siri setup pane is disabled
-     *  @param bool|null $value Value to set for the siriDisabled property.
+     * @param bool|null $value Value to set for the siriDisabled property.
     */
     public function setSiriDisabled(?bool $value): void {
         $this->getBackingStore()->set('siriDisabled', $value);
@@ -429,7 +429,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
-     *  @param bool|null $value Value to set for the supervisedModeEnabled property.
+     * @param bool|null $value Value to set for the supervisedModeEnabled property.
     */
     public function setSupervisedModeEnabled(?bool $value): void {
         $this->getBackingStore()->set('supervisedModeEnabled', $value);
@@ -437,7 +437,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the supportDepartment property value. Support department information
-     *  @param string|null $value Value to set for the supportDepartment property.
+     * @param string|null $value Value to set for the supportDepartment property.
     */
     public function setSupportDepartment(?string $value): void {
         $this->getBackingStore()->set('supportDepartment', $value);
@@ -445,7 +445,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the supportPhoneNumber property value. Support phone number
-     *  @param string|null $value Value to set for the supportPhoneNumber property.
+     * @param string|null $value Value to set for the supportPhoneNumber property.
     */
     public function setSupportPhoneNumber(?string $value): void {
         $this->getBackingStore()->set('supportPhoneNumber', $value);
@@ -453,7 +453,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the termsAndConditionsDisabled property value. Indicates if 'Terms and Conditions' setup pane is disabled
-     *  @param bool|null $value Value to set for the termsAndConditionsDisabled property.
+     * @param bool|null $value Value to set for the termsAndConditionsDisabled property.
     */
     public function setTermsAndConditionsDisabled(?bool $value): void {
         $this->getBackingStore()->set('termsAndConditionsDisabled', $value);
@@ -461,7 +461,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the touchIdDisabled property value. Indicates if touch id setup pane is disabled
-     *  @param bool|null $value Value to set for the touchIdDisabled property.
+     * @param bool|null $value Value to set for the touchIdDisabled property.
     */
     public function setTouchIdDisabled(?bool $value): void {
         $this->getBackingStore()->set('touchIdDisabled', $value);
@@ -469,7 +469,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the zoomDisabled property value. Indicates if zoom setup pane is disabled
-     *  @param bool|null $value Value to set for the zoomDisabled property.
+     * @param bool|null $value Value to set for the zoomDisabled property.
     */
     public function setZoomDisabled(?bool $value): void {
         $this->getBackingStore()->set('zoomDisabled', $value);

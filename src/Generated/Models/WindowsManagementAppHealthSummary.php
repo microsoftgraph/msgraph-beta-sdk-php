@@ -74,7 +74,7 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
 
     /**
      * Sets the healthyDeviceCount property value. Healthy device count.
-     *  @param int|null $value Value to set for the healthyDeviceCount property.
+     * @param int|null $value Value to set for the healthyDeviceCount property.
     */
     public function setHealthyDeviceCount(?int $value): void {
         $this->getBackingStore()->set('healthyDeviceCount', $value);
@@ -82,7 +82,7 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
 
     /**
      * Sets the unhealthyDeviceCount property value. Unhealthy device count.
-     *  @param int|null $value Value to set for the unhealthyDeviceCount property.
+     * @param int|null $value Value to set for the unhealthyDeviceCount property.
     */
     public function setUnhealthyDeviceCount(?int $value): void {
         $this->getBackingStore()->set('unhealthyDeviceCount', $value);
@@ -90,7 +90,7 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
 
     /**
      * Sets the unknownDeviceCount property value. Unknown device count.
-     *  @param int|null $value Value to set for the unknownDeviceCount property.
+     * @param int|null $value Value to set for the unknownDeviceCount property.
     */
     public function setUnknownDeviceCount(?int $value): void {
         $this->getBackingStore()->set('unknownDeviceCount', $value);

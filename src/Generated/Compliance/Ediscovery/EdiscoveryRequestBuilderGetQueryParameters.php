@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get ediscovery from compliance
+*/
 class EdiscoveryRequestBuilderGetQueryParameters 
 {
     /**

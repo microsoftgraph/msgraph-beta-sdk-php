@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppConfigurat
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Managed Device Mobile Application Configurations.
+*/
 class ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**

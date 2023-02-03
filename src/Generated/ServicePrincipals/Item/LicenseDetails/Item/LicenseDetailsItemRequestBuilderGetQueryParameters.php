@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\LicenseDetails\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get licenseDetails from servicePrincipals
+*/
 class LicenseDetailsItemRequestBuilderGetQueryParameters 
 {
     /**

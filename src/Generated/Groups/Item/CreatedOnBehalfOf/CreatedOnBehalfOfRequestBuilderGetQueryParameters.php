@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\CreatedOnBehalfOf;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+*/
 class CreatedOnBehalfOfRequestBuilderGetQueryParameters 
 {
     /**

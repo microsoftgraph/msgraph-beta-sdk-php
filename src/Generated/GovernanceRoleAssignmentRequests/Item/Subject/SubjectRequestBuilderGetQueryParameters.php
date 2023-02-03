@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\S
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. The user/group principal.
+*/
 class SubjectRequestBuilderGetQueryParameters 
 {
     /**

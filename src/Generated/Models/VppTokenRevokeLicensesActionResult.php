@@ -74,7 +74,7 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
 
     /**
      * Sets the actionFailureReason property value. Possible types of reasons for an Apple Volume Purchase Program token action failure.
-     *  @param VppTokenActionFailureReason|null $value Value to set for the actionFailureReason property.
+     * @param VppTokenActionFailureReason|null $value Value to set for the actionFailureReason property.
     */
     public function setActionFailureReason(?VppTokenActionFailureReason $value): void {
         $this->getBackingStore()->set('actionFailureReason', $value);
@@ -82,7 +82,7 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
 
     /**
      * Sets the failedLicensesCount property value. A count of the number of licenses that failed to revoke.
-     *  @param int|null $value Value to set for the failedLicensesCount property.
+     * @param int|null $value Value to set for the failedLicensesCount property.
     */
     public function setFailedLicensesCount(?int $value): void {
         $this->getBackingStore()->set('failedLicensesCount', $value);
@@ -90,7 +90,7 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
 
     /**
      * Sets the totalLicensesCount property value. A count of the number of licenses that were attempted to revoke.
-     *  @param int|null $value Value to set for the totalLicensesCount property.
+     * @param int|null $value Value to set for the totalLicensesCount property.
     */
     public function setTotalLicensesCount(?int $value): void {
         $this->getBackingStore()->set('totalLicensesCount', $value);

@@ -8,16 +8,18 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Team;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\AllChannels\AllChannelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\ChannelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\CompleteMigration\CompleteMigrationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\EscapedClone\CloneRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Group\GroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\IncomingChannels\IncomingChannelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\InstalledApps\InstalledAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\InstalledApps\Item\TeamsAppInstallationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Members\Item\ConversationMemberItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Members\MembersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\MicrosoftGraphArchive\ArchiveRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\MicrosoftGraphClone\CloneRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\MicrosoftGraphCompleteMigration\CompleteMigrationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\MicrosoftGraphSendActivityNotification\SendActivityNotificationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\MicrosoftGraphUnarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Operations\Item\TeamsAsyncOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Owners\Item\UserItemRequestBuilder;
@@ -27,20 +29,20 @@ use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Photo\PhotoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\PrimaryChannel\PrimaryChannelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Schedule\ScheduleRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\SendActivityNotification\SendActivityNotificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Tags\Item\TeamworkTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Template\TemplateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\TemplateDefinition\TemplateDefinitionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the teamDefinition property of the microsoft.graph.teamTemplateDefinition entity.
+*/
 class TeamDefinitionRequestBuilder 
 {
     /**
@@ -51,31 +53,10 @@ class TeamDefinitionRequestBuilder
     }
     
     /**
-     * Provides operations to call the archive method.
-    */
-    public function archive(): ArchiveRequestBuilder {
-        return new ArchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the channels property of the microsoft.graph.team entity.
     */
     public function channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the completeMigration method.
-    */
-    public function completeMigration(): CompleteMigrationRequestBuilder {
-        return new CompleteMigrationRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the clone method.
-    */
-    public function escapedClone(): CloneRequestBuilder {
-        return new CloneRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -104,6 +85,41 @@ class TeamDefinitionRequestBuilder
     */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the archive method.
+    */
+    public function microsoftGraphArchive(): ArchiveRequestBuilder {
+        return new ArchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the clone method.
+    */
+    public function microsoftGraphClone(): CloneRequestBuilder {
+        return new CloneRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the completeMigration method.
+    */
+    public function microsoftGraphCompleteMigration(): CompleteMigrationRequestBuilder {
+        return new CompleteMigrationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the sendActivityNotification method.
+    */
+    public function microsoftGraphSendActivityNotification(): SendActivityNotificationRequestBuilder {
+        return new SendActivityNotificationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unarchive method.
+    */
+    public function microsoftGraphUnarchive(): UnarchiveRequestBuilder {
+        return new UnarchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -159,13 +175,6 @@ class TeamDefinitionRequestBuilder
     }
     
     /**
-     * Provides operations to call the sendActivityNotification method.
-    */
-    public function sendActivityNotification(): SendActivityNotificationRequestBuilder {
-        return new SendActivityNotificationRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the tags property of the microsoft.graph.team entity.
     */
     public function tags(): TagsRequestBuilder {
@@ -187,13 +196,6 @@ class TeamDefinitionRequestBuilder
     }
     
     /**
-     * Provides operations to call the unarchive method.
-    */
-    public function unarchive(): UnarchiveRequestBuilder {
-        return new UnarchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
@@ -206,7 +208,7 @@ class TeamDefinitionRequestBuilder
     public function allChannelsById(string $id): \Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\AllChannels\Item\ChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\AllChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\AllChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -217,34 +219,37 @@ class TeamDefinitionRequestBuilder
     public function channelsById(string $id): \Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\ChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new TeamDefinitionRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property teamDefinition for teamwork
      * @param TeamDefinitionRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?TeamDefinitionRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?TeamDefinitionRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -253,17 +258,17 @@ class TeamDefinitionRequestBuilder
     /**
      * Get the properties of the team associated with a teamTemplateDefinition object.
      * @param TeamDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/teamtemplatedefinition-get-teamdefinition?view=graph-rest-1.0 Find more info here
     */
-    public function get(?TeamDefinitionRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?TeamDefinitionRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -277,7 +282,7 @@ class TeamDefinitionRequestBuilder
     public function incomingChannelsById(string $id): \Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\IncomingChannels\Item\ChannelItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['channel%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\IncomingChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\IncomingChannels\Item\ChannelItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -288,7 +293,7 @@ class TeamDefinitionRequestBuilder
     public function installedAppsById(string $id): TeamsAppInstallationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamsAppInstallation%2Did'] = $id;
-        return new TeamsAppInstallationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TeamsAppInstallationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -299,7 +304,7 @@ class TeamDefinitionRequestBuilder
     public function membersById(string $id): ConversationMemberItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['conversationMember%2Did'] = $id;
-        return new ConversationMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ConversationMemberItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -310,7 +315,7 @@ class TeamDefinitionRequestBuilder
     public function operationsById(string $id): TeamsAsyncOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamsAsyncOperation%2Did'] = $id;
-        return new TeamsAsyncOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TeamsAsyncOperationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -321,24 +326,23 @@ class TeamDefinitionRequestBuilder
     public function ownersById(string $id): UserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['user%2Did'] = $id;
-        return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Update the navigation property teamDefinition in teamwork
      * @param Team $body The request body
      * @param TeamDefinitionRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Team $body, ?TeamDefinitionRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Team $body, ?TeamDefinitionRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Team::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -352,7 +356,7 @@ class TeamDefinitionRequestBuilder
     public function permissionGrantsById(string $id): ResourceSpecificPermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['resourceSpecificPermissionGrant%2Did'] = $id;
-        return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -363,7 +367,7 @@ class TeamDefinitionRequestBuilder
     public function tagsById(string $id): TeamworkTagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamworkTag%2Did'] = $id;
-        return new TeamworkTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TeamworkTagItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -378,7 +382,7 @@ class TeamDefinitionRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -397,10 +401,10 @@ class TeamDefinitionRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -423,10 +427,10 @@ class TeamDefinitionRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

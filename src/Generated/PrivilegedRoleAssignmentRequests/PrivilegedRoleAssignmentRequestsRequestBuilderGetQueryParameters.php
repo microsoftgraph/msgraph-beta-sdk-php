@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a collection of privilegedRoleAssignmentRequest.  **Note:** This requester must have at least one role assignment on the resource.
+*/
 class PrivilegedRoleAssignmentRequestsRequestBuilderGetQueryParameters 
 {
     /**

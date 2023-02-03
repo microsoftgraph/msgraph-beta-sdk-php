@@ -285,7 +285,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the authenticationBlockPeriodInMinutes property value. Specify the duration for which automatic authentication attempts will be blocked from occuring after a failed authentication attempt.
-     *  @param int|null $value Value to set for the authenticationBlockPeriodInMinutes property.
+     * @param int|null $value Value to set for the authenticationBlockPeriodInMinutes property.
     */
     public function setAuthenticationBlockPeriodInMinutes(?int $value): void {
         $this->getBackingStore()->set('authenticationBlockPeriodInMinutes', $value);
@@ -293,7 +293,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
-     *  @param WiredNetworkAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param WiredNetworkAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?WiredNetworkAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -301,7 +301,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the authenticationPeriodInSeconds property value. Specify the number of seconds for the client to wait after an authentication attempt before failing. Valid range 1-3600.
-     *  @param int|null $value Value to set for the authenticationPeriodInSeconds property.
+     * @param int|null $value Value to set for the authenticationPeriodInSeconds property.
     */
     public function setAuthenticationPeriodInSeconds(?int $value): void {
         $this->getBackingStore()->set('authenticationPeriodInSeconds', $value);
@@ -309,7 +309,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the authenticationRetryDelayPeriodInSeconds property value. Specify the number of seconds between a failed authentication and the next authentication attempt. Valid range 1-3600.
-     *  @param int|null $value Value to set for the authenticationRetryDelayPeriodInSeconds property.
+     * @param int|null $value Value to set for the authenticationRetryDelayPeriodInSeconds property.
     */
     public function setAuthenticationRetryDelayPeriodInSeconds(?int $value): void {
         $this->getBackingStore()->set('authenticationRetryDelayPeriodInSeconds', $value);
@@ -317,7 +317,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you're using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest. Possible values are: none, user, machine, machineOrUser, guest, unknownFutureValue.
-     *  @param WiredNetworkAuthenticationType|null $value Value to set for the authenticationType property.
+     * @param WiredNetworkAuthenticationType|null $value Value to set for the authenticationType property.
     */
     public function setAuthenticationType(?WiredNetworkAuthenticationType $value): void {
         $this->getBackingStore()->set('authenticationType', $value);
@@ -325,7 +325,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the cacheCredentials property value. When TRUE, caches user credentials on the device so that users don't need to keep entering them each time they connect. When FALSE, do not cache credentials. Default value is FALSE.
-     *  @param bool|null $value Value to set for the cacheCredentials property.
+     * @param bool|null $value Value to set for the cacheCredentials property.
     */
     public function setCacheCredentials(?bool $value): void {
         $this->getBackingStore()->set('cacheCredentials', $value);
@@ -333,7 +333,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the disableUserPromptForServerValidation property value. When TRUE, prevents the user from being prompted to authorize new servers for trusted certification authorities when EAP type is selected as PEAP. When FALSE, does not prevent the user from being prompted. Default value is FALSE.
-     *  @param bool|null $value Value to set for the disableUserPromptForServerValidation property.
+     * @param bool|null $value Value to set for the disableUserPromptForServerValidation property.
     */
     public function setDisableUserPromptForServerValidation(?bool $value): void {
         $this->getBackingStore()->set('disableUserPromptForServerValidation', $value);
@@ -341,7 +341,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the eapolStartPeriodInSeconds property value. Specify the number of seconds to wait before sending an EAPOL (Extensible Authentication Protocol over LAN) Start message. Valid range 1-3600.
-     *  @param int|null $value Value to set for the eapolStartPeriodInSeconds property.
+     * @param int|null $value Value to set for the eapolStartPeriodInSeconds property.
     */
     public function setEapolStartPeriodInSeconds(?int $value): void {
         $this->getBackingStore()->set('eapolStartPeriodInSeconds', $value);
@@ -349,7 +349,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
-     *  @param EapType|null $value Value to set for the eapType property.
+     * @param EapType|null $value Value to set for the eapType property.
     */
     public function setEapType(?EapType $value): void {
         $this->getBackingStore()->set('eapType', $value);
@@ -357,7 +357,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the enforce8021X property value. When TRUE, the automatic configuration service for wired networks requires the use of 802.1X for port authentication. When FALSE, 802.1X is not required. Default value is FALSE.
-     *  @param bool|null $value Value to set for the enforce8021X property.
+     * @param bool|null $value Value to set for the enforce8021X property.
     */
     public function setEnforce8021X(?bool $value): void {
         $this->getBackingStore()->set('enforce8021X', $value);
@@ -365,7 +365,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the forceFIPSCompliance property value. When TRUE, forces FIPS compliance. When FALSE, does not enable FIPS compliance. Default value is FALSE.
-     *  @param bool|null $value Value to set for the forceFIPSCompliance property.
+     * @param bool|null $value Value to set for the forceFIPSCompliance property.
     */
     public function setForceFIPSCompliance(?bool $value): void {
         $this->getBackingStore()->set('forceFIPSCompliance', $value);
@@ -373,7 +373,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the identityCertificateForClientAuthentication property value. Specify identity certificate for client authentication.
-     *  @param WindowsCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
+     * @param WindowsCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
     */
     public function setIdentityCertificateForClientAuthentication(?WindowsCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificateForClientAuthentication', $value);
@@ -381,7 +381,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     *  @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
+     * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
     */
     public function setInnerAuthenticationProtocolForEAPTTLS(?NonEapAuthenticationMethodForEapTtlsType $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForEAPTTLS', $value);
@@ -389,7 +389,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the maximumAuthenticationFailures property value. Specify the maximum authentication failures allowed for a set of credentials. Valid range 1-100.
-     *  @param int|null $value Value to set for the maximumAuthenticationFailures property.
+     * @param int|null $value Value to set for the maximumAuthenticationFailures property.
     */
     public function setMaximumAuthenticationFailures(?int $value): void {
         $this->getBackingStore()->set('maximumAuthenticationFailures', $value);
@@ -397,7 +397,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the maximumEAPOLStartMessages property value. Specify the maximum number of EAPOL (Extensible Authentication Protocol over LAN) Start messages to be sent before returning failure. Valid range 1-100.
-     *  @param int|null $value Value to set for the maximumEAPOLStartMessages property.
+     * @param int|null $value Value to set for the maximumEAPOLStartMessages property.
     */
     public function setMaximumEAPOLStartMessages(?int $value): void {
         $this->getBackingStore()->set('maximumEAPOLStartMessages', $value);
@@ -405,7 +405,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the outerIdentityPrivacyTemporaryValue property value. Specify the string to replace usernames for privacy when using EAP TTLS or PEAP.
-     *  @param string|null $value Value to set for the outerIdentityPrivacyTemporaryValue property.
+     * @param string|null $value Value to set for the outerIdentityPrivacyTemporaryValue property.
     */
     public function setOuterIdentityPrivacyTemporaryValue(?string $value): void {
         $this->getBackingStore()->set('outerIdentityPrivacyTemporaryValue', $value);
@@ -413,7 +413,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the performServerValidation property value. When TRUE, enables verification of server's identity by validating the certificate when EAP type is selected as PEAP. When FALSE, the certificate is not validated. Default value is TRUE.
-     *  @param bool|null $value Value to set for the performServerValidation property.
+     * @param bool|null $value Value to set for the performServerValidation property.
     */
     public function setPerformServerValidation(?bool $value): void {
         $this->getBackingStore()->set('performServerValidation', $value);
@@ -421,7 +421,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the requireCryptographicBinding property value. When TRUE, enables cryptographic binding when EAP type is selected as PEAP. When FALSE, does not enable cryptogrpahic binding. Default value is TRUE.
-     *  @param bool|null $value Value to set for the requireCryptographicBinding property.
+     * @param bool|null $value Value to set for the requireCryptographicBinding property.
     */
     public function setRequireCryptographicBinding(?bool $value): void {
         $this->getBackingStore()->set('requireCryptographicBinding', $value);
@@ -429,7 +429,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the rootCertificateForClientValidation property value. Specify root certificate for client validation.
-     *  @param Windows81TrustedRootCertificate|null $value Value to set for the rootCertificateForClientValidation property.
+     * @param Windows81TrustedRootCertificate|null $value Value to set for the rootCertificateForClientValidation property.
     */
     public function setRootCertificateForClientValidation(?Windows81TrustedRootCertificate $value): void {
         $this->getBackingStore()->set('rootCertificateForClientValidation', $value);
@@ -437,7 +437,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the rootCertificatesForServerValidation property value. Specify root certificates for server validation. This collection can contain a maximum of 500 elements.
-     *  @param array<Windows81TrustedRootCertificate>|null $value Value to set for the rootCertificatesForServerValidation property.
+     * @param array<Windows81TrustedRootCertificate>|null $value Value to set for the rootCertificatesForServerValidation property.
     */
     public function setRootCertificatesForServerValidation(?array $value): void {
         $this->getBackingStore()->set('rootCertificatesForServerValidation', $value);
@@ -445,7 +445,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the secondaryAuthenticationMethod property value. Specify the secondary authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
-     *  @param WiredNetworkAuthenticationMethod|null $value Value to set for the secondaryAuthenticationMethod property.
+     * @param WiredNetworkAuthenticationMethod|null $value Value to set for the secondaryAuthenticationMethod property.
     */
     public function setSecondaryAuthenticationMethod(?WiredNetworkAuthenticationMethod $value): void {
         $this->getBackingStore()->set('secondaryAuthenticationMethod', $value);
@@ -453,7 +453,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the secondaryIdentityCertificateForClientAuthentication property value. Specify secondary identity certificate for client authentication.
-     *  @param WindowsCertificateProfileBase|null $value Value to set for the secondaryIdentityCertificateForClientAuthentication property.
+     * @param WindowsCertificateProfileBase|null $value Value to set for the secondaryIdentityCertificateForClientAuthentication property.
     */
     public function setSecondaryIdentityCertificateForClientAuthentication(?WindowsCertificateProfileBase $value): void {
         $this->getBackingStore()->set('secondaryIdentityCertificateForClientAuthentication', $value);
@@ -461,7 +461,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the secondaryRootCertificateForClientValidation property value. Specify secondary root certificate for client validation.
-     *  @param Windows81TrustedRootCertificate|null $value Value to set for the secondaryRootCertificateForClientValidation property.
+     * @param Windows81TrustedRootCertificate|null $value Value to set for the secondaryRootCertificateForClientValidation property.
     */
     public function setSecondaryRootCertificateForClientValidation(?Windows81TrustedRootCertificate $value): void {
         $this->getBackingStore()->set('secondaryRootCertificateForClientValidation', $value);
@@ -469,7 +469,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the trustedServerCertificateNames property value. Specify trusted server certificate names.
-     *  @param array<string>|null $value Value to set for the trustedServerCertificateNames property.
+     * @param array<string>|null $value Value to set for the trustedServerCertificateNames property.
     */
     public function setTrustedServerCertificateNames(?array $value): void {
         $this->getBackingStore()->set('trustedServerCertificateNames', $value);

@@ -105,7 +105,7 @@ class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyUploadedPrese
 
     /**
      * Sets the defaultValue property value. An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.
-     *  @param int|null $value Value to set for the defaultValue property.
+     * @param int|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?int $value): void {
         $this->getBackingStore()->set('defaultValue', $value);
@@ -113,7 +113,7 @@ class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyUploadedPrese
 
     /**
      * Sets the maxValue property value. An unsigned long that specifies the maximum allowed value. The default value is 9999.
-     *  @param int|null $value Value to set for the maxValue property.
+     * @param int|null $value Value to set for the maxValue property.
     */
     public function setMaxValue(?int $value): void {
         $this->getBackingStore()->set('maxValue', $value);
@@ -121,7 +121,7 @@ class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyUploadedPrese
 
     /**
      * Sets the minValue property value. An unsigned long that specifies the minimum allowed value. The default value is 0.
-     *  @param int|null $value Value to set for the minValue property.
+     * @param int|null $value Value to set for the minValue property.
     */
     public function setMinValue(?int $value): void {
         $this->getBackingStore()->set('minValue', $value);
@@ -129,7 +129,7 @@ class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyUploadedPrese
 
     /**
      * Sets the required property value. Requirement to enter a value in the parameter box. The default value is false.
-     *  @param bool|null $value Value to set for the required property.
+     * @param bool|null $value Value to set for the required property.
     */
     public function setRequired(?bool $value): void {
         $this->getBackingStore()->set('required', $value);
@@ -137,7 +137,7 @@ class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyUploadedPrese
 
     /**
      * Sets the spin property value. If true, create a spin control; otherwise, create a text box for numeric entry. The default value is true.
-     *  @param bool|null $value Value to set for the spin property.
+     * @param bool|null $value Value to set for the spin property.
     */
     public function setSpin(?bool $value): void {
         $this->getBackingStore()->set('spin', $value);
@@ -145,7 +145,7 @@ class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyUploadedPrese
 
     /**
      * Sets the spinStep property value. An unsigned integer that specifies the increment of change for the spin control. The default value is 1.
-     *  @param int|null $value Value to set for the spinStep property.
+     * @param int|null $value Value to set for the spinStep property.
     */
     public function setSpinStep(?int $value): void {
         $this->getBackingStore()->set('spinStep', $value);

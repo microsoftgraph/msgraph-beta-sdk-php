@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\UserFlowIden
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get userFlowIdentityProviders from identity
+*/
 class UserFlowIdentityProvidersRequestBuilderGetQueryParameters 
 {
     /**

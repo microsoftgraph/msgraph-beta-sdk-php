@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBookCategor
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The mobile eBook categories.
+*/
 class ManagedEBookCategoriesRequestBuilderGetQueryParameters 
 {
     /**

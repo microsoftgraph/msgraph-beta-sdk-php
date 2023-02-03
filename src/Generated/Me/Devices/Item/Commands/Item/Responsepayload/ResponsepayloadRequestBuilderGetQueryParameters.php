@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Devices\Item\Commands\Item\Responsep
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get responsepayload from me
+*/
 class ResponsepayloadRequestBuilderGetQueryParameters 
 {
     /**

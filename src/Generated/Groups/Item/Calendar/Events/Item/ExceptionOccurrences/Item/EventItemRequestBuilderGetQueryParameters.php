@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\Events\Item\Except
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get exceptionOccurrences from groups
+*/
 class EventItemRequestBuilderGetQueryParameters 
 {
     /**

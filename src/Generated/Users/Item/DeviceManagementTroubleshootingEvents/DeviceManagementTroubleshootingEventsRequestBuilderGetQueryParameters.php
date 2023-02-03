@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\DeviceManagementTroubleshoot
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of troubleshooting events for this user.
+*/
 class DeviceManagementTroubleshootingEventsRequestBuilderGetQueryParameters 
 {
     /**

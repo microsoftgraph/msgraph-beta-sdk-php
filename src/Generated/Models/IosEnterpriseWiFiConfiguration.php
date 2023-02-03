@@ -155,7 +155,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     *  @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -163,7 +163,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
-     *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
+     * @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
     public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
         $this->getBackingStore()->set('derivedCredentialSettings', $value);
@@ -171,7 +171,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
-     *  @param EapFastConfiguration|null $value Value to set for the eapFastConfiguration property.
+     * @param EapFastConfiguration|null $value Value to set for the eapFastConfiguration property.
     */
     public function setEapFastConfiguration(?EapFastConfiguration $value): void {
         $this->getBackingStore()->set('eapFastConfiguration', $value);
@@ -179,7 +179,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
-     *  @param EapType|null $value Value to set for the eapType property.
+     * @param EapType|null $value Value to set for the eapType property.
     */
     public function setEapType(?EapType $value): void {
         $this->getBackingStore()->set('eapType', $value);
@@ -187,7 +187,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the identityCertificateForClientAuthentication property value. Identity Certificate for client authentication when EAP Type is configured to EAP-TLS, EAP-TTLS (with Certificate Authentication), or PEAP (with Certificate Authentication).
-     *  @param IosCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
+     * @param IosCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
     */
     public function setIdentityCertificateForClientAuthentication(?IosCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificateForClientAuthentication', $value);
@@ -195,7 +195,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the innerAuthenticationProtocolForEapTtls property value. Non-EAP Method for Authentication when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     *  @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEapTtls property.
+     * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEapTtls property.
     */
     public function setInnerAuthenticationProtocolForEapTtls(?NonEapAuthenticationMethodForEapTtlsType $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForEapTtls', $value);
@@ -203,7 +203,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the outerIdentityPrivacyTemporaryValue property value. Enable identity privacy (Outer Identity) when EAP Type is configured to EAP - TTLS, EAP - FAST or PEAP. This property masks usernames with the text you enter. For example, if you use 'anonymous', each user that authenticates with this Wi-Fi connection using their real username is displayed as 'anonymous'.
-     *  @param string|null $value Value to set for the outerIdentityPrivacyTemporaryValue property.
+     * @param string|null $value Value to set for the outerIdentityPrivacyTemporaryValue property.
     */
     public function setOuterIdentityPrivacyTemporaryValue(?string $value): void {
         $this->getBackingStore()->set('outerIdentityPrivacyTemporaryValue', $value);
@@ -211,7 +211,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the passwordFormatString property value. Password format string used to build the password to connect to wifi
-     *  @param string|null $value Value to set for the passwordFormatString property.
+     * @param string|null $value Value to set for the passwordFormatString property.
     */
     public function setPasswordFormatString(?string $value): void {
         $this->getBackingStore()->set('passwordFormatString', $value);
@@ -219,7 +219,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the rootCertificatesForServerValidation property value. Trusted Root Certificates for Server Validation when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. If you provide this value you do not need to provide trustedServerCertificateNames, and vice versa. This collection can contain a maximum of 500 elements.
-     *  @param array<IosTrustedRootCertificate>|null $value Value to set for the rootCertificatesForServerValidation property.
+     * @param array<IosTrustedRootCertificate>|null $value Value to set for the rootCertificatesForServerValidation property.
     */
     public function setRootCertificatesForServerValidation(?array $value): void {
         $this->getBackingStore()->set('rootCertificatesForServerValidation', $value);
@@ -227,7 +227,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the trustedServerCertificateNames property value. Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users' devices when they connect to this Wi-Fi network.
-     *  @param array<string>|null $value Value to set for the trustedServerCertificateNames property.
+     * @param array<string>|null $value Value to set for the trustedServerCertificateNames property.
     */
     public function setTrustedServerCertificateNames(?array $value): void {
         $this->getBackingStore()->set('trustedServerCertificateNames', $value);
@@ -235,7 +235,7 @@ class IosEnterpriseWiFiConfiguration extends IosWiFiConfiguration implements Par
 
     /**
      * Sets the usernameFormatString property value. Username format string used to build the username to connect to wifi
-     *  @param string|null $value Value to set for the usernameFormatString property.
+     * @param string|null $value Value to set for the usernameFormatString property.
     */
     public function setUsernameFormatString(?string $value): void {
         $this->getBackingStore()->set('usernameFormatString', $value);

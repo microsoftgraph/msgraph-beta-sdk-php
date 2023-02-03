@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * configuration policies referencing the current reusable setting. This property is read-only.
+*/
 class DeviceManagementConfigurationPolicyItemRequestBuilderGetQueryParameters 
 {
     /**

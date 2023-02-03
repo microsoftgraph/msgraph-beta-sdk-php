@@ -159,7 +159,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the adminReview property value. Specifies the admin review property which constitutes of who reviewed the user submission, when and what was it identified as.
-     *  @param SubmissionAdminReview|null $value Value to set for the adminReview property.
+     * @param SubmissionAdminReview|null $value Value to set for the adminReview property.
     */
     public function setAdminReview(?SubmissionAdminReview $value): void {
         $this->getBackingStore()->set('adminReview', $value);
@@ -167,7 +167,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the category property value. The category property
-     *  @param SubmissionCategory|null $value Value to set for the category property.
+     * @param SubmissionCategory|null $value Value to set for the category property.
     */
     public function setCategory(?SubmissionCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -175,7 +175,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the clientSource property value. Specifies the source of the submission. The possible values are: microsoft,  other and unkownFutureValue.
-     *  @param SubmissionClientSource|null $value Value to set for the clientSource property.
+     * @param SubmissionClientSource|null $value Value to set for the clientSource property.
     */
     public function setClientSource(?SubmissionClientSource $value): void {
         $this->getBackingStore()->set('clientSource', $value);
@@ -183,7 +183,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the contentType property value. Specifies the type of content being submitted. The possible values are: email, url, file, app and unkownFutureValue.
-     *  @param SubmissionContentType|null $value Value to set for the contentType property.
+     * @param SubmissionContentType|null $value Value to set for the contentType property.
     */
     public function setContentType(?SubmissionContentType $value): void {
         $this->getBackingStore()->set('contentType', $value);
@@ -191,7 +191,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. Specifies who submitted the email as a threat. Supports $filter = createdBy/email eq 'value'.
-     *  @param SubmissionUserIdentity|null $value Value to set for the createdBy property.
+     * @param SubmissionUserIdentity|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?SubmissionUserIdentity $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -199,7 +199,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Specifies when the threat submission was created. Supports $filter = createdDateTime ge 2022-01-01T00:00:00Z and createdDateTime lt 2022-01-02T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -207,7 +207,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the result property value. Specifies the result of the analysis performed by Microsoft.
-     *  @param SubmissionResult|null $value Value to set for the result property.
+     * @param SubmissionResult|null $value Value to set for the result property.
     */
     public function setResult(?SubmissionResult $value): void {
         $this->getBackingStore()->set('result', $value);
@@ -215,7 +215,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the source property value. Specifies the role of the submitter. Supports $filter = source eq 'value'. The possible values are: administrator,  user and unkownFutureValue.
-     *  @param SubmissionSource|null $value Value to set for the source property.
+     * @param SubmissionSource|null $value Value to set for the source property.
     */
     public function setSource(?SubmissionSource $value): void {
         $this->getBackingStore()->set('source', $value);
@@ -223,7 +223,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the status property value. Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq 'value'. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.
-     *  @param LongRunningOperationStatus|null $value Value to set for the status property.
+     * @param LongRunningOperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?LongRunningOperationStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -231,7 +231,7 @@ class ThreatSubmission extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. Indicates the tenant id of the submitter. Not required when created using a POST operation. It is extracted from the token of the post API call.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of all compliance categories
+*/
 class DeviceManagementConfigurationCategoryItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationC
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Navigational property to a list of device states for this pool.
+*/
 class EmbeddedSIMDeviceStateItemRequestBuilderGetQueryParameters 
 {
     /**

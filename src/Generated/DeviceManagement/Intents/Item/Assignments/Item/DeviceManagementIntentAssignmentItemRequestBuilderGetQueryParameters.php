@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Assignmen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of assignments
+*/
 class DeviceManagementIntentAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**

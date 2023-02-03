@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\Hori
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the horizontalSection objects and their properties. Sort by `id` in ascending order.
+*/
 class HorizontalSectionsRequestBuilderGetQueryParameters 
 {
     /**

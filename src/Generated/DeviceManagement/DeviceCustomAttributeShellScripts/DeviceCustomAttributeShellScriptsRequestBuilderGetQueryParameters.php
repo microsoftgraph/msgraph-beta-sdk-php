@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCustomAttributeS
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of device custom attribute shell scripts associated with the tenant.
+*/
 class DeviceCustomAttributeShellScriptsRequestBuilderGetQueryParameters 
 {
     /**

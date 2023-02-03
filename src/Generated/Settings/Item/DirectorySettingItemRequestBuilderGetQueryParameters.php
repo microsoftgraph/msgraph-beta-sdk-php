@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Settings\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties of a specific directory setting object.
+*/
 class DirectorySettingItemRequestBuilderGetQueryParameters 
 {
     /**

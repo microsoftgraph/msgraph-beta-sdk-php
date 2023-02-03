@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserState
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A summary of user states and counts of users that belong to corresponding state for all users that the intent is applied to
+*/
 class UserStateSummaryRequestBuilderGetQueryParameters 
 {
     /**

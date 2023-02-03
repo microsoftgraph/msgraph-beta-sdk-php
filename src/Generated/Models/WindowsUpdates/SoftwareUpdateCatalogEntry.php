@@ -26,6 +26,7 @@ class SoftwareUpdateCatalogEntry extends CatalogEntry implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.driverUpdateCatalogEntry': return new DriverUpdateCatalogEntry();
                 case '#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry': return new FeatureUpdateCatalogEntry();
                 case '#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry': return new QualityUpdateCatalogEntry();
             }

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocatio
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of namedLocation objects.
+*/
 class NamedLocationsRequestBuilderGetQueryParameters 
 {
     /**

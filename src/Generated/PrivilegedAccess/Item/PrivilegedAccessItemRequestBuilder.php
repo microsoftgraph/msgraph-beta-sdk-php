@@ -20,11 +20,13 @@ use Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleSettings\RoleSettin
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the collection of privilegedAccess entities.
+*/
 class PrivilegedAccessItemRequestBuilder 
 {
     /**
@@ -79,29 +81,35 @@ class PrivilegedAccessItemRequestBuilder
     
     /**
      * Instantiates a new PrivilegedAccessItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $privilegedAccessId key: id of privilegedAccess
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $privilegedAccessId = null) {
         $this->urlTemplate = '{+baseurl}/privilegedAccess/{privilegedAccess%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['privilegedAccess%2Did'] = $privilegedAccessId;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete entity from privilegedAccess
      * @param PrivilegedAccessItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?PrivilegedAccessItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?PrivilegedAccessItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -110,17 +118,16 @@ class PrivilegedAccessItemRequestBuilder
     /**
      * Get entity from privilegedAccess by key
      * @param PrivilegedAccessItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?PrivilegedAccessItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?PrivilegedAccessItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PrivilegedAccess::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [PrivilegedAccess::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -130,17 +137,16 @@ class PrivilegedAccessItemRequestBuilder
      * Update entity in privilegedAccess
      * @param PrivilegedAccess $body The request body
      * @param PrivilegedAccessItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(PrivilegedAccess $body, ?PrivilegedAccessItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(PrivilegedAccess $body, ?PrivilegedAccessItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PrivilegedAccess::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [PrivilegedAccess::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -154,7 +160,7 @@ class PrivilegedAccessItemRequestBuilder
     public function resourcesById(string $id): GovernanceResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceResource%2Did'] = $id;
-        return new GovernanceResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GovernanceResourceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -165,7 +171,7 @@ class PrivilegedAccessItemRequestBuilder
     public function roleAssignmentRequestsById(string $id): GovernanceRoleAssignmentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleAssignmentRequest%2Did'] = $id;
-        return new GovernanceRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GovernanceRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -176,7 +182,7 @@ class PrivilegedAccessItemRequestBuilder
     public function roleAssignmentsById(string $id): GovernanceRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleAssignment%2Did'] = $id;
-        return new GovernanceRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GovernanceRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -187,7 +193,7 @@ class PrivilegedAccessItemRequestBuilder
     public function roleDefinitionsById(string $id): GovernanceRoleDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleDefinition%2Did'] = $id;
-        return new GovernanceRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GovernanceRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -198,7 +204,7 @@ class PrivilegedAccessItemRequestBuilder
     public function roleSettingsById(string $id): GovernanceRoleSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['governanceRoleSetting%2Did'] = $id;
-        return new GovernanceRoleSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GovernanceRoleSettingItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -213,7 +219,7 @@ class PrivilegedAccessItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -232,10 +238,10 @@ class PrivilegedAccessItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -258,10 +264,10 @@ class PrivilegedAccessItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

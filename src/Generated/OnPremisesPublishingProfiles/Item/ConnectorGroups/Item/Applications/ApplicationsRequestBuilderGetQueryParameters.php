@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Conne
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get applications from onPremisesPublishingProfiles
+*/
 class ApplicationsRequestBuilderGetQueryParameters 
 {
     /**

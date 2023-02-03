@@ -55,7 +55,7 @@ class Catalog extends Entity implements Parsable
 
     /**
      * Sets the entries property value. Lists the content that you can approve for deployment. Read-only.
-     *  @param array<CatalogEntry>|null $value Value to set for the entries property.
+     * @param array<CatalogEntry>|null $value Value to set for the entries property.
     */
     public function setEntries(?array $value): void {
         $this->getBackingStore()->set('entries', $value);

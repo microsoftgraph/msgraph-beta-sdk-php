@@ -95,7 +95,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the draftShift property value. The draft version of this shift that is viewable by managers. Required.
-     *  @param ShiftItem|null $value Value to set for the draftShift property.
+     * @param ShiftItem|null $value Value to set for the draftShift property.
     */
     public function setDraftShift(?ShiftItem $value): void {
         $this->getBackingStore()->set('draftShift', $value);
@@ -103,7 +103,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the isStagedForDeletion property value. The isStagedForDeletion property
-     *  @param bool|null $value Value to set for the isStagedForDeletion property.
+     * @param bool|null $value Value to set for the isStagedForDeletion property.
     */
     public function setIsStagedForDeletion(?bool $value): void {
         $this->getBackingStore()->set('isStagedForDeletion', $value);
@@ -111,7 +111,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the schedulingGroupId property value. The schedulingGroupId property
-     *  @param string|null $value Value to set for the schedulingGroupId property.
+     * @param string|null $value Value to set for the schedulingGroupId property.
     */
     public function setSchedulingGroupId(?string $value): void {
         $this->getBackingStore()->set('schedulingGroupId', $value);
@@ -119,7 +119,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the sharedShift property value. The sharedShift property
-     *  @param ShiftItem|null $value Value to set for the sharedShift property.
+     * @param ShiftItem|null $value Value to set for the sharedShift property.
     */
     public function setSharedShift(?ShiftItem $value): void {
         $this->getBackingStore()->set('sharedShift', $value);
@@ -127,7 +127,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the userId property value. The userId property
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

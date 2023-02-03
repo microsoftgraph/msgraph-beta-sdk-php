@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Programs;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * In the Azure AD access reviews feature, list all the program objects.
+*/
 class ProgramsRequestBuilderGetQueryParameters 
 {
     /**

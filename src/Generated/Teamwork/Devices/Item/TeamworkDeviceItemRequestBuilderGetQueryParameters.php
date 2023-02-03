@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Teams devices provisioned for the tenant.
+*/
 class TeamworkDeviceItemRequestBuilderGetQueryParameters 
 {
     /**

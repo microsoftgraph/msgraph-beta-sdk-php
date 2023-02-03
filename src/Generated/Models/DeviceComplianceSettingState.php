@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device compliance setting State for a given device.
+*/
 class DeviceComplianceSettingState extends Entity implements Parsable 
 {
     /**
@@ -165,7 +168,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the complianceGracePeriodExpirationDateTime property value. The DateTime when device compliance grace period expires
-     *  @param DateTime|null $value Value to set for the complianceGracePeriodExpirationDateTime property.
+     * @param DateTime|null $value Value to set for the complianceGracePeriodExpirationDateTime property.
     */
     public function setComplianceGracePeriodExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('complianceGracePeriodExpirationDateTime', $value);
@@ -173,7 +176,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The Device Id that is being reported
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -181,7 +184,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the deviceModel property value. The device model that is being reported
-     *  @param string|null $value Value to set for the deviceModel property.
+     * @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value): void {
         $this->getBackingStore()->set('deviceModel', $value);
@@ -189,7 +192,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. The Device Name that is being reported
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -197,7 +200,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the platformType property value. Device type.
-     *  @param DeviceType|null $value Value to set for the platformType property.
+     * @param DeviceType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?DeviceType $value): void {
         $this->getBackingStore()->set('platformType', $value);
@@ -205,7 +208,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the setting property value. The setting class name and property name.
-     *  @param string|null $value Value to set for the setting property.
+     * @param string|null $value Value to set for the setting property.
     */
     public function setSetting(?string $value): void {
         $this->getBackingStore()->set('setting', $value);
@@ -213,7 +216,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the settingName property value. The Setting Name that is being reported
-     *  @param string|null $value Value to set for the settingName property.
+     * @param string|null $value Value to set for the settingName property.
     */
     public function setSettingName(?string $value): void {
         $this->getBackingStore()->set('settingName', $value);
@@ -221,7 +224,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param ComplianceStatus|null $value Value to set for the state property.
+     * @param ComplianceStatus|null $value Value to set for the state property.
     */
     public function setState(?ComplianceStatus $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -229,7 +232,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the userEmail property value. The User email address that is being reported
-     *  @param string|null $value Value to set for the userEmail property.
+     * @param string|null $value Value to set for the userEmail property.
     */
     public function setUserEmail(?string $value): void {
         $this->getBackingStore()->set('userEmail', $value);
@@ -237,7 +240,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the userId property value. The user Id that is being reported
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -245,7 +248,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the userName property value. The User Name that is being reported
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);
@@ -253,7 +256,7 @@ class DeviceComplianceSettingState extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The User PrincipalName that is being reported
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

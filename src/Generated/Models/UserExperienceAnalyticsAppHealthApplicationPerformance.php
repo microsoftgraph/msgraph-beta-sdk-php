@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics application performance entity contains app performance details.
+*/
 class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity implements Parsable 
 {
     /**
@@ -144,7 +147,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the activeDeviceCount property value. The number of devices where the app has been active. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the activeDeviceCount property.
+     * @param int|null $value Value to set for the activeDeviceCount property.
     */
     public function setActiveDeviceCount(?int $value): void {
         $this->getBackingStore()->set('activeDeviceCount', $value);
@@ -152,7 +155,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the appCrashCount property value. The number of crashes for the app. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the appCrashCount property.
+     * @param int|null $value Value to set for the appCrashCount property.
     */
     public function setAppCrashCount(?int $value): void {
         $this->getBackingStore()->set('appCrashCount', $value);
@@ -160,7 +163,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the appDisplayName property value. The friendly name of the application.
-     *  @param string|null $value Value to set for the appDisplayName property.
+     * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
         $this->getBackingStore()->set('appDisplayName', $value);
@@ -168,7 +171,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the appHangCount property value. The number of hangs for the app. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the appHangCount property.
+     * @param int|null $value Value to set for the appHangCount property.
     */
     public function setAppHangCount(?int $value): void {
         $this->getBackingStore()->set('appHangCount', $value);
@@ -176,7 +179,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the appHealthScore property value. The health score of the app. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the appHealthScore property.
+     * @param float|null $value Value to set for the appHealthScore property.
     */
     public function setAppHealthScore(?float $value): void {
         $this->getBackingStore()->set('appHealthScore', $value);
@@ -184,7 +187,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the appHealthStatus property value. The overall health status of the app.
-     *  @param string|null $value Value to set for the appHealthStatus property.
+     * @param string|null $value Value to set for the appHealthStatus property.
     */
     public function setAppHealthStatus(?string $value): void {
         $this->getBackingStore()->set('appHealthStatus', $value);
@@ -192,7 +195,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the appName property value. The name of the application.
-     *  @param string|null $value Value to set for the appName property.
+     * @param string|null $value Value to set for the appName property.
     */
     public function setAppName(?string $value): void {
         $this->getBackingStore()->set('appName', $value);
@@ -200,7 +203,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the appPublisher property value. The publisher of the application.
-     *  @param string|null $value Value to set for the appPublisher property.
+     * @param string|null $value Value to set for the appPublisher property.
     */
     public function setAppPublisher(?string $value): void {
         $this->getBackingStore()->set('appPublisher', $value);
@@ -208,7 +211,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the appUsageDuration property value. The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the appUsageDuration property.
+     * @param int|null $value Value to set for the appUsageDuration property.
     */
     public function setAppUsageDuration(?int $value): void {
         $this->getBackingStore()->set('appUsageDuration', $value);
@@ -216,7 +219,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
 
     /**
      * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
+     * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
         $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);

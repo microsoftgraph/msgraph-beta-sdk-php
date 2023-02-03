@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleAss
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get roleAssignments from roleManagement
+*/
 class UnifiedRoleAssignmentMultipleItemRequestBuilderGetQueryParameters 
 {
     /**

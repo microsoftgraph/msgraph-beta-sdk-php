@@ -152,7 +152,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the definitions property value. The group policy definitions associated with the file.
-     *  @param array<GroupPolicyDefinition>|null $value Value to set for the definitions property.
+     * @param array<GroupPolicyDefinition>|null $value Value to set for the definitions property.
     */
     public function setDefinitions(?array $value): void {
         $this->getBackingStore()->set('definitions', $value);
@@ -160,7 +160,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the description property value. The localized description of the policy settings in the ADMX file. The default value is empty.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -168,7 +168,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The localized friendly name of the ADMX file.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -176,7 +176,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the fileName property value. The file name of the ADMX file without the path. For example: edge.admx
-     *  @param string|null $value Value to set for the fileName property.
+     * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
         $this->getBackingStore()->set('fileName', $value);
@@ -184,7 +184,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the languageCodes property value. The supported language codes for the ADMX file.
-     *  @param array<string>|null $value Value to set for the languageCodes property.
+     * @param array<string>|null $value Value to set for the languageCodes property.
     */
     public function setLanguageCodes(?array $value): void {
         $this->getBackingStore()->set('languageCodes', $value);
@@ -192,7 +192,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -200,7 +200,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the policyType property value. Type of Group Policy File or Definition.
-     *  @param GroupPolicyType|null $value Value to set for the policyType property.
+     * @param GroupPolicyType|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?GroupPolicyType $value): void {
         $this->getBackingStore()->set('policyType', $value);
@@ -208,7 +208,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the revision property value. The revision version associated with the file.
-     *  @param string|null $value Value to set for the revision property.
+     * @param string|null $value Value to set for the revision property.
     */
     public function setRevision(?string $value): void {
         $this->getBackingStore()->set('revision', $value);
@@ -216,7 +216,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the targetNamespace property value. Specifies the URI used to identify the namespace within the ADMX file.
-     *  @param string|null $value Value to set for the targetNamespace property.
+     * @param string|null $value Value to set for the targetNamespace property.
     */
     public function setTargetNamespace(?string $value): void {
         $this->getBackingStore()->set('targetNamespace', $value);
@@ -224,7 +224,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
 
     /**
      * Sets the targetPrefix property value. Specifies the logical name that refers to the namespace within the ADMX file.
-     *  @param string|null $value Value to set for the targetPrefix property.
+     * @param string|null $value Value to set for the targetPrefix property.
     */
     public function setTargetPrefix(?string $value): void {
         $this->getBackingStore()->set('targetPrefix', $value);

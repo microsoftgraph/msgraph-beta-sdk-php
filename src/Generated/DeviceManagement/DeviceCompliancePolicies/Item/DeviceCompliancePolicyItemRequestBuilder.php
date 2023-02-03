@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolici
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\Assignments\Item\DeviceCompliancePolicyAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\DeviceSettingStateSummaries\DeviceSettingStateSummariesRequestBuilder;
@@ -13,7 +12,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Ite
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\DeviceStatuses\Item\DeviceComplianceDeviceStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\DeviceStatusOverview\DeviceStatusOverviewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\ScheduleActionsForRules\ScheduleActionsForRulesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\MicrosoftGraphAssign\AssignRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\MicrosoftGraphScheduleActionsForRules\ScheduleActionsForRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\ScheduledActionsForRule\Item\DeviceComplianceScheduledActionForRuleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\ScheduledActionsForRule\ScheduledActionsForRuleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\UserStatuses\Item\DeviceComplianceUserStatusItemRequestBuilder;
@@ -24,20 +24,15 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
+*/
 class DeviceCompliancePolicyItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the assign method.
-    */
-    public function assign(): AssignRequestBuilder {
-        return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity.
     */
@@ -67,6 +62,20 @@ class DeviceCompliancePolicyItemRequestBuilder
     }
     
     /**
+     * Provides operations to call the assign method.
+    */
+    public function microsoftGraphAssign(): AssignRequestBuilder {
+        return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the scheduleActionsForRules method.
+    */
+    public function microsoftGraphScheduleActionsForRules(): ScheduleActionsForRulesRequestBuilder {
+        return new ScheduleActionsForRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */
     private array $pathParameters;
@@ -75,13 +84,6 @@ class DeviceCompliancePolicyItemRequestBuilder
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
-    
-    /**
-     * Provides operations to call the scheduleActionsForRules method.
-    */
-    public function scheduleActionsForRules(): ScheduleActionsForRulesRequestBuilder {
-        return new ScheduleActionsForRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -117,34 +119,40 @@ class DeviceCompliancePolicyItemRequestBuilder
     public function assignmentsById(string $id): DeviceCompliancePolicyAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceCompliancePolicyAssignment%2Did'] = $id;
-        return new DeviceCompliancePolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceCompliancePolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new DeviceCompliancePolicyItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $deviceCompliancePolicyId key: id of deviceCompliancePolicy
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $deviceCompliancePolicyId = null) {
         $this->urlTemplate = '{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['deviceCompliancePolicy%2Did'] = $deviceCompliancePolicyId;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property deviceCompliancePolicies for deviceManagement
      * @param DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -158,7 +166,7 @@ class DeviceCompliancePolicyItemRequestBuilder
     public function deviceSettingStateSummariesById(string $id): SettingStateDeviceSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['settingStateDeviceSummary%2Did'] = $id;
-        return new SettingStateDeviceSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SettingStateDeviceSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -169,23 +177,22 @@ class DeviceCompliancePolicyItemRequestBuilder
     public function deviceStatusesById(string $id): DeviceComplianceDeviceStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceComplianceDeviceStatus%2Did'] = $id;
-        return new DeviceComplianceDeviceStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceComplianceDeviceStatusItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * The device compliance policies.
      * @param DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceCompliancePolicy::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceCompliancePolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -195,17 +202,16 @@ class DeviceCompliancePolicyItemRequestBuilder
      * Update the navigation property deviceCompliancePolicies in deviceManagement
      * @param DeviceCompliancePolicy $body The request body
      * @param DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(DeviceCompliancePolicy $body, ?DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(DeviceCompliancePolicy $body, ?DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceCompliancePolicy::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceCompliancePolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -219,7 +225,7 @@ class DeviceCompliancePolicyItemRequestBuilder
     public function scheduledActionsForRuleById(string $id): DeviceComplianceScheduledActionForRuleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceComplianceScheduledActionForRule%2Did'] = $id;
-        return new DeviceComplianceScheduledActionForRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceComplianceScheduledActionForRuleItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -234,7 +240,7 @@ class DeviceCompliancePolicyItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -253,10 +259,10 @@ class DeviceCompliancePolicyItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -279,10 +285,10 @@ class DeviceCompliancePolicyItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -300,7 +306,7 @@ class DeviceCompliancePolicyItemRequestBuilder
     public function userStatusesById(string $id): DeviceComplianceUserStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceComplianceUserStatus%2Did'] = $id;
-        return new DeviceComplianceUserStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceComplianceUserStatusItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
 }

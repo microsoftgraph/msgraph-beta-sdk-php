@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Notes\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents notes that a user has added to their profile.
+*/
 class PersonAnnotationItemRequestBuilderGetQueryParameters 
 {
     /**

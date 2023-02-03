@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Cus
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The SharePoint site associated with the siteSource.
+*/
 class SiteRequestBuilderGetQueryParameters 
 {
     /**

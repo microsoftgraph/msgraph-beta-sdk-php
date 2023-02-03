@@ -55,7 +55,7 @@ class LabelsRoot extends Entity implements Parsable
 
     /**
      * Sets the retentionLabels property value. The retentionLabels property
-     *  @param array<RetentionLabel>|null $value Value to set for the retentionLabels property.
+     * @param array<RetentionLabel>|null $value Value to set for the retentionLabels property.
     */
     public function setRetentionLabels(?array $value): void {
         $this->getBackingStore()->set('retentionLabels', $value);

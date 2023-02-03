@@ -55,7 +55,7 @@ class ManagedAppProtectionPolicySetItem extends PolicySetItem implements Parsabl
 
     /**
      * Sets the targetedAppManagementLevels property value. TargetedAppManagementLevels of the ManagedAppPolicySetItem.
-     *  @param string|null $value Value to set for the targetedAppManagementLevels property.
+     * @param string|null $value Value to set for the targetedAppManagementLevels property.
     */
     public function setTargetedAppManagementLevels(?string $value): void {
         $this->getBackingStore()->set('targetedAppManagementLevels', $value);

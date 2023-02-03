@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get sharedEmailDomains from directory
+*/
 class SharedEmailDomainItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -56,7 +56,7 @@ class RuleBasedSubjectSet extends SubjectSet implements Parsable
 
     /**
      * Sets the rule property value. The rule for the subject set. Lifecycle Workflows supports a rich set of user properties for configuring the rules using $filter query expressions. For more information, see supported user and query parameters.
-     *  @param string|null $value Value to set for the rule property.
+     * @param string|null $value Value to set for the rule property.
     */
     public function setRule(?string $value): void {
         $this->getBackingStore()->set('rule', $value);

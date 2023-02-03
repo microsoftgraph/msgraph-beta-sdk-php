@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleDef
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get roleDefinitions from roleManagement
+*/
 class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**

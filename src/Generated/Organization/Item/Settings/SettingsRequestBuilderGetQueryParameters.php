@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties and relationships of an organizationSettings object, including **profileCardProperties**. This operation does not return insightsSettings. Depending on the type of insights, you can get their settings by using list itemInsights or list peopleInsights. This operation does not return microsoftApplicationDataAccessSettings. To get microsoftApplicationDataAccessSettings, use list microsoftApplicationDataAccessSettings.
+*/
 class SettingsRequestBuilderGetQueryParameters 
 {
     /**

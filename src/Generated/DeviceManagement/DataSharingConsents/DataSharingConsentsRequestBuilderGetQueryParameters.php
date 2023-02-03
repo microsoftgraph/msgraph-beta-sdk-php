@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DataSharingConsents;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Data sharing consents.
+*/
 class DataSharingConsentsRequestBuilderGetQueryParameters 
 {
     /**

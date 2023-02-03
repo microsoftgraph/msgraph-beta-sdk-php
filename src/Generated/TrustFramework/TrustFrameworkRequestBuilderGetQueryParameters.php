@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TrustFramework;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get trustFramework
+*/
 class TrustFrameworkRequestBuilderGetQueryParameters 
 {
     /**

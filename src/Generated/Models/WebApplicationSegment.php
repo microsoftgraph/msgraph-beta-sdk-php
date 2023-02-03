@@ -26,7 +26,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the alternateUrl property value. The alternateUrl property
+     * Gets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy application segments, this property contains the user-friendly URL that will point to the traffic manager.
      * @return string|null
     */
     public function getAlternateUrl(): ?string {
@@ -34,7 +34,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the corsConfigurations property value. The corsConfigurations property
+     * Gets the corsConfigurations property value. A collection of CORS Rule definitions for a particular application segment.
      * @return array<CorsConfiguration_v2>|null
     */
     public function getCorsConfigurations(): ?array {
@@ -42,7 +42,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the externalUrl property value. The externalUrl property
+     * Gets the externalUrl property value. The published external URL for the application segment; for example, https://intranet.contoso.com/.
      * @return string|null
     */
     public function getExternalUrl(): ?string {
@@ -64,7 +64,7 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Gets the internalUrl property value. The internalUrl property
+     * Gets the internalUrl property value. The internal URL of the application segment; for example, https://intranet/.
      * @return string|null
     */
     public function getInternalUrl(): ?string {
@@ -84,32 +84,32 @@ class WebApplicationSegment extends ApplicationSegment implements Parsable
     }
 
     /**
-     * Sets the alternateUrl property value. The alternateUrl property
-     *  @param string|null $value Value to set for the alternateUrl property.
+     * Sets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy application segments, this property contains the user-friendly URL that will point to the traffic manager.
+     * @param string|null $value Value to set for the alternateUrl property.
     */
     public function setAlternateUrl(?string $value): void {
         $this->getBackingStore()->set('alternateUrl', $value);
     }
 
     /**
-     * Sets the corsConfigurations property value. The corsConfigurations property
-     *  @param array<CorsConfiguration_v2>|null $value Value to set for the corsConfigurations property.
+     * Sets the corsConfigurations property value. A collection of CORS Rule definitions for a particular application segment.
+     * @param array<CorsConfiguration_v2>|null $value Value to set for the corsConfigurations property.
     */
     public function setCorsConfigurations(?array $value): void {
         $this->getBackingStore()->set('corsConfigurations', $value);
     }
 
     /**
-     * Sets the externalUrl property value. The externalUrl property
-     *  @param string|null $value Value to set for the externalUrl property.
+     * Sets the externalUrl property value. The published external URL for the application segment; for example, https://intranet.contoso.com/.
+     * @param string|null $value Value to set for the externalUrl property.
     */
     public function setExternalUrl(?string $value): void {
         $this->getBackingStore()->set('externalUrl', $value);
     }
 
     /**
-     * Sets the internalUrl property value. The internalUrl property
-     *  @param string|null $value Value to set for the internalUrl property.
+     * Sets the internalUrl property value. The internal URL of the application segment; for example, https://intranet/.
+     * @param string|null $value Value to set for the internalUrl property.
     */
     public function setInternalUrl(?string $value): void {
         $this->getBackingStore()->set('internalUrl', $value);

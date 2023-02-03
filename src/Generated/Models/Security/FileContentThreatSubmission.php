@@ -55,7 +55,7 @@ class FileContentThreatSubmission extends FileThreatSubmission implements Parsab
 
     /**
      * Sets the fileContent property value. It specifies the file content in base 64 format.
-     *  @param string|null $value Value to set for the fileContent property.
+     * @param string|null $value Value to set for the fileContent property.
     */
     public function setFileContent(?string $value): void {
         $this->getBackingStore()->set('fileContent', $value);

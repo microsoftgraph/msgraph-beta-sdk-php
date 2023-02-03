@@ -226,7 +226,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the address property value. The address property
-     *  @param PostalAddressType|null $value Value to set for the address property.
+     * @param PostalAddressType|null $value Value to set for the address property.
     */
     public function setAddress(?PostalAddressType $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -234,7 +234,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the birthDate property value. The birthDate property
-     *  @param Date|null $value Value to set for the birthDate property.
+     * @param Date|null $value Value to set for the birthDate property.
     */
     public function setBirthDate(?Date $value): void {
         $this->getBackingStore()->set('birthDate', $value);
@@ -242,7 +242,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -250,7 +250,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the email property value. The email property
-     *  @param string|null $value Value to set for the email property.
+     * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
@@ -258,7 +258,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the employmentDate property value. The employmentDate property
-     *  @param Date|null $value Value to set for the employmentDate property.
+     * @param Date|null $value Value to set for the employmentDate property.
     */
     public function setEmploymentDate(?Date $value): void {
         $this->getBackingStore()->set('employmentDate', $value);
@@ -266,7 +266,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the givenName property value. The givenName property
-     *  @param string|null $value Value to set for the givenName property.
+     * @param string|null $value Value to set for the givenName property.
     */
     public function setGivenName(?string $value): void {
         $this->getBackingStore()->set('givenName', $value);
@@ -274,7 +274,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the jobTitle property value. The jobTitle property
-     *  @param string|null $value Value to set for the jobTitle property.
+     * @param string|null $value Value to set for the jobTitle property.
     */
     public function setJobTitle(?string $value): void {
         $this->getBackingStore()->set('jobTitle', $value);
@@ -282,7 +282,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -290,7 +290,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the middleName property value. The middleName property
-     *  @param string|null $value Value to set for the middleName property.
+     * @param string|null $value Value to set for the middleName property.
     */
     public function setMiddleName(?string $value): void {
         $this->getBackingStore()->set('middleName', $value);
@@ -298,7 +298,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the mobilePhone property value. The mobilePhone property
-     *  @param string|null $value Value to set for the mobilePhone property.
+     * @param string|null $value Value to set for the mobilePhone property.
     */
     public function setMobilePhone(?string $value): void {
         $this->getBackingStore()->set('mobilePhone', $value);
@@ -306,7 +306,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the number property value. The number property
-     *  @param string|null $value Value to set for the number property.
+     * @param string|null $value Value to set for the number property.
     */
     public function setNumber(?string $value): void {
         $this->getBackingStore()->set('number', $value);
@@ -314,7 +314,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the personalEmail property value. The personalEmail property
-     *  @param string|null $value Value to set for the personalEmail property.
+     * @param string|null $value Value to set for the personalEmail property.
     */
     public function setPersonalEmail(?string $value): void {
         $this->getBackingStore()->set('personalEmail', $value);
@@ -322,7 +322,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the phoneNumber property value. The phoneNumber property
-     *  @param string|null $value Value to set for the phoneNumber property.
+     * @param string|null $value Value to set for the phoneNumber property.
     */
     public function setPhoneNumber(?string $value): void {
         $this->getBackingStore()->set('phoneNumber', $value);
@@ -330,7 +330,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the picture property value. The picture property
-     *  @param array<Picture>|null $value Value to set for the picture property.
+     * @param array<Picture>|null $value Value to set for the picture property.
     */
     public function setPicture(?array $value): void {
         $this->getBackingStore()->set('picture', $value);
@@ -338,7 +338,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the statisticsGroupCode property value. The statisticsGroupCode property
-     *  @param string|null $value Value to set for the statisticsGroupCode property.
+     * @param string|null $value Value to set for the statisticsGroupCode property.
     */
     public function setStatisticsGroupCode(?string $value): void {
         $this->getBackingStore()->set('statisticsGroupCode', $value);
@@ -346,7 +346,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -354,7 +354,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the surname property value. The surname property
-     *  @param string|null $value Value to set for the surname property.
+     * @param string|null $value Value to set for the surname property.
     */
     public function setSurname(?string $value): void {
         $this->getBackingStore()->set('surname', $value);
@@ -362,7 +362,7 @@ class Employee extends Entity implements Parsable
 
     /**
      * Sets the terminationDate property value. The terminationDate property
-     *  @param Date|null $value Value to set for the terminationDate property.
+     * @param Date|null $value Value to set for the terminationDate property.
     */
     public function setTerminationDate(?Date $value): void {
         $this->getBackingStore()->set('terminationDate', $value);

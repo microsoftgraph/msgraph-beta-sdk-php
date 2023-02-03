@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Connections\Item\Operations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get operations from connections
+*/
 class ConnectionOperationItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A container for all Windows administrator functionalities. Read-only.
+*/
 class WindowsRequestBuilderGetQueryParameters 
 {
     /**

@@ -95,7 +95,7 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
 
     /**
      * Sets the detectionScriptErrorDeviceCount property value. Number of devices on which the detection script execution encountered an error and did not complete. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the detectionScriptErrorDeviceCount property.
+     * @param int|null $value Value to set for the detectionScriptErrorDeviceCount property.
     */
     public function setDetectionScriptErrorDeviceCount(?int $value): void {
         $this->getBackingStore()->set('detectionScriptErrorDeviceCount', $value);
@@ -103,7 +103,7 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
 
     /**
      * Sets the detectionScriptPendingDeviceCount property value. Number of devices which have not yet run the latest version of the device compliance script. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the detectionScriptPendingDeviceCount property.
+     * @param int|null $value Value to set for the detectionScriptPendingDeviceCount property.
     */
     public function setDetectionScriptPendingDeviceCount(?int $value): void {
         $this->getBackingStore()->set('detectionScriptPendingDeviceCount', $value);
@@ -111,7 +111,7 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
 
     /**
      * Sets the issueDetectedDeviceCount property value. Number of devices for which the detection script found an issue. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the issueDetectedDeviceCount property.
+     * @param int|null $value Value to set for the issueDetectedDeviceCount property.
     */
     public function setIssueDetectedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('issueDetectedDeviceCount', $value);
@@ -119,7 +119,7 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
 
     /**
      * Sets the lastScriptRunDateTime property value. Last run time for the script across all devices
-     *  @param DateTime|null $value Value to set for the lastScriptRunDateTime property.
+     * @param DateTime|null $value Value to set for the lastScriptRunDateTime property.
     */
     public function setLastScriptRunDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastScriptRunDateTime', $value);
@@ -127,7 +127,7 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
 
     /**
      * Sets the noIssueDetectedDeviceCount property value. Number of devices for which the detection script did not find an issue and the device is healthy. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the noIssueDetectedDeviceCount property.
+     * @param int|null $value Value to set for the noIssueDetectedDeviceCount property.
     */
     public function setNoIssueDetectedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('noIssueDetectedDeviceCount', $value);

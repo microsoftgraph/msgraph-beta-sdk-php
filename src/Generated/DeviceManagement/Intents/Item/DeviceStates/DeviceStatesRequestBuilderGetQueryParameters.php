@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceSta
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of states of all devices that the intent is applied to
+*/
 class DeviceStatesRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Activities;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get activities from me
+*/
 class ActivitiesRequestBuilderGetQueryParameters 
 {
     /**

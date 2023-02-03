@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\Languages\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the userFlowLanguagePage resources from the defaultPages navigation property. These contain the values shown to the user in a default user journey of a user flow.
+*/
 class DefaultPagesRequestBuilderGetQueryParameters 
 {
     /**

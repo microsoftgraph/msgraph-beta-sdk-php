@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that stores the server log collection status.
+*/
 class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsable 
 {
     /**
@@ -115,7 +118,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
 
     /**
      * Sets the endDateTime property value. The end time of the logs collected
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -123,7 +126,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
 
     /**
      * Sets the expiryDateTime property value. The time when the log collection is expired
-     *  @param DateTime|null $value Value to set for the expiryDateTime property.
+     * @param DateTime|null $value Value to set for the expiryDateTime property.
     */
     public function setExpiryDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expiryDateTime', $value);
@@ -131,7 +134,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
 
     /**
      * Sets the requestDateTime property value. The time when the log collection was requested
-     *  @param DateTime|null $value Value to set for the requestDateTime property.
+     * @param DateTime|null $value Value to set for the requestDateTime property.
     */
     public function setRequestDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('requestDateTime', $value);
@@ -139,7 +142,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
 
     /**
      * Sets the serverId property value. ID of the server the log collection is requested upon
-     *  @param string|null $value Value to set for the serverId property.
+     * @param string|null $value Value to set for the serverId property.
     */
     public function setServerId(?string $value): void {
         $this->getBackingStore()->set('serverId', $value);
@@ -147,7 +150,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
 
     /**
      * Sets the sizeInBytes property value. The size of the logs in bytes
-     *  @param int|null $value Value to set for the sizeInBytes property.
+     * @param int|null $value Value to set for the sizeInBytes property.
     */
     public function setSizeInBytes(?int $value): void {
         $this->getBackingStore()->set('sizeInBytes', $value);
@@ -155,7 +158,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
 
     /**
      * Sets the startDateTime property value. The start time of the logs collected
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -163,7 +166,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
 
     /**
      * Sets the status property value. Enum type that represent the status of log collection
-     *  @param MicrosoftTunnelLogCollectionStatus|null $value Value to set for the status property.
+     * @param MicrosoftTunnelLogCollectionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?MicrosoftTunnelLogCollectionStatus $value): void {
         $this->getBackingStore()->set('status', $value);

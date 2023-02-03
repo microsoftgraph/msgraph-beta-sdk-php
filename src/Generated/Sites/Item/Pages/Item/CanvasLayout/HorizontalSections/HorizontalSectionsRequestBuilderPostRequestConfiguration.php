@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item\CanvasLayout\Hori
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class HorizontalSectionsRequestBuilderPostRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     

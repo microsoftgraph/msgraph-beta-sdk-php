@@ -56,7 +56,7 @@ class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the configurationXml property value. Configuration XML that will be applied to the device. When it is read, it only provides a placeholder string since the original data is encrypted and stored.
-     *  @param StreamInterface|null $value Value to set for the configurationXml property.
+     * @param StreamInterface|null $value Value to set for the configurationXml property.
     */
     public function setConfigurationXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('configurationXml', $value);

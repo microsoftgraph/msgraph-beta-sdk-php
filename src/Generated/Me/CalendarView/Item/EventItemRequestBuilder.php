@@ -5,43 +5,38 @@ namespace Microsoft\Graph\Beta\Generated\Me\CalendarView\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Accept\AcceptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Attachments\AttachmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Attachments\Item\AttachmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Calendar\CalendarRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Cancel\CancelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Decline\DeclineRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\DismissReminder\DismissReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\ExceptionOccurrences\ExceptionOccurrencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Extensions\Item\ExtensionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Forward\ForwardRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Instances\InstancesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\MicrosoftGraphAccept\AcceptRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\MicrosoftGraphCancel\CancelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\MicrosoftGraphDecline\DeclineRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\MicrosoftGraphDismissReminder\DismissReminderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\MicrosoftGraphForward\ForwardRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\MicrosoftGraphSnoozeReminder\SnoozeReminderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\MicrosoftGraphTentativelyAccept\TentativelyAcceptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\MultiValueExtendedProperties\Item\MultiValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\SingleValueExtendedProperties\Item\SingleValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Event;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the calendarView property of the microsoft.graph.user entity.
+*/
 class EventItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the accept method.
-    */
-    public function accept(): AcceptRequestBuilder {
-        return new AcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.event entity.
     */
@@ -54,27 +49,6 @@ class EventItemRequestBuilder
     */
     public function calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the cancel method.
-    */
-    public function cancel(): CancelRequestBuilder {
-        return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the decline method.
-    */
-    public function decline(): DeclineRequestBuilder {
-        return new DeclineRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the dismissReminder method.
-    */
-    public function dismissReminder(): DismissReminderRequestBuilder {
-        return new DismissReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -92,17 +66,59 @@ class EventItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the forward method.
-    */
-    public function forward(): ForwardRequestBuilder {
-        return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the instances property of the microsoft.graph.event entity.
     */
     public function instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the accept method.
+    */
+    public function microsoftGraphAccept(): AcceptRequestBuilder {
+        return new AcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the cancel method.
+    */
+    public function microsoftGraphCancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the decline method.
+    */
+    public function microsoftGraphDecline(): DeclineRequestBuilder {
+        return new DeclineRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the dismissReminder method.
+    */
+    public function microsoftGraphDismissReminder(): DismissReminderRequestBuilder {
+        return new DismissReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the forward method.
+    */
+    public function microsoftGraphForward(): ForwardRequestBuilder {
+        return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the snoozeReminder method.
+    */
+    public function microsoftGraphSnoozeReminder(): SnoozeReminderRequestBuilder {
+        return new SnoozeReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the tentativelyAccept method.
+    */
+    public function microsoftGraphTentativelyAccept(): TentativelyAcceptRequestBuilder {
+        return new TentativelyAcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -130,20 +146,6 @@ class EventItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the snoozeReminder method.
-    */
-    public function snoozeReminder(): SnoozeReminderRequestBuilder {
-        return new SnoozeReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the tentativelyAccept method.
-    */
-    public function tentativelyAccept(): TentativelyAcceptRequestBuilder {
-        return new TentativelyAcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
@@ -156,18 +158,25 @@ class EventItemRequestBuilder
     public function attachmentsById(string $id): AttachmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['attachment%2Did'] = $id;
-        return new AttachmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AttachmentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new EventItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $eventId key: id of event
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $eventId = null) {
         $this->urlTemplate = '{+baseurl}/me/calendarView/{event%2Did}{?startDateTime*,endDateTime*,%24select}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['event%2Did'] = $eventId;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
@@ -178,7 +187,7 @@ class EventItemRequestBuilder
     public function exceptionOccurrencesById(string $id): \Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\ExceptionOccurrences\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\ExceptionOccurrences\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\ExceptionOccurrences\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -189,23 +198,22 @@ class EventItemRequestBuilder
     public function extensionsById(string $id): ExtensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['extension%2Did'] = $id;
-        return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * The calendar view for the calendar. Read-only. Nullable.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?EventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?EventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Event::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Event::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -219,7 +227,7 @@ class EventItemRequestBuilder
     public function instancesById(string $id): \Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Instances\Item\EventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['event%2Did1'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Instances\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Instances\Item\EventItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -230,7 +238,7 @@ class EventItemRequestBuilder
     public function multiValueExtendedPropertiesById(string $id): MultiValueLegacyExtendedPropertyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['multiValueLegacyExtendedProperty%2Did'] = $id;
-        return new MultiValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MultiValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -241,7 +249,7 @@ class EventItemRequestBuilder
     public function singleValueExtendedPropertiesById(string $id): SingleValueLegacyExtendedPropertyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['singleValueLegacyExtendedProperty%2Did'] = $id;
-        return new SingleValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SingleValueLegacyExtendedPropertyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -254,10 +262,10 @@ class EventItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);

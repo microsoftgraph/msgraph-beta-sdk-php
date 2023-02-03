@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\ItemInsights;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the user-customizable privacy settings for itemInsights and meeting hours insights.
+*/
 class ItemInsightsRequestBuilderGetQueryParameters 
 {
     /**

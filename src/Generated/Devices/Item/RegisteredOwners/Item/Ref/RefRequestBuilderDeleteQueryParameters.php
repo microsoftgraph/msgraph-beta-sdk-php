@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\RegisteredOwners\Item\Ref;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property registeredOwners for devices
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Represents a custom attribute script for macOS.
+*/
 class DeviceCustomAttributeShellScript extends Entity implements Parsable 
 {
     /**
@@ -194,7 +197,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments for the device management script.
-     *  @param array<DeviceManagementScriptAssignment>|null $value Value to set for the assignments property.
+     * @param array<DeviceManagementScriptAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -202,7 +205,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the device management script was created. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -210,7 +213,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the customAttributeName property value. The name of the custom attribute.
-     *  @param string|null $value Value to set for the customAttributeName property.
+     * @param string|null $value Value to set for the customAttributeName property.
     */
     public function setCustomAttributeName(?string $value): void {
         $this->getBackingStore()->set('customAttributeName', $value);
@@ -218,7 +221,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the customAttributeType property value. Represents the expected type for a macOS custom attribute script value.
-     *  @param DeviceCustomAttributeValueType|null $value Value to set for the customAttributeType property.
+     * @param DeviceCustomAttributeValueType|null $value Value to set for the customAttributeType property.
     */
     public function setCustomAttributeType(?DeviceCustomAttributeValueType $value): void {
         $this->getBackingStore()->set('customAttributeType', $value);
@@ -226,7 +229,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the description property value. Optional description for the device management script.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -234,7 +237,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the deviceRunStates property value. List of run states for this script across all devices.
-     *  @param array<DeviceManagementScriptDeviceState>|null $value Value to set for the deviceRunStates property.
+     * @param array<DeviceManagementScriptDeviceState>|null $value Value to set for the deviceRunStates property.
     */
     public function setDeviceRunStates(?array $value): void {
         $this->getBackingStore()->set('deviceRunStates', $value);
@@ -242,7 +245,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the device management script.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -250,7 +253,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the fileName property value. Script file name.
-     *  @param string|null $value Value to set for the fileName property.
+     * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
         $this->getBackingStore()->set('fileName', $value);
@@ -258,7 +261,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the groupAssignments property value. The list of group assignments for the device management script.
-     *  @param array<DeviceManagementScriptGroupAssignment>|null $value Value to set for the groupAssignments property.
+     * @param array<DeviceManagementScriptGroupAssignment>|null $value Value to set for the groupAssignments property.
     */
     public function setGroupAssignments(?array $value): void {
         $this->getBackingStore()->set('groupAssignments', $value);
@@ -266,7 +269,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the device management script was last modified. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -274,7 +277,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tag IDs for this PowerShellScript instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -282,7 +285,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the runAsAccount property value. Indicates the type of execution context the app runs in.
-     *  @param RunAsAccountType|null $value Value to set for the runAsAccount property.
+     * @param RunAsAccountType|null $value Value to set for the runAsAccount property.
     */
     public function setRunAsAccount(?RunAsAccountType $value): void {
         $this->getBackingStore()->set('runAsAccount', $value);
@@ -290,7 +293,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the runSummary property value. Run summary for device management script.
-     *  @param DeviceManagementScriptRunSummary|null $value Value to set for the runSummary property.
+     * @param DeviceManagementScriptRunSummary|null $value Value to set for the runSummary property.
     */
     public function setRunSummary(?DeviceManagementScriptRunSummary $value): void {
         $this->getBackingStore()->set('runSummary', $value);
@@ -298,7 +301,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the scriptContent property value. The script content.
-     *  @param StreamInterface|null $value Value to set for the scriptContent property.
+     * @param StreamInterface|null $value Value to set for the scriptContent property.
     */
     public function setScriptContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('scriptContent', $value);
@@ -306,7 +309,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
 
     /**
      * Sets the userRunStates property value. List of run states for this script across all users.
-     *  @param array<DeviceManagementScriptUserState>|null $value Value to set for the userRunStates property.
+     * @param array<DeviceManagementScriptUserState>|null $value Value to set for the userRunStates property.
     */
     public function setUserRunStates(?array $value): void {
         $this->getBackingStore()->set('userRunStates', $value);

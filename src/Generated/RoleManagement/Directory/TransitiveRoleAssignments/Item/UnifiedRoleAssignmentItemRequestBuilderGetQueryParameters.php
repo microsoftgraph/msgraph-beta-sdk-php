@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\TransitiveRole
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get transitiveRoleAssignments from roleManagement
+*/
 class UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**

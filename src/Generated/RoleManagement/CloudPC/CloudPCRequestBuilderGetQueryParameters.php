@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get cloudPC from roleManagement
+*/
 class CloudPCRequestBuilderGetQueryParameters 
 {
     /**

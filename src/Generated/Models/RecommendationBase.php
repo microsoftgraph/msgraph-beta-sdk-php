@@ -1,0 +1,413 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class RecommendationBase extends Entity implements Parsable 
+{
+    /**
+     * Instantiates a new recommendationBase and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return RecommendationBase
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RecommendationBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.recommendation': return new Recommendation();
+            }
+        }
+        return new RecommendationBase();
+    }
+
+    /**
+     * Gets the actionSteps property value. List of actions to take to complete a recommendation.
+     * @return array<ActionStep>|null
+    */
+    public function getActionSteps(): ?array {
+        return $this->getBackingStore()->get('actionSteps');
+    }
+
+    /**
+     * Gets the benefits property value. An explanation of why completing the recommendation will benefit you. Corresponds to the Value section of a recommendation shown in the Azure AD portal.
+     * @return string|null
+    */
+    public function getBenefits(): ?string {
+        return $this->getBackingStore()->get('benefits');
+    }
+
+    /**
+     * Gets the category property value. The category property
+     * @return RecommendationCategory|null
+    */
+    public function getCategory(): ?RecommendationCategory {
+        return $this->getBackingStore()->get('category');
+    }
+
+    /**
+     * Gets the createdDateTime property value. The date and time when the recommendation was detected as applicable to your directory.
+     * @return DateTime|null
+    */
+    public function getCreatedDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('createdDateTime');
+    }
+
+    /**
+     * Gets the currentScore property value. The number of points the tenant has attained. Only applies to recommendations with category set to identitySecureScore.
+     * @return float|null
+    */
+    public function getCurrentScore(): ?float {
+        return $this->getBackingStore()->get('currentScore');
+    }
+
+    /**
+     * Gets the displayName property value. The title of the recommendation.
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        return $this->getBackingStore()->get('displayName');
+    }
+
+    /**
+     * Gets the featureAreas property value. The directory feature that the recommendation is related to.
+     * @return array<RecommendationFeatureAreas>|null
+    */
+    public function getFeatureAreas(): ?array {
+        return $this->getBackingStore()->get('featureAreas');
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return array_merge(parent::getFieldDeserializers(), [
+            'actionSteps' => fn(ParseNode $n) => $o->setActionSteps($n->getCollectionOfObjectValues([ActionStep::class, 'createFromDiscriminatorValue'])),
+            'benefits' => fn(ParseNode $n) => $o->setBenefits($n->getStringValue()),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(RecommendationCategory::class)),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'currentScore' => fn(ParseNode $n) => $o->setCurrentScore($n->getFloatValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'featureAreas' => fn(ParseNode $n) => $o->setFeatureAreas($n->getCollectionOfEnumValues(RecommendationFeatureAreas::class)),
+            'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
+            'impactStartDateTime' => fn(ParseNode $n) => $o->setImpactStartDateTime($n->getDateTimeValue()),
+            'impactType' => fn(ParseNode $n) => $o->setImpactType($n->getStringValue()),
+            'insights' => fn(ParseNode $n) => $o->setInsights($n->getStringValue()),
+            'lastCheckedDateTime' => fn(ParseNode $n) => $o->setLastCheckedDateTime($n->getDateTimeValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'maxScore' => fn(ParseNode $n) => $o->setMaxScore($n->getFloatValue()),
+            'postponeUntilDateTime' => fn(ParseNode $n) => $o->setPostponeUntilDateTime($n->getDateTimeValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(RecommendationPriority::class)),
+            'recommendationType' => fn(ParseNode $n) => $o->setRecommendationType($n->getEnumValue(RecommendationType::class)),
+            'remediationImpact' => fn(ParseNode $n) => $o->setRemediationImpact($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RecommendationStatus::class)),
+        ]);
+    }
+
+    /**
+     * Gets the impactedResources property value. The list of directory objects associated with the recommendation.
+     * @return array<ImpactedResource>|null
+    */
+    public function getImpactedResources(): ?array {
+        return $this->getBackingStore()->get('impactedResources');
+    }
+
+    /**
+     * Gets the impactStartDateTime property value. The future date and time when a recommendation should be completed.
+     * @return DateTime|null
+    */
+    public function getImpactStartDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('impactStartDateTime');
+    }
+
+    /**
+     * Gets the impactType property value. Indicates the scope of impact of a recommendation. Tenant level indicates that the recommendation impacts the whole tenant. Other possible values include users, applications.
+     * @return string|null
+    */
+    public function getImpactType(): ?string {
+        return $this->getBackingStore()->get('impactType');
+    }
+
+    /**
+     * Gets the insights property value. Describes why a recommendation uniquely applies to your directory. Corresponds to the Description section of a recommendation shown in the Azure AD portal.
+     * @return string|null
+    */
+    public function getInsights(): ?string {
+        return $this->getBackingStore()->get('insights');
+    }
+
+    /**
+     * Gets the lastCheckedDateTime property value. The most recent date and time a recommendation was deemed applicable to your directory.
+     * @return DateTime|null
+    */
+    public function getLastCheckedDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('lastCheckedDateTime');
+    }
+
+    /**
+     * Gets the lastModifiedBy property value. Name of the user who last updated the status of the recommendation.
+     * @return string|null
+    */
+    public function getLastModifiedBy(): ?string {
+        return $this->getBackingStore()->get('lastModifiedBy');
+    }
+
+    /**
+     * Gets the lastModifiedDateTime property value. The date and time the status of a recommendation was last updated.
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('lastModifiedDateTime');
+    }
+
+    /**
+     * Gets the maxScore property value. The maximum number of points attainable. Only applies to recommendations with category set to identitySecureScore.
+     * @return float|null
+    */
+    public function getMaxScore(): ?float {
+        return $this->getBackingStore()->get('maxScore');
+    }
+
+    /**
+     * Gets the postponeUntilDateTime property value. The future date and time when the status of a postponed recommendation will be active again.
+     * @return DateTime|null
+    */
+    public function getPostponeUntilDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('postponeUntilDateTime');
+    }
+
+    /**
+     * Gets the priority property value. The priority property
+     * @return RecommendationPriority|null
+    */
+    public function getPriority(): ?RecommendationPriority {
+        return $this->getBackingStore()->get('priority');
+    }
+
+    /**
+     * Gets the recommendationType property value. Friendly shortname to identify the recommendation. The possible values are: adfsAppsMigration, enableDesktopSSO, enablePHS, enableProvisioning, switchFromPerUserMFA, tenantMFA, thirdPartyApps, turnOffPerUserMFA, useAuthenticatorApp, useMyApps, staleApps, staleAppCreds, applicationCredentialExpiry, servicePrincipalKeyExpiry, adminMFAV2, blockLegacyAuthentication, integratedApps, mfaRegistrationV2, pwagePolicyNew, passwordHashSync, oneAdmin, roleOverlap, selfServicePasswordReset, signinRiskPolicy, userRiskPolicy, verifyAppPublisher, privateLinkForAAD, appRoleAssignmentsGroups, appRoleAssignmentsUsers, managedIdentity, overprivilegedApps, unknownFutureValue.
+     * @return RecommendationType|null
+    */
+    public function getRecommendationType(): ?RecommendationType {
+        return $this->getBackingStore()->get('recommendationType');
+    }
+
+    /**
+     * Gets the remediationImpact property value. Description of the impact on users of the remediation. Only applies to recommendations with category set to identitySecureScore.
+     * @return string|null
+    */
+    public function getRemediationImpact(): ?string {
+        return $this->getBackingStore()->get('remediationImpact');
+    }
+
+    /**
+     * Gets the status property value. The status property
+     * @return RecommendationStatus|null
+    */
+    public function getStatus(): ?RecommendationStatus {
+        return $this->getBackingStore()->get('status');
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('actionSteps', $this->getActionSteps());
+        $writer->writeStringValue('benefits', $this->getBenefits());
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeFloatValue('currentScore', $this->getCurrentScore());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfEnumValues('featureAreas', $this->getFeatureAreas());
+        $writer->writeCollectionOfObjectValues('impactedResources', $this->getImpactedResources());
+        $writer->writeDateTimeValue('impactStartDateTime', $this->getImpactStartDateTime());
+        $writer->writeStringValue('impactType', $this->getImpactType());
+        $writer->writeStringValue('insights', $this->getInsights());
+        $writer->writeDateTimeValue('lastCheckedDateTime', $this->getLastCheckedDateTime());
+        $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeFloatValue('maxScore', $this->getMaxScore());
+        $writer->writeDateTimeValue('postponeUntilDateTime', $this->getPostponeUntilDateTime());
+        $writer->writeEnumValue('priority', $this->getPriority());
+        $writer->writeEnumValue('recommendationType', $this->getRecommendationType());
+        $writer->writeStringValue('remediationImpact', $this->getRemediationImpact());
+        $writer->writeEnumValue('status', $this->getStatus());
+    }
+
+    /**
+     * Sets the actionSteps property value. List of actions to take to complete a recommendation.
+     * @param array<ActionStep>|null $value Value to set for the actionSteps property.
+    */
+    public function setActionSteps(?array $value): void {
+        $this->getBackingStore()->set('actionSteps', $value);
+    }
+
+    /**
+     * Sets the benefits property value. An explanation of why completing the recommendation will benefit you. Corresponds to the Value section of a recommendation shown in the Azure AD portal.
+     * @param string|null $value Value to set for the benefits property.
+    */
+    public function setBenefits(?string $value): void {
+        $this->getBackingStore()->set('benefits', $value);
+    }
+
+    /**
+     * Sets the category property value. The category property
+     * @param RecommendationCategory|null $value Value to set for the category property.
+    */
+    public function setCategory(?RecommendationCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
+    }
+
+    /**
+     * Sets the createdDateTime property value. The date and time when the recommendation was detected as applicable to your directory.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
+    */
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the currentScore property value. The number of points the tenant has attained. Only applies to recommendations with category set to identitySecureScore.
+     * @param float|null $value Value to set for the currentScore property.
+    */
+    public function setCurrentScore(?float $value): void {
+        $this->getBackingStore()->set('currentScore', $value);
+    }
+
+    /**
+     * Sets the displayName property value. The title of the recommendation.
+     * @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the featureAreas property value. The directory feature that the recommendation is related to.
+     * @param array<RecommendationFeatureAreas>|null $value Value to set for the featureAreas property.
+    */
+    public function setFeatureAreas(?array $value): void {
+        $this->getBackingStore()->set('featureAreas', $value);
+    }
+
+    /**
+     * Sets the impactedResources property value. The list of directory objects associated with the recommendation.
+     * @param array<ImpactedResource>|null $value Value to set for the impactedResources property.
+    */
+    public function setImpactedResources(?array $value): void {
+        $this->getBackingStore()->set('impactedResources', $value);
+    }
+
+    /**
+     * Sets the impactStartDateTime property value. The future date and time when a recommendation should be completed.
+     * @param DateTime|null $value Value to set for the impactStartDateTime property.
+    */
+    public function setImpactStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('impactStartDateTime', $value);
+    }
+
+    /**
+     * Sets the impactType property value. Indicates the scope of impact of a recommendation. Tenant level indicates that the recommendation impacts the whole tenant. Other possible values include users, applications.
+     * @param string|null $value Value to set for the impactType property.
+    */
+    public function setImpactType(?string $value): void {
+        $this->getBackingStore()->set('impactType', $value);
+    }
+
+    /**
+     * Sets the insights property value. Describes why a recommendation uniquely applies to your directory. Corresponds to the Description section of a recommendation shown in the Azure AD portal.
+     * @param string|null $value Value to set for the insights property.
+    */
+    public function setInsights(?string $value): void {
+        $this->getBackingStore()->set('insights', $value);
+    }
+
+    /**
+     * Sets the lastCheckedDateTime property value. The most recent date and time a recommendation was deemed applicable to your directory.
+     * @param DateTime|null $value Value to set for the lastCheckedDateTime property.
+    */
+    public function setLastCheckedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastCheckedDateTime', $value);
+    }
+
+    /**
+     * Sets the lastModifiedBy property value. Name of the user who last updated the status of the recommendation.
+     * @param string|null $value Value to set for the lastModifiedBy property.
+    */
+    public function setLastModifiedBy(?string $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
+    }
+
+    /**
+     * Sets the lastModifiedDateTime property value. The date and time the status of a recommendation was last updated.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the maxScore property value. The maximum number of points attainable. Only applies to recommendations with category set to identitySecureScore.
+     * @param float|null $value Value to set for the maxScore property.
+    */
+    public function setMaxScore(?float $value): void {
+        $this->getBackingStore()->set('maxScore', $value);
+    }
+
+    /**
+     * Sets the postponeUntilDateTime property value. The future date and time when the status of a postponed recommendation will be active again.
+     * @param DateTime|null $value Value to set for the postponeUntilDateTime property.
+    */
+    public function setPostponeUntilDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('postponeUntilDateTime', $value);
+    }
+
+    /**
+     * Sets the priority property value. The priority property
+     * @param RecommendationPriority|null $value Value to set for the priority property.
+    */
+    public function setPriority(?RecommendationPriority $value): void {
+        $this->getBackingStore()->set('priority', $value);
+    }
+
+    /**
+     * Sets the recommendationType property value. Friendly shortname to identify the recommendation. The possible values are: adfsAppsMigration, enableDesktopSSO, enablePHS, enableProvisioning, switchFromPerUserMFA, tenantMFA, thirdPartyApps, turnOffPerUserMFA, useAuthenticatorApp, useMyApps, staleApps, staleAppCreds, applicationCredentialExpiry, servicePrincipalKeyExpiry, adminMFAV2, blockLegacyAuthentication, integratedApps, mfaRegistrationV2, pwagePolicyNew, passwordHashSync, oneAdmin, roleOverlap, selfServicePasswordReset, signinRiskPolicy, userRiskPolicy, verifyAppPublisher, privateLinkForAAD, appRoleAssignmentsGroups, appRoleAssignmentsUsers, managedIdentity, overprivilegedApps, unknownFutureValue.
+     * @param RecommendationType|null $value Value to set for the recommendationType property.
+    */
+    public function setRecommendationType(?RecommendationType $value): void {
+        $this->getBackingStore()->set('recommendationType', $value);
+    }
+
+    /**
+     * Sets the remediationImpact property value. Description of the impact on users of the remediation. Only applies to recommendations with category set to identitySecureScore.
+     * @param string|null $value Value to set for the remediationImpact property.
+    */
+    public function setRemediationImpact(?string $value): void {
+        $this->getBackingStore()->set('remediationImpact', $value);
+    }
+
+    /**
+     * Sets the status property value. The status property
+     * @param RecommendationStatus|null $value Value to set for the status property.
+    */
+    public function setStatus(?RecommendationStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
+    }
+
+}

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the unifiedRoleEligibilityScheduleInstance objects and their properties.
+*/
 class RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters 
 {
     /**

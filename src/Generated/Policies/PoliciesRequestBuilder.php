@@ -51,11 +51,13 @@ use Microsoft\Graph\Beta\Generated\Policies\TokenLifetimePolicies\TokenLifetimeP
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the policyRoot singleton.
+*/
 class PoliciesRequestBuilder 
 {
     /**
@@ -270,7 +272,7 @@ class PoliciesRequestBuilder
     public function activityBasedTimeoutPoliciesById(string $id): ActivityBasedTimeoutPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['activityBasedTimeoutPolicy%2Did'] = $id;
-        return new ActivityBasedTimeoutPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ActivityBasedTimeoutPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -281,7 +283,7 @@ class PoliciesRequestBuilder
     public function appManagementPoliciesById(string $id): AppManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['appManagementPolicy%2Did'] = $id;
-        return new AppManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AppManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -292,7 +294,7 @@ class PoliciesRequestBuilder
     public function authenticationStrengthPoliciesById(string $id): AuthenticationStrengthPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['authenticationStrengthPolicy%2Did'] = $id;
-        return new AuthenticationStrengthPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AuthenticationStrengthPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -303,7 +305,7 @@ class PoliciesRequestBuilder
     public function authorizationPolicyById(string $id): AuthorizationPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['authorizationPolicy%2Did'] = $id;
-        return new AuthorizationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AuthorizationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -314,7 +316,7 @@ class PoliciesRequestBuilder
     public function claimsMappingPoliciesById(string $id): ClaimsMappingPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['claimsMappingPolicy%2Did'] = $id;
-        return new ClaimsMappingPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ClaimsMappingPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -325,18 +327,22 @@ class PoliciesRequestBuilder
     public function conditionalAccessPoliciesById(string $id): ConditionalAccessPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['conditionalAccessPolicy%2Did'] = $id;
-        return new ConditionalAccessPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ConditionalAccessPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new PoliciesRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/policies{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
@@ -347,23 +353,22 @@ class PoliciesRequestBuilder
     public function featureRolloutPoliciesById(string $id): FeatureRolloutPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['featureRolloutPolicy%2Did'] = $id;
-        return new FeatureRolloutPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new FeatureRolloutPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Get policies
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?PoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?PoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PolicyRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [PolicyRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -377,7 +382,7 @@ class PoliciesRequestBuilder
     public function homeRealmDiscoveryPoliciesById(string $id): HomeRealmDiscoveryPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['homeRealmDiscoveryPolicy%2Did'] = $id;
-        return new HomeRealmDiscoveryPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new HomeRealmDiscoveryPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -388,7 +393,7 @@ class PoliciesRequestBuilder
     public function mobileAppManagementPoliciesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobilityManagementPolicy%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -399,24 +404,23 @@ class PoliciesRequestBuilder
     public function mobileDeviceManagementPoliciesById(string $id): \Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobilityManagementPolicy%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\Item\MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Update policies
      * @param PolicyRoot $body The request body
      * @param PoliciesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(PolicyRoot $body, ?PoliciesRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(PolicyRoot $body, ?PoliciesRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PolicyRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [PolicyRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -430,7 +434,7 @@ class PoliciesRequestBuilder
     public function permissionGrantPoliciesById(string $id): PermissionGrantPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['permissionGrantPolicy%2Did'] = $id;
-        return new PermissionGrantPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PermissionGrantPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -441,7 +445,7 @@ class PoliciesRequestBuilder
     public function roleManagementPoliciesById(string $id): UnifiedRoleManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRoleManagementPolicy%2Did'] = $id;
-        return new UnifiedRoleManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UnifiedRoleManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -452,7 +456,7 @@ class PoliciesRequestBuilder
     public function roleManagementPolicyAssignmentsById(string $id): UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unifiedRoleManagementPolicyAssignment%2Did'] = $id;
-        return new UnifiedRoleManagementPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UnifiedRoleManagementPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -463,7 +467,7 @@ class PoliciesRequestBuilder
     public function servicePrincipalCreationPoliciesById(string $id): ServicePrincipalCreationPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['servicePrincipalCreationPolicy%2Did'] = $id;
-        return new ServicePrincipalCreationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ServicePrincipalCreationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -476,10 +480,10 @@ class PoliciesRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -499,7 +503,7 @@ class PoliciesRequestBuilder
     public function tokenIssuancePoliciesById(string $id): TokenIssuancePolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tokenIssuancePolicy%2Did'] = $id;
-        return new TokenIssuancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TokenIssuancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -510,7 +514,7 @@ class PoliciesRequestBuilder
     public function tokenLifetimePoliciesById(string $id): TokenLifetimePolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['tokenLifetimePolicy%2Did'] = $id;
-        return new TokenLifetimePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TokenLifetimePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -524,10 +528,10 @@ class PoliciesRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

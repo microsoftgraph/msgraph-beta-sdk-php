@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Registration;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
+*/
 class RegistrationRequestBuilderGetQueryParameters 
 {
     /**

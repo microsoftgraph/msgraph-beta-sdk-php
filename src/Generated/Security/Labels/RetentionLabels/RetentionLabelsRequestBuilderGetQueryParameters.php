@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the retentionLabel objects and their properties.
+*/
 class RetentionLabelsRequestBuilderGetQueryParameters 
 {
     /**

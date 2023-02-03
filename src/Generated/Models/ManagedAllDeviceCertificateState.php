@@ -165,7 +165,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateExpirationDateTime property value. Certificate expiry date
-     *  @param DateTime|null $value Value to set for the certificateExpirationDateTime property.
+     * @param DateTime|null $value Value to set for the certificateExpirationDateTime property.
     */
     public function setCertificateExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('certificateExpirationDateTime', $value);
@@ -173,7 +173,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateExtendedKeyUsages property value. Enhanced Key Usage
-     *  @param string|null $value Value to set for the certificateExtendedKeyUsages property.
+     * @param string|null $value Value to set for the certificateExtendedKeyUsages property.
     */
     public function setCertificateExtendedKeyUsages(?string $value): void {
         $this->getBackingStore()->set('certificateExtendedKeyUsages', $value);
@@ -181,7 +181,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateIssuanceDateTime property value. Issuance date
-     *  @param DateTime|null $value Value to set for the certificateIssuanceDateTime property.
+     * @param DateTime|null $value Value to set for the certificateIssuanceDateTime property.
     */
     public function setCertificateIssuanceDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('certificateIssuanceDateTime', $value);
@@ -189,7 +189,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateIssuerName property value. Issuer
-     *  @param string|null $value Value to set for the certificateIssuerName property.
+     * @param string|null $value Value to set for the certificateIssuerName property.
     */
     public function setCertificateIssuerName(?string $value): void {
         $this->getBackingStore()->set('certificateIssuerName', $value);
@@ -197,7 +197,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateKeyUsages property value. Key Usage
-     *  @param int|null $value Value to set for the certificateKeyUsages property.
+     * @param int|null $value Value to set for the certificateKeyUsages property.
     */
     public function setCertificateKeyUsages(?int $value): void {
         $this->getBackingStore()->set('certificateKeyUsages', $value);
@@ -205,7 +205,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateRevokeStatus property value. Certificate Revocation Status.
-     *  @param CertificateRevocationStatus|null $value Value to set for the certificateRevokeStatus property.
+     * @param CertificateRevocationStatus|null $value Value to set for the certificateRevokeStatus property.
     */
     public function setCertificateRevokeStatus(?CertificateRevocationStatus $value): void {
         $this->getBackingStore()->set('certificateRevokeStatus', $value);
@@ -213,7 +213,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateRevokeStatusLastChangeDateTime property value. The time the revoke status was last changed
-     *  @param DateTime|null $value Value to set for the certificateRevokeStatusLastChangeDateTime property.
+     * @param DateTime|null $value Value to set for the certificateRevokeStatusLastChangeDateTime property.
     */
     public function setCertificateRevokeStatusLastChangeDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('certificateRevokeStatusLastChangeDateTime', $value);
@@ -221,7 +221,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateSerialNumber property value. Serial number
-     *  @param string|null $value Value to set for the certificateSerialNumber property.
+     * @param string|null $value Value to set for the certificateSerialNumber property.
     */
     public function setCertificateSerialNumber(?string $value): void {
         $this->getBackingStore()->set('certificateSerialNumber', $value);
@@ -229,7 +229,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateSubjectName property value. Certificate subject name
-     *  @param string|null $value Value to set for the certificateSubjectName property.
+     * @param string|null $value Value to set for the certificateSubjectName property.
     */
     public function setCertificateSubjectName(?string $value): void {
         $this->getBackingStore()->set('certificateSubjectName', $value);
@@ -237,7 +237,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the certificateThumbprint property value. Thumbprint
-     *  @param string|null $value Value to set for the certificateThumbprint property.
+     * @param string|null $value Value to set for the certificateThumbprint property.
     */
     public function setCertificateThumbprint(?string $value): void {
         $this->getBackingStore()->set('certificateThumbprint', $value);
@@ -245,7 +245,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceDisplayName property value. Device display name
-     *  @param string|null $value Value to set for the managedDeviceDisplayName property.
+     * @param string|null $value Value to set for the managedDeviceDisplayName property.
     */
     public function setManagedDeviceDisplayName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceDisplayName', $value);
@@ -253,7 +253,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. User principal name
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

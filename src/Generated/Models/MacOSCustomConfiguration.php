@@ -86,7 +86,7 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the deploymentChannel property value. Indicates the channel used to deploy the configuration profile. Available choices are DeviceChannel, UserChannel
-     *  @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
+     * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
     */
     public function setDeploymentChannel(?AppleDeploymentChannel $value): void {
         $this->getBackingStore()->set('deploymentChannel', $value);
@@ -94,7 +94,7 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the payload property value. Payload. (UTF8 encoded byte array)
-     *  @param StreamInterface|null $value Value to set for the payload property.
+     * @param StreamInterface|null $value Value to set for the payload property.
     */
     public function setPayload(?StreamInterface $value): void {
         $this->getBackingStore()->set('payload', $value);
@@ -102,7 +102,7 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the payloadFileName property value. Payload file name (.mobileconfig
-     *  @param string|null $value Value to set for the payloadFileName property.
+     * @param string|null $value Value to set for the payloadFileName property.
     */
     public function setPayloadFileName(?string $value): void {
         $this->getBackingStore()->set('payloadFileName', $value);
@@ -110,7 +110,7 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the payloadName property value. Name that is displayed to the user.
-     *  @param string|null $value Value to set for the payloadName property.
+     * @param string|null $value Value to set for the payloadName property.
     */
     public function setPayloadName(?string $value): void {
         $this->getBackingStore()->set('payloadName', $value);

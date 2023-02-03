@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the stages in a multi-stage access review instance.
+*/
 class StagesRequestBuilderGetQueryParameters 
 {
     /**

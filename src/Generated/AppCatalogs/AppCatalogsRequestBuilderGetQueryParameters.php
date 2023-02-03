@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AppCatalogs;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get appCatalogs
+*/
 class AppCatalogsRequestBuilderGetQueryParameters 
 {
     /**

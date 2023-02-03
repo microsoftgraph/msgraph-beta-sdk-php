@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Encryption report per device
+*/
 class ManagedDeviceEncryptionState extends Entity implements Parsable 
 {
     /**
@@ -154,7 +157,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the advancedBitLockerStates property value. Advanced BitLocker State. Possible values are: success, noUserConsent, osVolumeUnprotected, osVolumeTpmRequired, osVolumeTpmOnlyRequired, osVolumeTpmPinRequired, osVolumeTpmStartupKeyRequired, osVolumeTpmPinStartupKeyRequired, osVolumeEncryptionMethodMismatch, recoveryKeyBackupFailed, fixedDriveNotEncrypted, fixedDriveEncryptionMethodMismatch, loggedOnUserNonAdmin, windowsRecoveryEnvironmentNotConfigured, tpmNotAvailable, tpmNotReady, networkError.
-     *  @param AdvancedBitLockerState|null $value Value to set for the advancedBitLockerStates property.
+     * @param AdvancedBitLockerState|null $value Value to set for the advancedBitLockerStates property.
     */
     public function setAdvancedBitLockerStates(?AdvancedBitLockerState $value): void {
         $this->getBackingStore()->set('advancedBitLockerStates', $value);
@@ -162,7 +165,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. Device name
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -170,7 +173,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the deviceType property value. Device type.
-     *  @param DeviceTypes|null $value Value to set for the deviceType property.
+     * @param DeviceTypes|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?DeviceTypes $value): void {
         $this->getBackingStore()->set('deviceType', $value);
@@ -178,7 +181,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the encryptionPolicySettingState property value. The encryptionPolicySettingState property
-     *  @param ComplianceStatus|null $value Value to set for the encryptionPolicySettingState property.
+     * @param ComplianceStatus|null $value Value to set for the encryptionPolicySettingState property.
     */
     public function setEncryptionPolicySettingState(?ComplianceStatus $value): void {
         $this->getBackingStore()->set('encryptionPolicySettingState', $value);
@@ -186,7 +189,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the encryptionReadinessState property value. Encryption readiness state
-     *  @param EncryptionReadinessState|null $value Value to set for the encryptionReadinessState property.
+     * @param EncryptionReadinessState|null $value Value to set for the encryptionReadinessState property.
     */
     public function setEncryptionReadinessState(?EncryptionReadinessState $value): void {
         $this->getBackingStore()->set('encryptionReadinessState', $value);
@@ -194,7 +197,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the encryptionState property value. Encryption state
-     *  @param EncryptionState|null $value Value to set for the encryptionState property.
+     * @param EncryptionState|null $value Value to set for the encryptionState property.
     */
     public function setEncryptionState(?EncryptionState $value): void {
         $this->getBackingStore()->set('encryptionState', $value);
@@ -202,7 +205,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the fileVaultStates property value. FileVault State. Possible values are: success, driveEncryptedByUser, userDeferredEncryption, escrowNotEnabled.
-     *  @param FileVaultState|null $value Value to set for the fileVaultStates property.
+     * @param FileVaultState|null $value Value to set for the fileVaultStates property.
     */
     public function setFileVaultStates(?FileVaultState $value): void {
         $this->getBackingStore()->set('fileVaultStates', $value);
@@ -210,7 +213,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. Operating system version of the device
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -218,7 +221,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the policyDetails property value. Policy Details
-     *  @param array<EncryptionReportPolicyDetails>|null $value Value to set for the policyDetails property.
+     * @param array<EncryptionReportPolicyDetails>|null $value Value to set for the policyDetails property.
     */
     public function setPolicyDetails(?array $value): void {
         $this->getBackingStore()->set('policyDetails', $value);
@@ -226,7 +229,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the tpmSpecificationVersion property value. Device TPM Version
-     *  @param string|null $value Value to set for the tpmSpecificationVersion property.
+     * @param string|null $value Value to set for the tpmSpecificationVersion property.
     */
     public function setTpmSpecificationVersion(?string $value): void {
         $this->getBackingStore()->set('tpmSpecificationVersion', $value);
@@ -234,7 +237,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. User name
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

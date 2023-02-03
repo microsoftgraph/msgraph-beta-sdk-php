@@ -115,7 +115,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
 
     /**
      * Sets the alignment property value. The alignment property
-     *  @param ContentAlignment|null $value Value to set for the alignment property.
+     * @param ContentAlignment|null $value Value to set for the alignment property.
     */
     public function setAlignment(?ContentAlignment $value): void {
         $this->getBackingStore()->set('alignment', $value);
@@ -123,7 +123,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
 
     /**
      * Sets the fontColor property value. Color of the font to use for the header.
-     *  @param string|null $value Value to set for the fontColor property.
+     * @param string|null $value Value to set for the fontColor property.
     */
     public function setFontColor(?string $value): void {
         $this->getBackingStore()->set('fontColor', $value);
@@ -131,7 +131,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
 
     /**
      * Sets the fontName property value. Name of the font to use for the header.
-     *  @param string|null $value Value to set for the fontName property.
+     * @param string|null $value Value to set for the fontName property.
     */
     public function setFontName(?string $value): void {
         $this->getBackingStore()->set('fontName', $value);
@@ -139,7 +139,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
 
     /**
      * Sets the fontSize property value. Font size to use for the header.
-     *  @param int|null $value Value to set for the fontSize property.
+     * @param int|null $value Value to set for the fontSize property.
     */
     public function setFontSize(?int $value): void {
         $this->getBackingStore()->set('fontSize', $value);
@@ -147,7 +147,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
 
     /**
      * Sets the margin property value. The margin of the header from the top of the document.
-     *  @param int|null $value Value to set for the margin property.
+     * @param int|null $value Value to set for the margin property.
     */
     public function setMargin(?int $value): void {
         $this->getBackingStore()->set('margin', $value);
@@ -155,7 +155,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
 
     /**
      * Sets the text property value. The contents of the header itself.
-     *  @param string|null $value Value to set for the text property.
+     * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
         $this->getBackingStore()->set('text', $value);
@@ -163,7 +163,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
 
     /**
      * Sets the uiElementName property value. The name of the UI element where the header should be placed.
-     *  @param string|null $value Value to set for the uiElementName property.
+     * @param string|null $value Value to set for the uiElementName property.
     */
     public function setUiElementName(?string $value): void {
         $this->getBackingStore()->set('uiElementName', $value);

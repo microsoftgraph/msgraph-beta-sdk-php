@@ -105,7 +105,7 @@ class WebAccount extends ItemFacet implements Parsable
 
     /**
      * Sets the description property value. Contains the description the user has provided for the account on the service being referenced.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -113,7 +113,7 @@ class WebAccount extends ItemFacet implements Parsable
 
     /**
      * Sets the service property value. The service property
-     *  @param ServiceInformation|null $value Value to set for the service property.
+     * @param ServiceInformation|null $value Value to set for the service property.
     */
     public function setService(?ServiceInformation $value): void {
         $this->getBackingStore()->set('service', $value);
@@ -121,7 +121,7 @@ class WebAccount extends ItemFacet implements Parsable
 
     /**
      * Sets the statusMessage property value. Contains a status message from the cloud service if provided or synchronized.
-     *  @param string|null $value Value to set for the statusMessage property.
+     * @param string|null $value Value to set for the statusMessage property.
     */
     public function setStatusMessage(?string $value): void {
         $this->getBackingStore()->set('statusMessage', $value);
@@ -129,7 +129,7 @@ class WebAccount extends ItemFacet implements Parsable
 
     /**
      * Sets the thumbnailUrl property value. The thumbnailUrl property
-     *  @param string|null $value Value to set for the thumbnailUrl property.
+     * @param string|null $value Value to set for the thumbnailUrl property.
     */
     public function setThumbnailUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailUrl', $value);
@@ -137,7 +137,7 @@ class WebAccount extends ItemFacet implements Parsable
 
     /**
      * Sets the userId property value. The user name  displayed for the webaccount.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -145,7 +145,7 @@ class WebAccount extends ItemFacet implements Parsable
 
     /**
      * Sets the webUrl property value. Contains a link to the user's profile on the cloud service if one exists.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

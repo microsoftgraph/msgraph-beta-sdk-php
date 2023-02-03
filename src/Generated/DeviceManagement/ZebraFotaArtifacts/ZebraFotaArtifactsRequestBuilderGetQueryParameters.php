@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaArtifacts;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Collection of ZebraFotaArtifacts.
+*/
 class ZebraFotaArtifactsRequestBuilderGetQueryParameters 
 {
     /**

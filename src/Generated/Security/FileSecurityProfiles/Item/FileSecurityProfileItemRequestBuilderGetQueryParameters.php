@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get fileSecurityProfiles from security
+*/
 class FileSecurityProfileItemRequestBuilderGetQueryParameters 
 {
     /**

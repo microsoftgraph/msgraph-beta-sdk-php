@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The assignment of an access package to a subject for a period of time.
+*/
 class AccessPackageAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**

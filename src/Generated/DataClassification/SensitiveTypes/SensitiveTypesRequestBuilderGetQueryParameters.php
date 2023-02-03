@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\SensitiveTypes;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get sensitiveTypes from dataClassification
+*/
 class SensitiveTypesRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\ResourceNamesp
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get resourceScope from roleManagement
+*/
 class ResourceScopeRequestBuilderGetQueryParameters 
 {
     /**

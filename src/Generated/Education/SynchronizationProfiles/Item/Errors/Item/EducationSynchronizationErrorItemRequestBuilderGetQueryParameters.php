@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * All errors associated with this synchronization profile.
+*/
 class EducationSynchronizationErrorItemRequestBuilderGetQueryParameters 
 {
     /**

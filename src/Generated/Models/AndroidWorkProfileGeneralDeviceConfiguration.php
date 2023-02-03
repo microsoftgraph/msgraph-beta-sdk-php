@@ -495,7 +495,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordBlockFaceUnlock property value. Indicates whether or not to block face unlock.
-     *  @param bool|null $value Value to set for the passwordBlockFaceUnlock property.
+     * @param bool|null $value Value to set for the passwordBlockFaceUnlock property.
     */
     public function setPasswordBlockFaceUnlock(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockFaceUnlock', $value);
@@ -503,7 +503,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordBlockFingerprintUnlock property value. Indicates whether or not to block fingerprint unlock.
-     *  @param bool|null $value Value to set for the passwordBlockFingerprintUnlock property.
+     * @param bool|null $value Value to set for the passwordBlockFingerprintUnlock property.
     */
     public function setPasswordBlockFingerprintUnlock(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockFingerprintUnlock', $value);
@@ -511,7 +511,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordBlockIrisUnlock property value. Indicates whether or not to block iris unlock.
-     *  @param bool|null $value Value to set for the passwordBlockIrisUnlock property.
+     * @param bool|null $value Value to set for the passwordBlockIrisUnlock property.
     */
     public function setPasswordBlockIrisUnlock(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockIrisUnlock', $value);
@@ -519,7 +519,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordBlockTrustAgents property value. Indicates whether or not to block Smart Lock and other trust agents.
-     *  @param bool|null $value Value to set for the passwordBlockTrustAgents property.
+     * @param bool|null $value Value to set for the passwordBlockTrustAgents property.
     */
     public function setPasswordBlockTrustAgents(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockTrustAgents', $value);
@@ -527,7 +527,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordExpirationDays property value. Number of days before the password expires. Valid values 1 to 365
-     *  @param int|null $value Value to set for the passwordExpirationDays property.
+     * @param int|null $value Value to set for the passwordExpirationDays property.
     */
     public function setPasswordExpirationDays(?int $value): void {
         $this->getBackingStore()->set('passwordExpirationDays', $value);
@@ -535,7 +535,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinimumLength property value. Minimum length of passwords. Valid values 4 to 16
-     *  @param int|null $value Value to set for the passwordMinimumLength property.
+     * @param int|null $value Value to set for the passwordMinimumLength property.
     */
     public function setPasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLength', $value);
@@ -543,7 +543,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
-     *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
+     * @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
     */
     public function setPasswordMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
         $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeScreenTimeout', $value);
@@ -551,7 +551,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block. Valid values 0 to 24
-     *  @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
+     * @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
     */
     public function setPasswordPreviousPasswordBlockCount(?int $value): void {
         $this->getBackingStore()->set('passwordPreviousPasswordBlockCount', $value);
@@ -559,7 +559,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordRequiredType property value. Android Work Profile required password type.
-     *  @param AndroidWorkProfileRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param AndroidWorkProfileRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?AndroidWorkProfileRequiredPasswordType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
@@ -567,7 +567,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordSignInFailureCountBeforeFactoryReset property value. Number of sign in failures allowed before factory reset. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
+     * @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
     */
     public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value): void {
         $this->getBackingStore()->set('passwordSignInFailureCountBeforeFactoryReset', $value);
@@ -575,7 +575,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the requiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
-     *  @param AndroidRequiredPasswordComplexity|null $value Value to set for the requiredPasswordComplexity property.
+     * @param AndroidRequiredPasswordComplexity|null $value Value to set for the requiredPasswordComplexity property.
     */
     public function setRequiredPasswordComplexity(?AndroidRequiredPasswordComplexity $value): void {
         $this->getBackingStore()->set('requiredPasswordComplexity', $value);
@@ -583,7 +583,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the securityRequireVerifyApps property value. Require the Android Verify apps feature is turned on.
-     *  @param bool|null $value Value to set for the securityRequireVerifyApps property.
+     * @param bool|null $value Value to set for the securityRequireVerifyApps property.
     */
     public function setSecurityRequireVerifyApps(?bool $value): void {
         $this->getBackingStore()->set('securityRequireVerifyApps', $value);
@@ -591,7 +591,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the vpnAlwaysOnPackageIdentifier property value. Enable lockdown mode for always-on VPN.
-     *  @param string|null $value Value to set for the vpnAlwaysOnPackageIdentifier property.
+     * @param string|null $value Value to set for the vpnAlwaysOnPackageIdentifier property.
     */
     public function setVpnAlwaysOnPackageIdentifier(?string $value): void {
         $this->getBackingStore()->set('vpnAlwaysOnPackageIdentifier', $value);
@@ -599,7 +599,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the vpnEnableAlwaysOnLockdownMode property value. Enable lockdown mode for always-on VPN.
-     *  @param bool|null $value Value to set for the vpnEnableAlwaysOnLockdownMode property.
+     * @param bool|null $value Value to set for the vpnEnableAlwaysOnLockdownMode property.
     */
     public function setVpnEnableAlwaysOnLockdownMode(?bool $value): void {
         $this->getBackingStore()->set('vpnEnableAlwaysOnLockdownMode', $value);
@@ -607,7 +607,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileAllowAppInstallsFromUnknownSources property value. Indicates whether to allow installation of apps from unknown sources.
-     *  @param bool|null $value Value to set for the workProfileAllowAppInstallsFromUnknownSources property.
+     * @param bool|null $value Value to set for the workProfileAllowAppInstallsFromUnknownSources property.
     */
     public function setWorkProfileAllowAppInstallsFromUnknownSources(?bool $value): void {
         $this->getBackingStore()->set('workProfileAllowAppInstallsFromUnknownSources', $value);
@@ -615,7 +615,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileAllowWidgets property value. Allow widgets from work profile apps.
-     *  @param bool|null $value Value to set for the workProfileAllowWidgets property.
+     * @param bool|null $value Value to set for the workProfileAllowWidgets property.
     */
     public function setWorkProfileAllowWidgets(?bool $value): void {
         $this->getBackingStore()->set('workProfileAllowWidgets', $value);
@@ -623,7 +623,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileBlockAddingAccounts property value. Block users from adding/removing accounts in work profile.
-     *  @param bool|null $value Value to set for the workProfileBlockAddingAccounts property.
+     * @param bool|null $value Value to set for the workProfileBlockAddingAccounts property.
     */
     public function setWorkProfileBlockAddingAccounts(?bool $value): void {
         $this->getBackingStore()->set('workProfileBlockAddingAccounts', $value);
@@ -631,7 +631,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileBlockCamera property value. Block work profile camera.
-     *  @param bool|null $value Value to set for the workProfileBlockCamera property.
+     * @param bool|null $value Value to set for the workProfileBlockCamera property.
     */
     public function setWorkProfileBlockCamera(?bool $value): void {
         $this->getBackingStore()->set('workProfileBlockCamera', $value);
@@ -639,7 +639,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileBlockCrossProfileCallerId property value. Block display work profile caller ID in personal profile.
-     *  @param bool|null $value Value to set for the workProfileBlockCrossProfileCallerId property.
+     * @param bool|null $value Value to set for the workProfileBlockCrossProfileCallerId property.
     */
     public function setWorkProfileBlockCrossProfileCallerId(?bool $value): void {
         $this->getBackingStore()->set('workProfileBlockCrossProfileCallerId', $value);
@@ -647,7 +647,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileBlockCrossProfileContactsSearch property value. Block work profile contacts availability in personal profile.
-     *  @param bool|null $value Value to set for the workProfileBlockCrossProfileContactsSearch property.
+     * @param bool|null $value Value to set for the workProfileBlockCrossProfileContactsSearch property.
     */
     public function setWorkProfileBlockCrossProfileContactsSearch(?bool $value): void {
         $this->getBackingStore()->set('workProfileBlockCrossProfileContactsSearch', $value);
@@ -655,7 +655,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileBlockCrossProfileCopyPaste property value. Boolean that indicates if the setting disallow cross profile copy/paste is enabled.
-     *  @param bool|null $value Value to set for the workProfileBlockCrossProfileCopyPaste property.
+     * @param bool|null $value Value to set for the workProfileBlockCrossProfileCopyPaste property.
     */
     public function setWorkProfileBlockCrossProfileCopyPaste(?bool $value): void {
         $this->getBackingStore()->set('workProfileBlockCrossProfileCopyPaste', $value);
@@ -663,7 +663,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileBlockNotificationsWhileDeviceLocked property value. Indicates whether or not to block notifications while device locked.
-     *  @param bool|null $value Value to set for the workProfileBlockNotificationsWhileDeviceLocked property.
+     * @param bool|null $value Value to set for the workProfileBlockNotificationsWhileDeviceLocked property.
     */
     public function setWorkProfileBlockNotificationsWhileDeviceLocked(?bool $value): void {
         $this->getBackingStore()->set('workProfileBlockNotificationsWhileDeviceLocked', $value);
@@ -671,7 +671,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileBlockPersonalAppInstallsFromUnknownSources property value. Prevent app installations from unknown sources in the personal profile.
-     *  @param bool|null $value Value to set for the workProfileBlockPersonalAppInstallsFromUnknownSources property.
+     * @param bool|null $value Value to set for the workProfileBlockPersonalAppInstallsFromUnknownSources property.
     */
     public function setWorkProfileBlockPersonalAppInstallsFromUnknownSources(?bool $value): void {
         $this->getBackingStore()->set('workProfileBlockPersonalAppInstallsFromUnknownSources', $value);
@@ -679,7 +679,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileBlockScreenCapture property value. Block screen capture in work profile.
-     *  @param bool|null $value Value to set for the workProfileBlockScreenCapture property.
+     * @param bool|null $value Value to set for the workProfileBlockScreenCapture property.
     */
     public function setWorkProfileBlockScreenCapture(?bool $value): void {
         $this->getBackingStore()->set('workProfileBlockScreenCapture', $value);
@@ -687,7 +687,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileBluetoothEnableContactSharing property value. Allow bluetooth devices to access enterprise contacts.
-     *  @param bool|null $value Value to set for the workProfileBluetoothEnableContactSharing property.
+     * @param bool|null $value Value to set for the workProfileBluetoothEnableContactSharing property.
     */
     public function setWorkProfileBluetoothEnableContactSharing(?bool $value): void {
         $this->getBackingStore()->set('workProfileBluetoothEnableContactSharing', $value);
@@ -695,7 +695,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileDataSharingType property value. Android Work Profile cross profile data sharing type.
-     *  @param AndroidWorkProfileCrossProfileDataSharingType|null $value Value to set for the workProfileDataSharingType property.
+     * @param AndroidWorkProfileCrossProfileDataSharingType|null $value Value to set for the workProfileDataSharingType property.
     */
     public function setWorkProfileDataSharingType(?AndroidWorkProfileCrossProfileDataSharingType $value): void {
         $this->getBackingStore()->set('workProfileDataSharingType', $value);
@@ -703,7 +703,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileDefaultAppPermissionPolicy property value. Android Work Profile default app permission policy type.
-     *  @param AndroidWorkProfileDefaultAppPermissionPolicyType|null $value Value to set for the workProfileDefaultAppPermissionPolicy property.
+     * @param AndroidWorkProfileDefaultAppPermissionPolicyType|null $value Value to set for the workProfileDefaultAppPermissionPolicy property.
     */
     public function setWorkProfileDefaultAppPermissionPolicy(?AndroidWorkProfileDefaultAppPermissionPolicyType $value): void {
         $this->getBackingStore()->set('workProfileDefaultAppPermissionPolicy', $value);
@@ -711,7 +711,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordBlockFaceUnlock property value. Indicates whether or not to block face unlock for work profile.
-     *  @param bool|null $value Value to set for the workProfilePasswordBlockFaceUnlock property.
+     * @param bool|null $value Value to set for the workProfilePasswordBlockFaceUnlock property.
     */
     public function setWorkProfilePasswordBlockFaceUnlock(?bool $value): void {
         $this->getBackingStore()->set('workProfilePasswordBlockFaceUnlock', $value);
@@ -719,7 +719,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordBlockFingerprintUnlock property value. Indicates whether or not to block fingerprint unlock for work profile.
-     *  @param bool|null $value Value to set for the workProfilePasswordBlockFingerprintUnlock property.
+     * @param bool|null $value Value to set for the workProfilePasswordBlockFingerprintUnlock property.
     */
     public function setWorkProfilePasswordBlockFingerprintUnlock(?bool $value): void {
         $this->getBackingStore()->set('workProfilePasswordBlockFingerprintUnlock', $value);
@@ -727,7 +727,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordBlockIrisUnlock property value. Indicates whether or not to block iris unlock for work profile.
-     *  @param bool|null $value Value to set for the workProfilePasswordBlockIrisUnlock property.
+     * @param bool|null $value Value to set for the workProfilePasswordBlockIrisUnlock property.
     */
     public function setWorkProfilePasswordBlockIrisUnlock(?bool $value): void {
         $this->getBackingStore()->set('workProfilePasswordBlockIrisUnlock', $value);
@@ -735,7 +735,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordBlockTrustAgents property value. Indicates whether or not to block Smart Lock and other trust agents for work profile.
-     *  @param bool|null $value Value to set for the workProfilePasswordBlockTrustAgents property.
+     * @param bool|null $value Value to set for the workProfilePasswordBlockTrustAgents property.
     */
     public function setWorkProfilePasswordBlockTrustAgents(?bool $value): void {
         $this->getBackingStore()->set('workProfilePasswordBlockTrustAgents', $value);
@@ -743,7 +743,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordExpirationDays property value. Number of days before the work profile password expires. Valid values 1 to 365
-     *  @param int|null $value Value to set for the workProfilePasswordExpirationDays property.
+     * @param int|null $value Value to set for the workProfilePasswordExpirationDays property.
     */
     public function setWorkProfilePasswordExpirationDays(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordExpirationDays', $value);
@@ -751,7 +751,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinimumLength property value. Minimum length of work profile password. Valid values 4 to 16
-     *  @param int|null $value Value to set for the workProfilePasswordMinimumLength property.
+     * @param int|null $value Value to set for the workProfilePasswordMinimumLength property.
     */
     public function setWorkProfilePasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinimumLength', $value);
@@ -759,7 +759,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinLetterCharacters property value. Minimum # of letter characters required in work profile password. Valid values 1 to 10
-     *  @param int|null $value Value to set for the workProfilePasswordMinLetterCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinLetterCharacters property.
     */
     public function setWorkProfilePasswordMinLetterCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinLetterCharacters', $value);
@@ -767,7 +767,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinLowerCaseCharacters property value. Minimum # of lower-case characters required in work profile password. Valid values 1 to 10
-     *  @param int|null $value Value to set for the workProfilePasswordMinLowerCaseCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinLowerCaseCharacters property.
     */
     public function setWorkProfilePasswordMinLowerCaseCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinLowerCaseCharacters', $value);
@@ -775,7 +775,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinNonLetterCharacters property value. Minimum # of non-letter characters required in work profile password. Valid values 1 to 10
-     *  @param int|null $value Value to set for the workProfilePasswordMinNonLetterCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinNonLetterCharacters property.
     */
     public function setWorkProfilePasswordMinNonLetterCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinNonLetterCharacters', $value);
@@ -783,7 +783,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinNumericCharacters property value. Minimum # of numeric characters required in work profile password. Valid values 1 to 10
-     *  @param int|null $value Value to set for the workProfilePasswordMinNumericCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinNumericCharacters property.
     */
     public function setWorkProfilePasswordMinNumericCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinNumericCharacters', $value);
@@ -791,7 +791,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinSymbolCharacters property value. Minimum # of symbols required in work profile password. Valid values 1 to 10
-     *  @param int|null $value Value to set for the workProfilePasswordMinSymbolCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinSymbolCharacters property.
     */
     public function setWorkProfilePasswordMinSymbolCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinSymbolCharacters', $value);
@@ -799,7 +799,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinUpperCaseCharacters property value. Minimum # of upper-case characters required in work profile password. Valid values 1 to 10
-     *  @param int|null $value Value to set for the workProfilePasswordMinUpperCaseCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinUpperCaseCharacters property.
     */
     public function setWorkProfilePasswordMinUpperCaseCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinUpperCaseCharacters', $value);
@@ -807,7 +807,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
-     *  @param int|null $value Value to set for the workProfilePasswordMinutesOfInactivityBeforeScreenTimeout property.
+     * @param int|null $value Value to set for the workProfilePasswordMinutesOfInactivityBeforeScreenTimeout property.
     */
     public function setWorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinutesOfInactivityBeforeScreenTimeout', $value);
@@ -815,7 +815,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordPreviousPasswordBlockCount property value. Number of previous work profile passwords to block. Valid values 0 to 24
-     *  @param int|null $value Value to set for the workProfilePasswordPreviousPasswordBlockCount property.
+     * @param int|null $value Value to set for the workProfilePasswordPreviousPasswordBlockCount property.
     */
     public function setWorkProfilePasswordPreviousPasswordBlockCount(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordPreviousPasswordBlockCount', $value);
@@ -823,7 +823,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordRequiredType property value. Android Work Profile required password type.
-     *  @param AndroidWorkProfileRequiredPasswordType|null $value Value to set for the workProfilePasswordRequiredType property.
+     * @param AndroidWorkProfileRequiredPasswordType|null $value Value to set for the workProfilePasswordRequiredType property.
     */
     public function setWorkProfilePasswordRequiredType(?AndroidWorkProfileRequiredPasswordType $value): void {
         $this->getBackingStore()->set('workProfilePasswordRequiredType', $value);
@@ -831,7 +831,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordSignInFailureCountBeforeFactoryReset property value. Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16
-     *  @param int|null $value Value to set for the workProfilePasswordSignInFailureCountBeforeFactoryReset property.
+     * @param int|null $value Value to set for the workProfilePasswordSignInFailureCountBeforeFactoryReset property.
     */
     public function setWorkProfilePasswordSignInFailureCountBeforeFactoryReset(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordSignInFailureCountBeforeFactoryReset', $value);
@@ -839,7 +839,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileRequiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
-     *  @param AndroidRequiredPasswordComplexity|null $value Value to set for the workProfileRequiredPasswordComplexity property.
+     * @param AndroidRequiredPasswordComplexity|null $value Value to set for the workProfileRequiredPasswordComplexity property.
     */
     public function setWorkProfileRequiredPasswordComplexity(?AndroidRequiredPasswordComplexity $value): void {
         $this->getBackingStore()->set('workProfileRequiredPasswordComplexity', $value);
@@ -847,7 +847,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfileRequirePassword property value. Password is required or not for work profile
-     *  @param bool|null $value Value to set for the workProfileRequirePassword property.
+     * @param bool|null $value Value to set for the workProfileRequirePassword property.
     */
     public function setWorkProfileRequirePassword(?bool $value): void {
         $this->getBackingStore()->set('workProfileRequirePassword', $value);

@@ -55,7 +55,7 @@ class WindowsKioskSingleUWPApp extends WindowsKioskAppConfiguration implements P
 
     /**
      * Sets the uwpApp property value. The uwpApp property
-     *  @param WindowsKioskUWPApp|null $value Value to set for the uwpApp property.
+     * @param WindowsKioskUWPApp|null $value Value to set for the uwpApp property.
     */
     public function setUwpApp(?WindowsKioskUWPApp $value): void {
         $this->getBackingStore()->set('uwpApp', $value);

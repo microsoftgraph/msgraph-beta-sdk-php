@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Profile\Names\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the names a user has added to their profile.
+*/
 class PersonNameItemRequestBuilderGetQueryParameters 
 {
     /**

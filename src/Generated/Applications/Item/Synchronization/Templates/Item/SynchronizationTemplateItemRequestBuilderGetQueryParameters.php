@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templ
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Pre-configured synchronization settings for a particular application.
+*/
 class SynchronizationTemplateItemRequestBuilderGetQueryParameters 
 {
     /**

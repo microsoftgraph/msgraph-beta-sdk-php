@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\ContactFolders\Item\ChildFolders\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Optional contact picture. You can get or set a photo for a contact.
+*/
 class PhotoRequestBuilderGetQueryParameters 
 {
     /**

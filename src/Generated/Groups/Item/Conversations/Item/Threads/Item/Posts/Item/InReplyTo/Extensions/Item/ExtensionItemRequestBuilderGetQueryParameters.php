@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
+*/
 class ExtensionItemRequestBuilderGetQueryParameters 
 {
     /**

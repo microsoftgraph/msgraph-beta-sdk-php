@@ -69,18 +69,9 @@ class IosLobApp extends MobileLobApp implements Parsable
             'buildNumber' => fn(ParseNode $n) => $o->setBuildNumber($n->getStringValue()),
             'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
-            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
             'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([IosMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
             'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getStringValue()),
         ]);
-    }
-
-    /**
-     * Gets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022)
-     * @return string|null
-    */
-    public function getIdentityVersion(): ?string {
-        return $this->getBackingStore()->get('identityVersion');
     }
 
     /**
@@ -109,14 +100,13 @@ class IosLobApp extends MobileLobApp implements Parsable
         $writer->writeStringValue('buildNumber', $this->getBuildNumber());
         $writer->writeStringValue('bundleId', $this->getBundleId());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
-        $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
         $writer->writeStringValue('versionNumber', $this->getVersionNumber());
     }
 
     /**
      * Sets the applicableDeviceType property value. Contains properties of the possible iOS device types the mobile app can run on.
-     *  @param IosDeviceType|null $value Value to set for the applicableDeviceType property.
+     * @param IosDeviceType|null $value Value to set for the applicableDeviceType property.
     */
     public function setApplicableDeviceType(?IosDeviceType $value): void {
         $this->getBackingStore()->set('applicableDeviceType', $value);
@@ -124,7 +114,7 @@ class IosLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the buildNumber property value. The build number of iOS Line of Business (LoB) app.
-     *  @param string|null $value Value to set for the buildNumber property.
+     * @param string|null $value Value to set for the buildNumber property.
     */
     public function setBuildNumber(?string $value): void {
         $this->getBackingStore()->set('buildNumber', $value);
@@ -132,7 +122,7 @@ class IosLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the bundleId property value. The Identity Name.
-     *  @param string|null $value Value to set for the bundleId property.
+     * @param string|null $value Value to set for the bundleId property.
     */
     public function setBundleId(?string $value): void {
         $this->getBackingStore()->set('bundleId', $value);
@@ -140,23 +130,15 @@ class IosLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the expirationDateTime property value. The expiration time.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
-     * Sets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022)
-     *  @param string|null $value Value to set for the identityVersion property.
-    */
-    public function setIdentityVersion(?string $value): void {
-        $this->getBackingStore()->set('identityVersion', $value);
-    }
-
-    /**
      * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
-     *  @param IosMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
+     * @param IosMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?IosMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
@@ -164,7 +146,7 @@ class IosLobApp extends MobileLobApp implements Parsable
 
     /**
      * Sets the versionNumber property value. The version number of iOS Line of Business (LoB) app.
-     *  @param string|null $value Value to set for the versionNumber property.
+     * @param string|null $value Value to set for the versionNumber property.
     */
     public function setVersionNumber(?string $value): void {
         $this->getBackingStore()->set('versionNumber', $value);

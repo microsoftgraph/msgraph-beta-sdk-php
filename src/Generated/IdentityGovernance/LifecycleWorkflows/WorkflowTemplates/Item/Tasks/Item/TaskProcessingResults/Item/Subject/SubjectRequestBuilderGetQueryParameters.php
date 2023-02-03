@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The unique identifier of the Azure AD user targeted for the task execution.Supports $filter(eq, ne) and $expand.
+*/
 class SubjectRequestBuilderGetQueryParameters 
 {
     /**

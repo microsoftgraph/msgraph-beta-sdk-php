@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\UserCredentialUsageDetails\Item
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the self-service password reset (SSPR) usage for a given tenant.
+*/
 class UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters 
 {
     /**

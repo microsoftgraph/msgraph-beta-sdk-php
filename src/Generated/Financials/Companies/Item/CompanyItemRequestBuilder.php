@@ -80,11 +80,13 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the companies property of the microsoft.graph.financials entity.
+*/
 class CompanyItemRequestBuilder 
 {
     /**
@@ -355,7 +357,7 @@ class CompanyItemRequestBuilder
     public function accountsById(string $id): AccountItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['account%2Did'] = $id;
-        return new AccountItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccountItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -366,7 +368,7 @@ class CompanyItemRequestBuilder
     public function agedAccountsPayableById(string $id): AgedAccountsPayableItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['agedAccountsPayable%2Did'] = $id;
-        return new AgedAccountsPayableItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AgedAccountsPayableItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -377,7 +379,7 @@ class CompanyItemRequestBuilder
     public function agedAccountsReceivableById(string $id): AgedAccountsReceivableItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['agedAccountsReceivable%2Did'] = $id;
-        return new AgedAccountsReceivableItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AgedAccountsReceivableItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -388,18 +390,25 @@ class CompanyItemRequestBuilder
     public function companyInformationById(string $id): CompanyInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['companyInformation%2Did'] = $id;
-        return new CompanyInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CompanyInformationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new CompanyItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $companyId key: id of company
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $companyId = null) {
         $this->urlTemplate = '{+baseurl}/financials/companies/{company%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['company%2Did'] = $companyId;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
@@ -410,7 +419,7 @@ class CompanyItemRequestBuilder
     public function countriesRegionsById(string $id): CountryRegionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['countryRegion%2Did'] = $id;
-        return new CountryRegionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CountryRegionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -421,7 +430,7 @@ class CompanyItemRequestBuilder
     public function currenciesById(string $id): CurrencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['currency%2Did'] = $id;
-        return new CurrencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CurrencyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -432,7 +441,7 @@ class CompanyItemRequestBuilder
     public function customerPaymentJournalsById(string $id): CustomerPaymentJournalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customerPaymentJournal%2Did'] = $id;
-        return new CustomerPaymentJournalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CustomerPaymentJournalItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -443,7 +452,7 @@ class CompanyItemRequestBuilder
     public function customerPaymentsById(string $id): CustomerPaymentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customerPayment%2Did'] = $id;
-        return new CustomerPaymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CustomerPaymentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -454,7 +463,7 @@ class CompanyItemRequestBuilder
     public function customersById(string $id): CustomerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['customer%2Did'] = $id;
-        return new CustomerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CustomerItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -465,7 +474,7 @@ class CompanyItemRequestBuilder
     public function dimensionsById(string $id): DimensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dimension%2Did'] = $id;
-        return new DimensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DimensionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -476,7 +485,7 @@ class CompanyItemRequestBuilder
     public function dimensionValuesById(string $id): DimensionValueItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dimensionValue%2Did'] = $id;
-        return new DimensionValueItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DimensionValueItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -487,7 +496,7 @@ class CompanyItemRequestBuilder
     public function employeesById(string $id): EmployeeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['employee%2Did'] = $id;
-        return new EmployeeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new EmployeeItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -498,23 +507,22 @@ class CompanyItemRequestBuilder
     public function generalLedgerEntriesById(string $id): GeneralLedgerEntryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['generalLedgerEntry%2Did'] = $id;
-        return new GeneralLedgerEntryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GeneralLedgerEntryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Get companies from financials
      * @param CompanyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?CompanyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?CompanyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Company::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Company::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -528,7 +536,7 @@ class CompanyItemRequestBuilder
     public function itemCategoriesById(string $id): ItemCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemCategory%2Did'] = $id;
-        return new ItemCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ItemCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -539,7 +547,7 @@ class CompanyItemRequestBuilder
     public function itemsById(string $id): ItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['item%2Did'] = $id;
-        return new ItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ItemItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -550,7 +558,7 @@ class CompanyItemRequestBuilder
     public function journalLinesById(string $id): JournalLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['journalLine%2Did'] = $id;
-        return new JournalLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new JournalLineItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -561,7 +569,7 @@ class CompanyItemRequestBuilder
     public function journalsById(string $id): JournalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['journal%2Did'] = $id;
-        return new JournalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new JournalItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -572,7 +580,7 @@ class CompanyItemRequestBuilder
     public function paymentMethodsById(string $id): PaymentMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['paymentMethod%2Did'] = $id;
-        return new PaymentMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PaymentMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -583,7 +591,7 @@ class CompanyItemRequestBuilder
     public function paymentTermsById(string $id): PaymentTermItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['paymentTerm%2Did'] = $id;
-        return new PaymentTermItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PaymentTermItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -594,7 +602,7 @@ class CompanyItemRequestBuilder
     public function pictureById(string $id): PictureItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['picture%2Did'] = $id;
-        return new PictureItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PictureItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -605,7 +613,7 @@ class CompanyItemRequestBuilder
     public function purchaseInvoiceLinesById(string $id): PurchaseInvoiceLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['purchaseInvoiceLine%2Did'] = $id;
-        return new PurchaseInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PurchaseInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -616,7 +624,7 @@ class CompanyItemRequestBuilder
     public function purchaseInvoicesById(string $id): PurchaseInvoiceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['purchaseInvoice%2Did'] = $id;
-        return new PurchaseInvoiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PurchaseInvoiceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -627,7 +635,7 @@ class CompanyItemRequestBuilder
     public function salesCreditMemoLinesById(string $id): SalesCreditMemoLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesCreditMemoLine%2Did'] = $id;
-        return new SalesCreditMemoLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SalesCreditMemoLineItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -638,7 +646,7 @@ class CompanyItemRequestBuilder
     public function salesCreditMemosById(string $id): SalesCreditMemoItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesCreditMemo%2Did'] = $id;
-        return new SalesCreditMemoItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SalesCreditMemoItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -649,7 +657,7 @@ class CompanyItemRequestBuilder
     public function salesInvoiceLinesById(string $id): SalesInvoiceLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesInvoiceLine%2Did'] = $id;
-        return new SalesInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SalesInvoiceLineItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -660,7 +668,7 @@ class CompanyItemRequestBuilder
     public function salesInvoicesById(string $id): SalesInvoiceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesInvoice%2Did'] = $id;
-        return new SalesInvoiceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SalesInvoiceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -671,7 +679,7 @@ class CompanyItemRequestBuilder
     public function salesOrderLinesById(string $id): SalesOrderLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesOrderLine%2Did'] = $id;
-        return new SalesOrderLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SalesOrderLineItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -682,7 +690,7 @@ class CompanyItemRequestBuilder
     public function salesOrdersById(string $id): SalesOrderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesOrder%2Did'] = $id;
-        return new SalesOrderItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SalesOrderItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -693,7 +701,7 @@ class CompanyItemRequestBuilder
     public function salesQuoteLinesById(string $id): SalesQuoteLineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesQuoteLine%2Did'] = $id;
-        return new SalesQuoteLineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SalesQuoteLineItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -704,7 +712,7 @@ class CompanyItemRequestBuilder
     public function salesQuotesById(string $id): SalesQuoteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['salesQuote%2Did'] = $id;
-        return new SalesQuoteItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SalesQuoteItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -715,7 +723,7 @@ class CompanyItemRequestBuilder
     public function shipmentMethodsById(string $id): ShipmentMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['shipmentMethod%2Did'] = $id;
-        return new ShipmentMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ShipmentMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -726,7 +734,7 @@ class CompanyItemRequestBuilder
     public function taxAreasById(string $id): TaxAreaItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['taxArea%2Did'] = $id;
-        return new TaxAreaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TaxAreaItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -737,7 +745,7 @@ class CompanyItemRequestBuilder
     public function taxGroupsById(string $id): TaxGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['taxGroup%2Did'] = $id;
-        return new TaxGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TaxGroupItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -750,10 +758,10 @@ class CompanyItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -773,7 +781,7 @@ class CompanyItemRequestBuilder
     public function unitsOfMeasureById(string $id): UnitOfMeasureItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['unitOfMeasure%2Did'] = $id;
-        return new UnitOfMeasureItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UnitOfMeasureItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -784,7 +792,7 @@ class CompanyItemRequestBuilder
     public function vendorsById(string $id): VendorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['vendor%2Did'] = $id;
-        return new VendorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new VendorItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
 }

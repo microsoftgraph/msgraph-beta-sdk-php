@@ -55,7 +55,7 @@ class AddWatermark extends MarkContent implements Parsable
 
     /**
      * Sets the orientation property value. The orientation property
-     *  @param PageOrientation|null $value Value to set for the orientation property.
+     * @param PageOrientation|null $value Value to set for the orientation property.
     */
     public function setOrientation(?PageOrientation $value): void {
         $this->getBackingStore()->set('orientation', $value);

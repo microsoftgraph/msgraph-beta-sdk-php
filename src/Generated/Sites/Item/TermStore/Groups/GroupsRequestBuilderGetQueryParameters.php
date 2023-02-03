@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Groups;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the list of group objects of a store
+*/
 class GroupsRequestBuilderGetQueryParameters 
 {
     /**

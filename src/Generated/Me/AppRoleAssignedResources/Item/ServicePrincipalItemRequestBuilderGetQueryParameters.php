@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\AppRoleAssignedResources\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get appRoleAssignedResources from me
+*/
 class ServicePrincipalItemRequestBuilderGetQueryParameters 
 {
     /**

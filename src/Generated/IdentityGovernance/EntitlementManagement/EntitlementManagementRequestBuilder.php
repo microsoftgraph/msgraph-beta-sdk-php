@@ -37,11 +37,13 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
+*/
 class EntitlementManagementRequestBuilder 
 {
     /**
@@ -165,7 +167,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageAssignmentApprovalsById(string $id): ApprovalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['approval%2Did'] = $id;
-        return new ApprovalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ApprovalItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -176,7 +178,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageAssignmentPoliciesById(string $id): AccessPackageAssignmentPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageAssignmentPolicy%2Did'] = $id;
-        return new AccessPackageAssignmentPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageAssignmentPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -187,7 +189,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageAssignmentRequestsById(string $id): AccessPackageAssignmentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageAssignmentRequest%2Did'] = $id;
-        return new AccessPackageAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -198,7 +200,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageAssignmentResourceRolesById(string $id): AccessPackageAssignmentResourceRoleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageAssignmentResourceRole%2Did'] = $id;
-        return new AccessPackageAssignmentResourceRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageAssignmentResourceRoleItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -209,7 +211,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageAssignmentsById(string $id): AccessPackageAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageAssignment%2Did'] = $id;
-        return new AccessPackageAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -220,7 +222,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageCatalogsById(string $id): AccessPackageCatalogItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageCatalog%2Did'] = $id;
-        return new AccessPackageCatalogItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageCatalogItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -231,7 +233,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageResourceEnvironmentsById(string $id): AccessPackageResourceEnvironmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceEnvironment%2Did'] = $id;
-        return new AccessPackageResourceEnvironmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageResourceEnvironmentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -242,7 +244,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageResourceRequestsById(string $id): AccessPackageResourceRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceRequest%2Did'] = $id;
-        return new AccessPackageResourceRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageResourceRequestItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -253,7 +255,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageResourceRoleScopesById(string $id): AccessPackageResourceRoleScopeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResourceRoleScope%2Did'] = $id;
-        return new AccessPackageResourceRoleScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageResourceRoleScopeItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -264,7 +266,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackageResourcesById(string $id): AccessPackageResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageResource%2Did'] = $id;
-        return new AccessPackageResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageResourceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -275,7 +277,7 @@ class EntitlementManagementRequestBuilder
     public function accessPackagesById(string $id): AccessPackageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackage%2Did'] = $id;
-        return new AccessPackageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -286,34 +288,37 @@ class EntitlementManagementRequestBuilder
     public function connectedOrganizationsById(string $id): ConnectedOrganizationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['connectedOrganization%2Did'] = $id;
-        return new ConnectedOrganizationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ConnectedOrganizationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new EntitlementManagementRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property entitlementManagement for identityGovernance
      * @param EntitlementManagementRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?EntitlementManagementRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?EntitlementManagementRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -322,17 +327,16 @@ class EntitlementManagementRequestBuilder
     /**
      * Get entitlementManagement from identityGovernance
      * @param EntitlementManagementRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?EntitlementManagementRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?EntitlementManagementRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EntitlementManagement::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EntitlementManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -342,17 +346,16 @@ class EntitlementManagementRequestBuilder
      * Update the navigation property entitlementManagement in identityGovernance
      * @param EntitlementManagement $body The request body
      * @param EntitlementManagementRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(EntitlementManagement $body, ?EntitlementManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(EntitlementManagement $body, ?EntitlementManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EntitlementManagement::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [EntitlementManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -366,7 +369,7 @@ class EntitlementManagementRequestBuilder
     public function subjectsById(string $id): AccessPackageSubjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['accessPackageSubject%2Did'] = $id;
-        return new AccessPackageSubjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AccessPackageSubjectItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -381,7 +384,7 @@ class EntitlementManagementRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -400,10 +403,10 @@ class EntitlementManagementRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -426,10 +429,10 @@ class EntitlementManagementRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

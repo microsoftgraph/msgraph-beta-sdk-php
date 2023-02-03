@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This entity contains the properties used to assign a windows driver update profile to a group.
+*/
 class WindowsDriverUpdateProfileAssignment extends Entity implements Parsable 
 {
     /**
@@ -54,7 +57,7 @@ class WindowsDriverUpdateProfileAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. Base type for assignment targets.
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

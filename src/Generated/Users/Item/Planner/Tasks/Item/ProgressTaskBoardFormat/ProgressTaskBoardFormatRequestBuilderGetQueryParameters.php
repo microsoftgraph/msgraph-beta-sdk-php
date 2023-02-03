@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\Tasks\Item\ProgressT
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties and relationships of **plannerProgressTaskBoardTaskFormat** object.
+*/
 class ProgressTaskBoardFormatRequestBuilderGetQueryParameters 
 {
     /**

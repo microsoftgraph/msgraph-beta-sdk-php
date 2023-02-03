@@ -105,7 +105,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
 
     /**
      * Sets the authenticationMethod property value. VPN Authentication Method.
-     *  @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?VpnAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -113,7 +113,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
 
     /**
      * Sets the bypassVpnOnCompanyWifi property value. Bypass VPN on company Wi-Fi.
-     *  @param bool|null $value Value to set for the bypassVpnOnCompanyWifi property.
+     * @param bool|null $value Value to set for the bypassVpnOnCompanyWifi property.
     */
     public function setBypassVpnOnCompanyWifi(?bool $value): void {
         $this->getBackingStore()->set('bypassVpnOnCompanyWifi', $value);
@@ -121,7 +121,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
 
     /**
      * Sets the bypassVpnOnHomeWifi property value. Bypass VPN on home Wi-Fi.
-     *  @param bool|null $value Value to set for the bypassVpnOnHomeWifi property.
+     * @param bool|null $value Value to set for the bypassVpnOnHomeWifi property.
     */
     public function setBypassVpnOnHomeWifi(?bool $value): void {
         $this->getBackingStore()->set('bypassVpnOnHomeWifi', $value);
@@ -129,7 +129,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
 
     /**
      * Sets the dnsSuffixSearchList property value. DNS suffix search list.
-     *  @param array<string>|null $value Value to set for the dnsSuffixSearchList property.
+     * @param array<string>|null $value Value to set for the dnsSuffixSearchList property.
     */
     public function setDnsSuffixSearchList(?array $value): void {
         $this->getBackingStore()->set('dnsSuffixSearchList', $value);
@@ -137,7 +137,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
-     *  @param WindowsPhone81CertificateProfileBase|null $value Value to set for the identityCertificate property.
+     * @param WindowsPhone81CertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
     public function setIdentityCertificate(?WindowsPhone81CertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
@@ -145,7 +145,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
 
     /**
      * Sets the rememberUserCredentials property value. Remember user credentials.
-     *  @param bool|null $value Value to set for the rememberUserCredentials property.
+     * @param bool|null $value Value to set for the rememberUserCredentials property.
     */
     public function setRememberUserCredentials(?bool $value): void {
         $this->getBackingStore()->set('rememberUserCredentials', $value);

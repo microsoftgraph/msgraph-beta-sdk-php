@@ -54,7 +54,7 @@ class Edge extends Entity implements Parsable
 
     /**
      * Sets the internetExplorerMode property value. A container for Internet Explorer mode resources.
-     *  @param InternetExplorerMode|null $value Value to set for the internetExplorerMode property.
+     * @param InternetExplorerMode|null $value Value to set for the internetExplorerMode property.
     */
     public function setInternetExplorerMode(?InternetExplorerMode $value): void {
         $this->getBackingStore()->set('internetExplorerMode', $value);

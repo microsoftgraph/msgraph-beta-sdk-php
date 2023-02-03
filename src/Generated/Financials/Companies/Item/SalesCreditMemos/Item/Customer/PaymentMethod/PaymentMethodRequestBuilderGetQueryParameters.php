@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get paymentMethod from financials
+*/
 class PaymentMethodRequestBuilderGetQueryParameters 
 {
     /**

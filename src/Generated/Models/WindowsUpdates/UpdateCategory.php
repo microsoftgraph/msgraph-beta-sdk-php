@@ -8,4 +8,5 @@ class UpdateCategory extends Enum {
     public const FEATURE = 'feature';
     public const QUALITY = 'quality';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const DRIVER = 'driver';
 }

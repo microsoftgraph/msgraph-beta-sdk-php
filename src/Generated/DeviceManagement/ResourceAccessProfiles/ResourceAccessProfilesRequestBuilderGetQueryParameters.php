@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of resource access settings associated with account.
+*/
 class ResourceAccessProfilesRequestBuilderGetQueryParameters 
 {
     /**

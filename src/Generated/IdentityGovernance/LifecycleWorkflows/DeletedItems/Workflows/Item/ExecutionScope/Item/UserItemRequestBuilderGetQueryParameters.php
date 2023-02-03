@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\D
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The unique identifier of the Azure AD identity that last modified the workflow object.
+*/
 class UserItemRequestBuilderGetQueryParameters 
 {
     /**

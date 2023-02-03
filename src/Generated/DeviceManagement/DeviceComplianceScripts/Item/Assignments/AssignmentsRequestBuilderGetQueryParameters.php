@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScript
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of group assignments for the device compliance script
+*/
 class AssignmentsRequestBuilderGetQueryParameters 
 {
     /**

@@ -123,7 +123,7 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
 
     /**
      * Sets the authenticationMethod property value. Exchange Active Sync authentication method.
-     *  @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?EasAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -131,7 +131,7 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
 
     /**
      * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
-     *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
+     * @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
     public function setDurationOfEmailToSync(?EmailSyncDuration $value): void {
         $this->getBackingStore()->set('durationOfEmailToSync', $value);
@@ -139,7 +139,7 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
 
     /**
      * Sets the emailAddressSource property value. Possible values for username source or email source.
-     *  @param UserEmailSource|null $value Value to set for the emailAddressSource property.
+     * @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
     public function setEmailAddressSource(?UserEmailSource $value): void {
         $this->getBackingStore()->set('emailAddressSource', $value);
@@ -147,7 +147,7 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
 
     /**
      * Sets the hostName property value. Exchange location (URL) that the mail app connects to.
-     *  @param string|null $value Value to set for the hostName property.
+     * @param string|null $value Value to set for the hostName property.
     */
     public function setHostName(?string $value): void {
         $this->getBackingStore()->set('hostName', $value);
@@ -155,7 +155,7 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
 
     /**
      * Sets the identityCertificate property value. Identity certificate.
-     *  @param AndroidWorkProfileCertificateProfileBase|null $value Value to set for the identityCertificate property.
+     * @param AndroidWorkProfileCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
     public function setIdentityCertificate(?AndroidWorkProfileCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
@@ -163,7 +163,7 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
 
     /**
      * Sets the requireSsl property value. Indicates whether or not to use SSL.
-     *  @param bool|null $value Value to set for the requireSsl property.
+     * @param bool|null $value Value to set for the requireSsl property.
     */
     public function setRequireSsl(?bool $value): void {
         $this->getBackingStore()->set('requireSsl', $value);
@@ -171,7 +171,7 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
 
     /**
      * Sets the usernameSource property value. Android username source.
-     *  @param AndroidUsernameSource|null $value Value to set for the usernameSource property.
+     * @param AndroidUsernameSource|null $value Value to set for the usernameSource property.
     */
     public function setUsernameSource(?AndroidUsernameSource $value): void {
         $this->getBackingStore()->set('usernameSource', $value);

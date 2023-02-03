@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List the teamTemplateDefinition objects associated with a teamTemplate. 
+*/
 class TeamTemplatesRequestBuilderGetQueryParameters 
 {
     /**

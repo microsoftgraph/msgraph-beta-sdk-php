@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\FilterOperators;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entities from filterOperators
+*/
 class FilterOperatorsRequestBuilderGetQueryParameters 
 {
     /**

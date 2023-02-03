@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of certificate connector details, each associated with a corresponding Intune Certificate Connector.
+*/
 class CertificateConnectorDetailsItemRequestBuilderGetQueryParameters 
 {
     /**

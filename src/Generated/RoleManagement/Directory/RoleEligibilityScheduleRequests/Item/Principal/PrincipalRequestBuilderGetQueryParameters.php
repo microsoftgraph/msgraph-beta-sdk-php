@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The principal that's getting a role eligibility through the request. Supports $expand.
+*/
 class PrincipalRequestBuilderGetQueryParameters 
 {
     /**

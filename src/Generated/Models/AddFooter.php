@@ -65,7 +65,7 @@ class AddFooter extends MarkContent implements Parsable
 
     /**
      * Sets the alignment property value. The alignment property
-     *  @param Alignment|null $value Value to set for the alignment property.
+     * @param Alignment|null $value Value to set for the alignment property.
     */
     public function setAlignment(?Alignment $value): void {
         $this->getBackingStore()->set('alignment', $value);
@@ -73,7 +73,7 @@ class AddFooter extends MarkContent implements Parsable
 
     /**
      * Sets the margin property value. The margin property
-     *  @param int|null $value Value to set for the margin property.
+     * @param int|null $value Value to set for the margin property.
     */
     public function setMargin(?int $value): void {
         $this->getBackingStore()->set('margin', $value);

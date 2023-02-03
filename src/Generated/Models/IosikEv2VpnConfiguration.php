@@ -275,7 +275,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the allowDefaultChildSecurityAssociationParameters property value. Allows the use of child security association parameters by setting all parameters to the device's default unless explicitly specified.
-     *  @param bool|null $value Value to set for the allowDefaultChildSecurityAssociationParameters property.
+     * @param bool|null $value Value to set for the allowDefaultChildSecurityAssociationParameters property.
     */
     public function setAllowDefaultChildSecurityAssociationParameters(?bool $value): void {
         $this->getBackingStore()->set('allowDefaultChildSecurityAssociationParameters', $value);
@@ -283,7 +283,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the allowDefaultSecurityAssociationParameters property value. Allows the use of security association parameters by setting all parameters to the device's default unless explicitly specified.
-     *  @param bool|null $value Value to set for the allowDefaultSecurityAssociationParameters property.
+     * @param bool|null $value Value to set for the allowDefaultSecurityAssociationParameters property.
     */
     public function setAllowDefaultSecurityAssociationParameters(?bool $value): void {
         $this->getBackingStore()->set('allowDefaultSecurityAssociationParameters', $value);
@@ -291,7 +291,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the alwaysOnConfiguration property value. AlwaysOn Configuration
-     *  @param AppleVpnAlwaysOnConfiguration|null $value Value to set for the alwaysOnConfiguration property.
+     * @param AppleVpnAlwaysOnConfiguration|null $value Value to set for the alwaysOnConfiguration property.
     */
     public function setAlwaysOnConfiguration(?AppleVpnAlwaysOnConfiguration $value): void {
         $this->getBackingStore()->set('alwaysOnConfiguration', $value);
@@ -299,7 +299,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the childSecurityAssociationParameters property value. Child Security Association Parameters
-     *  @param IosVpnSecurityAssociationParameters|null $value Value to set for the childSecurityAssociationParameters property.
+     * @param IosVpnSecurityAssociationParameters|null $value Value to set for the childSecurityAssociationParameters property.
     */
     public function setChildSecurityAssociationParameters(?IosVpnSecurityAssociationParameters $value): void {
         $this->getBackingStore()->set('childSecurityAssociationParameters', $value);
@@ -307,7 +307,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the clientAuthenticationType property value. The type of VPN client authentication type
-     *  @param VpnClientAuthenticationType|null $value Value to set for the clientAuthenticationType property.
+     * @param VpnClientAuthenticationType|null $value Value to set for the clientAuthenticationType property.
     */
     public function setClientAuthenticationType(?VpnClientAuthenticationType $value): void {
         $this->getBackingStore()->set('clientAuthenticationType', $value);
@@ -315,7 +315,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the deadPeerDetectionRate property value. Determine how often to check if a peer connection is still active. . Possible values are: medium, none, low, high.
-     *  @param VpnDeadPeerDetectionRate|null $value Value to set for the deadPeerDetectionRate property.
+     * @param VpnDeadPeerDetectionRate|null $value Value to set for the deadPeerDetectionRate property.
     */
     public function setDeadPeerDetectionRate(?VpnDeadPeerDetectionRate $value): void {
         $this->getBackingStore()->set('deadPeerDetectionRate', $value);
@@ -323,7 +323,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the disableMobilityAndMultihoming property value. Disable MOBIKE
-     *  @param bool|null $value Value to set for the disableMobilityAndMultihoming property.
+     * @param bool|null $value Value to set for the disableMobilityAndMultihoming property.
     */
     public function setDisableMobilityAndMultihoming(?bool $value): void {
         $this->getBackingStore()->set('disableMobilityAndMultihoming', $value);
@@ -331,7 +331,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the disableRedirect property value. Disable Redirect
-     *  @param bool|null $value Value to set for the disableRedirect property.
+     * @param bool|null $value Value to set for the disableRedirect property.
     */
     public function setDisableRedirect(?bool $value): void {
         $this->getBackingStore()->set('disableRedirect', $value);
@@ -339,7 +339,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the enableAlwaysOnConfiguration property value. Determines if Always on VPN is enabled
-     *  @param bool|null $value Value to set for the enableAlwaysOnConfiguration property.
+     * @param bool|null $value Value to set for the enableAlwaysOnConfiguration property.
     */
     public function setEnableAlwaysOnConfiguration(?bool $value): void {
         $this->getBackingStore()->set('enableAlwaysOnConfiguration', $value);
@@ -347,7 +347,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the enableCertificateRevocationCheck property value. Enables a best-effort revocation check; server response timeouts will not cause it to fail
-     *  @param bool|null $value Value to set for the enableCertificateRevocationCheck property.
+     * @param bool|null $value Value to set for the enableCertificateRevocationCheck property.
     */
     public function setEnableCertificateRevocationCheck(?bool $value): void {
         $this->getBackingStore()->set('enableCertificateRevocationCheck', $value);
@@ -355,7 +355,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the enableEAP property value. Enables EAP only authentication
-     *  @param bool|null $value Value to set for the enableEAP property.
+     * @param bool|null $value Value to set for the enableEAP property.
     */
     public function setEnableEAP(?bool $value): void {
         $this->getBackingStore()->set('enableEAP', $value);
@@ -363,7 +363,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the enablePerfectForwardSecrecy property value. Enable Perfect Forward Secrecy (PFS).
-     *  @param bool|null $value Value to set for the enablePerfectForwardSecrecy property.
+     * @param bool|null $value Value to set for the enablePerfectForwardSecrecy property.
     */
     public function setEnablePerfectForwardSecrecy(?bool $value): void {
         $this->getBackingStore()->set('enablePerfectForwardSecrecy', $value);
@@ -371,7 +371,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the enableUseInternalSubnetAttributes property value. Enable Use Internal Subnet Attributes.
-     *  @param bool|null $value Value to set for the enableUseInternalSubnetAttributes property.
+     * @param bool|null $value Value to set for the enableUseInternalSubnetAttributes property.
     */
     public function setEnableUseInternalSubnetAttributes(?bool $value): void {
         $this->getBackingStore()->set('enableUseInternalSubnetAttributes', $value);
@@ -379,7 +379,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the localIdentifier property value. The type of VPN local identifier
-     *  @param VpnLocalIdentifier|null $value Value to set for the localIdentifier property.
+     * @param VpnLocalIdentifier|null $value Value to set for the localIdentifier property.
     */
     public function setLocalIdentifier(?VpnLocalIdentifier $value): void {
         $this->getBackingStore()->set('localIdentifier', $value);
@@ -387,7 +387,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the mtuSizeInBytes property value. Maximum transmission unit. Valid values 1280 to 1400
-     *  @param int|null $value Value to set for the mtuSizeInBytes property.
+     * @param int|null $value Value to set for the mtuSizeInBytes property.
     */
     public function setMtuSizeInBytes(?int $value): void {
         $this->getBackingStore()->set('mtuSizeInBytes', $value);
@@ -395,7 +395,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the remoteIdentifier property value. Address of the IKEv2 server. Must be a FQDN, UserFQDN, network address, or ASN1DN
-     *  @param string|null $value Value to set for the remoteIdentifier property.
+     * @param string|null $value Value to set for the remoteIdentifier property.
     */
     public function setRemoteIdentifier(?string $value): void {
         $this->getBackingStore()->set('remoteIdentifier', $value);
@@ -403,7 +403,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the securityAssociationParameters property value. Security Association Parameters
-     *  @param IosVpnSecurityAssociationParameters|null $value Value to set for the securityAssociationParameters property.
+     * @param IosVpnSecurityAssociationParameters|null $value Value to set for the securityAssociationParameters property.
     */
     public function setSecurityAssociationParameters(?IosVpnSecurityAssociationParameters $value): void {
         $this->getBackingStore()->set('securityAssociationParameters', $value);
@@ -411,7 +411,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the serverCertificateCommonName property value. Common name of the IKEv2 Server Certificate used in Server Authentication
-     *  @param string|null $value Value to set for the serverCertificateCommonName property.
+     * @param string|null $value Value to set for the serverCertificateCommonName property.
     */
     public function setServerCertificateCommonName(?string $value): void {
         $this->getBackingStore()->set('serverCertificateCommonName', $value);
@@ -419,7 +419,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the serverCertificateIssuerCommonName property value. Issuer Common name of the IKEv2 Server Certificate issuer used in Authentication
-     *  @param string|null $value Value to set for the serverCertificateIssuerCommonName property.
+     * @param string|null $value Value to set for the serverCertificateIssuerCommonName property.
     */
     public function setServerCertificateIssuerCommonName(?string $value): void {
         $this->getBackingStore()->set('serverCertificateIssuerCommonName', $value);
@@ -427,7 +427,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the serverCertificateType property value. The type of certificate the VPN server will present to the VPN client for authentication. Possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.
-     *  @param VpnServerCertificateType|null $value Value to set for the serverCertificateType property.
+     * @param VpnServerCertificateType|null $value Value to set for the serverCertificateType property.
     */
     public function setServerCertificateType(?VpnServerCertificateType $value): void {
         $this->getBackingStore()->set('serverCertificateType', $value);
@@ -435,7 +435,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the sharedSecret property value. Used when Shared Secret Authentication is selected
-     *  @param string|null $value Value to set for the sharedSecret property.
+     * @param string|null $value Value to set for the sharedSecret property.
     */
     public function setSharedSecret(?string $value): void {
         $this->getBackingStore()->set('sharedSecret', $value);
@@ -443,7 +443,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the tlsMaximumVersion property value. The maximum TLS version to be used with EAP-TLS authentication
-     *  @param string|null $value Value to set for the tlsMaximumVersion property.
+     * @param string|null $value Value to set for the tlsMaximumVersion property.
     */
     public function setTlsMaximumVersion(?string $value): void {
         $this->getBackingStore()->set('tlsMaximumVersion', $value);
@@ -451,7 +451,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
 
     /**
      * Sets the tlsMinimumVersion property value. The minimum TLS version to be used with EAP-TLS authentication
-     *  @param string|null $value Value to set for the tlsMinimumVersion property.
+     * @param string|null $value Value to set for the tlsMinimumVersion property.
     */
     public function setTlsMinimumVersion(?string $value): void {
         $this->getBackingStore()->set('tlsMinimumVersion', $value);

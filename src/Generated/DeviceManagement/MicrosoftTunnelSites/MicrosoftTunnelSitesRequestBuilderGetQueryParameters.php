@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of MicrosoftTunnelSite settings associated with account.
+*/
 class MicrosoftTunnelSitesRequestBuilderGetQueryParameters 
 {
     /**

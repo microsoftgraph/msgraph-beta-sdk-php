@@ -64,7 +64,7 @@ class CustomExtensionHandler extends Entity implements Parsable
 
     /**
      * Sets the customExtension property value. Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand.
-     *  @param CustomAccessPackageWorkflowExtension|null $value Value to set for the customExtension property.
+     * @param CustomAccessPackageWorkflowExtension|null $value Value to set for the customExtension property.
     */
     public function setCustomExtension(?CustomAccessPackageWorkflowExtension $value): void {
         $this->getBackingStore()->set('customExtension', $value);
@@ -72,7 +72,7 @@ class CustomExtensionHandler extends Entity implements Parsable
 
     /**
      * Sets the stage property value. Indicates the stage of the access package assignment request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
-     *  @param AccessPackageCustomExtensionStage|null $value Value to set for the stage property.
+     * @param AccessPackageCustomExtensionStage|null $value Value to set for the stage property.
     */
     public function setStage(?AccessPackageCustomExtensionStage $value): void {
         $this->getBackingStore()->set('stage', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entities from approvalWorkflowProviders
+*/
 class ApprovalWorkflowProvidersRequestBuilderGetQueryParameters 
 {
     /**

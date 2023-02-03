@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Workflow extends WorkflowBase implements Parsable 
 {
     /**
-     * Instantiates a new Workflow and sets the default values.
+     * Instantiates a new workflow and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,6 +54,7 @@ class Workflow extends WorkflowBase implements Parsable
             'executionScope' => fn(ParseNode $n) => $o->setExecutionScope($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'nextScheduleRunDateTime' => fn(ParseNode $n) => $o->setNextScheduleRunDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'runs' => fn(ParseNode $n) => $o->setRuns($n->getCollectionOfObjectValues([Run::class, 'createFromDiscriminatorValue'])),
             'taskReports' => fn(ParseNode $n) => $o->setTaskReports($n->getCollectionOfObjectValues([TaskReport::class, 'createFromDiscriminatorValue'])),
             'userProcessingResults' => fn(ParseNode $n) => $o->setUserProcessingResults($n->getCollectionOfObjectValues([UserProcessingResult::class, 'createFromDiscriminatorValue'])),
@@ -76,6 +77,14 @@ class Workflow extends WorkflowBase implements Parsable
     */
     public function getNextScheduleRunDateTime(): ?DateTime {
         return $this->getBackingStore()->get('nextScheduleRunDateTime');
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -128,6 +137,7 @@ class Workflow extends WorkflowBase implements Parsable
         $writer->writeCollectionOfObjectValues('executionScope', $this->getExecutionScope());
         $writer->writeStringValue('id', $this->getId());
         $writer->writeDateTimeValue('nextScheduleRunDateTime', $this->getNextScheduleRunDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('runs', $this->getRuns());
         $writer->writeCollectionOfObjectValues('taskReports', $this->getTaskReports());
         $writer->writeCollectionOfObjectValues('userProcessingResults', $this->getUserProcessingResults());
@@ -137,7 +147,7 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Sets the deletedDateTime property value. When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param DateTime|null $value Value to set for the deletedDateTime property.
+     * @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deletedDateTime', $value);
@@ -145,7 +155,7 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Sets the executionScope property value. The unique identifier of the Azure AD identity that last modified the workflow object.
-     *  @param array<User>|null $value Value to set for the executionScope property.
+     * @param array<User>|null $value Value to set for the executionScope property.
     */
     public function setExecutionScope(?array $value): void {
         $this->getBackingStore()->set('executionScope', $value);
@@ -153,7 +163,7 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Sets the id property value. Identifier used for individually addressing a specific workflow.Supports $filter(eq, ne) and $orderby.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -161,15 +171,23 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Sets the nextScheduleRunDateTime property value. The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderBy.
-     *  @param DateTime|null $value Value to set for the nextScheduleRunDateTime property.
+     * @param DateTime|null $value Value to set for the nextScheduleRunDateTime property.
     */
     public function setNextScheduleRunDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('nextScheduleRunDateTime', $value);
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
      * Sets the runs property value. The runs property
-     *  @param array<Run>|null $value Value to set for the runs property.
+     * @param array<Run>|null $value Value to set for the runs property.
     */
     public function setRuns(?array $value): void {
         $this->getBackingStore()->set('runs', $value);
@@ -177,7 +195,7 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Sets the taskReports property value. Represents the aggregation of task execution data for tasks within a workflow object.
-     *  @param array<TaskReport>|null $value Value to set for the taskReports property.
+     * @param array<TaskReport>|null $value Value to set for the taskReports property.
     */
     public function setTaskReports(?array $value): void {
         $this->getBackingStore()->set('taskReports', $value);
@@ -185,7 +203,7 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Sets the userProcessingResults property value. The userProcessingResults property
-     *  @param array<UserProcessingResult>|null $value Value to set for the userProcessingResults property.
+     * @param array<UserProcessingResult>|null $value Value to set for the userProcessingResults property.
     */
     public function setUserProcessingResults(?array $value): void {
         $this->getBackingStore()->set('userProcessingResults', $value);
@@ -193,7 +211,7 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Sets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);
@@ -201,7 +219,7 @@ class Workflow extends WorkflowBase implements Parsable
 
     /**
      * Sets the versions property value. The workflow versions that are available.
-     *  @param array<WorkflowVersion>|null $value Value to set for the versions property.
+     * @param array<WorkflowVersion>|null $value Value to set for the versions property.
     */
     public function setVersions(?array $value): void {
         $this->getBackingStore()->set('versions', $value);

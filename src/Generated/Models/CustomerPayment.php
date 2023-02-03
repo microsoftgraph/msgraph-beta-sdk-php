@@ -196,7 +196,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the amount property value. The amount property
-     *  @param string|null $value Value to set for the amount property.
+     * @param string|null $value Value to set for the amount property.
     */
     public function setAmount(?string $value): void {
         $this->getBackingStore()->set('amount', $value);
@@ -204,7 +204,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the appliesToInvoiceId property value. The appliesToInvoiceId property
-     *  @param string|null $value Value to set for the appliesToInvoiceId property.
+     * @param string|null $value Value to set for the appliesToInvoiceId property.
     */
     public function setAppliesToInvoiceId(?string $value): void {
         $this->getBackingStore()->set('appliesToInvoiceId', $value);
@@ -212,7 +212,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the appliesToInvoiceNumber property value. The appliesToInvoiceNumber property
-     *  @param string|null $value Value to set for the appliesToInvoiceNumber property.
+     * @param string|null $value Value to set for the appliesToInvoiceNumber property.
     */
     public function setAppliesToInvoiceNumber(?string $value): void {
         $this->getBackingStore()->set('appliesToInvoiceNumber', $value);
@@ -220,7 +220,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the comment property value. The comment property
-     *  @param string|null $value Value to set for the comment property.
+     * @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value): void {
         $this->getBackingStore()->set('comment', $value);
@@ -228,7 +228,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the contactId property value. The contactId property
-     *  @param string|null $value Value to set for the contactId property.
+     * @param string|null $value Value to set for the contactId property.
     */
     public function setContactId(?string $value): void {
         $this->getBackingStore()->set('contactId', $value);
@@ -236,7 +236,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the customer property value. The customer property
-     *  @param Customer|null $value Value to set for the customer property.
+     * @param Customer|null $value Value to set for the customer property.
     */
     public function setCustomer(?Customer $value): void {
         $this->getBackingStore()->set('customer', $value);
@@ -244,7 +244,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the customerId property value. The customerId property
-     *  @param string|null $value Value to set for the customerId property.
+     * @param string|null $value Value to set for the customerId property.
     */
     public function setCustomerId(?string $value): void {
         $this->getBackingStore()->set('customerId', $value);
@@ -252,7 +252,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the customerNumber property value. The customerNumber property
-     *  @param string|null $value Value to set for the customerNumber property.
+     * @param string|null $value Value to set for the customerNumber property.
     */
     public function setCustomerNumber(?string $value): void {
         $this->getBackingStore()->set('customerNumber', $value);
@@ -260,7 +260,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -268,7 +268,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the documentNumber property value. The documentNumber property
-     *  @param string|null $value Value to set for the documentNumber property.
+     * @param string|null $value Value to set for the documentNumber property.
     */
     public function setDocumentNumber(?string $value): void {
         $this->getBackingStore()->set('documentNumber', $value);
@@ -276,7 +276,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the externalDocumentNumber property value. The externalDocumentNumber property
-     *  @param string|null $value Value to set for the externalDocumentNumber property.
+     * @param string|null $value Value to set for the externalDocumentNumber property.
     */
     public function setExternalDocumentNumber(?string $value): void {
         $this->getBackingStore()->set('externalDocumentNumber', $value);
@@ -284,7 +284,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the journalDisplayName property value. The journalDisplayName property
-     *  @param string|null $value Value to set for the journalDisplayName property.
+     * @param string|null $value Value to set for the journalDisplayName property.
     */
     public function setJournalDisplayName(?string $value): void {
         $this->getBackingStore()->set('journalDisplayName', $value);
@@ -292,7 +292,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -300,7 +300,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the lineNumber property value. The lineNumber property
-     *  @param int|null $value Value to set for the lineNumber property.
+     * @param int|null $value Value to set for the lineNumber property.
     */
     public function setLineNumber(?int $value): void {
         $this->getBackingStore()->set('lineNumber', $value);
@@ -308,7 +308,7 @@ class CustomerPayment extends Entity implements Parsable
 
     /**
      * Sets the postingDate property value. The postingDate property
-     *  @param Date|null $value Value to set for the postingDate property.
+     * @param Date|null $value Value to set for the postingDate property.
     */
     public function setPostingDate(?Date $value): void {
         $this->getBackingStore()->set('postingDate', $value);

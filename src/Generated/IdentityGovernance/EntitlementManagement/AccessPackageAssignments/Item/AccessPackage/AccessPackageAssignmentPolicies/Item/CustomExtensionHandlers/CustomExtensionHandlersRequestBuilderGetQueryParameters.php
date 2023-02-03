@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
+*/
 class CustomExtensionHandlersRequestBuilderGetQueryParameters 
 {
     /**

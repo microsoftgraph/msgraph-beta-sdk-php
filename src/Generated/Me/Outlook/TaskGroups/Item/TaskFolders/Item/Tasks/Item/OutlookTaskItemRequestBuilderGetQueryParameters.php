@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item\TaskFolders\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The tasks in this task folder. Read-only. Nullable.
+*/
 class OutlookTaskItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device performance entity contains device performance details.
+*/
 class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implements Parsable 
 {
     /**
@@ -165,7 +168,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the appCrashCount property value. The number of app crashes for the device. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the appCrashCount property.
+     * @param int|null $value Value to set for the appCrashCount property.
     */
     public function setAppCrashCount(?int $value): void {
         $this->getBackingStore()->set('appCrashCount', $value);
@@ -173,7 +176,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the appHangCount property value. The number of app hangs for the device. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the appHangCount property.
+     * @param int|null $value Value to set for the appHangCount property.
     */
     public function setAppHangCount(?int $value): void {
         $this->getBackingStore()->set('appHangCount', $value);
@@ -181,7 +184,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the crashedAppCount property value. The number of distinct app crashes for the device. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the crashedAppCount property.
+     * @param int|null $value Value to set for the crashedAppCount property.
     */
     public function setCrashedAppCount(?int $value): void {
         $this->getBackingStore()->set('crashedAppCount', $value);
@@ -189,7 +192,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the deviceAppHealthScore property value. The app health score of the device. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the deviceAppHealthScore property.
+     * @param float|null $value Value to set for the deviceAppHealthScore property.
     */
     public function setDeviceAppHealthScore(?float $value): void {
         $this->getBackingStore()->set('deviceAppHealthScore', $value);
@@ -197,7 +200,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the deviceAppHealthStatus property value. The overall app health status of the device.
-     *  @param string|null $value Value to set for the deviceAppHealthStatus property.
+     * @param string|null $value Value to set for the deviceAppHealthStatus property.
     */
     public function setDeviceAppHealthStatus(?string $value): void {
         $this->getBackingStore()->set('deviceAppHealthStatus', $value);
@@ -205,7 +208,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the deviceDisplayName property value. The name of the device.
-     *  @param string|null $value Value to set for the deviceDisplayName property.
+     * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
         $this->getBackingStore()->set('deviceDisplayName', $value);
@@ -213,7 +216,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the deviceId property value. The id of the device.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -221,7 +224,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the deviceManufacturer property value. The manufacturer name of the device.
-     *  @param string|null $value Value to set for the deviceManufacturer property.
+     * @param string|null $value Value to set for the deviceManufacturer property.
     */
     public function setDeviceManufacturer(?string $value): void {
         $this->getBackingStore()->set('deviceManufacturer', $value);
@@ -229,7 +232,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the deviceModel property value. The model name of the device.
-     *  @param string|null $value Value to set for the deviceModel property.
+     * @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value): void {
         $this->getBackingStore()->set('deviceModel', $value);
@@ -237,7 +240,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the healthStatus property value. The healthStatus property
-     *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
+     * @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
         $this->getBackingStore()->set('healthStatus', $value);
@@ -245,7 +248,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the device in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
+     * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
         $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);
@@ -253,7 +256,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
 
     /**
      * Sets the processedDateTime property value. The date and time when the statistics were last computed.
-     *  @param DateTime|null $value Value to set for the processedDateTime property.
+     * @param DateTime|null $value Value to set for the processedDateTime property.
     */
     public function setProcessedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('processedDateTime', $value);

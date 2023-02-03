@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApprovalWorkflowProvider extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new approvalWorkflowProvider and sets the default values.
+     * Instantiates a new ApprovalWorkflowProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -84,7 +84,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
 
     /**
      * Sets the businessFlows property value. The businessFlows property
-     *  @param array<BusinessFlow>|null $value Value to set for the businessFlows property.
+     * @param array<BusinessFlow>|null $value Value to set for the businessFlows property.
     */
     public function setBusinessFlows(?array $value): void {
         $this->getBackingStore()->set('businessFlows', $value);
@@ -92,7 +92,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
 
     /**
      * Sets the businessFlowsWithRequestsAwaitingMyDecision property value. The businessFlowsWithRequestsAwaitingMyDecision property
-     *  @param array<BusinessFlow>|null $value Value to set for the businessFlowsWithRequestsAwaitingMyDecision property.
+     * @param array<BusinessFlow>|null $value Value to set for the businessFlowsWithRequestsAwaitingMyDecision property.
     */
     public function setBusinessFlowsWithRequestsAwaitingMyDecision(?array $value): void {
         $this->getBackingStore()->set('businessFlowsWithRequestsAwaitingMyDecision', $value);
@@ -100,7 +100,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -108,7 +108,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
 
     /**
      * Sets the policyTemplates property value. The policyTemplates property
-     *  @param array<GovernancePolicyTemplate>|null $value Value to set for the policyTemplates property.
+     * @param array<GovernancePolicyTemplate>|null $value Value to set for the policyTemplates property.
     */
     public function setPolicyTemplates(?array $value): void {
         $this->getBackingStore()->set('policyTemplates', $value);
