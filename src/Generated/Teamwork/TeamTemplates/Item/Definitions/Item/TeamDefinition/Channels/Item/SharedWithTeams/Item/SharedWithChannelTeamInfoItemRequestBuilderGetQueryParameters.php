@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of teams with which a channel is shared.
+*/
 class SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters 
 {
     /**

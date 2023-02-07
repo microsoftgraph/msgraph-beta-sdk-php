@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
+*/
 class IncompatibleAccessPackagesRequestBuilderGetQueryParameters 
 {
     /**

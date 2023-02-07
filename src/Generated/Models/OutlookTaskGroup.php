@@ -94,7 +94,7 @@ class OutlookTaskGroup extends Entity implements Parsable
 
     /**
      * Sets the changeKey property value. The version of the task group.
-     *  @param string|null $value Value to set for the changeKey property.
+     * @param string|null $value Value to set for the changeKey property.
     */
     public function setChangeKey(?string $value): void {
         $this->getBackingStore()->set('changeKey', $value);
@@ -102,7 +102,7 @@ class OutlookTaskGroup extends Entity implements Parsable
 
     /**
      * Sets the groupKey property value. The unique GUID identifier for the task group.
-     *  @param string|null $value Value to set for the groupKey property.
+     * @param string|null $value Value to set for the groupKey property.
     */
     public function setGroupKey(?string $value): void {
         $this->getBackingStore()->set('groupKey', $value);
@@ -110,7 +110,7 @@ class OutlookTaskGroup extends Entity implements Parsable
 
     /**
      * Sets the isDefaultGroup property value. True if the task group is the default task group.
-     *  @param bool|null $value Value to set for the isDefaultGroup property.
+     * @param bool|null $value Value to set for the isDefaultGroup property.
     */
     public function setIsDefaultGroup(?bool $value): void {
         $this->getBackingStore()->set('isDefaultGroup', $value);
@@ -118,7 +118,7 @@ class OutlookTaskGroup extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name of the task group.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -126,7 +126,7 @@ class OutlookTaskGroup extends Entity implements Parsable
 
     /**
      * Sets the taskFolders property value. The collection of task folders in the task group. Read-only. Nullable.
-     *  @param array<OutlookTaskFolder>|null $value Value to set for the taskFolders property.
+     * @param array<OutlookTaskFolder>|null $value Value to set for the taskFolders property.
     */
     public function setTaskFolders(?array $value): void {
         $this->getBackingStore()->set('taskFolders', $value);

@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The depOnboardingSetting represents an instance of the Apple DEP service being onboarded to Intune. The onboarded service instance manages an Apple Token used to synchronize data between Apple and Intune.
+*/
 class DepOnboardingSetting extends Entity implements Parsable 
 {
     /**
@@ -205,7 +208,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the appleIdentifier property value. The Apple ID used to obtain the current token.
-     *  @param string|null $value Value to set for the appleIdentifier property.
+     * @param string|null $value Value to set for the appleIdentifier property.
     */
     public function setAppleIdentifier(?string $value): void {
         $this->getBackingStore()->set('appleIdentifier', $value);
@@ -213,7 +216,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the dataSharingConsentGranted property value. Consent granted for data sharing with Apple Dep Service
-     *  @param bool|null $value Value to set for the dataSharingConsentGranted property.
+     * @param bool|null $value Value to set for the dataSharingConsentGranted property.
     */
     public function setDataSharingConsentGranted(?bool $value): void {
         $this->getBackingStore()->set('dataSharingConsentGranted', $value);
@@ -221,7 +224,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the defaultIosEnrollmentProfile property value. Default iOS Enrollment Profile
-     *  @param DepIOSEnrollmentProfile|null $value Value to set for the defaultIosEnrollmentProfile property.
+     * @param DepIOSEnrollmentProfile|null $value Value to set for the defaultIosEnrollmentProfile property.
     */
     public function setDefaultIosEnrollmentProfile(?DepIOSEnrollmentProfile $value): void {
         $this->getBackingStore()->set('defaultIosEnrollmentProfile', $value);
@@ -229,7 +232,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the defaultMacOsEnrollmentProfile property value. Default MacOs Enrollment Profile
-     *  @param DepMacOSEnrollmentProfile|null $value Value to set for the defaultMacOsEnrollmentProfile property.
+     * @param DepMacOSEnrollmentProfile|null $value Value to set for the defaultMacOsEnrollmentProfile property.
     */
     public function setDefaultMacOsEnrollmentProfile(?DepMacOSEnrollmentProfile $value): void {
         $this->getBackingStore()->set('defaultMacOsEnrollmentProfile', $value);
@@ -237,7 +240,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the enrollmentProfiles property value. The enrollment profiles.
-     *  @param array<EnrollmentProfile>|null $value Value to set for the enrollmentProfiles property.
+     * @param array<EnrollmentProfile>|null $value Value to set for the enrollmentProfiles property.
     */
     public function setEnrollmentProfiles(?array $value): void {
         $this->getBackingStore()->set('enrollmentProfiles', $value);
@@ -245,7 +248,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the importedAppleDeviceIdentities property value. The imported Apple device identities.
-     *  @param array<ImportedAppleDeviceIdentity>|null $value Value to set for the importedAppleDeviceIdentities property.
+     * @param array<ImportedAppleDeviceIdentity>|null $value Value to set for the importedAppleDeviceIdentities property.
     */
     public function setImportedAppleDeviceIdentities(?array $value): void {
         $this->getBackingStore()->set('importedAppleDeviceIdentities', $value);
@@ -253,7 +256,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. When the service was onboarded.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -261,7 +264,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the lastSuccessfulSyncDateTime property value. When the service last syned with Intune
-     *  @param DateTime|null $value Value to set for the lastSuccessfulSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSuccessfulSyncDateTime property.
     */
     public function setLastSuccessfulSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSuccessfulSyncDateTime', $value);
@@ -269,7 +272,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the lastSyncErrorCode property value. Error code reported by Apple during last dep sync.
-     *  @param int|null $value Value to set for the lastSyncErrorCode property.
+     * @param int|null $value Value to set for the lastSyncErrorCode property.
     */
     public function setLastSyncErrorCode(?int $value): void {
         $this->getBackingStore()->set('lastSyncErrorCode', $value);
@@ -277,7 +280,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the lastSyncTriggeredDateTime property value. When Intune last requested a sync.
-     *  @param DateTime|null $value Value to set for the lastSyncTriggeredDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncTriggeredDateTime property.
     */
     public function setLastSyncTriggeredDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncTriggeredDateTime', $value);
@@ -285,7 +288,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -293,7 +296,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the shareTokenWithSchoolDataSyncService property value. Whether or not the Dep token sharing is enabled with the School Data Sync service.
-     *  @param bool|null $value Value to set for the shareTokenWithSchoolDataSyncService property.
+     * @param bool|null $value Value to set for the shareTokenWithSchoolDataSyncService property.
     */
     public function setShareTokenWithSchoolDataSyncService(?bool $value): void {
         $this->getBackingStore()->set('shareTokenWithSchoolDataSyncService', $value);
@@ -301,7 +304,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the syncedDeviceCount property value. Gets synced device count
-     *  @param int|null $value Value to set for the syncedDeviceCount property.
+     * @param int|null $value Value to set for the syncedDeviceCount property.
     */
     public function setSyncedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('syncedDeviceCount', $value);
@@ -309,7 +312,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the tokenExpirationDateTime property value. When the token will expire.
-     *  @param DateTime|null $value Value to set for the tokenExpirationDateTime property.
+     * @param DateTime|null $value Value to set for the tokenExpirationDateTime property.
     */
     public function setTokenExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('tokenExpirationDateTime', $value);
@@ -317,7 +320,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the tokenName property value. Friendly Name for Dep Token
-     *  @param string|null $value Value to set for the tokenName property.
+     * @param string|null $value Value to set for the tokenName property.
     */
     public function setTokenName(?string $value): void {
         $this->getBackingStore()->set('tokenName', $value);
@@ -325,7 +328,7 @@ class DepOnboardingSetting extends Entity implements Parsable
 
     /**
      * Sets the tokenType property value. The tokenType property
-     *  @param DepTokenType|null $value Value to set for the tokenType property.
+     * @param DepTokenType|null $value Value to set for the tokenType property.
     */
     public function setTokenType(?DepTokenType $value): void {
         $this->getBackingStore()->set('tokenType', $value);

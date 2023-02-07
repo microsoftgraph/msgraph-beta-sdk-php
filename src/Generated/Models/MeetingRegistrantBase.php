@@ -62,7 +62,7 @@ class MeetingRegistrantBase extends Entity implements Parsable
 
     /**
      * Sets the joinWebUrl property value. A unique web URL for the registrant to join the meeting. Read-only.
-     *  @param string|null $value Value to set for the joinWebUrl property.
+     * @param string|null $value Value to set for the joinWebUrl property.
     */
     public function setJoinWebUrl(?string $value): void {
         $this->getBackingStore()->set('joinWebUrl', $value);

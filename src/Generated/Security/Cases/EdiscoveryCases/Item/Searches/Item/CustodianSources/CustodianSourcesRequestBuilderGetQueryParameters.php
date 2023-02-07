@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Sea
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the list of custodial data sources associated with an eDiscovery search.
+*/
 class CustodianSourcesRequestBuilderGetQueryParameters 
 {
     /**

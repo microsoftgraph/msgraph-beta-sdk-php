@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get reports from print
+*/
 class ReportsRequestBuilderGetQueryParameters 
 {
     /**

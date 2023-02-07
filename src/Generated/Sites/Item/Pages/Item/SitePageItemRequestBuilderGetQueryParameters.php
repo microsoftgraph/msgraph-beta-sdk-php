@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Pages\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of pages in the SitePages list in this site.
+*/
 class SitePageItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ThreatSubmission\EmailThreatSubmissionP
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get emailThreatSubmissionPolicies from threatSubmission
+*/
 class EmailThreatSubmissionPolicyItemRequestBuilderGetQueryParameters 
 {
     /**

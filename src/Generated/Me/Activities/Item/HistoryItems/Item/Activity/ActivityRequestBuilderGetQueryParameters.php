@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Activities\Item\HistoryItems\Item\Ac
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get activity from me
+*/
 class ActivityRequestBuilderGetQueryParameters 
 {
     /**

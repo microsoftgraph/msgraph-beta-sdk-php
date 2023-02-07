@@ -104,7 +104,7 @@ class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
-     *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
+     * @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodScale', $value);
@@ -112,7 +112,7 @@ class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the certificateValidityPeriodValue property value. Value for the Certificate Validity Period.
-     *  @param int|null $value Value to set for the certificateValidityPeriodValue property.
+     * @param int|null $value Value to set for the certificateValidityPeriodValue property.
     */
     public function setCertificateValidityPeriodValue(?int $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodValue', $value);
@@ -120,7 +120,7 @@ class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the renewalThresholdPercentage property value. Certificate renewal threshold percentage.
-     *  @param int|null $value Value to set for the renewalThresholdPercentage property.
+     * @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
     public function setRenewalThresholdPercentage(?int $value): void {
         $this->getBackingStore()->set('renewalThresholdPercentage', $value);
@@ -128,7 +128,7 @@ class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     *  @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
+     * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
     public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameType', $value);
@@ -136,7 +136,7 @@ class MacOSCertificateProfileBase extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the subjectNameFormat property value. Subject Name Format Options for Apple devices.
-     *  @param AppleSubjectNameFormat|null $value Value to set for the subjectNameFormat property.
+     * @param AppleSubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
     public function setSubjectNameFormat(?AppleSubjectNameFormat $value): void {
         $this->getBackingStore()->set('subjectNameFormat', $value);

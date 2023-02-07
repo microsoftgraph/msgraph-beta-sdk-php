@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\LegalH
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get unifiedGroupSources from compliance
+*/
 class UnifiedGroupSourceItemRequestBuilderGetQueryParameters 
 {
     /**

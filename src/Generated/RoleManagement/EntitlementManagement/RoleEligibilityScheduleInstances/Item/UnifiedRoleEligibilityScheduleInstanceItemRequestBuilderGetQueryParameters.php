@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\Ro
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get roleEligibilityScheduleInstances from roleManagement
+*/
 class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetQueryParameters 
 {
     /**

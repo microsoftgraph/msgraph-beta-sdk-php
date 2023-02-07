@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploy
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Windows auto pilot deployment profiles
+*/
 class WindowsAutopilotDeploymentProfileItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -54,7 +54,7 @@ class WorkbookFilter extends Entity implements Parsable
 
     /**
      * Sets the criteria property value. The criteria property
-     *  @param WorkbookFilterCriteria|null $value Value to set for the criteria property.
+     * @param WorkbookFilterCriteria|null $value Value to set for the criteria property.
     */
     public function setCriteria(?WorkbookFilterCriteria $value): void {
         $this->getBackingStore()->set('criteria', $value);

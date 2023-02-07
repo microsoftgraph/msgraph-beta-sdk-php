@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignment
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The principal that's getting a role assignment through the request. Supports $expand.
+*/
 class PrincipalRequestBuilderGetQueryParameters 
 {
     /**

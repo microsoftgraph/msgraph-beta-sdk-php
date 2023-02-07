@@ -1,0 +1,24 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\DataLossPreventionPolicies\Item;
+
+use Microsoft\Kiota\Abstractions\QueryParameter;
+
+/**
+ * Get dataLossPreventionPolicies from groups
+*/
+class DataLossPreventionPolicyItemRequestBuilderGetQueryParameters 
+{
+    /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
+    
+    /**
+     * @QueryParameter("%24select")
+     * @var array<string>|null $select Select properties to be returned
+    */
+    public ?array $select = null;
+    
+}

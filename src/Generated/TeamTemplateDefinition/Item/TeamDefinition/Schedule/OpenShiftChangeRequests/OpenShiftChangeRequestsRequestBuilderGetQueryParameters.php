@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of openShiftChangeRequest objects in a team.
+*/
 class OpenShiftChangeRequestsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Selective Outlook services available to the user. Read-only. Nullable.
+*/
 class OutlookRequestBuilderGetQueryParameters 
 {
     /**

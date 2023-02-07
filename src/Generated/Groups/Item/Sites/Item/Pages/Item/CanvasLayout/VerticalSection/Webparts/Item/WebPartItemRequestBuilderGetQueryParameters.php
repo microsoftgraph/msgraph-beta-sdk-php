@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\Canva
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The set of web parts in this section.
+*/
 class WebPartItemRequestBuilderGetQueryParameters 
 {
     /**

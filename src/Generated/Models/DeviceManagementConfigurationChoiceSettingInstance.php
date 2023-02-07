@@ -55,7 +55,7 @@ class DeviceManagementConfigurationChoiceSettingInstance extends DeviceManagemen
 
     /**
      * Sets the choiceSettingValue property value. The choiceSettingValue property
-     *  @param DeviceManagementConfigurationChoiceSettingValue|null $value Value to set for the choiceSettingValue property.
+     * @param DeviceManagementConfigurationChoiceSettingValue|null $value Value to set for the choiceSettingValue property.
     */
     public function setChoiceSettingValue(?DeviceManagementConfigurationChoiceSettingValue $value): void {
         $this->getBackingStore()->set('choiceSettingValue', $value);

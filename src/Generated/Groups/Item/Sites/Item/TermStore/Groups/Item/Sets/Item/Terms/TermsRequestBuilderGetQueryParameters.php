@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\TermStore\Groups
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * All the terms under the set.
+*/
 class TermsRequestBuilderGetQueryParameters 
 {
     /**

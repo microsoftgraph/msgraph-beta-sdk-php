@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Teamwork;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A container for Microsoft Teams features available for the user. Read-only. Nullable.
+*/
 class TeamworkRequestBuilderGetQueryParameters 
 {
     /**

@@ -55,7 +55,7 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration implement
 
     /**
      * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
-     *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
+     * @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
     public function setKeyStorageProvider(?KeyStorageProviderOption $value): void {
         $this->getBackingStore()->set('keyStorageProvider', $value);

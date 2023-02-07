@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Notifications\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get notifications from me
+*/
 class NotificationItemRequestBuilderGetQueryParameters 
 {
     /**

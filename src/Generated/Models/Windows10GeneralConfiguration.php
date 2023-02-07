@@ -2877,7 +2877,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the accountsBlockAddingNonMicrosoftAccountEmail property value. Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.
-     *  @param bool|null $value Value to set for the accountsBlockAddingNonMicrosoftAccountEmail property.
+     * @param bool|null $value Value to set for the accountsBlockAddingNonMicrosoftAccountEmail property.
     */
     public function setAccountsBlockAddingNonMicrosoftAccountEmail(?bool $value): void {
         $this->getBackingStore()->set('accountsBlockAddingNonMicrosoftAccountEmail', $value);
@@ -2885,7 +2885,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the activateAppsWithVoice property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the activateAppsWithVoice property.
+     * @param Enablement|null $value Value to set for the activateAppsWithVoice property.
     */
     public function setActivateAppsWithVoice(?Enablement $value): void {
         $this->getBackingStore()->set('activateAppsWithVoice', $value);
@@ -2893,7 +2893,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the antiTheftModeBlocked property value. Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only).
-     *  @param bool|null $value Value to set for the antiTheftModeBlocked property.
+     * @param bool|null $value Value to set for the antiTheftModeBlocked property.
     */
     public function setAntiTheftModeBlocked(?bool $value): void {
         $this->getBackingStore()->set('antiTheftModeBlocked', $value);
@@ -2901,7 +2901,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the appManagementMSIAllowUserControlOverInstall property value. This policy setting permits users to change installation options that typically are available only to system administrators.
-     *  @param bool|null $value Value to set for the appManagementMSIAllowUserControlOverInstall property.
+     * @param bool|null $value Value to set for the appManagementMSIAllowUserControlOverInstall property.
     */
     public function setAppManagementMSIAllowUserControlOverInstall(?bool $value): void {
         $this->getBackingStore()->set('appManagementMSIAllowUserControlOverInstall', $value);
@@ -2909,7 +2909,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the appManagementMSIAlwaysInstallWithElevatedPrivileges property value. This policy setting directs Windows Installer to use elevated permissions when it installs any program on the system.
-     *  @param bool|null $value Value to set for the appManagementMSIAlwaysInstallWithElevatedPrivileges property.
+     * @param bool|null $value Value to set for the appManagementMSIAlwaysInstallWithElevatedPrivileges property.
     */
     public function setAppManagementMSIAlwaysInstallWithElevatedPrivileges(?bool $value): void {
         $this->getBackingStore()->set('appManagementMSIAlwaysInstallWithElevatedPrivileges', $value);
@@ -2917,7 +2917,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the appManagementPackageFamilyNamesToLaunchAfterLogOn property value. List of semi-colon delimited Package Family Names of Windows apps. Listed Windows apps are to be launched after logon.​
-     *  @param array<string>|null $value Value to set for the appManagementPackageFamilyNamesToLaunchAfterLogOn property.
+     * @param array<string>|null $value Value to set for the appManagementPackageFamilyNamesToLaunchAfterLogOn property.
     */
     public function setAppManagementPackageFamilyNamesToLaunchAfterLogOn(?array $value): void {
         $this->getBackingStore()->set('appManagementPackageFamilyNamesToLaunchAfterLogOn', $value);
@@ -2925,7 +2925,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the appsAllowTrustedAppsSideloading property value. State Management Setting.
-     *  @param StateManagementSetting|null $value Value to set for the appsAllowTrustedAppsSideloading property.
+     * @param StateManagementSetting|null $value Value to set for the appsAllowTrustedAppsSideloading property.
     */
     public function setAppsAllowTrustedAppsSideloading(?StateManagementSetting $value): void {
         $this->getBackingStore()->set('appsAllowTrustedAppsSideloading', $value);
@@ -2933,7 +2933,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the appsBlockWindowsStoreOriginatedApps property value. Indicates whether or not to disable the launch of all apps from Windows Store that came pre-installed or were downloaded.
-     *  @param bool|null $value Value to set for the appsBlockWindowsStoreOriginatedApps property.
+     * @param bool|null $value Value to set for the appsBlockWindowsStoreOriginatedApps property.
     */
     public function setAppsBlockWindowsStoreOriginatedApps(?bool $value): void {
         $this->getBackingStore()->set('appsBlockWindowsStoreOriginatedApps', $value);
@@ -2941,7 +2941,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the authenticationAllowSecondaryDevice property value. Allows secondary authentication devices to work with Windows.
-     *  @param bool|null $value Value to set for the authenticationAllowSecondaryDevice property.
+     * @param bool|null $value Value to set for the authenticationAllowSecondaryDevice property.
     */
     public function setAuthenticationAllowSecondaryDevice(?bool $value): void {
         $this->getBackingStore()->set('authenticationAllowSecondaryDevice', $value);
@@ -2949,7 +2949,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the authenticationPreferredAzureADTenantDomainName property value. Specifies the preferred domain among available domains in the Azure AD tenant.
-     *  @param string|null $value Value to set for the authenticationPreferredAzureADTenantDomainName property.
+     * @param string|null $value Value to set for the authenticationPreferredAzureADTenantDomainName property.
     */
     public function setAuthenticationPreferredAzureADTenantDomainName(?string $value): void {
         $this->getBackingStore()->set('authenticationPreferredAzureADTenantDomainName', $value);
@@ -2957,7 +2957,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the authenticationWebSignIn property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the authenticationWebSignIn property.
+     * @param Enablement|null $value Value to set for the authenticationWebSignIn property.
     */
     public function setAuthenticationWebSignIn(?Enablement $value): void {
         $this->getBackingStore()->set('authenticationWebSignIn', $value);
@@ -2965,7 +2965,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the bluetoothAllowedServices property value. Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
-     *  @param array<string>|null $value Value to set for the bluetoothAllowedServices property.
+     * @param array<string>|null $value Value to set for the bluetoothAllowedServices property.
     */
     public function setBluetoothAllowedServices(?array $value): void {
         $this->getBackingStore()->set('bluetoothAllowedServices', $value);
@@ -2973,7 +2973,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the bluetoothBlockAdvertising property value. Whether or not to Block the user from using bluetooth advertising.
-     *  @param bool|null $value Value to set for the bluetoothBlockAdvertising property.
+     * @param bool|null $value Value to set for the bluetoothBlockAdvertising property.
     */
     public function setBluetoothBlockAdvertising(?bool $value): void {
         $this->getBackingStore()->set('bluetoothBlockAdvertising', $value);
@@ -2981,7 +2981,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the bluetoothBlockDiscoverableMode property value. Whether or not to Block the user from using bluetooth discoverable mode.
-     *  @param bool|null $value Value to set for the bluetoothBlockDiscoverableMode property.
+     * @param bool|null $value Value to set for the bluetoothBlockDiscoverableMode property.
     */
     public function setBluetoothBlockDiscoverableMode(?bool $value): void {
         $this->getBackingStore()->set('bluetoothBlockDiscoverableMode', $value);
@@ -2989,7 +2989,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the bluetoothBlocked property value. Whether or not to Block the user from using bluetooth.
-     *  @param bool|null $value Value to set for the bluetoothBlocked property.
+     * @param bool|null $value Value to set for the bluetoothBlocked property.
     */
     public function setBluetoothBlocked(?bool $value): void {
         $this->getBackingStore()->set('bluetoothBlocked', $value);
@@ -2997,7 +2997,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the bluetoothBlockPrePairing property value. Whether or not to block specific bundled Bluetooth peripherals to automatically pair with the host device.
-     *  @param bool|null $value Value to set for the bluetoothBlockPrePairing property.
+     * @param bool|null $value Value to set for the bluetoothBlockPrePairing property.
     */
     public function setBluetoothBlockPrePairing(?bool $value): void {
         $this->getBackingStore()->set('bluetoothBlockPrePairing', $value);
@@ -3005,7 +3005,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the bluetoothBlockPromptedProximalConnections property value. Whether or not to block the users from using Swift Pair and other proximity based scenarios.
-     *  @param bool|null $value Value to set for the bluetoothBlockPromptedProximalConnections property.
+     * @param bool|null $value Value to set for the bluetoothBlockPromptedProximalConnections property.
     */
     public function setBluetoothBlockPromptedProximalConnections(?bool $value): void {
         $this->getBackingStore()->set('bluetoothBlockPromptedProximalConnections', $value);
@@ -3013,7 +3013,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the cameraBlocked property value. Whether or not to Block the user from accessing the camera of the device.
-     *  @param bool|null $value Value to set for the cameraBlocked property.
+     * @param bool|null $value Value to set for the cameraBlocked property.
     */
     public function setCameraBlocked(?bool $value): void {
         $this->getBackingStore()->set('cameraBlocked', $value);
@@ -3021,7 +3021,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the cellularBlockDataWhenRoaming property value. Whether or not to Block the user from using data over cellular while roaming.
-     *  @param bool|null $value Value to set for the cellularBlockDataWhenRoaming property.
+     * @param bool|null $value Value to set for the cellularBlockDataWhenRoaming property.
     */
     public function setCellularBlockDataWhenRoaming(?bool $value): void {
         $this->getBackingStore()->set('cellularBlockDataWhenRoaming', $value);
@@ -3029,7 +3029,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the cellularBlockVpn property value. Whether or not to Block the user from using VPN over cellular.
-     *  @param bool|null $value Value to set for the cellularBlockVpn property.
+     * @param bool|null $value Value to set for the cellularBlockVpn property.
     */
     public function setCellularBlockVpn(?bool $value): void {
         $this->getBackingStore()->set('cellularBlockVpn', $value);
@@ -3037,7 +3037,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the cellularBlockVpnWhenRoaming property value. Whether or not to Block the user from using VPN when roaming over cellular.
-     *  @param bool|null $value Value to set for the cellularBlockVpnWhenRoaming property.
+     * @param bool|null $value Value to set for the cellularBlockVpnWhenRoaming property.
     */
     public function setCellularBlockVpnWhenRoaming(?bool $value): void {
         $this->getBackingStore()->set('cellularBlockVpnWhenRoaming', $value);
@@ -3045,7 +3045,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the cellularData property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the cellularData property.
+     * @param ConfigurationUsage|null $value Value to set for the cellularData property.
     */
     public function setCellularData(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('cellularData', $value);
@@ -3053,7 +3053,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the certificatesBlockManualRootCertificateInstallation property value. Whether or not to Block the user from doing manual root certificate installation.
-     *  @param bool|null $value Value to set for the certificatesBlockManualRootCertificateInstallation property.
+     * @param bool|null $value Value to set for the certificatesBlockManualRootCertificateInstallation property.
     */
     public function setCertificatesBlockManualRootCertificateInstallation(?bool $value): void {
         $this->getBackingStore()->set('certificatesBlockManualRootCertificateInstallation', $value);
@@ -3061,7 +3061,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the configureTimeZone property value. Specifies the time zone to be applied to the device. This is the standard Windows name for the target time zone.
-     *  @param string|null $value Value to set for the configureTimeZone property.
+     * @param string|null $value Value to set for the configureTimeZone property.
     */
     public function setConfigureTimeZone(?string $value): void {
         $this->getBackingStore()->set('configureTimeZone', $value);
@@ -3069,7 +3069,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the connectedDevicesServiceBlocked property value. Whether or not to block Connected Devices Service which enables discovery and connection to other devices, remote messaging, remote app sessions and other cross-device experiences.
-     *  @param bool|null $value Value to set for the connectedDevicesServiceBlocked property.
+     * @param bool|null $value Value to set for the connectedDevicesServiceBlocked property.
     */
     public function setConnectedDevicesServiceBlocked(?bool $value): void {
         $this->getBackingStore()->set('connectedDevicesServiceBlocked', $value);
@@ -3077,7 +3077,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the copyPasteBlocked property value. Whether or not to Block the user from using copy paste.
-     *  @param bool|null $value Value to set for the copyPasteBlocked property.
+     * @param bool|null $value Value to set for the copyPasteBlocked property.
     */
     public function setCopyPasteBlocked(?bool $value): void {
         $this->getBackingStore()->set('copyPasteBlocked', $value);
@@ -3085,7 +3085,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the cortanaBlocked property value. Whether or not to Block the user from using Cortana.
-     *  @param bool|null $value Value to set for the cortanaBlocked property.
+     * @param bool|null $value Value to set for the cortanaBlocked property.
     */
     public function setCortanaBlocked(?bool $value): void {
         $this->getBackingStore()->set('cortanaBlocked', $value);
@@ -3093,7 +3093,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the cryptographyAllowFipsAlgorithmPolicy property value. Specify whether to allow or disallow the Federal Information Processing Standard (FIPS) policy.
-     *  @param bool|null $value Value to set for the cryptographyAllowFipsAlgorithmPolicy property.
+     * @param bool|null $value Value to set for the cryptographyAllowFipsAlgorithmPolicy property.
     */
     public function setCryptographyAllowFipsAlgorithmPolicy(?bool $value): void {
         $this->getBackingStore()->set('cryptographyAllowFipsAlgorithmPolicy', $value);
@@ -3101,7 +3101,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the dataProtectionBlockDirectMemoryAccess property value. This policy setting allows you to block direct memory access (DMA) for all hot pluggable PCI downstream ports until a user logs into Windows.
-     *  @param bool|null $value Value to set for the dataProtectionBlockDirectMemoryAccess property.
+     * @param bool|null $value Value to set for the dataProtectionBlockDirectMemoryAccess property.
     */
     public function setDataProtectionBlockDirectMemoryAccess(?bool $value): void {
         $this->getBackingStore()->set('dataProtectionBlockDirectMemoryAccess', $value);
@@ -3109,7 +3109,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderBlockEndUserAccess property value. Whether or not to block end user access to Defender.
-     *  @param bool|null $value Value to set for the defenderBlockEndUserAccess property.
+     * @param bool|null $value Value to set for the defenderBlockEndUserAccess property.
     */
     public function setDefenderBlockEndUserAccess(?bool $value): void {
         $this->getBackingStore()->set('defenderBlockEndUserAccess', $value);
@@ -3117,7 +3117,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderBlockOnAccessProtection property value. Allows or disallows Windows Defender On Access Protection functionality.
-     *  @param bool|null $value Value to set for the defenderBlockOnAccessProtection property.
+     * @param bool|null $value Value to set for the defenderBlockOnAccessProtection property.
     */
     public function setDefenderBlockOnAccessProtection(?bool $value): void {
         $this->getBackingStore()->set('defenderBlockOnAccessProtection', $value);
@@ -3125,7 +3125,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderCloudBlockLevel property value. Possible values of Cloud Block Level
-     *  @param DefenderCloudBlockLevelType|null $value Value to set for the defenderCloudBlockLevel property.
+     * @param DefenderCloudBlockLevelType|null $value Value to set for the defenderCloudBlockLevel property.
     */
     public function setDefenderCloudBlockLevel(?DefenderCloudBlockLevelType $value): void {
         $this->getBackingStore()->set('defenderCloudBlockLevel', $value);
@@ -3133,7 +3133,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderCloudExtendedTimeout property value. Timeout extension for file scanning by the cloud. Valid values 0 to 50
-     *  @param int|null $value Value to set for the defenderCloudExtendedTimeout property.
+     * @param int|null $value Value to set for the defenderCloudExtendedTimeout property.
     */
     public function setDefenderCloudExtendedTimeout(?int $value): void {
         $this->getBackingStore()->set('defenderCloudExtendedTimeout', $value);
@@ -3141,7 +3141,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderCloudExtendedTimeoutInSeconds property value. Timeout extension for file scanning by the cloud. Valid values 0 to 50
-     *  @param int|null $value Value to set for the defenderCloudExtendedTimeoutInSeconds property.
+     * @param int|null $value Value to set for the defenderCloudExtendedTimeoutInSeconds property.
     */
     public function setDefenderCloudExtendedTimeoutInSeconds(?int $value): void {
         $this->getBackingStore()->set('defenderCloudExtendedTimeoutInSeconds', $value);
@@ -3149,7 +3149,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderDaysBeforeDeletingQuarantinedMalware property value. Number of days before deleting quarantined malware. Valid values 0 to 90
-     *  @param int|null $value Value to set for the defenderDaysBeforeDeletingQuarantinedMalware property.
+     * @param int|null $value Value to set for the defenderDaysBeforeDeletingQuarantinedMalware property.
     */
     public function setDefenderDaysBeforeDeletingQuarantinedMalware(?int $value): void {
         $this->getBackingStore()->set('defenderDaysBeforeDeletingQuarantinedMalware', $value);
@@ -3157,7 +3157,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderDetectedMalwareActions property value. Gets or sets Defender’s actions to take on detected Malware per threat level.
-     *  @param DefenderDetectedMalwareActions|null $value Value to set for the defenderDetectedMalwareActions property.
+     * @param DefenderDetectedMalwareActions|null $value Value to set for the defenderDetectedMalwareActions property.
     */
     public function setDefenderDetectedMalwareActions(?DefenderDetectedMalwareActions $value): void {
         $this->getBackingStore()->set('defenderDetectedMalwareActions', $value);
@@ -3165,7 +3165,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderDisableCatchupFullScan property value. When blocked, catch-up scans for scheduled full scans will be turned off.
-     *  @param bool|null $value Value to set for the defenderDisableCatchupFullScan property.
+     * @param bool|null $value Value to set for the defenderDisableCatchupFullScan property.
     */
     public function setDefenderDisableCatchupFullScan(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableCatchupFullScan', $value);
@@ -3173,7 +3173,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderDisableCatchupQuickScan property value. When blocked, catch-up scans for scheduled quick scans will be turned off.
-     *  @param bool|null $value Value to set for the defenderDisableCatchupQuickScan property.
+     * @param bool|null $value Value to set for the defenderDisableCatchupQuickScan property.
     */
     public function setDefenderDisableCatchupQuickScan(?bool $value): void {
         $this->getBackingStore()->set('defenderDisableCatchupQuickScan', $value);
@@ -3181,7 +3181,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderFileExtensionsToExclude property value. File extensions to exclude from scans and real time protection.
-     *  @param array<string>|null $value Value to set for the defenderFileExtensionsToExclude property.
+     * @param array<string>|null $value Value to set for the defenderFileExtensionsToExclude property.
     */
     public function setDefenderFileExtensionsToExclude(?array $value): void {
         $this->getBackingStore()->set('defenderFileExtensionsToExclude', $value);
@@ -3189,7 +3189,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderFilesAndFoldersToExclude property value. Files and folder to exclude from scans and real time protection.
-     *  @param array<string>|null $value Value to set for the defenderFilesAndFoldersToExclude property.
+     * @param array<string>|null $value Value to set for the defenderFilesAndFoldersToExclude property.
     */
     public function setDefenderFilesAndFoldersToExclude(?array $value): void {
         $this->getBackingStore()->set('defenderFilesAndFoldersToExclude', $value);
@@ -3197,7 +3197,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderMonitorFileActivity property value. Possible values for monitoring file activity.
-     *  @param DefenderMonitorFileActivity|null $value Value to set for the defenderMonitorFileActivity property.
+     * @param DefenderMonitorFileActivity|null $value Value to set for the defenderMonitorFileActivity property.
     */
     public function setDefenderMonitorFileActivity(?DefenderMonitorFileActivity $value): void {
         $this->getBackingStore()->set('defenderMonitorFileActivity', $value);
@@ -3205,7 +3205,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderPotentiallyUnwantedAppAction property value. Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. Possible values are: deviceDefault, block, audit.
-     *  @param DefenderPotentiallyUnwantedAppAction|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
+     * @param DefenderPotentiallyUnwantedAppAction|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
     */
     public function setDefenderPotentiallyUnwantedAppAction(?DefenderPotentiallyUnwantedAppAction $value): void {
         $this->getBackingStore()->set('defenderPotentiallyUnwantedAppAction', $value);
@@ -3213,7 +3213,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderPotentiallyUnwantedAppActionSetting property value. Possible values of Defender PUA Protection
-     *  @param DefenderProtectionType|null $value Value to set for the defenderPotentiallyUnwantedAppActionSetting property.
+     * @param DefenderProtectionType|null $value Value to set for the defenderPotentiallyUnwantedAppActionSetting property.
     */
     public function setDefenderPotentiallyUnwantedAppActionSetting(?DefenderProtectionType $value): void {
         $this->getBackingStore()->set('defenderPotentiallyUnwantedAppActionSetting', $value);
@@ -3221,7 +3221,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderProcessesToExclude property value. Processes to exclude from scans and real time protection.
-     *  @param array<string>|null $value Value to set for the defenderProcessesToExclude property.
+     * @param array<string>|null $value Value to set for the defenderProcessesToExclude property.
     */
     public function setDefenderProcessesToExclude(?array $value): void {
         $this->getBackingStore()->set('defenderProcessesToExclude', $value);
@@ -3229,7 +3229,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderPromptForSampleSubmission property value. Possible values for prompting user for samples submission.
-     *  @param DefenderPromptForSampleSubmission|null $value Value to set for the defenderPromptForSampleSubmission property.
+     * @param DefenderPromptForSampleSubmission|null $value Value to set for the defenderPromptForSampleSubmission property.
     */
     public function setDefenderPromptForSampleSubmission(?DefenderPromptForSampleSubmission $value): void {
         $this->getBackingStore()->set('defenderPromptForSampleSubmission', $value);
@@ -3237,7 +3237,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderRequireBehaviorMonitoring property value. Indicates whether or not to require behavior monitoring.
-     *  @param bool|null $value Value to set for the defenderRequireBehaviorMonitoring property.
+     * @param bool|null $value Value to set for the defenderRequireBehaviorMonitoring property.
     */
     public function setDefenderRequireBehaviorMonitoring(?bool $value): void {
         $this->getBackingStore()->set('defenderRequireBehaviorMonitoring', $value);
@@ -3245,7 +3245,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderRequireCloudProtection property value. Indicates whether or not to require cloud protection.
-     *  @param bool|null $value Value to set for the defenderRequireCloudProtection property.
+     * @param bool|null $value Value to set for the defenderRequireCloudProtection property.
     */
     public function setDefenderRequireCloudProtection(?bool $value): void {
         $this->getBackingStore()->set('defenderRequireCloudProtection', $value);
@@ -3253,7 +3253,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderRequireNetworkInspectionSystem property value. Indicates whether or not to require network inspection system.
-     *  @param bool|null $value Value to set for the defenderRequireNetworkInspectionSystem property.
+     * @param bool|null $value Value to set for the defenderRequireNetworkInspectionSystem property.
     */
     public function setDefenderRequireNetworkInspectionSystem(?bool $value): void {
         $this->getBackingStore()->set('defenderRequireNetworkInspectionSystem', $value);
@@ -3261,7 +3261,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderRequireRealTimeMonitoring property value. Indicates whether or not to require real time monitoring.
-     *  @param bool|null $value Value to set for the defenderRequireRealTimeMonitoring property.
+     * @param bool|null $value Value to set for the defenderRequireRealTimeMonitoring property.
     */
     public function setDefenderRequireRealTimeMonitoring(?bool $value): void {
         $this->getBackingStore()->set('defenderRequireRealTimeMonitoring', $value);
@@ -3269,7 +3269,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScanArchiveFiles property value. Indicates whether or not to scan archive files.
-     *  @param bool|null $value Value to set for the defenderScanArchiveFiles property.
+     * @param bool|null $value Value to set for the defenderScanArchiveFiles property.
     */
     public function setDefenderScanArchiveFiles(?bool $value): void {
         $this->getBackingStore()->set('defenderScanArchiveFiles', $value);
@@ -3277,7 +3277,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScanDownloads property value. Indicates whether or not to scan downloads.
-     *  @param bool|null $value Value to set for the defenderScanDownloads property.
+     * @param bool|null $value Value to set for the defenderScanDownloads property.
     */
     public function setDefenderScanDownloads(?bool $value): void {
         $this->getBackingStore()->set('defenderScanDownloads', $value);
@@ -3285,7 +3285,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScanIncomingMail property value. Indicates whether or not to scan incoming mail messages.
-     *  @param bool|null $value Value to set for the defenderScanIncomingMail property.
+     * @param bool|null $value Value to set for the defenderScanIncomingMail property.
     */
     public function setDefenderScanIncomingMail(?bool $value): void {
         $this->getBackingStore()->set('defenderScanIncomingMail', $value);
@@ -3293,7 +3293,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScanMappedNetworkDrivesDuringFullScan property value. Indicates whether or not to scan mapped network drives during full scan.
-     *  @param bool|null $value Value to set for the defenderScanMappedNetworkDrivesDuringFullScan property.
+     * @param bool|null $value Value to set for the defenderScanMappedNetworkDrivesDuringFullScan property.
     */
     public function setDefenderScanMappedNetworkDrivesDuringFullScan(?bool $value): void {
         $this->getBackingStore()->set('defenderScanMappedNetworkDrivesDuringFullScan', $value);
@@ -3301,7 +3301,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScanMaxCpu property value. Max CPU usage percentage during scan. Valid values 0 to 100
-     *  @param int|null $value Value to set for the defenderScanMaxCpu property.
+     * @param int|null $value Value to set for the defenderScanMaxCpu property.
     */
     public function setDefenderScanMaxCpu(?int $value): void {
         $this->getBackingStore()->set('defenderScanMaxCpu', $value);
@@ -3309,7 +3309,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScanNetworkFiles property value. Indicates whether or not to scan files opened from a network folder.
-     *  @param bool|null $value Value to set for the defenderScanNetworkFiles property.
+     * @param bool|null $value Value to set for the defenderScanNetworkFiles property.
     */
     public function setDefenderScanNetworkFiles(?bool $value): void {
         $this->getBackingStore()->set('defenderScanNetworkFiles', $value);
@@ -3317,7 +3317,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScanRemovableDrivesDuringFullScan property value. Indicates whether or not to scan removable drives during full scan.
-     *  @param bool|null $value Value to set for the defenderScanRemovableDrivesDuringFullScan property.
+     * @param bool|null $value Value to set for the defenderScanRemovableDrivesDuringFullScan property.
     */
     public function setDefenderScanRemovableDrivesDuringFullScan(?bool $value): void {
         $this->getBackingStore()->set('defenderScanRemovableDrivesDuringFullScan', $value);
@@ -3325,7 +3325,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScanScriptsLoadedInInternetExplorer property value. Indicates whether or not to scan scripts loaded in Internet Explorer browser.
-     *  @param bool|null $value Value to set for the defenderScanScriptsLoadedInInternetExplorer property.
+     * @param bool|null $value Value to set for the defenderScanScriptsLoadedInInternetExplorer property.
     */
     public function setDefenderScanScriptsLoadedInInternetExplorer(?bool $value): void {
         $this->getBackingStore()->set('defenderScanScriptsLoadedInInternetExplorer', $value);
@@ -3333,7 +3333,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScanType property value. Possible values for system scan type.
-     *  @param DefenderScanType|null $value Value to set for the defenderScanType property.
+     * @param DefenderScanType|null $value Value to set for the defenderScanType property.
     */
     public function setDefenderScanType(?DefenderScanType $value): void {
         $this->getBackingStore()->set('defenderScanType', $value);
@@ -3341,7 +3341,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScheduledQuickScanTime property value. The time to perform a daily quick scan.
-     *  @param Time|null $value Value to set for the defenderScheduledQuickScanTime property.
+     * @param Time|null $value Value to set for the defenderScheduledQuickScanTime property.
     */
     public function setDefenderScheduledQuickScanTime(?Time $value): void {
         $this->getBackingStore()->set('defenderScheduledQuickScanTime', $value);
@@ -3349,7 +3349,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScheduledScanTime property value. The defender time for the system scan.
-     *  @param Time|null $value Value to set for the defenderScheduledScanTime property.
+     * @param Time|null $value Value to set for the defenderScheduledScanTime property.
     */
     public function setDefenderScheduledScanTime(?Time $value): void {
         $this->getBackingStore()->set('defenderScheduledScanTime', $value);
@@ -3357,7 +3357,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderScheduleScanEnableLowCpuPriority property value. When enabled, low CPU priority will be used during scheduled scans.
-     *  @param bool|null $value Value to set for the defenderScheduleScanEnableLowCpuPriority property.
+     * @param bool|null $value Value to set for the defenderScheduleScanEnableLowCpuPriority property.
     */
     public function setDefenderScheduleScanEnableLowCpuPriority(?bool $value): void {
         $this->getBackingStore()->set('defenderScheduleScanEnableLowCpuPriority', $value);
@@ -3365,7 +3365,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderSignatureUpdateIntervalInHours property value. The signature update interval in hours. Specify 0 not to check. Valid values 0 to 24
-     *  @param int|null $value Value to set for the defenderSignatureUpdateIntervalInHours property.
+     * @param int|null $value Value to set for the defenderSignatureUpdateIntervalInHours property.
     */
     public function setDefenderSignatureUpdateIntervalInHours(?int $value): void {
         $this->getBackingStore()->set('defenderSignatureUpdateIntervalInHours', $value);
@@ -3373,7 +3373,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
-     *  @param DefenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
+     * @param DefenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
     */
     public function setDefenderSubmitSamplesConsentType(?DefenderSubmitSamplesConsentType $value): void {
         $this->getBackingStore()->set('defenderSubmitSamplesConsentType', $value);
@@ -3381,7 +3381,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the defenderSystemScanSchedule property value. Possible values for a weekly schedule.
-     *  @param WeeklySchedule|null $value Value to set for the defenderSystemScanSchedule property.
+     * @param WeeklySchedule|null $value Value to set for the defenderSystemScanSchedule property.
     */
     public function setDefenderSystemScanSchedule(?WeeklySchedule $value): void {
         $this->getBackingStore()->set('defenderSystemScanSchedule', $value);
@@ -3389,7 +3389,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the developerUnlockSetting property value. State Management Setting.
-     *  @param StateManagementSetting|null $value Value to set for the developerUnlockSetting property.
+     * @param StateManagementSetting|null $value Value to set for the developerUnlockSetting property.
     */
     public function setDeveloperUnlockSetting(?StateManagementSetting $value): void {
         $this->getBackingStore()->set('developerUnlockSetting', $value);
@@ -3397,7 +3397,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the deviceManagementBlockFactoryResetOnMobile property value. Indicates whether or not to Block the user from resetting their phone.
-     *  @param bool|null $value Value to set for the deviceManagementBlockFactoryResetOnMobile property.
+     * @param bool|null $value Value to set for the deviceManagementBlockFactoryResetOnMobile property.
     */
     public function setDeviceManagementBlockFactoryResetOnMobile(?bool $value): void {
         $this->getBackingStore()->set('deviceManagementBlockFactoryResetOnMobile', $value);
@@ -3405,7 +3405,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the deviceManagementBlockManualUnenroll property value. Indicates whether or not to Block the user from doing manual un-enrollment from device management.
-     *  @param bool|null $value Value to set for the deviceManagementBlockManualUnenroll property.
+     * @param bool|null $value Value to set for the deviceManagementBlockManualUnenroll property.
     */
     public function setDeviceManagementBlockManualUnenroll(?bool $value): void {
         $this->getBackingStore()->set('deviceManagementBlockManualUnenroll', $value);
@@ -3413,7 +3413,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the diagnosticsDataSubmissionMode property value. Allow the device to send diagnostic and usage telemetry data, such as Watson.
-     *  @param DiagnosticDataSubmissionMode|null $value Value to set for the diagnosticsDataSubmissionMode property.
+     * @param DiagnosticDataSubmissionMode|null $value Value to set for the diagnosticsDataSubmissionMode property.
     */
     public function setDiagnosticsDataSubmissionMode(?DiagnosticDataSubmissionMode $value): void {
         $this->getBackingStore()->set('diagnosticsDataSubmissionMode', $value);
@@ -3421,7 +3421,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the displayAppListWithGdiDPIScalingTurnedOff property value. List of legacy applications that have GDI DPI Scaling turned off.
-     *  @param array<string>|null $value Value to set for the displayAppListWithGdiDPIScalingTurnedOff property.
+     * @param array<string>|null $value Value to set for the displayAppListWithGdiDPIScalingTurnedOff property.
     */
     public function setDisplayAppListWithGdiDPIScalingTurnedOff(?array $value): void {
         $this->getBackingStore()->set('displayAppListWithGdiDPIScalingTurnedOff', $value);
@@ -3429,7 +3429,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the displayAppListWithGdiDPIScalingTurnedOn property value. List of legacy applications that have GDI DPI Scaling turned on.
-     *  @param array<string>|null $value Value to set for the displayAppListWithGdiDPIScalingTurnedOn property.
+     * @param array<string>|null $value Value to set for the displayAppListWithGdiDPIScalingTurnedOn property.
     */
     public function setDisplayAppListWithGdiDPIScalingTurnedOn(?array $value): void {
         $this->getBackingStore()->set('displayAppListWithGdiDPIScalingTurnedOn', $value);
@@ -3437,7 +3437,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeAllowStartPagesModification property value. Allow users to change Start pages on Edge. Use the EdgeHomepageUrls to specify the Start pages that the user would see by default when they open Edge.
-     *  @param bool|null $value Value to set for the edgeAllowStartPagesModification property.
+     * @param bool|null $value Value to set for the edgeAllowStartPagesModification property.
     */
     public function setEdgeAllowStartPagesModification(?bool $value): void {
         $this->getBackingStore()->set('edgeAllowStartPagesModification', $value);
@@ -3445,7 +3445,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockAccessToAboutFlags property value. Indicates whether or not to prevent access to about flags on Edge browser.
-     *  @param bool|null $value Value to set for the edgeBlockAccessToAboutFlags property.
+     * @param bool|null $value Value to set for the edgeBlockAccessToAboutFlags property.
     */
     public function setEdgeBlockAccessToAboutFlags(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockAccessToAboutFlags', $value);
@@ -3453,7 +3453,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockAddressBarDropdown property value. Block the address bar dropdown functionality in Microsoft Edge. Disable this settings to minimize network connections from Microsoft Edge to Microsoft services.
-     *  @param bool|null $value Value to set for the edgeBlockAddressBarDropdown property.
+     * @param bool|null $value Value to set for the edgeBlockAddressBarDropdown property.
     */
     public function setEdgeBlockAddressBarDropdown(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockAddressBarDropdown', $value);
@@ -3461,7 +3461,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockAutofill property value. Indicates whether or not to block auto fill.
-     *  @param bool|null $value Value to set for the edgeBlockAutofill property.
+     * @param bool|null $value Value to set for the edgeBlockAutofill property.
     */
     public function setEdgeBlockAutofill(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockAutofill', $value);
@@ -3469,7 +3469,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockCompatibilityList property value. Block Microsoft compatibility list in Microsoft Edge. This list from Microsoft helps Edge properly display sites with known compatibility issues.
-     *  @param bool|null $value Value to set for the edgeBlockCompatibilityList property.
+     * @param bool|null $value Value to set for the edgeBlockCompatibilityList property.
     */
     public function setEdgeBlockCompatibilityList(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockCompatibilityList', $value);
@@ -3477,7 +3477,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockDeveloperTools property value. Indicates whether or not to block developer tools in the Edge browser.
-     *  @param bool|null $value Value to set for the edgeBlockDeveloperTools property.
+     * @param bool|null $value Value to set for the edgeBlockDeveloperTools property.
     */
     public function setEdgeBlockDeveloperTools(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockDeveloperTools', $value);
@@ -3485,7 +3485,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlocked property value. Indicates whether or not to Block the user from using the Edge browser.
-     *  @param bool|null $value Value to set for the edgeBlocked property.
+     * @param bool|null $value Value to set for the edgeBlocked property.
     */
     public function setEdgeBlocked(?bool $value): void {
         $this->getBackingStore()->set('edgeBlocked', $value);
@@ -3493,7 +3493,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockEditFavorites property value. Indicates whether or not to Block the user from making changes to Favorites.
-     *  @param bool|null $value Value to set for the edgeBlockEditFavorites property.
+     * @param bool|null $value Value to set for the edgeBlockEditFavorites property.
     */
     public function setEdgeBlockEditFavorites(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockEditFavorites', $value);
@@ -3501,7 +3501,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockExtensions property value. Indicates whether or not to block extensions in the Edge browser.
-     *  @param bool|null $value Value to set for the edgeBlockExtensions property.
+     * @param bool|null $value Value to set for the edgeBlockExtensions property.
     */
     public function setEdgeBlockExtensions(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockExtensions', $value);
@@ -3509,7 +3509,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockFullScreenMode property value. Allow or prevent Edge from entering the full screen mode.
-     *  @param bool|null $value Value to set for the edgeBlockFullScreenMode property.
+     * @param bool|null $value Value to set for the edgeBlockFullScreenMode property.
     */
     public function setEdgeBlockFullScreenMode(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockFullScreenMode', $value);
@@ -3517,7 +3517,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockInPrivateBrowsing property value. Indicates whether or not to block InPrivate browsing on corporate networks, in the Edge browser.
-     *  @param bool|null $value Value to set for the edgeBlockInPrivateBrowsing property.
+     * @param bool|null $value Value to set for the edgeBlockInPrivateBrowsing property.
     */
     public function setEdgeBlockInPrivateBrowsing(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockInPrivateBrowsing', $value);
@@ -3525,7 +3525,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockJavaScript property value. Indicates whether or not to Block the user from using JavaScript.
-     *  @param bool|null $value Value to set for the edgeBlockJavaScript property.
+     * @param bool|null $value Value to set for the edgeBlockJavaScript property.
     */
     public function setEdgeBlockJavaScript(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockJavaScript', $value);
@@ -3533,7 +3533,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockLiveTileDataCollection property value. Block the collection of information by Microsoft for live tile creation when users pin a site to Start from Microsoft Edge.
-     *  @param bool|null $value Value to set for the edgeBlockLiveTileDataCollection property.
+     * @param bool|null $value Value to set for the edgeBlockLiveTileDataCollection property.
     */
     public function setEdgeBlockLiveTileDataCollection(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockLiveTileDataCollection', $value);
@@ -3541,7 +3541,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockPasswordManager property value. Indicates whether or not to Block password manager.
-     *  @param bool|null $value Value to set for the edgeBlockPasswordManager property.
+     * @param bool|null $value Value to set for the edgeBlockPasswordManager property.
     */
     public function setEdgeBlockPasswordManager(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockPasswordManager', $value);
@@ -3549,7 +3549,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockPopups property value. Indicates whether or not to block popups.
-     *  @param bool|null $value Value to set for the edgeBlockPopups property.
+     * @param bool|null $value Value to set for the edgeBlockPopups property.
     */
     public function setEdgeBlockPopups(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockPopups', $value);
@@ -3557,7 +3557,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockPrelaunch property value. Decide whether Microsoft Edge is prelaunched at Windows startup.
-     *  @param bool|null $value Value to set for the edgeBlockPrelaunch property.
+     * @param bool|null $value Value to set for the edgeBlockPrelaunch property.
     */
     public function setEdgeBlockPrelaunch(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockPrelaunch', $value);
@@ -3565,7 +3565,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockPrinting property value. Configure Edge to allow or block printing.
-     *  @param bool|null $value Value to set for the edgeBlockPrinting property.
+     * @param bool|null $value Value to set for the edgeBlockPrinting property.
     */
     public function setEdgeBlockPrinting(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockPrinting', $value);
@@ -3573,7 +3573,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockSavingHistory property value. Configure Edge to allow browsing history to be saved or to never save browsing history.
-     *  @param bool|null $value Value to set for the edgeBlockSavingHistory property.
+     * @param bool|null $value Value to set for the edgeBlockSavingHistory property.
     */
     public function setEdgeBlockSavingHistory(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockSavingHistory', $value);
@@ -3581,7 +3581,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockSearchEngineCustomization property value. Indicates whether or not to block the user from adding new search engine or changing the default search engine.
-     *  @param bool|null $value Value to set for the edgeBlockSearchEngineCustomization property.
+     * @param bool|null $value Value to set for the edgeBlockSearchEngineCustomization property.
     */
     public function setEdgeBlockSearchEngineCustomization(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockSearchEngineCustomization', $value);
@@ -3589,7 +3589,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockSearchSuggestions property value. Indicates whether or not to block the user from using the search suggestions in the address bar.
-     *  @param bool|null $value Value to set for the edgeBlockSearchSuggestions property.
+     * @param bool|null $value Value to set for the edgeBlockSearchSuggestions property.
     */
     public function setEdgeBlockSearchSuggestions(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockSearchSuggestions', $value);
@@ -3597,7 +3597,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockSendingDoNotTrackHeader property value. Indicates whether or not to Block the user from sending the do not track header.
-     *  @param bool|null $value Value to set for the edgeBlockSendingDoNotTrackHeader property.
+     * @param bool|null $value Value to set for the edgeBlockSendingDoNotTrackHeader property.
     */
     public function setEdgeBlockSendingDoNotTrackHeader(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockSendingDoNotTrackHeader', $value);
@@ -3605,7 +3605,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockSendingIntranetTrafficToInternetExplorer property value. Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. Note: the name of this property is misleading; the property is obsolete, use EdgeSendIntranetTrafficToInternetExplorer instead.
-     *  @param bool|null $value Value to set for the edgeBlockSendingIntranetTrafficToInternetExplorer property.
+     * @param bool|null $value Value to set for the edgeBlockSendingIntranetTrafficToInternetExplorer property.
     */
     public function setEdgeBlockSendingIntranetTrafficToInternetExplorer(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockSendingIntranetTrafficToInternetExplorer', $value);
@@ -3613,7 +3613,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockSideloadingExtensions property value. Indicates whether the user can sideload extensions.
-     *  @param bool|null $value Value to set for the edgeBlockSideloadingExtensions property.
+     * @param bool|null $value Value to set for the edgeBlockSideloadingExtensions property.
     */
     public function setEdgeBlockSideloadingExtensions(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockSideloadingExtensions', $value);
@@ -3621,7 +3621,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockTabPreloading property value. Configure whether Edge preloads the new tab page at Windows startup.
-     *  @param bool|null $value Value to set for the edgeBlockTabPreloading property.
+     * @param bool|null $value Value to set for the edgeBlockTabPreloading property.
     */
     public function setEdgeBlockTabPreloading(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockTabPreloading', $value);
@@ -3629,7 +3629,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeBlockWebContentOnNewTabPage property value. Configure to load a blank page in Edge instead of the default New tab page and prevent users from changing it.
-     *  @param bool|null $value Value to set for the edgeBlockWebContentOnNewTabPage property.
+     * @param bool|null $value Value to set for the edgeBlockWebContentOnNewTabPage property.
     */
     public function setEdgeBlockWebContentOnNewTabPage(?bool $value): void {
         $this->getBackingStore()->set('edgeBlockWebContentOnNewTabPage', $value);
@@ -3637,7 +3637,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeClearBrowsingDataOnExit property value. Clear browsing data on exiting Microsoft Edge.
-     *  @param bool|null $value Value to set for the edgeClearBrowsingDataOnExit property.
+     * @param bool|null $value Value to set for the edgeClearBrowsingDataOnExit property.
     */
     public function setEdgeClearBrowsingDataOnExit(?bool $value): void {
         $this->getBackingStore()->set('edgeClearBrowsingDataOnExit', $value);
@@ -3645,7 +3645,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeCookiePolicy property value. Possible values to specify which cookies are allowed in Microsoft Edge.
-     *  @param EdgeCookiePolicy|null $value Value to set for the edgeCookiePolicy property.
+     * @param EdgeCookiePolicy|null $value Value to set for the edgeCookiePolicy property.
     */
     public function setEdgeCookiePolicy(?EdgeCookiePolicy $value): void {
         $this->getBackingStore()->set('edgeCookiePolicy', $value);
@@ -3653,7 +3653,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeDisableFirstRunPage property value. Block the Microsoft web page that opens on the first use of Microsoft Edge. This policy allows enterprises, like those enrolled in zero emissions configurations, to block this page.
-     *  @param bool|null $value Value to set for the edgeDisableFirstRunPage property.
+     * @param bool|null $value Value to set for the edgeDisableFirstRunPage property.
     */
     public function setEdgeDisableFirstRunPage(?bool $value): void {
         $this->getBackingStore()->set('edgeDisableFirstRunPage', $value);
@@ -3661,7 +3661,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeEnterpriseModeSiteListLocation property value. Indicates the enterprise mode site list location. Could be a local file, local network or http location.
-     *  @param string|null $value Value to set for the edgeEnterpriseModeSiteListLocation property.
+     * @param string|null $value Value to set for the edgeEnterpriseModeSiteListLocation property.
     */
     public function setEdgeEnterpriseModeSiteListLocation(?string $value): void {
         $this->getBackingStore()->set('edgeEnterpriseModeSiteListLocation', $value);
@@ -3669,7 +3669,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeFavoritesBarVisibility property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the edgeFavoritesBarVisibility property.
+     * @param VisibilitySetting|null $value Value to set for the edgeFavoritesBarVisibility property.
     */
     public function setEdgeFavoritesBarVisibility(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('edgeFavoritesBarVisibility', $value);
@@ -3677,7 +3677,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeFavoritesListLocation property value. The location of the favorites list to provision. Could be a local file, local network or http location.
-     *  @param string|null $value Value to set for the edgeFavoritesListLocation property.
+     * @param string|null $value Value to set for the edgeFavoritesListLocation property.
     */
     public function setEdgeFavoritesListLocation(?string $value): void {
         $this->getBackingStore()->set('edgeFavoritesListLocation', $value);
@@ -3685,7 +3685,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeFirstRunUrl property value. The first run URL for when Edge browser is opened for the first time.
-     *  @param string|null $value Value to set for the edgeFirstRunUrl property.
+     * @param string|null $value Value to set for the edgeFirstRunUrl property.
     */
     public function setEdgeFirstRunUrl(?string $value): void {
         $this->getBackingStore()->set('edgeFirstRunUrl', $value);
@@ -3693,7 +3693,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeHomeButtonConfiguration property value. Causes the Home button to either hide, load the default Start page, load a New tab page, or a custom URL
-     *  @param EdgeHomeButtonConfiguration|null $value Value to set for the edgeHomeButtonConfiguration property.
+     * @param EdgeHomeButtonConfiguration|null $value Value to set for the edgeHomeButtonConfiguration property.
     */
     public function setEdgeHomeButtonConfiguration(?EdgeHomeButtonConfiguration $value): void {
         $this->getBackingStore()->set('edgeHomeButtonConfiguration', $value);
@@ -3701,7 +3701,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeHomeButtonConfigurationEnabled property value. Enable the Home button configuration.
-     *  @param bool|null $value Value to set for the edgeHomeButtonConfigurationEnabled property.
+     * @param bool|null $value Value to set for the edgeHomeButtonConfigurationEnabled property.
     */
     public function setEdgeHomeButtonConfigurationEnabled(?bool $value): void {
         $this->getBackingStore()->set('edgeHomeButtonConfigurationEnabled', $value);
@@ -3709,7 +3709,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeHomepageUrls property value. The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
-     *  @param array<string>|null $value Value to set for the edgeHomepageUrls property.
+     * @param array<string>|null $value Value to set for the edgeHomepageUrls property.
     */
     public function setEdgeHomepageUrls(?array $value): void {
         $this->getBackingStore()->set('edgeHomepageUrls', $value);
@@ -3717,7 +3717,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeKioskModeRestriction property value. Specify how the Microsoft Edge settings are restricted based on kiosk mode.
-     *  @param EdgeKioskModeRestrictionType|null $value Value to set for the edgeKioskModeRestriction property.
+     * @param EdgeKioskModeRestrictionType|null $value Value to set for the edgeKioskModeRestriction property.
     */
     public function setEdgeKioskModeRestriction(?EdgeKioskModeRestrictionType $value): void {
         $this->getBackingStore()->set('edgeKioskModeRestriction', $value);
@@ -3725,7 +3725,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeKioskResetAfterIdleTimeInMinutes property value. Specifies the time in minutes from the last user activity before Microsoft Edge kiosk resets.  Valid values are 0-1440. The default is 5. 0 indicates no reset. Valid values 0 to 1440
-     *  @param int|null $value Value to set for the edgeKioskResetAfterIdleTimeInMinutes property.
+     * @param int|null $value Value to set for the edgeKioskResetAfterIdleTimeInMinutes property.
     */
     public function setEdgeKioskResetAfterIdleTimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('edgeKioskResetAfterIdleTimeInMinutes', $value);
@@ -3733,7 +3733,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeNewTabPageURL property value. Specify the page opened when new tabs are created.
-     *  @param string|null $value Value to set for the edgeNewTabPageURL property.
+     * @param string|null $value Value to set for the edgeNewTabPageURL property.
     */
     public function setEdgeNewTabPageURL(?string $value): void {
         $this->getBackingStore()->set('edgeNewTabPageURL', $value);
@@ -3741,7 +3741,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeOpensWith property value. Possible values for the EdgeOpensWith setting.
-     *  @param EdgeOpenOptions|null $value Value to set for the edgeOpensWith property.
+     * @param EdgeOpenOptions|null $value Value to set for the edgeOpensWith property.
     */
     public function setEdgeOpensWith(?EdgeOpenOptions $value): void {
         $this->getBackingStore()->set('edgeOpensWith', $value);
@@ -3749,7 +3749,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgePreventCertificateErrorOverride property value. Allow or prevent users from overriding certificate errors.
-     *  @param bool|null $value Value to set for the edgePreventCertificateErrorOverride property.
+     * @param bool|null $value Value to set for the edgePreventCertificateErrorOverride property.
     */
     public function setEdgePreventCertificateErrorOverride(?bool $value): void {
         $this->getBackingStore()->set('edgePreventCertificateErrorOverride', $value);
@@ -3757,7 +3757,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeRequiredExtensionPackageFamilyNames property value. Specify the list of package family names of browser extensions that are required and cannot be turned off by the user.
-     *  @param array<string>|null $value Value to set for the edgeRequiredExtensionPackageFamilyNames property.
+     * @param array<string>|null $value Value to set for the edgeRequiredExtensionPackageFamilyNames property.
     */
     public function setEdgeRequiredExtensionPackageFamilyNames(?array $value): void {
         $this->getBackingStore()->set('edgeRequiredExtensionPackageFamilyNames', $value);
@@ -3765,7 +3765,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeRequireSmartScreen property value. Indicates whether or not to Require the user to use the smart screen filter.
-     *  @param bool|null $value Value to set for the edgeRequireSmartScreen property.
+     * @param bool|null $value Value to set for the edgeRequireSmartScreen property.
     */
     public function setEdgeRequireSmartScreen(?bool $value): void {
         $this->getBackingStore()->set('edgeRequireSmartScreen', $value);
@@ -3773,7 +3773,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeSearchEngine property value. Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.
-     *  @param EdgeSearchEngineBase|null $value Value to set for the edgeSearchEngine property.
+     * @param EdgeSearchEngineBase|null $value Value to set for the edgeSearchEngine property.
     */
     public function setEdgeSearchEngine(?EdgeSearchEngineBase $value): void {
         $this->getBackingStore()->set('edgeSearchEngine', $value);
@@ -3781,7 +3781,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeSendIntranetTrafficToInternetExplorer property value. Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer.
-     *  @param bool|null $value Value to set for the edgeSendIntranetTrafficToInternetExplorer property.
+     * @param bool|null $value Value to set for the edgeSendIntranetTrafficToInternetExplorer property.
     */
     public function setEdgeSendIntranetTrafficToInternetExplorer(?bool $value): void {
         $this->getBackingStore()->set('edgeSendIntranetTrafficToInternetExplorer', $value);
@@ -3789,7 +3789,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeShowMessageWhenOpeningInternetExplorerSites property value. What message will be displayed by Edge before switching to Internet Explorer.
-     *  @param InternetExplorerMessageSetting|null $value Value to set for the edgeShowMessageWhenOpeningInternetExplorerSites property.
+     * @param InternetExplorerMessageSetting|null $value Value to set for the edgeShowMessageWhenOpeningInternetExplorerSites property.
     */
     public function setEdgeShowMessageWhenOpeningInternetExplorerSites(?InternetExplorerMessageSetting $value): void {
         $this->getBackingStore()->set('edgeShowMessageWhenOpeningInternetExplorerSites', $value);
@@ -3797,7 +3797,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeSyncFavoritesWithInternetExplorer property value. Enable favorites sync between Internet Explorer and Microsoft Edge. Additions, deletions, modifications and order changes to favorites are shared between browsers.
-     *  @param bool|null $value Value to set for the edgeSyncFavoritesWithInternetExplorer property.
+     * @param bool|null $value Value to set for the edgeSyncFavoritesWithInternetExplorer property.
     */
     public function setEdgeSyncFavoritesWithInternetExplorer(?bool $value): void {
         $this->getBackingStore()->set('edgeSyncFavoritesWithInternetExplorer', $value);
@@ -3805,7 +3805,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the edgeTelemetryForMicrosoft365Analytics property value. Type of browsing data sent to Microsoft 365 analytics
-     *  @param EdgeTelemetryMode|null $value Value to set for the edgeTelemetryForMicrosoft365Analytics property.
+     * @param EdgeTelemetryMode|null $value Value to set for the edgeTelemetryForMicrosoft365Analytics property.
     */
     public function setEdgeTelemetryForMicrosoft365Analytics(?EdgeTelemetryMode $value): void {
         $this->getBackingStore()->set('edgeTelemetryForMicrosoft365Analytics', $value);
@@ -3813,7 +3813,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the enableAutomaticRedeployment property value. Allow users with administrative rights to delete all user data and settings using CTRL + Win + R at the device lock screen so that the device can be automatically re-configured and re-enrolled into management.
-     *  @param bool|null $value Value to set for the enableAutomaticRedeployment property.
+     * @param bool|null $value Value to set for the enableAutomaticRedeployment property.
     */
     public function setEnableAutomaticRedeployment(?bool $value): void {
         $this->getBackingStore()->set('enableAutomaticRedeployment', $value);
@@ -3821,7 +3821,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the energySaverOnBatteryThresholdPercentage property value. This setting allows you to specify battery charge level at which Energy Saver is turned on. While on battery, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100
-     *  @param int|null $value Value to set for the energySaverOnBatteryThresholdPercentage property.
+     * @param int|null $value Value to set for the energySaverOnBatteryThresholdPercentage property.
     */
     public function setEnergySaverOnBatteryThresholdPercentage(?int $value): void {
         $this->getBackingStore()->set('energySaverOnBatteryThresholdPercentage', $value);
@@ -3829,7 +3829,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the energySaverPluggedInThresholdPercentage property value. This setting allows you to specify battery charge level at which Energy Saver is turned on. While plugged in, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100
-     *  @param int|null $value Value to set for the energySaverPluggedInThresholdPercentage property.
+     * @param int|null $value Value to set for the energySaverPluggedInThresholdPercentage property.
     */
     public function setEnergySaverPluggedInThresholdPercentage(?int $value): void {
         $this->getBackingStore()->set('energySaverPluggedInThresholdPercentage', $value);
@@ -3837,7 +3837,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the enterpriseCloudPrintDiscoveryEndPoint property value. Endpoint for discovering cloud printers.
-     *  @param string|null $value Value to set for the enterpriseCloudPrintDiscoveryEndPoint property.
+     * @param string|null $value Value to set for the enterpriseCloudPrintDiscoveryEndPoint property.
     */
     public function setEnterpriseCloudPrintDiscoveryEndPoint(?string $value): void {
         $this->getBackingStore()->set('enterpriseCloudPrintDiscoveryEndPoint', $value);
@@ -3845,7 +3845,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the enterpriseCloudPrintDiscoveryMaxLimit property value. Maximum number of printers that should be queried from a discovery endpoint. This is a mobile only setting. Valid values 1 to 65535
-     *  @param int|null $value Value to set for the enterpriseCloudPrintDiscoveryMaxLimit property.
+     * @param int|null $value Value to set for the enterpriseCloudPrintDiscoveryMaxLimit property.
     */
     public function setEnterpriseCloudPrintDiscoveryMaxLimit(?int $value): void {
         $this->getBackingStore()->set('enterpriseCloudPrintDiscoveryMaxLimit', $value);
@@ -3853,7 +3853,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the enterpriseCloudPrintMopriaDiscoveryResourceIdentifier property value. OAuth resource URI for printer discovery service as configured in Azure portal.
-     *  @param string|null $value Value to set for the enterpriseCloudPrintMopriaDiscoveryResourceIdentifier property.
+     * @param string|null $value Value to set for the enterpriseCloudPrintMopriaDiscoveryResourceIdentifier property.
     */
     public function setEnterpriseCloudPrintMopriaDiscoveryResourceIdentifier(?string $value): void {
         $this->getBackingStore()->set('enterpriseCloudPrintMopriaDiscoveryResourceIdentifier', $value);
@@ -3861,7 +3861,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the enterpriseCloudPrintOAuthAuthority property value. Authentication endpoint for acquiring OAuth tokens.
-     *  @param string|null $value Value to set for the enterpriseCloudPrintOAuthAuthority property.
+     * @param string|null $value Value to set for the enterpriseCloudPrintOAuthAuthority property.
     */
     public function setEnterpriseCloudPrintOAuthAuthority(?string $value): void {
         $this->getBackingStore()->set('enterpriseCloudPrintOAuthAuthority', $value);
@@ -3869,7 +3869,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the enterpriseCloudPrintOAuthClientIdentifier property value. GUID of a client application authorized to retrieve OAuth tokens from the OAuth Authority.
-     *  @param string|null $value Value to set for the enterpriseCloudPrintOAuthClientIdentifier property.
+     * @param string|null $value Value to set for the enterpriseCloudPrintOAuthClientIdentifier property.
     */
     public function setEnterpriseCloudPrintOAuthClientIdentifier(?string $value): void {
         $this->getBackingStore()->set('enterpriseCloudPrintOAuthClientIdentifier', $value);
@@ -3877,7 +3877,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the enterpriseCloudPrintResourceIdentifier property value. OAuth resource URI for print service as configured in the Azure portal.
-     *  @param string|null $value Value to set for the enterpriseCloudPrintResourceIdentifier property.
+     * @param string|null $value Value to set for the enterpriseCloudPrintResourceIdentifier property.
     */
     public function setEnterpriseCloudPrintResourceIdentifier(?string $value): void {
         $this->getBackingStore()->set('enterpriseCloudPrintResourceIdentifier', $value);
@@ -3885,7 +3885,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the experienceBlockDeviceDiscovery property value. Indicates whether or not to enable device discovery UX.
-     *  @param bool|null $value Value to set for the experienceBlockDeviceDiscovery property.
+     * @param bool|null $value Value to set for the experienceBlockDeviceDiscovery property.
     */
     public function setExperienceBlockDeviceDiscovery(?bool $value): void {
         $this->getBackingStore()->set('experienceBlockDeviceDiscovery', $value);
@@ -3893,7 +3893,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the experienceBlockErrorDialogWhenNoSIM property value. Indicates whether or not to allow the error dialog from displaying if no SIM card is detected.
-     *  @param bool|null $value Value to set for the experienceBlockErrorDialogWhenNoSIM property.
+     * @param bool|null $value Value to set for the experienceBlockErrorDialogWhenNoSIM property.
     */
     public function setExperienceBlockErrorDialogWhenNoSIM(?bool $value): void {
         $this->getBackingStore()->set('experienceBlockErrorDialogWhenNoSIM', $value);
@@ -3901,7 +3901,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the experienceBlockTaskSwitcher property value. Indicates whether or not to enable task switching on the device.
-     *  @param bool|null $value Value to set for the experienceBlockTaskSwitcher property.
+     * @param bool|null $value Value to set for the experienceBlockTaskSwitcher property.
     */
     public function setExperienceBlockTaskSwitcher(?bool $value): void {
         $this->getBackingStore()->set('experienceBlockTaskSwitcher', $value);
@@ -3909,7 +3909,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the experienceDoNotSyncBrowserSettings property value. Allow(Not Configured) or prevent(Block) the syncing of Microsoft Edge Browser settings. Option to prevent syncing across devices, but allow user override.
-     *  @param BrowserSyncSetting|null $value Value to set for the experienceDoNotSyncBrowserSettings property.
+     * @param BrowserSyncSetting|null $value Value to set for the experienceDoNotSyncBrowserSettings property.
     */
     public function setExperienceDoNotSyncBrowserSettings(?BrowserSyncSetting $value): void {
         $this->getBackingStore()->set('experienceDoNotSyncBrowserSettings', $value);
@@ -3917,7 +3917,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the findMyFiles property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the findMyFiles property.
+     * @param Enablement|null $value Value to set for the findMyFiles property.
     */
     public function setFindMyFiles(?Enablement $value): void {
         $this->getBackingStore()->set('findMyFiles', $value);
@@ -3925,7 +3925,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the gameDvrBlocked property value. Indicates whether or not to block DVR and broadcasting.
-     *  @param bool|null $value Value to set for the gameDvrBlocked property.
+     * @param bool|null $value Value to set for the gameDvrBlocked property.
     */
     public function setGameDvrBlocked(?bool $value): void {
         $this->getBackingStore()->set('gameDvrBlocked', $value);
@@ -3933,7 +3933,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the inkWorkspaceAccess property value. Values for the InkWorkspaceAccess setting.
-     *  @param InkAccessSetting|null $value Value to set for the inkWorkspaceAccess property.
+     * @param InkAccessSetting|null $value Value to set for the inkWorkspaceAccess property.
     */
     public function setInkWorkspaceAccess(?InkAccessSetting $value): void {
         $this->getBackingStore()->set('inkWorkspaceAccess', $value);
@@ -3941,7 +3941,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the inkWorkspaceAccessState property value. State Management Setting.
-     *  @param StateManagementSetting|null $value Value to set for the inkWorkspaceAccessState property.
+     * @param StateManagementSetting|null $value Value to set for the inkWorkspaceAccessState property.
     */
     public function setInkWorkspaceAccessState(?StateManagementSetting $value): void {
         $this->getBackingStore()->set('inkWorkspaceAccessState', $value);
@@ -3949,7 +3949,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the inkWorkspaceBlockSuggestedApps property value. Specify whether to show recommended app suggestions in the ink workspace.
-     *  @param bool|null $value Value to set for the inkWorkspaceBlockSuggestedApps property.
+     * @param bool|null $value Value to set for the inkWorkspaceBlockSuggestedApps property.
     */
     public function setInkWorkspaceBlockSuggestedApps(?bool $value): void {
         $this->getBackingStore()->set('inkWorkspaceBlockSuggestedApps', $value);
@@ -3957,7 +3957,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the internetSharingBlocked property value. Indicates whether or not to Block the user from using internet sharing.
-     *  @param bool|null $value Value to set for the internetSharingBlocked property.
+     * @param bool|null $value Value to set for the internetSharingBlocked property.
     */
     public function setInternetSharingBlocked(?bool $value): void {
         $this->getBackingStore()->set('internetSharingBlocked', $value);
@@ -3965,7 +3965,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the locationServicesBlocked property value. Indicates whether or not to Block the user from location services.
-     *  @param bool|null $value Value to set for the locationServicesBlocked property.
+     * @param bool|null $value Value to set for the locationServicesBlocked property.
     */
     public function setLocationServicesBlocked(?bool $value): void {
         $this->getBackingStore()->set('locationServicesBlocked', $value);
@@ -3973,7 +3973,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the lockScreenActivateAppsWithVoice property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the lockScreenActivateAppsWithVoice property.
+     * @param Enablement|null $value Value to set for the lockScreenActivateAppsWithVoice property.
     */
     public function setLockScreenActivateAppsWithVoice(?Enablement $value): void {
         $this->getBackingStore()->set('lockScreenActivateAppsWithVoice', $value);
@@ -3981,7 +3981,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the lockScreenAllowTimeoutConfiguration property value. Specify whether to show a user-configurable setting to control the screen timeout while on the lock screen of Windows 10 Mobile devices. If this policy is set to Allow, the value set by lockScreenTimeoutInSeconds is ignored.
-     *  @param bool|null $value Value to set for the lockScreenAllowTimeoutConfiguration property.
+     * @param bool|null $value Value to set for the lockScreenAllowTimeoutConfiguration property.
     */
     public function setLockScreenAllowTimeoutConfiguration(?bool $value): void {
         $this->getBackingStore()->set('lockScreenAllowTimeoutConfiguration', $value);
@@ -3989,7 +3989,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the lockScreenBlockActionCenterNotifications property value. Indicates whether or not to block action center notifications over lock screen.
-     *  @param bool|null $value Value to set for the lockScreenBlockActionCenterNotifications property.
+     * @param bool|null $value Value to set for the lockScreenBlockActionCenterNotifications property.
     */
     public function setLockScreenBlockActionCenterNotifications(?bool $value): void {
         $this->getBackingStore()->set('lockScreenBlockActionCenterNotifications', $value);
@@ -3997,7 +3997,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the lockScreenBlockCortana property value. Indicates whether or not the user can interact with Cortana using speech while the system is locked.
-     *  @param bool|null $value Value to set for the lockScreenBlockCortana property.
+     * @param bool|null $value Value to set for the lockScreenBlockCortana property.
     */
     public function setLockScreenBlockCortana(?bool $value): void {
         $this->getBackingStore()->set('lockScreenBlockCortana', $value);
@@ -4005,7 +4005,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the lockScreenBlockToastNotifications property value. Indicates whether to allow toast notifications above the device lock screen.
-     *  @param bool|null $value Value to set for the lockScreenBlockToastNotifications property.
+     * @param bool|null $value Value to set for the lockScreenBlockToastNotifications property.
     */
     public function setLockScreenBlockToastNotifications(?bool $value): void {
         $this->getBackingStore()->set('lockScreenBlockToastNotifications', $value);
@@ -4013,7 +4013,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the lockScreenTimeoutInSeconds property value. Set the duration (in seconds) from the screen locking to the screen turning off for Windows 10 Mobile devices. Supported values are 11-1800. Valid values 11 to 1800
-     *  @param int|null $value Value to set for the lockScreenTimeoutInSeconds property.
+     * @param int|null $value Value to set for the lockScreenTimeoutInSeconds property.
     */
     public function setLockScreenTimeoutInSeconds(?int $value): void {
         $this->getBackingStore()->set('lockScreenTimeoutInSeconds', $value);
@@ -4021,7 +4021,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the logonBlockFastUserSwitching property value. Disables the ability to quickly switch between users that are logged on simultaneously without logging off.
-     *  @param bool|null $value Value to set for the logonBlockFastUserSwitching property.
+     * @param bool|null $value Value to set for the logonBlockFastUserSwitching property.
     */
     public function setLogonBlockFastUserSwitching(?bool $value): void {
         $this->getBackingStore()->set('logonBlockFastUserSwitching', $value);
@@ -4029,7 +4029,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the messagingBlockMMS property value. Indicates whether or not to block the MMS send/receive functionality on the device.
-     *  @param bool|null $value Value to set for the messagingBlockMMS property.
+     * @param bool|null $value Value to set for the messagingBlockMMS property.
     */
     public function setMessagingBlockMMS(?bool $value): void {
         $this->getBackingStore()->set('messagingBlockMMS', $value);
@@ -4037,7 +4037,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the messagingBlockRichCommunicationServices property value. Indicates whether or not to block the RCS send/receive functionality on the device.
-     *  @param bool|null $value Value to set for the messagingBlockRichCommunicationServices property.
+     * @param bool|null $value Value to set for the messagingBlockRichCommunicationServices property.
     */
     public function setMessagingBlockRichCommunicationServices(?bool $value): void {
         $this->getBackingStore()->set('messagingBlockRichCommunicationServices', $value);
@@ -4045,7 +4045,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the messagingBlockSync property value. Indicates whether or not to block text message back up and restore and Messaging Everywhere.
-     *  @param bool|null $value Value to set for the messagingBlockSync property.
+     * @param bool|null $value Value to set for the messagingBlockSync property.
     */
     public function setMessagingBlockSync(?bool $value): void {
         $this->getBackingStore()->set('messagingBlockSync', $value);
@@ -4053,7 +4053,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the microsoftAccountBlocked property value. Indicates whether or not to Block a Microsoft account.
-     *  @param bool|null $value Value to set for the microsoftAccountBlocked property.
+     * @param bool|null $value Value to set for the microsoftAccountBlocked property.
     */
     public function setMicrosoftAccountBlocked(?bool $value): void {
         $this->getBackingStore()->set('microsoftAccountBlocked', $value);
@@ -4061,7 +4061,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the microsoftAccountBlockSettingsSync property value. Indicates whether or not to Block Microsoft account settings sync.
-     *  @param bool|null $value Value to set for the microsoftAccountBlockSettingsSync property.
+     * @param bool|null $value Value to set for the microsoftAccountBlockSettingsSync property.
     */
     public function setMicrosoftAccountBlockSettingsSync(?bool $value): void {
         $this->getBackingStore()->set('microsoftAccountBlockSettingsSync', $value);
@@ -4069,7 +4069,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the microsoftAccountSignInAssistantSettings property value. Values for the SignInAssistantSettings.
-     *  @param SignInAssistantOptions|null $value Value to set for the microsoftAccountSignInAssistantSettings property.
+     * @param SignInAssistantOptions|null $value Value to set for the microsoftAccountSignInAssistantSettings property.
     */
     public function setMicrosoftAccountSignInAssistantSettings(?SignInAssistantOptions $value): void {
         $this->getBackingStore()->set('microsoftAccountSignInAssistantSettings', $value);
@@ -4077,7 +4077,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the networkProxyApplySettingsDeviceWide property value. If set, proxy settings will be applied to all processes and accounts in the device. Otherwise, it will be applied to the user account that’s enrolled into MDM.
-     *  @param bool|null $value Value to set for the networkProxyApplySettingsDeviceWide property.
+     * @param bool|null $value Value to set for the networkProxyApplySettingsDeviceWide property.
     */
     public function setNetworkProxyApplySettingsDeviceWide(?bool $value): void {
         $this->getBackingStore()->set('networkProxyApplySettingsDeviceWide', $value);
@@ -4085,7 +4085,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the networkProxyAutomaticConfigurationUrl property value. Address to the proxy auto-config (PAC) script you want to use.
-     *  @param string|null $value Value to set for the networkProxyAutomaticConfigurationUrl property.
+     * @param string|null $value Value to set for the networkProxyAutomaticConfigurationUrl property.
     */
     public function setNetworkProxyAutomaticConfigurationUrl(?string $value): void {
         $this->getBackingStore()->set('networkProxyAutomaticConfigurationUrl', $value);
@@ -4093,7 +4093,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the networkProxyDisableAutoDetect property value. Disable automatic detection of settings. If enabled, the system will try to find the path to a proxy auto-config (PAC) script.
-     *  @param bool|null $value Value to set for the networkProxyDisableAutoDetect property.
+     * @param bool|null $value Value to set for the networkProxyDisableAutoDetect property.
     */
     public function setNetworkProxyDisableAutoDetect(?bool $value): void {
         $this->getBackingStore()->set('networkProxyDisableAutoDetect', $value);
@@ -4101,7 +4101,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the networkProxyServer property value. Specifies manual proxy server settings.
-     *  @param Windows10NetworkProxyServer|null $value Value to set for the networkProxyServer property.
+     * @param Windows10NetworkProxyServer|null $value Value to set for the networkProxyServer property.
     */
     public function setNetworkProxyServer(?Windows10NetworkProxyServer $value): void {
         $this->getBackingStore()->set('networkProxyServer', $value);
@@ -4109,7 +4109,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the nfcBlocked property value. Indicates whether or not to Block the user from using near field communication.
-     *  @param bool|null $value Value to set for the nfcBlocked property.
+     * @param bool|null $value Value to set for the nfcBlocked property.
     */
     public function setNfcBlocked(?bool $value): void {
         $this->getBackingStore()->set('nfcBlocked', $value);
@@ -4117,7 +4117,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the oneDriveDisableFileSync property value. Gets or sets a value allowing IT admins to prevent apps and features from working with files on OneDrive.
-     *  @param bool|null $value Value to set for the oneDriveDisableFileSync property.
+     * @param bool|null $value Value to set for the oneDriveDisableFileSync property.
     */
     public function setOneDriveDisableFileSync(?bool $value): void {
         $this->getBackingStore()->set('oneDriveDisableFileSync', $value);
@@ -4125,7 +4125,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordBlockSimple property value. Specify whether PINs or passwords such as '1111' or '1234' are allowed. For Windows 10 desktops, it also controls the use of picture passwords.
-     *  @param bool|null $value Value to set for the passwordBlockSimple property.
+     * @param bool|null $value Value to set for the passwordBlockSimple property.
     */
     public function setPasswordBlockSimple(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockSimple', $value);
@@ -4133,7 +4133,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordExpirationDays property value. The password expiration in days. Valid values 0 to 730
-     *  @param int|null $value Value to set for the passwordExpirationDays property.
+     * @param int|null $value Value to set for the passwordExpirationDays property.
     */
     public function setPasswordExpirationDays(?int $value): void {
         $this->getBackingStore()->set('passwordExpirationDays', $value);
@@ -4141,7 +4141,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordMinimumAgeInDays property value. This security setting determines the period of time (in days) that a password must be used before the user can change it. Valid values 0 to 998
-     *  @param int|null $value Value to set for the passwordMinimumAgeInDays property.
+     * @param int|null $value Value to set for the passwordMinimumAgeInDays property.
     */
     public function setPasswordMinimumAgeInDays(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumAgeInDays', $value);
@@ -4149,7 +4149,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordMinimumCharacterSetCount property value. The number of character sets required in the password.
-     *  @param int|null $value Value to set for the passwordMinimumCharacterSetCount property.
+     * @param int|null $value Value to set for the passwordMinimumCharacterSetCount property.
     */
     public function setPasswordMinimumCharacterSetCount(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumCharacterSetCount', $value);
@@ -4157,7 +4157,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordMinimumLength property value. The minimum password length. Valid values 4 to 16
-     *  @param int|null $value Value to set for the passwordMinimumLength property.
+     * @param int|null $value Value to set for the passwordMinimumLength property.
     */
     public function setPasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLength', $value);
@@ -4165,7 +4165,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. The minutes of inactivity before the screen times out.
-     *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
+     * @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
     */
     public function setPasswordMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
         $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeScreenTimeout', $value);
@@ -4173,7 +4173,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordPreviousPasswordBlockCount property value. The number of previous passwords to prevent reuse of. Valid values 0 to 50
-     *  @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
+     * @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
     */
     public function setPasswordPreviousPasswordBlockCount(?int $value): void {
         $this->getBackingStore()->set('passwordPreviousPasswordBlockCount', $value);
@@ -4181,7 +4181,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordRequired property value. Indicates whether or not to require the user to have a password.
-     *  @param bool|null $value Value to set for the passwordRequired property.
+     * @param bool|null $value Value to set for the passwordRequired property.
     */
     public function setPasswordRequired(?bool $value): void {
         $this->getBackingStore()->set('passwordRequired', $value);
@@ -4189,7 +4189,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordRequiredType property value. Possible values of required passwords.
-     *  @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?RequiredPasswordType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
@@ -4197,7 +4197,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordRequireWhenResumeFromIdleState property value. Indicates whether or not to require a password upon resuming from an idle state.
-     *  @param bool|null $value Value to set for the passwordRequireWhenResumeFromIdleState property.
+     * @param bool|null $value Value to set for the passwordRequireWhenResumeFromIdleState property.
     */
     public function setPasswordRequireWhenResumeFromIdleState(?bool $value): void {
         $this->getBackingStore()->set('passwordRequireWhenResumeFromIdleState', $value);
@@ -4205,7 +4205,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the passwordSignInFailureCountBeforeFactoryReset property value. The number of sign in failures before factory reset. Valid values 0 to 999
-     *  @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
+     * @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
     */
     public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value): void {
         $this->getBackingStore()->set('passwordSignInFailureCountBeforeFactoryReset', $value);
@@ -4213,7 +4213,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the personalizationDesktopImageUrl property value. A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image.
-     *  @param string|null $value Value to set for the personalizationDesktopImageUrl property.
+     * @param string|null $value Value to set for the personalizationDesktopImageUrl property.
     */
     public function setPersonalizationDesktopImageUrl(?string $value): void {
         $this->getBackingStore()->set('personalizationDesktopImageUrl', $value);
@@ -4221,7 +4221,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the personalizationLockScreenImageUrl property value. A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.
-     *  @param string|null $value Value to set for the personalizationLockScreenImageUrl property.
+     * @param string|null $value Value to set for the personalizationLockScreenImageUrl property.
     */
     public function setPersonalizationLockScreenImageUrl(?string $value): void {
         $this->getBackingStore()->set('personalizationLockScreenImageUrl', $value);
@@ -4229,7 +4229,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the powerButtonActionOnBattery property value. Power action types
-     *  @param PowerActionType|null $value Value to set for the powerButtonActionOnBattery property.
+     * @param PowerActionType|null $value Value to set for the powerButtonActionOnBattery property.
     */
     public function setPowerButtonActionOnBattery(?PowerActionType $value): void {
         $this->getBackingStore()->set('powerButtonActionOnBattery', $value);
@@ -4237,7 +4237,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the powerButtonActionPluggedIn property value. Power action types
-     *  @param PowerActionType|null $value Value to set for the powerButtonActionPluggedIn property.
+     * @param PowerActionType|null $value Value to set for the powerButtonActionPluggedIn property.
     */
     public function setPowerButtonActionPluggedIn(?PowerActionType $value): void {
         $this->getBackingStore()->set('powerButtonActionPluggedIn', $value);
@@ -4245,7 +4245,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the powerHybridSleepOnBattery property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the powerHybridSleepOnBattery property.
+     * @param Enablement|null $value Value to set for the powerHybridSleepOnBattery property.
     */
     public function setPowerHybridSleepOnBattery(?Enablement $value): void {
         $this->getBackingStore()->set('powerHybridSleepOnBattery', $value);
@@ -4253,7 +4253,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the powerHybridSleepPluggedIn property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the powerHybridSleepPluggedIn property.
+     * @param Enablement|null $value Value to set for the powerHybridSleepPluggedIn property.
     */
     public function setPowerHybridSleepPluggedIn(?Enablement $value): void {
         $this->getBackingStore()->set('powerHybridSleepPluggedIn', $value);
@@ -4261,7 +4261,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the powerLidCloseActionOnBattery property value. Power action types
-     *  @param PowerActionType|null $value Value to set for the powerLidCloseActionOnBattery property.
+     * @param PowerActionType|null $value Value to set for the powerLidCloseActionOnBattery property.
     */
     public function setPowerLidCloseActionOnBattery(?PowerActionType $value): void {
         $this->getBackingStore()->set('powerLidCloseActionOnBattery', $value);
@@ -4269,7 +4269,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the powerLidCloseActionPluggedIn property value. Power action types
-     *  @param PowerActionType|null $value Value to set for the powerLidCloseActionPluggedIn property.
+     * @param PowerActionType|null $value Value to set for the powerLidCloseActionPluggedIn property.
     */
     public function setPowerLidCloseActionPluggedIn(?PowerActionType $value): void {
         $this->getBackingStore()->set('powerLidCloseActionPluggedIn', $value);
@@ -4277,7 +4277,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the powerSleepButtonActionOnBattery property value. Power action types
-     *  @param PowerActionType|null $value Value to set for the powerSleepButtonActionOnBattery property.
+     * @param PowerActionType|null $value Value to set for the powerSleepButtonActionOnBattery property.
     */
     public function setPowerSleepButtonActionOnBattery(?PowerActionType $value): void {
         $this->getBackingStore()->set('powerSleepButtonActionOnBattery', $value);
@@ -4285,7 +4285,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the powerSleepButtonActionPluggedIn property value. Power action types
-     *  @param PowerActionType|null $value Value to set for the powerSleepButtonActionPluggedIn property.
+     * @param PowerActionType|null $value Value to set for the powerSleepButtonActionPluggedIn property.
     */
     public function setPowerSleepButtonActionPluggedIn(?PowerActionType $value): void {
         $this->getBackingStore()->set('powerSleepButtonActionPluggedIn', $value);
@@ -4293,7 +4293,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the printerBlockAddition property value. Prevent user installation of additional printers from printers settings.
-     *  @param bool|null $value Value to set for the printerBlockAddition property.
+     * @param bool|null $value Value to set for the printerBlockAddition property.
     */
     public function setPrinterBlockAddition(?bool $value): void {
         $this->getBackingStore()->set('printerBlockAddition', $value);
@@ -4301,7 +4301,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the printerDefaultName property value. Name (network host name) of an installed printer.
-     *  @param string|null $value Value to set for the printerDefaultName property.
+     * @param string|null $value Value to set for the printerDefaultName property.
     */
     public function setPrinterDefaultName(?string $value): void {
         $this->getBackingStore()->set('printerDefaultName', $value);
@@ -4309,7 +4309,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the printerNames property value. Automatically provision printers based on their names (network host names).
-     *  @param array<string>|null $value Value to set for the printerNames property.
+     * @param array<string>|null $value Value to set for the printerNames property.
     */
     public function setPrinterNames(?array $value): void {
         $this->getBackingStore()->set('printerNames', $value);
@@ -4317,7 +4317,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the privacyAccessControls property value. Indicates a list of applications with their access control levels over privacy data categories, and/or the default access levels per category. This collection can contain a maximum of 500 elements.
-     *  @param array<WindowsPrivacyDataAccessControlItem>|null $value Value to set for the privacyAccessControls property.
+     * @param array<WindowsPrivacyDataAccessControlItem>|null $value Value to set for the privacyAccessControls property.
     */
     public function setPrivacyAccessControls(?array $value): void {
         $this->getBackingStore()->set('privacyAccessControls', $value);
@@ -4325,7 +4325,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the privacyAdvertisingId property value. State Management Setting.
-     *  @param StateManagementSetting|null $value Value to set for the privacyAdvertisingId property.
+     * @param StateManagementSetting|null $value Value to set for the privacyAdvertisingId property.
     */
     public function setPrivacyAdvertisingId(?StateManagementSetting $value): void {
         $this->getBackingStore()->set('privacyAdvertisingId', $value);
@@ -4333,7 +4333,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the privacyAutoAcceptPairingAndConsentPrompts property value. Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps.
-     *  @param bool|null $value Value to set for the privacyAutoAcceptPairingAndConsentPrompts property.
+     * @param bool|null $value Value to set for the privacyAutoAcceptPairingAndConsentPrompts property.
     */
     public function setPrivacyAutoAcceptPairingAndConsentPrompts(?bool $value): void {
         $this->getBackingStore()->set('privacyAutoAcceptPairingAndConsentPrompts', $value);
@@ -4341,7 +4341,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the privacyBlockActivityFeed property value. Blocks the usage of cloud based speech services for Cortana, Dictation, or Store applications.
-     *  @param bool|null $value Value to set for the privacyBlockActivityFeed property.
+     * @param bool|null $value Value to set for the privacyBlockActivityFeed property.
     */
     public function setPrivacyBlockActivityFeed(?bool $value): void {
         $this->getBackingStore()->set('privacyBlockActivityFeed', $value);
@@ -4349,7 +4349,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the privacyBlockInputPersonalization property value. Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications.
-     *  @param bool|null $value Value to set for the privacyBlockInputPersonalization property.
+     * @param bool|null $value Value to set for the privacyBlockInputPersonalization property.
     */
     public function setPrivacyBlockInputPersonalization(?bool $value): void {
         $this->getBackingStore()->set('privacyBlockInputPersonalization', $value);
@@ -4357,7 +4357,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the privacyBlockPublishUserActivities property value. Blocks the shared experiences/discovery of recently used resources in task switcher etc.
-     *  @param bool|null $value Value to set for the privacyBlockPublishUserActivities property.
+     * @param bool|null $value Value to set for the privacyBlockPublishUserActivities property.
     */
     public function setPrivacyBlockPublishUserActivities(?bool $value): void {
         $this->getBackingStore()->set('privacyBlockPublishUserActivities', $value);
@@ -4365,7 +4365,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the privacyDisableLaunchExperience property value. This policy prevents the privacy experience from launching during user logon for new and upgraded users.​
-     *  @param bool|null $value Value to set for the privacyDisableLaunchExperience property.
+     * @param bool|null $value Value to set for the privacyDisableLaunchExperience property.
     */
     public function setPrivacyDisableLaunchExperience(?bool $value): void {
         $this->getBackingStore()->set('privacyDisableLaunchExperience', $value);
@@ -4373,7 +4373,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the resetProtectionModeBlocked property value. Indicates whether or not to Block the user from reset protection mode.
-     *  @param bool|null $value Value to set for the resetProtectionModeBlocked property.
+     * @param bool|null $value Value to set for the resetProtectionModeBlocked property.
     */
     public function setResetProtectionModeBlocked(?bool $value): void {
         $this->getBackingStore()->set('resetProtectionModeBlocked', $value);
@@ -4381,7 +4381,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the safeSearchFilter property value. Specifies what level of safe search (filtering adult content) is required
-     *  @param SafeSearchFilterType|null $value Value to set for the safeSearchFilter property.
+     * @param SafeSearchFilterType|null $value Value to set for the safeSearchFilter property.
     */
     public function setSafeSearchFilter(?SafeSearchFilterType $value): void {
         $this->getBackingStore()->set('safeSearchFilter', $value);
@@ -4389,7 +4389,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the screenCaptureBlocked property value. Indicates whether or not to Block the user from taking Screenshots.
-     *  @param bool|null $value Value to set for the screenCaptureBlocked property.
+     * @param bool|null $value Value to set for the screenCaptureBlocked property.
     */
     public function setScreenCaptureBlocked(?bool $value): void {
         $this->getBackingStore()->set('screenCaptureBlocked', $value);
@@ -4397,7 +4397,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchBlockDiacritics property value. Specifies if search can use diacritics.
-     *  @param bool|null $value Value to set for the searchBlockDiacritics property.
+     * @param bool|null $value Value to set for the searchBlockDiacritics property.
     */
     public function setSearchBlockDiacritics(?bool $value): void {
         $this->getBackingStore()->set('searchBlockDiacritics', $value);
@@ -4405,7 +4405,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchBlockWebResults property value. Indicates whether or not to block the web search.
-     *  @param bool|null $value Value to set for the searchBlockWebResults property.
+     * @param bool|null $value Value to set for the searchBlockWebResults property.
     */
     public function setSearchBlockWebResults(?bool $value): void {
         $this->getBackingStore()->set('searchBlockWebResults', $value);
@@ -4413,7 +4413,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchDisableAutoLanguageDetection property value. Specifies whether to use automatic language detection when indexing content and properties.
-     *  @param bool|null $value Value to set for the searchDisableAutoLanguageDetection property.
+     * @param bool|null $value Value to set for the searchDisableAutoLanguageDetection property.
     */
     public function setSearchDisableAutoLanguageDetection(?bool $value): void {
         $this->getBackingStore()->set('searchDisableAutoLanguageDetection', $value);
@@ -4421,7 +4421,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchDisableIndexerBackoff property value. Indicates whether or not to disable the search indexer backoff feature.
-     *  @param bool|null $value Value to set for the searchDisableIndexerBackoff property.
+     * @param bool|null $value Value to set for the searchDisableIndexerBackoff property.
     */
     public function setSearchDisableIndexerBackoff(?bool $value): void {
         $this->getBackingStore()->set('searchDisableIndexerBackoff', $value);
@@ -4429,7 +4429,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchDisableIndexingEncryptedItems property value. Indicates whether or not to block indexing of WIP-protected items to prevent them from appearing in search results for Cortana or Explorer.
-     *  @param bool|null $value Value to set for the searchDisableIndexingEncryptedItems property.
+     * @param bool|null $value Value to set for the searchDisableIndexingEncryptedItems property.
     */
     public function setSearchDisableIndexingEncryptedItems(?bool $value): void {
         $this->getBackingStore()->set('searchDisableIndexingEncryptedItems', $value);
@@ -4437,7 +4437,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchDisableIndexingRemovableDrive property value. Indicates whether or not to allow users to add locations on removable drives to libraries and to be indexed.
-     *  @param bool|null $value Value to set for the searchDisableIndexingRemovableDrive property.
+     * @param bool|null $value Value to set for the searchDisableIndexingRemovableDrive property.
     */
     public function setSearchDisableIndexingRemovableDrive(?bool $value): void {
         $this->getBackingStore()->set('searchDisableIndexingRemovableDrive', $value);
@@ -4445,7 +4445,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchDisableLocation property value. Specifies if search can use location information.
-     *  @param bool|null $value Value to set for the searchDisableLocation property.
+     * @param bool|null $value Value to set for the searchDisableLocation property.
     */
     public function setSearchDisableLocation(?bool $value): void {
         $this->getBackingStore()->set('searchDisableLocation', $value);
@@ -4453,7 +4453,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchDisableUseLocation property value. Specifies if search can use location information.
-     *  @param bool|null $value Value to set for the searchDisableUseLocation property.
+     * @param bool|null $value Value to set for the searchDisableUseLocation property.
     */
     public function setSearchDisableUseLocation(?bool $value): void {
         $this->getBackingStore()->set('searchDisableUseLocation', $value);
@@ -4461,7 +4461,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchEnableAutomaticIndexSizeManangement property value. Specifies minimum amount of hard drive space on the same drive as the index location before indexing stops.
-     *  @param bool|null $value Value to set for the searchEnableAutomaticIndexSizeManangement property.
+     * @param bool|null $value Value to set for the searchEnableAutomaticIndexSizeManangement property.
     */
     public function setSearchEnableAutomaticIndexSizeManangement(?bool $value): void {
         $this->getBackingStore()->set('searchEnableAutomaticIndexSizeManangement', $value);
@@ -4469,7 +4469,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the searchEnableRemoteQueries property value. Indicates whether or not to block remote queries of this computer’s index.
-     *  @param bool|null $value Value to set for the searchEnableRemoteQueries property.
+     * @param bool|null $value Value to set for the searchEnableRemoteQueries property.
     */
     public function setSearchEnableRemoteQueries(?bool $value): void {
         $this->getBackingStore()->set('searchEnableRemoteQueries', $value);
@@ -4477,7 +4477,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the securityBlockAzureADJoinedDevicesAutoEncryption property value. Specify whether to allow automatic device encryption during OOBE when the device is Azure AD joined (desktop only).
-     *  @param bool|null $value Value to set for the securityBlockAzureADJoinedDevicesAutoEncryption property.
+     * @param bool|null $value Value to set for the securityBlockAzureADJoinedDevicesAutoEncryption property.
     */
     public function setSecurityBlockAzureADJoinedDevicesAutoEncryption(?bool $value): void {
         $this->getBackingStore()->set('securityBlockAzureADJoinedDevicesAutoEncryption', $value);
@@ -4485,7 +4485,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockAccountsPage property value. Indicates whether or not to block access to Accounts in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockAccountsPage property.
+     * @param bool|null $value Value to set for the settingsBlockAccountsPage property.
     */
     public function setSettingsBlockAccountsPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockAccountsPage', $value);
@@ -4493,7 +4493,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockAddProvisioningPackage property value. Indicates whether or not to block the user from installing provisioning packages.
-     *  @param bool|null $value Value to set for the settingsBlockAddProvisioningPackage property.
+     * @param bool|null $value Value to set for the settingsBlockAddProvisioningPackage property.
     */
     public function setSettingsBlockAddProvisioningPackage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockAddProvisioningPackage', $value);
@@ -4501,7 +4501,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockAppsPage property value. Indicates whether or not to block access to Apps in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockAppsPage property.
+     * @param bool|null $value Value to set for the settingsBlockAppsPage property.
     */
     public function setSettingsBlockAppsPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockAppsPage', $value);
@@ -4509,7 +4509,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockChangeLanguage property value. Indicates whether or not to block the user from changing the language settings.
-     *  @param bool|null $value Value to set for the settingsBlockChangeLanguage property.
+     * @param bool|null $value Value to set for the settingsBlockChangeLanguage property.
     */
     public function setSettingsBlockChangeLanguage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockChangeLanguage', $value);
@@ -4517,7 +4517,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockChangePowerSleep property value. Indicates whether or not to block the user from changing power and sleep settings.
-     *  @param bool|null $value Value to set for the settingsBlockChangePowerSleep property.
+     * @param bool|null $value Value to set for the settingsBlockChangePowerSleep property.
     */
     public function setSettingsBlockChangePowerSleep(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockChangePowerSleep', $value);
@@ -4525,7 +4525,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockChangeRegion property value. Indicates whether or not to block the user from changing the region settings.
-     *  @param bool|null $value Value to set for the settingsBlockChangeRegion property.
+     * @param bool|null $value Value to set for the settingsBlockChangeRegion property.
     */
     public function setSettingsBlockChangeRegion(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockChangeRegion', $value);
@@ -4533,7 +4533,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockChangeSystemTime property value. Indicates whether or not to block the user from changing date and time settings.
-     *  @param bool|null $value Value to set for the settingsBlockChangeSystemTime property.
+     * @param bool|null $value Value to set for the settingsBlockChangeSystemTime property.
     */
     public function setSettingsBlockChangeSystemTime(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockChangeSystemTime', $value);
@@ -4541,7 +4541,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockDevicesPage property value. Indicates whether or not to block access to Devices in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockDevicesPage property.
+     * @param bool|null $value Value to set for the settingsBlockDevicesPage property.
     */
     public function setSettingsBlockDevicesPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockDevicesPage', $value);
@@ -4549,7 +4549,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockEaseOfAccessPage property value. Indicates whether or not to block access to Ease of Access in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockEaseOfAccessPage property.
+     * @param bool|null $value Value to set for the settingsBlockEaseOfAccessPage property.
     */
     public function setSettingsBlockEaseOfAccessPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockEaseOfAccessPage', $value);
@@ -4557,7 +4557,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockEditDeviceName property value. Indicates whether or not to block the user from editing the device name.
-     *  @param bool|null $value Value to set for the settingsBlockEditDeviceName property.
+     * @param bool|null $value Value to set for the settingsBlockEditDeviceName property.
     */
     public function setSettingsBlockEditDeviceName(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockEditDeviceName', $value);
@@ -4565,7 +4565,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockGamingPage property value. Indicates whether or not to block access to Gaming in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockGamingPage property.
+     * @param bool|null $value Value to set for the settingsBlockGamingPage property.
     */
     public function setSettingsBlockGamingPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockGamingPage', $value);
@@ -4573,7 +4573,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockNetworkInternetPage property value. Indicates whether or not to block access to Network & Internet in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockNetworkInternetPage property.
+     * @param bool|null $value Value to set for the settingsBlockNetworkInternetPage property.
     */
     public function setSettingsBlockNetworkInternetPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockNetworkInternetPage', $value);
@@ -4581,7 +4581,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockPersonalizationPage property value. Indicates whether or not to block access to Personalization in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockPersonalizationPage property.
+     * @param bool|null $value Value to set for the settingsBlockPersonalizationPage property.
     */
     public function setSettingsBlockPersonalizationPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockPersonalizationPage', $value);
@@ -4589,7 +4589,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockPrivacyPage property value. Indicates whether or not to block access to Privacy in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockPrivacyPage property.
+     * @param bool|null $value Value to set for the settingsBlockPrivacyPage property.
     */
     public function setSettingsBlockPrivacyPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockPrivacyPage', $value);
@@ -4597,7 +4597,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockRemoveProvisioningPackage property value. Indicates whether or not to block the runtime configuration agent from removing provisioning packages.
-     *  @param bool|null $value Value to set for the settingsBlockRemoveProvisioningPackage property.
+     * @param bool|null $value Value to set for the settingsBlockRemoveProvisioningPackage property.
     */
     public function setSettingsBlockRemoveProvisioningPackage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockRemoveProvisioningPackage', $value);
@@ -4605,7 +4605,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockSettingsApp property value. Indicates whether or not to block access to Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockSettingsApp property.
+     * @param bool|null $value Value to set for the settingsBlockSettingsApp property.
     */
     public function setSettingsBlockSettingsApp(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockSettingsApp', $value);
@@ -4613,7 +4613,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockSystemPage property value. Indicates whether or not to block access to System in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockSystemPage property.
+     * @param bool|null $value Value to set for the settingsBlockSystemPage property.
     */
     public function setSettingsBlockSystemPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockSystemPage', $value);
@@ -4621,7 +4621,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockTimeLanguagePage property value. Indicates whether or not to block access to Time & Language in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockTimeLanguagePage property.
+     * @param bool|null $value Value to set for the settingsBlockTimeLanguagePage property.
     */
     public function setSettingsBlockTimeLanguagePage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockTimeLanguagePage', $value);
@@ -4629,7 +4629,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the settingsBlockUpdateSecurityPage property value. Indicates whether or not to block access to Update & Security in Settings app.
-     *  @param bool|null $value Value to set for the settingsBlockUpdateSecurityPage property.
+     * @param bool|null $value Value to set for the settingsBlockUpdateSecurityPage property.
     */
     public function setSettingsBlockUpdateSecurityPage(?bool $value): void {
         $this->getBackingStore()->set('settingsBlockUpdateSecurityPage', $value);
@@ -4637,7 +4637,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the sharedUserAppDataAllowed property value. Indicates whether or not to block multiple users of the same app to share data.
-     *  @param bool|null $value Value to set for the sharedUserAppDataAllowed property.
+     * @param bool|null $value Value to set for the sharedUserAppDataAllowed property.
     */
     public function setSharedUserAppDataAllowed(?bool $value): void {
         $this->getBackingStore()->set('sharedUserAppDataAllowed', $value);
@@ -4645,7 +4645,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the smartScreenAppInstallControl property value. App Install control Setting
-     *  @param AppInstallControlType|null $value Value to set for the smartScreenAppInstallControl property.
+     * @param AppInstallControlType|null $value Value to set for the smartScreenAppInstallControl property.
     */
     public function setSmartScreenAppInstallControl(?AppInstallControlType $value): void {
         $this->getBackingStore()->set('smartScreenAppInstallControl', $value);
@@ -4653,7 +4653,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the smartScreenBlockPromptOverride property value. Indicates whether or not users can override SmartScreen Filter warnings about potentially malicious websites.
-     *  @param bool|null $value Value to set for the smartScreenBlockPromptOverride property.
+     * @param bool|null $value Value to set for the smartScreenBlockPromptOverride property.
     */
     public function setSmartScreenBlockPromptOverride(?bool $value): void {
         $this->getBackingStore()->set('smartScreenBlockPromptOverride', $value);
@@ -4661,7 +4661,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the smartScreenBlockPromptOverrideForFiles property value. Indicates whether or not users can override the SmartScreen Filter warnings about downloading unverified files
-     *  @param bool|null $value Value to set for the smartScreenBlockPromptOverrideForFiles property.
+     * @param bool|null $value Value to set for the smartScreenBlockPromptOverrideForFiles property.
     */
     public function setSmartScreenBlockPromptOverrideForFiles(?bool $value): void {
         $this->getBackingStore()->set('smartScreenBlockPromptOverrideForFiles', $value);
@@ -4669,7 +4669,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the smartScreenEnableAppInstallControl property value. This property will be deprecated in July 2019 and will be replaced by property SmartScreenAppInstallControl. Allows IT Admins to control whether users are allowed to install apps from places other than the Store.
-     *  @param bool|null $value Value to set for the smartScreenEnableAppInstallControl property.
+     * @param bool|null $value Value to set for the smartScreenEnableAppInstallControl property.
     */
     public function setSmartScreenEnableAppInstallControl(?bool $value): void {
         $this->getBackingStore()->set('smartScreenEnableAppInstallControl', $value);
@@ -4677,7 +4677,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startBlockUnpinningAppsFromTaskbar property value. Indicates whether or not to block the user from unpinning apps from taskbar.
-     *  @param bool|null $value Value to set for the startBlockUnpinningAppsFromTaskbar property.
+     * @param bool|null $value Value to set for the startBlockUnpinningAppsFromTaskbar property.
     */
     public function setStartBlockUnpinningAppsFromTaskbar(?bool $value): void {
         $this->getBackingStore()->set('startBlockUnpinningAppsFromTaskbar', $value);
@@ -4685,7 +4685,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuAppListVisibility property value. Type of start menu app list visibility.
-     *  @param WindowsStartMenuAppListVisibilityType|null $value Value to set for the startMenuAppListVisibility property.
+     * @param WindowsStartMenuAppListVisibilityType|null $value Value to set for the startMenuAppListVisibility property.
     */
     public function setStartMenuAppListVisibility(?WindowsStartMenuAppListVisibilityType $value): void {
         $this->getBackingStore()->set('startMenuAppListVisibility', $value);
@@ -4693,7 +4693,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideChangeAccountSettings property value. Enabling this policy hides the change account setting from appearing in the user tile in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHideChangeAccountSettings property.
+     * @param bool|null $value Value to set for the startMenuHideChangeAccountSettings property.
     */
     public function setStartMenuHideChangeAccountSettings(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideChangeAccountSettings', $value);
@@ -4701,7 +4701,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideFrequentlyUsedApps property value. Enabling this policy hides the most used apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
-     *  @param bool|null $value Value to set for the startMenuHideFrequentlyUsedApps property.
+     * @param bool|null $value Value to set for the startMenuHideFrequentlyUsedApps property.
     */
     public function setStartMenuHideFrequentlyUsedApps(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideFrequentlyUsedApps', $value);
@@ -4709,7 +4709,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideHibernate property value. Enabling this policy hides hibernate from appearing in the power button in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHideHibernate property.
+     * @param bool|null $value Value to set for the startMenuHideHibernate property.
     */
     public function setStartMenuHideHibernate(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideHibernate', $value);
@@ -4717,7 +4717,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideLock property value. Enabling this policy hides lock from appearing in the user tile in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHideLock property.
+     * @param bool|null $value Value to set for the startMenuHideLock property.
     */
     public function setStartMenuHideLock(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideLock', $value);
@@ -4725,7 +4725,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHidePowerButton property value. Enabling this policy hides the power button from appearing in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHidePowerButton property.
+     * @param bool|null $value Value to set for the startMenuHidePowerButton property.
     */
     public function setStartMenuHidePowerButton(?bool $value): void {
         $this->getBackingStore()->set('startMenuHidePowerButton', $value);
@@ -4733,7 +4733,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideRecentJumpLists property value. Enabling this policy hides recent jump lists from appearing on the start menu/taskbar and disables the corresponding toggle in the Settings app.
-     *  @param bool|null $value Value to set for the startMenuHideRecentJumpLists property.
+     * @param bool|null $value Value to set for the startMenuHideRecentJumpLists property.
     */
     public function setStartMenuHideRecentJumpLists(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideRecentJumpLists', $value);
@@ -4741,7 +4741,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideRecentlyAddedApps property value. Enabling this policy hides recently added apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
-     *  @param bool|null $value Value to set for the startMenuHideRecentlyAddedApps property.
+     * @param bool|null $value Value to set for the startMenuHideRecentlyAddedApps property.
     */
     public function setStartMenuHideRecentlyAddedApps(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideRecentlyAddedApps', $value);
@@ -4749,7 +4749,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideRestartOptions property value. Enabling this policy hides 'Restart/Update and Restart' from appearing in the power button in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHideRestartOptions property.
+     * @param bool|null $value Value to set for the startMenuHideRestartOptions property.
     */
     public function setStartMenuHideRestartOptions(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideRestartOptions', $value);
@@ -4757,7 +4757,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideShutDown property value. Enabling this policy hides shut down/update and shut down from appearing in the power button in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHideShutDown property.
+     * @param bool|null $value Value to set for the startMenuHideShutDown property.
     */
     public function setStartMenuHideShutDown(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideShutDown', $value);
@@ -4765,7 +4765,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideSignOut property value. Enabling this policy hides sign out from appearing in the user tile in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHideSignOut property.
+     * @param bool|null $value Value to set for the startMenuHideSignOut property.
     */
     public function setStartMenuHideSignOut(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideSignOut', $value);
@@ -4773,7 +4773,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideSleep property value. Enabling this policy hides sleep from appearing in the power button in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHideSleep property.
+     * @param bool|null $value Value to set for the startMenuHideSleep property.
     */
     public function setStartMenuHideSleep(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideSleep', $value);
@@ -4781,7 +4781,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideSwitchAccount property value. Enabling this policy hides switch account from appearing in the user tile in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHideSwitchAccount property.
+     * @param bool|null $value Value to set for the startMenuHideSwitchAccount property.
     */
     public function setStartMenuHideSwitchAccount(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideSwitchAccount', $value);
@@ -4789,7 +4789,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuHideUserTile property value. Enabling this policy hides the user tile from appearing in the start menu.
-     *  @param bool|null $value Value to set for the startMenuHideUserTile property.
+     * @param bool|null $value Value to set for the startMenuHideUserTile property.
     */
     public function setStartMenuHideUserTile(?bool $value): void {
         $this->getBackingStore()->set('startMenuHideUserTile', $value);
@@ -4797,7 +4797,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuLayoutEdgeAssetsXml property value. This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.
-     *  @param StreamInterface|null $value Value to set for the startMenuLayoutEdgeAssetsXml property.
+     * @param StreamInterface|null $value Value to set for the startMenuLayoutEdgeAssetsXml property.
     */
     public function setStartMenuLayoutEdgeAssetsXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('startMenuLayoutEdgeAssetsXml', $value);
@@ -4805,7 +4805,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuLayoutXml property value. Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.
-     *  @param StreamInterface|null $value Value to set for the startMenuLayoutXml property.
+     * @param StreamInterface|null $value Value to set for the startMenuLayoutXml property.
     */
     public function setStartMenuLayoutXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('startMenuLayoutXml', $value);
@@ -4813,7 +4813,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuMode property value. Type of display modes for the start menu.
-     *  @param WindowsStartMenuModeType|null $value Value to set for the startMenuMode property.
+     * @param WindowsStartMenuModeType|null $value Value to set for the startMenuMode property.
     */
     public function setStartMenuMode(?WindowsStartMenuModeType $value): void {
         $this->getBackingStore()->set('startMenuMode', $value);
@@ -4821,7 +4821,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderDocuments property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderDocuments property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderDocuments property.
     */
     public function setStartMenuPinnedFolderDocuments(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderDocuments', $value);
@@ -4829,7 +4829,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderDownloads property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderDownloads property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderDownloads property.
     */
     public function setStartMenuPinnedFolderDownloads(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderDownloads', $value);
@@ -4837,7 +4837,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderFileExplorer property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderFileExplorer property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderFileExplorer property.
     */
     public function setStartMenuPinnedFolderFileExplorer(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderFileExplorer', $value);
@@ -4845,7 +4845,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderHomeGroup property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderHomeGroup property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderHomeGroup property.
     */
     public function setStartMenuPinnedFolderHomeGroup(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderHomeGroup', $value);
@@ -4853,7 +4853,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderMusic property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderMusic property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderMusic property.
     */
     public function setStartMenuPinnedFolderMusic(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderMusic', $value);
@@ -4861,7 +4861,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderNetwork property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderNetwork property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderNetwork property.
     */
     public function setStartMenuPinnedFolderNetwork(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderNetwork', $value);
@@ -4869,7 +4869,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderPersonalFolder property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderPersonalFolder property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderPersonalFolder property.
     */
     public function setStartMenuPinnedFolderPersonalFolder(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderPersonalFolder', $value);
@@ -4877,7 +4877,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderPictures property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderPictures property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderPictures property.
     */
     public function setStartMenuPinnedFolderPictures(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderPictures', $value);
@@ -4885,7 +4885,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderSettings property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderSettings property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderSettings property.
     */
     public function setStartMenuPinnedFolderSettings(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderSettings', $value);
@@ -4893,7 +4893,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the startMenuPinnedFolderVideos property value. Generic visibility state.
-     *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderVideos property.
+     * @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderVideos property.
     */
     public function setStartMenuPinnedFolderVideos(?VisibilitySetting $value): void {
         $this->getBackingStore()->set('startMenuPinnedFolderVideos', $value);
@@ -4901,7 +4901,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the storageBlockRemovableStorage property value. Indicates whether or not to Block the user from using removable storage.
-     *  @param bool|null $value Value to set for the storageBlockRemovableStorage property.
+     * @param bool|null $value Value to set for the storageBlockRemovableStorage property.
     */
     public function setStorageBlockRemovableStorage(?bool $value): void {
         $this->getBackingStore()->set('storageBlockRemovableStorage', $value);
@@ -4909,7 +4909,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the storageRequireMobileDeviceEncryption property value. Indicating whether or not to require encryption on a mobile device.
-     *  @param bool|null $value Value to set for the storageRequireMobileDeviceEncryption property.
+     * @param bool|null $value Value to set for the storageRequireMobileDeviceEncryption property.
     */
     public function setStorageRequireMobileDeviceEncryption(?bool $value): void {
         $this->getBackingStore()->set('storageRequireMobileDeviceEncryption', $value);
@@ -4917,7 +4917,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the storageRestrictAppDataToSystemVolume property value. Indicates whether application data is restricted to the system drive.
-     *  @param bool|null $value Value to set for the storageRestrictAppDataToSystemVolume property.
+     * @param bool|null $value Value to set for the storageRestrictAppDataToSystemVolume property.
     */
     public function setStorageRestrictAppDataToSystemVolume(?bool $value): void {
         $this->getBackingStore()->set('storageRestrictAppDataToSystemVolume', $value);
@@ -4925,7 +4925,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the storageRestrictAppInstallToSystemVolume property value. Indicates whether the installation of applications is restricted to the system drive.
-     *  @param bool|null $value Value to set for the storageRestrictAppInstallToSystemVolume property.
+     * @param bool|null $value Value to set for the storageRestrictAppInstallToSystemVolume property.
     */
     public function setStorageRestrictAppInstallToSystemVolume(?bool $value): void {
         $this->getBackingStore()->set('storageRestrictAppInstallToSystemVolume', $value);
@@ -4933,7 +4933,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the systemTelemetryProxyServer property value. Gets or sets the fully qualified domain name (FQDN) or IP address of a proxy server to forward Connected User Experiences and Telemetry requests.
-     *  @param string|null $value Value to set for the systemTelemetryProxyServer property.
+     * @param string|null $value Value to set for the systemTelemetryProxyServer property.
     */
     public function setSystemTelemetryProxyServer(?string $value): void {
         $this->getBackingStore()->set('systemTelemetryProxyServer', $value);
@@ -4941,7 +4941,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the taskManagerBlockEndTask property value. Specify whether non-administrators can use Task Manager to end tasks.
-     *  @param bool|null $value Value to set for the taskManagerBlockEndTask property.
+     * @param bool|null $value Value to set for the taskManagerBlockEndTask property.
     */
     public function setTaskManagerBlockEndTask(?bool $value): void {
         $this->getBackingStore()->set('taskManagerBlockEndTask', $value);
@@ -4949,7 +4949,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the tenantLockdownRequireNetworkDuringOutOfBoxExperience property value. Whether the device is required to connect to the network.
-     *  @param bool|null $value Value to set for the tenantLockdownRequireNetworkDuringOutOfBoxExperience property.
+     * @param bool|null $value Value to set for the tenantLockdownRequireNetworkDuringOutOfBoxExperience property.
     */
     public function setTenantLockdownRequireNetworkDuringOutOfBoxExperience(?bool $value): void {
         $this->getBackingStore()->set('tenantLockdownRequireNetworkDuringOutOfBoxExperience', $value);
@@ -4957,7 +4957,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the uninstallBuiltInApps property value. Indicates whether or not to uninstall a fixed list of built-in Windows apps.
-     *  @param bool|null $value Value to set for the uninstallBuiltInApps property.
+     * @param bool|null $value Value to set for the uninstallBuiltInApps property.
     */
     public function setUninstallBuiltInApps(?bool $value): void {
         $this->getBackingStore()->set('uninstallBuiltInApps', $value);
@@ -4965,7 +4965,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the usbBlocked property value. Indicates whether or not to Block the user from USB connection.
-     *  @param bool|null $value Value to set for the usbBlocked property.
+     * @param bool|null $value Value to set for the usbBlocked property.
     */
     public function setUsbBlocked(?bool $value): void {
         $this->getBackingStore()->set('usbBlocked', $value);
@@ -4973,7 +4973,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the voiceRecordingBlocked property value. Indicates whether or not to Block the user from voice recording.
-     *  @param bool|null $value Value to set for the voiceRecordingBlocked property.
+     * @param bool|null $value Value to set for the voiceRecordingBlocked property.
     */
     public function setVoiceRecordingBlocked(?bool $value): void {
         $this->getBackingStore()->set('voiceRecordingBlocked', $value);
@@ -4981,7 +4981,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the webRtcBlockLocalhostIpAddress property value. Indicates whether or not user's localhost IP address is displayed while making phone calls using the WebRTC
-     *  @param bool|null $value Value to set for the webRtcBlockLocalhostIpAddress property.
+     * @param bool|null $value Value to set for the webRtcBlockLocalhostIpAddress property.
     */
     public function setWebRtcBlockLocalhostIpAddress(?bool $value): void {
         $this->getBackingStore()->set('webRtcBlockLocalhostIpAddress', $value);
@@ -4989,7 +4989,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the wiFiBlockAutomaticConnectHotspots property value. Indicating whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.
-     *  @param bool|null $value Value to set for the wiFiBlockAutomaticConnectHotspots property.
+     * @param bool|null $value Value to set for the wiFiBlockAutomaticConnectHotspots property.
     */
     public function setWiFiBlockAutomaticConnectHotspots(?bool $value): void {
         $this->getBackingStore()->set('wiFiBlockAutomaticConnectHotspots', $value);
@@ -4997,7 +4997,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the wiFiBlocked property value. Indicates whether or not to Block the user from using Wi-Fi.
-     *  @param bool|null $value Value to set for the wiFiBlocked property.
+     * @param bool|null $value Value to set for the wiFiBlocked property.
     */
     public function setWiFiBlocked(?bool $value): void {
         $this->getBackingStore()->set('wiFiBlocked', $value);
@@ -5005,7 +5005,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the wiFiBlockManualConfiguration property value. Indicates whether or not to Block the user from using Wi-Fi manual configuration.
-     *  @param bool|null $value Value to set for the wiFiBlockManualConfiguration property.
+     * @param bool|null $value Value to set for the wiFiBlockManualConfiguration property.
     */
     public function setWiFiBlockManualConfiguration(?bool $value): void {
         $this->getBackingStore()->set('wiFiBlockManualConfiguration', $value);
@@ -5013,7 +5013,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the wiFiScanInterval property value. Specify how often devices scan for Wi-Fi networks. Supported values are 1-500, where 100 = default, and 500 = low frequency. Valid values 1 to 500
-     *  @param int|null $value Value to set for the wiFiScanInterval property.
+     * @param int|null $value Value to set for the wiFiScanInterval property.
     */
     public function setWiFiScanInterval(?int $value): void {
         $this->getBackingStore()->set('wiFiScanInterval', $value);
@@ -5021,7 +5021,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windows10AppsForceUpdateSchedule property value. Windows 10 force update schedule for Apps.
-     *  @param Windows10AppsForceUpdateSchedule|null $value Value to set for the windows10AppsForceUpdateSchedule property.
+     * @param Windows10AppsForceUpdateSchedule|null $value Value to set for the windows10AppsForceUpdateSchedule property.
     */
     public function setWindows10AppsForceUpdateSchedule(?Windows10AppsForceUpdateSchedule $value): void {
         $this->getBackingStore()->set('windows10AppsForceUpdateSchedule', $value);
@@ -5029,7 +5029,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsSpotlightBlockConsumerSpecificFeatures property value. Allows IT admins to block experiences that are typically for consumers only, such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles.
-     *  @param bool|null $value Value to set for the windowsSpotlightBlockConsumerSpecificFeatures property.
+     * @param bool|null $value Value to set for the windowsSpotlightBlockConsumerSpecificFeatures property.
     */
     public function setWindowsSpotlightBlockConsumerSpecificFeatures(?bool $value): void {
         $this->getBackingStore()->set('windowsSpotlightBlockConsumerSpecificFeatures', $value);
@@ -5037,7 +5037,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsSpotlightBlocked property value. Allows IT admins to turn off all Windows Spotlight features
-     *  @param bool|null $value Value to set for the windowsSpotlightBlocked property.
+     * @param bool|null $value Value to set for the windowsSpotlightBlocked property.
     */
     public function setWindowsSpotlightBlocked(?bool $value): void {
         $this->getBackingStore()->set('windowsSpotlightBlocked', $value);
@@ -5045,7 +5045,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsSpotlightBlockOnActionCenter property value. Block suggestions from Microsoft that show after each OS clean install, upgrade or in an on-going basis to introduce users to what is new or changed
-     *  @param bool|null $value Value to set for the windowsSpotlightBlockOnActionCenter property.
+     * @param bool|null $value Value to set for the windowsSpotlightBlockOnActionCenter property.
     */
     public function setWindowsSpotlightBlockOnActionCenter(?bool $value): void {
         $this->getBackingStore()->set('windowsSpotlightBlockOnActionCenter', $value);
@@ -5053,7 +5053,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsSpotlightBlockTailoredExperiences property value. Block personalized content in Windows spotlight based on user’s device usage.
-     *  @param bool|null $value Value to set for the windowsSpotlightBlockTailoredExperiences property.
+     * @param bool|null $value Value to set for the windowsSpotlightBlockTailoredExperiences property.
     */
     public function setWindowsSpotlightBlockTailoredExperiences(?bool $value): void {
         $this->getBackingStore()->set('windowsSpotlightBlockTailoredExperiences', $value);
@@ -5061,7 +5061,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsSpotlightBlockThirdPartyNotifications property value. Block third party content delivered via Windows Spotlight
-     *  @param bool|null $value Value to set for the windowsSpotlightBlockThirdPartyNotifications property.
+     * @param bool|null $value Value to set for the windowsSpotlightBlockThirdPartyNotifications property.
     */
     public function setWindowsSpotlightBlockThirdPartyNotifications(?bool $value): void {
         $this->getBackingStore()->set('windowsSpotlightBlockThirdPartyNotifications', $value);
@@ -5069,7 +5069,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsSpotlightBlockWelcomeExperience property value. Block Windows Spotlight Windows welcome experience
-     *  @param bool|null $value Value to set for the windowsSpotlightBlockWelcomeExperience property.
+     * @param bool|null $value Value to set for the windowsSpotlightBlockWelcomeExperience property.
     */
     public function setWindowsSpotlightBlockWelcomeExperience(?bool $value): void {
         $this->getBackingStore()->set('windowsSpotlightBlockWelcomeExperience', $value);
@@ -5077,7 +5077,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsSpotlightBlockWindowsTips property value. Allows IT admins to turn off the popup of Windows Tips.
-     *  @param bool|null $value Value to set for the windowsSpotlightBlockWindowsTips property.
+     * @param bool|null $value Value to set for the windowsSpotlightBlockWindowsTips property.
     */
     public function setWindowsSpotlightBlockWindowsTips(?bool $value): void {
         $this->getBackingStore()->set('windowsSpotlightBlockWindowsTips', $value);
@@ -5085,7 +5085,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsSpotlightConfigureOnLockScreen property value. Allows IT admind to set a predefined default search engine for MDM-Controlled devices
-     *  @param WindowsSpotlightEnablementSettings|null $value Value to set for the windowsSpotlightConfigureOnLockScreen property.
+     * @param WindowsSpotlightEnablementSettings|null $value Value to set for the windowsSpotlightConfigureOnLockScreen property.
     */
     public function setWindowsSpotlightConfigureOnLockScreen(?WindowsSpotlightEnablementSettings $value): void {
         $this->getBackingStore()->set('windowsSpotlightConfigureOnLockScreen', $value);
@@ -5093,7 +5093,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsStoreBlockAutoUpdate property value. Indicates whether or not to block automatic update of apps from Windows Store.
-     *  @param bool|null $value Value to set for the windowsStoreBlockAutoUpdate property.
+     * @param bool|null $value Value to set for the windowsStoreBlockAutoUpdate property.
     */
     public function setWindowsStoreBlockAutoUpdate(?bool $value): void {
         $this->getBackingStore()->set('windowsStoreBlockAutoUpdate', $value);
@@ -5101,7 +5101,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsStoreBlocked property value. Indicates whether or not to Block the user from using the Windows store.
-     *  @param bool|null $value Value to set for the windowsStoreBlocked property.
+     * @param bool|null $value Value to set for the windowsStoreBlocked property.
     */
     public function setWindowsStoreBlocked(?bool $value): void {
         $this->getBackingStore()->set('windowsStoreBlocked', $value);
@@ -5109,7 +5109,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the windowsStoreEnablePrivateStoreOnly property value. Indicates whether or not to enable Private Store Only.
-     *  @param bool|null $value Value to set for the windowsStoreEnablePrivateStoreOnly property.
+     * @param bool|null $value Value to set for the windowsStoreEnablePrivateStoreOnly property.
     */
     public function setWindowsStoreEnablePrivateStoreOnly(?bool $value): void {
         $this->getBackingStore()->set('windowsStoreEnablePrivateStoreOnly', $value);
@@ -5117,7 +5117,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the wirelessDisplayBlockProjectionToThisDevice property value. Indicates whether or not to allow other devices from discovering this PC for projection.
-     *  @param bool|null $value Value to set for the wirelessDisplayBlockProjectionToThisDevice property.
+     * @param bool|null $value Value to set for the wirelessDisplayBlockProjectionToThisDevice property.
     */
     public function setWirelessDisplayBlockProjectionToThisDevice(?bool $value): void {
         $this->getBackingStore()->set('wirelessDisplayBlockProjectionToThisDevice', $value);
@@ -5125,7 +5125,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the wirelessDisplayBlockUserInputFromReceiver property value. Indicates whether or not to allow user input from wireless display receiver.
-     *  @param bool|null $value Value to set for the wirelessDisplayBlockUserInputFromReceiver property.
+     * @param bool|null $value Value to set for the wirelessDisplayBlockUserInputFromReceiver property.
     */
     public function setWirelessDisplayBlockUserInputFromReceiver(?bool $value): void {
         $this->getBackingStore()->set('wirelessDisplayBlockUserInputFromReceiver', $value);
@@ -5133,7 +5133,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the wirelessDisplayRequirePinForPairing property value. Indicates whether or not to require a PIN for new devices to initiate pairing.
-     *  @param bool|null $value Value to set for the wirelessDisplayRequirePinForPairing property.
+     * @param bool|null $value Value to set for the wirelessDisplayRequirePinForPairing property.
     */
     public function setWirelessDisplayRequirePinForPairing(?bool $value): void {
         $this->getBackingStore()->set('wirelessDisplayRequirePinForPairing', $value);

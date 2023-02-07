@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. The role definition associated with the role assignment.
+*/
 class RoleDefinitionRequestBuilderGetQueryParameters 
 {
     /**

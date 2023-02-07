@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Contacts\Item\DirectReports\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
+*/
 class DirectoryObjectItemRequestBuilderGetQueryParameters 
 {
     /**

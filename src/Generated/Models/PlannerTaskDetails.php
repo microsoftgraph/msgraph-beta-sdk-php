@@ -94,7 +94,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
 
     /**
      * Sets the checklist property value. The collection of checklist items on the task.
-     *  @param PlannerChecklistItems|null $value Value to set for the checklist property.
+     * @param PlannerChecklistItems|null $value Value to set for the checklist property.
     */
     public function setChecklist(?PlannerChecklistItems $value): void {
         $this->getBackingStore()->set('checklist', $value);
@@ -102,7 +102,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
 
     /**
      * Sets the description property value. Description of the task.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -110,7 +110,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
 
     /**
      * Sets the notes property value. Rich text description of the task. To be used by HTML-aware clients. For backwards compatibility, a plain-text version of the HTML description will be synced to the 'description' field. If this field has not previously been set but 'description' has been, the existing description will be synchronized to 'notes' with minimal whitespace-preserving HTML markup. Setting both 'description' and 'notes' is an error and will result in an exception.
-     *  @param ItemBody|null $value Value to set for the notes property.
+     * @param ItemBody|null $value Value to set for the notes property.
     */
     public function setNotes(?ItemBody $value): void {
         $this->getBackingStore()->set('notes', $value);
@@ -118,7 +118,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
 
     /**
      * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
-     *  @param PlannerPreviewType|null $value Value to set for the previewType property.
+     * @param PlannerPreviewType|null $value Value to set for the previewType property.
     */
     public function setPreviewType(?PlannerPreviewType $value): void {
         $this->getBackingStore()->set('previewType', $value);
@@ -126,7 +126,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
 
     /**
      * Sets the references property value. The collection of references on the task.
-     *  @param PlannerExternalReferences|null $value Value to set for the references property.
+     * @param PlannerExternalReferences|null $value Value to set for the references property.
     */
     public function setReferences(?PlannerExternalReferences $value): void {
         $this->getBackingStore()->set('references', $value);

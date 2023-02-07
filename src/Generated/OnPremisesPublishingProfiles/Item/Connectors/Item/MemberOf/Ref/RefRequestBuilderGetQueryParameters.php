@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Conne
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The connectorGroup that the connector is a member of. Read-only.
+*/
 class RefRequestBuilderGetQueryParameters 
 {
     /**

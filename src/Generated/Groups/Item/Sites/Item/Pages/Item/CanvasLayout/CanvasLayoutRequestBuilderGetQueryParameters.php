@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Pages\Item\Canva
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical section
+*/
 class CanvasLayoutRequestBuilderGetQueryParameters 
 {
     /**

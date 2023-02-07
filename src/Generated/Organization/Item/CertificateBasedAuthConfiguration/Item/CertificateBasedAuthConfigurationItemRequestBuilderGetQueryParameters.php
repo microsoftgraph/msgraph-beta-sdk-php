@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\CertificateBasedAuthC
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+*/
 class CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -176,7 +176,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the conflictDeviceCount property value. The number of devices in a conflict state. Optional. Read-only.
-     *  @param int|null $value Value to set for the conflictDeviceCount property.
+     * @param int|null $value Value to set for the conflictDeviceCount property.
     */
     public function setConflictDeviceCount(?int $value): void {
         $this->getBackingStore()->set('conflictDeviceCount', $value);
@@ -184,7 +184,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the errorDeviceCount property value. The number of devices in an error state. Optional. Read-only.
-     *  @param int|null $value Value to set for the errorDeviceCount property.
+     * @param int|null $value Value to set for the errorDeviceCount property.
     */
     public function setErrorDeviceCount(?int $value): void {
         $this->getBackingStore()->set('errorDeviceCount', $value);
@@ -192,7 +192,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the failedDeviceCount property value. The number of devices in a failed state. Optional. Read-only.
-     *  @param int|null $value Value to set for the failedDeviceCount property.
+     * @param int|null $value Value to set for the failedDeviceCount property.
     */
     public function setFailedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('failedDeviceCount', $value);
@@ -200,7 +200,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the intuneAccountId property value. The identifer for the Microsoft Intune account. Required. Read-only.
-     *  @param string|null $value Value to set for the intuneAccountId property.
+     * @param string|null $value Value to set for the intuneAccountId property.
     */
     public function setIntuneAccountId(?string $value): void {
         $this->getBackingStore()->set('intuneAccountId', $value);
@@ -208,7 +208,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the intuneSettingId property value. The identifier for the Intune setting. Optional. Read-only.
-     *  @param string|null $value Value to set for the intuneSettingId property.
+     * @param string|null $value Value to set for the intuneSettingId property.
     */
     public function setIntuneSettingId(?string $value): void {
         $this->getBackingStore()->set('intuneSettingId', $value);
@@ -216,7 +216,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);
@@ -224,7 +224,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the notApplicableDeviceCount property value. The number of devices in a not applicable state. Optional. Read-only.
-     *  @param int|null $value Value to set for the notApplicableDeviceCount property.
+     * @param int|null $value Value to set for the notApplicableDeviceCount property.
     */
     public function setNotApplicableDeviceCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableDeviceCount', $value);
@@ -232,7 +232,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the pendingDeviceCount property value. The number of devices in a pending state. Optional. Read-only.
-     *  @param int|null $value Value to set for the pendingDeviceCount property.
+     * @param int|null $value Value to set for the pendingDeviceCount property.
     */
     public function setPendingDeviceCount(?int $value): void {
         $this->getBackingStore()->set('pendingDeviceCount', $value);
@@ -240,7 +240,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the policyType property value. The type for the device compliance policy. Optional. Read-only.
-     *  @param string|null $value Value to set for the policyType property.
+     * @param string|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?string $value): void {
         $this->getBackingStore()->set('policyType', $value);
@@ -248,7 +248,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the settingName property value. The name for the setting within the device compliance policy. Optional. Read-only.
-     *  @param string|null $value Value to set for the settingName property.
+     * @param string|null $value Value to set for the settingName property.
     */
     public function setSettingName(?string $value): void {
         $this->getBackingStore()->set('settingName', $value);
@@ -256,7 +256,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the succeededDeviceCount property value. The number of devices in a succeeded state. Optional. Read-only.
-     *  @param int|null $value Value to set for the succeededDeviceCount property.
+     * @param int|null $value Value to set for the succeededDeviceCount property.
     */
     public function setSucceededDeviceCount(?int $value): void {
         $this->getBackingStore()->set('succeededDeviceCount', $value);
@@ -264,7 +264,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantDisplayName property.
+     * @param string|null $value Value to set for the tenantDisplayName property.
     */
     public function setTenantDisplayName(?string $value): void {
         $this->getBackingStore()->set('tenantDisplayName', $value);
@@ -272,7 +272,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\W
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get runs from identityGovernance
+*/
 class RunItemRequestBuilderGetQueryParameters 
 {
     /**

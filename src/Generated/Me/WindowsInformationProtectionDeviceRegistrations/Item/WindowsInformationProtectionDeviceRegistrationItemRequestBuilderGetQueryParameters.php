@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\WindowsInformationProtectionDeviceRe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Zero or more WIP device registrations that belong to the user.
+*/
 class WindowsInformationProtectionDeviceRegistrationItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for Group Assignment of an iOS LOB App Provisioning and Configuration.
+*/
 class IosLobAppProvisioningConfigurationAssignment extends Entity implements Parsable 
 {
     /**
@@ -54,7 +57,7 @@ class IosLobAppProvisioningConfigurationAssignment extends Entity implements Par
 
     /**
      * Sets the target property value. The target group assignment defined by the admin.
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

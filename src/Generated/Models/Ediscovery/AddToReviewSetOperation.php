@@ -64,7 +64,7 @@ class AddToReviewSetOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the reviewSet property value. The review set to which items matching the source collection query are added to.
-     *  @param ReviewSet|null $value Value to set for the reviewSet property.
+     * @param ReviewSet|null $value Value to set for the reviewSet property.
     */
     public function setReviewSet(?ReviewSet $value): void {
         $this->getBackingStore()->set('reviewSet', $value);
@@ -72,7 +72,7 @@ class AddToReviewSetOperation extends CaseOperation implements Parsable
 
     /**
      * Sets the sourceCollection property value. The sourceCollection that items are being added from.
-     *  @param SourceCollection|null $value Value to set for the sourceCollection property.
+     * @param SourceCollection|null $value Value to set for the sourceCollection property.
     */
     public function setSourceCollection(?SourceCollection $value): void {
         $this->getBackingStore()->set('sourceCollection', $value);

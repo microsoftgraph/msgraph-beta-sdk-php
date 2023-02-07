@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtecti
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The summary state of ATP onboarding state for this account.
+*/
 class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetQueryParameters 
 {
     /**

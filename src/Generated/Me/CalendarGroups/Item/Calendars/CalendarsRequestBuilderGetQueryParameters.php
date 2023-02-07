@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of calendars belonging to a calendar group.
+*/
 class CalendarsRequestBuilderGetQueryParameters 
 {
     /**

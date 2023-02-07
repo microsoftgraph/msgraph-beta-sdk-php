@@ -86,7 +86,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -94,7 +94,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
 
     /**
      * Sets the creationDateTime property value. The timestamp when this method was registered to the user.
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
+     * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('creationDateTime', $value);
@@ -102,7 +102,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
 
     /**
      * Sets the device property value. The device property
-     *  @param Device|null $value Value to set for the device property.
+     * @param Device|null $value Value to set for the device property.
     */
     public function setDevice(?Device $value): void {
         $this->getBackingStore()->set('device', $value);
@@ -110,7 +110,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
 
     /**
      * Sets the displayName property value. The display name of the mobile device as given by the user.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

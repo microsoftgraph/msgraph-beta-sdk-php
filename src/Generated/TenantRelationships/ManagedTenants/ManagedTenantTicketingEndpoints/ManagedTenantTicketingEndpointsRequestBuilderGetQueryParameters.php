@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Mana
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get managedTenantTicketingEndpoints from tenantRelationships
+*/
 class ManagedTenantTicketingEndpointsRequestBuilderGetQueryParameters 
 {
     /**

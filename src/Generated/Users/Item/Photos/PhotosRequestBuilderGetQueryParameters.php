@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Photos;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get photos from users
+*/
 class PhotosRequestBuilderGetQueryParameters 
 {
     /**

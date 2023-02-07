@@ -55,7 +55,7 @@ class DeviceManagementSettingEnrollmentTypeConstraint extends DeviceManagementCo
 
     /**
      * Sets the enrollmentTypes property value. List of enrollment types
-     *  @param array<string>|null $value Value to set for the enrollmentTypes property.
+     * @param array<string>|null $value Value to set for the enrollmentTypes property.
     */
     public function setEnrollmentTypes(?array $value): void {
         $this->getBackingStore()->set('enrollmentTypes', $value);

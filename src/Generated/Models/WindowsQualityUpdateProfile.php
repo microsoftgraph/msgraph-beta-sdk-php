@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows Quality Update Profile
+*/
 class WindowsQualityUpdateProfile extends Entity implements Parsable 
 {
     /**
@@ -135,7 +138,7 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments of the profile.
-     *  @param array<WindowsQualityUpdateProfileAssignment>|null $value Value to set for the assignments property.
+     * @param array<WindowsQualityUpdateProfileAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -143,7 +146,7 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date time that the profile was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -151,7 +154,7 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the deployableContentDisplayName property value. Friendly display name of the quality update profile deployable content
-     *  @param string|null $value Value to set for the deployableContentDisplayName property.
+     * @param string|null $value Value to set for the deployableContentDisplayName property.
     */
     public function setDeployableContentDisplayName(?string $value): void {
         $this->getBackingStore()->set('deployableContentDisplayName', $value);
@@ -159,7 +162,7 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the profile which is specified by the user.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -167,7 +170,7 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the profile.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -175,7 +178,7 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the expeditedUpdateSettings property value. Expedited update settings.
-     *  @param ExpeditedWindowsQualityUpdateSettings|null $value Value to set for the expeditedUpdateSettings property.
+     * @param ExpeditedWindowsQualityUpdateSettings|null $value Value to set for the expeditedUpdateSettings property.
     */
     public function setExpeditedUpdateSettings(?ExpeditedWindowsQualityUpdateSettings $value): void {
         $this->getBackingStore()->set('expeditedUpdateSettings', $value);
@@ -183,7 +186,7 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date time that the profile was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -191,7 +194,7 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the releaseDateDisplayName property value. Friendly release date to display for a Quality Update release
-     *  @param string|null $value Value to set for the releaseDateDisplayName property.
+     * @param string|null $value Value to set for the releaseDateDisplayName property.
     */
     public function setReleaseDateDisplayName(?string $value): void {
         $this->getBackingStore()->set('releaseDateDisplayName', $value);
@@ -199,7 +202,7 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Quality Update entity.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);

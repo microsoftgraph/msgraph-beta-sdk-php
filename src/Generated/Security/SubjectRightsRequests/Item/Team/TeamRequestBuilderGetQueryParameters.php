@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Tea
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Information about the Microsoft Teams team that was created for the request.
+*/
 class TeamRequestBuilderGetQueryParameters 
 {
     /**

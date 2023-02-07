@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the conversationMember collection of a team.
+*/
 class MembersRequestBuilderGetQueryParameters 
 {
     /**

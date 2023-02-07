@@ -267,6 +267,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'kioskModeWallpaperUrl' => fn(ParseNode $n) => $o->setKioskModeWallpaperUrl($n->getStringValue()),
             'kioskModeWifiAllowedSsids' => fn(ParseNode $n) => $o->setKioskModeWifiAllowedSsids($n->getCollectionOfPrimitiveValues()),
             'kioskModeWiFiConfigurationEnabled' => fn(ParseNode $n) => $o->setKioskModeWiFiConfigurationEnabled($n->getBooleanValue()),
+            'locateDeviceLostModeEnabled' => fn(ParseNode $n) => $o->setLocateDeviceLostModeEnabled($n->getBooleanValue()),
+            'locateDeviceUserlessDisabled' => fn(ParseNode $n) => $o->setLocateDeviceUserlessDisabled($n->getBooleanValue()),
             'microphoneForceMute' => fn(ParseNode $n) => $o->setMicrophoneForceMute($n->getBooleanValue()),
             'microsoftLauncherConfigurationEnabled' => fn(ParseNode $n) => $o->setMicrosoftLauncherConfigurationEnabled($n->getBooleanValue()),
             'microsoftLauncherCustomWallpaperAllowUserModification' => fn(ParseNode $n) => $o->setMicrosoftLauncherCustomWallpaperAllowUserModification($n->getBooleanValue()),
@@ -703,6 +705,22 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function getKioskModeWiFiConfigurationEnabled(): ?bool {
         return $this->getBackingStore()->get('kioskModeWiFiConfigurationEnabled');
+    }
+
+    /**
+     * Gets the locateDeviceLostModeEnabled property value. Indicates whether or not LocateDevice for devices with lost mode (COBO, COPE) is enabled.
+     * @return bool|null
+    */
+    public function getLocateDeviceLostModeEnabled(): ?bool {
+        return $this->getBackingStore()->get('locateDeviceLostModeEnabled');
+    }
+
+    /**
+     * Gets the locateDeviceUserlessDisabled property value. Indicates whether or not LocateDevice for userless (COSU) devices is disabled.
+     * @return bool|null
+    */
+    public function getLocateDeviceUserlessDisabled(): ?bool {
+        return $this->getBackingStore()->get('locateDeviceUserlessDisabled');
     }
 
     /**
@@ -1314,6 +1332,8 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeStringValue('kioskModeWallpaperUrl', $this->getKioskModeWallpaperUrl());
         $writer->writeCollectionOfPrimitiveValues('kioskModeWifiAllowedSsids', $this->getKioskModeWifiAllowedSsids());
         $writer->writeBooleanValue('kioskModeWiFiConfigurationEnabled', $this->getKioskModeWiFiConfigurationEnabled());
+        $writer->writeBooleanValue('locateDeviceLostModeEnabled', $this->getLocateDeviceLostModeEnabled());
+        $writer->writeBooleanValue('locateDeviceUserlessDisabled', $this->getLocateDeviceUserlessDisabled());
         $writer->writeBooleanValue('microphoneForceMute', $this->getMicrophoneForceMute());
         $writer->writeBooleanValue('microsoftLauncherConfigurationEnabled', $this->getMicrosoftLauncherConfigurationEnabled());
         $writer->writeBooleanValue('microsoftLauncherCustomWallpaperAllowUserModification', $this->getMicrosoftLauncherCustomWallpaperAllowUserModification());
@@ -1385,7 +1405,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the accountsBlockModification property value. Indicates whether or not adding or removing accounts is disabled.
-     *  @param bool|null $value Value to set for the accountsBlockModification property.
+     * @param bool|null $value Value to set for the accountsBlockModification property.
     */
     public function setAccountsBlockModification(?bool $value): void {
         $this->getBackingStore()->set('accountsBlockModification', $value);
@@ -1393,7 +1413,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the appsAllowInstallFromUnknownSources property value. Indicates whether or not the user is allowed to enable to unknown sources setting.
-     *  @param bool|null $value Value to set for the appsAllowInstallFromUnknownSources property.
+     * @param bool|null $value Value to set for the appsAllowInstallFromUnknownSources property.
     */
     public function setAppsAllowInstallFromUnknownSources(?bool $value): void {
         $this->getBackingStore()->set('appsAllowInstallFromUnknownSources', $value);
@@ -1401,7 +1421,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the appsAutoUpdatePolicy property value. Indicates the value of the app auto update policy. Possible values are: notConfigured, userChoice, never, wiFiOnly, always.
-     *  @param AndroidDeviceOwnerAppAutoUpdatePolicyType|null $value Value to set for the appsAutoUpdatePolicy property.
+     * @param AndroidDeviceOwnerAppAutoUpdatePolicyType|null $value Value to set for the appsAutoUpdatePolicy property.
     */
     public function setAppsAutoUpdatePolicy(?AndroidDeviceOwnerAppAutoUpdatePolicyType $value): void {
         $this->getBackingStore()->set('appsAutoUpdatePolicy', $value);
@@ -1409,7 +1429,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the appsDefaultPermissionPolicy property value. Indicates the permission policy for requests for runtime permissions if one is not defined for the app specifically. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
-     *  @param AndroidDeviceOwnerDefaultAppPermissionPolicyType|null $value Value to set for the appsDefaultPermissionPolicy property.
+     * @param AndroidDeviceOwnerDefaultAppPermissionPolicyType|null $value Value to set for the appsDefaultPermissionPolicy property.
     */
     public function setAppsDefaultPermissionPolicy(?AndroidDeviceOwnerDefaultAppPermissionPolicyType $value): void {
         $this->getBackingStore()->set('appsDefaultPermissionPolicy', $value);
@@ -1417,7 +1437,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the appsRecommendSkippingFirstUseHints property value. Whether or not to recommend all apps skip any first-time-use hints they may have added.
-     *  @param bool|null $value Value to set for the appsRecommendSkippingFirstUseHints property.
+     * @param bool|null $value Value to set for the appsRecommendSkippingFirstUseHints property.
     */
     public function setAppsRecommendSkippingFirstUseHints(?bool $value): void {
         $this->getBackingStore()->set('appsRecommendSkippingFirstUseHints', $value);
@@ -1425,7 +1445,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the azureAdSharedDeviceDataClearApps property value. A list of managed apps that will have their data cleared during a global sign-out in AAD shared device mode. This collection can contain a maximum of 500 elements.
-     *  @param array<AppListItem>|null $value Value to set for the azureAdSharedDeviceDataClearApps property.
+     * @param array<AppListItem>|null $value Value to set for the azureAdSharedDeviceDataClearApps property.
     */
     public function setAzureAdSharedDeviceDataClearApps(?array $value): void {
         $this->getBackingStore()->set('azureAdSharedDeviceDataClearApps', $value);
@@ -1433,7 +1453,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the bluetoothBlockConfiguration property value. Indicates whether or not to block a user from configuring bluetooth.
-     *  @param bool|null $value Value to set for the bluetoothBlockConfiguration property.
+     * @param bool|null $value Value to set for the bluetoothBlockConfiguration property.
     */
     public function setBluetoothBlockConfiguration(?bool $value): void {
         $this->getBackingStore()->set('bluetoothBlockConfiguration', $value);
@@ -1441,7 +1461,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the bluetoothBlockContactSharing property value. Indicates whether or not to block a user from sharing contacts via bluetooth.
-     *  @param bool|null $value Value to set for the bluetoothBlockContactSharing property.
+     * @param bool|null $value Value to set for the bluetoothBlockContactSharing property.
     */
     public function setBluetoothBlockContactSharing(?bool $value): void {
         $this->getBackingStore()->set('bluetoothBlockContactSharing', $value);
@@ -1449,7 +1469,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the cameraBlocked property value. Indicates whether or not to disable the use of the camera.
-     *  @param bool|null $value Value to set for the cameraBlocked property.
+     * @param bool|null $value Value to set for the cameraBlocked property.
     */
     public function setCameraBlocked(?bool $value): void {
         $this->getBackingStore()->set('cameraBlocked', $value);
@@ -1457,7 +1477,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the cellularBlockWiFiTethering property value. Indicates whether or not to block Wi-Fi tethering.
-     *  @param bool|null $value Value to set for the cellularBlockWiFiTethering property.
+     * @param bool|null $value Value to set for the cellularBlockWiFiTethering property.
     */
     public function setCellularBlockWiFiTethering(?bool $value): void {
         $this->getBackingStore()->set('cellularBlockWiFiTethering', $value);
@@ -1465,7 +1485,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the certificateCredentialConfigurationDisabled property value. Indicates whether or not to block users from any certificate credential configuration.
-     *  @param bool|null $value Value to set for the certificateCredentialConfigurationDisabled property.
+     * @param bool|null $value Value to set for the certificateCredentialConfigurationDisabled property.
     */
     public function setCertificateCredentialConfigurationDisabled(?bool $value): void {
         $this->getBackingStore()->set('certificateCredentialConfigurationDisabled', $value);
@@ -1473,7 +1493,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the crossProfilePoliciesAllowCopyPaste property value. Indicates whether or not text copied from one profile (personal or work) can be pasted in the other.
-     *  @param bool|null $value Value to set for the crossProfilePoliciesAllowCopyPaste property.
+     * @param bool|null $value Value to set for the crossProfilePoliciesAllowCopyPaste property.
     */
     public function setCrossProfilePoliciesAllowCopyPaste(?bool $value): void {
         $this->getBackingStore()->set('crossProfilePoliciesAllowCopyPaste', $value);
@@ -1481,7 +1501,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the crossProfilePoliciesAllowDataSharing property value. Indicates whether data from one profile (personal or work) can be shared with apps in the other profile. Possible values are: notConfigured, crossProfileDataSharingBlocked, dataSharingFromWorkToPersonalBlocked, crossProfileDataSharingAllowed, unkownFutureValue.
-     *  @param AndroidDeviceOwnerCrossProfileDataSharing|null $value Value to set for the crossProfilePoliciesAllowDataSharing property.
+     * @param AndroidDeviceOwnerCrossProfileDataSharing|null $value Value to set for the crossProfilePoliciesAllowDataSharing property.
     */
     public function setCrossProfilePoliciesAllowDataSharing(?AndroidDeviceOwnerCrossProfileDataSharing $value): void {
         $this->getBackingStore()->set('crossProfilePoliciesAllowDataSharing', $value);
@@ -1489,7 +1509,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the crossProfilePoliciesShowWorkContactsInPersonalProfile property value. Indicates whether or not contacts stored in work profile are shown in personal profile contact searches/incoming calls.
-     *  @param bool|null $value Value to set for the crossProfilePoliciesShowWorkContactsInPersonalProfile property.
+     * @param bool|null $value Value to set for the crossProfilePoliciesShowWorkContactsInPersonalProfile property.
     */
     public function setCrossProfilePoliciesShowWorkContactsInPersonalProfile(?bool $value): void {
         $this->getBackingStore()->set('crossProfilePoliciesShowWorkContactsInPersonalProfile', $value);
@@ -1497,7 +1517,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the dataRoamingBlocked property value. Indicates whether or not to block a user from data roaming.
-     *  @param bool|null $value Value to set for the dataRoamingBlocked property.
+     * @param bool|null $value Value to set for the dataRoamingBlocked property.
     */
     public function setDataRoamingBlocked(?bool $value): void {
         $this->getBackingStore()->set('dataRoamingBlocked', $value);
@@ -1505,7 +1525,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the dateTimeConfigurationBlocked property value. Indicates whether or not to block the user from manually changing the date or time on the device
-     *  @param bool|null $value Value to set for the dateTimeConfigurationBlocked property.
+     * @param bool|null $value Value to set for the dateTimeConfigurationBlocked property.
     */
     public function setDateTimeConfigurationBlocked(?bool $value): void {
         $this->getBackingStore()->set('dateTimeConfigurationBlocked', $value);
@@ -1513,7 +1533,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the detailedHelpText property value. Represents the customized detailed help text provided to users when they attempt to modify managed settings on their device.
-     *  @param AndroidDeviceOwnerUserFacingMessage|null $value Value to set for the detailedHelpText property.
+     * @param AndroidDeviceOwnerUserFacingMessage|null $value Value to set for the detailedHelpText property.
     */
     public function setDetailedHelpText(?AndroidDeviceOwnerUserFacingMessage $value): void {
         $this->getBackingStore()->set('detailedHelpText', $value);
@@ -1521,7 +1541,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the deviceOwnerLockScreenMessage property value. Represents the customized lock screen message provided to users when they attempt to modify managed settings on their device.
-     *  @param AndroidDeviceOwnerUserFacingMessage|null $value Value to set for the deviceOwnerLockScreenMessage property.
+     * @param AndroidDeviceOwnerUserFacingMessage|null $value Value to set for the deviceOwnerLockScreenMessage property.
     */
     public function setDeviceOwnerLockScreenMessage(?AndroidDeviceOwnerUserFacingMessage $value): void {
         $this->getBackingStore()->set('deviceOwnerLockScreenMessage', $value);
@@ -1529,7 +1549,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the enrollmentProfile property value. Android Device Owner Enrollment Profile types.
-     *  @param AndroidDeviceOwnerEnrollmentProfileType|null $value Value to set for the enrollmentProfile property.
+     * @param AndroidDeviceOwnerEnrollmentProfileType|null $value Value to set for the enrollmentProfile property.
     */
     public function setEnrollmentProfile(?AndroidDeviceOwnerEnrollmentProfileType $value): void {
         $this->getBackingStore()->set('enrollmentProfile', $value);
@@ -1537,7 +1557,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the factoryResetBlocked property value. Indicates whether or not the factory reset option in settings is disabled.
-     *  @param bool|null $value Value to set for the factoryResetBlocked property.
+     * @param bool|null $value Value to set for the factoryResetBlocked property.
     */
     public function setFactoryResetBlocked(?bool $value): void {
         $this->getBackingStore()->set('factoryResetBlocked', $value);
@@ -1545,7 +1565,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the factoryResetDeviceAdministratorEmails property value. List of Google account emails that will be required to authenticate after a device is factory reset before it can be set up.
-     *  @param array<string>|null $value Value to set for the factoryResetDeviceAdministratorEmails property.
+     * @param array<string>|null $value Value to set for the factoryResetDeviceAdministratorEmails property.
     */
     public function setFactoryResetDeviceAdministratorEmails(?array $value): void {
         $this->getBackingStore()->set('factoryResetDeviceAdministratorEmails', $value);
@@ -1553,7 +1573,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the globalProxy property value. Proxy is set up directly with host, port and excluded hosts.
-     *  @param AndroidDeviceOwnerGlobalProxy|null $value Value to set for the globalProxy property.
+     * @param AndroidDeviceOwnerGlobalProxy|null $value Value to set for the globalProxy property.
     */
     public function setGlobalProxy(?AndroidDeviceOwnerGlobalProxy $value): void {
         $this->getBackingStore()->set('globalProxy', $value);
@@ -1561,7 +1581,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the googleAccountsBlocked property value. Indicates whether or not google accounts will be blocked.
-     *  @param bool|null $value Value to set for the googleAccountsBlocked property.
+     * @param bool|null $value Value to set for the googleAccountsBlocked property.
     */
     public function setGoogleAccountsBlocked(?bool $value): void {
         $this->getBackingStore()->set('googleAccountsBlocked', $value);
@@ -1569,7 +1589,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskCustomizationDeviceSettingsBlocked property value. Indicates whether a user can access the device's Settings app while in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskCustomizationDeviceSettingsBlocked property.
+     * @param bool|null $value Value to set for the kioskCustomizationDeviceSettingsBlocked property.
     */
     public function setKioskCustomizationDeviceSettingsBlocked(?bool $value): void {
         $this->getBackingStore()->set('kioskCustomizationDeviceSettingsBlocked', $value);
@@ -1577,7 +1597,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskCustomizationPowerButtonActionsBlocked property value. Whether the power menu is shown when a user long presses the Power button of a device in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskCustomizationPowerButtonActionsBlocked property.
+     * @param bool|null $value Value to set for the kioskCustomizationPowerButtonActionsBlocked property.
     */
     public function setKioskCustomizationPowerButtonActionsBlocked(?bool $value): void {
         $this->getBackingStore()->set('kioskCustomizationPowerButtonActionsBlocked', $value);
@@ -1585,7 +1605,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskCustomizationStatusBar property value. Indicates whether system info and notifications are disabled in Kiosk Mode. Possible values are: notConfigured, notificationsAndSystemInfoEnabled, systemInfoOnly.
-     *  @param AndroidDeviceOwnerKioskCustomizationStatusBar|null $value Value to set for the kioskCustomizationStatusBar property.
+     * @param AndroidDeviceOwnerKioskCustomizationStatusBar|null $value Value to set for the kioskCustomizationStatusBar property.
     */
     public function setKioskCustomizationStatusBar(?AndroidDeviceOwnerKioskCustomizationStatusBar $value): void {
         $this->getBackingStore()->set('kioskCustomizationStatusBar', $value);
@@ -1593,7 +1613,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskCustomizationSystemErrorWarnings property value. Indicates whether system error dialogs for crashed or unresponsive apps are shown in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskCustomizationSystemErrorWarnings property.
+     * @param bool|null $value Value to set for the kioskCustomizationSystemErrorWarnings property.
     */
     public function setKioskCustomizationSystemErrorWarnings(?bool $value): void {
         $this->getBackingStore()->set('kioskCustomizationSystemErrorWarnings', $value);
@@ -1601,7 +1621,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskCustomizationSystemNavigation property value. Indicates which navigation features are enabled in Kiosk Mode. Possible values are: notConfigured, navigationEnabled, homeButtonOnly.
-     *  @param AndroidDeviceOwnerKioskCustomizationSystemNavigation|null $value Value to set for the kioskCustomizationSystemNavigation property.
+     * @param AndroidDeviceOwnerKioskCustomizationSystemNavigation|null $value Value to set for the kioskCustomizationSystemNavigation property.
     */
     public function setKioskCustomizationSystemNavigation(?AndroidDeviceOwnerKioskCustomizationSystemNavigation $value): void {
         $this->getBackingStore()->set('kioskCustomizationSystemNavigation', $value);
@@ -1609,7 +1629,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeAppOrderEnabled property value. Whether or not to enable app ordering in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeAppOrderEnabled property.
+     * @param bool|null $value Value to set for the kioskModeAppOrderEnabled property.
     */
     public function setKioskModeAppOrderEnabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeAppOrderEnabled', $value);
@@ -1617,7 +1637,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeAppPositions property value. The ordering of items on Kiosk Mode Managed Home Screen. This collection can contain a maximum of 500 elements.
-     *  @param array<AndroidDeviceOwnerKioskModeAppPositionItem>|null $value Value to set for the kioskModeAppPositions property.
+     * @param array<AndroidDeviceOwnerKioskModeAppPositionItem>|null $value Value to set for the kioskModeAppPositions property.
     */
     public function setKioskModeAppPositions(?array $value): void {
         $this->getBackingStore()->set('kioskModeAppPositions', $value);
@@ -1625,7 +1645,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeApps property value. A list of managed apps that will be shown when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.
-     *  @param array<AppListItem>|null $value Value to set for the kioskModeApps property.
+     * @param array<AppListItem>|null $value Value to set for the kioskModeApps property.
     */
     public function setKioskModeApps(?array $value): void {
         $this->getBackingStore()->set('kioskModeApps', $value);
@@ -1633,7 +1653,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeAppsInFolderOrderedByName property value. Whether or not to alphabetize applications within a folder in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeAppsInFolderOrderedByName property.
+     * @param bool|null $value Value to set for the kioskModeAppsInFolderOrderedByName property.
     */
     public function setKioskModeAppsInFolderOrderedByName(?bool $value): void {
         $this->getBackingStore()->set('kioskModeAppsInFolderOrderedByName', $value);
@@ -1641,7 +1661,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeBluetoothConfigurationEnabled property value. Whether or not to allow a user to configure Bluetooth settings in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeBluetoothConfigurationEnabled property.
+     * @param bool|null $value Value to set for the kioskModeBluetoothConfigurationEnabled property.
     */
     public function setKioskModeBluetoothConfigurationEnabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeBluetoothConfigurationEnabled', $value);
@@ -1649,7 +1669,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeDebugMenuEasyAccessEnabled property value. Whether or not to allow a user to easy access to the debug menu in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeDebugMenuEasyAccessEnabled property.
+     * @param bool|null $value Value to set for the kioskModeDebugMenuEasyAccessEnabled property.
     */
     public function setKioskModeDebugMenuEasyAccessEnabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeDebugMenuEasyAccessEnabled', $value);
@@ -1657,7 +1677,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeExitCode property value. Exit code to allow a user to escape from Kiosk Mode when the device is in Kiosk Mode.
-     *  @param string|null $value Value to set for the kioskModeExitCode property.
+     * @param string|null $value Value to set for the kioskModeExitCode property.
     */
     public function setKioskModeExitCode(?string $value): void {
         $this->getBackingStore()->set('kioskModeExitCode', $value);
@@ -1665,7 +1685,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeFlashlightConfigurationEnabled property value. Whether or not to allow a user to use the flashlight in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeFlashlightConfigurationEnabled property.
+     * @param bool|null $value Value to set for the kioskModeFlashlightConfigurationEnabled property.
     */
     public function setKioskModeFlashlightConfigurationEnabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeFlashlightConfigurationEnabled', $value);
@@ -1673,7 +1693,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeFolderIcon property value. Folder icon configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, darkSquare, darkCircle, lightSquare, lightCircle.
-     *  @param AndroidDeviceOwnerKioskModeFolderIcon|null $value Value to set for the kioskModeFolderIcon property.
+     * @param AndroidDeviceOwnerKioskModeFolderIcon|null $value Value to set for the kioskModeFolderIcon property.
     */
     public function setKioskModeFolderIcon(?AndroidDeviceOwnerKioskModeFolderIcon $value): void {
         $this->getBackingStore()->set('kioskModeFolderIcon', $value);
@@ -1681,7 +1701,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeGridHeight property value. Number of rows for Managed Home Screen grid with app ordering enabled in Kiosk Mode. Valid values 1 to 9999999
-     *  @param int|null $value Value to set for the kioskModeGridHeight property.
+     * @param int|null $value Value to set for the kioskModeGridHeight property.
     */
     public function setKioskModeGridHeight(?int $value): void {
         $this->getBackingStore()->set('kioskModeGridHeight', $value);
@@ -1689,7 +1709,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeGridWidth property value. Number of columns for Managed Home Screen grid with app ordering enabled in Kiosk Mode. Valid values 1 to 9999999
-     *  @param int|null $value Value to set for the kioskModeGridWidth property.
+     * @param int|null $value Value to set for the kioskModeGridWidth property.
     */
     public function setKioskModeGridWidth(?int $value): void {
         $this->getBackingStore()->set('kioskModeGridWidth', $value);
@@ -1697,7 +1717,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeIconSize property value. Icon size configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, smallest, small, regular, large, largest.
-     *  @param AndroidDeviceOwnerKioskModeIconSize|null $value Value to set for the kioskModeIconSize property.
+     * @param AndroidDeviceOwnerKioskModeIconSize|null $value Value to set for the kioskModeIconSize property.
     */
     public function setKioskModeIconSize(?AndroidDeviceOwnerKioskModeIconSize $value): void {
         $this->getBackingStore()->set('kioskModeIconSize', $value);
@@ -1705,7 +1725,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeLockHomeScreen property value. Whether or not to lock home screen to the end user in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeLockHomeScreen property.
+     * @param bool|null $value Value to set for the kioskModeLockHomeScreen property.
     */
     public function setKioskModeLockHomeScreen(?bool $value): void {
         $this->getBackingStore()->set('kioskModeLockHomeScreen', $value);
@@ -1713,7 +1733,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedFolders property value. A list of managed folders for a device in Kiosk Mode. This collection can contain a maximum of 500 elements.
-     *  @param array<AndroidDeviceOwnerKioskModeManagedFolder>|null $value Value to set for the kioskModeManagedFolders property.
+     * @param array<AndroidDeviceOwnerKioskModeManagedFolder>|null $value Value to set for the kioskModeManagedFolders property.
     */
     public function setKioskModeManagedFolders(?array $value): void {
         $this->getBackingStore()->set('kioskModeManagedFolders', $value);
@@ -1721,7 +1741,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenAutoSignout property value. Whether or not to automatically sign-out of MHS and Shared device mode applications after inactive for Managed Home Screen.
-     *  @param bool|null $value Value to set for the kioskModeManagedHomeScreenAutoSignout property.
+     * @param bool|null $value Value to set for the kioskModeManagedHomeScreenAutoSignout property.
     */
     public function setKioskModeManagedHomeScreenAutoSignout(?bool $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenAutoSignout', $value);
@@ -1729,7 +1749,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds property value. Number of seconds to give user notice before automatically signing them out for Managed Home Screen. Valid values 0 to 9999999
-     *  @param int|null $value Value to set for the kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds property.
+     * @param int|null $value Value to set for the kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds property.
     */
     public function setKioskModeManagedHomeScreenInactiveSignOutDelayInSeconds(?int $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds', $value);
@@ -1737,7 +1757,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds property value. Number of seconds device is inactive before automatically signing user out for Managed Home Screen. Valid values 0 to 9999999
-     *  @param int|null $value Value to set for the kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds property.
+     * @param int|null $value Value to set for the kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds property.
     */
     public function setKioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds(?int $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds', $value);
@@ -1745,7 +1765,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenPinComplexity property value. Complexity of PIN for sign-in session for Managed Home Screen. Possible values are: notConfigured, simple, complex.
-     *  @param KioskModeManagedHomeScreenPinComplexity|null $value Value to set for the kioskModeManagedHomeScreenPinComplexity property.
+     * @param KioskModeManagedHomeScreenPinComplexity|null $value Value to set for the kioskModeManagedHomeScreenPinComplexity property.
     */
     public function setKioskModeManagedHomeScreenPinComplexity(?KioskModeManagedHomeScreenPinComplexity $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenPinComplexity', $value);
@@ -1753,7 +1773,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenPinRequired property value. Whether or not require user to set a PIN for sign-in session for Managed Home Screen.
-     *  @param bool|null $value Value to set for the kioskModeManagedHomeScreenPinRequired property.
+     * @param bool|null $value Value to set for the kioskModeManagedHomeScreenPinRequired property.
     */
     public function setKioskModeManagedHomeScreenPinRequired(?bool $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenPinRequired', $value);
@@ -1761,7 +1781,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenPinRequiredToResume property value. Whether or not required user to enter session PIN if screensaver has appeared for Managed Home Screen.
-     *  @param bool|null $value Value to set for the kioskModeManagedHomeScreenPinRequiredToResume property.
+     * @param bool|null $value Value to set for the kioskModeManagedHomeScreenPinRequiredToResume property.
     */
     public function setKioskModeManagedHomeScreenPinRequiredToResume(?bool $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenPinRequiredToResume', $value);
@@ -1769,7 +1789,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenSignInBackground property value. Custom URL background for sign-in screen for Managed Home Screen.
-     *  @param string|null $value Value to set for the kioskModeManagedHomeScreenSignInBackground property.
+     * @param string|null $value Value to set for the kioskModeManagedHomeScreenSignInBackground property.
     */
     public function setKioskModeManagedHomeScreenSignInBackground(?string $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenSignInBackground', $value);
@@ -1777,7 +1797,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenSignInBrandingLogo property value. Custom URL branding logo for sign-in screen and session pin page for Managed Home Screen.
-     *  @param string|null $value Value to set for the kioskModeManagedHomeScreenSignInBrandingLogo property.
+     * @param string|null $value Value to set for the kioskModeManagedHomeScreenSignInBrandingLogo property.
     */
     public function setKioskModeManagedHomeScreenSignInBrandingLogo(?string $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenSignInBrandingLogo', $value);
@@ -1785,7 +1805,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedHomeScreenSignInEnabled property value. Whether or not show sign-in screen for Managed Home Screen.
-     *  @param bool|null $value Value to set for the kioskModeManagedHomeScreenSignInEnabled property.
+     * @param bool|null $value Value to set for the kioskModeManagedHomeScreenSignInEnabled property.
     */
     public function setKioskModeManagedHomeScreenSignInEnabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeManagedHomeScreenSignInEnabled', $value);
@@ -1793,7 +1813,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeManagedSettingsEntryDisabled property value. Whether or not to display the Managed Settings entry point on the managed home screen in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeManagedSettingsEntryDisabled property.
+     * @param bool|null $value Value to set for the kioskModeManagedSettingsEntryDisabled property.
     */
     public function setKioskModeManagedSettingsEntryDisabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeManagedSettingsEntryDisabled', $value);
@@ -1801,7 +1821,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeMediaVolumeConfigurationEnabled property value. Whether or not to allow a user to change the media volume in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeMediaVolumeConfigurationEnabled property.
+     * @param bool|null $value Value to set for the kioskModeMediaVolumeConfigurationEnabled property.
     */
     public function setKioskModeMediaVolumeConfigurationEnabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeMediaVolumeConfigurationEnabled', $value);
@@ -1809,7 +1829,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeScreenOrientation property value. Screen orientation configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, portrait, landscape, autoRotate.
-     *  @param AndroidDeviceOwnerKioskModeScreenOrientation|null $value Value to set for the kioskModeScreenOrientation property.
+     * @param AndroidDeviceOwnerKioskModeScreenOrientation|null $value Value to set for the kioskModeScreenOrientation property.
     */
     public function setKioskModeScreenOrientation(?AndroidDeviceOwnerKioskModeScreenOrientation $value): void {
         $this->getBackingStore()->set('kioskModeScreenOrientation', $value);
@@ -1817,7 +1837,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeScreenSaverConfigurationEnabled property value. Whether or not to enable screen saver mode or not in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeScreenSaverConfigurationEnabled property.
+     * @param bool|null $value Value to set for the kioskModeScreenSaverConfigurationEnabled property.
     */
     public function setKioskModeScreenSaverConfigurationEnabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeScreenSaverConfigurationEnabled', $value);
@@ -1825,7 +1845,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeScreenSaverDetectMediaDisabled property value. Whether or not the device screen should show the screen saver if audio/video is playing in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeScreenSaverDetectMediaDisabled property.
+     * @param bool|null $value Value to set for the kioskModeScreenSaverDetectMediaDisabled property.
     */
     public function setKioskModeScreenSaverDetectMediaDisabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeScreenSaverDetectMediaDisabled', $value);
@@ -1833,7 +1853,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeScreenSaverDisplayTimeInSeconds property value. The number of seconds that the device will display the screen saver for in Kiosk Mode. Valid values 0 to 9999999
-     *  @param int|null $value Value to set for the kioskModeScreenSaverDisplayTimeInSeconds property.
+     * @param int|null $value Value to set for the kioskModeScreenSaverDisplayTimeInSeconds property.
     */
     public function setKioskModeScreenSaverDisplayTimeInSeconds(?int $value): void {
         $this->getBackingStore()->set('kioskModeScreenSaverDisplayTimeInSeconds', $value);
@@ -1841,7 +1861,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeScreenSaverImageUrl property value. URL for an image that will be the device's screen saver in Kiosk Mode.
-     *  @param string|null $value Value to set for the kioskModeScreenSaverImageUrl property.
+     * @param string|null $value Value to set for the kioskModeScreenSaverImageUrl property.
     */
     public function setKioskModeScreenSaverImageUrl(?string $value): void {
         $this->getBackingStore()->set('kioskModeScreenSaverImageUrl', $value);
@@ -1849,7 +1869,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeScreenSaverStartDelayInSeconds property value. The number of seconds the device needs to be inactive for before the screen saver is shown in Kiosk Mode. Valid values 1 to 9999999
-     *  @param int|null $value Value to set for the kioskModeScreenSaverStartDelayInSeconds property.
+     * @param int|null $value Value to set for the kioskModeScreenSaverStartDelayInSeconds property.
     */
     public function setKioskModeScreenSaverStartDelayInSeconds(?int $value): void {
         $this->getBackingStore()->set('kioskModeScreenSaverStartDelayInSeconds', $value);
@@ -1857,7 +1877,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeShowAppNotificationBadge property value. Whether or not to display application notification badges in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeShowAppNotificationBadge property.
+     * @param bool|null $value Value to set for the kioskModeShowAppNotificationBadge property.
     */
     public function setKioskModeShowAppNotificationBadge(?bool $value): void {
         $this->getBackingStore()->set('kioskModeShowAppNotificationBadge', $value);
@@ -1865,7 +1885,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeShowDeviceInfo property value. Whether or not to allow a user to access basic device information.
-     *  @param bool|null $value Value to set for the kioskModeShowDeviceInfo property.
+     * @param bool|null $value Value to set for the kioskModeShowDeviceInfo property.
     */
     public function setKioskModeShowDeviceInfo(?bool $value): void {
         $this->getBackingStore()->set('kioskModeShowDeviceInfo', $value);
@@ -1873,7 +1893,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeUseManagedHomeScreenApp property value. Whether or not to use single app kiosk mode or multi-app kiosk mode. Possible values are: notConfigured, singleAppMode, multiAppMode.
-     *  @param KioskModeType|null $value Value to set for the kioskModeUseManagedHomeScreenApp property.
+     * @param KioskModeType|null $value Value to set for the kioskModeUseManagedHomeScreenApp property.
     */
     public function setKioskModeUseManagedHomeScreenApp(?KioskModeType $value): void {
         $this->getBackingStore()->set('kioskModeUseManagedHomeScreenApp', $value);
@@ -1881,7 +1901,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeVirtualHomeButtonEnabled property value. Whether or not to display a virtual home button when the device is in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeVirtualHomeButtonEnabled property.
+     * @param bool|null $value Value to set for the kioskModeVirtualHomeButtonEnabled property.
     */
     public function setKioskModeVirtualHomeButtonEnabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeVirtualHomeButtonEnabled', $value);
@@ -1889,7 +1909,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeVirtualHomeButtonType property value. Indicates whether the virtual home button is a swipe up home button or a floating home button. Possible values are: notConfigured, swipeUp, floating.
-     *  @param AndroidDeviceOwnerVirtualHomeButtonType|null $value Value to set for the kioskModeVirtualHomeButtonType property.
+     * @param AndroidDeviceOwnerVirtualHomeButtonType|null $value Value to set for the kioskModeVirtualHomeButtonType property.
     */
     public function setKioskModeVirtualHomeButtonType(?AndroidDeviceOwnerVirtualHomeButtonType $value): void {
         $this->getBackingStore()->set('kioskModeVirtualHomeButtonType', $value);
@@ -1897,7 +1917,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeWallpaperUrl property value. URL to a publicly accessible image to use for the wallpaper when the device is in Kiosk Mode.
-     *  @param string|null $value Value to set for the kioskModeWallpaperUrl property.
+     * @param string|null $value Value to set for the kioskModeWallpaperUrl property.
     */
     public function setKioskModeWallpaperUrl(?string $value): void {
         $this->getBackingStore()->set('kioskModeWallpaperUrl', $value);
@@ -1905,7 +1925,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeWifiAllowedSsids property value. The restricted set of WIFI SSIDs available for the user to configure in Kiosk Mode. This collection can contain a maximum of 500 elements.
-     *  @param array<string>|null $value Value to set for the kioskModeWifiAllowedSsids property.
+     * @param array<string>|null $value Value to set for the kioskModeWifiAllowedSsids property.
     */
     public function setKioskModeWifiAllowedSsids(?array $value): void {
         $this->getBackingStore()->set('kioskModeWifiAllowedSsids', $value);
@@ -1913,15 +1933,31 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the kioskModeWiFiConfigurationEnabled property value. Whether or not to allow a user to configure Wi-Fi settings in Kiosk Mode.
-     *  @param bool|null $value Value to set for the kioskModeWiFiConfigurationEnabled property.
+     * @param bool|null $value Value to set for the kioskModeWiFiConfigurationEnabled property.
     */
     public function setKioskModeWiFiConfigurationEnabled(?bool $value): void {
         $this->getBackingStore()->set('kioskModeWiFiConfigurationEnabled', $value);
     }
 
     /**
+     * Sets the locateDeviceLostModeEnabled property value. Indicates whether or not LocateDevice for devices with lost mode (COBO, COPE) is enabled.
+     * @param bool|null $value Value to set for the locateDeviceLostModeEnabled property.
+    */
+    public function setLocateDeviceLostModeEnabled(?bool $value): void {
+        $this->getBackingStore()->set('locateDeviceLostModeEnabled', $value);
+    }
+
+    /**
+     * Sets the locateDeviceUserlessDisabled property value. Indicates whether or not LocateDevice for userless (COSU) devices is disabled.
+     * @param bool|null $value Value to set for the locateDeviceUserlessDisabled property.
+    */
+    public function setLocateDeviceUserlessDisabled(?bool $value): void {
+        $this->getBackingStore()->set('locateDeviceUserlessDisabled', $value);
+    }
+
+    /**
      * Sets the microphoneForceMute property value. Indicates whether or not to block unmuting the microphone on the device.
-     *  @param bool|null $value Value to set for the microphoneForceMute property.
+     * @param bool|null $value Value to set for the microphoneForceMute property.
     */
     public function setMicrophoneForceMute(?bool $value): void {
         $this->getBackingStore()->set('microphoneForceMute', $value);
@@ -1929,7 +1965,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherConfigurationEnabled property value. Indicates whether or not to you want configure Microsoft Launcher.
-     *  @param bool|null $value Value to set for the microsoftLauncherConfigurationEnabled property.
+     * @param bool|null $value Value to set for the microsoftLauncherConfigurationEnabled property.
     */
     public function setMicrosoftLauncherConfigurationEnabled(?bool $value): void {
         $this->getBackingStore()->set('microsoftLauncherConfigurationEnabled', $value);
@@ -1937,7 +1973,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherCustomWallpaperAllowUserModification property value. Indicates whether or not the user can modify the wallpaper to personalize their device.
-     *  @param bool|null $value Value to set for the microsoftLauncherCustomWallpaperAllowUserModification property.
+     * @param bool|null $value Value to set for the microsoftLauncherCustomWallpaperAllowUserModification property.
     */
     public function setMicrosoftLauncherCustomWallpaperAllowUserModification(?bool $value): void {
         $this->getBackingStore()->set('microsoftLauncherCustomWallpaperAllowUserModification', $value);
@@ -1945,7 +1981,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherCustomWallpaperEnabled property value. Indicates whether or not to configure the wallpaper on the targeted devices.
-     *  @param bool|null $value Value to set for the microsoftLauncherCustomWallpaperEnabled property.
+     * @param bool|null $value Value to set for the microsoftLauncherCustomWallpaperEnabled property.
     */
     public function setMicrosoftLauncherCustomWallpaperEnabled(?bool $value): void {
         $this->getBackingStore()->set('microsoftLauncherCustomWallpaperEnabled', $value);
@@ -1953,7 +1989,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherCustomWallpaperImageUrl property value. Indicates the URL for the image file to use as the wallpaper on the targeted devices.
-     *  @param string|null $value Value to set for the microsoftLauncherCustomWallpaperImageUrl property.
+     * @param string|null $value Value to set for the microsoftLauncherCustomWallpaperImageUrl property.
     */
     public function setMicrosoftLauncherCustomWallpaperImageUrl(?string $value): void {
         $this->getBackingStore()->set('microsoftLauncherCustomWallpaperImageUrl', $value);
@@ -1961,7 +1997,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherDockPresenceAllowUserModification property value. Indicates whether or not the user can modify the device dock configuration on the device.
-     *  @param bool|null $value Value to set for the microsoftLauncherDockPresenceAllowUserModification property.
+     * @param bool|null $value Value to set for the microsoftLauncherDockPresenceAllowUserModification property.
     */
     public function setMicrosoftLauncherDockPresenceAllowUserModification(?bool $value): void {
         $this->getBackingStore()->set('microsoftLauncherDockPresenceAllowUserModification', $value);
@@ -1969,7 +2005,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherDockPresenceConfiguration property value. Indicates whether or not you want to configure the device dock. Possible values are: notConfigured, show, hide, disabled.
-     *  @param MicrosoftLauncherDockPresence|null $value Value to set for the microsoftLauncherDockPresenceConfiguration property.
+     * @param MicrosoftLauncherDockPresence|null $value Value to set for the microsoftLauncherDockPresenceConfiguration property.
     */
     public function setMicrosoftLauncherDockPresenceConfiguration(?MicrosoftLauncherDockPresence $value): void {
         $this->getBackingStore()->set('microsoftLauncherDockPresenceConfiguration', $value);
@@ -1977,7 +2013,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherFeedAllowUserModification property value. Indicates whether or not the user can modify the launcher feed on the device.
-     *  @param bool|null $value Value to set for the microsoftLauncherFeedAllowUserModification property.
+     * @param bool|null $value Value to set for the microsoftLauncherFeedAllowUserModification property.
     */
     public function setMicrosoftLauncherFeedAllowUserModification(?bool $value): void {
         $this->getBackingStore()->set('microsoftLauncherFeedAllowUserModification', $value);
@@ -1985,7 +2021,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherFeedEnabled property value. Indicates whether or not you want to enable the launcher feed on the device.
-     *  @param bool|null $value Value to set for the microsoftLauncherFeedEnabled property.
+     * @param bool|null $value Value to set for the microsoftLauncherFeedEnabled property.
     */
     public function setMicrosoftLauncherFeedEnabled(?bool $value): void {
         $this->getBackingStore()->set('microsoftLauncherFeedEnabled', $value);
@@ -1993,7 +2029,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the microsoftLauncherSearchBarPlacementConfiguration property value. Indicates the search bar placement configuration on the device. Possible values are: notConfigured, top, bottom, hide.
-     *  @param MicrosoftLauncherSearchBarPlacement|null $value Value to set for the microsoftLauncherSearchBarPlacementConfiguration property.
+     * @param MicrosoftLauncherSearchBarPlacement|null $value Value to set for the microsoftLauncherSearchBarPlacementConfiguration property.
     */
     public function setMicrosoftLauncherSearchBarPlacementConfiguration(?MicrosoftLauncherSearchBarPlacement $value): void {
         $this->getBackingStore()->set('microsoftLauncherSearchBarPlacementConfiguration', $value);
@@ -2001,7 +2037,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the networkEscapeHatchAllowed property value. Indicates whether or not the device will allow connecting to a temporary network connection at boot time.
-     *  @param bool|null $value Value to set for the networkEscapeHatchAllowed property.
+     * @param bool|null $value Value to set for the networkEscapeHatchAllowed property.
     */
     public function setNetworkEscapeHatchAllowed(?bool $value): void {
         $this->getBackingStore()->set('networkEscapeHatchAllowed', $value);
@@ -2009,7 +2045,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the nfcBlockOutgoingBeam property value. Indicates whether or not to block NFC outgoing beam.
-     *  @param bool|null $value Value to set for the nfcBlockOutgoingBeam property.
+     * @param bool|null $value Value to set for the nfcBlockOutgoingBeam property.
     */
     public function setNfcBlockOutgoingBeam(?bool $value): void {
         $this->getBackingStore()->set('nfcBlockOutgoingBeam', $value);
@@ -2017,7 +2053,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordBlockKeyguard property value. Indicates whether or not the keyguard is disabled.
-     *  @param bool|null $value Value to set for the passwordBlockKeyguard property.
+     * @param bool|null $value Value to set for the passwordBlockKeyguard property.
     */
     public function setPasswordBlockKeyguard(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockKeyguard', $value);
@@ -2025,7 +2061,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordBlockKeyguardFeatures property value. List of device keyguard features to block. This collection can contain a maximum of 11 elements.
-     *  @param array<AndroidKeyguardFeature>|null $value Value to set for the passwordBlockKeyguardFeatures property.
+     * @param array<AndroidKeyguardFeature>|null $value Value to set for the passwordBlockKeyguardFeatures property.
     */
     public function setPasswordBlockKeyguardFeatures(?array $value): void {
         $this->getBackingStore()->set('passwordBlockKeyguardFeatures', $value);
@@ -2033,7 +2069,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordExpirationDays property value. Indicates the amount of time that a password can be set for before it expires and a new password will be required. Valid values 1 to 365
-     *  @param int|null $value Value to set for the passwordExpirationDays property.
+     * @param int|null $value Value to set for the passwordExpirationDays property.
     */
     public function setPasswordExpirationDays(?int $value): void {
         $this->getBackingStore()->set('passwordExpirationDays', $value);
@@ -2041,7 +2077,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinimumLength property value. Indicates the minimum length of the password required on the device. Valid values 4 to 16
-     *  @param int|null $value Value to set for the passwordMinimumLength property.
+     * @param int|null $value Value to set for the passwordMinimumLength property.
     */
     public function setPasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLength', $value);
@@ -2049,7 +2085,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinimumLetterCharacters property value. Indicates the minimum number of letter characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumLetterCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumLetterCharacters property.
     */
     public function setPasswordMinimumLetterCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLetterCharacters', $value);
@@ -2057,7 +2093,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinimumLowerCaseCharacters property value. Indicates the minimum number of lower case characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumLowerCaseCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumLowerCaseCharacters property.
     */
     public function setPasswordMinimumLowerCaseCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLowerCaseCharacters', $value);
@@ -2065,7 +2101,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinimumNonLetterCharacters property value. Indicates the minimum number of non-letter characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumNonLetterCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumNonLetterCharacters property.
     */
     public function setPasswordMinimumNonLetterCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumNonLetterCharacters', $value);
@@ -2073,7 +2109,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinimumNumericCharacters property value. Indicates the minimum number of numeric characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumNumericCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumNumericCharacters property.
     */
     public function setPasswordMinimumNumericCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumNumericCharacters', $value);
@@ -2081,7 +2117,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinimumSymbolCharacters property value. Indicates the minimum number of symbol characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumSymbolCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumSymbolCharacters property.
     */
     public function setPasswordMinimumSymbolCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumSymbolCharacters', $value);
@@ -2089,7 +2125,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinimumUpperCaseCharacters property value. Indicates the minimum number of upper case letter characters required for device password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the passwordMinimumUpperCaseCharacters property.
+     * @param int|null $value Value to set for the passwordMinimumUpperCaseCharacters property.
     */
     public function setPasswordMinimumUpperCaseCharacters(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumUpperCaseCharacters', $value);
@@ -2097,7 +2133,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
-     *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
+     * @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
     */
     public function setPasswordMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
         $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeScreenTimeout', $value);
@@ -2105,7 +2141,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordPreviousPasswordCountToBlock property value. Indicates the length of password history, where the user will not be able to enter a new password that is the same as any password in the history. Valid values 0 to 24
-     *  @param int|null $value Value to set for the passwordPreviousPasswordCountToBlock property.
+     * @param int|null $value Value to set for the passwordPreviousPasswordCountToBlock property.
     */
     public function setPasswordPreviousPasswordCountToBlock(?int $value): void {
         $this->getBackingStore()->set('passwordPreviousPasswordCountToBlock', $value);
@@ -2113,7 +2149,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordRequiredType property value. Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     *  @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
@@ -2121,7 +2157,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordRequireUnlock property value. Indicates the timeout period after which a device must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
-     *  @param AndroidDeviceOwnerRequiredPasswordUnlock|null $value Value to set for the passwordRequireUnlock property.
+     * @param AndroidDeviceOwnerRequiredPasswordUnlock|null $value Value to set for the passwordRequireUnlock property.
     */
     public function setPasswordRequireUnlock(?AndroidDeviceOwnerRequiredPasswordUnlock $value): void {
         $this->getBackingStore()->set('passwordRequireUnlock', $value);
@@ -2129,7 +2165,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordSignInFailureCountBeforeFactoryReset property value. Indicates the number of times a user can enter an incorrect password before the device is wiped. Valid values 4 to 11
-     *  @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
+     * @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
     */
     public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value): void {
         $this->getBackingStore()->set('passwordSignInFailureCountBeforeFactoryReset', $value);
@@ -2137,7 +2173,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the personalProfileAppsAllowInstallFromUnknownSources property value. Indicates whether the user can install apps from unknown sources on the personal profile.
-     *  @param bool|null $value Value to set for the personalProfileAppsAllowInstallFromUnknownSources property.
+     * @param bool|null $value Value to set for the personalProfileAppsAllowInstallFromUnknownSources property.
     */
     public function setPersonalProfileAppsAllowInstallFromUnknownSources(?bool $value): void {
         $this->getBackingStore()->set('personalProfileAppsAllowInstallFromUnknownSources', $value);
@@ -2145,7 +2181,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the personalProfileCameraBlocked property value. Indicates whether to disable the use of the camera on the personal profile.
-     *  @param bool|null $value Value to set for the personalProfileCameraBlocked property.
+     * @param bool|null $value Value to set for the personalProfileCameraBlocked property.
     */
     public function setPersonalProfileCameraBlocked(?bool $value): void {
         $this->getBackingStore()->set('personalProfileCameraBlocked', $value);
@@ -2153,7 +2189,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the personalProfilePersonalApplications property value. Policy applied to applications in the personal profile. This collection can contain a maximum of 500 elements.
-     *  @param array<AppListItem>|null $value Value to set for the personalProfilePersonalApplications property.
+     * @param array<AppListItem>|null $value Value to set for the personalProfilePersonalApplications property.
     */
     public function setPersonalProfilePersonalApplications(?array $value): void {
         $this->getBackingStore()->set('personalProfilePersonalApplications', $value);
@@ -2161,7 +2197,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the personalProfilePlayStoreMode property value. Used together with PersonalProfilePersonalApplications to control how apps in the personal profile are allowed or blocked. Possible values are: notConfigured, blockedApps, allowedApps.
-     *  @param PersonalProfilePersonalPlayStoreMode|null $value Value to set for the personalProfilePlayStoreMode property.
+     * @param PersonalProfilePersonalPlayStoreMode|null $value Value to set for the personalProfilePlayStoreMode property.
     */
     public function setPersonalProfilePlayStoreMode(?PersonalProfilePersonalPlayStoreMode $value): void {
         $this->getBackingStore()->set('personalProfilePlayStoreMode', $value);
@@ -2169,7 +2205,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the personalProfileScreenCaptureBlocked property value. Indicates whether to disable the capability to take screenshots on the personal profile.
-     *  @param bool|null $value Value to set for the personalProfileScreenCaptureBlocked property.
+     * @param bool|null $value Value to set for the personalProfileScreenCaptureBlocked property.
     */
     public function setPersonalProfileScreenCaptureBlocked(?bool $value): void {
         $this->getBackingStore()->set('personalProfileScreenCaptureBlocked', $value);
@@ -2177,7 +2213,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the playStoreMode property value. Indicates the Play Store mode of the device. Possible values are: notConfigured, allowList, blockList.
-     *  @param AndroidDeviceOwnerPlayStoreMode|null $value Value to set for the playStoreMode property.
+     * @param AndroidDeviceOwnerPlayStoreMode|null $value Value to set for the playStoreMode property.
     */
     public function setPlayStoreMode(?AndroidDeviceOwnerPlayStoreMode $value): void {
         $this->getBackingStore()->set('playStoreMode', $value);
@@ -2185,7 +2221,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the screenCaptureBlocked property value. Indicates whether or not to disable the capability to take screenshots.
-     *  @param bool|null $value Value to set for the screenCaptureBlocked property.
+     * @param bool|null $value Value to set for the screenCaptureBlocked property.
     */
     public function setScreenCaptureBlocked(?bool $value): void {
         $this->getBackingStore()->set('screenCaptureBlocked', $value);
@@ -2193,7 +2229,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the securityCommonCriteriaModeEnabled property value. Represents the security common criteria mode enabled provided to users when they attempt to modify managed settings on their device.
-     *  @param bool|null $value Value to set for the securityCommonCriteriaModeEnabled property.
+     * @param bool|null $value Value to set for the securityCommonCriteriaModeEnabled property.
     */
     public function setSecurityCommonCriteriaModeEnabled(?bool $value): void {
         $this->getBackingStore()->set('securityCommonCriteriaModeEnabled', $value);
@@ -2201,7 +2237,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the securityDeveloperSettingsEnabled property value. Indicates whether or not the user is allowed to access developer settings like developer options and safe boot on the device.
-     *  @param bool|null $value Value to set for the securityDeveloperSettingsEnabled property.
+     * @param bool|null $value Value to set for the securityDeveloperSettingsEnabled property.
     */
     public function setSecurityDeveloperSettingsEnabled(?bool $value): void {
         $this->getBackingStore()->set('securityDeveloperSettingsEnabled', $value);
@@ -2209,7 +2245,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the securityRequireVerifyApps property value. Indicates whether or not verify apps is required.
-     *  @param bool|null $value Value to set for the securityRequireVerifyApps property.
+     * @param bool|null $value Value to set for the securityRequireVerifyApps property.
     */
     public function setSecurityRequireVerifyApps(?bool $value): void {
         $this->getBackingStore()->set('securityRequireVerifyApps', $value);
@@ -2217,7 +2253,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the shortHelpText property value. Represents the customized short help text provided to users when they attempt to modify managed settings on their device.
-     *  @param AndroidDeviceOwnerUserFacingMessage|null $value Value to set for the shortHelpText property.
+     * @param AndroidDeviceOwnerUserFacingMessage|null $value Value to set for the shortHelpText property.
     */
     public function setShortHelpText(?AndroidDeviceOwnerUserFacingMessage $value): void {
         $this->getBackingStore()->set('shortHelpText', $value);
@@ -2225,7 +2261,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the statusBarBlocked property value. Indicates whether or the status bar is disabled, including notifications, quick settings and other screen overlays.
-     *  @param bool|null $value Value to set for the statusBarBlocked property.
+     * @param bool|null $value Value to set for the statusBarBlocked property.
     */
     public function setStatusBarBlocked(?bool $value): void {
         $this->getBackingStore()->set('statusBarBlocked', $value);
@@ -2233,7 +2269,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the stayOnModes property value. List of modes in which the device's display will stay powered-on. This collection can contain a maximum of 4 elements.
-     *  @param array<AndroidDeviceOwnerBatteryPluggedMode>|null $value Value to set for the stayOnModes property.
+     * @param array<AndroidDeviceOwnerBatteryPluggedMode>|null $value Value to set for the stayOnModes property.
     */
     public function setStayOnModes(?array $value): void {
         $this->getBackingStore()->set('stayOnModes', $value);
@@ -2241,7 +2277,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the storageAllowUsb property value. Indicates whether or not to allow USB mass storage.
-     *  @param bool|null $value Value to set for the storageAllowUsb property.
+     * @param bool|null $value Value to set for the storageAllowUsb property.
     */
     public function setStorageAllowUsb(?bool $value): void {
         $this->getBackingStore()->set('storageAllowUsb', $value);
@@ -2249,7 +2285,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the storageBlockExternalMedia property value. Indicates whether or not to block external media.
-     *  @param bool|null $value Value to set for the storageBlockExternalMedia property.
+     * @param bool|null $value Value to set for the storageBlockExternalMedia property.
     */
     public function setStorageBlockExternalMedia(?bool $value): void {
         $this->getBackingStore()->set('storageBlockExternalMedia', $value);
@@ -2257,7 +2293,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the storageBlockUsbFileTransfer property value. Indicates whether or not to block USB file transfer.
-     *  @param bool|null $value Value to set for the storageBlockUsbFileTransfer property.
+     * @param bool|null $value Value to set for the storageBlockUsbFileTransfer property.
     */
     public function setStorageBlockUsbFileTransfer(?bool $value): void {
         $this->getBackingStore()->set('storageBlockUsbFileTransfer', $value);
@@ -2265,7 +2301,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the systemUpdateFreezePeriods property value. Indicates the annually repeating time periods during which system updates are postponed. This collection can contain a maximum of 500 elements.
-     *  @param array<AndroidDeviceOwnerSystemUpdateFreezePeriod>|null $value Value to set for the systemUpdateFreezePeriods property.
+     * @param array<AndroidDeviceOwnerSystemUpdateFreezePeriod>|null $value Value to set for the systemUpdateFreezePeriods property.
     */
     public function setSystemUpdateFreezePeriods(?array $value): void {
         $this->getBackingStore()->set('systemUpdateFreezePeriods', $value);
@@ -2273,7 +2309,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the systemUpdateInstallType property value. The type of system update configuration. Possible values are: deviceDefault, postpone, windowed, automatic.
-     *  @param AndroidDeviceOwnerSystemUpdateInstallType|null $value Value to set for the systemUpdateInstallType property.
+     * @param AndroidDeviceOwnerSystemUpdateInstallType|null $value Value to set for the systemUpdateInstallType property.
     */
     public function setSystemUpdateInstallType(?AndroidDeviceOwnerSystemUpdateInstallType $value): void {
         $this->getBackingStore()->set('systemUpdateInstallType', $value);
@@ -2281,7 +2317,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the systemUpdateWindowEndMinutesAfterMidnight property value. Indicates the number of minutes after midnight that the system update window ends. Valid values 0 to 1440
-     *  @param int|null $value Value to set for the systemUpdateWindowEndMinutesAfterMidnight property.
+     * @param int|null $value Value to set for the systemUpdateWindowEndMinutesAfterMidnight property.
     */
     public function setSystemUpdateWindowEndMinutesAfterMidnight(?int $value): void {
         $this->getBackingStore()->set('systemUpdateWindowEndMinutesAfterMidnight', $value);
@@ -2289,7 +2325,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the systemUpdateWindowStartMinutesAfterMidnight property value. Indicates the number of minutes after midnight that the system update window starts. Valid values 0 to 1440
-     *  @param int|null $value Value to set for the systemUpdateWindowStartMinutesAfterMidnight property.
+     * @param int|null $value Value to set for the systemUpdateWindowStartMinutesAfterMidnight property.
     */
     public function setSystemUpdateWindowStartMinutesAfterMidnight(?int $value): void {
         $this->getBackingStore()->set('systemUpdateWindowStartMinutesAfterMidnight', $value);
@@ -2297,7 +2333,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the systemWindowsBlocked property value. Whether or not to block Android system prompt windows, like toasts, phone activities, and system alerts.
-     *  @param bool|null $value Value to set for the systemWindowsBlocked property.
+     * @param bool|null $value Value to set for the systemWindowsBlocked property.
     */
     public function setSystemWindowsBlocked(?bool $value): void {
         $this->getBackingStore()->set('systemWindowsBlocked', $value);
@@ -2305,7 +2341,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the usersBlockAdd property value. Indicates whether or not adding users and profiles is disabled.
-     *  @param bool|null $value Value to set for the usersBlockAdd property.
+     * @param bool|null $value Value to set for the usersBlockAdd property.
     */
     public function setUsersBlockAdd(?bool $value): void {
         $this->getBackingStore()->set('usersBlockAdd', $value);
@@ -2313,7 +2349,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the usersBlockRemove property value. Indicates whether or not to disable removing other users from the device.
-     *  @param bool|null $value Value to set for the usersBlockRemove property.
+     * @param bool|null $value Value to set for the usersBlockRemove property.
     */
     public function setUsersBlockRemove(?bool $value): void {
         $this->getBackingStore()->set('usersBlockRemove', $value);
@@ -2321,7 +2357,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the volumeBlockAdjustment property value. Indicates whether or not adjusting the master volume is disabled.
-     *  @param bool|null $value Value to set for the volumeBlockAdjustment property.
+     * @param bool|null $value Value to set for the volumeBlockAdjustment property.
     */
     public function setVolumeBlockAdjustment(?bool $value): void {
         $this->getBackingStore()->set('volumeBlockAdjustment', $value);
@@ -2329,7 +2365,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the vpnAlwaysOnLockdownMode property value. If an always on VPN package name is specified, whether or not to lock network traffic when that VPN is disconnected.
-     *  @param bool|null $value Value to set for the vpnAlwaysOnLockdownMode property.
+     * @param bool|null $value Value to set for the vpnAlwaysOnLockdownMode property.
     */
     public function setVpnAlwaysOnLockdownMode(?bool $value): void {
         $this->getBackingStore()->set('vpnAlwaysOnLockdownMode', $value);
@@ -2337,7 +2373,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the vpnAlwaysOnPackageIdentifier property value. Android app package name for app that will handle an always-on VPN connection.
-     *  @param string|null $value Value to set for the vpnAlwaysOnPackageIdentifier property.
+     * @param string|null $value Value to set for the vpnAlwaysOnPackageIdentifier property.
     */
     public function setVpnAlwaysOnPackageIdentifier(?string $value): void {
         $this->getBackingStore()->set('vpnAlwaysOnPackageIdentifier', $value);
@@ -2345,7 +2381,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the wifiBlockEditConfigurations property value. Indicates whether or not to block the user from editing the wifi connection settings.
-     *  @param bool|null $value Value to set for the wifiBlockEditConfigurations property.
+     * @param bool|null $value Value to set for the wifiBlockEditConfigurations property.
     */
     public function setWifiBlockEditConfigurations(?bool $value): void {
         $this->getBackingStore()->set('wifiBlockEditConfigurations', $value);
@@ -2353,7 +2389,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the wifiBlockEditPolicyDefinedConfigurations property value. Indicates whether or not to block the user from editing just the networks defined by the policy.
-     *  @param bool|null $value Value to set for the wifiBlockEditPolicyDefinedConfigurations property.
+     * @param bool|null $value Value to set for the wifiBlockEditPolicyDefinedConfigurations property.
     */
     public function setWifiBlockEditPolicyDefinedConfigurations(?bool $value): void {
         $this->getBackingStore()->set('wifiBlockEditPolicyDefinedConfigurations', $value);
@@ -2361,7 +2397,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordExpirationDays property value. Indicates the number of days that a work profile password can be set before it expires and a new password will be required. Valid values 1 to 365
-     *  @param int|null $value Value to set for the workProfilePasswordExpirationDays property.
+     * @param int|null $value Value to set for the workProfilePasswordExpirationDays property.
     */
     public function setWorkProfilePasswordExpirationDays(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordExpirationDays', $value);
@@ -2369,7 +2405,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinimumLength property value. Indicates the minimum length of the work profile password. Valid values 4 to 16
-     *  @param int|null $value Value to set for the workProfilePasswordMinimumLength property.
+     * @param int|null $value Value to set for the workProfilePasswordMinimumLength property.
     */
     public function setWorkProfilePasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinimumLength', $value);
@@ -2377,7 +2413,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinimumLetterCharacters property value. Indicates the minimum number of letter characters required for the work profile password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the workProfilePasswordMinimumLetterCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinimumLetterCharacters property.
     */
     public function setWorkProfilePasswordMinimumLetterCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinimumLetterCharacters', $value);
@@ -2385,7 +2421,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinimumLowerCaseCharacters property value. Indicates the minimum number of lower-case characters required for the work profile password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the workProfilePasswordMinimumLowerCaseCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinimumLowerCaseCharacters property.
     */
     public function setWorkProfilePasswordMinimumLowerCaseCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinimumLowerCaseCharacters', $value);
@@ -2393,7 +2429,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinimumNonLetterCharacters property value. Indicates the minimum number of non-letter characters required for the work profile password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the workProfilePasswordMinimumNonLetterCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinimumNonLetterCharacters property.
     */
     public function setWorkProfilePasswordMinimumNonLetterCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinimumNonLetterCharacters', $value);
@@ -2401,7 +2437,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinimumNumericCharacters property value. Indicates the minimum number of numeric characters required for the work profile password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the workProfilePasswordMinimumNumericCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinimumNumericCharacters property.
     */
     public function setWorkProfilePasswordMinimumNumericCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinimumNumericCharacters', $value);
@@ -2409,7 +2445,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinimumSymbolCharacters property value. Indicates the minimum number of symbol characters required for the work profile password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the workProfilePasswordMinimumSymbolCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinimumSymbolCharacters property.
     */
     public function setWorkProfilePasswordMinimumSymbolCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinimumSymbolCharacters', $value);
@@ -2417,7 +2453,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordMinimumUpperCaseCharacters property value. Indicates the minimum number of upper-case letter characters required for the work profile password. Valid values 1 to 16
-     *  @param int|null $value Value to set for the workProfilePasswordMinimumUpperCaseCharacters property.
+     * @param int|null $value Value to set for the workProfilePasswordMinimumUpperCaseCharacters property.
     */
     public function setWorkProfilePasswordMinimumUpperCaseCharacters(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordMinimumUpperCaseCharacters', $value);
@@ -2425,7 +2461,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordPreviousPasswordCountToBlock property value. Indicates the length of the work profile password history, where the user will not be able to enter a new password that is the same as any password in the history. Valid values 0 to 24
-     *  @param int|null $value Value to set for the workProfilePasswordPreviousPasswordCountToBlock property.
+     * @param int|null $value Value to set for the workProfilePasswordPreviousPasswordCountToBlock property.
     */
     public function setWorkProfilePasswordPreviousPasswordCountToBlock(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordPreviousPasswordCountToBlock', $value);
@@ -2433,7 +2469,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordRequiredType property value. Indicates the minimum password quality required on the work profile password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     *  @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the workProfilePasswordRequiredType property.
+     * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the workProfilePasswordRequiredType property.
     */
     public function setWorkProfilePasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
         $this->getBackingStore()->set('workProfilePasswordRequiredType', $value);
@@ -2441,7 +2477,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordRequireUnlock property value. Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
-     *  @param AndroidDeviceOwnerRequiredPasswordUnlock|null $value Value to set for the workProfilePasswordRequireUnlock property.
+     * @param AndroidDeviceOwnerRequiredPasswordUnlock|null $value Value to set for the workProfilePasswordRequireUnlock property.
     */
     public function setWorkProfilePasswordRequireUnlock(?AndroidDeviceOwnerRequiredPasswordUnlock $value): void {
         $this->getBackingStore()->set('workProfilePasswordRequireUnlock', $value);
@@ -2449,7 +2485,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the workProfilePasswordSignInFailureCountBeforeFactoryReset property value. Indicates the number of times a user can enter an incorrect work profile password before the device is wiped. Valid values 4 to 11
-     *  @param int|null $value Value to set for the workProfilePasswordSignInFailureCountBeforeFactoryReset property.
+     * @param int|null $value Value to set for the workProfilePasswordSignInFailureCountBeforeFactoryReset property.
     */
     public function setWorkProfilePasswordSignInFailureCountBeforeFactoryReset(?int $value): void {
         $this->getBackingStore()->set('workProfilePasswordSignInFailureCountBeforeFactoryReset', $value);

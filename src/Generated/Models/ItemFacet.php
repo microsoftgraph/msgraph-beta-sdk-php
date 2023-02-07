@@ -151,7 +151,7 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Sets the allowedAudiences property value. The audiences that are able to see the values contained within the associated entity. Possible values are: me, family, contacts, groupMembers, organization, federatedOrganizations, everyone, unknownFutureValue.
-     *  @param AllowedAudiences|null $value Value to set for the allowedAudiences property.
+     * @param AllowedAudiences|null $value Value to set for the allowedAudiences property.
     */
     public function setAllowedAudiences(?AllowedAudiences $value): void {
         $this->getBackingStore()->set('allowedAudiences', $value);
@@ -159,7 +159,7 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The createdBy property
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -167,7 +167,7 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Provides the dateTimeOffset for when the entity was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -175,7 +175,7 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Sets the inference property value. Contains inference detail if the entity is inferred by the creating or modifying application.
-     *  @param InferenceData|null $value Value to set for the inference property.
+     * @param InferenceData|null $value Value to set for the inference property.
     */
     public function setInference(?InferenceData $value): void {
         $this->getBackingStore()->set('inference', $value);
@@ -183,7 +183,7 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Sets the isSearchable property value. The isSearchable property
-     *  @param bool|null $value Value to set for the isSearchable property.
+     * @param bool|null $value Value to set for the isSearchable property.
     */
     public function setIsSearchable(?bool $value): void {
         $this->getBackingStore()->set('isSearchable', $value);
@@ -191,7 +191,7 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The lastModifiedBy property
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -199,7 +199,7 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Provides the dateTimeOffset for when the entity was created.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -207,7 +207,7 @@ class ItemFacet extends Entity implements Parsable
 
     /**
      * Sets the source property value. Where the values within an entity originated if synced from another service.
-     *  @param PersonDataSources|null $value Value to set for the source property.
+     * @param PersonDataSources|null $value Value to set for the source property.
     */
     public function setSource(?PersonDataSources $value): void {
         $this->getBackingStore()->set('source', $value);

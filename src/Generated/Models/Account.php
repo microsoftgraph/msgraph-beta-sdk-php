@@ -105,7 +105,7 @@ class Account extends Entity implements Parsable
 
     /**
      * Sets the blocked property value. The blocked property
-     *  @param bool|null $value Value to set for the blocked property.
+     * @param bool|null $value Value to set for the blocked property.
     */
     public function setBlocked(?bool $value): void {
         $this->getBackingStore()->set('blocked', $value);
@@ -113,7 +113,7 @@ class Account extends Entity implements Parsable
 
     /**
      * Sets the category property value. The category property
-     *  @param string|null $value Value to set for the category property.
+     * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -121,7 +121,7 @@ class Account extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -129,7 +129,7 @@ class Account extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -137,7 +137,7 @@ class Account extends Entity implements Parsable
 
     /**
      * Sets the number property value. The number property
-     *  @param string|null $value Value to set for the number property.
+     * @param string|null $value Value to set for the number property.
     */
     public function setNumber(?string $value): void {
         $this->getBackingStore()->set('number', $value);
@@ -145,7 +145,7 @@ class Account extends Entity implements Parsable
 
     /**
      * Sets the subCategory property value. The subCategory property
-     *  @param string|null $value Value to set for the subCategory property.
+     * @param string|null $value Value to set for the subCategory property.
     */
     public function setSubCategory(?string $value): void {
         $this->getBackingStore()->set('subCategory', $value);

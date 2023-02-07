@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Operations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+*/
 class TeamsAsyncOperationItemRequestBuilderGetQueryParameters 
 {
     /**

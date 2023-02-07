@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get cases from security
+*/
 class CasesRequestBuilderGetQueryParameters 
 {
     /**

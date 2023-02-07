@@ -74,7 +74,7 @@ class SynchronizationSchema extends Entity implements Parsable
 
     /**
      * Sets the directories property value. Contains the collection of directories and all of their objects.
-     *  @param array<DirectoryDefinition>|null $value Value to set for the directories property.
+     * @param array<DirectoryDefinition>|null $value Value to set for the directories property.
     */
     public function setDirectories(?array $value): void {
         $this->getBackingStore()->set('directories', $value);
@@ -82,7 +82,7 @@ class SynchronizationSchema extends Entity implements Parsable
 
     /**
      * Sets the synchronizationRules property value. A collection of synchronization rules configured for the synchronizationJob or synchronizationTemplate.
-     *  @param array<SynchronizationRule>|null $value Value to set for the synchronizationRules property.
+     * @param array<SynchronizationRule>|null $value Value to set for the synchronizationRules property.
     */
     public function setSynchronizationRules(?array $value): void {
         $this->getBackingStore()->set('synchronizationRules', $value);
@@ -90,7 +90,7 @@ class SynchronizationSchema extends Entity implements Parsable
 
     /**
      * Sets the version property value. The version of the schema, updated automatically with every schema change.
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

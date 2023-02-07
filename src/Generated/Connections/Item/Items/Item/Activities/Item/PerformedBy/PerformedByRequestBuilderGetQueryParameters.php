@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Connections\Item\Items\Item\Activities\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents an identity used to identify who is responsible for the activity.
+*/
 class PerformedByRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Operations;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the list of richLongRunningOperations associated with a site.
+*/
 class OperationsRequestBuilderGetQueryParameters 
 {
     /**

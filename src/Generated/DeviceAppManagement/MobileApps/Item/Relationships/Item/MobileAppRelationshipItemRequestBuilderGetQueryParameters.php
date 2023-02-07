@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Rel
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of relationships for this mobile app.
+*/
 class MobileAppRelationshipItemRequestBuilderGetQueryParameters 
 {
     /**

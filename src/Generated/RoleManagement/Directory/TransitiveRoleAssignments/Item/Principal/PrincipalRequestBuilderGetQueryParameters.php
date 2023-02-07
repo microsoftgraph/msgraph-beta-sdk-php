@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\TransitiveRole
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+*/
 class PrincipalRequestBuilderGetQueryParameters 
 {
     /**

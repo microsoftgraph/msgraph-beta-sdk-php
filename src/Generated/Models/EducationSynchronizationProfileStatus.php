@@ -95,7 +95,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
 
     /**
      * Sets the errorCount property value. Number of errors during synchronization.
-     *  @param int|null $value Value to set for the errorCount property.
+     * @param int|null $value Value to set for the errorCount property.
     */
     public function setErrorCount(?int $value): void {
         $this->getBackingStore()->set('errorCount', $value);
@@ -103,7 +103,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
 
     /**
      * Sets the lastActivityDateTime property value. Date and time when most recent changes were observed in the profile.
-     *  @param DateTime|null $value Value to set for the lastActivityDateTime property.
+     * @param DateTime|null $value Value to set for the lastActivityDateTime property.
     */
     public function setLastActivityDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActivityDateTime', $value);
@@ -111,7 +111,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
 
     /**
      * Sets the lastSynchronizationDateTime property value. Date and time of the most recent successful synchronization.
-     *  @param DateTime|null $value Value to set for the lastSynchronizationDateTime property.
+     * @param DateTime|null $value Value to set for the lastSynchronizationDateTime property.
     */
     public function setLastSynchronizationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSynchronizationDateTime', $value);
@@ -119,7 +119,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of a sync. The possible values are: paused, inProgress, success, error, validationError, quarantined, unknownFutureValue, extracting, validating. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: extracting, validating.
-     *  @param EducationSynchronizationStatus|null $value Value to set for the status property.
+     * @param EducationSynchronizationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EducationSynchronizationStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -127,7 +127,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
 
     /**
      * Sets the statusMessage property value. Status message for the synchronization stage of the current profile.
-     *  @param string|null $value Value to set for the statusMessage property.
+     * @param string|null $value Value to set for the statusMessage property.
     */
     public function setStatusMessage(?string $value): void {
         $this->getBackingStore()->set('statusMessage', $value);

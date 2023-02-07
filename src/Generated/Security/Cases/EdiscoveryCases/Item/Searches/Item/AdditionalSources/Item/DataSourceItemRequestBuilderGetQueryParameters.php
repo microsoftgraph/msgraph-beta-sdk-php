@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Sea
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Adds an additional source to the eDiscovery search.
+*/
 class DataSourceItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ItemInsights
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the properties of an insightsSettings object for displaying or returning item insights in an organization. To learn how to customize the privacy of item insights in an organization, see Customize item insights privacy. 
+*/
 class ItemInsightsRequestBuilderGetQueryParameters 
 {
     /**

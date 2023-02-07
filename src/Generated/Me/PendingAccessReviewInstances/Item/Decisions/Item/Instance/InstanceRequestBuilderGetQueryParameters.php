@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\Item\De
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * There is exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
+*/
 class InstanceRequestBuilderGetQueryParameters 
 {
     /**

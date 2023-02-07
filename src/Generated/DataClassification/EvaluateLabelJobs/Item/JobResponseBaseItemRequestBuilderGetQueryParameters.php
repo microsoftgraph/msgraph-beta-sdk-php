@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get evaluateLabelJobs from dataClassification
+*/
 class JobResponseBaseItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\Include
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property includedGroups for mobilityManagementPolicies
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

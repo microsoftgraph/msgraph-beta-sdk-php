@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * All the customers of this business. Read-only. Nullable.
+*/
 class BookingCustomerItemRequestBuilderGetQueryParameters 
 {
     /**

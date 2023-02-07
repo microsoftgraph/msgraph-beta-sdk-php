@@ -65,7 +65,7 @@ class StrongAuthenticationDetail extends Entity implements Parsable
 
     /**
      * Sets the encryptedPinHashHistory property value. The encryptedPinHashHistory property
-     *  @param StreamInterface|null $value Value to set for the encryptedPinHashHistory property.
+     * @param StreamInterface|null $value Value to set for the encryptedPinHashHistory property.
     */
     public function setEncryptedPinHashHistory(?StreamInterface $value): void {
         $this->getBackingStore()->set('encryptedPinHashHistory', $value);
@@ -73,7 +73,7 @@ class StrongAuthenticationDetail extends Entity implements Parsable
 
     /**
      * Sets the proofupTime property value. The proofupTime property
-     *  @param int|null $value Value to set for the proofupTime property.
+     * @param int|null $value Value to set for the proofupTime property.
     */
     public function setProofupTime(?int $value): void {
         $this->getBackingStore()->set('proofupTime', $value);

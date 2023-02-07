@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreement
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
+*/
 class AgreementItemRequestBuilderGetQueryParameters 
 {
     /**

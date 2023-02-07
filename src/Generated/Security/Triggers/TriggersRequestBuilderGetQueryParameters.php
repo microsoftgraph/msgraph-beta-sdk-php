@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Triggers;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get triggers from security
+*/
 class TriggersRequestBuilderGetQueryParameters 
 {
     /**

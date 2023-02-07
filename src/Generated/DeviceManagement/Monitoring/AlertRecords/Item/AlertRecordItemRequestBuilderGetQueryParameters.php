@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecord
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of records of alert events.
+*/
 class AlertRecordItemRequestBuilderGetQueryParameters 
 {
     /**

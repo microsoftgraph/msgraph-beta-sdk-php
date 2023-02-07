@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Role Scope Tag
+*/
 class RoleScopeTag extends Entity implements Parsable 
 {
     /**
@@ -83,7 +86,7 @@ class RoleScopeTag extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of assignments for this Role Scope Tag.
-     *  @param array<RoleScopeTagAutoAssignment>|null $value Value to set for the assignments property.
+     * @param array<RoleScopeTagAutoAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -91,7 +94,7 @@ class RoleScopeTag extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the Role Scope Tag.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -99,7 +102,7 @@ class RoleScopeTag extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display or friendly name of the Role Scope Tag.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -107,7 +110,7 @@ class RoleScopeTag extends Entity implements Parsable
 
     /**
      * Sets the isBuiltIn property value. Description of the Role Scope Tag. This property is read-only.
-     *  @param bool|null $value Value to set for the isBuiltIn property.
+     * @param bool|null $value Value to set for the isBuiltIn property.
     */
     public function setIsBuiltIn(?bool $value): void {
         $this->getBackingStore()->set('isBuiltIn', $value);

@@ -55,7 +55,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstance extends Devic
 
     /**
      * Sets the simpleSettingCollectionValue property value. Simple setting collection instance value
-     *  @param array<DeviceManagementConfigurationSimpleSettingValue>|null $value Value to set for the simpleSettingCollectionValue property.
+     * @param array<DeviceManagementConfigurationSimpleSettingValue>|null $value Value to set for the simpleSettingCollectionValue property.
     */
     public function setSimpleSettingCollectionValue(?array $value): void {
         $this->getBackingStore()->set('simpleSettingCollectionValue', $value);

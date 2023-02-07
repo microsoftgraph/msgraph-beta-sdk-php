@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\SharedWithTeam
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of team members who have access to the shared channel.
+*/
 class ConversationMemberItemRequestBuilderGetQueryParameters 
 {
     /**

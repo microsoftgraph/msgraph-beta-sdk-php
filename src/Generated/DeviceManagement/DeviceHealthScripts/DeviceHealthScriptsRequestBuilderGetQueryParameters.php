@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceHealthScripts;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of device health scripts associated with the tenant.
+*/
 class DeviceHealthScriptsRequestBuilderGetQueryParameters 
 {
     /**

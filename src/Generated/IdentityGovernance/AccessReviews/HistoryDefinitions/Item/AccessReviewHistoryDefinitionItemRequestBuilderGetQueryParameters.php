@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Histor
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents a collection of access review history data and the scopes used to collect that data.
+*/
 class AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**

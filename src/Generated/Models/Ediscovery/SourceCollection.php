@@ -177,7 +177,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the additionalSources property value. Adds an additional source to the sourceCollection.
-     *  @param array<DataSource>|null $value Value to set for the additionalSources property.
+     * @param array<DataSource>|null $value Value to set for the additionalSources property.
     */
     public function setAdditionalSources(?array $value): void {
         $this->getBackingStore()->set('additionalSources', $value);
@@ -185,7 +185,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the addToReviewSetOperation property value. Adds the results of the sourceCollection to the specified reviewSet.
-     *  @param AddToReviewSetOperation|null $value Value to set for the addToReviewSetOperation property.
+     * @param AddToReviewSetOperation|null $value Value to set for the addToReviewSetOperation property.
     */
     public function setAddToReviewSetOperation(?AddToReviewSetOperation $value): void {
         $this->getBackingStore()->set('addToReviewSetOperation', $value);
@@ -193,7 +193,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the contentQuery property value. The query string in KQL (Keyword Query Language) query. For details, see Keyword queries and search conditions for Content Search and eDiscovery. You can refine searches by using fields paired with values; for example, subject:'Quarterly Financials' AND Date>=06/01/2016 AND Date<=07/01/2016.
-     *  @param string|null $value Value to set for the contentQuery property.
+     * @param string|null $value Value to set for the contentQuery property.
     */
     public function setContentQuery(?string $value): void {
         $this->getBackingStore()->set('contentQuery', $value);
@@ -201,7 +201,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The user who created the sourceCollection.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -209,7 +209,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the sourceCollection was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -217,7 +217,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the custodianSources property value. Custodian sources that are included in the sourceCollection.
-     *  @param array<DataSource>|null $value Value to set for the custodianSources property.
+     * @param array<DataSource>|null $value Value to set for the custodianSources property.
     */
     public function setCustodianSources(?array $value): void {
         $this->getBackingStore()->set('custodianSources', $value);
@@ -225,7 +225,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the dataSourceScopes property value. When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
-     *  @param DataSourceScopes|null $value Value to set for the dataSourceScopes property.
+     * @param DataSourceScopes|null $value Value to set for the dataSourceScopes property.
     */
     public function setDataSourceScopes(?DataSourceScopes $value): void {
         $this->getBackingStore()->set('dataSourceScopes', $value);
@@ -233,7 +233,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the sourceCollection.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -241,7 +241,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the sourceCollection.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -249,7 +249,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the lastEstimateStatisticsOperation property value. The last estimate operation associated with the sourceCollection.
-     *  @param EstimateStatisticsOperation|null $value Value to set for the lastEstimateStatisticsOperation property.
+     * @param EstimateStatisticsOperation|null $value Value to set for the lastEstimateStatisticsOperation property.
     */
     public function setLastEstimateStatisticsOperation(?EstimateStatisticsOperation $value): void {
         $this->getBackingStore()->set('lastEstimateStatisticsOperation', $value);
@@ -257,7 +257,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The last user who modified the sourceCollection.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -265,7 +265,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The last date and time the sourceCollection was modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -273,7 +273,7 @@ class SourceCollection extends Entity implements Parsable
 
     /**
      * Sets the noncustodialSources property value. noncustodialDataSource sources that are included in the sourceCollection
-     *  @param array<NoncustodialDataSource>|null $value Value to set for the noncustodialSources property.
+     * @param array<NoncustodialDataSource>|null $value Value to set for the noncustodialSources property.
     */
     public function setNoncustodialSources(?array $value): void {
         $this->getBackingStore()->set('noncustodialSources', $value);

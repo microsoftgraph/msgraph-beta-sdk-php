@@ -54,7 +54,7 @@ class CloudPcReports extends Entity implements Parsable
 
     /**
      * Sets the exportJobs property value. The export jobs created for downloading reports.
-     *  @param array<CloudPcExportJob>|null $value Value to set for the exportJobs property.
+     * @param array<CloudPcExportJob>|null $value Value to set for the exportJobs property.
     */
     public function setExportJobs(?array $value): void {
         $this->getBackingStore()->set('exportJobs', $value);

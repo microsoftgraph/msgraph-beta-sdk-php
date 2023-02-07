@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents device registration records for Bring-Your-Own-Device(BYOD) Windows devices.
+*/
 class WindowsInformationProtectionDeviceRegistration extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
 
     /**
      * Sets the deviceMacAddress property value. Device Mac address.
-     *  @param string|null $value Value to set for the deviceMacAddress property.
+     * @param string|null $value Value to set for the deviceMacAddress property.
     */
     public function setDeviceMacAddress(?string $value): void {
         $this->getBackingStore()->set('deviceMacAddress', $value);
@@ -113,7 +116,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
 
     /**
      * Sets the deviceName property value. Device name.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -121,7 +124,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
 
     /**
      * Sets the deviceRegistrationId property value. Device identifier for this device registration record.
-     *  @param string|null $value Value to set for the deviceRegistrationId property.
+     * @param string|null $value Value to set for the deviceRegistrationId property.
     */
     public function setDeviceRegistrationId(?string $value): void {
         $this->getBackingStore()->set('deviceRegistrationId', $value);
@@ -129,7 +132,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
 
     /**
      * Sets the deviceType property value. Device type, for example, Windows laptop VS Windows phone.
-     *  @param string|null $value Value to set for the deviceType property.
+     * @param string|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?string $value): void {
         $this->getBackingStore()->set('deviceType', $value);
@@ -137,7 +140,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
 
     /**
      * Sets the lastCheckInDateTime property value. Last checkin time of the device.
-     *  @param DateTime|null $value Value to set for the lastCheckInDateTime property.
+     * @param DateTime|null $value Value to set for the lastCheckInDateTime property.
     */
     public function setLastCheckInDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastCheckInDateTime', $value);
@@ -145,7 +148,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
 
     /**
      * Sets the userId property value. UserId associated with this device registration record.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

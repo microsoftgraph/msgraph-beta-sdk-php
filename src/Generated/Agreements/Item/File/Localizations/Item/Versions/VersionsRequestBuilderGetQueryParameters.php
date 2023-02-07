@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Agreements\Item\File\Localizations\Item
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
+*/
 class VersionsRequestBuilderGetQueryParameters 
 {
     /**

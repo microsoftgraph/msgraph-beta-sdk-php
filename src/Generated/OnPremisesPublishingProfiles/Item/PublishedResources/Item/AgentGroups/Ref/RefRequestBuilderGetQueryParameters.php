@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Publi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.
+*/
 class RefRequestBuilderGetQueryParameters 
 {
     /**

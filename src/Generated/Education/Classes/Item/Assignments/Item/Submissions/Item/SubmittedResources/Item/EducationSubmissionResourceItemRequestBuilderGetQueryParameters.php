@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get submittedResources from education
+*/
 class EducationSubmissionResourceItemRequestBuilderGetQueryParameters 
 {
     /**

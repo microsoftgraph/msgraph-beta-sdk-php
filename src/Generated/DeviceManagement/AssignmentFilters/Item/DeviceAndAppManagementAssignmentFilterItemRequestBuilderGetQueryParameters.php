@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Item
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of assignment filters
+*/
 class DeviceAndAppManagementAssignmentFilterItemRequestBuilderGetQueryParameters 
 {
     /**

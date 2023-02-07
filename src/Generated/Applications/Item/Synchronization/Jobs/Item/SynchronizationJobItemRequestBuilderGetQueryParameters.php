@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+*/
 class SynchronizationJobItemRequestBuilderGetQueryParameters 
 {
     /**

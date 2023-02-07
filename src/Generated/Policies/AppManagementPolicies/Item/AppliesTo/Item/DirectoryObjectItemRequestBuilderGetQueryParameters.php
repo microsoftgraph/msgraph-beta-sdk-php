@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AppManagementPolicies\Item\App
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get appliesTo from policies
+*/
 class DirectoryObjectItemRequestBuilderGetQueryParameters 
 {
     /**

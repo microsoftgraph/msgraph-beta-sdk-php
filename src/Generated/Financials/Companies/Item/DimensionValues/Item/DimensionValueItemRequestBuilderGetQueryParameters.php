@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\DimensionValu
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get dimensionValues from financials
+*/
 class DimensionValueItemRequestBuilderGetQueryParameters 
 {
     /**

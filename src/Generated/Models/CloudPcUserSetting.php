@@ -115,7 +115,7 @@ class CloudPcUserSetting extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. Represents the set of Microsoft 365 groups and security groups in Azure Active Directory that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.
-     *  @param array<CloudPcUserSettingAssignment>|null $value Value to set for the assignments property.
+     * @param array<CloudPcUserSettingAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -123,7 +123,7 @@ class CloudPcUserSetting extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the setting was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -131,7 +131,7 @@ class CloudPcUserSetting extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The setting name displayed in the user interface.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -139,7 +139,7 @@ class CloudPcUserSetting extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The last date and time the setting was modified. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -147,7 +147,7 @@ class CloudPcUserSetting extends Entity implements Parsable
 
     /**
      * Sets the localAdminEnabled property value. Indicates whether the local admin option is enabled. Default value is false. To enable the local admin option, change the setting to true. If the local admin option is enabled, the end user can be an admin of the Cloud PC device.
-     *  @param bool|null $value Value to set for the localAdminEnabled property.
+     * @param bool|null $value Value to set for the localAdminEnabled property.
     */
     public function setLocalAdminEnabled(?bool $value): void {
         $this->getBackingStore()->set('localAdminEnabled', $value);
@@ -155,7 +155,7 @@ class CloudPcUserSetting extends Entity implements Parsable
 
     /**
      * Sets the restorePointSetting property value. Defines how frequently a restore point is created that is, a snapshot is taken) for users' provisioned Cloud PCs (default is 12 hours), and whether the user is allowed to restore their own Cloud PCs to a backup made at a specific point in time.
-     *  @param CloudPcRestorePointSetting|null $value Value to set for the restorePointSetting property.
+     * @param CloudPcRestorePointSetting|null $value Value to set for the restorePointSetting property.
     */
     public function setRestorePointSetting(?CloudPcRestorePointSetting $value): void {
         $this->getBackingStore()->set('restorePointSetting', $value);
@@ -163,7 +163,7 @@ class CloudPcUserSetting extends Entity implements Parsable
 
     /**
      * Sets the selfServiceEnabled property value. Indicates whether the self-service option is enabled. Default value is false. To enable the self-service option, change the setting to true. If the self-service option is enabled, the end user is allowed to perform some self-service operations, such as upgrading the Cloud PC through the end user portal.
-     *  @param bool|null $value Value to set for the selfServiceEnabled property.
+     * @param bool|null $value Value to set for the selfServiceEnabled property.
     */
     public function setSelfServiceEnabled(?bool $value): void {
         $this->getBackingStore()->set('selfServiceEnabled', $value);

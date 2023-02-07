@@ -145,7 +145,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the accounts property value. The accounts property
-     *  @param array<UserAccount>|null $value Value to set for the accounts property.
+     * @param array<UserAccount>|null $value Value to set for the accounts property.
     */
     public function setAccounts(?array $value): void {
         $this->getBackingStore()->set('accounts', $value);
@@ -153,7 +153,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
-     *  @param string|null $value Value to set for the azureSubscriptionId property.
+     * @param string|null $value Value to set for the azureSubscriptionId property.
     */
     public function setAzureSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('azureSubscriptionId', $value);
@@ -161,7 +161,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
-     *  @param string|null $value Value to set for the azureTenantId property.
+     * @param string|null $value Value to set for the azureTenantId property.
     */
     public function setAzureTenantId(?string $value): void {
         $this->getBackingStore()->set('azureTenantId', $value);
@@ -169,7 +169,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -177,7 +177,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -185,7 +185,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -193,7 +193,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the riskScore property value. The riskScore property
-     *  @param string|null $value Value to set for the riskScore property.
+     * @param string|null $value Value to set for the riskScore property.
     */
     public function setRiskScore(?string $value): void {
         $this->getBackingStore()->set('riskScore', $value);
@@ -201,7 +201,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the tags property value. The tags property
-     *  @param array<string>|null $value Value to set for the tags property.
+     * @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {
         $this->getBackingStore()->set('tags', $value);
@@ -209,7 +209,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The userPrincipalName property
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
@@ -217,7 +217,7 @@ class UserSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
-     *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
+     * @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
     public function setVendorInformation(?SecurityVendorInformation $value): void {
         $this->getBackingStore()->set('vendorInformation', $value);

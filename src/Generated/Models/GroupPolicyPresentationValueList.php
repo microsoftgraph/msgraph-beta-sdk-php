@@ -54,7 +54,7 @@ class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue impl
 
     /**
      * Sets the values property value. A list of pairs for the associated presentation.
-     *  @param array<KeyValuePair>|null $value Value to set for the values property.
+     * @param array<KeyValuePair>|null $value Value to set for the values property.
     */
     public function setValues(?array $value): void {
         $this->getBackingStore()->set('values', $value);

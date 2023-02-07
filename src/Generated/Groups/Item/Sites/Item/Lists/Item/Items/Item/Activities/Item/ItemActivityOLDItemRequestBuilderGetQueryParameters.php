@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Items
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of recent activities that took place on this item.
+*/
 class ItemActivityOLDItemRequestBuilderGetQueryParameters 
 {
     /**

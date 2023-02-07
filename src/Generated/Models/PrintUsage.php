@@ -163,7 +163,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the blackAndWhitePageCount property value. The blackAndWhitePageCount property
-     *  @param int|null $value Value to set for the blackAndWhitePageCount property.
+     * @param int|null $value Value to set for the blackAndWhitePageCount property.
     */
     public function setBlackAndWhitePageCount(?int $value): void {
         $this->getBackingStore()->set('blackAndWhitePageCount', $value);
@@ -171,7 +171,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the colorPageCount property value. The colorPageCount property
-     *  @param int|null $value Value to set for the colorPageCount property.
+     * @param int|null $value Value to set for the colorPageCount property.
     */
     public function setColorPageCount(?int $value): void {
         $this->getBackingStore()->set('colorPageCount', $value);
@@ -179,7 +179,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the completedBlackAndWhiteJobCount property value. The completedBlackAndWhiteJobCount property
-     *  @param int|null $value Value to set for the completedBlackAndWhiteJobCount property.
+     * @param int|null $value Value to set for the completedBlackAndWhiteJobCount property.
     */
     public function setCompletedBlackAndWhiteJobCount(?int $value): void {
         $this->getBackingStore()->set('completedBlackAndWhiteJobCount', $value);
@@ -187,7 +187,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the completedColorJobCount property value. The completedColorJobCount property
-     *  @param int|null $value Value to set for the completedColorJobCount property.
+     * @param int|null $value Value to set for the completedColorJobCount property.
     */
     public function setCompletedColorJobCount(?int $value): void {
         $this->getBackingStore()->set('completedColorJobCount', $value);
@@ -195,7 +195,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the completedJobCount property value. The completedJobCount property
-     *  @param int|null $value Value to set for the completedJobCount property.
+     * @param int|null $value Value to set for the completedJobCount property.
     */
     public function setCompletedJobCount(?int $value): void {
         $this->getBackingStore()->set('completedJobCount', $value);
@@ -203,7 +203,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the doubleSidedSheetCount property value. The doubleSidedSheetCount property
-     *  @param int|null $value Value to set for the doubleSidedSheetCount property.
+     * @param int|null $value Value to set for the doubleSidedSheetCount property.
     */
     public function setDoubleSidedSheetCount(?int $value): void {
         $this->getBackingStore()->set('doubleSidedSheetCount', $value);
@@ -211,7 +211,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the incompleteJobCount property value. The incompleteJobCount property
-     *  @param int|null $value Value to set for the incompleteJobCount property.
+     * @param int|null $value Value to set for the incompleteJobCount property.
     */
     public function setIncompleteJobCount(?int $value): void {
         $this->getBackingStore()->set('incompleteJobCount', $value);
@@ -219,7 +219,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the mediaSheetCount property value. The mediaSheetCount property
-     *  @param int|null $value Value to set for the mediaSheetCount property.
+     * @param int|null $value Value to set for the mediaSheetCount property.
     */
     public function setMediaSheetCount(?int $value): void {
         $this->getBackingStore()->set('mediaSheetCount', $value);
@@ -227,7 +227,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the pageCount property value. The pageCount property
-     *  @param int|null $value Value to set for the pageCount property.
+     * @param int|null $value Value to set for the pageCount property.
     */
     public function setPageCount(?int $value): void {
         $this->getBackingStore()->set('pageCount', $value);
@@ -235,7 +235,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the singleSidedSheetCount property value. The singleSidedSheetCount property
-     *  @param int|null $value Value to set for the singleSidedSheetCount property.
+     * @param int|null $value Value to set for the singleSidedSheetCount property.
     */
     public function setSingleSidedSheetCount(?int $value): void {
         $this->getBackingStore()->set('singleSidedSheetCount', $value);
@@ -243,7 +243,7 @@ class PrintUsage extends Entity implements Parsable
 
     /**
      * Sets the usageDate property value. The usageDate property
-     *  @param Date|null $value Value to set for the usageDate property.
+     * @param Date|null $value Value to set for the usageDate property.
     */
     public function setUsageDate(?Date $value): void {
         $this->getBackingStore()->set('usageDate', $value);

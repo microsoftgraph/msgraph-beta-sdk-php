@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnro
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Android device owner enrollment profile entities.
+*/
 class AndroidDeviceOwnerEnrollmentProfilesRequestBuilderGetQueryParameters 
 {
     /**

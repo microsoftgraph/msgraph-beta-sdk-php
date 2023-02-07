@@ -182,7 +182,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectAutomatically property value. Specify whether the wifi connection should connect automatically when in range.
-     *  @param bool|null $value Value to set for the connectAutomatically property.
+     * @param bool|null $value Value to set for the connectAutomatically property.
     */
     public function setConnectAutomatically(?bool $value): void {
         $this->getBackingStore()->set('connectAutomatically', $value);
@@ -190,7 +190,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectToPreferredNetwork property value. Specify whether the wifi connection should connect to more preferred networks when already connected to this one.  Requires ConnectAutomatically to be true.
-     *  @param bool|null $value Value to set for the connectToPreferredNetwork property.
+     * @param bool|null $value Value to set for the connectToPreferredNetwork property.
     */
     public function setConnectToPreferredNetwork(?bool $value): void {
         $this->getBackingStore()->set('connectToPreferredNetwork', $value);
@@ -198,7 +198,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectWhenNetworkNameIsHidden property value. Specify whether the wifi connection should connect automatically even when the SSID is not broadcasting.
-     *  @param bool|null $value Value to set for the connectWhenNetworkNameIsHidden property.
+     * @param bool|null $value Value to set for the connectWhenNetworkNameIsHidden property.
     */
     public function setConnectWhenNetworkNameIsHidden(?bool $value): void {
         $this->getBackingStore()->set('connectWhenNetworkNameIsHidden', $value);
@@ -206,7 +206,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the forceFIPSCompliance property value. Specify whether to force FIPS compliance.
-     *  @param bool|null $value Value to set for the forceFIPSCompliance property.
+     * @param bool|null $value Value to set for the forceFIPSCompliance property.
     */
     public function setForceFIPSCompliance(?bool $value): void {
         $this->getBackingStore()->set('forceFIPSCompliance', $value);
@@ -214,7 +214,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the meteredConnectionLimit property value. Specify the metered connection limit type for the wifi connection. Possible values are: unrestricted, fixed, variable.
-     *  @param MeteredConnectionLimitType|null $value Value to set for the meteredConnectionLimit property.
+     * @param MeteredConnectionLimitType|null $value Value to set for the meteredConnectionLimit property.
     */
     public function setMeteredConnectionLimit(?MeteredConnectionLimitType $value): void {
         $this->getBackingStore()->set('meteredConnectionLimit', $value);
@@ -222,7 +222,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the networkName property value. Specify the network configuration name.
-     *  @param string|null $value Value to set for the networkName property.
+     * @param string|null $value Value to set for the networkName property.
     */
     public function setNetworkName(?string $value): void {
         $this->getBackingStore()->set('networkName', $value);
@@ -230,7 +230,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the preSharedKey property value. This is the pre-shared key for WPA Personal Wi-Fi network.
-     *  @param string|null $value Value to set for the preSharedKey property.
+     * @param string|null $value Value to set for the preSharedKey property.
     */
     public function setPreSharedKey(?string $value): void {
         $this->getBackingStore()->set('preSharedKey', $value);
@@ -238,7 +238,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxyAutomaticConfigurationUrl property value. Specify the URL for the proxy server configuration script.
-     *  @param string|null $value Value to set for the proxyAutomaticConfigurationUrl property.
+     * @param string|null $value Value to set for the proxyAutomaticConfigurationUrl property.
     */
     public function setProxyAutomaticConfigurationUrl(?string $value): void {
         $this->getBackingStore()->set('proxyAutomaticConfigurationUrl', $value);
@@ -246,7 +246,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxyManualAddress property value. Specify the IP address for the proxy server.
-     *  @param string|null $value Value to set for the proxyManualAddress property.
+     * @param string|null $value Value to set for the proxyManualAddress property.
     */
     public function setProxyManualAddress(?string $value): void {
         $this->getBackingStore()->set('proxyManualAddress', $value);
@@ -254,7 +254,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxyManualPort property value. Specify the port for the proxy server.
-     *  @param int|null $value Value to set for the proxyManualPort property.
+     * @param int|null $value Value to set for the proxyManualPort property.
     */
     public function setProxyManualPort(?int $value): void {
         $this->getBackingStore()->set('proxyManualPort', $value);
@@ -262,7 +262,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic.
-     *  @param WiFiProxySetting|null $value Value to set for the proxySetting property.
+     * @param WiFiProxySetting|null $value Value to set for the proxySetting property.
     */
     public function setProxySetting(?WiFiProxySetting $value): void {
         $this->getBackingStore()->set('proxySetting', $value);
@@ -270,7 +270,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the ssid property value. Specify the SSID of the wifi connection.
-     *  @param string|null $value Value to set for the ssid property.
+     * @param string|null $value Value to set for the ssid property.
     */
     public function setSsid(?string $value): void {
         $this->getBackingStore()->set('ssid', $value);
@@ -278,7 +278,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the wifiSecurityType property value. Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
-     *  @param WiFiSecurityType|null $value Value to set for the wifiSecurityType property.
+     * @param WiFiSecurityType|null $value Value to set for the wifiSecurityType property.
     */
     public function setWifiSecurityType(?WiFiSecurityType $value): void {
         $this->getBackingStore()->set('wifiSecurityType', $value);

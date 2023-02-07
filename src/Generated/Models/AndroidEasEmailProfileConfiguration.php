@@ -215,7 +215,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the accountName property value. Exchange ActiveSync account name, displayed to users as name of EAS (this) profile.
-     *  @param string|null $value Value to set for the accountName property.
+     * @param string|null $value Value to set for the accountName property.
     */
     public function setAccountName(?string $value): void {
         $this->getBackingStore()->set('accountName', $value);
@@ -223,7 +223,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the authenticationMethod property value. Exchange Active Sync authentication method.
-     *  @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?EasAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -231,7 +231,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the customDomainName property value. Custom domain name value used while generating an email profile before installing on the device.
-     *  @param string|null $value Value to set for the customDomainName property.
+     * @param string|null $value Value to set for the customDomainName property.
     */
     public function setCustomDomainName(?string $value): void {
         $this->getBackingStore()->set('customDomainName', $value);
@@ -239,7 +239,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
-     *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
+     * @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
     public function setDurationOfEmailToSync(?EmailSyncDuration $value): void {
         $this->getBackingStore()->set('durationOfEmailToSync', $value);
@@ -247,7 +247,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the emailAddressSource property value. Possible values for username source or email source.
-     *  @param UserEmailSource|null $value Value to set for the emailAddressSource property.
+     * @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
     public function setEmailAddressSource(?UserEmailSource $value): void {
         $this->getBackingStore()->set('emailAddressSource', $value);
@@ -255,7 +255,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the emailSyncSchedule property value. Possible values for email sync schedule.
-     *  @param EmailSyncSchedule|null $value Value to set for the emailSyncSchedule property.
+     * @param EmailSyncSchedule|null $value Value to set for the emailSyncSchedule property.
     */
     public function setEmailSyncSchedule(?EmailSyncSchedule $value): void {
         $this->getBackingStore()->set('emailSyncSchedule', $value);
@@ -263,7 +263,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the hostName property value. Exchange location (URL) that the native mail app connects to.
-     *  @param string|null $value Value to set for the hostName property.
+     * @param string|null $value Value to set for the hostName property.
     */
     public function setHostName(?string $value): void {
         $this->getBackingStore()->set('hostName', $value);
@@ -271,7 +271,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the identityCertificate property value. Identity certificate.
-     *  @param AndroidCertificateProfileBase|null $value Value to set for the identityCertificate property.
+     * @param AndroidCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
     public function setIdentityCertificate(?AndroidCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
@@ -279,7 +279,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the requireSmime property value. Indicates whether or not to use S/MIME certificate.
-     *  @param bool|null $value Value to set for the requireSmime property.
+     * @param bool|null $value Value to set for the requireSmime property.
     */
     public function setRequireSmime(?bool $value): void {
         $this->getBackingStore()->set('requireSmime', $value);
@@ -287,7 +287,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the requireSsl property value. Indicates whether or not to use SSL.
-     *  @param bool|null $value Value to set for the requireSsl property.
+     * @param bool|null $value Value to set for the requireSsl property.
     */
     public function setRequireSsl(?bool $value): void {
         $this->getBackingStore()->set('requireSsl', $value);
@@ -295,7 +295,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the smimeSigningCertificate property value. S/MIME signing certificate.
-     *  @param AndroidCertificateProfileBase|null $value Value to set for the smimeSigningCertificate property.
+     * @param AndroidCertificateProfileBase|null $value Value to set for the smimeSigningCertificate property.
     */
     public function setSmimeSigningCertificate(?AndroidCertificateProfileBase $value): void {
         $this->getBackingStore()->set('smimeSigningCertificate', $value);
@@ -303,7 +303,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the syncCalendar property value. Toggles syncing the calendar. If set to false calendar is turned off on the device.
-     *  @param bool|null $value Value to set for the syncCalendar property.
+     * @param bool|null $value Value to set for the syncCalendar property.
     */
     public function setSyncCalendar(?bool $value): void {
         $this->getBackingStore()->set('syncCalendar', $value);
@@ -311,7 +311,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the syncContacts property value. Toggles syncing contacts. If set to false contacts are turned off on the device.
-     *  @param bool|null $value Value to set for the syncContacts property.
+     * @param bool|null $value Value to set for the syncContacts property.
     */
     public function setSyncContacts(?bool $value): void {
         $this->getBackingStore()->set('syncContacts', $value);
@@ -319,7 +319,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the syncNotes property value. Toggles syncing notes. If set to false notes are turned off on the device.
-     *  @param bool|null $value Value to set for the syncNotes property.
+     * @param bool|null $value Value to set for the syncNotes property.
     */
     public function setSyncNotes(?bool $value): void {
         $this->getBackingStore()->set('syncNotes', $value);
@@ -327,7 +327,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the syncTasks property value. Toggles syncing tasks. If set to false tasks are turned off on the device.
-     *  @param bool|null $value Value to set for the syncTasks property.
+     * @param bool|null $value Value to set for the syncTasks property.
     */
     public function setSyncTasks(?bool $value): void {
         $this->getBackingStore()->set('syncTasks', $value);
@@ -335,7 +335,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
-     *  @param DomainNameSource|null $value Value to set for the userDomainNameSource property.
+     * @param DomainNameSource|null $value Value to set for the userDomainNameSource property.
     */
     public function setUserDomainNameSource(?DomainNameSource $value): void {
         $this->getBackingStore()->set('userDomainNameSource', $value);
@@ -343,7 +343,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
 
     /**
      * Sets the usernameSource property value. Android username source.
-     *  @param AndroidUsernameSource|null $value Value to set for the usernameSource property.
+     * @param AndroidUsernameSource|null $value Value to set for the usernameSource property.
     */
     public function setUsernameSource(?AndroidUsernameSource $value): void {
         $this->getBackingStore()->set('usernameSource', $value);

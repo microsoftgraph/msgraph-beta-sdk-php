@@ -55,7 +55,7 @@ class EmailUrlThreatSubmission extends EmailThreatSubmission implements Parsable
 
     /**
      * Sets the messageUrl property value. Specifies the url of the message to be submitted.
-     *  @param string|null $value Value to set for the messageUrl property.
+     * @param string|null $value Value to set for the messageUrl property.
     */
     public function setMessageUrl(?string $value): void {
         $this->getBackingStore()->set('messageUrl', $value);

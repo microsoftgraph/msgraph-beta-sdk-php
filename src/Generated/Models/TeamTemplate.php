@@ -54,7 +54,7 @@ class TeamTemplate extends Entity implements Parsable
 
     /**
      * Sets the definitions property value. The definitions property
-     *  @param array<TeamTemplateDefinition>|null $value Value to set for the definitions property.
+     * @param array<TeamTemplateDefinition>|null $value Value to set for the definitions property.
     */
     public function setDefinitions(?array $value): void {
         $this->getBackingStore()->set('definitions', $value);

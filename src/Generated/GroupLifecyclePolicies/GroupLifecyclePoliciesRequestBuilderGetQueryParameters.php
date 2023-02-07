@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GroupLifecyclePolicies;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List all the groupLifecyclePolicies.
+*/
 class GroupLifecyclePoliciesRequestBuilderGetQueryParameters 
 {
     /**

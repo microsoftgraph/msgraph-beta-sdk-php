@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScript
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Run summary for device management script.
+*/
 class RunSummaryRequestBuilderGetQueryParameters 
 {
     /**

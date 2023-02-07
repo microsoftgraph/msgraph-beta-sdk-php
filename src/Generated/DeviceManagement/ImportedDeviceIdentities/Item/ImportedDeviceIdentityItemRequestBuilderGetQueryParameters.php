@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentiti
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The imported device identities.
+*/
 class ImportedDeviceIdentityItemRequestBuilderGetQueryParameters 
 {
     /**

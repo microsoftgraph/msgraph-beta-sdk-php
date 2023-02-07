@@ -54,7 +54,7 @@ class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult implement
 
     /**
      * Sets the errorCode property value. RotateBitLockerKeys action error code
-     *  @param int|null $value Value to set for the errorCode property.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);

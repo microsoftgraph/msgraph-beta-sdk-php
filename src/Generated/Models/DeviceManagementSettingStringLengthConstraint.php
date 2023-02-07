@@ -65,7 +65,7 @@ class DeviceManagementSettingStringLengthConstraint extends DeviceManagementCons
 
     /**
      * Sets the maximumLength property value. The maximum permitted string length
-     *  @param int|null $value Value to set for the maximumLength property.
+     * @param int|null $value Value to set for the maximumLength property.
     */
     public function setMaximumLength(?int $value): void {
         $this->getBackingStore()->set('maximumLength', $value);
@@ -73,7 +73,7 @@ class DeviceManagementSettingStringLengthConstraint extends DeviceManagementCons
 
     /**
      * Sets the minimumLength property value. The minimum permitted string length
-     *  @param int|null $value Value to set for the minimumLength property.
+     * @param int|null $value Value to set for the minimumLength property.
     */
     public function setMinimumLength(?int $value): void {
         $this->getBackingStore()->set('minimumLength', $value);

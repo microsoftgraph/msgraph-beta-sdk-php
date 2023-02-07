@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Powershell Compliance scripts (detection) on the enrolled windows 10 Azure Active Directory joined devices.
+*/
 class DeviceComplianceScript extends Entity implements Parsable 
 {
     /**
@@ -184,7 +187,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments for the device compliance script
-     *  @param array<DeviceHealthScriptAssignment>|null $value Value to set for the assignments property.
+     * @param array<DeviceHealthScriptAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -192,7 +195,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The timestamp of when the device compliance script was created. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -200,7 +203,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the device compliance script
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -208,7 +211,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the detectionScriptContent property value. The entire content of the detection powershell script
-     *  @param StreamInterface|null $value Value to set for the detectionScriptContent property.
+     * @param StreamInterface|null $value Value to set for the detectionScriptContent property.
     */
     public function setDetectionScriptContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('detectionScriptContent', $value);
@@ -216,7 +219,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the deviceRunStates property value. List of run states for the device compliance script across all devices
-     *  @param array<DeviceComplianceScriptDeviceState>|null $value Value to set for the deviceRunStates property.
+     * @param array<DeviceComplianceScriptDeviceState>|null $value Value to set for the deviceRunStates property.
     */
     public function setDeviceRunStates(?array $value): void {
         $this->getBackingStore()->set('deviceRunStates', $value);
@@ -224,7 +227,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the device compliance script
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -232,7 +235,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the enforceSignatureCheck property value. Indicate whether the script signature needs be checked
-     *  @param bool|null $value Value to set for the enforceSignatureCheck property.
+     * @param bool|null $value Value to set for the enforceSignatureCheck property.
     */
     public function setEnforceSignatureCheck(?bool $value): void {
         $this->getBackingStore()->set('enforceSignatureCheck', $value);
@@ -240,7 +243,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The timestamp of when the device compliance script was modified. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -248,7 +251,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the publisher property value. Name of the device compliance script publisher
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -256,7 +259,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tag IDs for the device compliance script
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -264,7 +267,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the runAs32Bit property value. Indicate whether PowerShell script(s) should run as 32-bit
-     *  @param bool|null $value Value to set for the runAs32Bit property.
+     * @param bool|null $value Value to set for the runAs32Bit property.
     */
     public function setRunAs32Bit(?bool $value): void {
         $this->getBackingStore()->set('runAs32Bit', $value);
@@ -272,7 +275,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the runAsAccount property value. Indicates the type of execution context the app runs in.
-     *  @param RunAsAccountType|null $value Value to set for the runAsAccount property.
+     * @param RunAsAccountType|null $value Value to set for the runAsAccount property.
     */
     public function setRunAsAccount(?RunAsAccountType $value): void {
         $this->getBackingStore()->set('runAsAccount', $value);
@@ -280,7 +283,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the runSummary property value. High level run summary for device compliance script.
-     *  @param DeviceComplianceScriptRunSummary|null $value Value to set for the runSummary property.
+     * @param DeviceComplianceScriptRunSummary|null $value Value to set for the runSummary property.
     */
     public function setRunSummary(?DeviceComplianceScriptRunSummary $value): void {
         $this->getBackingStore()->set('runSummary', $value);
@@ -288,7 +291,7 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Sets the version property value. Version of the device compliance script
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

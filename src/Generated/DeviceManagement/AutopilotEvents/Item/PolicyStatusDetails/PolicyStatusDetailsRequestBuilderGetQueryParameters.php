@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\P
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Policy and application status details for this device.
+*/
 class PolicyStatusDetailsRequestBuilderGetQueryParameters 
 {
     /**

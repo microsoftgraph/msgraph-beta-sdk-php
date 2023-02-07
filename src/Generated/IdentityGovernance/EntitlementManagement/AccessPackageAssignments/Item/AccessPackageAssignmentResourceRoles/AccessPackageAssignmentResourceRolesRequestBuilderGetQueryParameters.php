@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The resource roles delivered to the target user for this assignment. Read-only. Nullable.
+*/
 class AccessPackageAssignmentResourceRolesRequestBuilderGetQueryParameters 
 {
     /**

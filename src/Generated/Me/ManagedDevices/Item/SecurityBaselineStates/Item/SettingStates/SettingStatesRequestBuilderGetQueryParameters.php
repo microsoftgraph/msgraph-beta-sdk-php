@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Item\SecurityBaseline
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The security baseline state for different settings for a device
+*/
 class SettingStatesRequestBuilderGetQueryParameters 
 {
     /**

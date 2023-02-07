@@ -64,7 +64,7 @@ class CloudPcSubscription extends Entity implements Parsable
 
     /**
      * Sets the subscriptionId property value. The ID of the subscription.
-     *  @param string|null $value Value to set for the subscriptionId property.
+     * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('subscriptionId', $value);
@@ -72,7 +72,7 @@ class CloudPcSubscription extends Entity implements Parsable
 
     /**
      * Sets the subscriptionName property value. The name of the subscription.
-     *  @param string|null $value Value to set for the subscriptionName property.
+     * @param string|null $value Value to set for the subscriptionName property.
     */
     public function setSubscriptionName(?string $value): void {
         $this->getBackingStore()->set('subscriptionName', $value);

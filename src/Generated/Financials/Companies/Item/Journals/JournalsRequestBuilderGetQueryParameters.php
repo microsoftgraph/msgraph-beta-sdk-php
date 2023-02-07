@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get journals from financials
+*/
 class JournalsRequestBuilderGetQueryParameters 
 {
     /**

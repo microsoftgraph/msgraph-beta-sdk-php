@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Approvals\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get approvals from me
+*/
 class ApprovalItemRequestBuilderGetQueryParameters 
 {
     /**

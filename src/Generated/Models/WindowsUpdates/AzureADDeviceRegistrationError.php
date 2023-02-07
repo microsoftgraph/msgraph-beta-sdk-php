@@ -55,7 +55,7 @@ class AzureADDeviceRegistrationError extends UpdatableAssetError implements Pars
 
     /**
      * Sets the reason property value. The reason property
-     *  @param AzureADDeviceRegistrationErrorReason|null $value Value to set for the reason property.
+     * @param AzureADDeviceRegistrationErrorReason|null $value Value to set for the reason property.
     */
     public function setReason(?AzureADDeviceRegistrationErrorReason $value): void {
         $this->getBackingStore()->set('reason', $value);

@@ -65,7 +65,7 @@ class ProtectSite extends LabelActionBase implements Parsable
 
     /**
      * Sets the accessType property value. The accessType property
-     *  @param SiteAccessType|null $value Value to set for the accessType property.
+     * @param SiteAccessType|null $value Value to set for the accessType property.
     */
     public function setAccessType(?SiteAccessType $value): void {
         $this->getBackingStore()->set('accessType', $value);
@@ -73,7 +73,7 @@ class ProtectSite extends LabelActionBase implements Parsable
 
     /**
      * Sets the conditionalAccessProtectionLevelId property value. The conditionalAccessProtectionLevelId property
-     *  @param string|null $value Value to set for the conditionalAccessProtectionLevelId property.
+     * @param string|null $value Value to set for the conditionalAccessProtectionLevelId property.
     */
     public function setConditionalAccessProtectionLevelId(?string $value): void {
         $this->getBackingStore()->set('conditionalAccessProtectionLevelId', $value);

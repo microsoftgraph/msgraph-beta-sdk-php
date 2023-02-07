@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicyAssignment
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the role management policy assignments.
+*/
 class UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand.
+*/
 class DomainDnsRecordItemRequestBuilderGetQueryParameters 
 {
     /**

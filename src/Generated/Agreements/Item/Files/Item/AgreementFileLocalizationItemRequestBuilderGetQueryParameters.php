@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Agreements\Item\Files\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+*/
 class AgreementFileLocalizationItemRequestBuilderGetQueryParameters 
 {
     /**

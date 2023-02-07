@@ -75,7 +75,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
 
     /**
      * Sets the dependencyType property value. Indicates the dependency type associated with a relationship between two mobile apps.
-     *  @param MobileAppDependencyType|null $value Value to set for the dependencyType property.
+     * @param MobileAppDependencyType|null $value Value to set for the dependencyType property.
     */
     public function setDependencyType(?MobileAppDependencyType $value): void {
         $this->getBackingStore()->set('dependencyType', $value);
@@ -83,7 +83,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
 
     /**
      * Sets the dependentAppCount property value. The total number of apps that directly or indirectly depend on the parent app.
-     *  @param int|null $value Value to set for the dependentAppCount property.
+     * @param int|null $value Value to set for the dependentAppCount property.
     */
     public function setDependentAppCount(?int $value): void {
         $this->getBackingStore()->set('dependentAppCount', $value);
@@ -91,7 +91,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
 
     /**
      * Sets the dependsOnAppCount property value. The total number of apps the child app directly or indirectly depends on.
-     *  @param int|null $value Value to set for the dependsOnAppCount property.
+     * @param int|null $value Value to set for the dependsOnAppCount property.
     */
     public function setDependsOnAppCount(?int $value): void {
         $this->getBackingStore()->set('dependsOnAppCount', $value);

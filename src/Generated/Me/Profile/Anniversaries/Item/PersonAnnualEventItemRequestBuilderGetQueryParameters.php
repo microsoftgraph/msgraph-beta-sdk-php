@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Profile\Anniversaries\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the details of meaningful dates associated with a person.
+*/
 class PersonAnnualEventItemRequestBuilderGetQueryParameters 
 {
     /**

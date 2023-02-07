@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefini
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the allowedValue objects and their properties.
+*/
 class AllowedValuesRequestBuilderGetQueryParameters 
 {
     /**

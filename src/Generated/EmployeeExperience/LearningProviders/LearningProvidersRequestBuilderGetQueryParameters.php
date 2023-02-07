@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
+*/
 class LearningProvidersRequestBuilderGetQueryParameters 
 {
     /**

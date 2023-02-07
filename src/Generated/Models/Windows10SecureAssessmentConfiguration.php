@@ -125,7 +125,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the allowPrinting property value. Indicates whether or not to allow the app from printing during the test.
-     *  @param bool|null $value Value to set for the allowPrinting property.
+     * @param bool|null $value Value to set for the allowPrinting property.
     */
     public function setAllowPrinting(?bool $value): void {
         $this->getBackingStore()->set('allowPrinting', $value);
@@ -133,7 +133,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the allowScreenCapture property value. Indicates whether or not to allow screen capture capability during a test.
-     *  @param bool|null $value Value to set for the allowScreenCapture property.
+     * @param bool|null $value Value to set for the allowScreenCapture property.
     */
     public function setAllowScreenCapture(?bool $value): void {
         $this->getBackingStore()->set('allowScreenCapture', $value);
@@ -141,7 +141,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the allowTextSuggestion property value. Indicates whether or not to allow text suggestions during the test.
-     *  @param bool|null $value Value to set for the allowTextSuggestion property.
+     * @param bool|null $value Value to set for the allowTextSuggestion property.
     */
     public function setAllowTextSuggestion(?bool $value): void {
         $this->getBackingStore()->set('allowTextSuggestion', $value);
@@ -149,7 +149,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the assessmentAppUserModelId property value. Specifies the application user model ID of the assessment app launched when a user signs in to a secure assessment with a local guest account. Important notice: this property must be set with localGuestAccountName in order to make the local guest account sign-in experience work properly for secure assessments.
-     *  @param string|null $value Value to set for the assessmentAppUserModelId property.
+     * @param string|null $value Value to set for the assessmentAppUserModelId property.
     */
     public function setAssessmentAppUserModelId(?string $value): void {
         $this->getBackingStore()->set('assessmentAppUserModelId', $value);
@@ -157,7 +157,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the configurationAccount property value. The account used to configure the Windows device for taking the test. The user can be a domain account (domain/user), an AAD account (username@tenant.com) or a local account (username).
-     *  @param string|null $value Value to set for the configurationAccount property.
+     * @param string|null $value Value to set for the configurationAccount property.
     */
     public function setConfigurationAccount(?string $value): void {
         $this->getBackingStore()->set('configurationAccount', $value);
@@ -165,7 +165,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the configurationAccountType property value. Type of accounts that are allowed for Windows10SecureAssessment ConfigurationAccount.
-     *  @param SecureAssessmentAccountType|null $value Value to set for the configurationAccountType property.
+     * @param SecureAssessmentAccountType|null $value Value to set for the configurationAccountType property.
     */
     public function setConfigurationAccountType(?SecureAssessmentAccountType $value): void {
         $this->getBackingStore()->set('configurationAccountType', $value);
@@ -173,7 +173,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the launchUri property value. Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).
-     *  @param string|null $value Value to set for the launchUri property.
+     * @param string|null $value Value to set for the launchUri property.
     */
     public function setLaunchUri(?string $value): void {
         $this->getBackingStore()->set('launchUri', $value);
@@ -181,7 +181,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
 
     /**
      * Sets the localGuestAccountName property value. Specifies the display text for the local guest account shown on the sign-in screen. Typically is the name of an assessment. When the user clicks the local guest account on the sign-in screen, an assessment app is launched with a specified assessment URL. Secure assessments can only be configured with local guest account sign-in on devices running Windows 10, version 1903 or later. Important notice: this property must be set with assessmentAppUserModelID in order to make the local guest account sign-in experience work properly for secure assessments.
-     *  @param string|null $value Value to set for the localGuestAccountName property.
+     * @param string|null $value Value to set for the localGuestAccountName property.
     */
     public function setLocalGuestAccountName(?string $value): void {
         $this->getBackingStore()->set('localGuestAccountName', $value);

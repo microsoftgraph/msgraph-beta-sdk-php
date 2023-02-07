@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedAccess extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedAccess and sets the default values.
+     * Instantiates a new privilegedAccess and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -104,7 +104,7 @@ class PrivilegedAccess extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the provider managed by PIM.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -112,7 +112,7 @@ class PrivilegedAccess extends Entity implements Parsable
 
     /**
      * Sets the resources property value. A collection of resources for the provider.
-     *  @param array<GovernanceResource>|null $value Value to set for the resources property.
+     * @param array<GovernanceResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
         $this->getBackingStore()->set('resources', $value);
@@ -120,7 +120,7 @@ class PrivilegedAccess extends Entity implements Parsable
 
     /**
      * Sets the roleAssignmentRequests property value. A collection of role assignment requests for the provider.
-     *  @param array<GovernanceRoleAssignmentRequest>|null $value Value to set for the roleAssignmentRequests property.
+     * @param array<GovernanceRoleAssignmentRequest>|null $value Value to set for the roleAssignmentRequests property.
     */
     public function setRoleAssignmentRequests(?array $value): void {
         $this->getBackingStore()->set('roleAssignmentRequests', $value);
@@ -128,7 +128,7 @@ class PrivilegedAccess extends Entity implements Parsable
 
     /**
      * Sets the roleAssignments property value. A collection of role assignments for the provider.
-     *  @param array<GovernanceRoleAssignment>|null $value Value to set for the roleAssignments property.
+     * @param array<GovernanceRoleAssignment>|null $value Value to set for the roleAssignments property.
     */
     public function setRoleAssignments(?array $value): void {
         $this->getBackingStore()->set('roleAssignments', $value);
@@ -136,7 +136,7 @@ class PrivilegedAccess extends Entity implements Parsable
 
     /**
      * Sets the roleDefinitions property value. A collection of role defintions for the provider.
-     *  @param array<GovernanceRoleDefinition>|null $value Value to set for the roleDefinitions property.
+     * @param array<GovernanceRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
     public function setRoleDefinitions(?array $value): void {
         $this->getBackingStore()->set('roleDefinitions', $value);
@@ -144,7 +144,7 @@ class PrivilegedAccess extends Entity implements Parsable
 
     /**
      * Sets the roleSettings property value. A collection of role settings for the provider.
-     *  @param array<GovernanceRoleSetting>|null $value Value to set for the roleSettings property.
+     * @param array<GovernanceRoleSetting>|null $value Value to set for the roleSettings property.
     */
     public function setRoleSettings(?array $value): void {
         $this->getBackingStore()->set('roleSettings', $value);

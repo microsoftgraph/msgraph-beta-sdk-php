@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\CachedReportCo
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Entity representing the configuration of a cached report
+*/
 class DeviceManagementCachedReportConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**

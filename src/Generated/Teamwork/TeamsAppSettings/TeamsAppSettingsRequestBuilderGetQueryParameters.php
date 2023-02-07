@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamsAppSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of a teamsAppSettings object.
+*/
 class TeamsAppSettingsRequestBuilderGetQueryParameters 
 {
     /**

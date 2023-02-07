@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\Policy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get policy from me
+*/
 class PolicyRequestBuilderGetQueryParameters 
 {
     /**

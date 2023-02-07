@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Authentication\Operations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get operations from me
+*/
 class LongRunningOperationItemRequestBuilderGetQueryParameters 
 {
     /**

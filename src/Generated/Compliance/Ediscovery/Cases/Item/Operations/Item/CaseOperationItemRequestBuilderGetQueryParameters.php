@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operat
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Returns a list of case operation objects for this case. Nullable.
+*/
 class CaseOperationItemRequestBuilderGetQueryParameters 
 {
     /**

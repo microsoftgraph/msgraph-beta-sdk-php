@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRes
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Restricted apps violations for this account.
+*/
 class RestrictedAppsViolationItemRequestBuilderGetQueryParameters 
 {
     /**

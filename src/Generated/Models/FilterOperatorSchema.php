@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FilterOperatorSchema extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new FilterOperatorSchema and sets the default values.
+     * Instantiates a new filterOperatorSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,7 +74,7 @@ class FilterOperatorSchema extends Entity implements Parsable
 
     /**
      * Sets the arity property value. The arity property
-     *  @param ScopeOperatorType|null $value Value to set for the arity property.
+     * @param ScopeOperatorType|null $value Value to set for the arity property.
     */
     public function setArity(?ScopeOperatorType $value): void {
         $this->getBackingStore()->set('arity', $value);
@@ -82,7 +82,7 @@ class FilterOperatorSchema extends Entity implements Parsable
 
     /**
      * Sets the multivaluedComparisonType property value. The multivaluedComparisonType property
-     *  @param ScopeOperatorMultiValuedComparisonType|null $value Value to set for the multivaluedComparisonType property.
+     * @param ScopeOperatorMultiValuedComparisonType|null $value Value to set for the multivaluedComparisonType property.
     */
     public function setMultivaluedComparisonType(?ScopeOperatorMultiValuedComparisonType $value): void {
         $this->getBackingStore()->set('multivaluedComparisonType', $value);
@@ -90,7 +90,7 @@ class FilterOperatorSchema extends Entity implements Parsable
 
     /**
      * Sets the supportedAttributeTypes property value. Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
-     *  @param array<AttributeType>|null $value Value to set for the supportedAttributeTypes property.
+     * @param array<AttributeType>|null $value Value to set for the supportedAttributeTypes property.
     */
     public function setSupportedAttributeTypes(?array $value): void {
         $this->getBackingStore()->set('supportedAttributeTypes', $value);

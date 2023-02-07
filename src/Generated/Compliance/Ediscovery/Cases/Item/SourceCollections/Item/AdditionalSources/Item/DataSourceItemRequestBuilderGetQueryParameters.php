@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Source
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Adds an additional source to the sourceCollection.
+*/
 class DataSourceItemRequestBuilderGetQueryParameters 
 {
     /**

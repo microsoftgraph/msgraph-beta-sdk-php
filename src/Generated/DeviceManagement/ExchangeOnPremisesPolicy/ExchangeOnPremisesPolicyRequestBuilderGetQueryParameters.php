@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPoli
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The policy which controls mobile device access to Exchange On Premises
+*/
 class ExchangeOnPremisesPolicyRequestBuilderGetQueryParameters 
 {
     /**

@@ -117,7 +117,7 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the childSelectability property value. Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
-     *  @param ChildSelectability|null $value Value to set for the childSelectability property.
+     * @param ChildSelectability|null $value Value to set for the childSelectability property.
     */
     public function setChildSelectability(?ChildSelectability $value): void {
         $this->getBackingStore()->set('childSelectability', $value);
@@ -125,7 +125,7 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the childTags property value. Returns the tags that are a child of a tag.
-     *  @param array<Tag>|null $value Value to set for the childTags property.
+     * @param array<Tag>|null $value Value to set for the childTags property.
     */
     public function setChildTags(?array $value): void {
         $this->getBackingStore()->set('childTags', $value);
@@ -133,7 +133,7 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The user who created the tag.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -141,7 +141,7 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description for the tag.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -149,7 +149,7 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name of the tag.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -157,7 +157,7 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the tag was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -165,7 +165,7 @@ class Tag extends Entity implements Parsable
 
     /**
      * Sets the parent property value. Returns the parent tag of the specified tag.
-     *  @param Tag|null $value Value to set for the parent property.
+     * @param Tag|null $value Value to set for the parent property.
     */
     public function setParent(?Tag $value): void {
         $this->getBackingStore()->set('parent', $value);

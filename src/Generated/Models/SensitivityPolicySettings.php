@@ -84,7 +84,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
 
     /**
      * Sets the applicableTo property value. The applicableTo property
-     *  @param SensitivityLabelTarget|null $value Value to set for the applicableTo property.
+     * @param SensitivityLabelTarget|null $value Value to set for the applicableTo property.
     */
     public function setApplicableTo(?SensitivityLabelTarget $value): void {
         $this->getBackingStore()->set('applicableTo', $value);
@@ -92,7 +92,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
 
     /**
      * Sets the downgradeSensitivityRequiresJustification property value. The downgradeSensitivityRequiresJustification property
-     *  @param bool|null $value Value to set for the downgradeSensitivityRequiresJustification property.
+     * @param bool|null $value Value to set for the downgradeSensitivityRequiresJustification property.
     */
     public function setDowngradeSensitivityRequiresJustification(?bool $value): void {
         $this->getBackingStore()->set('downgradeSensitivityRequiresJustification', $value);
@@ -100,7 +100,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
 
     /**
      * Sets the helpWebUrl property value. The helpWebUrl property
-     *  @param string|null $value Value to set for the helpWebUrl property.
+     * @param string|null $value Value to set for the helpWebUrl property.
     */
     public function setHelpWebUrl(?string $value): void {
         $this->getBackingStore()->set('helpWebUrl', $value);
@@ -108,7 +108,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
 
     /**
      * Sets the isMandatory property value. The isMandatory property
-     *  @param bool|null $value Value to set for the isMandatory property.
+     * @param bool|null $value Value to set for the isMandatory property.
     */
     public function setIsMandatory(?bool $value): void {
         $this->getBackingStore()->set('isMandatory', $value);

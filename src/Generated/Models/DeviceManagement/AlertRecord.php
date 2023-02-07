@@ -136,7 +136,7 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the alertImpact property value. The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 affectedCloudPcCount means that 6 Cloud PCs are affected. 12 affectedCloudPcPercentage means 12% of Cloud PCs are affected.
-     *  @param AlertImpact|null $value Value to set for the alertImpact property.
+     * @param AlertImpact|null $value Value to set for the alertImpact property.
     */
     public function setAlertImpact(?AlertImpact $value): void {
         $this->getBackingStore()->set('alertImpact', $value);
@@ -144,7 +144,7 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the alertRuleId property value. The corresponding ID of the alert rule.
-     *  @param string|null $value Value to set for the alertRuleId property.
+     * @param string|null $value Value to set for the alertRuleId property.
     */
     public function setAlertRuleId(?string $value): void {
         $this->getBackingStore()->set('alertRuleId', $value);
@@ -152,7 +152,7 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
-     *  @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
+     * @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
     public function setAlertRuleTemplate(?AlertRuleTemplate $value): void {
         $this->getBackingStore()->set('alertRuleTemplate', $value);
@@ -160,7 +160,7 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the detectedDateTime property value. The date and time when the alert event was detected. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the detectedDateTime property.
+     * @param DateTime|null $value Value to set for the detectedDateTime property.
     */
     public function setDetectedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('detectedDateTime', $value);
@@ -168,7 +168,7 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the alert record.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -176,7 +176,7 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the lastUpdatedDateTime property value. The date and time when the alert record was last updated. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -184,7 +184,7 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the resolvedDateTime property value. The date and time when the alert event was resolved. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the resolvedDateTime property.
+     * @param DateTime|null $value Value to set for the resolvedDateTime property.
     */
     public function setResolvedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('resolvedDateTime', $value);
@@ -192,7 +192,7 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the severity property value. The severity of the alert event. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-     *  @param RuleSeverityType|null $value Value to set for the severity property.
+     * @param RuleSeverityType|null $value Value to set for the severity property.
     */
     public function setSeverity(?RuleSeverityType $value): void {
         $this->getBackingStore()->set('severity', $value);
@@ -200,7 +200,7 @@ class AlertRecord extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the alert record. The possible values are: active, resolved, unknownFutureValue.
-     *  @param AlertStatusType|null $value Value to set for the status property.
+     * @param AlertStatusType|null $value Value to set for the status property.
     */
     public function setStatus(?AlertStatusType $value): void {
         $this->getBackingStore()->set('status', $value);

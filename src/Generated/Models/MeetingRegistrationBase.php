@@ -72,7 +72,7 @@ class MeetingRegistrationBase extends Entity implements Parsable
 
     /**
      * Sets the allowedRegistrant property value. Specifies who can register for the meeting.
-     *  @param MeetingAudience|null $value Value to set for the allowedRegistrant property.
+     * @param MeetingAudience|null $value Value to set for the allowedRegistrant property.
     */
     public function setAllowedRegistrant(?MeetingAudience $value): void {
         $this->getBackingStore()->set('allowedRegistrant', $value);
@@ -80,7 +80,7 @@ class MeetingRegistrationBase extends Entity implements Parsable
 
     /**
      * Sets the registrants property value. Registrants of the online meeting.
-     *  @param array<MeetingRegistrantBase>|null $value Value to set for the registrants property.
+     * @param array<MeetingRegistrantBase>|null $value Value to set for the registrants property.
     */
     public function setRegistrants(?array $value): void {
         $this->getBackingStore()->set('registrants', $value);

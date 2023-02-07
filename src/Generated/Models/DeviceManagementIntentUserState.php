@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents user state for an intent
+*/
 class DeviceManagementIntentUserState extends Entity implements Parsable 
 {
     /**
@@ -95,7 +98,7 @@ class DeviceManagementIntentUserState extends Entity implements Parsable
 
     /**
      * Sets the deviceCount property value. Count of Devices that belongs to a user for an intent
-     *  @param int|null $value Value to set for the deviceCount property.
+     * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
         $this->getBackingStore()->set('deviceCount', $value);
@@ -103,7 +106,7 @@ class DeviceManagementIntentUserState extends Entity implements Parsable
 
     /**
      * Sets the lastReportedDateTime property value. Last modified date time of an intent report
-     *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
+     * @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
@@ -111,7 +114,7 @@ class DeviceManagementIntentUserState extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param ComplianceStatus|null $value Value to set for the state property.
+     * @param ComplianceStatus|null $value Value to set for the state property.
     */
     public function setState(?ComplianceStatus $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -119,7 +122,7 @@ class DeviceManagementIntentUserState extends Entity implements Parsable
 
     /**
      * Sets the userName property value. The user name that is being reported on a device
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);
@@ -127,7 +130,7 @@ class DeviceManagementIntentUserState extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The user principal name that is being reported on a device
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

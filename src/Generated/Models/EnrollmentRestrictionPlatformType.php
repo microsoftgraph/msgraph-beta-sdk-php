@@ -12,4 +12,6 @@ class EnrollmentRestrictionPlatformType extends Enum {
     public const ANDROID = 'android';
     public const ANDROID_FOR_WORK = 'androidForWork';
     public const MAC = 'mac';
+    public const LINUX = 'linux';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

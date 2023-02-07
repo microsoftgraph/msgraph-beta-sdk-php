@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of all ComplianceSettings
+*/
 class ComplianceSettingsRequestBuilderGetQueryParameters 
 {
     /**

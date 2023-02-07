@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Galler
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List the properties and relationships of the cloudPcGalleryImage objects.
+*/
 class GalleryImagesRequestBuilderGetQueryParameters 
 {
     /**

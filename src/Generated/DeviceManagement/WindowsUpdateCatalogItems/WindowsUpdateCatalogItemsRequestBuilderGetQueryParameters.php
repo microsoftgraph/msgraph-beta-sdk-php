@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsUpdateCatalogIt
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of windows update catalog items (fetaure updates item , quality updates item)
+*/
 class WindowsUpdateCatalogItemsRequestBuilderGetQueryParameters 
 {
     /**

@@ -85,7 +85,7 @@ class PlannerPlanPropertyRule extends PlannerPropertyRule implements Parsable
 
     /**
      * Sets the buckets property value. The buckets property
-     *  @param array<string>|null $value Value to set for the buckets property.
+     * @param array<string>|null $value Value to set for the buckets property.
     */
     public function setBuckets(?array $value): void {
         $this->getBackingStore()->set('buckets', $value);
@@ -93,7 +93,7 @@ class PlannerPlanPropertyRule extends PlannerPropertyRule implements Parsable
 
     /**
      * Sets the categoryDescriptions property value. The categoryDescriptions property
-     *  @param PlannerFieldRules|null $value Value to set for the categoryDescriptions property.
+     * @param PlannerFieldRules|null $value Value to set for the categoryDescriptions property.
     */
     public function setCategoryDescriptions(?PlannerFieldRules $value): void {
         $this->getBackingStore()->set('categoryDescriptions', $value);
@@ -101,7 +101,7 @@ class PlannerPlanPropertyRule extends PlannerPropertyRule implements Parsable
 
     /**
      * Sets the tasks property value. The tasks property
-     *  @param array<string>|null $value Value to set for the tasks property.
+     * @param array<string>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);
@@ -109,7 +109,7 @@ class PlannerPlanPropertyRule extends PlannerPropertyRule implements Parsable
 
     /**
      * Sets the title property value. The title property
-     *  @param PlannerFieldRules|null $value Value to set for the title property.
+     * @param PlannerFieldRules|null $value Value to set for the title property.
     */
     public function setTitle(?PlannerFieldRules $value): void {
         $this->getBackingStore()->set('title', $value);

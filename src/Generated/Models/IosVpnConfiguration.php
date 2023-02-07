@@ -132,7 +132,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
 
     /**
      * Sets the cloudName property value. Zscaler only. Zscaler cloud which the user is assigned to.
-     *  @param string|null $value Value to set for the cloudName property.
+     * @param string|null $value Value to set for the cloudName property.
     */
     public function setCloudName(?string $value): void {
         $this->getBackingStore()->set('cloudName', $value);
@@ -140,7 +140,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
-     *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
+     * @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
     public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
         $this->getBackingStore()->set('derivedCredentialSettings', $value);
@@ -148,7 +148,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
 
     /**
      * Sets the excludeList property value. Zscaler only. List of network addresses which are not sent through the Zscaler cloud.
-     *  @param array<string>|null $value Value to set for the excludeList property.
+     * @param array<string>|null $value Value to set for the excludeList property.
     */
     public function setExcludeList(?array $value): void {
         $this->getBackingStore()->set('excludeList', $value);
@@ -156,7 +156,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
-     *  @param IosCertificateProfileBase|null $value Value to set for the identityCertificate property.
+     * @param IosCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
     public function setIdentityCertificate(?IosCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
@@ -164,7 +164,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
 
     /**
      * Sets the microsoftTunnelSiteId property value. Microsoft Tunnel site ID.
-     *  @param string|null $value Value to set for the microsoftTunnelSiteId property.
+     * @param string|null $value Value to set for the microsoftTunnelSiteId property.
     */
     public function setMicrosoftTunnelSiteId(?string $value): void {
         $this->getBackingStore()->set('microsoftTunnelSiteId', $value);
@@ -172,7 +172,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
 
     /**
      * Sets the strictEnforcement property value. Zscaler only. Blocks network traffic until the user signs into Zscaler app. 'True' means traffic is blocked.
-     *  @param bool|null $value Value to set for the strictEnforcement property.
+     * @param bool|null $value Value to set for the strictEnforcement property.
     */
     public function setStrictEnforcement(?bool $value): void {
         $this->getBackingStore()->set('strictEnforcement', $value);
@@ -180,7 +180,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
 
     /**
      * Sets the targetedMobileApps property value. Targeted mobile apps. This collection can contain a maximum of 500 elements.
-     *  @param array<AppListItem>|null $value Value to set for the targetedMobileApps property.
+     * @param array<AppListItem>|null $value Value to set for the targetedMobileApps property.
     */
     public function setTargetedMobileApps(?array $value): void {
         $this->getBackingStore()->set('targetedMobileApps', $value);
@@ -188,7 +188,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
 
     /**
      * Sets the userDomain property value. Zscaler only. Enter a static domain to pre-populate the login field with in the Zscaler app. If this is left empty, the user's Azure Active Directory domain will be used instead.
-     *  @param string|null $value Value to set for the userDomain property.
+     * @param string|null $value Value to set for the userDomain property.
     */
     public function setUserDomain(?string $value): void {
         $this->getBackingStore()->set('userDomain', $value);

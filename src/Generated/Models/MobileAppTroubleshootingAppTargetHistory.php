@@ -74,7 +74,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
 
     /**
      * Sets the errorCode property value. Error code for the failure, empty if no failure.
-     *  @param string|null $value Value to set for the errorCode property.
+     * @param string|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?string $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -82,7 +82,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
 
     /**
      * Sets the runState property value. Indicates the type of execution status of the device management script.
-     *  @param RunState|null $value Value to set for the runState property.
+     * @param RunState|null $value Value to set for the runState property.
     */
     public function setRunState(?RunState $value): void {
         $this->getBackingStore()->set('runState', $value);
@@ -90,7 +90,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
 
     /**
      * Sets the securityGroupId property value. AAD security group id to which it was targeted.
-     *  @param string|null $value Value to set for the securityGroupId property.
+     * @param string|null $value Value to set for the securityGroupId property.
     */
     public function setSecurityGroupId(?string $value): void {
         $this->getBackingStore()->set('securityGroupId', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get authenticationEventListeners from identity
+*/
 class AuthenticationEventListenerItemRequestBuilderGetQueryParameters 
 {
     /**

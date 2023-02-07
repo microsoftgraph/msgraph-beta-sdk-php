@@ -63,7 +63,7 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
 
     /**
      * Sets the airPrintDestinations property value. An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.
-     *  @param array<AirPrintDestination>|null $value Value to set for the airPrintDestinations property.
+     * @param array<AirPrintDestination>|null $value Value to set for the airPrintDestinations property.
     */
     public function setAirPrintDestinations(?array $value): void {
         $this->getBackingStore()->set('airPrintDestinations', $value);

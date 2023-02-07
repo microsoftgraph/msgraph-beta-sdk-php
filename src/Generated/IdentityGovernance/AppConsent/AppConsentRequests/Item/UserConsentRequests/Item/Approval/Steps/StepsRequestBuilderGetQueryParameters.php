@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AppConsent\AppConsen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * In Azure AD entitlement management, lists the approvalStep objects associated with an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
+*/
 class StepsRequestBuilderGetQueryParameters 
 {
     /**

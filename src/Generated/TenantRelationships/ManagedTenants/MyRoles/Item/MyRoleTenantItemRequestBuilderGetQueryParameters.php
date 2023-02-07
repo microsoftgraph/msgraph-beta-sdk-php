@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\MyRo
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of role assignments to a signed-in user for a managed tenant.
+*/
 class MyRoleTenantItemRequestBuilderGetQueryParameters 
 {
     /**

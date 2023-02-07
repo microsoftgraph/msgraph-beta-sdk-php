@@ -135,7 +135,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
 
     /**
      * Sets the bindStatus property value. Bind status of the tenant with the Google EMM API
-     *  @param AndroidForWorkBindStatus|null $value Value to set for the bindStatus property.
+     * @param AndroidForWorkBindStatus|null $value Value to set for the bindStatus property.
     */
     public function setBindStatus(?AndroidForWorkBindStatus $value): void {
         $this->getBackingStore()->set('bindStatus', $value);
@@ -143,7 +143,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
 
     /**
      * Sets the deviceOwnerManagementEnabled property value. Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
-     *  @param bool|null $value Value to set for the deviceOwnerManagementEnabled property.
+     * @param bool|null $value Value to set for the deviceOwnerManagementEnabled property.
     */
     public function setDeviceOwnerManagementEnabled(?bool $value): void {
         $this->getBackingStore()->set('deviceOwnerManagementEnabled', $value);
@@ -151,7 +151,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
 
     /**
      * Sets the enrollmentTarget property value. Android for Work device management targeting type for the account
-     *  @param AndroidForWorkEnrollmentTarget|null $value Value to set for the enrollmentTarget property.
+     * @param AndroidForWorkEnrollmentTarget|null $value Value to set for the enrollmentTarget property.
     */
     public function setEnrollmentTarget(?AndroidForWorkEnrollmentTarget $value): void {
         $this->getBackingStore()->set('enrollmentTarget', $value);
@@ -159,7 +159,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
 
     /**
      * Sets the lastAppSyncDateTime property value. Last completion time for app sync
-     *  @param DateTime|null $value Value to set for the lastAppSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastAppSyncDateTime property.
     */
     public function setLastAppSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastAppSyncDateTime', $value);
@@ -167,7 +167,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
 
     /**
      * Sets the lastAppSyncStatus property value. Sync status of the tenant with the Google EMM API
-     *  @param AndroidForWorkSyncStatus|null $value Value to set for the lastAppSyncStatus property.
+     * @param AndroidForWorkSyncStatus|null $value Value to set for the lastAppSyncStatus property.
     */
     public function setLastAppSyncStatus(?AndroidForWorkSyncStatus $value): void {
         $this->getBackingStore()->set('lastAppSyncStatus', $value);
@@ -175,7 +175,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Last modification time for Android for Work settings
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -183,7 +183,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
 
     /**
      * Sets the ownerOrganizationName property value. Organization name used when onboarding Android for Work
-     *  @param string|null $value Value to set for the ownerOrganizationName property.
+     * @param string|null $value Value to set for the ownerOrganizationName property.
     */
     public function setOwnerOrganizationName(?string $value): void {
         $this->getBackingStore()->set('ownerOrganizationName', $value);
@@ -191,7 +191,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
 
     /**
      * Sets the ownerUserPrincipalName property value. Owner UPN that created the enterprise
-     *  @param string|null $value Value to set for the ownerUserPrincipalName property.
+     * @param string|null $value Value to set for the ownerUserPrincipalName property.
     */
     public function setOwnerUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('ownerUserPrincipalName', $value);
@@ -199,7 +199,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
 
     /**
      * Sets the targetGroupIds property value. Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
-     *  @param array<string>|null $value Value to set for the targetGroupIds property.
+     * @param array<string>|null $value Value to set for the targetGroupIds property.
     */
     public function setTargetGroupIds(?array $value): void {
         $this->getBackingStore()->set('targetGroupIds', $value);

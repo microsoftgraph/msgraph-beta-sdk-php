@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\Messages\Item\Exten
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of open extensions defined for the message. Nullable.
+*/
 class ExtensionsRequestBuilderGetQueryParameters 
 {
     /**

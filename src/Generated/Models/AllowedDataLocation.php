@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AllowedDataLocation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new allowedDataLocation and sets the default values.
+     * Instantiates a new AllowedDataLocation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -84,7 +84,7 @@ class AllowedDataLocation extends Entity implements Parsable
 
     /**
      * Sets the appId property value. The appId property
-     *  @param string|null $value Value to set for the appId property.
+     * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
@@ -92,7 +92,7 @@ class AllowedDataLocation extends Entity implements Parsable
 
     /**
      * Sets the domain property value. The domain property
-     *  @param string|null $value Value to set for the domain property.
+     * @param string|null $value Value to set for the domain property.
     */
     public function setDomain(?string $value): void {
         $this->getBackingStore()->set('domain', $value);
@@ -100,7 +100,7 @@ class AllowedDataLocation extends Entity implements Parsable
 
     /**
      * Sets the isDefault property value. The isDefault property
-     *  @param bool|null $value Value to set for the isDefault property.
+     * @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value): void {
         $this->getBackingStore()->set('isDefault', $value);
@@ -108,7 +108,7 @@ class AllowedDataLocation extends Entity implements Parsable
 
     /**
      * Sets the location property value. The location property
-     *  @param string|null $value Value to set for the location property.
+     * @param string|null $value Value to set for the location property.
     */
     public function setLocation(?string $value): void {
         $this->getBackingStore()->set('location', $value);

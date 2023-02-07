@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get dataClassification
+*/
 class DataClassificationRequestBuilderGetQueryParameters 
 {
     /**

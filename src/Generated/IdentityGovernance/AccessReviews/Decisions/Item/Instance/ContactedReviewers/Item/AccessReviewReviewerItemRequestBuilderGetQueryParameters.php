@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Returns the collection of reviewers who were contacted to complete this review. While the reviewers and fallbackReviewers properties of the accessReviewScheduleDefinition might specify group owners or managers as reviewers, contactedReviewers returns their individual identities. Supports $select. Read-only.
+*/
 class AccessReviewReviewerItemRequestBuilderGetQueryParameters 
 {
     /**

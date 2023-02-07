@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for PolicySet Item.
+*/
 class PolicySetItem extends Entity implements Parsable 
 {
     /**
@@ -144,7 +147,7 @@ class PolicySetItem extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Creation time of the PolicySetItem.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -152,7 +155,7 @@ class PolicySetItem extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. DisplayName of the PolicySetItem.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -160,7 +163,7 @@ class PolicySetItem extends Entity implements Parsable
 
     /**
      * Sets the errorCode property value. The errorCode property
-     *  @param ErrorCode|null $value Value to set for the errorCode property.
+     * @param ErrorCode|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?ErrorCode $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -168,7 +171,7 @@ class PolicySetItem extends Entity implements Parsable
 
     /**
      * Sets the guidedDeploymentTags property value. Tags of the guided deployment
-     *  @param array<string>|null $value Value to set for the guidedDeploymentTags property.
+     * @param array<string>|null $value Value to set for the guidedDeploymentTags property.
     */
     public function setGuidedDeploymentTags(?array $value): void {
         $this->getBackingStore()->set('guidedDeploymentTags', $value);
@@ -176,7 +179,7 @@ class PolicySetItem extends Entity implements Parsable
 
     /**
      * Sets the itemType property value. policySetType of the PolicySetItem.
-     *  @param string|null $value Value to set for the itemType property.
+     * @param string|null $value Value to set for the itemType property.
     */
     public function setItemType(?string $value): void {
         $this->getBackingStore()->set('itemType', $value);
@@ -184,7 +187,7 @@ class PolicySetItem extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified time of the PolicySetItem.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -192,7 +195,7 @@ class PolicySetItem extends Entity implements Parsable
 
     /**
      * Sets the payloadId property value. PayloadId of the PolicySetItem.
-     *  @param string|null $value Value to set for the payloadId property.
+     * @param string|null $value Value to set for the payloadId property.
     */
     public function setPayloadId(?string $value): void {
         $this->getBackingStore()->set('payloadId', $value);
@@ -200,7 +203,7 @@ class PolicySetItem extends Entity implements Parsable
 
     /**
      * Sets the status property value. The enum to specify the status of PolicySet.
-     *  @param PolicySetStatus|null $value Value to set for the status property.
+     * @param PolicySetStatus|null $value Value to set for the status property.
     */
     public function setStatus(?PolicySetStatus $value): void {
         $this->getBackingStore()->set('status', $value);

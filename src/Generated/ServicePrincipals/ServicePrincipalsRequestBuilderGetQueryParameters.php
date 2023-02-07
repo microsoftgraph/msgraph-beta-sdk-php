@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of servicePrincipal objects.
+*/
 class ServicePrincipalsRequestBuilderGetQueryParameters 
 {
     /**

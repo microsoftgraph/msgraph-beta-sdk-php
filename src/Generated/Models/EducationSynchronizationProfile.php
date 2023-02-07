@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class EducationSynchronizationProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new EducationSynchronizationProfile and sets the default values.
+     * Instantiates a new educationSynchronizationProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -135,7 +135,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the dataProvider property value. The dataProvider property
-     *  @param EducationSynchronizationDataProvider|null $value Value to set for the dataProvider property.
+     * @param EducationSynchronizationDataProvider|null $value Value to set for the dataProvider property.
     */
     public function setDataProvider(?EducationSynchronizationDataProvider $value): void {
         $this->getBackingStore()->set('dataProvider', $value);
@@ -143,7 +143,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the configuration profile for syncing identities.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -151,7 +151,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the errors property value. All errors associated with this synchronization profile.
-     *  @param array<EducationSynchronizationError>|null $value Value to set for the errors property.
+     * @param array<EducationSynchronizationError>|null $value Value to set for the errors property.
     */
     public function setErrors(?array $value): void {
         $this->getBackingStore()->set('errors', $value);
@@ -159,7 +159,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the expirationDate property value. The date the profile should be considered expired and cease syncing. Provide the date in YYYY-MM-DD format, following ISO 8601. Maximum value is 18 months from profile creation.  (optional)
-     *  @param Date|null $value Value to set for the expirationDate property.
+     * @param Date|null $value Value to set for the expirationDate property.
     */
     public function setExpirationDate(?Date $value): void {
         $this->getBackingStore()->set('expirationDate', $value);
@@ -167,7 +167,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the handleSpecialCharacterConstraint property value. Determines if School Data Sync should automatically replace unsupported special characters while syncing from source.
-     *  @param bool|null $value Value to set for the handleSpecialCharacterConstraint property.
+     * @param bool|null $value Value to set for the handleSpecialCharacterConstraint property.
     */
     public function setHandleSpecialCharacterConstraint(?bool $value): void {
         $this->getBackingStore()->set('handleSpecialCharacterConstraint', $value);
@@ -175,7 +175,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the identitySynchronizationConfiguration property value. The identitySynchronizationConfiguration property
-     *  @param EducationIdentitySynchronizationConfiguration|null $value Value to set for the identitySynchronizationConfiguration property.
+     * @param EducationIdentitySynchronizationConfiguration|null $value Value to set for the identitySynchronizationConfiguration property.
     */
     public function setIdentitySynchronizationConfiguration(?EducationIdentitySynchronizationConfiguration $value): void {
         $this->getBackingStore()->set('identitySynchronizationConfiguration', $value);
@@ -183,7 +183,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the licensesToAssign property value. License setup configuration.
-     *  @param array<EducationSynchronizationLicenseAssignment>|null $value Value to set for the licensesToAssign property.
+     * @param array<EducationSynchronizationLicenseAssignment>|null $value Value to set for the licensesToAssign property.
     */
     public function setLicensesToAssign(?array $value): void {
         $this->getBackingStore()->set('licensesToAssign', $value);
@@ -191,7 +191,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the profileStatus property value. The synchronization status.
-     *  @param EducationSynchronizationProfileStatus|null $value Value to set for the profileStatus property.
+     * @param EducationSynchronizationProfileStatus|null $value Value to set for the profileStatus property.
     */
     public function setProfileStatus(?EducationSynchronizationProfileStatus $value): void {
         $this->getBackingStore()->set('profileStatus', $value);
@@ -199,7 +199,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
-     *  @param EducationSynchronizationProfileState|null $value Value to set for the state property.
+     * @param EducationSynchronizationProfileState|null $value Value to set for the state property.
     */
     public function setState(?EducationSynchronizationProfileState $value): void {
         $this->getBackingStore()->set('state', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from privilegedRoleAssignmentRequests by key
+*/
 class PrivilegedRoleAssignmentRequestItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -62,7 +62,7 @@ class DeviceManagementConfigurationStringSettingValue extends DeviceManagementCo
 
     /**
      * Sets the value property value. Value of the string setting.
-     *  @param string|null $value Value to set for the value property.
+     * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);

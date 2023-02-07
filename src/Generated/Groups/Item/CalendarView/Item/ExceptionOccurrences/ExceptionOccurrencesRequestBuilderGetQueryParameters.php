@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\CalendarView\Item\Exception
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get exceptionOccurrences from groups
+*/
 class ExceptionOccurrencesRequestBuilderGetQueryParameters 
 {
     /**

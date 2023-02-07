@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PayloadResponse;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entities from payloadResponse
+*/
 class PayloadResponseRequestBuilderGetQueryParameters 
 {
     /**

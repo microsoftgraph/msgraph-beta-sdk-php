@@ -5,80 +5,54 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Applications\Item\AddKey\AddKeyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\AddPassword\AddPasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies\AppManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies\Item\AppManagementPolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\ConnectorGroup\ConnectorGroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\CreatedOnBehalfOf\CreatedOnBehalfOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\ExtensionProperties\ExtensionPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\ExtensionProperties\Item\ExtensionPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentials\Item\FederatedIdentityCredentialItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPolicies\Item\HomeRealmDiscoveryPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Logo\LogoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphAddKey\MicrosoftGraphAddKeyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphAddPassword\MicrosoftGraphAddPasswordRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphCheckMemberGroups\MicrosoftGraphCheckMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphCheckMemberObjects\MicrosoftGraphCheckMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphGetMemberGroups\MicrosoftGraphGetMemberGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphGetMemberObjects\MicrosoftGraphGetMemberObjectsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphRemoveKey\MicrosoftGraphRemoveKeyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphRemovePassword\MicrosoftGraphRemovePasswordRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphRestore\MicrosoftGraphRestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphSetVerifiedPublisher\MicrosoftGraphSetVerifiedPublisherRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Applications\Item\MicrosoftGraphUnsetVerifiedPublisher\MicrosoftGraphUnsetVerifiedPublisherRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\OwnersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\RemoveKey\RemoveKeyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\RemovePassword\RemovePasswordRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\SetVerifiedPublisher\SetVerifiedPublisherRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\SynchronizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\Item\TokenIssuancePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\TokenIssuancePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\Item\TokenLifetimePolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\TokenLifetimePoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\UnsetVerifiedPublisher\UnsetVerifiedPublisherRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Application;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the collection of application entities.
+*/
 class ApplicationItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the addKey method.
-    */
-    public function addKey(): AddKeyRequestBuilder {
-        return new AddKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the addPassword method.
-    */
-    public function addPassword(): AddPasswordRequestBuilder {
-        return new AddPasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the appManagementPolicies property of the microsoft.graph.application entity.
     */
     public function appManagementPolicies(): AppManagementPoliciesRequestBuilder {
         return new AppManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the checkMemberGroups method.
-    */
-    public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
-        return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the checkMemberObjects method.
-    */
-    public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
-        return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -110,20 +84,6 @@ class ApplicationItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the getMemberGroups method.
-    */
-    public function getMemberGroups(): GetMemberGroupsRequestBuilder {
-        return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getMemberObjects method.
-    */
-    public function getMemberObjects(): GetMemberObjectsRequestBuilder {
-        return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity.
     */
     public function homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
@@ -135,6 +95,83 @@ class ApplicationItemRequestBuilder
     */
     public function logo(): LogoRequestBuilder {
         return new LogoRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the addKey method.
+    */
+    public function microsoftGraphAddKey(): MicrosoftGraphAddKeyRequestBuilder {
+        return new MicrosoftGraphAddKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the addPassword method.
+    */
+    public function microsoftGraphAddPassword(): MicrosoftGraphAddPasswordRequestBuilder {
+        return new MicrosoftGraphAddPasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkMemberGroups method.
+    */
+    public function microsoftGraphCheckMemberGroups(): MicrosoftGraphCheckMemberGroupsRequestBuilder {
+        return new MicrosoftGraphCheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the checkMemberObjects method.
+    */
+    public function microsoftGraphCheckMemberObjects(): MicrosoftGraphCheckMemberObjectsRequestBuilder {
+        return new MicrosoftGraphCheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMemberGroups method.
+    */
+    public function microsoftGraphGetMemberGroups(): MicrosoftGraphGetMemberGroupsRequestBuilder {
+        return new MicrosoftGraphGetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMemberObjects method.
+    */
+    public function microsoftGraphGetMemberObjects(): MicrosoftGraphGetMemberObjectsRequestBuilder {
+        return new MicrosoftGraphGetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeKey method.
+    */
+    public function microsoftGraphRemoveKey(): MicrosoftGraphRemoveKeyRequestBuilder {
+        return new MicrosoftGraphRemoveKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removePassword method.
+    */
+    public function microsoftGraphRemovePassword(): MicrosoftGraphRemovePasswordRequestBuilder {
+        return new MicrosoftGraphRemovePasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the restore method.
+    */
+    public function microsoftGraphRestore(): MicrosoftGraphRestoreRequestBuilder {
+        return new MicrosoftGraphRestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the setVerifiedPublisher method.
+    */
+    public function microsoftGraphSetVerifiedPublisher(): MicrosoftGraphSetVerifiedPublisherRequestBuilder {
+        return new MicrosoftGraphSetVerifiedPublisherRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unsetVerifiedPublisher method.
+    */
+    public function microsoftGraphUnsetVerifiedPublisher(): MicrosoftGraphUnsetVerifiedPublisherRequestBuilder {
+        return new MicrosoftGraphUnsetVerifiedPublisherRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -150,37 +187,9 @@ class ApplicationItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * Provides operations to call the removeKey method.
-    */
-    public function removeKey(): RemoveKeyRequestBuilder {
-        return new RemoveKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the removePassword method.
-    */
-    public function removePassword(): RemovePasswordRequestBuilder {
-        return new RemovePasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
-    
-    /**
-     * Provides operations to call the restore method.
-    */
-    public function restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the setVerifiedPublisher method.
-    */
-    public function setVerifiedPublisher(): SetVerifiedPublisherRequestBuilder {
-        return new SetVerifiedPublisherRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * Provides operations to manage the synchronization property of the microsoft.graph.application entity.
@@ -204,19 +213,12 @@ class ApplicationItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the unsetVerifiedPublisher method.
-    */
-    public function unsetVerifiedPublisher(): UnsetVerifiedPublisherRequestBuilder {
-        return new UnsetVerifiedPublisherRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.applications.item.appManagementPolicies.item collection
+     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.appManagementPolicies.item collection
      * @param string $id Unique identifier of the item
      * @return AppManagementPolicyItemRequestBuilder
     */
@@ -228,29 +230,33 @@ class ApplicationItemRequestBuilder
 
     /**
      * Instantiates a new ApplicationItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/applications/{application%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
      * @param ApplicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/application-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?ApplicationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ApplicationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -281,17 +287,17 @@ class ApplicationItemRequestBuilder
     /**
      * Get the properties and relationships of an application object.
      * @param ApplicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/application-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ApplicationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ApplicationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -309,7 +315,7 @@ class ApplicationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.applications.item.owners.item collection
+     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.owners.item collection
      * @param string $id Unique identifier of the item
      * @return DirectoryObjectItemRequestBuilder
     */
@@ -323,17 +329,17 @@ class ApplicationItemRequestBuilder
      * Update the properties of an application object.
      * @param Application $body The request body
      * @param ApplicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(Application $body, ?ApplicationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Application $body, ?ApplicationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -351,7 +357,7 @@ class ApplicationItemRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -370,10 +376,10 @@ class ApplicationItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -386,7 +392,7 @@ class ApplicationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.applications.item.tokenIssuancePolicies.item collection
+     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.tokenIssuancePolicies.item collection
      * @param string $id Unique identifier of the item
      * @return TokenIssuancePolicyItemRequestBuilder
     */
@@ -397,7 +403,7 @@ class ApplicationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.applications.item.tokenLifetimePolicies.item collection
+     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.tokenLifetimePolicies.item collection
      * @param string $id Unique identifier of the item
      * @return TokenLifetimePolicyItemRequestBuilder
     */
@@ -418,10 +424,10 @@ class ApplicationItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

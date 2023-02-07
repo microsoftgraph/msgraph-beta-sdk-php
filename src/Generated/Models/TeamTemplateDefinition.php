@@ -165,7 +165,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the audience property value. The audience property
-     *  @param TeamTemplateAudience|null $value Value to set for the audience property.
+     * @param TeamTemplateAudience|null $value Value to set for the audience property.
     */
     public function setAudience(?TeamTemplateAudience $value): void {
         $this->getBackingStore()->set('audience', $value);
@@ -173,7 +173,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the categories property value. The categories property
-     *  @param array<string>|null $value Value to set for the categories property.
+     * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -181,7 +181,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -189,7 +189,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -197,7 +197,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the iconUrl property value. The iconUrl property
-     *  @param string|null $value Value to set for the iconUrl property.
+     * @param string|null $value Value to set for the iconUrl property.
     */
     public function setIconUrl(?string $value): void {
         $this->getBackingStore()->set('iconUrl', $value);
@@ -205,7 +205,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the languageTag property value. The languageTag property
-     *  @param string|null $value Value to set for the languageTag property.
+     * @param string|null $value Value to set for the languageTag property.
     */
     public function setLanguageTag(?string $value): void {
         $this->getBackingStore()->set('languageTag', $value);
@@ -213,7 +213,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The lastModifiedBy property
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -221,7 +221,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -229,7 +229,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the parentTemplateId property value. The parentTemplateId property
-     *  @param string|null $value Value to set for the parentTemplateId property.
+     * @param string|null $value Value to set for the parentTemplateId property.
     */
     public function setParentTemplateId(?string $value): void {
         $this->getBackingStore()->set('parentTemplateId', $value);
@@ -237,7 +237,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the publisherName property value. The publisherName property
-     *  @param string|null $value Value to set for the publisherName property.
+     * @param string|null $value Value to set for the publisherName property.
     */
     public function setPublisherName(?string $value): void {
         $this->getBackingStore()->set('publisherName', $value);
@@ -245,7 +245,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the shortDescription property value. The shortDescription property
-     *  @param string|null $value Value to set for the shortDescription property.
+     * @param string|null $value Value to set for the shortDescription property.
     */
     public function setShortDescription(?string $value): void {
         $this->getBackingStore()->set('shortDescription', $value);
@@ -253,7 +253,7 @@ class TeamTemplateDefinition extends Entity implements Parsable
 
     /**
      * Sets the teamDefinition property value. The teamDefinition property
-     *  @param Team|null $value Value to set for the teamDefinition property.
+     * @param Team|null $value Value to set for the teamDefinition property.
     */
     public function setTeamDefinition(?Team $value): void {
         $this->getBackingStore()->set('teamDefinition', $value);

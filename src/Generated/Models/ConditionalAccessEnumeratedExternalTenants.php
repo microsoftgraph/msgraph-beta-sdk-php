@@ -55,7 +55,7 @@ class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExtern
 
     /**
      * Sets the members property value. Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
-     *  @param array<string>|null $value Value to set for the members property.
+     * @param array<string>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);

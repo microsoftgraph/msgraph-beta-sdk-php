@@ -55,7 +55,7 @@ class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstrai
 
     /**
      * Sets the notConfiguredValue property value. List of value which means not configured for the setting
-     *  @param string|null $value Value to set for the notConfiguredValue property.
+     * @param string|null $value Value to set for the notConfiguredValue property.
     */
     public function setNotConfiguredValue(?string $value): void {
         $this->getBackingStore()->set('notConfiguredValue', $value);

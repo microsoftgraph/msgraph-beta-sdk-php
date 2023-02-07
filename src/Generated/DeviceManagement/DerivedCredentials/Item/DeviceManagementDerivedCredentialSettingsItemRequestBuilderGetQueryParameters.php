@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DerivedCredentials\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of Derived credential settings associated with account.
+*/
 class DeviceManagementDerivedCredentialSettingsItemRequestBuilderGetQueryParameters 
 {
     /**

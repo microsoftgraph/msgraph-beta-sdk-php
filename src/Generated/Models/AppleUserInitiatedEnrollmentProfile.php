@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The enrollmentProfile resource represents a collection of configurations which must be provided pre-enrollment to enable enrolling certain devices whose identities have been pre-staged. Pre-staged device identities are assigned to this type of profile to apply the profile's configurations at enrollment of the corresponding device.
+*/
 class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable 
 {
     /**
@@ -135,7 +138,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of assignments for this profile.
-     *  @param array<AppleEnrollmentProfileAssignment>|null $value Value to set for the assignments property.
+     * @param array<AppleEnrollmentProfileAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -143,7 +146,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the availableEnrollmentTypeOptions property value. List of available enrollment type options
-     *  @param array<AppleOwnerTypeEnrollmentType>|null $value Value to set for the availableEnrollmentTypeOptions property.
+     * @param array<AppleOwnerTypeEnrollmentType>|null $value Value to set for the availableEnrollmentTypeOptions property.
     */
     public function setAvailableEnrollmentTypeOptions(?array $value): void {
         $this->getBackingStore()->set('availableEnrollmentTypeOptions', $value);
@@ -151,7 +154,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Profile creation time
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -159,7 +162,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the defaultEnrollmentType property value. The defaultEnrollmentType property
-     *  @param AppleUserInitiatedEnrollmentType|null $value Value to set for the defaultEnrollmentType property.
+     * @param AppleUserInitiatedEnrollmentType|null $value Value to set for the defaultEnrollmentType property.
     */
     public function setDefaultEnrollmentType(?AppleUserInitiatedEnrollmentType $value): void {
         $this->getBackingStore()->set('defaultEnrollmentType', $value);
@@ -167,7 +170,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the profile
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -175,7 +178,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the profile
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -183,7 +186,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Profile last modified time
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -191,7 +194,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the platform property value. Supported platform types.
-     *  @param DevicePlatformType|null $value Value to set for the platform property.
+     * @param DevicePlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DevicePlatformType $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -199,7 +202,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the priority property value. Priority, 0 is highest
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);

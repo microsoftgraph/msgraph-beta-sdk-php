@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefini
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Schema of a custom security attributes (key-value pairs).
+*/
 class CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+*/
 class ConversationThreadItemRequestBuilderGetQueryParameters 
 {
     /**

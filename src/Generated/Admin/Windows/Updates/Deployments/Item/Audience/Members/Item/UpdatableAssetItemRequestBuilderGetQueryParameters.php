@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\Item\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Specifies the assets to include in the audience.
+*/
 class UpdatableAssetItemRequestBuilderGetQueryParameters 
 {
     /**

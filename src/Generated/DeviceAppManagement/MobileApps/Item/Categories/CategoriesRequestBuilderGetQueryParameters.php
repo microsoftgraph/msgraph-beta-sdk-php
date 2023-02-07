@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Cat
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of categories for this app.
+*/
 class CategoriesRequestBuilderGetQueryParameters 
 {
     /**

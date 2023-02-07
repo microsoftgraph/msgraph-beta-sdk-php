@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreement
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the details of the default file for an agreement, including the language and version information. The file information is specified through the agreementFile object.
+*/
 class FileRequestBuilderGetQueryParameters 
 {
     /**

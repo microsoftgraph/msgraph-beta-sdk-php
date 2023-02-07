@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of the members of a standard tag in a team and their properties.
+*/
 class MembersRequestBuilderGetQueryParameters 
 {
     /**

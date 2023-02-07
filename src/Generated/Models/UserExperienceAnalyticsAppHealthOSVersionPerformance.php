@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device OS version performance entity contains OS version performance details.
+*/
 class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implements Parsable 
 {
     /**
@@ -104,7 +107,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
 
     /**
      * Sets the activeDeviceCount property value. The number of active devices for the OS version. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the activeDeviceCount property.
+     * @param int|null $value Value to set for the activeDeviceCount property.
     */
     public function setActiveDeviceCount(?int $value): void {
         $this->getBackingStore()->set('activeDeviceCount', $value);
@@ -112,7 +115,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
 
     /**
      * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
+     * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
         $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);
@@ -120,7 +123,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
 
     /**
      * Sets the osBuildNumber property value. The OS build number installed on the device.
-     *  @param string|null $value Value to set for the osBuildNumber property.
+     * @param string|null $value Value to set for the osBuildNumber property.
     */
     public function setOsBuildNumber(?string $value): void {
         $this->getBackingStore()->set('osBuildNumber', $value);
@@ -128,7 +131,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
 
     /**
      * Sets the osVersion property value. The OS version installed on the device.
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -136,7 +139,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
 
     /**
      * Sets the osVersionAppHealthScore property value. The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the osVersionAppHealthScore property.
+     * @param float|null $value Value to set for the osVersionAppHealthScore property.
     */
     public function setOsVersionAppHealthScore(?float $value): void {
         $this->getBackingStore()->set('osVersionAppHealthScore', $value);
@@ -144,7 +147,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
 
     /**
      * Sets the osVersionAppHealthStatus property value. The overall app health status of the OS version.
-     *  @param string|null $value Value to set for the osVersionAppHealthStatus property.
+     * @param string|null $value Value to set for the osVersionAppHealthStatus property.
     */
     public function setOsVersionAppHealthStatus(?string $value): void {
         $this->getBackingStore()->set('osVersionAppHealthStatus', $value);

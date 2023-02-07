@@ -55,7 +55,7 @@ class OnTokenIssuanceStartCustomExtension extends CustomAuthenticationExtension 
 
     /**
      * Sets the claimsForTokenConfiguration property value. The claimsForTokenConfiguration property
-     *  @param array<OnTokenIssuanceStartReturnClaim>|null $value Value to set for the claimsForTokenConfiguration property.
+     * @param array<OnTokenIssuanceStartReturnClaim>|null $value Value to set for the claimsForTokenConfiguration property.
     */
     public function setClaimsForTokenConfiguration(?array $value): void {
         $this->getBackingStore()->set('claimsForTokenConfiguration', $value);

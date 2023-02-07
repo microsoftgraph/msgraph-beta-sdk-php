@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\CalendarView\Item\Instances\Item\Exc
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable.
+*/
 class AttachmentItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A singleton entity which is used to specify IE mode site list metadata
+*/
 class BrowserSiteList extends Entity implements Parsable 
 {
     /**
@@ -145,7 +148,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the site list.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -153,7 +156,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the site list.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -161,7 +164,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the site list.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -169,7 +172,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the site list was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -177,7 +180,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the publishedBy property value. The user who published the site list.
-     *  @param IdentitySet|null $value Value to set for the publishedBy property.
+     * @param IdentitySet|null $value Value to set for the publishedBy property.
     */
     public function setPublishedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('publishedBy', $value);
@@ -185,7 +188,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the publishedDateTime property value. The date and time when the site list was published.
-     *  @param DateTime|null $value Value to set for the publishedDateTime property.
+     * @param DateTime|null $value Value to set for the publishedDateTime property.
     */
     public function setPublishedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('publishedDateTime', $value);
@@ -193,7 +196,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the revision property value. The current revision of the site list.
-     *  @param string|null $value Value to set for the revision property.
+     * @param string|null $value Value to set for the revision property.
     */
     public function setRevision(?string $value): void {
         $this->getBackingStore()->set('revision', $value);
@@ -201,7 +204,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the sharedCookies property value. A collection of shared cookies defined for the site list.
-     *  @param array<BrowserSharedCookie>|null $value Value to set for the sharedCookies property.
+     * @param array<BrowserSharedCookie>|null $value Value to set for the sharedCookies property.
     */
     public function setSharedCookies(?array $value): void {
         $this->getBackingStore()->set('sharedCookies', $value);
@@ -209,7 +212,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the sites property value. A collection of sites defined for the site list.
-     *  @param array<BrowserSite>|null $value Value to set for the sites property.
+     * @param array<BrowserSite>|null $value Value to set for the sites property.
     */
     public function setSites(?array $value): void {
         $this->getBackingStore()->set('sites', $value);
@@ -217,7 +220,7 @@ class BrowserSiteList extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param BrowserSiteListStatus|null $value Value to set for the status property.
+     * @param BrowserSiteListStatus|null $value Value to set for the status property.
     */
     public function setStatus(?BrowserSiteListStatus $value): void {
         $this->getBackingStore()->set('status', $value);

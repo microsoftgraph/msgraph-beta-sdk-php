@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Leg
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Data sources that represent SharePoint sites.
+*/
 class SiteSourcesRequestBuilderGetQueryParameters 
 {
     /**

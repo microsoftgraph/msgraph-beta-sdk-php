@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\As
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Managed device mobile app configuration states for this device.
+*/
 class AssignmentFilterEvaluationStatusDetailsItemRequestBuilderGetQueryParameters 
 {
     /**

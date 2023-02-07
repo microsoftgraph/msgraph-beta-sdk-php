@@ -105,7 +105,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
      * Sets the brandingOptions property value. Branding Options for the Message Template. Branding is defined in the Intune Admin Console.
-     *  @param EnrollmentNotificationBrandingOptions|null $value Value to set for the brandingOptions property.
+     * @param EnrollmentNotificationBrandingOptions|null $value Value to set for the brandingOptions property.
     */
     public function setBrandingOptions(?EnrollmentNotificationBrandingOptions $value): void {
         $this->getBackingStore()->set('brandingOptions', $value);
@@ -113,7 +113,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
      * Sets the defaultLocale property value. DefaultLocale for the Enrollment Notification
-     *  @param string|null $value Value to set for the defaultLocale property.
+     * @param string|null $value Value to set for the defaultLocale property.
     */
     public function setDefaultLocale(?string $value): void {
         $this->getBackingStore()->set('defaultLocale', $value);
@@ -121,7 +121,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
      * Sets the notificationMessageTemplateId property value. Notification Message Template Id
-     *  @param string|null $value Value to set for the notificationMessageTemplateId property.
+     * @param string|null $value Value to set for the notificationMessageTemplateId property.
     */
     public function setNotificationMessageTemplateId(?string $value): void {
         $this->getBackingStore()->set('notificationMessageTemplateId', $value);
@@ -129,7 +129,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
      * Sets the notificationTemplates property value. The list of notification data -
-     *  @param array<string>|null $value Value to set for the notificationTemplates property.
+     * @param array<string>|null $value Value to set for the notificationTemplates property.
     */
     public function setNotificationTemplates(?array $value): void {
         $this->getBackingStore()->set('notificationTemplates', $value);
@@ -137,7 +137,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
      * Sets the platformType property value. This enum indicates the platform type for which the enrollment restriction applies.
-     *  @param EnrollmentRestrictionPlatformType|null $value Value to set for the platformType property.
+     * @param EnrollmentRestrictionPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?EnrollmentRestrictionPlatformType $value): void {
         $this->getBackingStore()->set('platformType', $value);
@@ -145,7 +145,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
      * Sets the templateType property value. This enum indicates the Template type for which the enrollment notification applies.
-     *  @param EnrollmentNotificationTemplateType|null $value Value to set for the templateType property.
+     * @param EnrollmentNotificationTemplateType|null $value Value to set for the templateType property.
     */
     public function setTemplateType(?EnrollmentNotificationTemplateType $value): void {
         $this->getBackingStore()->set('templateType', $value);

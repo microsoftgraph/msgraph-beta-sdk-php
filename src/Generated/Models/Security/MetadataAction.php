@@ -65,7 +65,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the metadataToAdd property value. A collection of key-value pairs that should be added to the file.
-     *  @param array<KeyValuePair>|null $value Value to set for the metadataToAdd property.
+     * @param array<KeyValuePair>|null $value Value to set for the metadataToAdd property.
     */
     public function setMetadataToAdd(?array $value): void {
         $this->getBackingStore()->set('metadataToAdd', $value);
@@ -73,7 +73,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the metadataToRemove property value. A collection of strings that indicate which keys to remove from the file metadata.
-     *  @param array<string>|null $value Value to set for the metadataToRemove property.
+     * @param array<string>|null $value Value to set for the metadataToRemove property.
     */
     public function setMetadataToRemove(?array $value): void {
         $this->getBackingStore()->set('metadataToRemove', $value);
