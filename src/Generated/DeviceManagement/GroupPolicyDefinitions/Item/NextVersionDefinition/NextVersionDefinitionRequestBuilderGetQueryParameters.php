@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyDefinitions
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Definition of the next version of this definition
+*/
 class NextVersionDefinitionRequestBuilderGetQueryParameters 
 {
     /**

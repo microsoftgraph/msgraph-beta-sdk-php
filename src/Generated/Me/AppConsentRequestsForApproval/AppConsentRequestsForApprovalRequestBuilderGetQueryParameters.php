@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\AppConsentRequestsForApproval;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get appConsentRequestsForApproval from me
+*/
 class AppConsentRequestsForApprovalRequestBuilderGetQueryParameters 
 {
     /**

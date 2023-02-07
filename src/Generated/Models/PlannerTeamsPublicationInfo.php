@@ -106,7 +106,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when this task was last modified by the publication process. Read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -114,7 +114,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -122,7 +122,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
 
     /**
      * Sets the publicationId property value. The identifier of the publication. Read-only.
-     *  @param string|null $value Value to set for the publicationId property.
+     * @param string|null $value Value to set for the publicationId property.
     */
     public function setPublicationId(?string $value): void {
         $this->getBackingStore()->set('publicationId', $value);
@@ -130,7 +130,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
 
     /**
      * Sets the publishedToPlanId property value. The identifier of the plannerPlan this task was originally placed in. Read-only.
-     *  @param string|null $value Value to set for the publishedToPlanId property.
+     * @param string|null $value Value to set for the publishedToPlanId property.
     */
     public function setPublishedToPlanId(?string $value): void {
         $this->getBackingStore()->set('publishedToPlanId', $value);
@@ -138,7 +138,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
 
     /**
      * Sets the publishingTeamId property value. The identifier of the team that initiated the publication process. Read-only.
-     *  @param string|null $value Value to set for the publishingTeamId property.
+     * @param string|null $value Value to set for the publishingTeamId property.
     */
     public function setPublishingTeamId(?string $value): void {
         $this->getBackingStore()->set('publishingTeamId', $value);
@@ -146,7 +146,7 @@ class PlannerTeamsPublicationInfo extends PlannerTaskCreation implements Parsabl
 
     /**
      * Sets the publishingTeamName property value. The display name of the team that initiated the publication process. This display name is for reference only, and might not represent the most up-to-date name of the team. Read-only.
-     *  @param string|null $value Value to set for the publishingTeamName property.
+     * @param string|null $value Value to set for the publishingTeamName property.
     */
     public function setPublishingTeamName(?string $value): void {
         $this->getBackingStore()->set('publishingTeamName', $value);

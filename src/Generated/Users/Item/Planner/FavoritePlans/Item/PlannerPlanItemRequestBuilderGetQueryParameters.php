@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\FavoritePlans\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. Nullable. Returns the plannerPlans that the user marked as favorites.
+*/
 class PlannerPlanItemRequestBuilderGetQueryParameters 
 {
     /**

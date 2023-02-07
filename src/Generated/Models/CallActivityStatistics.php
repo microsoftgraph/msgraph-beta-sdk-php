@@ -56,7 +56,7 @@ class CallActivityStatistics extends ActivityStatistics implements Parsable
 
     /**
      * Sets the afterHours property value. Time spent on calls outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the afterHours property.
+     * @param DateInterval|null $value Value to set for the afterHours property.
     */
     public function setAfterHours(?DateInterval $value): void {
         $this->getBackingStore()->set('afterHours', $value);

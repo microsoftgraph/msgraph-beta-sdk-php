@@ -55,7 +55,7 @@ class EmailContentThreatSubmission extends EmailThreatSubmission implements Pars
 
     /**
      * Sets the fileContent property value. Base64 encoded file content.
-     *  @param string|null $value Value to set for the fileContent property.
+     * @param string|null $value Value to set for the fileContent property.
     */
     public function setFileContent(?string $value): void {
         $this->getBackingStore()->set('fileContent', $value);

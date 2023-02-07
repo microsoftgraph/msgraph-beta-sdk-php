@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Threads\Item\Posts\Item\InR
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get mentions from groups
+*/
 class MentionItemRequestBuilderGetQueryParameters 
 {
     /**

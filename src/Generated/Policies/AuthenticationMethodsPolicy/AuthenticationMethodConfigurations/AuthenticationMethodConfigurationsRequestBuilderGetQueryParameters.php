@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AuthenticationMethodsPolicy\Au
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+*/
 class AuthenticationMethodConfigurationsRequestBuilderGetQueryParameters 
 {
     /**

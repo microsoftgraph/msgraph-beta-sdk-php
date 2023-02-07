@@ -75,7 +75,7 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
 
     /**
      * Sets the syncCalendar property value. Toggles syncing the calendar. If set to false the calendar is turned off on the device.
-     *  @param bool|null $value Value to set for the syncCalendar property.
+     * @param bool|null $value Value to set for the syncCalendar property.
     */
     public function setSyncCalendar(?bool $value): void {
         $this->getBackingStore()->set('syncCalendar', $value);
@@ -83,7 +83,7 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
 
     /**
      * Sets the syncContacts property value. Toggles syncing contacts. If set to false contacts are turned off on the device.
-     *  @param bool|null $value Value to set for the syncContacts property.
+     * @param bool|null $value Value to set for the syncContacts property.
     */
     public function setSyncContacts(?bool $value): void {
         $this->getBackingStore()->set('syncContacts', $value);
@@ -91,7 +91,7 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
 
     /**
      * Sets the syncTasks property value. Toggles syncing tasks. If set to false tasks are turned off on the device.
-     *  @param bool|null $value Value to set for the syncTasks property.
+     * @param bool|null $value Value to set for the syncTasks property.
     */
     public function setSyncTasks(?bool $value): void {
         $this->getBackingStore()->set('syncTasks', $value);

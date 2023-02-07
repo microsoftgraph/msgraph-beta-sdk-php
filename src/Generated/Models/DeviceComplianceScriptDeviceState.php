@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for device run state of the device compliance script.
+*/
 class DeviceComplianceScriptDeviceState extends Entity implements Parsable 
 {
     /**
@@ -115,7 +118,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the detectionState property value. Indicates the type of execution status of the device management script.
-     *  @param RunState|null $value Value to set for the detectionState property.
+     * @param RunState|null $value Value to set for the detectionState property.
     */
     public function setDetectionState(?RunState $value): void {
         $this->getBackingStore()->set('detectionState', $value);
@@ -123,7 +126,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the expectedStateUpdateDateTime property value. The next timestamp of when the device compliance script is expected to execute
-     *  @param DateTime|null $value Value to set for the expectedStateUpdateDateTime property.
+     * @param DateTime|null $value Value to set for the expectedStateUpdateDateTime property.
     */
     public function setExpectedStateUpdateDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expectedStateUpdateDateTime', $value);
@@ -131,7 +134,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the lastStateUpdateDateTime property value. The last timestamp of when the device compliance script executed
-     *  @param DateTime|null $value Value to set for the lastStateUpdateDateTime property.
+     * @param DateTime|null $value Value to set for the lastStateUpdateDateTime property.
     */
     public function setLastStateUpdateDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastStateUpdateDateTime', $value);
@@ -139,7 +142,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the lastSyncDateTime property value. The last time that Intune Managment Extension synced with Intune
-     *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
@@ -147,7 +150,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the managedDevice property value. The managed device on which the device compliance script executed
-     *  @param ManagedDevice|null $value Value to set for the managedDevice property.
+     * @param ManagedDevice|null $value Value to set for the managedDevice property.
     */
     public function setManagedDevice(?ManagedDevice $value): void {
         $this->getBackingStore()->set('managedDevice', $value);
@@ -155,7 +158,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the scriptError property value. Error from the detection script
-     *  @param string|null $value Value to set for the scriptError property.
+     * @param string|null $value Value to set for the scriptError property.
     */
     public function setScriptError(?string $value): void {
         $this->getBackingStore()->set('scriptError', $value);
@@ -163,7 +166,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the scriptOutput property value. Output of the detection script
-     *  @param string|null $value Value to set for the scriptOutput property.
+     * @param string|null $value Value to set for the scriptOutput property.
     */
     public function setScriptOutput(?string $value): void {
         $this->getBackingStore()->set('scriptOutput', $value);

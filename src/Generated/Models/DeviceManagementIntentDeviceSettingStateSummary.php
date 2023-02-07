@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents device setting state summary for an intent
+*/
 class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements Parsable 
 {
     /**
@@ -114,7 +117,7 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
 
     /**
      * Sets the compliantCount property value. Number of compliant devices
-     *  @param int|null $value Value to set for the compliantCount property.
+     * @param int|null $value Value to set for the compliantCount property.
     */
     public function setCompliantCount(?int $value): void {
         $this->getBackingStore()->set('compliantCount', $value);
@@ -122,7 +125,7 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
 
     /**
      * Sets the conflictCount property value. Number of devices in conflict
-     *  @param int|null $value Value to set for the conflictCount property.
+     * @param int|null $value Value to set for the conflictCount property.
     */
     public function setConflictCount(?int $value): void {
         $this->getBackingStore()->set('conflictCount', $value);
@@ -130,7 +133,7 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
 
     /**
      * Sets the errorCount property value. Number of error devices
-     *  @param int|null $value Value to set for the errorCount property.
+     * @param int|null $value Value to set for the errorCount property.
     */
     public function setErrorCount(?int $value): void {
         $this->getBackingStore()->set('errorCount', $value);
@@ -138,7 +141,7 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
 
     /**
      * Sets the nonCompliantCount property value. Number of non compliant devices
-     *  @param int|null $value Value to set for the nonCompliantCount property.
+     * @param int|null $value Value to set for the nonCompliantCount property.
     */
     public function setNonCompliantCount(?int $value): void {
         $this->getBackingStore()->set('nonCompliantCount', $value);
@@ -146,7 +149,7 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
 
     /**
      * Sets the notApplicableCount property value. Number of not applicable devices
-     *  @param int|null $value Value to set for the notApplicableCount property.
+     * @param int|null $value Value to set for the notApplicableCount property.
     */
     public function setNotApplicableCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableCount', $value);
@@ -154,7 +157,7 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
 
     /**
      * Sets the remediatedCount property value. Number of remediated devices
-     *  @param int|null $value Value to set for the remediatedCount property.
+     * @param int|null $value Value to set for the remediatedCount property.
     */
     public function setRemediatedCount(?int $value): void {
         $this->getBackingStore()->set('remediatedCount', $value);
@@ -162,7 +165,7 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
 
     /**
      * Sets the settingName property value. Name of a setting
-     *  @param string|null $value Value to set for the settingName property.
+     * @param string|null $value Value to set for the settingName property.
     */
     public function setSettingName(?string $value): void {
         $this->getBackingStore()->set('settingName', $value);

@@ -84,7 +84,7 @@ class Presence extends Entity implements Parsable
 
     /**
      * Sets the activity property value. The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
-     *  @param string|null $value Value to set for the activity property.
+     * @param string|null $value Value to set for the activity property.
     */
     public function setActivity(?string $value): void {
         $this->getBackingStore()->set('activity', $value);
@@ -92,7 +92,7 @@ class Presence extends Entity implements Parsable
 
     /**
      * Sets the availability property value. The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
-     *  @param string|null $value Value to set for the availability property.
+     * @param string|null $value Value to set for the availability property.
     */
     public function setAvailability(?string $value): void {
         $this->getBackingStore()->set('availability', $value);
@@ -100,7 +100,7 @@ class Presence extends Entity implements Parsable
 
     /**
      * Sets the outOfOfficeSettings property value. The out of office settings for a user.
-     *  @param OutOfOfficeSettings|null $value Value to set for the outOfOfficeSettings property.
+     * @param OutOfOfficeSettings|null $value Value to set for the outOfOfficeSettings property.
     */
     public function setOutOfOfficeSettings(?OutOfOfficeSettings $value): void {
         $this->getBackingStore()->set('outOfOfficeSettings', $value);
@@ -108,7 +108,7 @@ class Presence extends Entity implements Parsable
 
     /**
      * Sets the statusMessage property value. The presence status message of a user.
-     *  @param PresenceStatusMessage|null $value Value to set for the statusMessage property.
+     * @param PresenceStatusMessage|null $value Value to set for the statusMessage property.
     */
     public function setStatusMessage(?PresenceStatusMessage $value): void {
         $this->getBackingStore()->set('statusMessage', $value);

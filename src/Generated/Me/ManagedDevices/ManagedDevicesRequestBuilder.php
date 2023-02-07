@@ -5,48 +5,29 @@ namespace Microsoft\Graph\Beta\Generated\Me\ManagedDevices;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\AppDiagnosticsWithUpn\AppDiagnosticsWithUpnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\BulkReprovisionCloudPc\BulkReprovisionCloudPcRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\BulkRestoreCloudPc\BulkRestoreCloudPcRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\BulkSetCloudPcReviewStatus\BulkSetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\DownloadAppDiagnostics\DownloadAppDiagnosticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\ExecuteAction\ExecuteActionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\MoveDevicesToOU\MoveDevicesToOURequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\MicrosoftGraphAppDiagnosticsWithUpn\MicrosoftGraphAppDiagnosticsWithUpnRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\MicrosoftGraphBulkReprovisionCloudPc\MicrosoftGraphBulkReprovisionCloudPcRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\MicrosoftGraphBulkRestoreCloudPc\MicrosoftGraphBulkRestoreCloudPcRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\MicrosoftGraphBulkSetCloudPcReviewStatus\MicrosoftGraphBulkSetCloudPcReviewStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\MicrosoftGraphDownloadAppDiagnostics\MicrosoftGraphDownloadAppDiagnosticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\MicrosoftGraphExecuteAction\MicrosoftGraphExecuteActionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\MicrosoftGraphMoveDevicesToOU\MicrosoftGraphMoveDevicesToOURequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.
+*/
 class ManagedDevicesRequestBuilder 
 {
-    /**
-     * Provides operations to call the bulkReprovisionCloudPc method.
-    */
-    public function bulkReprovisionCloudPc(): BulkReprovisionCloudPcRequestBuilder {
-        return new BulkReprovisionCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the bulkRestoreCloudPc method.
-    */
-    public function bulkRestoreCloudPc(): BulkRestoreCloudPcRequestBuilder {
-        return new BulkRestoreCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the bulkSetCloudPcReviewStatus method.
-    */
-    public function bulkSetCloudPcReviewStatus(): BulkSetCloudPcReviewStatusRequestBuilder {
-        return new BulkSetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to count the resources in the collection.
     */
@@ -55,24 +36,45 @@ class ManagedDevicesRequestBuilder
     }
     
     /**
+     * Provides operations to call the bulkReprovisionCloudPc method.
+    */
+    public function microsoftGraphBulkReprovisionCloudPc(): MicrosoftGraphBulkReprovisionCloudPcRequestBuilder {
+        return new MicrosoftGraphBulkReprovisionCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the bulkRestoreCloudPc method.
+    */
+    public function microsoftGraphBulkRestoreCloudPc(): MicrosoftGraphBulkRestoreCloudPcRequestBuilder {
+        return new MicrosoftGraphBulkRestoreCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the bulkSetCloudPcReviewStatus method.
+    */
+    public function microsoftGraphBulkSetCloudPcReviewStatus(): MicrosoftGraphBulkSetCloudPcReviewStatusRequestBuilder {
+        return new MicrosoftGraphBulkSetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the downloadAppDiagnostics method.
     */
-    public function downloadAppDiagnostics(): DownloadAppDiagnosticsRequestBuilder {
-        return new DownloadAppDiagnosticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphDownloadAppDiagnostics(): MicrosoftGraphDownloadAppDiagnosticsRequestBuilder {
+        return new MicrosoftGraphDownloadAppDiagnosticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the executeAction method.
     */
-    public function executeAction(): ExecuteActionRequestBuilder {
-        return new ExecuteActionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphExecuteAction(): MicrosoftGraphExecuteActionRequestBuilder {
+        return new MicrosoftGraphExecuteActionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the moveDevicesToOU method.
     */
-    public function moveDevicesToOU(): MoveDevicesToOURequestBuilder {
-        return new MoveDevicesToOURequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphMoveDevicesToOU(): MicrosoftGraphMoveDevicesToOURequestBuilder {
+        return new MicrosoftGraphMoveDevicesToOURequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -91,59 +93,61 @@ class ManagedDevicesRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to call the appDiagnostics method.
-     * @param string $upn Usage: upn='{upn}'
-     * @return AppDiagnosticsWithUpnRequestBuilder
-    */
-    public function appDiagnosticsWithUpn(string $upn): AppDiagnosticsWithUpnRequestBuilder {
-        return new AppDiagnosticsWithUpnRequestBuilder($this->pathParameters, $this->requestAdapter, $upn);
-    }
-
-    /**
      * Instantiates a new ManagedDevicesRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/me/managedDevices{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * The managed devices associated with the user.
      * @param ManagedDevicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ManagedDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ManagedDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ManagedDeviceCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ManagedDeviceCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
+     * Provides operations to call the appDiagnostics method.
+     * @param string $upn Usage: upn='{upn}'
+     * @return MicrosoftGraphAppDiagnosticsWithUpnRequestBuilder
+    */
+    public function microsoftGraphAppDiagnosticsWithUpn(string $upn): MicrosoftGraphAppDiagnosticsWithUpnRequestBuilder {
+        return new MicrosoftGraphAppDiagnosticsWithUpnRequestBuilder($this->pathParameters, $this->requestAdapter, $upn);
+    }
+
+    /**
      * Create new navigation property to managedDevices for me
      * @param ManagedDevice $body The request body
      * @param ManagedDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function post(ManagedDevice $body, ?ManagedDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function post(ManagedDevice $body, ?ManagedDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ManagedDevice::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ManagedDevice::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -159,10 +163,10 @@ class ManagedDevicesRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -185,10 +189,10 @@ class ManagedDevicesRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

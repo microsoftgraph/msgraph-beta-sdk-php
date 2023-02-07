@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppC
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+*/
 class TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**

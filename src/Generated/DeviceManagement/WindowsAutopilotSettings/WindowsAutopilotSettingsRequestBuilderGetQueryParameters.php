@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotSettin
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Windows autopilot account settings.
+*/
 class WindowsAutopilotSettingsRequestBuilderGetQueryParameters 
 {
     /**

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity representing the defintion for a given setting
+*/
 class DeviceManagementSettingDefinition extends Entity implements Parsable 
 {
     /**
@@ -163,7 +166,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the constraints property value. Collection of constraints for the setting value
-     *  @param array<DeviceManagementConstraint>|null $value Value to set for the constraints property.
+     * @param array<DeviceManagementConstraint>|null $value Value to set for the constraints property.
     */
     public function setConstraints(?array $value): void {
         $this->getBackingStore()->set('constraints', $value);
@@ -171,7 +174,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the dependencies property value. Collection of dependencies on other settings
-     *  @param array<DeviceManagementSettingDependency>|null $value Value to set for the dependencies property.
+     * @param array<DeviceManagementSettingDependency>|null $value Value to set for the dependencies property.
     */
     public function setDependencies(?array $value): void {
         $this->getBackingStore()->set('dependencies', $value);
@@ -179,7 +182,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the description property value. The setting's description
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -187,7 +190,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The setting's display name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -195,7 +198,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the documentationUrl property value. Url to setting documentation
-     *  @param string|null $value Value to set for the documentationUrl property.
+     * @param string|null $value Value to set for the documentationUrl property.
     */
     public function setDocumentationUrl(?string $value): void {
         $this->getBackingStore()->set('documentationUrl', $value);
@@ -203,7 +206,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the headerSubtitle property value. subtitle of the setting header for more details about the category/section
-     *  @param string|null $value Value to set for the headerSubtitle property.
+     * @param string|null $value Value to set for the headerSubtitle property.
     */
     public function setHeaderSubtitle(?string $value): void {
         $this->getBackingStore()->set('headerSubtitle', $value);
@@ -211,7 +214,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the headerTitle property value. title of the setting header represents a category/section of a setting/settings
-     *  @param string|null $value Value to set for the headerTitle property.
+     * @param string|null $value Value to set for the headerTitle property.
     */
     public function setHeaderTitle(?string $value): void {
         $this->getBackingStore()->set('headerTitle', $value);
@@ -219,7 +222,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the isTopLevel property value. If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
-     *  @param bool|null $value Value to set for the isTopLevel property.
+     * @param bool|null $value Value to set for the isTopLevel property.
     */
     public function setIsTopLevel(?bool $value): void {
         $this->getBackingStore()->set('isTopLevel', $value);
@@ -227,7 +230,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the keywords property value. Keywords associated with the setting
-     *  @param array<string>|null $value Value to set for the keywords property.
+     * @param array<string>|null $value Value to set for the keywords property.
     */
     public function setKeywords(?array $value): void {
         $this->getBackingStore()->set('keywords', $value);
@@ -235,7 +238,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the placeholderText property value. Placeholder text as an example of valid input
-     *  @param string|null $value Value to set for the placeholderText property.
+     * @param string|null $value Value to set for the placeholderText property.
     */
     public function setPlaceholderText(?string $value): void {
         $this->getBackingStore()->set('placeholderText', $value);
@@ -243,7 +246,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
 
     /**
      * Sets the valueType property value. The valueType property
-     *  @param DeviceManangementIntentValueType|null $value Value to set for the valueType property.
+     * @param DeviceManangementIntentValueType|null $value Value to set for the valueType property.
     */
     public function setValueType(?DeviceManangementIntentValueType $value): void {
         $this->getBackingStore()->set('valueType', $value);

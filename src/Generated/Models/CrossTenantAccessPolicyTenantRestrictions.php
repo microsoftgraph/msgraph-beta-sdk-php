@@ -55,7 +55,7 @@ class CrossTenantAccessPolicyTenantRestrictions extends CrossTenantAccessPolicyB
 
     /**
      * Sets the devices property value. The devices property
-     *  @param DevicesFilter|null $value Value to set for the devices property.
+     * @param DevicesFilter|null $value Value to set for the devices property.
     */
     public function setDevices(?DevicesFilter $value): void {
         $this->getBackingStore()->set('devices', $value);

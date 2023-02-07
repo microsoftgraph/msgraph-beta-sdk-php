@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Event representing an general failure.
+*/
 class DeviceManagementTroubleshootingEvent extends Entity implements Parsable 
 {
     /**
@@ -104,7 +107,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
 
     /**
      * Sets the additionalInformation property value. A set of string key and string value pairs which provides additional information on the Troubleshooting event
-     *  @param array<KeyValuePair>|null $value Value to set for the additionalInformation property.
+     * @param array<KeyValuePair>|null $value Value to set for the additionalInformation property.
     */
     public function setAdditionalInformation(?array $value): void {
         $this->getBackingStore()->set('additionalInformation', $value);
@@ -112,7 +115,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
 
     /**
      * Sets the correlationId property value. Id used for tracing the failure in the service.
-     *  @param string|null $value Value to set for the correlationId property.
+     * @param string|null $value Value to set for the correlationId property.
     */
     public function setCorrelationId(?string $value): void {
         $this->getBackingStore()->set('correlationId', $value);
@@ -120,7 +123,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
 
     /**
      * Sets the eventDateTime property value. Time when the event occurred .
-     *  @param DateTime|null $value Value to set for the eventDateTime property.
+     * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('eventDateTime', $value);
@@ -128,7 +131,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
 
     /**
      * Sets the eventName property value. Event Name corresponding to the Troubleshooting Event. It is an Optional field
-     *  @param string|null $value Value to set for the eventName property.
+     * @param string|null $value Value to set for the eventName property.
     */
     public function setEventName(?string $value): void {
         $this->getBackingStore()->set('eventName', $value);
@@ -136,7 +139,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
 
     /**
      * Sets the troubleshootingErrorDetails property value. Object containing detailed information about the error and its remediation.
-     *  @param DeviceManagementTroubleshootingErrorDetails|null $value Value to set for the troubleshootingErrorDetails property.
+     * @param DeviceManagementTroubleshootingErrorDetails|null $value Value to set for the troubleshootingErrorDetails property.
     */
     public function setTroubleshootingErrorDetails(?DeviceManagementTroubleshootingErrorDetails $value): void {
         $this->getBackingStore()->set('troubleshootingErrorDetails', $value);

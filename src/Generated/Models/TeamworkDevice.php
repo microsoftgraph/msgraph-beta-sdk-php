@@ -195,7 +195,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the activity property value. The activity properties that change based on the device usage.
-     *  @param TeamworkDeviceActivity|null $value Value to set for the activity property.
+     * @param TeamworkDeviceActivity|null $value Value to set for the activity property.
     */
     public function setActivity(?TeamworkDeviceActivity $value): void {
         $this->getBackingStore()->set('activity', $value);
@@ -203,7 +203,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the activityState property value. The activity state of the device. The possible values are: unknown, busy, idle, unavailable, unknownFutureValue.
-     *  @param TeamworkDeviceActivityState|null $value Value to set for the activityState property.
+     * @param TeamworkDeviceActivityState|null $value Value to set for the activityState property.
     */
     public function setActivityState(?TeamworkDeviceActivityState $value): void {
         $this->getBackingStore()->set('activityState', $value);
@@ -211,7 +211,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the companyAssetTag property value. The company asset tag assigned by the admin on the device.
-     *  @param string|null $value Value to set for the companyAssetTag property.
+     * @param string|null $value Value to set for the companyAssetTag property.
     */
     public function setCompanyAssetTag(?string $value): void {
         $this->getBackingStore()->set('companyAssetTag', $value);
@@ -219,7 +219,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the configuration property value. The configuration properties of the device.
-     *  @param TeamworkDeviceConfiguration|null $value Value to set for the configuration property.
+     * @param TeamworkDeviceConfiguration|null $value Value to set for the configuration property.
     */
     public function setConfiguration(?TeamworkDeviceConfiguration $value): void {
         $this->getBackingStore()->set('configuration', $value);
@@ -227,7 +227,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. Identity of the user who enrolled the device to the tenant.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -235,7 +235,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The UTC date and time when the device was enrolled to the tenant.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -243,7 +243,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the currentUser property value. The signed-in user on the device.
-     *  @param TeamworkUserIdentity|null $value Value to set for the currentUser property.
+     * @param TeamworkUserIdentity|null $value Value to set for the currentUser property.
     */
     public function setCurrentUser(?TeamworkUserIdentity $value): void {
         $this->getBackingStore()->set('currentUser', $value);
@@ -251,7 +251,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the deviceType property value. The deviceType property
-     *  @param TeamworkDeviceType|null $value Value to set for the deviceType property.
+     * @param TeamworkDeviceType|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?TeamworkDeviceType $value): void {
         $this->getBackingStore()->set('deviceType', $value);
@@ -259,7 +259,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the hardwareDetail property value. The hardwareDetail property
-     *  @param TeamworkHardwareDetail|null $value Value to set for the hardwareDetail property.
+     * @param TeamworkHardwareDetail|null $value Value to set for the hardwareDetail property.
     */
     public function setHardwareDetail(?TeamworkHardwareDetail $value): void {
         $this->getBackingStore()->set('hardwareDetail', $value);
@@ -267,7 +267,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the health property value. The health properties of the device.
-     *  @param TeamworkDeviceHealth|null $value Value to set for the health property.
+     * @param TeamworkDeviceHealth|null $value Value to set for the health property.
     */
     public function setHealth(?TeamworkDeviceHealth $value): void {
         $this->getBackingStore()->set('health', $value);
@@ -275,7 +275,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the healthStatus property value. The health status of the device. The possible values are: unknown, offline, critical, nonUrgent, healthy, unknownFutureValue.
-     *  @param TeamworkDeviceHealthStatus|null $value Value to set for the healthStatus property.
+     * @param TeamworkDeviceHealthStatus|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?TeamworkDeviceHealthStatus $value): void {
         $this->getBackingStore()->set('healthStatus', $value);
@@ -283,7 +283,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. Identity of the user who last modified the device details.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -291,7 +291,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The UTC date and time when the device detail was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -299,7 +299,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the notes property value. The notes added by the admin to the device.
-     *  @param string|null $value Value to set for the notes property.
+     * @param string|null $value Value to set for the notes property.
     */
     public function setNotes(?string $value): void {
         $this->getBackingStore()->set('notes', $value);
@@ -307,7 +307,7 @@ class TeamworkDevice extends Entity implements Parsable
 
     /**
      * Sets the operations property value. The async operations on the device.
-     *  @param array<TeamworkDeviceOperation>|null $value Value to set for the operations property.
+     * @param array<TeamworkDeviceOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);

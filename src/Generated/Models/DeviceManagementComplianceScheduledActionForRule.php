@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Scheduled Action for Rule
+*/
 class DeviceManagementComplianceScheduledActionForRule extends Entity implements Parsable 
 {
     /**
@@ -64,7 +67,7 @@ class DeviceManagementComplianceScheduledActionForRule extends Entity implements
 
     /**
      * Sets the ruleName property value. Name of the rule which this scheduled action applies to.
-     *  @param string|null $value Value to set for the ruleName property.
+     * @param string|null $value Value to set for the ruleName property.
     */
     public function setRuleName(?string $value): void {
         $this->getBackingStore()->set('ruleName', $value);
@@ -72,7 +75,7 @@ class DeviceManagementComplianceScheduledActionForRule extends Entity implements
 
     /**
      * Sets the scheduledActionConfigurations property value. The list of scheduled action configurations for this compliance policy. This collection can contain a maximum of 100 elements.
-     *  @param array<DeviceManagementComplianceActionItem>|null $value Value to set for the scheduledActionConfigurations property.
+     * @param array<DeviceManagementComplianceActionItem>|null $value Value to set for the scheduledActionConfigurations property.
     */
     public function setScheduledActionConfigurations(?array $value): void {
         $this->getBackingStore()->set('scheduledActionConfigurations', $value);

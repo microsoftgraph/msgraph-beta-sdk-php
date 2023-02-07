@@ -26,7 +26,7 @@ class WindowsWebApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the appUrl property value. The web app URL.
+     * Gets the appUrl property value. Indicates the Windows web app URL. Example: 'https://www.contoso.com'
      * @return string|null
     */
     public function getAppUrl(): ?string {
@@ -54,8 +54,8 @@ class WindowsWebApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the appUrl property value. The web app URL.
-     *  @param string|null $value Value to set for the appUrl property.
+     * Sets the appUrl property value. Indicates the Windows web app URL. Example: 'https://www.contoso.com'
+     * @param string|null $value Value to set for the appUrl property.
     */
     public function setAppUrl(?string $value): void {
         $this->getBackingStore()->set('appUrl', $value);

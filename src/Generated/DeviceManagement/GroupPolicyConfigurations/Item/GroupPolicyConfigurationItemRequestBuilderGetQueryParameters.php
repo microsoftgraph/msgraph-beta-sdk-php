@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurati
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The group policy configurations created by this account.
+*/
 class GroupPolicyConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**

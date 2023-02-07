@@ -74,7 +74,7 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
 
     /**
      * Sets the isEmailPasswordAuthenticationEnabled property value. The tenant admin can configure local accounts using email if the email and password authentication method is enabled.
-     *  @param bool|null $value Value to set for the isEmailPasswordAuthenticationEnabled property.
+     * @param bool|null $value Value to set for the isEmailPasswordAuthenticationEnabled property.
     */
     public function setIsEmailPasswordAuthenticationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEmailPasswordAuthenticationEnabled', $value);
@@ -82,7 +82,7 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
 
     /**
      * Sets the isPhoneOneTimePasswordAuthenticationEnabled property value. The tenant admin can configure local accounts using phone number if the phone number and one-time password authentication method is enabled.
-     *  @param bool|null $value Value to set for the isPhoneOneTimePasswordAuthenticationEnabled property.
+     * @param bool|null $value Value to set for the isPhoneOneTimePasswordAuthenticationEnabled property.
     */
     public function setIsPhoneOneTimePasswordAuthenticationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isPhoneOneTimePasswordAuthenticationEnabled', $value);
@@ -90,7 +90,7 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
 
     /**
      * Sets the isUserNameAuthenticationEnabled property value. The tenant admin can configure local accounts using username if the username and password authentication method is enabled.
-     *  @param bool|null $value Value to set for the isUserNameAuthenticationEnabled property.
+     * @param bool|null $value Value to set for the isUserNameAuthenticationEnabled property.
     */
     public function setIsUserNameAuthenticationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isUserNameAuthenticationEnabled', $value);

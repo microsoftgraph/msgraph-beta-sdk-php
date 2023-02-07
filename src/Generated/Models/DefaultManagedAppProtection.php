@@ -585,7 +585,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the allowedAndroidDeviceManufacturers property value. Semicolon seperated list of device manufacturers allowed, as a string, for the managed app to work. (Android only)
-     *  @param string|null $value Value to set for the allowedAndroidDeviceManufacturers property.
+     * @param string|null $value Value to set for the allowedAndroidDeviceManufacturers property.
     */
     public function setAllowedAndroidDeviceManufacturers(?string $value): void {
         $this->getBackingStore()->set('allowedAndroidDeviceManufacturers', $value);
@@ -593,7 +593,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the allowedAndroidDeviceModels property value. List of device models allowed, as a string, for the managed app to work. (Android Only)
-     *  @param array<string>|null $value Value to set for the allowedAndroidDeviceModels property.
+     * @param array<string>|null $value Value to set for the allowedAndroidDeviceModels property.
     */
     public function setAllowedAndroidDeviceModels(?array $value): void {
         $this->getBackingStore()->set('allowedAndroidDeviceModels', $value);
@@ -601,7 +601,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the allowedIosDeviceModels property value. Semicolon seperated list of device models allowed, as a string, for the managed app to work. (iOS Only)
-     *  @param string|null $value Value to set for the allowedIosDeviceModels property.
+     * @param string|null $value Value to set for the allowedIosDeviceModels property.
     */
     public function setAllowedIosDeviceModels(?string $value): void {
         $this->getBackingStore()->set('allowedIosDeviceModels', $value);
@@ -609,7 +609,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfAndroidDeviceManufacturerNotAllowed property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidDeviceManufacturerNotAllowed property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidDeviceManufacturerNotAllowed property.
     */
     public function setAppActionIfAndroidDeviceManufacturerNotAllowed(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfAndroidDeviceManufacturerNotAllowed', $value);
@@ -617,7 +617,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfAndroidDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidDeviceModelNotAllowed property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidDeviceModelNotAllowed property.
     */
     public function setAppActionIfAndroidDeviceModelNotAllowed(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfAndroidDeviceModelNotAllowed', $value);
@@ -625,7 +625,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfAndroidSafetyNetAppsVerificationFailed property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidSafetyNetAppsVerificationFailed property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidSafetyNetAppsVerificationFailed property.
     */
     public function setAppActionIfAndroidSafetyNetAppsVerificationFailed(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfAndroidSafetyNetAppsVerificationFailed', $value);
@@ -633,7 +633,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfAndroidSafetyNetDeviceAttestationFailed property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidSafetyNetDeviceAttestationFailed property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidSafetyNetDeviceAttestationFailed property.
     */
     public function setAppActionIfAndroidSafetyNetDeviceAttestationFailed(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfAndroidSafetyNetDeviceAttestationFailed', $value);
@@ -641,7 +641,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfDeviceLockNotSet property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDeviceLockNotSet property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDeviceLockNotSet property.
     */
     public function setAppActionIfDeviceLockNotSet(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfDeviceLockNotSet', $value);
@@ -649,7 +649,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanHigh property value. If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanHigh property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanHigh property.
     */
     public function setAppActionIfDevicePasscodeComplexityLessThanHigh(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanHigh', $value);
@@ -657,7 +657,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanLow property value. If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanLow property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanLow property.
     */
     public function setAppActionIfDevicePasscodeComplexityLessThanLow(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanLow', $value);
@@ -665,7 +665,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfDevicePasscodeComplexityLessThanMedium property value. If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanMedium property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDevicePasscodeComplexityLessThanMedium property.
     */
     public function setAppActionIfDevicePasscodeComplexityLessThanMedium(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfDevicePasscodeComplexityLessThanMedium', $value);
@@ -673,7 +673,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appActionIfIosDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfIosDeviceModelNotAllowed property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfIosDeviceModelNotAllowed property.
     */
     public function setAppActionIfIosDeviceModelNotAllowed(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfIosDeviceModelNotAllowed', $value);
@@ -681,7 +681,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the appDataEncryptionType property value. Represents the level to which app data is encrypted for managed apps
-     *  @param ManagedAppDataEncryptionType|null $value Value to set for the appDataEncryptionType property.
+     * @param ManagedAppDataEncryptionType|null $value Value to set for the appDataEncryptionType property.
     */
     public function setAppDataEncryptionType(?ManagedAppDataEncryptionType $value): void {
         $this->getBackingStore()->set('appDataEncryptionType', $value);
@@ -689,7 +689,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the apps property value. List of apps to which the policy is deployed.
-     *  @param array<ManagedMobileApp>|null $value Value to set for the apps property.
+     * @param array<ManagedMobileApp>|null $value Value to set for the apps property.
     */
     public function setApps(?array $value): void {
         $this->getBackingStore()->set('apps', $value);
@@ -697,7 +697,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the biometricAuthenticationBlocked property value. Indicates whether use of the biometric authentication is allowed in place of a pin if PinRequired is set to True. (Android Only)
-     *  @param bool|null $value Value to set for the biometricAuthenticationBlocked property.
+     * @param bool|null $value Value to set for the biometricAuthenticationBlocked property.
     */
     public function setBiometricAuthenticationBlocked(?bool $value): void {
         $this->getBackingStore()->set('biometricAuthenticationBlocked', $value);
@@ -705,7 +705,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the blockAfterCompanyPortalUpdateDeferralInDays property value. Maximum number of days Company Portal update can be deferred on the device or app access will be blocked.
-     *  @param int|null $value Value to set for the blockAfterCompanyPortalUpdateDeferralInDays property.
+     * @param int|null $value Value to set for the blockAfterCompanyPortalUpdateDeferralInDays property.
     */
     public function setBlockAfterCompanyPortalUpdateDeferralInDays(?int $value): void {
         $this->getBackingStore()->set('blockAfterCompanyPortalUpdateDeferralInDays', $value);
@@ -713,7 +713,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the connectToVpnOnLaunch property value. Whether the app should connect to the configured VPN on launch (Android only).
-     *  @param bool|null $value Value to set for the connectToVpnOnLaunch property.
+     * @param bool|null $value Value to set for the connectToVpnOnLaunch property.
     */
     public function setConnectToVpnOnLaunch(?bool $value): void {
         $this->getBackingStore()->set('connectToVpnOnLaunch', $value);
@@ -721,7 +721,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android. (Android only)
-     *  @param string|null $value Value to set for the customBrowserDisplayName property.
+     * @param string|null $value Value to set for the customBrowserDisplayName property.
     */
     public function setCustomBrowserDisplayName(?string $value): void {
         $this->getBackingStore()->set('customBrowserDisplayName', $value);
@@ -729,7 +729,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android. (Android only)
-     *  @param string|null $value Value to set for the customBrowserPackageId property.
+     * @param string|null $value Value to set for the customBrowserPackageId property.
     */
     public function setCustomBrowserPackageId(?string $value): void {
         $this->getBackingStore()->set('customBrowserPackageId', $value);
@@ -737,7 +737,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. (iOS only)
-     *  @param string|null $value Value to set for the customBrowserProtocol property.
+     * @param string|null $value Value to set for the customBrowserProtocol property.
     */
     public function setCustomBrowserProtocol(?string $value): void {
         $this->getBackingStore()->set('customBrowserProtocol', $value);
@@ -745,7 +745,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the customDialerAppDisplayName property value. Friendly name of a custom dialer app to click-to-open a phone number on Android.
-     *  @param string|null $value Value to set for the customDialerAppDisplayName property.
+     * @param string|null $value Value to set for the customDialerAppDisplayName property.
     */
     public function setCustomDialerAppDisplayName(?string $value): void {
         $this->getBackingStore()->set('customDialerAppDisplayName', $value);
@@ -753,7 +753,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the customDialerAppPackageId property value. PackageId of a custom dialer app to click-to-open a phone number on Android.
-     *  @param string|null $value Value to set for the customDialerAppPackageId property.
+     * @param string|null $value Value to set for the customDialerAppPackageId property.
     */
     public function setCustomDialerAppPackageId(?string $value): void {
         $this->getBackingStore()->set('customDialerAppPackageId', $value);
@@ -761,7 +761,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the customDialerAppProtocol property value. Protocol of a custom dialer app to click-to-open a phone number on iOS, for example, skype:.
-     *  @param string|null $value Value to set for the customDialerAppProtocol property.
+     * @param string|null $value Value to set for the customDialerAppProtocol property.
     */
     public function setCustomDialerAppProtocol(?string $value): void {
         $this->getBackingStore()->set('customDialerAppProtocol', $value);
@@ -769,7 +769,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the customSettings property value. A set of string key and string value pairs to be sent to the affected users, unalterned by this service
-     *  @param array<KeyValuePair>|null $value Value to set for the customSettings property.
+     * @param array<KeyValuePair>|null $value Value to set for the customSettings property.
     */
     public function setCustomSettings(?array $value): void {
         $this->getBackingStore()->set('customSettings', $value);
@@ -777,7 +777,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the deployedAppCount property value. Count of apps to which the current policy is deployed.
-     *  @param int|null $value Value to set for the deployedAppCount property.
+     * @param int|null $value Value to set for the deployedAppCount property.
     */
     public function setDeployedAppCount(?int $value): void {
         $this->getBackingStore()->set('deployedAppCount', $value);
@@ -785,7 +785,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
-     *  @param ManagedAppPolicyDeploymentSummary|null $value Value to set for the deploymentSummary property.
+     * @param ManagedAppPolicyDeploymentSummary|null $value Value to set for the deploymentSummary property.
     */
     public function setDeploymentSummary(?ManagedAppPolicyDeploymentSummary $value): void {
         $this->getBackingStore()->set('deploymentSummary', $value);
@@ -793,7 +793,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the deviceLockRequired property value. Defines if any kind of lock must be required on device. (android only)
-     *  @param bool|null $value Value to set for the deviceLockRequired property.
+     * @param bool|null $value Value to set for the deviceLockRequired property.
     */
     public function setDeviceLockRequired(?bool $value): void {
         $this->getBackingStore()->set('deviceLockRequired', $value);
@@ -801,7 +801,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the disableAppEncryptionIfDeviceEncryptionIsEnabled property value. When this setting is enabled, app level encryption is disabled if device level encryption is enabled. (Android only)
-     *  @param bool|null $value Value to set for the disableAppEncryptionIfDeviceEncryptionIsEnabled property.
+     * @param bool|null $value Value to set for the disableAppEncryptionIfDeviceEncryptionIsEnabled property.
     */
     public function setDisableAppEncryptionIfDeviceEncryptionIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('disableAppEncryptionIfDeviceEncryptionIsEnabled', $value);
@@ -809,7 +809,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the disableProtectionOfManagedOutboundOpenInData property value. Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps. (iOS Only)
-     *  @param bool|null $value Value to set for the disableProtectionOfManagedOutboundOpenInData property.
+     * @param bool|null $value Value to set for the disableProtectionOfManagedOutboundOpenInData property.
     */
     public function setDisableProtectionOfManagedOutboundOpenInData(?bool $value): void {
         $this->getBackingStore()->set('disableProtectionOfManagedOutboundOpenInData', $value);
@@ -817,7 +817,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the encryptAppData property value. Indicates whether managed-app data should be encrypted. (Android only)
-     *  @param bool|null $value Value to set for the encryptAppData property.
+     * @param bool|null $value Value to set for the encryptAppData property.
     */
     public function setEncryptAppData(?bool $value): void {
         $this->getBackingStore()->set('encryptAppData', $value);
@@ -825,7 +825,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the exemptedAppPackages property value. Android App packages in this list will be exempt from the policy and will be able to receive data from managed apps. (Android only)
-     *  @param array<KeyValuePair>|null $value Value to set for the exemptedAppPackages property.
+     * @param array<KeyValuePair>|null $value Value to set for the exemptedAppPackages property.
     */
     public function setExemptedAppPackages(?array $value): void {
         $this->getBackingStore()->set('exemptedAppPackages', $value);
@@ -833,7 +833,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the exemptedAppProtocols property value. iOS Apps in this list will be exempt from the policy and will be able to receive data from managed apps. (iOS Only)
-     *  @param array<KeyValuePair>|null $value Value to set for the exemptedAppProtocols property.
+     * @param array<KeyValuePair>|null $value Value to set for the exemptedAppProtocols property.
     */
     public function setExemptedAppProtocols(?array $value): void {
         $this->getBackingStore()->set('exemptedAppProtocols', $value);
@@ -841,7 +841,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the faceIdBlocked property value. Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. (iOS Only)
-     *  @param bool|null $value Value to set for the faceIdBlocked property.
+     * @param bool|null $value Value to set for the faceIdBlocked property.
     */
     public function setFaceIdBlocked(?bool $value): void {
         $this->getBackingStore()->set('faceIdBlocked', $value);
@@ -849,7 +849,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the filterOpenInToOnlyManagedApps property value. Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False. (iOS Only)
-     *  @param bool|null $value Value to set for the filterOpenInToOnlyManagedApps property.
+     * @param bool|null $value Value to set for the filterOpenInToOnlyManagedApps property.
     */
     public function setFilterOpenInToOnlyManagedApps(?bool $value): void {
         $this->getBackingStore()->set('filterOpenInToOnlyManagedApps', $value);
@@ -857,7 +857,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the fingerprintAndBiometricEnabled property value. Indicate to the client to enable both biometrics and fingerprints for the app.
-     *  @param bool|null $value Value to set for the fingerprintAndBiometricEnabled property.
+     * @param bool|null $value Value to set for the fingerprintAndBiometricEnabled property.
     */
     public function setFingerprintAndBiometricEnabled(?bool $value): void {
         $this->getBackingStore()->set('fingerprintAndBiometricEnabled', $value);
@@ -865,7 +865,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the minimumRequiredCompanyPortalVersion property value. Minimum version of the Company portal that must be installed on the device or app access will be blocked
-     *  @param string|null $value Value to set for the minimumRequiredCompanyPortalVersion property.
+     * @param string|null $value Value to set for the minimumRequiredCompanyPortalVersion property.
     */
     public function setMinimumRequiredCompanyPortalVersion(?string $value): void {
         $this->getBackingStore()->set('minimumRequiredCompanyPortalVersion', $value);
@@ -873,7 +873,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the minimumRequiredPatchVersion property value. Define the oldest required Android security patch level a user can have to gain secure access to the app. (Android only)
-     *  @param string|null $value Value to set for the minimumRequiredPatchVersion property.
+     * @param string|null $value Value to set for the minimumRequiredPatchVersion property.
     */
     public function setMinimumRequiredPatchVersion(?string $value): void {
         $this->getBackingStore()->set('minimumRequiredPatchVersion', $value);
@@ -881,7 +881,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the minimumRequiredSdkVersion property value. Versions less than the specified version will block the managed app from accessing company data. (iOS Only)
-     *  @param string|null $value Value to set for the minimumRequiredSdkVersion property.
+     * @param string|null $value Value to set for the minimumRequiredSdkVersion property.
     */
     public function setMinimumRequiredSdkVersion(?string $value): void {
         $this->getBackingStore()->set('minimumRequiredSdkVersion', $value);
@@ -889,7 +889,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the minimumWarningCompanyPortalVersion property value. Minimum version of the Company portal that must be installed on the device or the user will receive a warning
-     *  @param string|null $value Value to set for the minimumWarningCompanyPortalVersion property.
+     * @param string|null $value Value to set for the minimumWarningCompanyPortalVersion property.
     */
     public function setMinimumWarningCompanyPortalVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWarningCompanyPortalVersion', $value);
@@ -897,7 +897,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the minimumWarningPatchVersion property value. Define the oldest recommended Android security patch level a user can have for secure access to the app. (Android only)
-     *  @param string|null $value Value to set for the minimumWarningPatchVersion property.
+     * @param string|null $value Value to set for the minimumWarningPatchVersion property.
     */
     public function setMinimumWarningPatchVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWarningPatchVersion', $value);
@@ -905,7 +905,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the minimumWarningSdkVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data. (iOS only)
-     *  @param string|null $value Value to set for the minimumWarningSdkVersion property.
+     * @param string|null $value Value to set for the minimumWarningSdkVersion property.
     */
     public function setMinimumWarningSdkVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWarningSdkVersion', $value);
@@ -913,7 +913,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the minimumWipeCompanyPortalVersion property value. Minimum version of the Company portal that must be installed on the device or the company data on the app will be wiped
-     *  @param string|null $value Value to set for the minimumWipeCompanyPortalVersion property.
+     * @param string|null $value Value to set for the minimumWipeCompanyPortalVersion property.
     */
     public function setMinimumWipeCompanyPortalVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipeCompanyPortalVersion', $value);
@@ -921,7 +921,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the minimumWipePatchVersion property value. Android security patch level  less than or equal to the specified value will wipe the managed app and the associated company data. (Android only)
-     *  @param string|null $value Value to set for the minimumWipePatchVersion property.
+     * @param string|null $value Value to set for the minimumWipePatchVersion property.
     */
     public function setMinimumWipePatchVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipePatchVersion', $value);
@@ -929,7 +929,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the minimumWipeSdkVersion property value. Versions less than the specified version will block the managed app from accessing company data.
-     *  @param string|null $value Value to set for the minimumWipeSdkVersion property.
+     * @param string|null $value Value to set for the minimumWipeSdkVersion property.
     */
     public function setMinimumWipeSdkVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipeSdkVersion', $value);
@@ -937,7 +937,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the protectInboundDataFromUnknownSources property value. Protect incoming data from unknown source. This setting is only allowed to be True when AllowedInboundDataTransferSources is set to AllApps. (iOS Only)
-     *  @param bool|null $value Value to set for the protectInboundDataFromUnknownSources property.
+     * @param bool|null $value Value to set for the protectInboundDataFromUnknownSources property.
     */
     public function setProtectInboundDataFromUnknownSources(?bool $value): void {
         $this->getBackingStore()->set('protectInboundDataFromUnknownSources', $value);
@@ -945,7 +945,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the requireClass3Biometrics property value. Require user to apply Class 3 Biometrics on their Android device.
-     *  @param bool|null $value Value to set for the requireClass3Biometrics property.
+     * @param bool|null $value Value to set for the requireClass3Biometrics property.
     */
     public function setRequireClass3Biometrics(?bool $value): void {
         $this->getBackingStore()->set('requireClass3Biometrics', $value);
@@ -953,7 +953,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the requiredAndroidSafetyNetAppsVerificationType property value. An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
-     *  @param AndroidManagedAppSafetyNetAppsVerificationType|null $value Value to set for the requiredAndroidSafetyNetAppsVerificationType property.
+     * @param AndroidManagedAppSafetyNetAppsVerificationType|null $value Value to set for the requiredAndroidSafetyNetAppsVerificationType property.
     */
     public function setRequiredAndroidSafetyNetAppsVerificationType(?AndroidManagedAppSafetyNetAppsVerificationType $value): void {
         $this->getBackingStore()->set('requiredAndroidSafetyNetAppsVerificationType', $value);
@@ -961,7 +961,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the requiredAndroidSafetyNetDeviceAttestationType property value. An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
-     *  @param AndroidManagedAppSafetyNetDeviceAttestationType|null $value Value to set for the requiredAndroidSafetyNetDeviceAttestationType property.
+     * @param AndroidManagedAppSafetyNetDeviceAttestationType|null $value Value to set for the requiredAndroidSafetyNetDeviceAttestationType property.
     */
     public function setRequiredAndroidSafetyNetDeviceAttestationType(?AndroidManagedAppSafetyNetDeviceAttestationType $value): void {
         $this->getBackingStore()->set('requiredAndroidSafetyNetDeviceAttestationType', $value);
@@ -969,7 +969,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the requiredAndroidSafetyNetEvaluationType property value. An admin enforced Android SafetyNet evaluation type requirement on a managed app.
-     *  @param AndroidManagedAppSafetyNetEvaluationType|null $value Value to set for the requiredAndroidSafetyNetEvaluationType property.
+     * @param AndroidManagedAppSafetyNetEvaluationType|null $value Value to set for the requiredAndroidSafetyNetEvaluationType property.
     */
     public function setRequiredAndroidSafetyNetEvaluationType(?AndroidManagedAppSafetyNetEvaluationType $value): void {
         $this->getBackingStore()->set('requiredAndroidSafetyNetEvaluationType', $value);
@@ -977,7 +977,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the requirePinAfterBiometricChange property value. A PIN prompt will override biometric prompts if class 3 biometrics are updated on the device.
-     *  @param bool|null $value Value to set for the requirePinAfterBiometricChange property.
+     * @param bool|null $value Value to set for the requirePinAfterBiometricChange property.
     */
     public function setRequirePinAfterBiometricChange(?bool $value): void {
         $this->getBackingStore()->set('requirePinAfterBiometricChange', $value);
@@ -985,7 +985,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the screenCaptureBlocked property value. Indicates whether screen capture is blocked. (Android only)
-     *  @param bool|null $value Value to set for the screenCaptureBlocked property.
+     * @param bool|null $value Value to set for the screenCaptureBlocked property.
     */
     public function setScreenCaptureBlocked(?bool $value): void {
         $this->getBackingStore()->set('screenCaptureBlocked', $value);
@@ -993,7 +993,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the thirdPartyKeyboardsBlocked property value. Defines if third party keyboards are allowed while accessing a managed app. (iOS Only)
-     *  @param bool|null $value Value to set for the thirdPartyKeyboardsBlocked property.
+     * @param bool|null $value Value to set for the thirdPartyKeyboardsBlocked property.
     */
     public function setThirdPartyKeyboardsBlocked(?bool $value): void {
         $this->getBackingStore()->set('thirdPartyKeyboardsBlocked', $value);
@@ -1001,7 +1001,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the warnAfterCompanyPortalUpdateDeferralInDays property value. Maximum number of days Company Portal update can be deferred on the device or the user will receive the warning
-     *  @param int|null $value Value to set for the warnAfterCompanyPortalUpdateDeferralInDays property.
+     * @param int|null $value Value to set for the warnAfterCompanyPortalUpdateDeferralInDays property.
     */
     public function setWarnAfterCompanyPortalUpdateDeferralInDays(?int $value): void {
         $this->getBackingStore()->set('warnAfterCompanyPortalUpdateDeferralInDays', $value);
@@ -1009,7 +1009,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
 
     /**
      * Sets the wipeAfterCompanyPortalUpdateDeferralInDays property value. Maximum number of days Company Portal update can be deferred on the device or the company data on the app will be wiped
-     *  @param int|null $value Value to set for the wipeAfterCompanyPortalUpdateDeferralInDays property.
+     * @param int|null $value Value to set for the wipeAfterCompanyPortalUpdateDeferralInDays property.
     */
     public function setWipeAfterCompanyPortalUpdateDeferralInDays(?int $value): void {
         $this->getBackingStore()->set('wipeAfterCompanyPortalUpdateDeferralInDays', $value);

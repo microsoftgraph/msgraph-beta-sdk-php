@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * User Experience Analytics Battery Health Model Performance
+*/
 class UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters 
 {
     /**

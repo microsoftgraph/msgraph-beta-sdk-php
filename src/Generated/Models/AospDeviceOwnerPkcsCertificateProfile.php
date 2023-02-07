@@ -135,7 +135,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
 
     /**
      * Sets the certificateStore property value. CertificateStore types
-     *  @param CertificateStore|null $value Value to set for the certificateStore property.
+     * @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value): void {
         $this->getBackingStore()->set('certificateStore', $value);
@@ -143,7 +143,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
 
     /**
      * Sets the certificateTemplateName property value. PKCS Certificate Template Name
-     *  @param string|null $value Value to set for the certificateTemplateName property.
+     * @param string|null $value Value to set for the certificateTemplateName property.
     */
     public function setCertificateTemplateName(?string $value): void {
         $this->getBackingStore()->set('certificateTemplateName', $value);
@@ -151,7 +151,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
 
     /**
      * Sets the certificationAuthority property value. PKCS Certification Authority
-     *  @param string|null $value Value to set for the certificationAuthority property.
+     * @param string|null $value Value to set for the certificationAuthority property.
     */
     public function setCertificationAuthority(?string $value): void {
         $this->getBackingStore()->set('certificationAuthority', $value);
@@ -159,7 +159,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
 
     /**
      * Sets the certificationAuthorityName property value. PKCS Certification Authority Name
-     *  @param string|null $value Value to set for the certificationAuthorityName property.
+     * @param string|null $value Value to set for the certificationAuthorityName property.
     */
     public function setCertificationAuthorityName(?string $value): void {
         $this->getBackingStore()->set('certificationAuthorityName', $value);
@@ -167,7 +167,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
 
     /**
      * Sets the certificationAuthorityType property value. Device Management Certification Authority Types.
-     *  @param DeviceManagementCertificationAuthority|null $value Value to set for the certificationAuthorityType property.
+     * @param DeviceManagementCertificationAuthority|null $value Value to set for the certificationAuthorityType property.
     */
     public function setCertificationAuthorityType(?DeviceManagementCertificationAuthority $value): void {
         $this->getBackingStore()->set('certificationAuthorityType', $value);
@@ -175,7 +175,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
 
     /**
      * Sets the customSubjectAlternativeNames property value. Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
-     *  @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
+     * @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
     */
     public function setCustomSubjectAlternativeNames(?array $value): void {
         $this->getBackingStore()->set('customSubjectAlternativeNames', $value);
@@ -183,7 +183,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-     *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
+     * @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
     public function setManagedDeviceCertificateStates(?array $value): void {
         $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
@@ -191,7 +191,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
 
     /**
      * Sets the subjectAlternativeNameFormatString property value. Custom String that defines the AAD Attribute.
-     *  @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
+     * @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
     */
     public function setSubjectAlternativeNameFormatString(?string $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameFormatString', $value);
@@ -199,7 +199,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
 
     /**
      * Sets the subjectNameFormatString property value. Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-     *  @param string|null $value Value to set for the subjectNameFormatString property.
+     * @param string|null $value Value to set for the subjectNameFormatString property.
     */
     public function setSubjectNameFormatString(?string $value): void {
         $this->getBackingStore()->set('subjectNameFormatString', $value);

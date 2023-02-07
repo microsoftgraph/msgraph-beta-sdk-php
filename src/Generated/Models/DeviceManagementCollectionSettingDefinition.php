@@ -54,7 +54,7 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
 
     /**
      * Sets the elementDefinitionId property value. The Setting Definition ID that describes what each element of the collection looks like
-     *  @param string|null $value Value to set for the elementDefinitionId property.
+     * @param string|null $value Value to set for the elementDefinitionId property.
     */
     public function setElementDefinitionId(?string $value): void {
         $this->getBackingStore()->set('elementDefinitionId', $value);

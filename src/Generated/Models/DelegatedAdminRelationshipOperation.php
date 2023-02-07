@@ -95,7 +95,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The time in ISO 8601 format and in UTC time when the long-running operation was created. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -103,7 +103,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
 
     /**
      * Sets the data property value. The data (payload) for the operation. Read-only.
-     *  @param string|null $value Value to set for the data property.
+     * @param string|null $value Value to set for the data property.
     */
     public function setData(?string $value): void {
         $this->getBackingStore()->set('data', $value);
@@ -111,7 +111,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The time in ISO 8601 format and in UTC time when the long-running operation was last modified. Read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -119,7 +119,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
 
     /**
      * Sets the operationType property value. The operationType property
-     *  @param DelegatedAdminRelationshipOperationType|null $value Value to set for the operationType property.
+     * @param DelegatedAdminRelationshipOperationType|null $value Value to set for the operationType property.
     */
     public function setOperationType(?DelegatedAdminRelationshipOperationType $value): void {
         $this->getBackingStore()->set('operationType', $value);
@@ -127,7 +127,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param LongRunningOperationStatus|null $value Value to set for the status property.
+     * @param LongRunningOperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?LongRunningOperationStatus $value): void {
         $this->getBackingStore()->set('status', $value);

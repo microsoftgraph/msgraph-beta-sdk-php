@@ -95,7 +95,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
 
     /**
      * Sets the appIdentifier property value. The Identity Name.
-     *  @param string|null $value Value to set for the appIdentifier property.
+     * @param string|null $value Value to set for the appIdentifier property.
     */
     public function setAppIdentifier(?string $value): void {
         $this->getBackingStore()->set('appIdentifier', $value);
@@ -103,7 +103,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
 
     /**
      * Sets the appStoreUrl property value. The Play for Work Store app URL.
-     *  @param string|null $value Value to set for the appStoreUrl property.
+     * @param string|null $value Value to set for the appStoreUrl property.
     */
     public function setAppStoreUrl(?string $value): void {
         $this->getBackingStore()->set('appStoreUrl', $value);
@@ -111,7 +111,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
 
     /**
      * Sets the packageId property value. The package identifier.
-     *  @param string|null $value Value to set for the packageId property.
+     * @param string|null $value Value to set for the packageId property.
     */
     public function setPackageId(?string $value): void {
         $this->getBackingStore()->set('packageId', $value);
@@ -119,7 +119,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
 
     /**
      * Sets the totalLicenseCount property value. The total number of VPP licenses.
-     *  @param int|null $value Value to set for the totalLicenseCount property.
+     * @param int|null $value Value to set for the totalLicenseCount property.
     */
     public function setTotalLicenseCount(?int $value): void {
         $this->getBackingStore()->set('totalLicenseCount', $value);
@@ -127,7 +127,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
 
     /**
      * Sets the usedLicenseCount property value. The number of VPP licenses in use.
-     *  @param int|null $value Value to set for the usedLicenseCount property.
+     * @param int|null $value Value to set for the usedLicenseCount property.
     */
     public function setUsedLicenseCount(?int $value): void {
         $this->getBackingStore()->set('usedLicenseCount', $value);

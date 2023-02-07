@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\InformationProtection\Bitlocker;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get bitlocker from informationProtection
+*/
 class BitlockerRequestBuilderGetQueryParameters 
 {
     /**

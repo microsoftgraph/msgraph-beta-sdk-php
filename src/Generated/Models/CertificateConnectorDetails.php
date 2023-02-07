@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity used to retrieve information about Intune Certificate Connectors.
+*/
 class CertificateConnectorDetails extends Entity implements Parsable 
 {
     /**
@@ -95,7 +98,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
 
     /**
      * Sets the connectorName property value. Connector name (set during enrollment).
-     *  @param string|null $value Value to set for the connectorName property.
+     * @param string|null $value Value to set for the connectorName property.
     */
     public function setConnectorName(?string $value): void {
         $this->getBackingStore()->set('connectorName', $value);
@@ -103,7 +106,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
 
     /**
      * Sets the connectorVersion property value. Version of the connector installed.
-     *  @param string|null $value Value to set for the connectorVersion property.
+     * @param string|null $value Value to set for the connectorVersion property.
     */
     public function setConnectorVersion(?string $value): void {
         $this->getBackingStore()->set('connectorVersion', $value);
@@ -111,7 +114,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
 
     /**
      * Sets the enrollmentDateTime property value. Date/time when this connector was enrolled.
-     *  @param DateTime|null $value Value to set for the enrollmentDateTime property.
+     * @param DateTime|null $value Value to set for the enrollmentDateTime property.
     */
     public function setEnrollmentDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('enrollmentDateTime', $value);
@@ -119,7 +122,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
 
     /**
      * Sets the lastCheckinDateTime property value. Date/time when this connector last connected to the service.
-     *  @param DateTime|null $value Value to set for the lastCheckinDateTime property.
+     * @param DateTime|null $value Value to set for the lastCheckinDateTime property.
     */
     public function setLastCheckinDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastCheckinDateTime', $value);
@@ -127,7 +130,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
 
     /**
      * Sets the machineName property value. Name of the machine hosting this connector service.
-     *  @param string|null $value Value to set for the machineName property.
+     * @param string|null $value Value to set for the machineName property.
     */
     public function setMachineName(?string $value): void {
         $this->getBackingStore()->set('machineName', $value);

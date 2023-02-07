@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of Ndes connectors for this account.
+*/
 class NdesConnectorItemRequestBuilderGetQueryParameters 
 {
     /**

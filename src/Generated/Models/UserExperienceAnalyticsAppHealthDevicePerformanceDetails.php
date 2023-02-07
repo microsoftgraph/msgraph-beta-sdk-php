@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device performance entity contains device performance details.
+*/
 class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity implements Parsable 
 {
     /**
@@ -115,7 +118,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
 
     /**
      * Sets the appDisplayName property value. The friendly name of the application for which the event occurred.
-     *  @param string|null $value Value to set for the appDisplayName property.
+     * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
         $this->getBackingStore()->set('appDisplayName', $value);
@@ -123,7 +126,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
 
     /**
      * Sets the appPublisher property value. The publisher of the application.
-     *  @param string|null $value Value to set for the appPublisher property.
+     * @param string|null $value Value to set for the appPublisher property.
     */
     public function setAppPublisher(?string $value): void {
         $this->getBackingStore()->set('appPublisher', $value);
@@ -131,7 +134,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
 
     /**
      * Sets the appVersion property value. The version of the application.
-     *  @param string|null $value Value to set for the appVersion property.
+     * @param string|null $value Value to set for the appVersion property.
     */
     public function setAppVersion(?string $value): void {
         $this->getBackingStore()->set('appVersion', $value);
@@ -139,7 +142,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
 
     /**
      * Sets the deviceDisplayName property value. The name of the device.
-     *  @param string|null $value Value to set for the deviceDisplayName property.
+     * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
         $this->getBackingStore()->set('deviceDisplayName', $value);
@@ -147,7 +150,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
 
     /**
      * Sets the deviceId property value. The id of the device.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -155,7 +158,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
 
     /**
      * Sets the eventDateTime property value. The time the event occurred.
-     *  @param DateTime|null $value Value to set for the eventDateTime property.
+     * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('eventDateTime', $value);
@@ -163,7 +166,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
 
     /**
      * Sets the eventType property value. The type of the event.
-     *  @param string|null $value Value to set for the eventType property.
+     * @param string|null $value Value to set for the eventType property.
     */
     public function setEventType(?string $value): void {
         $this->getBackingStore()->set('eventType', $value);

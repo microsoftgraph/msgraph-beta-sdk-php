@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignment
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of role assignment requests for the resource.
+*/
 class RoleAssignmentRequestsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Functions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from functions by key
+*/
 class AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters 
 {
     /**

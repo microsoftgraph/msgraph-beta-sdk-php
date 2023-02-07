@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * TenantAttach RBAC Enablement
+*/
 class TenantAttachRBACRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\ImpactedResources;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get impactedResources from directory
+*/
 class ImpactedResourcesRequestBuilderGetQueryParameters 
 {
     /**

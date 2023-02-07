@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The async operations that ran or are running on this team.
+*/
 class OperationsRequestBuilderGetQueryParameters 
 {
     /**

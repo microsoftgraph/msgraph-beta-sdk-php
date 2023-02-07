@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property appManagementPolicies for applications
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

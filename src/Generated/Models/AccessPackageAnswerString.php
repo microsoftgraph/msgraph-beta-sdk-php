@@ -55,7 +55,7 @@ class AccessPackageAnswerString extends AccessPackageAnswer implements Parsable
 
     /**
      * Sets the value property value. The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute.
-     *  @param string|null $value Value to set for the value property.
+     * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);

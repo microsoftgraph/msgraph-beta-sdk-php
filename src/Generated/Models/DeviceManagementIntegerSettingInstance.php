@@ -55,7 +55,7 @@ class DeviceManagementIntegerSettingInstance extends DeviceManagementSettingInst
 
     /**
      * Sets the value property value. The integer value
-     *  @param int|null $value Value to set for the value property.
+     * @param int|null $value Value to set for the value property.
     */
     public function setValue(?int $value): void {
         $this->getBackingStore()->set('value', $value);

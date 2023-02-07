@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The access packages that are incompatible with this package. Read-only.
+*/
 class AccessPackageItemRequestBuilderGetQueryParameters 
 {
     /**

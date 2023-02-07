@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Vendors\Item\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get picture from financials
+*/
 class PictureRequestBuilderGetQueryParameters 
 {
     /**

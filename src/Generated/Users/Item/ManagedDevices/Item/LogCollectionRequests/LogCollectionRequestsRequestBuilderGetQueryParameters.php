@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\LogColle
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of log collection requests
+*/
 class LogCollectionRequestsRequestBuilderGetQueryParameters 
 {
     /**

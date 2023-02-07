@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Events\Item\ExceptionOccurrences\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get exceptionOccurrences from me
+*/
 class EventItemRequestBuilderGetQueryParameters 
 {
     /**

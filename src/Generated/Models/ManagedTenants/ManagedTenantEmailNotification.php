@@ -126,7 +126,7 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
 
     /**
      * Sets the alert property value. The alert property
-     *  @param ManagedTenantAlert|null $value Value to set for the alert property.
+     * @param ManagedTenantAlert|null $value Value to set for the alert property.
     */
     public function setAlert(?ManagedTenantAlert $value): void {
         $this->getBackingStore()->set('alert', $value);
@@ -134,7 +134,7 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
-     *  @param string|null $value Value to set for the createdByUserId property.
+     * @param string|null $value Value to set for the createdByUserId property.
     */
     public function setCreatedByUserId(?string $value): void {
         $this->getBackingStore()->set('createdByUserId', $value);
@@ -142,7 +142,7 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -150,7 +150,7 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
 
     /**
      * Sets the emailAddresses property value. The emailAddresses property
-     *  @param array<Email>|null $value Value to set for the emailAddresses property.
+     * @param array<Email>|null $value Value to set for the emailAddresses property.
     */
     public function setEmailAddresses(?array $value): void {
         $this->getBackingStore()->set('emailAddresses', $value);
@@ -158,7 +158,7 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
 
     /**
      * Sets the emailBody property value. The emailBody property
-     *  @param string|null $value Value to set for the emailBody property.
+     * @param string|null $value Value to set for the emailBody property.
     */
     public function setEmailBody(?string $value): void {
         $this->getBackingStore()->set('emailBody', $value);
@@ -166,7 +166,7 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
-     *  @param string|null $value Value to set for the lastActionByUserId property.
+     * @param string|null $value Value to set for the lastActionByUserId property.
     */
     public function setLastActionByUserId(?string $value): void {
         $this->getBackingStore()->set('lastActionByUserId', $value);
@@ -174,7 +174,7 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -182,7 +182,7 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
 
     /**
      * Sets the subject property value. The subject property
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);

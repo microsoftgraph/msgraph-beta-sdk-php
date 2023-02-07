@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The RbacApplication for Device Management
+*/
 class DeviceManagementRequestBuilderGetQueryParameters 
 {
     /**

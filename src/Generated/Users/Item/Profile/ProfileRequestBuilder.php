@@ -48,11 +48,13 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Websites\WebsitesRequestBu
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the profile property of the microsoft.graph.user entity.
+*/
 class ProfileRequestBuilder 
 {
     /**
@@ -211,7 +213,7 @@ class ProfileRequestBuilder
     public function accountById(string $id): UserAccountInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userAccountInformation%2Did'] = $id;
-        return new UserAccountInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserAccountInformationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -222,7 +224,7 @@ class ProfileRequestBuilder
     public function addressesById(string $id): ItemAddressItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemAddress%2Did'] = $id;
-        return new ItemAddressItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ItemAddressItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -233,7 +235,7 @@ class ProfileRequestBuilder
     public function anniversariesById(string $id): PersonAnnualEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personAnnualEvent%2Did'] = $id;
-        return new PersonAnnualEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PersonAnnualEventItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -244,7 +246,7 @@ class ProfileRequestBuilder
     public function awardsById(string $id): PersonAwardItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personAward%2Did'] = $id;
-        return new PersonAwardItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PersonAwardItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -255,34 +257,38 @@ class ProfileRequestBuilder
     public function certificationsById(string $id): PersonCertificationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personCertification%2Did'] = $id;
-        return new PersonCertificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PersonCertificationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new ProfileRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/users/{user%2Did}/profile{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Deletes a profile object from a user's account.
      * @param ProfileRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?ProfileRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ProfileRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -296,7 +302,7 @@ class ProfileRequestBuilder
     public function educationalActivitiesById(string $id): EducationalActivityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['educationalActivity%2Did'] = $id;
-        return new EducationalActivityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new EducationalActivityItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -307,23 +313,23 @@ class ProfileRequestBuilder
     public function emailsById(string $id): ItemEmailItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemEmail%2Did'] = $id;
-        return new ItemEmailItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ItemEmailItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Retrieve the properties and relationships of a profile object for a given user. The **profile** resource exposes various rich properties that are descriptive of the user as relationships, for example, anniversaries and education activities. To get one of these navigation properties, use the corresponding GET method on that property. See the methods exposed by **profile**.
      * @param ProfileRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/profile-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ProfileRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ProfileRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Profile::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Profile::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -337,7 +343,7 @@ class ProfileRequestBuilder
     public function interestsById(string $id): PersonInterestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personInterest%2Did'] = $id;
-        return new PersonInterestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PersonInterestItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -348,7 +354,7 @@ class ProfileRequestBuilder
     public function languagesById(string $id): LanguageProficiencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['languageProficiency%2Did'] = $id;
-        return new LanguageProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new LanguageProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -359,7 +365,7 @@ class ProfileRequestBuilder
     public function namesById(string $id): PersonNameItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personName%2Did'] = $id;
-        return new PersonNameItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PersonNameItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -370,24 +376,23 @@ class ProfileRequestBuilder
     public function notesById(string $id): PersonAnnotationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personAnnotation%2Did'] = $id;
-        return new PersonAnnotationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PersonAnnotationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Update the navigation property profile in users
      * @param Profile $body The request body
      * @param ProfileRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Profile $body, ?ProfileRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Profile $body, ?ProfileRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Profile::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Profile::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -401,7 +406,7 @@ class ProfileRequestBuilder
     public function patentsById(string $id): ItemPatentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemPatent%2Did'] = $id;
-        return new ItemPatentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ItemPatentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -412,7 +417,7 @@ class ProfileRequestBuilder
     public function phonesById(string $id): ItemPhoneItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemPhone%2Did'] = $id;
-        return new ItemPhoneItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ItemPhoneItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -423,7 +428,7 @@ class ProfileRequestBuilder
     public function positionsById(string $id): WorkPositionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['workPosition%2Did'] = $id;
-        return new WorkPositionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WorkPositionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -434,7 +439,7 @@ class ProfileRequestBuilder
     public function projectsById(string $id): ProjectParticipationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['projectParticipation%2Did'] = $id;
-        return new ProjectParticipationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ProjectParticipationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -445,7 +450,7 @@ class ProfileRequestBuilder
     public function publicationsById(string $id): ItemPublicationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['itemPublication%2Did'] = $id;
-        return new ItemPublicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ItemPublicationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -456,7 +461,7 @@ class ProfileRequestBuilder
     public function skillsById(string $id): SkillProficiencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['skillProficiency%2Did'] = $id;
-        return new SkillProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SkillProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -471,7 +476,7 @@ class ProfileRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -490,10 +495,10 @@ class ProfileRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -516,10 +521,10 @@ class ProfileRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -537,7 +542,7 @@ class ProfileRequestBuilder
     public function webAccountsById(string $id): WebAccountItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['webAccount%2Did'] = $id;
-        return new WebAccountItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WebAccountItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -548,7 +553,7 @@ class ProfileRequestBuilder
     public function websitesById(string $id): PersonWebsiteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['personWebsite%2Did'] = $id;
-        return new PersonWebsiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PersonWebsiteItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
 }

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Outlook\TaskGroups\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get taskGroups from me
+*/
 class OutlookTaskGroupItemRequestBuilderGetQueryParameters 
 {
     /**

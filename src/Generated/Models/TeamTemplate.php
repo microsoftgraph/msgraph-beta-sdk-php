@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TeamTemplate and sets the default values.
+     * Instantiates a new teamTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -54,7 +54,7 @@ class TeamTemplate extends Entity implements Parsable
 
     /**
      * Sets the definitions property value. The definitions property
-     *  @param array<TeamTemplateDefinition>|null $value Value to set for the definitions property.
+     * @param array<TeamTemplateDefinition>|null $value Value to set for the definitions property.
     */
     public function setDefinitions(?array $value): void {
         $this->getBackingStore()->set('definitions', $value);

@@ -107,7 +107,7 @@ class ActivityStatistics extends Entity implements Parsable
 
     /**
      * Sets the activity property value. The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.
-     *  @param AnalyticsActivityType|null $value Value to set for the activity property.
+     * @param AnalyticsActivityType|null $value Value to set for the activity property.
     */
     public function setActivity(?AnalyticsActivityType $value): void {
         $this->getBackingStore()->set('activity', $value);
@@ -115,7 +115,7 @@ class ActivityStatistics extends Entity implements Parsable
 
     /**
      * Sets the duration property value. Total hours spent on the activity. The value is represented in ISO 8601 format for durations.
-     *  @param DateInterval|null $value Value to set for the duration property.
+     * @param DateInterval|null $value Value to set for the duration property.
     */
     public function setDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('duration', $value);
@@ -123,7 +123,7 @@ class ActivityStatistics extends Entity implements Parsable
 
     /**
      * Sets the endDate property value. Date when the activity ended, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-03' that follows the YYYY-MM-DD format.
-     *  @param Date|null $value Value to set for the endDate property.
+     * @param Date|null $value Value to set for the endDate property.
     */
     public function setEndDate(?Date $value): void {
         $this->getBackingStore()->set('endDate', $value);
@@ -131,7 +131,7 @@ class ActivityStatistics extends Entity implements Parsable
 
     /**
      * Sets the startDate property value. Date when the activity started, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-04' that follows the YYYY-MM-DD format.
-     *  @param Date|null $value Value to set for the startDate property.
+     * @param Date|null $value Value to set for the startDate property.
     */
     public function setStartDate(?Date $value): void {
         $this->getBackingStore()->set('startDate', $value);
@@ -139,7 +139,7 @@ class ActivityStatistics extends Entity implements Parsable
 
     /**
      * Sets the timeZoneUsed property value. The time zone that the user sets in Microsoft Outlook is used for the computation. For example, the property value could be 'Pacific Standard Time.'
-     *  @param string|null $value Value to set for the timeZoneUsed property.
+     * @param string|null $value Value to set for the timeZoneUsed property.
     */
     public function setTimeZoneUsed(?string $value): void {
         $this->getBackingStore()->set('timeZoneUsed', $value);

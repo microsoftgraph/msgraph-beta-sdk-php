@@ -65,7 +65,7 @@ class ExternalMeetingRegistrant extends MeetingRegistrantBase implements Parsabl
 
     /**
      * Sets the tenantId property value. The tenant ID of this registrant if in Azure Active Directory.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -73,7 +73,7 @@ class ExternalMeetingRegistrant extends MeetingRegistrantBase implements Parsabl
 
     /**
      * Sets the userId property value. The user ID of this registrant if in Azure Active Directory.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

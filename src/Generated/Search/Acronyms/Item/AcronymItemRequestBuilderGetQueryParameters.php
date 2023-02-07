@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Search\Acronyms\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Administrative answer in Microsoft Search results to define common acronyms in a organization.
+*/
 class AcronymItemRequestBuilderGetQueryParameters 
 {
     /**

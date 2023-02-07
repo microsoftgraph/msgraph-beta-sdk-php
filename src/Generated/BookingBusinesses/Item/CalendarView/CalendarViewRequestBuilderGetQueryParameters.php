@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The set of appointments of this business in a specified date range. Read-only. Nullable.
+*/
 class CalendarViewRequestBuilderGetQueryParameters 
 {
     /**

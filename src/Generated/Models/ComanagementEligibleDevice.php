@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Co-Management eligibility state
+*/
 class ComanagementEligibleDevice extends Entity implements Parsable 
 {
     /**
@@ -234,7 +237,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the clientRegistrationStatus property value. Device registration status.
-     *  @param DeviceRegistrationState|null $value Value to set for the clientRegistrationStatus property.
+     * @param DeviceRegistrationState|null $value Value to set for the clientRegistrationStatus property.
     */
     public function setClientRegistrationStatus(?DeviceRegistrationState $value): void {
         $this->getBackingStore()->set('clientRegistrationStatus', $value);
@@ -242,7 +245,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. DeviceName
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -250,7 +253,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the deviceType property value. Device type.
-     *  @param DeviceType|null $value Value to set for the deviceType property.
+     * @param DeviceType|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?DeviceType $value): void {
         $this->getBackingStore()->set('deviceType', $value);
@@ -258,7 +261,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the entitySource property value. EntitySource
-     *  @param int|null $value Value to set for the entitySource property.
+     * @param int|null $value Value to set for the entitySource property.
     */
     public function setEntitySource(?int $value): void {
         $this->getBackingStore()->set('entitySource', $value);
@@ -266,7 +269,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the managementAgents property value. Management agent type.
-     *  @param ManagementAgentType|null $value Value to set for the managementAgents property.
+     * @param ManagementAgentType|null $value Value to set for the managementAgents property.
     */
     public function setManagementAgents(?ManagementAgentType $value): void {
         $this->getBackingStore()->set('managementAgents', $value);
@@ -274,7 +277,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the managementState property value. Management state of device in Microsoft Intune.
-     *  @param ManagementState|null $value Value to set for the managementState property.
+     * @param ManagementState|null $value Value to set for the managementState property.
     */
     public function setManagementState(?ManagementState $value): void {
         $this->getBackingStore()->set('managementState', $value);
@@ -282,7 +285,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the manufacturer property value. Manufacturer
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -290,7 +293,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the mdmStatus property value. MDMStatus
-     *  @param string|null $value Value to set for the mdmStatus property.
+     * @param string|null $value Value to set for the mdmStatus property.
     */
     public function setMdmStatus(?string $value): void {
         $this->getBackingStore()->set('mdmStatus', $value);
@@ -298,7 +301,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the model property value. Model
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -306,7 +309,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the osDescription property value. OSDescription
-     *  @param string|null $value Value to set for the osDescription property.
+     * @param string|null $value Value to set for the osDescription property.
     */
     public function setOsDescription(?string $value): void {
         $this->getBackingStore()->set('osDescription', $value);
@@ -314,7 +317,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. OSVersion
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -322,7 +325,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the ownerType property value. Owner type of device.
-     *  @param OwnerType|null $value Value to set for the ownerType property.
+     * @param OwnerType|null $value Value to set for the ownerType property.
     */
     public function setOwnerType(?OwnerType $value): void {
         $this->getBackingStore()->set('ownerType', $value);
@@ -330,7 +333,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the referenceId property value. ReferenceId
-     *  @param string|null $value Value to set for the referenceId property.
+     * @param string|null $value Value to set for the referenceId property.
     */
     public function setReferenceId(?string $value): void {
         $this->getBackingStore()->set('referenceId', $value);
@@ -338,7 +341,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the serialNumber property value. SerialNumber
-     *  @param string|null $value Value to set for the serialNumber property.
+     * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
         $this->getBackingStore()->set('serialNumber', $value);
@@ -346,7 +349,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param ComanagementEligibleType|null $value Value to set for the status property.
+     * @param ComanagementEligibleType|null $value Value to set for the status property.
     */
     public function setStatus(?ComanagementEligibleType $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -354,7 +357,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the upn property value. UPN
-     *  @param string|null $value Value to set for the upn property.
+     * @param string|null $value Value to set for the upn property.
     */
     public function setUpn(?string $value): void {
         $this->getBackingStore()->set('upn', $value);
@@ -362,7 +365,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the userEmail property value. UserEmail
-     *  @param string|null $value Value to set for the userEmail property.
+     * @param string|null $value Value to set for the userEmail property.
     */
     public function setUserEmail(?string $value): void {
         $this->getBackingStore()->set('userEmail', $value);
@@ -370,7 +373,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the userId property value. UserId
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -378,7 +381,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
 
     /**
      * Sets the userName property value. UserName
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);

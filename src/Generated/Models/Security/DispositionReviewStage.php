@@ -75,7 +75,7 @@ class DispositionReviewStage extends Entity implements Parsable
 
     /**
      * Sets the name property value. Name representing each stage within a collection.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -83,7 +83,7 @@ class DispositionReviewStage extends Entity implements Parsable
 
     /**
      * Sets the reviewersEmailAddresses property value. A collection of reviewers at each stage.
-     *  @param array<string>|null $value Value to set for the reviewersEmailAddresses property.
+     * @param array<string>|null $value Value to set for the reviewersEmailAddresses property.
     */
     public function setReviewersEmailAddresses(?array $value): void {
         $this->getBackingStore()->set('reviewersEmailAddresses', $value);
@@ -91,7 +91,7 @@ class DispositionReviewStage extends Entity implements Parsable
 
     /**
      * Sets the stageNumber property value. The sequence number for each stage of the disposition review.
-     *  @param int|null $value Value to set for the stageNumber property.
+     * @param int|null $value Value to set for the stageNumber property.
     */
     public function setStageNumber(?int $value): void {
         $this->getBackingStore()->set('stageNumber', $value);

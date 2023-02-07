@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Role Scope Tags.
+*/
 class RoleScopeTagsRequestBuilderGetQueryParameters 
 {
     /**

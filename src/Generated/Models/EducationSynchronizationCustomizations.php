@@ -105,7 +105,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
 
     /**
      * Sets the school property value. Customizations for School entities.
-     *  @param EducationSynchronizationCustomization|null $value Value to set for the school property.
+     * @param EducationSynchronizationCustomization|null $value Value to set for the school property.
     */
     public function setSchool(?EducationSynchronizationCustomization $value): void {
         $this->getBackingStore()->set('school', $value);
@@ -113,7 +113,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
 
     /**
      * Sets the section property value. Customizations for Section entities.
-     *  @param EducationSynchronizationCustomization|null $value Value to set for the section property.
+     * @param EducationSynchronizationCustomization|null $value Value to set for the section property.
     */
     public function setSection(?EducationSynchronizationCustomization $value): void {
         $this->getBackingStore()->set('section', $value);
@@ -121,7 +121,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
 
     /**
      * Sets the student property value. Customizations for Student entities.
-     *  @param EducationSynchronizationCustomization|null $value Value to set for the student property.
+     * @param EducationSynchronizationCustomization|null $value Value to set for the student property.
     */
     public function setStudent(?EducationSynchronizationCustomization $value): void {
         $this->getBackingStore()->set('student', $value);
@@ -129,7 +129,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
 
     /**
      * Sets the studentEnrollment property value. Customizations for Student Enrollments.
-     *  @param EducationSynchronizationCustomization|null $value Value to set for the studentEnrollment property.
+     * @param EducationSynchronizationCustomization|null $value Value to set for the studentEnrollment property.
     */
     public function setStudentEnrollment(?EducationSynchronizationCustomization $value): void {
         $this->getBackingStore()->set('studentEnrollment', $value);
@@ -137,7 +137,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
 
     /**
      * Sets the teacher property value. Customizations for Teacher entities.
-     *  @param EducationSynchronizationCustomization|null $value Value to set for the teacher property.
+     * @param EducationSynchronizationCustomization|null $value Value to set for the teacher property.
     */
     public function setTeacher(?EducationSynchronizationCustomization $value): void {
         $this->getBackingStore()->set('teacher', $value);
@@ -145,7 +145,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
 
     /**
      * Sets the teacherRoster property value. Customizations for Teacher Rosters.
-     *  @param EducationSynchronizationCustomization|null $value Value to set for the teacherRoster property.
+     * @param EducationSynchronizationCustomization|null $value Value to set for the teacherRoster property.
     */
     public function setTeacherRoster(?EducationSynchronizationCustomization $value): void {
         $this->getBackingStore()->set('teacherRoster', $value);

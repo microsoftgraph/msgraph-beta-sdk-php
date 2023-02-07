@@ -144,7 +144,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the failedDeviceCount property value. Number of Devices that have failed to install this app.
-     *  @param int|null $value Value to set for the failedDeviceCount property.
+     * @param int|null $value Value to set for the failedDeviceCount property.
     */
     public function setFailedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('failedDeviceCount', $value);
@@ -152,7 +152,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the failedUserCount property value. Number of Users that have 1 or more device that failed to install this app.
-     *  @param int|null $value Value to set for the failedUserCount property.
+     * @param int|null $value Value to set for the failedUserCount property.
     */
     public function setFailedUserCount(?int $value): void {
         $this->getBackingStore()->set('failedUserCount', $value);
@@ -160,7 +160,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the installedDeviceCount property value. Number of Devices that have successfully installed this app.
-     *  @param int|null $value Value to set for the installedDeviceCount property.
+     * @param int|null $value Value to set for the installedDeviceCount property.
     */
     public function setInstalledDeviceCount(?int $value): void {
         $this->getBackingStore()->set('installedDeviceCount', $value);
@@ -168,7 +168,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the installedUserCount property value. Number of Users whose devices have all succeeded to install this app.
-     *  @param int|null $value Value to set for the installedUserCount property.
+     * @param int|null $value Value to set for the installedUserCount property.
     */
     public function setInstalledUserCount(?int $value): void {
         $this->getBackingStore()->set('installedUserCount', $value);
@@ -176,7 +176,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the notApplicableDeviceCount property value. Number of Devices that are not applicable for this app.
-     *  @param int|null $value Value to set for the notApplicableDeviceCount property.
+     * @param int|null $value Value to set for the notApplicableDeviceCount property.
     */
     public function setNotApplicableDeviceCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableDeviceCount', $value);
@@ -184,7 +184,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the notApplicableUserCount property value. Number of Users whose devices were all not applicable for this app.
-     *  @param int|null $value Value to set for the notApplicableUserCount property.
+     * @param int|null $value Value to set for the notApplicableUserCount property.
     */
     public function setNotApplicableUserCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableUserCount', $value);
@@ -192,7 +192,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the notInstalledDeviceCount property value. Number of Devices that does not have this app installed.
-     *  @param int|null $value Value to set for the notInstalledDeviceCount property.
+     * @param int|null $value Value to set for the notInstalledDeviceCount property.
     */
     public function setNotInstalledDeviceCount(?int $value): void {
         $this->getBackingStore()->set('notInstalledDeviceCount', $value);
@@ -200,7 +200,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the notInstalledUserCount property value. Number of Users that have 1 or more devices that did not install this app.
-     *  @param int|null $value Value to set for the notInstalledUserCount property.
+     * @param int|null $value Value to set for the notInstalledUserCount property.
     */
     public function setNotInstalledUserCount(?int $value): void {
         $this->getBackingStore()->set('notInstalledUserCount', $value);
@@ -208,7 +208,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the pendingInstallDeviceCount property value. Number of Devices that have been notified to install this app.
-     *  @param int|null $value Value to set for the pendingInstallDeviceCount property.
+     * @param int|null $value Value to set for the pendingInstallDeviceCount property.
     */
     public function setPendingInstallDeviceCount(?int $value): void {
         $this->getBackingStore()->set('pendingInstallDeviceCount', $value);
@@ -216,7 +216,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
 
     /**
      * Sets the pendingInstallUserCount property value. Number of Users that have 1 or more device that have been notified to install this app and have 0 devices with failures.
-     *  @param int|null $value Value to set for the pendingInstallUserCount property.
+     * @param int|null $value Value to set for the pendingInstallUserCount property.
     */
     public function setPendingInstallUserCount(?int $value): void {
         $this->getBackingStore()->set('pendingInstallUserCount', $value);

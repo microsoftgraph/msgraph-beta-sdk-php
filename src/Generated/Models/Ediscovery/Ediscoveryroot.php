@@ -55,7 +55,7 @@ class Ediscoveryroot extends Entity implements Parsable
 
     /**
      * Sets the cases property value. The cases property
-     *  @param array<EscapedCase>|null $value Value to set for the cases property.
+     * @param array<EscapedCase>|null $value Value to set for the cases property.
     */
     public function setCases(?array $value): void {
         $this->getBackingStore()->set('cases', $value);

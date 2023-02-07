@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
+/**
+ * Entity that represents a Microsoft Tunnel site
+*/
 class MicrosoftTunnelSite extends Entity implements Parsable 
 {
     /**
@@ -42,14 +45,6 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the enableCertificatePinning property value. When set to true, certificate pinning will be enforced on connections between the Microsoft Tunnel server and Microsoft Tunnel clients. When set to false, certificate pinning will be disabled.
-     * @return bool|null
-    */
-    public function getEnableCertificatePinning(): ?bool {
-        return $this->getBackingStore()->get('enableCertificatePinning');
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -58,7 +53,6 @@ class MicrosoftTunnelSite extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'enableCertificatePinning' => fn(ParseNode $n) => $o->setEnableCertificatePinning($n->getBooleanValue()),
             'internalNetworkProbeUrl' => fn(ParseNode $n) => $o->setInternalNetworkProbeUrl($n->getStringValue()),
             'microsoftTunnelConfiguration' => fn(ParseNode $n) => $o->setMicrosoftTunnelConfiguration($n->getObjectValue([MicrosoftTunnelConfiguration::class, 'createFromDiscriminatorValue'])),
             'microsoftTunnelServers' => fn(ParseNode $n) => $o->setMicrosoftTunnelServers($n->getCollectionOfObjectValues([MicrosoftTunnelServer::class, 'createFromDiscriminatorValue'])),
@@ -160,7 +154,6 @@ class MicrosoftTunnelSite extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeBooleanValue('enableCertificatePinning', $this->getEnableCertificatePinning());
         $writer->writeStringValue('internalNetworkProbeUrl', $this->getInternalNetworkProbeUrl());
         $writer->writeObjectValue('microsoftTunnelConfiguration', $this->getMicrosoftTunnelConfiguration());
         $writer->writeCollectionOfObjectValues('microsoftTunnelServers', $this->getMicrosoftTunnelServers());
@@ -175,7 +168,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the description property value. The site's description (optional)
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -183,23 +176,15 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the site. This property is required when a site is created.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the enableCertificatePinning property value. When set to true, certificate pinning will be enforced on connections between the Microsoft Tunnel server and Microsoft Tunnel clients. When set to false, certificate pinning will be disabled.
-     *  @param bool|null $value Value to set for the enableCertificatePinning property.
-    */
-    public function setEnableCertificatePinning(?bool $value): void {
-        $this->getBackingStore()->set('enableCertificatePinning', $value);
-    }
-
-    /**
      * Sets the internalNetworkProbeUrl property value. The site's Internal Network Access Probe URL
-     *  @param string|null $value Value to set for the internalNetworkProbeUrl property.
+     * @param string|null $value Value to set for the internalNetworkProbeUrl property.
     */
     public function setInternalNetworkProbeUrl(?string $value): void {
         $this->getBackingStore()->set('internalNetworkProbeUrl', $value);
@@ -207,7 +192,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the microsoftTunnelConfiguration property value. The MicrosoftTunnelConfiguration that has been applied to this MicrosoftTunnelSite
-     *  @param MicrosoftTunnelConfiguration|null $value Value to set for the microsoftTunnelConfiguration property.
+     * @param MicrosoftTunnelConfiguration|null $value Value to set for the microsoftTunnelConfiguration property.
     */
     public function setMicrosoftTunnelConfiguration(?MicrosoftTunnelConfiguration $value): void {
         $this->getBackingStore()->set('microsoftTunnelConfiguration', $value);
@@ -215,7 +200,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the microsoftTunnelServers property value. A list of MicrosoftTunnelServers that are registered to this MicrosoftTunnelSite
-     *  @param array<MicrosoftTunnelServer>|null $value Value to set for the microsoftTunnelServers property.
+     * @param array<MicrosoftTunnelServer>|null $value Value to set for the microsoftTunnelServers property.
     */
     public function setMicrosoftTunnelServers(?array $value): void {
         $this->getBackingStore()->set('microsoftTunnelServers', $value);
@@ -223,7 +208,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the publicAddress property value. The site's public domain name or IP address
-     *  @param string|null $value Value to set for the publicAddress property.
+     * @param string|null $value Value to set for the publicAddress property.
     */
     public function setPublicAddress(?string $value): void {
         $this->getBackingStore()->set('publicAddress', $value);
@@ -231,7 +216,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -239,7 +224,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the upgradeAutomatically property value. The site's automatic upgrade setting. True for automatic upgrades, false for manual control
-     *  @param bool|null $value Value to set for the upgradeAutomatically property.
+     * @param bool|null $value Value to set for the upgradeAutomatically property.
     */
     public function setUpgradeAutomatically(?bool $value): void {
         $this->getBackingStore()->set('upgradeAutomatically', $value);
@@ -247,7 +232,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the upgradeAvailable property value. The site provides the state of when an upgrade is available
-     *  @param bool|null $value Value to set for the upgradeAvailable property.
+     * @param bool|null $value Value to set for the upgradeAvailable property.
     */
     public function setUpgradeAvailable(?bool $value): void {
         $this->getBackingStore()->set('upgradeAvailable', $value);
@@ -255,7 +240,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the upgradeWindowEndTime property value. The site's upgrade window end time of day
-     *  @param Time|null $value Value to set for the upgradeWindowEndTime property.
+     * @param Time|null $value Value to set for the upgradeWindowEndTime property.
     */
     public function setUpgradeWindowEndTime(?Time $value): void {
         $this->getBackingStore()->set('upgradeWindowEndTime', $value);
@@ -263,7 +248,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the upgradeWindowStartTime property value. The site's upgrade window start time of day
-     *  @param Time|null $value Value to set for the upgradeWindowStartTime property.
+     * @param Time|null $value Value to set for the upgradeWindowStartTime property.
     */
     public function setUpgradeWindowStartTime(?Time $value): void {
         $this->getBackingStore()->set('upgradeWindowStartTime', $value);
@@ -271,7 +256,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
 
     /**
      * Sets the upgradeWindowUtcOffsetInMinutes property value. The site's timezone represented as a minute offset from UTC
-     *  @param int|null $value Value to set for the upgradeWindowUtcOffsetInMinutes property.
+     * @param int|null $value Value to set for the upgradeWindowUtcOffsetInMinutes property.
     */
     public function setUpgradeWindowUtcOffsetInMinutes(?int $value): void {
         $this->getBackingStore()->set('upgradeWindowUtcOffsetInMinutes', $value);

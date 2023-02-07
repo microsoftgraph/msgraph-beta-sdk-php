@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\InstalledApps\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of all the apps in the chat. Nullable.
+*/
 class TeamsAppInstallationItemRequestBuilderGetQueryParameters 
 {
     /**

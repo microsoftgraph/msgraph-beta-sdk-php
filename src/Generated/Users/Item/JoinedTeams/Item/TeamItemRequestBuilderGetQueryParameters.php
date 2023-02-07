@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\JoinedTeams\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+*/
 class TeamItemRequestBuilderGetQueryParameters 
 {
     /**

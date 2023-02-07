@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The tags associated with the team.
+*/
 class TeamworkTagItemRequestBuilderGetQueryParameters 
 {
     /**

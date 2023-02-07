@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\JoinedGroups;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get joinedGroups from me
+*/
 class JoinedGroupsRequestBuilderGetQueryParameters 
 {
     /**

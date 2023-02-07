@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AllowedDataLocations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from allowedDataLocations by key
+*/
 class AllowedDataLocationItemRequestBuilderGetQueryParameters 
 {
     /**

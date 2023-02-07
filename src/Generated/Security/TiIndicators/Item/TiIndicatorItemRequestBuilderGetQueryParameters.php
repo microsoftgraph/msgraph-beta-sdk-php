@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\TiIndicators\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get tiIndicators from security
+*/
 class TiIndicatorItemRequestBuilderGetQueryParameters 
 {
     /**

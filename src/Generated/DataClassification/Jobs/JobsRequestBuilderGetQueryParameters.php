@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\Jobs;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get jobs from dataClassification
+*/
 class JobsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.
+*/
 class RequestorRequestBuilderGetQueryParameters 
 {
     /**

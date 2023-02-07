@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Memb
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Users and groups that are members of this administrative unit. Supports $expand.
+*/
 class RefRequestBuilderGetQueryParameters 
 {
     /**

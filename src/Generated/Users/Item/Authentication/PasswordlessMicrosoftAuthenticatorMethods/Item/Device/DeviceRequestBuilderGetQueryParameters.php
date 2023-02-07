@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessM
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get device from users
+*/
 class DeviceRequestBuilderGetQueryParameters 
 {
     /**

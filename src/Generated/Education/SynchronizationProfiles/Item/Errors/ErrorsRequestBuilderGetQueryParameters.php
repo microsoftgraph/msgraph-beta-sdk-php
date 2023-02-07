@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\SynchronizationProfiles\Item\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the errors generated during validation and/or during a sync of a specific school data synchronization profile in the tenant.
+*/
 class ErrorsRequestBuilderGetQueryParameters 
 {
     /**

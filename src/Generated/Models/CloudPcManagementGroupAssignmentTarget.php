@@ -65,7 +65,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
 
     /**
      * Sets the groupId property value. The id of the assignment's target group
-     *  @param string|null $value Value to set for the groupId property.
+     * @param string|null $value Value to set for the groupId property.
     */
     public function setGroupId(?string $value): void {
         $this->getBackingStore()->set('groupId', $value);
@@ -73,7 +73,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
 
     /**
      * Sets the servicePlanId property value. The servicePlanId property
-     *  @param string|null $value Value to set for the servicePlanId property.
+     * @param string|null $value Value to set for the servicePlanId property.
     */
     public function setServicePlanId(?string $value): void {
         $this->getBackingStore()->set('servicePlanId', $value);

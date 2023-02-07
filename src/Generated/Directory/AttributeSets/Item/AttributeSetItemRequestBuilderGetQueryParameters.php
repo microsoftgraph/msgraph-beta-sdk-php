@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\AttributeSets\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Group of related custom security attribute definitions.
+*/
 class AttributeSetItemRequestBuilderGetQueryParameters 
 {
     /**

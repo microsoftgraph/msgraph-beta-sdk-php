@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\R
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the role settings for the given role. A privilegedRoleSettings object will be returned.
+*/
 class SettingsRequestBuilderGetQueryParameters 
 {
     /**

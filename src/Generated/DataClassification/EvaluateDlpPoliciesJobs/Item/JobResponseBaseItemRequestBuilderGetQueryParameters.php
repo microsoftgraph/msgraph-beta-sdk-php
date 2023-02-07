@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJ
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get evaluateDlpPoliciesJobs from dataClassification
+*/
 class JobResponseBaseItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Communications\CallRecords\Item\Session
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the list of sessions associated with a callRecord object.
+*/
 class SessionsRequestBuilderGetQueryParameters 
 {
     /**

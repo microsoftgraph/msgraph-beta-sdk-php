@@ -75,7 +75,7 @@ class PersonAnnotation extends ItemFacet implements Parsable
 
     /**
      * Sets the detail property value. Contains the detail of the note itself.
-     *  @param ItemBody|null $value Value to set for the detail property.
+     * @param ItemBody|null $value Value to set for the detail property.
     */
     public function setDetail(?ItemBody $value): void {
         $this->getBackingStore()->set('detail', $value);
@@ -83,7 +83,7 @@ class PersonAnnotation extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Contains a friendly name for the note.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -91,7 +91,7 @@ class PersonAnnotation extends ItemFacet implements Parsable
 
     /**
      * Sets the thumbnailUrl property value. The thumbnailUrl property
-     *  @param string|null $value Value to set for the thumbnailUrl property.
+     * @param string|null $value Value to set for the thumbnailUrl property.
     */
     public function setThumbnailUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailUrl', $value);

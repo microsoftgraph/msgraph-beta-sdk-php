@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Publi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of existing publishedResource objects. Read-only. Nullable.
+*/
 class PublishedResourceItemRequestBuilderGetQueryParameters 
 {
     /**

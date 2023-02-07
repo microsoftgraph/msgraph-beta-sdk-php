@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The roles in each resource in a catalog. Read-only.
+*/
 class AccessPackageResourceRoleItemRequestBuilderGetQueryParameters 
 {
     /**

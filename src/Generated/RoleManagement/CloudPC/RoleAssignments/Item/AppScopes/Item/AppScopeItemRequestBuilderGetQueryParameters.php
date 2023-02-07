@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only collection with details of the app specific scopes when the assignment scopes are app specific. Containment entity. Read-only.
+*/
 class AppScopeItemRequestBuilderGetQueryParameters 
 {
     /**

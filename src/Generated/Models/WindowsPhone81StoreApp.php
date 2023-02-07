@@ -55,7 +55,7 @@ class WindowsPhone81StoreApp extends MobileApp implements Parsable
 
     /**
      * Sets the appStoreUrl property value. The Windows Phone 8.1 app store URL.
-     *  @param string|null $value Value to set for the appStoreUrl property.
+     * @param string|null $value Value to set for the appStoreUrl property.
     */
     public function setAppStoreUrl(?string $value): void {
         $this->getBackingStore()->set('appStoreUrl', $value);

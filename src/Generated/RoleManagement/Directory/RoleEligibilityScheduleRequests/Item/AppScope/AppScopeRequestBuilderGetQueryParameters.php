@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only property with details of the app-specific scope when the role eligibility is scoped to an app. Nullable. Supports $expand.
+*/
 class AppScopeRequestBuilderGetQueryParameters 
 {
     /**

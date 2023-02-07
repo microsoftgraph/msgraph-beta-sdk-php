@@ -75,7 +75,7 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
 
     /**
      * Sets the expiryTime property value. The expiryTime property
-     *  @param DateTime|null $value Value to set for the expiryTime property.
+     * @param DateTime|null $value Value to set for the expiryTime property.
     */
     public function setExpiryTime(?DateTime $value): void {
         $this->getBackingStore()->set('expiryTime', $value);
@@ -83,7 +83,7 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
 
     /**
      * Sets the invitationDomain property value. The invitationDomain property
-     *  @param string|null $value Value to set for the invitationDomain property.
+     * @param string|null $value Value to set for the invitationDomain property.
     */
     public function setInvitationDomain(?string $value): void {
         $this->getBackingStore()->set('invitationDomain', $value);
@@ -91,7 +91,7 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
 
     /**
      * Sets the invitationStatus property value. The invitationStatus property
-     *  @param string|null $value Value to set for the invitationStatus property.
+     * @param string|null $value Value to set for the invitationStatus property.
     */
     public function setInvitationStatus(?string $value): void {
         $this->getBackingStore()->set('invitationStatus', $value);

@@ -56,7 +56,7 @@ class SubmissionUserIdentity extends Identity implements Parsable
 
     /**
      * Sets the email property value. The email of user who is making the submission when logged in (delegated token case).
-     *  @param string|null $value Value to set for the email property.
+     * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);

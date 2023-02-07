@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\Use
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The navigation link to the mobile app.
+*/
 class AppRequestBuilderGetQueryParameters 
 {
     /**

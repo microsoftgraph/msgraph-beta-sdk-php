@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Employees;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get employees from financials
+*/
 class EmployeesRequestBuilderGetQueryParameters 
 {
     /**

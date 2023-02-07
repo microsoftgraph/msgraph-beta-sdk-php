@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Endpoints for the group. Read-only. Nullable.
+*/
 class EndpointItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -75,7 +75,7 @@ class ProtectGroup extends LabelActionBase implements Parsable
 
     /**
      * Sets the allowEmailFromGuestUsers property value. The allowEmailFromGuestUsers property
-     *  @param bool|null $value Value to set for the allowEmailFromGuestUsers property.
+     * @param bool|null $value Value to set for the allowEmailFromGuestUsers property.
     */
     public function setAllowEmailFromGuestUsers(?bool $value): void {
         $this->getBackingStore()->set('allowEmailFromGuestUsers', $value);
@@ -83,7 +83,7 @@ class ProtectGroup extends LabelActionBase implements Parsable
 
     /**
      * Sets the allowGuestUsers property value. The allowGuestUsers property
-     *  @param bool|null $value Value to set for the allowGuestUsers property.
+     * @param bool|null $value Value to set for the allowGuestUsers property.
     */
     public function setAllowGuestUsers(?bool $value): void {
         $this->getBackingStore()->set('allowGuestUsers', $value);
@@ -91,7 +91,7 @@ class ProtectGroup extends LabelActionBase implements Parsable
 
     /**
      * Sets the privacy property value. The privacy property
-     *  @param GroupPrivacy|null $value Value to set for the privacy property.
+     * @param GroupPrivacy|null $value Value to set for the privacy property.
     */
     public function setPrivacy(?GroupPrivacy $value): void {
         $this->getBackingStore()->set('privacy', $value);

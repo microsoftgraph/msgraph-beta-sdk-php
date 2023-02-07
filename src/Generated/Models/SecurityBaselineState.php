@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Security baseline state for a device.
+*/
 class SecurityBaselineState extends Entity implements Parsable 
 {
     /**
@@ -94,7 +97,7 @@ class SecurityBaselineState extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the security baseline
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -102,7 +105,7 @@ class SecurityBaselineState extends Entity implements Parsable
 
     /**
      * Sets the securityBaselineTemplateId property value. The security baseline template id
-     *  @param string|null $value Value to set for the securityBaselineTemplateId property.
+     * @param string|null $value Value to set for the securityBaselineTemplateId property.
     */
     public function setSecurityBaselineTemplateId(?string $value): void {
         $this->getBackingStore()->set('securityBaselineTemplateId', $value);
@@ -110,7 +113,7 @@ class SecurityBaselineState extends Entity implements Parsable
 
     /**
      * Sets the settingStates property value. The security baseline state for different settings for a device
-     *  @param array<SecurityBaselineSettingState>|null $value Value to set for the settingStates property.
+     * @param array<SecurityBaselineSettingState>|null $value Value to set for the settingStates property.
     */
     public function setSettingStates(?array $value): void {
         $this->getBackingStore()->set('settingStates', $value);
@@ -118,7 +121,7 @@ class SecurityBaselineState extends Entity implements Parsable
 
     /**
      * Sets the state property value. Security Baseline Compliance State
-     *  @param SecurityBaselineComplianceState|null $value Value to set for the state property.
+     * @param SecurityBaselineComplianceState|null $value Value to set for the state property.
     */
     public function setState(?SecurityBaselineComplianceState $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -126,7 +129,7 @@ class SecurityBaselineState extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. User Principal Name
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

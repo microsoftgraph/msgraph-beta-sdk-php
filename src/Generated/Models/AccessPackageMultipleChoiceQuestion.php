@@ -65,7 +65,7 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implemen
 
     /**
      * Sets the allowsMultipleSelection property value. Indicates whether requestor can select multiple choices as their answer.
-     *  @param bool|null $value Value to set for the allowsMultipleSelection property.
+     * @param bool|null $value Value to set for the allowsMultipleSelection property.
     */
     public function setAllowsMultipleSelection(?bool $value): void {
         $this->getBackingStore()->set('allowsMultipleSelection', $value);
@@ -73,7 +73,7 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implemen
 
     /**
      * Sets the choices property value. List of answer choices.
-     *  @param array<AccessPackageAnswerChoice>|null $value Value to set for the choices property.
+     * @param array<AccessPackageAnswerChoice>|null $value Value to set for the choices property.
     */
     public function setChoices(?array $value): void {
         $this->getBackingStore()->set('choices', $value);

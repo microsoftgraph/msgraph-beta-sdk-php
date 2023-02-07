@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByPrinter;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of monthly print usage summaries, grouped by printer.
+*/
 class MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters 
 {
     /**

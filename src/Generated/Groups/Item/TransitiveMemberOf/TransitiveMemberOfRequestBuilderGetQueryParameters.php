@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\TransitiveMemberOf;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The groups that a group is a member of, either directly and through nested membership. Nullable.
+*/
 class TransitiveMemberOfRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleAssignment
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. The resource associated with the role assignment.
+*/
 class ResourceRequestBuilderGetQueryParameters 
 {
     /**

@@ -16,7 +16,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPart
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartnerSettings\Item\CloudPcExternalPartnerSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GalleryImages\GalleryImagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GalleryImages\Item\CloudPcGalleryImageItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GetEffectivePermissions\GetEffectivePermissionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\MicrosoftGraphGetEffectivePermissions\MicrosoftGraphGetEffectivePermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\Item\CloudPcOnPremisesConnectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\OnPremisesConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OrganizationSettings\OrganizationSettingsRequestBuilder;
@@ -38,11 +38,13 @@ use Microsoft\Graph\Beta\Generated\Models\VirtualEndpoint;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the virtualEndpoint property of the microsoft.graph.deviceManagement entity.
+*/
 class VirtualEndpointRequestBuilder 
 {
     /**
@@ -85,6 +87,13 @@ class VirtualEndpointRequestBuilder
     */
     public function galleryImages(): GalleryImagesRequestBuilder {
         return new GalleryImagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getEffectivePermissions method.
+    */
+    public function microsoftGraphGetEffectivePermissions(): MicrosoftGraphGetEffectivePermissionsRequestBuilder {
+        return new MicrosoftGraphGetEffectivePermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -173,7 +182,7 @@ class VirtualEndpointRequestBuilder
     public function auditEventsById(string $id): CloudPcAuditEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcAuditEvent%2Did'] = $id;
-        return new CloudPcAuditEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcAuditEventItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -184,34 +193,37 @@ class VirtualEndpointRequestBuilder
     public function cloudPCsById(string $id): CloudPCItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPC%2Did'] = $id;
-        return new CloudPCItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPCItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new VirtualEndpointRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property virtualEndpoint for deviceManagement
      * @param VirtualEndpointRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?VirtualEndpointRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?VirtualEndpointRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -225,7 +237,7 @@ class VirtualEndpointRequestBuilder
     public function deviceImagesById(string $id): CloudPcDeviceImageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcDeviceImage%2Did'] = $id;
-        return new CloudPcDeviceImageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcDeviceImageItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -236,7 +248,7 @@ class VirtualEndpointRequestBuilder
     public function externalPartnerSettingsById(string $id): CloudPcExternalPartnerSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcExternalPartnerSetting%2Did'] = $id;
-        return new CloudPcExternalPartnerSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcExternalPartnerSettingItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -247,34 +259,25 @@ class VirtualEndpointRequestBuilder
     public function galleryImagesById(string $id): CloudPcGalleryImageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcGalleryImage%2Did'] = $id;
-        return new CloudPcGalleryImageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcGalleryImageItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Get virtualEndpoint from deviceManagement
      * @param VirtualEndpointRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?VirtualEndpointRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?VirtualEndpointRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [VirtualEndpoint::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [VirtualEndpoint::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getEffectivePermissions method.
-     * @return GetEffectivePermissionsRequestBuilder
-    */
-    public function getEffectivePermissions(): GetEffectivePermissionsRequestBuilder {
-        return new GetEffectivePermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -285,24 +288,23 @@ class VirtualEndpointRequestBuilder
     public function onPremisesConnectionsById(string $id): CloudPcOnPremisesConnectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcOnPremisesConnection%2Did'] = $id;
-        return new CloudPcOnPremisesConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcOnPremisesConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Update the navigation property virtualEndpoint in deviceManagement
      * @param VirtualEndpoint $body The request body
      * @param VirtualEndpointRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(VirtualEndpoint $body, ?VirtualEndpointRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(VirtualEndpoint $body, ?VirtualEndpointRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [VirtualEndpoint::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [VirtualEndpoint::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -316,7 +318,7 @@ class VirtualEndpointRequestBuilder
     public function provisioningPoliciesById(string $id): CloudPcProvisioningPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcProvisioningPolicy%2Did'] = $id;
-        return new CloudPcProvisioningPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcProvisioningPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -327,7 +329,7 @@ class VirtualEndpointRequestBuilder
     public function servicePlansById(string $id): CloudPcServicePlanItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcServicePlan%2Did'] = $id;
-        return new CloudPcServicePlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcServicePlanItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -338,7 +340,7 @@ class VirtualEndpointRequestBuilder
     public function sharedUseServicePlansById(string $id): CloudPcSharedUseServicePlanItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcSharedUseServicePlan%2Did'] = $id;
-        return new CloudPcSharedUseServicePlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcSharedUseServicePlanItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -349,7 +351,7 @@ class VirtualEndpointRequestBuilder
     public function snapshotsById(string $id): CloudPcSnapshotItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcSnapshot%2Did'] = $id;
-        return new CloudPcSnapshotItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcSnapshotItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -360,7 +362,7 @@ class VirtualEndpointRequestBuilder
     public function supportedRegionsById(string $id): CloudPcSupportedRegionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcSupportedRegion%2Did'] = $id;
-        return new CloudPcSupportedRegionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcSupportedRegionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -375,7 +377,7 @@ class VirtualEndpointRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -394,10 +396,10 @@ class VirtualEndpointRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -420,10 +422,10 @@ class VirtualEndpointRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -441,7 +443,7 @@ class VirtualEndpointRequestBuilder
     public function userSettingsById(string $id): CloudPcUserSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcUserSetting%2Did'] = $id;
-        return new CloudPcUserSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPcUserSettingItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
 }

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Contacts;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the list of organizational contacts for this organization.
+*/
 class ContactsRequestBuilderGetQueryParameters 
 {
     /**

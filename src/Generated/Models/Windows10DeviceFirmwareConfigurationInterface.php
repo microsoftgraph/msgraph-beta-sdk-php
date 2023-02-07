@@ -255,7 +255,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the bluetooth property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the bluetooth property.
+     * @param Enablement|null $value Value to set for the bluetooth property.
     */
     public function setBluetooth(?Enablement $value): void {
         $this->getBackingStore()->set('bluetooth', $value);
@@ -263,7 +263,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the bootFromBuiltInNetworkAdapters property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the bootFromBuiltInNetworkAdapters property.
+     * @param Enablement|null $value Value to set for the bootFromBuiltInNetworkAdapters property.
     */
     public function setBootFromBuiltInNetworkAdapters(?Enablement $value): void {
         $this->getBackingStore()->set('bootFromBuiltInNetworkAdapters', $value);
@@ -271,7 +271,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the bootFromExternalMedia property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the bootFromExternalMedia property.
+     * @param Enablement|null $value Value to set for the bootFromExternalMedia property.
     */
     public function setBootFromExternalMedia(?Enablement $value): void {
         $this->getBackingStore()->set('bootFromExternalMedia', $value);
@@ -279,7 +279,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the cameras property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the cameras property.
+     * @param Enablement|null $value Value to set for the cameras property.
     */
     public function setCameras(?Enablement $value): void {
         $this->getBackingStore()->set('cameras', $value);
@@ -287,7 +287,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the changeUefiSettingsPermission property value. Defines the permission level granted to users to enable them change Uefi settings
-     *  @param ChangeUefiSettingsPermission|null $value Value to set for the changeUefiSettingsPermission property.
+     * @param ChangeUefiSettingsPermission|null $value Value to set for the changeUefiSettingsPermission property.
     */
     public function setChangeUefiSettingsPermission(?ChangeUefiSettingsPermission $value): void {
         $this->getBackingStore()->set('changeUefiSettingsPermission', $value);
@@ -295,7 +295,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the frontCamera property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the frontCamera property.
+     * @param Enablement|null $value Value to set for the frontCamera property.
     */
     public function setFrontCamera(?Enablement $value): void {
         $this->getBackingStore()->set('frontCamera', $value);
@@ -303,7 +303,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the infraredCamera property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the infraredCamera property.
+     * @param Enablement|null $value Value to set for the infraredCamera property.
     */
     public function setInfraredCamera(?Enablement $value): void {
         $this->getBackingStore()->set('infraredCamera', $value);
@@ -311,7 +311,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the microphone property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the microphone property.
+     * @param Enablement|null $value Value to set for the microphone property.
     */
     public function setMicrophone(?Enablement $value): void {
         $this->getBackingStore()->set('microphone', $value);
@@ -319,7 +319,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the microphonesAndSpeakers property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the microphonesAndSpeakers property.
+     * @param Enablement|null $value Value to set for the microphonesAndSpeakers property.
     */
     public function setMicrophonesAndSpeakers(?Enablement $value): void {
         $this->getBackingStore()->set('microphonesAndSpeakers', $value);
@@ -327,7 +327,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the nearFieldCommunication property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the nearFieldCommunication property.
+     * @param Enablement|null $value Value to set for the nearFieldCommunication property.
     */
     public function setNearFieldCommunication(?Enablement $value): void {
         $this->getBackingStore()->set('nearFieldCommunication', $value);
@@ -335,7 +335,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the radios property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the radios property.
+     * @param Enablement|null $value Value to set for the radios property.
     */
     public function setRadios(?Enablement $value): void {
         $this->getBackingStore()->set('radios', $value);
@@ -343,7 +343,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the rearCamera property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the rearCamera property.
+     * @param Enablement|null $value Value to set for the rearCamera property.
     */
     public function setRearCamera(?Enablement $value): void {
         $this->getBackingStore()->set('rearCamera', $value);
@@ -351,7 +351,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the sdCard property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the sdCard property.
+     * @param Enablement|null $value Value to set for the sdCard property.
     */
     public function setSdCard(?Enablement $value): void {
         $this->getBackingStore()->set('sdCard', $value);
@@ -359,7 +359,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the simultaneousMultiThreading property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the simultaneousMultiThreading property.
+     * @param Enablement|null $value Value to set for the simultaneousMultiThreading property.
     */
     public function setSimultaneousMultiThreading(?Enablement $value): void {
         $this->getBackingStore()->set('simultaneousMultiThreading', $value);
@@ -367,7 +367,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the usbTypeAPort property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the usbTypeAPort property.
+     * @param Enablement|null $value Value to set for the usbTypeAPort property.
     */
     public function setUsbTypeAPort(?Enablement $value): void {
         $this->getBackingStore()->set('usbTypeAPort', $value);
@@ -375,7 +375,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the virtualizationOfCpuAndIO property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the virtualizationOfCpuAndIO property.
+     * @param Enablement|null $value Value to set for the virtualizationOfCpuAndIO property.
     */
     public function setVirtualizationOfCpuAndIO(?Enablement $value): void {
         $this->getBackingStore()->set('virtualizationOfCpuAndIO', $value);
@@ -383,7 +383,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the wakeOnLAN property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the wakeOnLAN property.
+     * @param Enablement|null $value Value to set for the wakeOnLAN property.
     */
     public function setWakeOnLAN(?Enablement $value): void {
         $this->getBackingStore()->set('wakeOnLAN', $value);
@@ -391,7 +391,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the wakeOnPower property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the wakeOnPower property.
+     * @param Enablement|null $value Value to set for the wakeOnPower property.
     */
     public function setWakeOnPower(?Enablement $value): void {
         $this->getBackingStore()->set('wakeOnPower', $value);
@@ -399,7 +399,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the wiFi property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the wiFi property.
+     * @param Enablement|null $value Value to set for the wiFi property.
     */
     public function setWiFi(?Enablement $value): void {
         $this->getBackingStore()->set('wiFi', $value);
@@ -407,7 +407,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the windowsPlatformBinaryTable property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the windowsPlatformBinaryTable property.
+     * @param Enablement|null $value Value to set for the windowsPlatformBinaryTable property.
     */
     public function setWindowsPlatformBinaryTable(?Enablement $value): void {
         $this->getBackingStore()->set('windowsPlatformBinaryTable', $value);
@@ -415,7 +415,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
 
     /**
      * Sets the wirelessWideAreaNetwork property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the wirelessWideAreaNetwork property.
+     * @param Enablement|null $value Value to set for the wirelessWideAreaNetwork property.
     */
     public function setWirelessWideAreaNetwork(?Enablement $value): void {
         $this->getBackingStore()->set('wirelessWideAreaNetwork', $value);

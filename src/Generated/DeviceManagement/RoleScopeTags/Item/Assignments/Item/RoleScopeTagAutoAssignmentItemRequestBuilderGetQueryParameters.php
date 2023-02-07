@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\Ass
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of assignments for this Role Scope Tag.
+*/
 class RoleScopeTagAutoAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**

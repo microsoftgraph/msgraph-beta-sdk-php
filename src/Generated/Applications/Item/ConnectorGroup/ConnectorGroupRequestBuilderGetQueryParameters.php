@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\ConnectorGroup;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The connectorGroup the application is using with Azure AD Application Proxy. Nullable.
+*/
 class ConnectorGroupRequestBuilderGetQueryParameters 
 {
     /**

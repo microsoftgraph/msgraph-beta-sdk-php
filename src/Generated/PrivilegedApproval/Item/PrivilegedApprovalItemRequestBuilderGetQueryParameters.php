@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties and relationships of privilegedapproval object.
+*/
 class PrivilegedApprovalItemRequestBuilderGetQueryParameters 
 {
     /**

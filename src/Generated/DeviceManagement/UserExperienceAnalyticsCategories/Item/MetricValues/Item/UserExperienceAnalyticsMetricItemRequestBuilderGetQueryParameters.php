@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The metric values for the user experience analytics category.
+*/
 class UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParameters 
 {
     /**

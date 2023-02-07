@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics Device for work from anywhere report
+*/
 class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Parsable 
 {
     /**
@@ -384,7 +387,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the autoPilotProfileAssigned property value. The user experience analytics work from anywhere intune device's autopilotProfileAssigned.
-     *  @param bool|null $value Value to set for the autoPilotProfileAssigned property.
+     * @param bool|null $value Value to set for the autoPilotProfileAssigned property.
     */
     public function setAutoPilotProfileAssigned(?bool $value): void {
         $this->getBackingStore()->set('autoPilotProfileAssigned', $value);
@@ -392,7 +395,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the autoPilotRegistered property value. The user experience work from anywhere intune device's autopilotRegistered.
-     *  @param bool|null $value Value to set for the autoPilotRegistered property.
+     * @param bool|null $value Value to set for the autoPilotRegistered property.
     */
     public function setAutoPilotRegistered(?bool $value): void {
         $this->getBackingStore()->set('autoPilotRegistered', $value);
@@ -400,7 +403,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the azureAdDeviceId property value. The user experience work from anywhere azure Ad device Id.
-     *  @param string|null $value Value to set for the azureAdDeviceId property.
+     * @param string|null $value Value to set for the azureAdDeviceId property.
     */
     public function setAzureAdDeviceId(?string $value): void {
         $this->getBackingStore()->set('azureAdDeviceId', $value);
@@ -408,7 +411,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the azureAdJoinType property value. The user experience work from anywhere device's azure Ad joinType.
-     *  @param string|null $value Value to set for the azureAdJoinType property.
+     * @param string|null $value Value to set for the azureAdJoinType property.
     */
     public function setAzureAdJoinType(?string $value): void {
         $this->getBackingStore()->set('azureAdJoinType', $value);
@@ -416,7 +419,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the azureAdRegistered property value. The user experience work from anywhere device's azureAdRegistered.
-     *  @param bool|null $value Value to set for the azureAdRegistered property.
+     * @param bool|null $value Value to set for the azureAdRegistered property.
     */
     public function setAzureAdRegistered(?bool $value): void {
         $this->getBackingStore()->set('azureAdRegistered', $value);
@@ -424,7 +427,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the cloudIdentityScore property value. The user experience work from anywhere per device cloud identity score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the cloudIdentityScore property.
+     * @param float|null $value Value to set for the cloudIdentityScore property.
     */
     public function setCloudIdentityScore(?float $value): void {
         $this->getBackingStore()->set('cloudIdentityScore', $value);
@@ -432,7 +435,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the cloudManagementScore property value. The user experience work from anywhere per device cloud management score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the cloudManagementScore property.
+     * @param float|null $value Value to set for the cloudManagementScore property.
     */
     public function setCloudManagementScore(?float $value): void {
         $this->getBackingStore()->set('cloudManagementScore', $value);
@@ -440,7 +443,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the cloudProvisioningScore property value. The user experience work from anywhere per device cloud provisioning score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the cloudProvisioningScore property.
+     * @param float|null $value Value to set for the cloudProvisioningScore property.
     */
     public function setCloudProvisioningScore(?float $value): void {
         $this->getBackingStore()->set('cloudProvisioningScore', $value);
@@ -448,7 +451,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the compliancePolicySetToIntune property value. The user experience work from anywhere device's compliancePolicySetToIntune.
-     *  @param bool|null $value Value to set for the compliancePolicySetToIntune property.
+     * @param bool|null $value Value to set for the compliancePolicySetToIntune property.
     */
     public function setCompliancePolicySetToIntune(?bool $value): void {
         $this->getBackingStore()->set('compliancePolicySetToIntune', $value);
@@ -456,7 +459,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the deviceId property value. The user experience work from anywhere device Id.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -464,7 +467,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the deviceName property value. The work from anywhere device's name.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -472,7 +475,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the healthStatus property value. The healthStatus property
-     *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
+     * @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
         $this->getBackingStore()->set('healthStatus', $value);
@@ -480,7 +483,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the isCloudManagedGatewayEnabled property value. The user experience work from anywhere device's Cloud Management Gateway for Configuration Manager is enabled.
-     *  @param bool|null $value Value to set for the isCloudManagedGatewayEnabled property.
+     * @param bool|null $value Value to set for the isCloudManagedGatewayEnabled property.
     */
     public function setIsCloudManagedGatewayEnabled(?bool $value): void {
         $this->getBackingStore()->set('isCloudManagedGatewayEnabled', $value);
@@ -488,7 +491,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the managedBy property value. The user experience work from anywhere management agent of the device.
-     *  @param string|null $value Value to set for the managedBy property.
+     * @param string|null $value Value to set for the managedBy property.
     */
     public function setManagedBy(?string $value): void {
         $this->getBackingStore()->set('managedBy', $value);
@@ -496,7 +499,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the manufacturer property value. The user experience work from anywhere device's manufacturer.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -504,7 +507,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the model property value. The user experience work from anywhere device's model.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -512,7 +515,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the osCheckFailed property value. The user experience work from anywhere device, Is OS check failed for device to upgrade to the latest version of windows.
-     *  @param bool|null $value Value to set for the osCheckFailed property.
+     * @param bool|null $value Value to set for the osCheckFailed property.
     */
     public function setOsCheckFailed(?bool $value): void {
         $this->getBackingStore()->set('osCheckFailed', $value);
@@ -520,7 +523,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the osDescription property value. The user experience work from anywhere device's OS Description.
-     *  @param string|null $value Value to set for the osDescription property.
+     * @param string|null $value Value to set for the osDescription property.
     */
     public function setOsDescription(?string $value): void {
         $this->getBackingStore()->set('osDescription', $value);
@@ -528,7 +531,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the osVersion property value. The user experience work from anywhere device's OS Version.
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -536,7 +539,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the otherWorkloadsSetToIntune property value. The user experience work from anywhere device's otherWorkloadsSetToIntune.
-     *  @param bool|null $value Value to set for the otherWorkloadsSetToIntune property.
+     * @param bool|null $value Value to set for the otherWorkloadsSetToIntune property.
     */
     public function setOtherWorkloadsSetToIntune(?bool $value): void {
         $this->getBackingStore()->set('otherWorkloadsSetToIntune', $value);
@@ -544,7 +547,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the ownership property value. The user experience work from anywhere device's ownership.
-     *  @param string|null $value Value to set for the ownership property.
+     * @param string|null $value Value to set for the ownership property.
     */
     public function setOwnership(?string $value): void {
         $this->getBackingStore()->set('ownership', $value);
@@ -552,7 +555,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the processor64BitCheckFailed property value. The user experience work from anywhere device, Is processor hardware 64-bit architecture check failed for device to upgrade to the latest version of windows.
-     *  @param bool|null $value Value to set for the processor64BitCheckFailed property.
+     * @param bool|null $value Value to set for the processor64BitCheckFailed property.
     */
     public function setProcessor64BitCheckFailed(?bool $value): void {
         $this->getBackingStore()->set('processor64BitCheckFailed', $value);
@@ -560,7 +563,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the processorCoreCountCheckFailed property value. The user experience work from anywhere device, Is processor hardware core count check failed for device to upgrade to the latest version of windows.
-     *  @param bool|null $value Value to set for the processorCoreCountCheckFailed property.
+     * @param bool|null $value Value to set for the processorCoreCountCheckFailed property.
     */
     public function setProcessorCoreCountCheckFailed(?bool $value): void {
         $this->getBackingStore()->set('processorCoreCountCheckFailed', $value);
@@ -568,7 +571,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the processorFamilyCheckFailed property value. The user experience work from anywhere device, Is processor hardware family check failed for device to upgrade to the latest version of windows.
-     *  @param bool|null $value Value to set for the processorFamilyCheckFailed property.
+     * @param bool|null $value Value to set for the processorFamilyCheckFailed property.
     */
     public function setProcessorFamilyCheckFailed(?bool $value): void {
         $this->getBackingStore()->set('processorFamilyCheckFailed', $value);
@@ -576,7 +579,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the processorSpeedCheckFailed property value. The user experience work from anywhere device, Is processor hardware speed check failed for device to upgrade to the latest version of windows.
-     *  @param bool|null $value Value to set for the processorSpeedCheckFailed property.
+     * @param bool|null $value Value to set for the processorSpeedCheckFailed property.
     */
     public function setProcessorSpeedCheckFailed(?bool $value): void {
         $this->getBackingStore()->set('processorSpeedCheckFailed', $value);
@@ -584,7 +587,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the ramCheckFailed property value. Is the user experience analytics work from anywhere device RAM hardware check failed for device to upgrade to the latest version of windows
-     *  @param bool|null $value Value to set for the ramCheckFailed property.
+     * @param bool|null $value Value to set for the ramCheckFailed property.
     */
     public function setRamCheckFailed(?bool $value): void {
         $this->getBackingStore()->set('ramCheckFailed', $value);
@@ -592,7 +595,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the secureBootCheckFailed property value. The user experience work from anywhere device, Is secure boot hardware check failed for device to upgrade to the latest version of windows.
-     *  @param bool|null $value Value to set for the secureBootCheckFailed property.
+     * @param bool|null $value Value to set for the secureBootCheckFailed property.
     */
     public function setSecureBootCheckFailed(?bool $value): void {
         $this->getBackingStore()->set('secureBootCheckFailed', $value);
@@ -600,7 +603,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the serialNumber property value. The user experience work from anywhere device's serial number.
-     *  @param string|null $value Value to set for the serialNumber property.
+     * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
         $this->getBackingStore()->set('serialNumber', $value);
@@ -608,7 +611,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the storageCheckFailed property value. The user experience work from anywhere device, Is storage hardware check failed for device to upgrade to the latest version of windows.
-     *  @param bool|null $value Value to set for the storageCheckFailed property.
+     * @param bool|null $value Value to set for the storageCheckFailed property.
     */
     public function setStorageCheckFailed(?bool $value): void {
         $this->getBackingStore()->set('storageCheckFailed', $value);
@@ -616,7 +619,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the tenantAttached property value. The user experience work from anywhere device's tenantAttached.
-     *  @param bool|null $value Value to set for the tenantAttached property.
+     * @param bool|null $value Value to set for the tenantAttached property.
     */
     public function setTenantAttached(?bool $value): void {
         $this->getBackingStore()->set('tenantAttached', $value);
@@ -624,7 +627,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the tpmCheckFailed property value. The user experience work from anywhere device, Is Trusted Platform Module (TPM) hardware check failed for device to the latest version of upgrade to windows.
-     *  @param bool|null $value Value to set for the tpmCheckFailed property.
+     * @param bool|null $value Value to set for the tpmCheckFailed property.
     */
     public function setTpmCheckFailed(?bool $value): void {
         $this->getBackingStore()->set('tpmCheckFailed', $value);
@@ -632,7 +635,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the upgradeEligibility property value. Work From Anywhere windows device upgrade eligibility status
-     *  @param OperatingSystemUpgradeEligibility|null $value Value to set for the upgradeEligibility property.
+     * @param OperatingSystemUpgradeEligibility|null $value Value to set for the upgradeEligibility property.
     */
     public function setUpgradeEligibility(?OperatingSystemUpgradeEligibility $value): void {
         $this->getBackingStore()->set('upgradeEligibility', $value);
@@ -640,7 +643,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the windowsScore property value. The user experience work from anywhere per device windows score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the windowsScore property.
+     * @param float|null $value Value to set for the windowsScore property.
     */
     public function setWindowsScore(?float $value): void {
         $this->getBackingStore()->set('windowsScore', $value);
@@ -648,7 +651,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
 
     /**
      * Sets the workFromAnywhereScore property value. The user experience work from anywhere per device overall score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the workFromAnywhereScore property.
+     * @param float|null $value Value to set for the workFromAnywhereScore property.
     */
     public function setWorkFromAnywhereScore(?float $value): void {
         $this->getBackingStore()->set('workFromAnywhereScore', $value);

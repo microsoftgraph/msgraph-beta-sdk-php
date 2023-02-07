@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of **printerShares**.
+*/
 class SharesRequestBuilderGetQueryParameters 
 {
     /**

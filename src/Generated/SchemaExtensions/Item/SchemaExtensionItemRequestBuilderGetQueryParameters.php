@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\SchemaExtensions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the properties of the specified schemaExtension definition.
+*/
 class SchemaExtensionItemRequestBuilderGetQueryParameters 
 {
     /**

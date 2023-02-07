@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkAppConfi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Android for Work app configuration schema entities.
+*/
 class AndroidForWorkAppConfigurationSchemaItemRequestBuilderGetQueryParameters 
 {
     /**

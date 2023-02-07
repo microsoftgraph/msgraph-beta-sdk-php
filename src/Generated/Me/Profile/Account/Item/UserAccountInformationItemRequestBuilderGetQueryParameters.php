@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Profile\Account\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get account from me
+*/
 class UserAccountInformationItemRequestBuilderGetQueryParameters 
 {
     /**

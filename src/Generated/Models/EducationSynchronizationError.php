@@ -105,7 +105,7 @@ class EducationSynchronizationError extends Entity implements Parsable
 
     /**
      * Sets the entryType property value. Represents the sync entity (school, section, student, teacher).
-     *  @param string|null $value Value to set for the entryType property.
+     * @param string|null $value Value to set for the entryType property.
     */
     public function setEntryType(?string $value): void {
         $this->getBackingStore()->set('entryType', $value);
@@ -113,7 +113,7 @@ class EducationSynchronizationError extends Entity implements Parsable
 
     /**
      * Sets the errorCode property value. Represents the error code for this error.
-     *  @param string|null $value Value to set for the errorCode property.
+     * @param string|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?string $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -121,7 +121,7 @@ class EducationSynchronizationError extends Entity implements Parsable
 
     /**
      * Sets the errorMessage property value. Contains a description of the error.
-     *  @param string|null $value Value to set for the errorMessage property.
+     * @param string|null $value Value to set for the errorMessage property.
     */
     public function setErrorMessage(?string $value): void {
         $this->getBackingStore()->set('errorMessage', $value);
@@ -129,7 +129,7 @@ class EducationSynchronizationError extends Entity implements Parsable
 
     /**
      * Sets the joiningValue property value. The unique identifier for the entry.
-     *  @param string|null $value Value to set for the joiningValue property.
+     * @param string|null $value Value to set for the joiningValue property.
     */
     public function setJoiningValue(?string $value): void {
         $this->getBackingStore()->set('joiningValue', $value);
@@ -137,7 +137,7 @@ class EducationSynchronizationError extends Entity implements Parsable
 
     /**
      * Sets the recordedDateTime property value. The time of occurrence of this error.
-     *  @param DateTime|null $value Value to set for the recordedDateTime property.
+     * @param DateTime|null $value Value to set for the recordedDateTime property.
     */
     public function setRecordedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('recordedDateTime', $value);
@@ -145,7 +145,7 @@ class EducationSynchronizationError extends Entity implements Parsable
 
     /**
      * Sets the reportableIdentifier property value. The identifier of this error entry.
-     *  @param string|null $value Value to set for the reportableIdentifier property.
+     * @param string|null $value Value to set for the reportableIdentifier property.
     */
     public function setReportableIdentifier(?string $value): void {
         $this->getBackingStore()->set('reportableIdentifier', $value);

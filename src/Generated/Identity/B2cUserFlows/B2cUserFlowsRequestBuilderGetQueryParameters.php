@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of b2cIdentityUserFlow objects.
+*/
 class B2cUserFlowsRequestBuilderGetQueryParameters 
 {
     /**

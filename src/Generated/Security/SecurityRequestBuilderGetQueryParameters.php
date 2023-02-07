@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get security
+*/
 class SecurityRequestBuilderGetQueryParameters 
 {
     /**

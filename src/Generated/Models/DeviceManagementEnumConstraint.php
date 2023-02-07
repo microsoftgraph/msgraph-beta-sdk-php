@@ -55,7 +55,7 @@ class DeviceManagementEnumConstraint extends DeviceManagementConstraint implemen
 
     /**
      * Sets the values property value. List of valid values for this string
-     *  @param array<DeviceManagementEnumValue>|null $value Value to set for the values property.
+     * @param array<DeviceManagementEnumValue>|null $value Value to set for the values property.
     */
     public function setValues(?array $value): void {
         $this->getBackingStore()->set('values', $value);

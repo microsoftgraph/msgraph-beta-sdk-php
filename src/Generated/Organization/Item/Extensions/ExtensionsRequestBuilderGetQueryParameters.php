@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Extensions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of open extensions defined for the organization resource. Nullable.
+*/
 class ExtensionsRequestBuilderGetQueryParameters 
 {
     /**

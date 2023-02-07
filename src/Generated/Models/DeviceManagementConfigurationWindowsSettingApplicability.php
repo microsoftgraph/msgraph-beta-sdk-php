@@ -105,7 +105,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
 
     /**
      * Sets the configurationServiceProviderVersion property value. Version of CSP setting is a part of
-     *  @param string|null $value Value to set for the configurationServiceProviderVersion property.
+     * @param string|null $value Value to set for the configurationServiceProviderVersion property.
     */
     public function setConfigurationServiceProviderVersion(?string $value): void {
         $this->getBackingStore()->set('configurationServiceProviderVersion', $value);
@@ -113,7 +113,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
 
     /**
      * Sets the maximumSupportedVersion property value. Maximum supported version of Windows
-     *  @param string|null $value Value to set for the maximumSupportedVersion property.
+     * @param string|null $value Value to set for the maximumSupportedVersion property.
     */
     public function setMaximumSupportedVersion(?string $value): void {
         $this->getBackingStore()->set('maximumSupportedVersion', $value);
@@ -121,7 +121,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
 
     /**
      * Sets the minimumSupportedVersion property value. Minimum supported version of Windows
-     *  @param string|null $value Value to set for the minimumSupportedVersion property.
+     * @param string|null $value Value to set for the minimumSupportedVersion property.
     */
     public function setMinimumSupportedVersion(?string $value): void {
         $this->getBackingStore()->set('minimumSupportedVersion', $value);
@@ -129,7 +129,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
 
     /**
      * Sets the requiredAzureAdTrustType property value. Required AAD Trust Type
-     *  @param DeviceManagementConfigurationAzureAdTrustType|null $value Value to set for the requiredAzureAdTrustType property.
+     * @param DeviceManagementConfigurationAzureAdTrustType|null $value Value to set for the requiredAzureAdTrustType property.
     */
     public function setRequiredAzureAdTrustType(?DeviceManagementConfigurationAzureAdTrustType $value): void {
         $this->getBackingStore()->set('requiredAzureAdTrustType', $value);
@@ -137,7 +137,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
 
     /**
      * Sets the requiresAzureAd property value. AzureAD setting requirement
-     *  @param bool|null $value Value to set for the requiresAzureAd property.
+     * @param bool|null $value Value to set for the requiresAzureAd property.
     */
     public function setRequiresAzureAd(?bool $value): void {
         $this->getBackingStore()->set('requiresAzureAd', $value);
@@ -145,7 +145,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
 
     /**
      * Sets the windowsSkus property value. List of Windows SKUs that the setting is applicable for
-     *  @param array<DeviceManagementConfigurationWindowsSkus>|null $value Value to set for the windowsSkus property.
+     * @param array<DeviceManagementConfigurationWindowsSkus>|null $value Value to set for the windowsSkus property.
     */
     public function setWindowsSkus(?array $value): void {
         $this->getBackingStore()->set('windowsSkus', $value);

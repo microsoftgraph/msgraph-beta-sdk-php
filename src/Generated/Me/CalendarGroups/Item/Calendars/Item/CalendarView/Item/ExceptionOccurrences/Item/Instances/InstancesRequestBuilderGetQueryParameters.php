@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\CalendarGroups\Item\Calendars\Item\C
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the instances (occurrences) of an event for a specified time range.  If the event is a `seriesMaster` type, this returns theoccurrences and exceptions of the event in the specified time range.
+*/
 class InstancesRequestBuilderGetQueryParameters 
 {
     /**

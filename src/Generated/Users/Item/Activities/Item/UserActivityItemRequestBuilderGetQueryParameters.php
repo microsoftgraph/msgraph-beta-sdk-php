@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Activities\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get activities from users
+*/
 class UserActivityItemRequestBuilderGetQueryParameters 
 {
     /**

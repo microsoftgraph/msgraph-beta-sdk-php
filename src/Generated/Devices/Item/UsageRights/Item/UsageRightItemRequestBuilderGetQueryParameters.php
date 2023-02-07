@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\UsageRights\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the usage rights a device has been granted.
+*/
 class UsageRightItemRequestBuilderGetQueryParameters 
 {
     /**

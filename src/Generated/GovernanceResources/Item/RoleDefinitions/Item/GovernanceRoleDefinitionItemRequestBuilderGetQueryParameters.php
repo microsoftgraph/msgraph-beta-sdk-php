@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceResources\Item\RoleDefinition
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of role defintions for the resource.
+*/
 class GovernanceRoleDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**

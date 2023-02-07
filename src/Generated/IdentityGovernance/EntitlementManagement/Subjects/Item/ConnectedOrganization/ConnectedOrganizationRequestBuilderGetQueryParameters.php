@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The connected organization of the subject. Read-only. Nullable.
+*/
 class ConnectedOrganizationRequestBuilderGetQueryParameters 
 {
     /**

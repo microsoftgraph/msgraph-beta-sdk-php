@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\DomainSecurityProfiles;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get domainSecurityProfiles from security
+*/
 class DomainSecurityProfilesRequestBuilderGetQueryParameters 
 {
     /**

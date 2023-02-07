@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Programs\Item\Controls\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Controls associated with the program.
+*/
 class ProgramControlItemRequestBuilderGetQueryParameters 
 {
     /**

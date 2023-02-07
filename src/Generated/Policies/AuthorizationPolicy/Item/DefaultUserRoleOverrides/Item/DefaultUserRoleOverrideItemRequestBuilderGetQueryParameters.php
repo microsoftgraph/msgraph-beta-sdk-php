@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\Defau
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get defaultUserRoleOverrides from policies
+*/
 class DefaultUserRoleOverrideItemRequestBuilderGetQueryParameters 
 {
     /**

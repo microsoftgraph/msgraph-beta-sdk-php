@@ -55,7 +55,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
 
     /**
      * Sets the upns property value. Collection of mailboxes that should be included in the search. Includes the UPN (user principal name) of each mailbox, for example, Monica.Thompson@contoso.com.
-     *  @param array<string>|null $value Value to set for the upns property.
+     * @param array<string>|null $value Value to set for the upns property.
     */
     public function setUpns(?array $value): void {
         $this->getBackingStore()->set('upns', $value);

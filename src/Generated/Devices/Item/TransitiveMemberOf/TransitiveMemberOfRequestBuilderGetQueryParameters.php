@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\TransitiveMemberOf;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
+*/
 class TransitiveMemberOfRequestBuilderGetQueryParameters 
 {
     /**

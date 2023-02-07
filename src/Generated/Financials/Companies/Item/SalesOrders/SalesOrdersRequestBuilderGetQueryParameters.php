@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get salesOrders from financials
+*/
 class SalesOrdersRequestBuilderGetQueryParameters 
 {
     /**

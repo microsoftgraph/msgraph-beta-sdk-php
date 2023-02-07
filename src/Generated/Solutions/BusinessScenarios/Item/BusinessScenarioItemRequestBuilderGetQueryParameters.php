@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get businessScenarios from solutions
+*/
 class BusinessScenarioItemRequestBuilderGetQueryParameters 
 {
     /**

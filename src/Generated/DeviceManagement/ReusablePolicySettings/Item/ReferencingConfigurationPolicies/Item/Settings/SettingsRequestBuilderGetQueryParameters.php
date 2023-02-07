@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Policy settings
+*/
 class SettingsRequestBuilderGetQueryParameters 
 {
     /**

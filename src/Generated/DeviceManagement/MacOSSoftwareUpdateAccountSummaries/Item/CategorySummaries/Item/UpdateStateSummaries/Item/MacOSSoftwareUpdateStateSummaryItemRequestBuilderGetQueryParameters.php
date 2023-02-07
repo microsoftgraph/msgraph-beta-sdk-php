@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAcc
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Summary of the update states.
+*/
 class MacOSSoftwareUpdateStateSummaryItemRequestBuilderGetQueryParameters 
 {
     /**

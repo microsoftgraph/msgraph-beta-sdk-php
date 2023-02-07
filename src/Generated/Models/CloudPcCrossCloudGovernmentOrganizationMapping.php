@@ -54,7 +54,7 @@ class CloudPcCrossCloudGovernmentOrganizationMapping extends Entity implements P
 
     /**
      * Sets the organizationIdsInUSGovCloud property value. The tenant ID in the Azure Government cloud corresponding to the GCC tenant in the public cloud. Currently, 1:1 mappings are supported, so this collection can only contain one tenant ID.
-     *  @param array<string>|null $value Value to set for the organizationIdsInUSGovCloud property.
+     * @param array<string>|null $value Value to set for the organizationIdsInUSGovCloud property.
     */
     public function setOrganizationIdsInUSGovCloud(?array $value): void {
         $this->getBackingStore()->set('organizationIdsInUSGovCloud', $value);

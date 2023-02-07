@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get paymentTerm from financials
+*/
 class PaymentTermRequestBuilderGetQueryParameters 
 {
     /**

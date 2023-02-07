@@ -165,7 +165,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the androidDeviceOwnerFullyManagedEnrollmentEnabled property value. Company codes for AndroidManagedStoreAccountEnterpriseSettings
-     *  @param bool|null $value Value to set for the androidDeviceOwnerFullyManagedEnrollmentEnabled property.
+     * @param bool|null $value Value to set for the androidDeviceOwnerFullyManagedEnrollmentEnabled property.
     */
     public function setAndroidDeviceOwnerFullyManagedEnrollmentEnabled(?bool $value): void {
         $this->getBackingStore()->set('androidDeviceOwnerFullyManagedEnrollmentEnabled', $value);
@@ -173,7 +173,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the bindStatus property value. Bind status of the tenant with the Google EMM API
-     *  @param AndroidManagedStoreAccountBindStatus|null $value Value to set for the bindStatus property.
+     * @param AndroidManagedStoreAccountBindStatus|null $value Value to set for the bindStatus property.
     */
     public function setBindStatus(?AndroidManagedStoreAccountBindStatus $value): void {
         $this->getBackingStore()->set('bindStatus', $value);
@@ -181,7 +181,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the companyCodes property value. Company codes for AndroidManagedStoreAccountEnterpriseSettings
-     *  @param array<AndroidEnrollmentCompanyCode>|null $value Value to set for the companyCodes property.
+     * @param array<AndroidEnrollmentCompanyCode>|null $value Value to set for the companyCodes property.
     */
     public function setCompanyCodes(?array $value): void {
         $this->getBackingStore()->set('companyCodes', $value);
@@ -189,7 +189,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the deviceOwnerManagementEnabled property value. Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
-     *  @param bool|null $value Value to set for the deviceOwnerManagementEnabled property.
+     * @param bool|null $value Value to set for the deviceOwnerManagementEnabled property.
     */
     public function setDeviceOwnerManagementEnabled(?bool $value): void {
         $this->getBackingStore()->set('deviceOwnerManagementEnabled', $value);
@@ -197,7 +197,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the enrollmentTarget property value. Android for Work device management targeting type for the account
-     *  @param AndroidManagedStoreAccountEnrollmentTarget|null $value Value to set for the enrollmentTarget property.
+     * @param AndroidManagedStoreAccountEnrollmentTarget|null $value Value to set for the enrollmentTarget property.
     */
     public function setEnrollmentTarget(?AndroidManagedStoreAccountEnrollmentTarget $value): void {
         $this->getBackingStore()->set('enrollmentTarget', $value);
@@ -205,7 +205,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the lastAppSyncDateTime property value. Last completion time for app sync
-     *  @param DateTime|null $value Value to set for the lastAppSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastAppSyncDateTime property.
     */
     public function setLastAppSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastAppSyncDateTime', $value);
@@ -213,7 +213,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the lastAppSyncStatus property value. Sync status of the tenant with the Google EMM API
-     *  @param AndroidManagedStoreAccountAppSyncStatus|null $value Value to set for the lastAppSyncStatus property.
+     * @param AndroidManagedStoreAccountAppSyncStatus|null $value Value to set for the lastAppSyncStatus property.
     */
     public function setLastAppSyncStatus(?AndroidManagedStoreAccountAppSyncStatus $value): void {
         $this->getBackingStore()->set('lastAppSyncStatus', $value);
@@ -221,7 +221,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the lastModifiedDateTime property value. Last modification time for Android enterprise settings
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -229,7 +229,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the managedGooglePlayInitialScopeTagIds property value. Initial scope tags for MGP apps
-     *  @param array<string>|null $value Value to set for the managedGooglePlayInitialScopeTagIds property.
+     * @param array<string>|null $value Value to set for the managedGooglePlayInitialScopeTagIds property.
     */
     public function setManagedGooglePlayInitialScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('managedGooglePlayInitialScopeTagIds', $value);
@@ -237,7 +237,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the ownerOrganizationName property value. Organization name used when onboarding Android Enterprise
-     *  @param string|null $value Value to set for the ownerOrganizationName property.
+     * @param string|null $value Value to set for the ownerOrganizationName property.
     */
     public function setOwnerOrganizationName(?string $value): void {
         $this->getBackingStore()->set('ownerOrganizationName', $value);
@@ -245,7 +245,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the ownerUserPrincipalName property value. Owner UPN that created the enterprise
-     *  @param string|null $value Value to set for the ownerUserPrincipalName property.
+     * @param string|null $value Value to set for the ownerUserPrincipalName property.
     */
     public function setOwnerUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('ownerUserPrincipalName', $value);
@@ -253,7 +253,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
 
     /**
      * Sets the targetGroupIds property value. Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
-     *  @param array<string>|null $value Value to set for the targetGroupIds property.
+     * @param array<string>|null $value Value to set for the targetGroupIds property.
     */
     public function setTargetGroupIds(?array $value): void {
         $this->getBackingStore()->set('targetGroupIds', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\Us
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The primary users associated with the managed device.
+*/
 class UsersRequestBuilderGetQueryParameters 
 {
     /**

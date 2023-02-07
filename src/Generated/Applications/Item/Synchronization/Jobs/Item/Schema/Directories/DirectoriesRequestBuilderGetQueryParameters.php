@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Contains the collection of directories and all of their objects.
+*/
 class DirectoriesRequestBuilderGetQueryParameters 
 {
     /**

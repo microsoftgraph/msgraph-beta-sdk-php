@@ -75,7 +75,7 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
 
     /**
      * Sets the allowAdHocPermissions property value. The allowAdHocPermissions property
-     *  @param bool|null $value Value to set for the allowAdHocPermissions property.
+     * @param bool|null $value Value to set for the allowAdHocPermissions property.
     */
     public function setAllowAdHocPermissions(?bool $value): void {
         $this->getBackingStore()->set('allowAdHocPermissions', $value);
@@ -83,7 +83,7 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
 
     /**
      * Sets the allowMailForwarding property value. The allowMailForwarding property
-     *  @param bool|null $value Value to set for the allowMailForwarding property.
+     * @param bool|null $value Value to set for the allowMailForwarding property.
     */
     public function setAllowMailForwarding(?bool $value): void {
         $this->getBackingStore()->set('allowMailForwarding', $value);
@@ -91,7 +91,7 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
 
     /**
      * Sets the decryptionRightsManagementTemplateId property value. The decryptionRightsManagementTemplateId property
-     *  @param string|null $value Value to set for the decryptionRightsManagementTemplateId property.
+     * @param string|null $value Value to set for the decryptionRightsManagementTemplateId property.
     */
     public function setDecryptionRightsManagementTemplateId(?string $value): void {
         $this->getBackingStore()->set('decryptionRightsManagementTemplateId', $value);

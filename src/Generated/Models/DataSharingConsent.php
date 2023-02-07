@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Data sharing consent information.
+*/
 class DataSharingConsent extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class DataSharingConsent extends Entity implements Parsable
 
     /**
      * Sets the grantDateTime property value. The time consent was granted for this account
-     *  @param DateTime|null $value Value to set for the grantDateTime property.
+     * @param DateTime|null $value Value to set for the grantDateTime property.
     */
     public function setGrantDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('grantDateTime', $value);
@@ -113,7 +116,7 @@ class DataSharingConsent extends Entity implements Parsable
 
     /**
      * Sets the granted property value. The granted state for the data sharing consent
-     *  @param bool|null $value Value to set for the granted property.
+     * @param bool|null $value Value to set for the granted property.
     */
     public function setGranted(?bool $value): void {
         $this->getBackingStore()->set('granted', $value);
@@ -121,7 +124,7 @@ class DataSharingConsent extends Entity implements Parsable
 
     /**
      * Sets the grantedByUpn property value. The Upn of the user that granted consent for this account
-     *  @param string|null $value Value to set for the grantedByUpn property.
+     * @param string|null $value Value to set for the grantedByUpn property.
     */
     public function setGrantedByUpn(?string $value): void {
         $this->getBackingStore()->set('grantedByUpn', $value);
@@ -129,7 +132,7 @@ class DataSharingConsent extends Entity implements Parsable
 
     /**
      * Sets the grantedByUserId property value. The UserId of the user that granted consent for this account
-     *  @param string|null $value Value to set for the grantedByUserId property.
+     * @param string|null $value Value to set for the grantedByUserId property.
     */
     public function setGrantedByUserId(?string $value): void {
         $this->getBackingStore()->set('grantedByUserId', $value);
@@ -137,7 +140,7 @@ class DataSharingConsent extends Entity implements Parsable
 
     /**
      * Sets the serviceDisplayName property value. The display name of the service work flow
-     *  @param string|null $value Value to set for the serviceDisplayName property.
+     * @param string|null $value Value to set for the serviceDisplayName property.
     */
     public function setServiceDisplayName(?string $value): void {
         $this->getBackingStore()->set('serviceDisplayName', $value);
@@ -145,7 +148,7 @@ class DataSharingConsent extends Entity implements Parsable
 
     /**
      * Sets the termsUrl property value. The TermsUrl for the data sharing consent
-     *  @param string|null $value Value to set for the termsUrl property.
+     * @param string|null $value Value to set for the termsUrl property.
     */
     public function setTermsUrl(?string $value): void {
         $this->getBackingStore()->set('termsUrl', $value);

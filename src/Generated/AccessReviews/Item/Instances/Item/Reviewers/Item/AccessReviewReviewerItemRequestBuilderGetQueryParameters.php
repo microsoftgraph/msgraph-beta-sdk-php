@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Revie
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of reviewers for an access review, if access review reviewerType is of type delegated.
+*/
 class AccessReviewReviewerItemRequestBuilderGetQueryParameters 
 {
     /**

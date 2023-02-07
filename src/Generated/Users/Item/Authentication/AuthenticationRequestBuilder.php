@@ -32,11 +32,13 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\WindowsHelloForBusi
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the authentication property of the microsoft.graph.user entity.
+*/
 class AuthenticationRequestBuilder 
 {
     /**
@@ -133,29 +135,32 @@ class AuthenticationRequestBuilder
     
     /**
      * Instantiates a new AuthenticationRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/users/{user%2Did}/authentication{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property authentication for users
      * @param AuthenticationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?AuthenticationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?AuthenticationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -169,7 +174,7 @@ class AuthenticationRequestBuilder
     public function emailMethodsById(string $id): EmailAuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['emailAuthenticationMethod%2Did'] = $id;
-        return new EmailAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new EmailAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -180,23 +185,22 @@ class AuthenticationRequestBuilder
     public function fido2MethodsById(string $id): Fido2AuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['fido2AuthenticationMethod%2Did'] = $id;
-        return new Fido2AuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new Fido2AuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Get authentication from users
      * @param AuthenticationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?AuthenticationRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?AuthenticationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Authentication::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Authentication::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -210,7 +214,7 @@ class AuthenticationRequestBuilder
     public function methodsById(string $id): AuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['authenticationMethod%2Did'] = $id;
-        return new AuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -221,7 +225,7 @@ class AuthenticationRequestBuilder
     public function microsoftAuthenticatorMethodsById(string $id): MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['microsoftAuthenticatorAuthenticationMethod%2Did'] = $id;
-        return new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -232,7 +236,7 @@ class AuthenticationRequestBuilder
     public function operationsById(string $id): LongRunningOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['longRunningOperation%2Did'] = $id;
-        return new LongRunningOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new LongRunningOperationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -243,7 +247,7 @@ class AuthenticationRequestBuilder
     public function passwordlessMicrosoftAuthenticatorMethodsById(string $id): PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['passwordlessMicrosoftAuthenticatorAuthenticationMethod%2Did'] = $id;
-        return new PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -254,24 +258,23 @@ class AuthenticationRequestBuilder
     public function passwordMethodsById(string $id): PasswordAuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['passwordAuthenticationMethod%2Did'] = $id;
-        return new PasswordAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PasswordAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Update the navigation property authentication in users
      * @param Authentication $body The request body
      * @param AuthenticationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Authentication $body, ?AuthenticationRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Authentication $body, ?AuthenticationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Authentication::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Authentication::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -285,7 +288,7 @@ class AuthenticationRequestBuilder
     public function phoneMethodsById(string $id): PhoneAuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['phoneAuthenticationMethod%2Did'] = $id;
-        return new PhoneAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PhoneAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -296,7 +299,7 @@ class AuthenticationRequestBuilder
     public function softwareOathMethodsById(string $id): SoftwareOathAuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['softwareOathAuthenticationMethod%2Did'] = $id;
-        return new SoftwareOathAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new SoftwareOathAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -307,7 +310,7 @@ class AuthenticationRequestBuilder
     public function temporaryAccessPassMethodsById(string $id): TemporaryAccessPassAuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['temporaryAccessPassAuthenticationMethod%2Did'] = $id;
-        return new TemporaryAccessPassAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TemporaryAccessPassAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -322,7 +325,7 @@ class AuthenticationRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -341,10 +344,10 @@ class AuthenticationRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -367,10 +370,10 @@ class AuthenticationRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -388,7 +391,7 @@ class AuthenticationRequestBuilder
     public function windowsHelloForBusinessMethodsById(string $id): WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsHelloForBusinessAuthenticationMethod%2Did'] = $id;
-        return new WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
 }

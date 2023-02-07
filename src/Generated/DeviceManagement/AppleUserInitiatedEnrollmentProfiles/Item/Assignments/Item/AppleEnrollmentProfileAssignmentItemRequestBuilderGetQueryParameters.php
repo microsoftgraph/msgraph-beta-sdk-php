@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AppleUserInitiatedEnro
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of assignments for this profile.
+*/
 class AppleEnrollmentProfileAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolder
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the folder collection under the specified folder. You can use the `.../me/mailFolders` shortcut to get the top-levelfolder collection and navigate to another folder. By default, this operation does not return hidden folders. Use a query parameter _includeHiddenFolders_ to include them in the response.
+*/
 class ChildFoldersRequestBuilderGetQueryParameters 
 {
     /**

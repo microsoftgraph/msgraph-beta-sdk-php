@@ -94,7 +94,7 @@ class Teamwork extends Entity implements Parsable
 
     /**
      * Sets the deletedTeams property value. A collection of deleted teams.
-     *  @param array<DeletedTeam>|null $value Value to set for the deletedTeams property.
+     * @param array<DeletedTeam>|null $value Value to set for the deletedTeams property.
     */
     public function setDeletedTeams(?array $value): void {
         $this->getBackingStore()->set('deletedTeams', $value);
@@ -102,7 +102,7 @@ class Teamwork extends Entity implements Parsable
 
     /**
      * Sets the devices property value. The Teams devices provisioned for the tenant.
-     *  @param array<TeamworkDevice>|null $value Value to set for the devices property.
+     * @param array<TeamworkDevice>|null $value Value to set for the devices property.
     */
     public function setDevices(?array $value): void {
         $this->getBackingStore()->set('devices', $value);
@@ -110,7 +110,7 @@ class Teamwork extends Entity implements Parsable
 
     /**
      * Sets the teamsAppSettings property value. Represents tenant-wide settings for all Teams apps in the tenant.
-     *  @param TeamsAppSettings|null $value Value to set for the teamsAppSettings property.
+     * @param TeamsAppSettings|null $value Value to set for the teamsAppSettings property.
     */
     public function setTeamsAppSettings(?TeamsAppSettings $value): void {
         $this->getBackingStore()->set('teamsAppSettings', $value);
@@ -118,7 +118,7 @@ class Teamwork extends Entity implements Parsable
 
     /**
      * Sets the teamTemplates property value. The templates associated with a team.
-     *  @param array<TeamTemplate>|null $value Value to set for the teamTemplates property.
+     * @param array<TeamTemplate>|null $value Value to set for the teamTemplates property.
     */
     public function setTeamTemplates(?array $value): void {
         $this->getBackingStore()->set('teamTemplates', $value);
@@ -126,7 +126,7 @@ class Teamwork extends Entity implements Parsable
 
     /**
      * Sets the workforceIntegrations property value. A workforce integration with shifts.
-     *  @param array<WorkforceIntegration>|null $value Value to set for the workforceIntegrations property.
+     * @param array<WorkforceIntegration>|null $value Value to set for the workforceIntegrations property.
     */
     public function setWorkforceIntegrations(?array $value): void {
         $this->getBackingStore()->set('workforceIntegrations', $value);

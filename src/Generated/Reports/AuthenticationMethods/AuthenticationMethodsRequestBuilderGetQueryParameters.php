@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Container for navigation properties for Azure AD authentication methods resources.
+*/
 class AuthenticationMethodsRequestBuilderGetQueryParameters 
 {
     /**

@@ -65,7 +65,7 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
 
     /**
      * Sets the roleId property value. The roleId property
-     *  @param string|null $value Value to set for the roleId property.
+     * @param string|null $value Value to set for the roleId property.
     */
     public function setRoleId(?string $value): void {
         $this->getBackingStore()->set('roleId', $value);
@@ -73,7 +73,7 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
 
     /**
      * Sets the roleTemplateId property value. The roleTemplateId property
-     *  @param string|null $value Value to set for the roleTemplateId property.
+     * @param string|null $value Value to set for the roleTemplateId property.
     */
     public function setRoleTemplateId(?string $value): void {
         $this->getBackingStore()->set('roleTemplateId', $value);

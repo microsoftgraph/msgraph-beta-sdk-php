@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Profile\Names;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of personName objects from a user's profile.
+*/
 class NamesRequestBuilderGetQueryParameters 
 {
     /**

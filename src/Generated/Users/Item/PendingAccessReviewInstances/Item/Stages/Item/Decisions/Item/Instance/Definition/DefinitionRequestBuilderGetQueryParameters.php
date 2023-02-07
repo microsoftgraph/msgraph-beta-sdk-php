@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * There is exactly one accessReviewScheduleDefinition associated with each instance. It is the parent schedule for the instance, where instances are created for each recurrence of a review definition and each group selected to review by the definition.
+*/
 class DefinitionRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPoli
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of Exchange On Premisis policies configured by the tenant.
+*/
 class ExchangeOnPremisesPoliciesRequestBuilderGetQueryParameters 
 {
     /**

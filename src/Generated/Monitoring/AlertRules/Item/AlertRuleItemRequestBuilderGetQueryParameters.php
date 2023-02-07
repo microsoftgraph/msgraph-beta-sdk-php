@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Monitoring\AlertRules\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of alert rules.
+*/
 class AlertRuleItemRequestBuilderGetQueryParameters 
 {
     /**

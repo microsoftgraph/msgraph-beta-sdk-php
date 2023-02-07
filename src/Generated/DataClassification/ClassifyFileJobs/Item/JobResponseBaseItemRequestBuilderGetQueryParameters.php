@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get classifyFileJobs from dataClassification
+*/
 class JobResponseBaseItemRequestBuilderGetQueryParameters 
 {
     /**

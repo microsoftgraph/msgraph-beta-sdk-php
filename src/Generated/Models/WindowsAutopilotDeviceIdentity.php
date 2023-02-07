@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The windowsAutopilotDeviceIdentity resource represents a Windows Autopilot Device.
+*/
 class WindowsAutopilotDeviceIdentity extends Entity implements Parsable 
 {
     /**
@@ -315,7 +318,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the addressableUserName property value. Addressable user name.
-     *  @param string|null $value Value to set for the addressableUserName property.
+     * @param string|null $value Value to set for the addressableUserName property.
     */
     public function setAddressableUserName(?string $value): void {
         $this->getBackingStore()->set('addressableUserName', $value);
@@ -323,7 +326,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the azureActiveDirectoryDeviceId property value. AAD Device ID - to be deprecated
-     *  @param string|null $value Value to set for the azureActiveDirectoryDeviceId property.
+     * @param string|null $value Value to set for the azureActiveDirectoryDeviceId property.
     */
     public function setAzureActiveDirectoryDeviceId(?string $value): void {
         $this->getBackingStore()->set('azureActiveDirectoryDeviceId', $value);
@@ -331,7 +334,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the azureAdDeviceId property value. AAD Device ID
-     *  @param string|null $value Value to set for the azureAdDeviceId property.
+     * @param string|null $value Value to set for the azureAdDeviceId property.
     */
     public function setAzureAdDeviceId(?string $value): void {
         $this->getBackingStore()->set('azureAdDeviceId', $value);
@@ -339,7 +342,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the deploymentProfile property value. Deployment profile currently assigned to the Windows autopilot device.
-     *  @param WindowsAutopilotDeploymentProfile|null $value Value to set for the deploymentProfile property.
+     * @param WindowsAutopilotDeploymentProfile|null $value Value to set for the deploymentProfile property.
     */
     public function setDeploymentProfile(?WindowsAutopilotDeploymentProfile $value): void {
         $this->getBackingStore()->set('deploymentProfile', $value);
@@ -347,7 +350,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the deploymentProfileAssignedDateTime property value. Profile set time of the Windows autopilot device.
-     *  @param DateTime|null $value Value to set for the deploymentProfileAssignedDateTime property.
+     * @param DateTime|null $value Value to set for the deploymentProfileAssignedDateTime property.
     */
     public function setDeploymentProfileAssignedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deploymentProfileAssignedDateTime', $value);
@@ -355,7 +358,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the deploymentProfileAssignmentDetailedStatus property value. The deploymentProfileAssignmentDetailedStatus property
-     *  @param WindowsAutopilotProfileAssignmentDetailedStatus|null $value Value to set for the deploymentProfileAssignmentDetailedStatus property.
+     * @param WindowsAutopilotProfileAssignmentDetailedStatus|null $value Value to set for the deploymentProfileAssignmentDetailedStatus property.
     */
     public function setDeploymentProfileAssignmentDetailedStatus(?WindowsAutopilotProfileAssignmentDetailedStatus $value): void {
         $this->getBackingStore()->set('deploymentProfileAssignmentDetailedStatus', $value);
@@ -363,7 +366,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the deploymentProfileAssignmentStatus property value. The deploymentProfileAssignmentStatus property
-     *  @param WindowsAutopilotProfileAssignmentStatus|null $value Value to set for the deploymentProfileAssignmentStatus property.
+     * @param WindowsAutopilotProfileAssignmentStatus|null $value Value to set for the deploymentProfileAssignmentStatus property.
     */
     public function setDeploymentProfileAssignmentStatus(?WindowsAutopilotProfileAssignmentStatus $value): void {
         $this->getBackingStore()->set('deploymentProfileAssignmentStatus', $value);
@@ -371,7 +374,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the deviceAccountPassword property value. Surface Hub Device Account Password
-     *  @param string|null $value Value to set for the deviceAccountPassword property.
+     * @param string|null $value Value to set for the deviceAccountPassword property.
     */
     public function setDeviceAccountPassword(?string $value): void {
         $this->getBackingStore()->set('deviceAccountPassword', $value);
@@ -379,7 +382,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the deviceAccountUpn property value. Surface Hub Device Account Upn
-     *  @param string|null $value Value to set for the deviceAccountUpn property.
+     * @param string|null $value Value to set for the deviceAccountUpn property.
     */
     public function setDeviceAccountUpn(?string $value): void {
         $this->getBackingStore()->set('deviceAccountUpn', $value);
@@ -387,7 +390,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the deviceFriendlyName property value. Surface Hub Device Friendly Name
-     *  @param string|null $value Value to set for the deviceFriendlyName property.
+     * @param string|null $value Value to set for the deviceFriendlyName property.
     */
     public function setDeviceFriendlyName(?string $value): void {
         $this->getBackingStore()->set('deviceFriendlyName', $value);
@@ -395,7 +398,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display Name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -403,7 +406,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the enrollmentState property value. The enrollmentState property
-     *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
+     * @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
     public function setEnrollmentState(?EnrollmentState $value): void {
         $this->getBackingStore()->set('enrollmentState', $value);
@@ -411,7 +414,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the groupTag property value. Group Tag of the Windows autopilot device.
-     *  @param string|null $value Value to set for the groupTag property.
+     * @param string|null $value Value to set for the groupTag property.
     */
     public function setGroupTag(?string $value): void {
         $this->getBackingStore()->set('groupTag', $value);
@@ -419,7 +422,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the intendedDeploymentProfile property value. Deployment profile intended to be assigned to the Windows autopilot device.
-     *  @param WindowsAutopilotDeploymentProfile|null $value Value to set for the intendedDeploymentProfile property.
+     * @param WindowsAutopilotDeploymentProfile|null $value Value to set for the intendedDeploymentProfile property.
     */
     public function setIntendedDeploymentProfile(?WindowsAutopilotDeploymentProfile $value): void {
         $this->getBackingStore()->set('intendedDeploymentProfile', $value);
@@ -427,7 +430,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the lastContactedDateTime property value. Intune Last Contacted Date Time of the Windows autopilot device.
-     *  @param DateTime|null $value Value to set for the lastContactedDateTime property.
+     * @param DateTime|null $value Value to set for the lastContactedDateTime property.
     */
     public function setLastContactedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastContactedDateTime', $value);
@@ -435,7 +438,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceId property value. Managed Device ID
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -443,7 +446,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the manufacturer property value. Oem manufacturer of the Windows autopilot device.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -451,7 +454,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the model property value. Model name of the Windows autopilot device.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -459,7 +462,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the productKey property value. Product Key of the Windows autopilot device.
-     *  @param string|null $value Value to set for the productKey property.
+     * @param string|null $value Value to set for the productKey property.
     */
     public function setProductKey(?string $value): void {
         $this->getBackingStore()->set('productKey', $value);
@@ -467,7 +470,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the purchaseOrderIdentifier property value. Purchase Order Identifier of the Windows autopilot device.
-     *  @param string|null $value Value to set for the purchaseOrderIdentifier property.
+     * @param string|null $value Value to set for the purchaseOrderIdentifier property.
     */
     public function setPurchaseOrderIdentifier(?string $value): void {
         $this->getBackingStore()->set('purchaseOrderIdentifier', $value);
@@ -475,7 +478,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the remediationState property value. Device remediation status, indicating whether or not hardware has been changed for an Autopilot-registered device.
-     *  @param WindowsAutopilotDeviceRemediationState|null $value Value to set for the remediationState property.
+     * @param WindowsAutopilotDeviceRemediationState|null $value Value to set for the remediationState property.
     */
     public function setRemediationState(?WindowsAutopilotDeviceRemediationState $value): void {
         $this->getBackingStore()->set('remediationState', $value);
@@ -483,7 +486,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the remediationStateLastModifiedDateTime property value. RemediationState set time of Autopilot device.
-     *  @param DateTime|null $value Value to set for the remediationStateLastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the remediationStateLastModifiedDateTime property.
     */
     public function setRemediationStateLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('remediationStateLastModifiedDateTime', $value);
@@ -491,7 +494,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the resourceName property value. Resource Name.
-     *  @param string|null $value Value to set for the resourceName property.
+     * @param string|null $value Value to set for the resourceName property.
     */
     public function setResourceName(?string $value): void {
         $this->getBackingStore()->set('resourceName', $value);
@@ -499,7 +502,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the serialNumber property value. Serial number of the Windows autopilot device.
-     *  @param string|null $value Value to set for the serialNumber property.
+     * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
         $this->getBackingStore()->set('serialNumber', $value);
@@ -507,7 +510,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the skuNumber property value. SKU Number
-     *  @param string|null $value Value to set for the skuNumber property.
+     * @param string|null $value Value to set for the skuNumber property.
     */
     public function setSkuNumber(?string $value): void {
         $this->getBackingStore()->set('skuNumber', $value);
@@ -515,7 +518,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the systemFamily property value. System Family
-     *  @param string|null $value Value to set for the systemFamily property.
+     * @param string|null $value Value to set for the systemFamily property.
     */
     public function setSystemFamily(?string $value): void {
         $this->getBackingStore()->set('systemFamily', $value);
@@ -523,7 +526,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. User Principal Name.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

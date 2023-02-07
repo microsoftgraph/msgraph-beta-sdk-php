@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Policy settings
+*/
 class DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters 
 {
     /**

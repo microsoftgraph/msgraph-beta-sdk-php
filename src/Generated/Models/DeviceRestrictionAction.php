@@ -74,7 +74,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
 
     /**
      * Sets the message property value. The message property
-     *  @param string|null $value Value to set for the message property.
+     * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
         $this->getBackingStore()->set('message', $value);
@@ -82,7 +82,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
 
     /**
      * Sets the restrictionAction property value. The restrictionAction property
-     *  @param RestrictionAction|null $value Value to set for the restrictionAction property.
+     * @param RestrictionAction|null $value Value to set for the restrictionAction property.
     */
     public function setRestrictionAction(?RestrictionAction $value): void {
         $this->getBackingStore()->set('restrictionAction', $value);
@@ -90,7 +90,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
 
     /**
      * Sets the triggers property value. The triggers property
-     *  @param array<RestrictionTrigger>|null $value Value to set for the triggers property.
+     * @param array<RestrictionTrigger>|null $value Value to set for the triggers property.
     */
     public function setTriggers(?array $value): void {
         $this->getBackingStore()->set('triggers', $value);

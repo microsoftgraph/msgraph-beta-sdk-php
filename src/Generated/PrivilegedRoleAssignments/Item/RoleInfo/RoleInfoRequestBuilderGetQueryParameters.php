@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Item\RoleInfo
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. Nullable. The associated role information.
+*/
 class RoleInfoRequestBuilderGetQueryParameters 
 {
     /**

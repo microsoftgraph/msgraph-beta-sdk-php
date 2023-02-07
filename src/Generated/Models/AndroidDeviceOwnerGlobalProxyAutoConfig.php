@@ -55,7 +55,7 @@ class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalPr
 
     /**
      * Sets the proxyAutoConfigURL property value. The proxy auto-config URL
-     *  @param string|null $value Value to set for the proxyAutoConfigURL property.
+     * @param string|null $value Value to set for the proxyAutoConfigURL property.
     */
     public function setProxyAutoConfigURL(?string $value): void {
         $this->getBackingStore()->set('proxyAutoConfigURL', $value);

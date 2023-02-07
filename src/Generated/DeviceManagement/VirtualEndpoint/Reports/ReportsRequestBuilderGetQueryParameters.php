@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Report
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Cloud PC related reports.
+*/
 class ReportsRequestBuilderGetQueryParameters 
 {
     /**

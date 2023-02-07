@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The RbacApplication for Entitlement Management
+*/
 class EntitlementManagementRequestBuilderGetQueryParameters 
 {
     /**

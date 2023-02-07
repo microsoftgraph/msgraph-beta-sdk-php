@@ -105,7 +105,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
 
     /**
      * Sets the appSupportsOemConfig property value. Whether or not this AppConfig is an OEMConfig policy.
-     *  @param bool|null $value Value to set for the appSupportsOemConfig property.
+     * @param bool|null $value Value to set for the appSupportsOemConfig property.
     */
     public function setAppSupportsOemConfig(?bool $value): void {
         $this->getBackingStore()->set('appSupportsOemConfig', $value);
@@ -113,7 +113,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
 
     /**
      * Sets the connectedAppsEnabled property value. Setting to specify whether to allow ConnectedApps experience for this app.
-     *  @param bool|null $value Value to set for the connectedAppsEnabled property.
+     * @param bool|null $value Value to set for the connectedAppsEnabled property.
     */
     public function setConnectedAppsEnabled(?bool $value): void {
         $this->getBackingStore()->set('connectedAppsEnabled', $value);
@@ -121,7 +121,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
 
     /**
      * Sets the packageId property value. Android Enterprise app configuration package id.
-     *  @param string|null $value Value to set for the packageId property.
+     * @param string|null $value Value to set for the packageId property.
     */
     public function setPackageId(?string $value): void {
         $this->getBackingStore()->set('packageId', $value);
@@ -129,7 +129,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
 
     /**
      * Sets the payloadJson property value. Android Enterprise app configuration JSON payload.
-     *  @param string|null $value Value to set for the payloadJson property.
+     * @param string|null $value Value to set for the payloadJson property.
     */
     public function setPayloadJson(?string $value): void {
         $this->getBackingStore()->set('payloadJson', $value);
@@ -137,7 +137,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
 
     /**
      * Sets the permissionActions property value. List of Android app permissions and corresponding permission actions.
-     *  @param array<AndroidPermissionAction>|null $value Value to set for the permissionActions property.
+     * @param array<AndroidPermissionAction>|null $value Value to set for the permissionActions property.
     */
     public function setPermissionActions(?array $value): void {
         $this->getBackingStore()->set('permissionActions', $value);
@@ -145,7 +145,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
 
     /**
      * Sets the profileApplicability property value. Android profile applicability
-     *  @param AndroidProfileApplicability|null $value Value to set for the profileApplicability property.
+     * @param AndroidProfileApplicability|null $value Value to set for the profileApplicability property.
     */
     public function setProfileApplicability(?AndroidProfileApplicability $value): void {
         $this->getBackingStore()->set('profileApplicability', $value);

@@ -61,7 +61,7 @@ class AuthenticationCombinationConfiguration extends Entity implements Parsable
 
     /**
      * Sets the appliesToCombinations property value. Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
-     *  @param array<AuthenticationMethodModes>|null $value Value to set for the appliesToCombinations property.
+     * @param array<AuthenticationMethodModes>|null $value Value to set for the appliesToCombinations property.
     */
     public function setAppliesToCombinations(?array $value): void {
         $this->getBackingStore()->set('appliesToCombinations', $value);

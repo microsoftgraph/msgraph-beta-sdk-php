@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Device Management Compliance Policy
+*/
 class DeviceManagementCompliancePolicy extends Entity implements Parsable 
 {
     /**
@@ -171,7 +174,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. Policy assignments
-     *  @param array<DeviceManagementConfigurationPolicyAssignment>|null $value Value to set for the assignments property.
+     * @param array<DeviceManagementConfigurationPolicyAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -179,7 +182,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Policy creation date and time. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -187,7 +190,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the creationSource property value. Policy creation source
-     *  @param string|null $value Value to set for the creationSource property.
+     * @param string|null $value Value to set for the creationSource property.
     */
     public function setCreationSource(?string $value): void {
         $this->getBackingStore()->set('creationSource', $value);
@@ -195,7 +198,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the description property value. Policy description
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -203,7 +206,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the isAssigned property value. Policy assignment status. This property is read-only.
-     *  @param bool|null $value Value to set for the isAssigned property.
+     * @param bool|null $value Value to set for the isAssigned property.
     */
     public function setIsAssigned(?bool $value): void {
         $this->getBackingStore()->set('isAssigned', $value);
@@ -211,7 +214,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Policy last modification date and time. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -219,7 +222,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the name property value. Policy name
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -227,7 +230,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the platforms property value. Supported platform types.
-     *  @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
+     * @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?DeviceManagementConfigurationPlatforms $value): void {
         $this->getBackingStore()->set('platforms', $value);
@@ -235,7 +238,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -243,7 +246,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the scheduledActionsForRule property value. The list of scheduled action for this rule
-     *  @param array<DeviceManagementComplianceScheduledActionForRule>|null $value Value to set for the scheduledActionsForRule property.
+     * @param array<DeviceManagementComplianceScheduledActionForRule>|null $value Value to set for the scheduledActionsForRule property.
     */
     public function setScheduledActionsForRule(?array $value): void {
         $this->getBackingStore()->set('scheduledActionsForRule', $value);
@@ -251,7 +254,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the settingCount property value. Number of settings. This property is read-only.
-     *  @param int|null $value Value to set for the settingCount property.
+     * @param int|null $value Value to set for the settingCount property.
     */
     public function setSettingCount(?int $value): void {
         $this->getBackingStore()->set('settingCount', $value);
@@ -259,7 +262,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the settings property value. Policy settings
-     *  @param array<DeviceManagementConfigurationSetting>|null $value Value to set for the settings property.
+     * @param array<DeviceManagementConfigurationSetting>|null $value Value to set for the settings property.
     */
     public function setSettings(?array $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -267,7 +270,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
 
     /**
      * Sets the technologies property value. Describes which technology this setting can be deployed with
-     *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
+     * @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value): void {
         $this->getBackingStore()->set('technologies', $value);

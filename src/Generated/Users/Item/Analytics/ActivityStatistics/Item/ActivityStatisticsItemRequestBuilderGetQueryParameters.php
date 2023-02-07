@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Analytics\ActivityStatistics
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable.
+*/
 class ActivityStatisticsItemRequestBuilderGetQueryParameters 
 {
     /**

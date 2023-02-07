@@ -96,24 +96,11 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\DomainJ
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\Item\DeviceManagementDomainJoinConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\EmbeddedSIMActivationCodePoolsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\EmbeddedSIMActivationCodePoolItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableAndroidDeviceAdministratorEnrollment\EnableAndroidDeviceAdministratorEnrollmentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableLegacyPcManagement\EnableLegacyPcManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableUnlicensedAdminstrators\EnableUnlicensedAdminstratorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\EvaluateAssignmentFilter\EvaluateAssignmentFilterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors\ExchangeConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors\Item\DeviceManagementExchangeConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\ExchangeOnPremisesPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Item\DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicy\ExchangeOnPremisesPolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetAssignedRoleDetails\GetAssignedRoleDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetAssignmentFiltersStatusDetails\GetAssignmentFiltersStatusDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetComanagedDevicesSummary\GetComanagedDevicesSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetComanagementEligibleDevicesSummary\GetComanagementEligibleDevicesSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermissions\GetEffectivePermissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermissionsWithScope\GetEffectivePermissionsWithScopeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByIdsWithIds\GetRoleScopeTagsByIdsWithIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByResourceWithResource\GetRoleScopeTagsByResourceWithResourceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetSuggestedEnrollmentLimitWithEnrollmentType\GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\GroupPolicyCategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\GroupPolicyCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\GroupPolicyConfigurationsRequestBuilder;
@@ -144,6 +131,24 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionState
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\ManagedDeviceEncryptionStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceOverview\ManagedDeviceOverviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\ManagedDevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphEnableAndroidDeviceAdministratorEnrollment\MicrosoftGraphEnableAndroidDeviceAdministratorEnrollmentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphEnableLegacyPcManagement\MicrosoftGraphEnableLegacyPcManagementRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphEnableUnlicensedAdminstrators\MicrosoftGraphEnableUnlicensedAdminstratorsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphEvaluateAssignmentFilter\MicrosoftGraphEvaluateAssignmentFilterRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetAssignedRoleDetails\MicrosoftGraphGetAssignedRoleDetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetAssignmentFiltersStatusDetails\MicrosoftGraphGetAssignmentFiltersStatusDetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetComanagedDevicesSummary\MicrosoftGraphGetComanagedDevicesSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetComanagementEligibleDevicesSummary\MicrosoftGraphGetComanagementEligibleDevicesSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetEffectivePermissions\MicrosoftGraphGetEffectivePermissionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetEffectivePermissionsWithScope\MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetRoleScopeTagsByIdsWithIds\MicrosoftGraphGetRoleScopeTagsByIdsWithIdsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetRoleScopeTagsByResourceWithResource\MicrosoftGraphGetRoleScopeTagsByResourceWithResourceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentType\MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphScopedForResourceWithResource\MicrosoftGraphScopedForResourceWithResourceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphSendCustomNotificationToCompanyPortal\MicrosoftGraphSendCustomNotificationToCompanyPortalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphUserExperienceAnalyticsSummarizedDeviceScopes\MicrosoftGraphUserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevices\MicrosoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainName\MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigurations\Item\MicrosoftTunnelConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigurations\MicrosoftTunnelConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Item\MicrosoftTunnelHealthThresholdItemRequestBuilder;
@@ -182,8 +187,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleDefinitions\Item\RoleDef
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleDefinitions\RoleDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\RoleScopeTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\RoleScopeTagsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ScopedForResourceWithResource\ScopedForResourceWithResourceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\SendCustomNotificationToCompanyPortal\SendCustomNotificationToCompanyPortalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ServiceNowConnections\Item\ServiceNowConnectionItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ServiceNowConnections\ServiceNowConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SettingDefinitions\Item\DeviceManagementSettingDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SettingDefinitions\SettingDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SoftwareUpdateStatusSummary\SoftwareUpdateStatusSummaryRequestBuilder;
@@ -255,6 +260,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevic
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceStartupProcessPerformance\UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\Item\UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceTimelineEvent\Item\UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceTimelineEvent\UserExperienceAnalyticsDeviceTimelineEventRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsImpactingProcess\Item\UserExperienceAnalyticsImpactingProcessItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsImpactingProcess\UserExperienceAnalyticsImpactingProcessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\UserExperienceAnalyticsMetricHistoryRequestBuilder;
@@ -269,8 +276,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsResou
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsResourcePerformance\UserExperienceAnalyticsResourcePerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsScoreHistory\Item\UserExperienceAnalyticsScoreHistoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsScoreHistory\UserExperienceAnalyticsScoreHistoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsSummarizedDeviceScopes\UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevices\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\Item\UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder;
@@ -278,7 +283,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkF
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance\UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\Item\UserPFXCertificateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\UserPfxCertificatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VerifyWindowsEnrollmentAutoDiscoveryWithDomainName\VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\VirtualEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\WindowsAutopilotDeploymentProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\WindowsAutopilotDeploymentProfilesRequestBuilder;
@@ -309,11 +313,13 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the deviceManagement singleton.
+*/
 class DeviceManagementRequestBuilder 
 {
     /**
@@ -681,34 +687,6 @@ class DeviceManagementRequestBuilder
     }
     
     /**
-     * Provides operations to call the enableAndroidDeviceAdministratorEnrollment method.
-    */
-    public function enableAndroidDeviceAdministratorEnrollment(): EnableAndroidDeviceAdministratorEnrollmentRequestBuilder {
-        return new EnableAndroidDeviceAdministratorEnrollmentRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the enableLegacyPcManagement method.
-    */
-    public function enableLegacyPcManagement(): EnableLegacyPcManagementRequestBuilder {
-        return new EnableLegacyPcManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the enableUnlicensedAdminstrators method.
-    */
-    public function enableUnlicensedAdminstrators(): EnableUnlicensedAdminstratorsRequestBuilder {
-        return new EnableUnlicensedAdminstratorsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the evaluateAssignmentFilter method.
-    */
-    public function evaluateAssignmentFilter(): EvaluateAssignmentFilterRequestBuilder {
-        return new EvaluateAssignmentFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
     */
     public function exchangeConnectors(): ExchangeConnectorsRequestBuilder {
@@ -727,13 +705,6 @@ class DeviceManagementRequestBuilder
     */
     public function exchangeOnPremisesPolicy(): ExchangeOnPremisesPolicyRequestBuilder {
         return new ExchangeOnPremisesPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getAssignmentFiltersStatusDetails method.
-    */
-    public function getAssignmentFiltersStatusDetails(): GetAssignmentFiltersStatusDetailsRequestBuilder {
-        return new GetAssignmentFiltersStatusDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -846,6 +817,90 @@ class DeviceManagementRequestBuilder
     */
     public function managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the enableAndroidDeviceAdministratorEnrollment method.
+    */
+    public function microsoftGraphEnableAndroidDeviceAdministratorEnrollment(): MicrosoftGraphEnableAndroidDeviceAdministratorEnrollmentRequestBuilder {
+        return new MicrosoftGraphEnableAndroidDeviceAdministratorEnrollmentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the enableLegacyPcManagement method.
+    */
+    public function microsoftGraphEnableLegacyPcManagement(): MicrosoftGraphEnableLegacyPcManagementRequestBuilder {
+        return new MicrosoftGraphEnableLegacyPcManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the enableUnlicensedAdminstrators method.
+    */
+    public function microsoftGraphEnableUnlicensedAdminstrators(): MicrosoftGraphEnableUnlicensedAdminstratorsRequestBuilder {
+        return new MicrosoftGraphEnableUnlicensedAdminstratorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the evaluateAssignmentFilter method.
+    */
+    public function microsoftGraphEvaluateAssignmentFilter(): MicrosoftGraphEvaluateAssignmentFilterRequestBuilder {
+        return new MicrosoftGraphEvaluateAssignmentFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAssignedRoleDetails method.
+    */
+    public function microsoftGraphGetAssignedRoleDetails(): MicrosoftGraphGetAssignedRoleDetailsRequestBuilder {
+        return new MicrosoftGraphGetAssignedRoleDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAssignmentFiltersStatusDetails method.
+    */
+    public function microsoftGraphGetAssignmentFiltersStatusDetails(): MicrosoftGraphGetAssignmentFiltersStatusDetailsRequestBuilder {
+        return new MicrosoftGraphGetAssignmentFiltersStatusDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getComanagedDevicesSummary method.
+    */
+    public function microsoftGraphGetComanagedDevicesSummary(): MicrosoftGraphGetComanagedDevicesSummaryRequestBuilder {
+        return new MicrosoftGraphGetComanagedDevicesSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getComanagementEligibleDevicesSummary method.
+    */
+    public function microsoftGraphGetComanagementEligibleDevicesSummary(): MicrosoftGraphGetComanagementEligibleDevicesSummaryRequestBuilder {
+        return new MicrosoftGraphGetComanagementEligibleDevicesSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getEffectivePermissions method.
+    */
+    public function microsoftGraphGetEffectivePermissions(): MicrosoftGraphGetEffectivePermissionsRequestBuilder {
+        return new MicrosoftGraphGetEffectivePermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the sendCustomNotificationToCompanyPortal method.
+    */
+    public function microsoftGraphSendCustomNotificationToCompanyPortal(): MicrosoftGraphSendCustomNotificationToCompanyPortalRequestBuilder {
+        return new MicrosoftGraphSendCustomNotificationToCompanyPortalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the userExperienceAnalyticsSummarizedDeviceScopes method.
+    */
+    public function microsoftGraphUserExperienceAnalyticsSummarizedDeviceScopes(): MicrosoftGraphUserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder {
+        return new MicrosoftGraphUserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the userExperienceAnalyticsSummarizeWorkFromAnywhereDevices method.
+    */
+    public function microsoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevices(): MicrosoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder {
+        return new MicrosoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1006,10 +1061,10 @@ class DeviceManagementRequestBuilder
     }
     
     /**
-     * Provides operations to call the sendCustomNotificationToCompanyPortal method.
+     * Provides operations to manage the serviceNowConnections property of the microsoft.graph.deviceManagement entity.
     */
-    public function sendCustomNotificationToCompanyPortal(): SendCustomNotificationToCompanyPortalRequestBuilder {
-        return new SendCustomNotificationToCompanyPortalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function serviceNowConnections(): ServiceNowConnectionsRequestBuilder {
+        return new ServiceNowConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1291,6 +1346,13 @@ class DeviceManagementRequestBuilder
     }
     
     /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceTimelineEvent property of the microsoft.graph.deviceManagement entity.
+    */
+    public function userExperienceAnalyticsDeviceTimelineEvent(): UserExperienceAnalyticsDeviceTimelineEventRequestBuilder {
+        return new UserExperienceAnalyticsDeviceTimelineEventRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the userExperienceAnalyticsImpactingProcess property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsImpactingProcess(): UserExperienceAnalyticsImpactingProcessRequestBuilder {
@@ -1480,7 +1542,7 @@ class DeviceManagementRequestBuilder
     public function androidDeviceOwnerEnrollmentProfilesById(string $id): AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['androidDeviceOwnerEnrollmentProfile%2Did'] = $id;
-        return new AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1491,7 +1553,7 @@ class DeviceManagementRequestBuilder
     public function androidForWorkAppConfigurationSchemasById(string $id): AndroidForWorkAppConfigurationSchemaItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['androidForWorkAppConfigurationSchema%2Did'] = $id;
-        return new AndroidForWorkAppConfigurationSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AndroidForWorkAppConfigurationSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1502,7 +1564,7 @@ class DeviceManagementRequestBuilder
     public function androidForWorkEnrollmentProfilesById(string $id): AndroidForWorkEnrollmentProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['androidForWorkEnrollmentProfile%2Did'] = $id;
-        return new AndroidForWorkEnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AndroidForWorkEnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1513,7 +1575,7 @@ class DeviceManagementRequestBuilder
     public function androidManagedStoreAppConfigurationSchemasById(string $id): AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['androidManagedStoreAppConfigurationSchema%2Did'] = $id;
-        return new AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1524,7 +1586,7 @@ class DeviceManagementRequestBuilder
     public function appleUserInitiatedEnrollmentProfilesById(string $id): AppleUserInitiatedEnrollmentProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['appleUserInitiatedEnrollmentProfile%2Did'] = $id;
-        return new AppleUserInitiatedEnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AppleUserInitiatedEnrollmentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1535,7 +1597,7 @@ class DeviceManagementRequestBuilder
     public function assignmentFiltersById(string $id): DeviceAndAppManagementAssignmentFilterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceAndAppManagementAssignmentFilter%2Did'] = $id;
-        return new DeviceAndAppManagementAssignmentFilterItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceAndAppManagementAssignmentFilterItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1546,7 +1608,7 @@ class DeviceManagementRequestBuilder
     public function auditEventsById(string $id): AuditEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['auditEvent%2Did'] = $id;
-        return new AuditEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new AuditEventItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1557,7 +1619,7 @@ class DeviceManagementRequestBuilder
     public function autopilotEventsById(string $id): DeviceManagementAutopilotEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementAutopilotEvent%2Did'] = $id;
-        return new DeviceManagementAutopilotEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementAutopilotEventItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1568,7 +1630,7 @@ class DeviceManagementRequestBuilder
     public function cartToClassAssociationsById(string $id): CartToClassAssociationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cartToClassAssociation%2Did'] = $id;
-        return new CartToClassAssociationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CartToClassAssociationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1579,7 +1641,7 @@ class DeviceManagementRequestBuilder
     public function categoriesById(string $id): DeviceManagementSettingCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementSettingCategory%2Did'] = $id;
-        return new DeviceManagementSettingCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementSettingCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1590,7 +1652,7 @@ class DeviceManagementRequestBuilder
     public function certificateConnectorDetailsById(string $id): CertificateConnectorDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['certificateConnectorDetails%2Did'] = $id;
-        return new CertificateConnectorDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CertificateConnectorDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1601,7 +1663,7 @@ class DeviceManagementRequestBuilder
     public function chromeOSOnboardingSettingsById(string $id): ChromeOSOnboardingSettingsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['chromeOSOnboardingSettings%2Did'] = $id;
-        return new ChromeOSOnboardingSettingsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ChromeOSOnboardingSettingsItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1612,7 +1674,7 @@ class DeviceManagementRequestBuilder
     public function cloudPCConnectivityIssuesById(string $id): CloudPCConnectivityIssueItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPCConnectivityIssue%2Did'] = $id;
-        return new CloudPCConnectivityIssueItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CloudPCConnectivityIssueItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1623,7 +1685,7 @@ class DeviceManagementRequestBuilder
     public function comanagedDevicesById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedDevice%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1634,7 +1696,7 @@ class DeviceManagementRequestBuilder
     public function comanagementEligibleDevicesById(string $id): ComanagementEligibleDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['comanagementEligibleDevice%2Did'] = $id;
-        return new ComanagementEligibleDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ComanagementEligibleDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1645,7 +1707,7 @@ class DeviceManagementRequestBuilder
     public function complianceCategoriesById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationCategory%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1656,7 +1718,7 @@ class DeviceManagementRequestBuilder
     public function complianceManagementPartnersById(string $id): ComplianceManagementPartnerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['complianceManagementPartner%2Did'] = $id;
-        return new ComplianceManagementPartnerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ComplianceManagementPartnerItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1667,7 +1729,7 @@ class DeviceManagementRequestBuilder
     public function compliancePoliciesById(string $id): DeviceManagementCompliancePolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementCompliancePolicy%2Did'] = $id;
-        return new DeviceManagementCompliancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementCompliancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1678,7 +1740,7 @@ class DeviceManagementRequestBuilder
     public function complianceSettingsById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationSettingDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ComplianceSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1689,7 +1751,7 @@ class DeviceManagementRequestBuilder
     public function configManagerCollectionsById(string $id): ConfigManagerCollectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['configManagerCollection%2Did'] = $id;
-        return new ConfigManagerCollectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ConfigManagerCollectionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1700,7 +1762,7 @@ class DeviceManagementRequestBuilder
     public function configurationCategoriesById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationCategory%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationCategories\Item\DeviceManagementConfigurationCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1711,7 +1773,7 @@ class DeviceManagementRequestBuilder
     public function configurationPoliciesById(string $id): DeviceManagementConfigurationPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationPolicy%2Did'] = $id;
-        return new DeviceManagementConfigurationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementConfigurationPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1722,7 +1784,7 @@ class DeviceManagementRequestBuilder
     public function configurationPolicyTemplatesById(string $id): DeviceManagementConfigurationPolicyTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationPolicyTemplate%2Did'] = $id;
-        return new DeviceManagementConfigurationPolicyTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementConfigurationPolicyTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1733,18 +1795,22 @@ class DeviceManagementRequestBuilder
     public function configurationSettingsById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationSettingDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Instantiates a new DeviceManagementRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/deviceManagement{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
@@ -1755,7 +1821,7 @@ class DeviceManagementRequestBuilder
     public function dataSharingConsentsById(string $id): DataSharingConsentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['dataSharingConsent%2Did'] = $id;
-        return new DataSharingConsentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DataSharingConsentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1766,7 +1832,7 @@ class DeviceManagementRequestBuilder
     public function depOnboardingSettingsById(string $id): DepOnboardingSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['depOnboardingSetting%2Did'] = $id;
-        return new DepOnboardingSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DepOnboardingSettingItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1777,7 +1843,7 @@ class DeviceManagementRequestBuilder
     public function derivedCredentialsById(string $id): DeviceManagementDerivedCredentialSettingsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementDerivedCredentialSettings%2Did'] = $id;
-        return new DeviceManagementDerivedCredentialSettingsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementDerivedCredentialSettingsItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1788,7 +1854,7 @@ class DeviceManagementRequestBuilder
     public function detectedAppsById(string $id): DetectedAppItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['detectedApp%2Did'] = $id;
-        return new DetectedAppItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DetectedAppItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1799,7 +1865,7 @@ class DeviceManagementRequestBuilder
     public function deviceCategoriesById(string $id): DeviceCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceCategory%2Did'] = $id;
-        return new DeviceCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1810,7 +1876,7 @@ class DeviceManagementRequestBuilder
     public function deviceCompliancePoliciesById(string $id): DeviceCompliancePolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceCompliancePolicy%2Did'] = $id;
-        return new DeviceCompliancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceCompliancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1821,7 +1887,7 @@ class DeviceManagementRequestBuilder
     public function deviceCompliancePolicySettingStateSummariesById(string $id): DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceCompliancePolicySettingStateSummary%2Did'] = $id;
-        return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1832,7 +1898,7 @@ class DeviceManagementRequestBuilder
     public function deviceComplianceScriptsById(string $id): DeviceComplianceScriptItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceComplianceScript%2Did'] = $id;
-        return new DeviceComplianceScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceComplianceScriptItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1843,7 +1909,7 @@ class DeviceManagementRequestBuilder
     public function deviceConfigurationConflictSummaryById(string $id): DeviceConfigurationConflictSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceConfigurationConflictSummary%2Did'] = $id;
-        return new DeviceConfigurationConflictSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceConfigurationConflictSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1854,7 +1920,7 @@ class DeviceManagementRequestBuilder
     public function deviceConfigurationRestrictedAppsViolationsById(string $id): RestrictedAppsViolationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['restrictedAppsViolation%2Did'] = $id;
-        return new RestrictedAppsViolationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new RestrictedAppsViolationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1865,7 +1931,7 @@ class DeviceManagementRequestBuilder
     public function deviceConfigurationsAllManagedDeviceCertificateStatesById(string $id): ManagedAllDeviceCertificateStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedAllDeviceCertificateState%2Did'] = $id;
-        return new ManagedAllDeviceCertificateStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ManagedAllDeviceCertificateStateItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1876,7 +1942,7 @@ class DeviceManagementRequestBuilder
     public function deviceConfigurationsById(string $id): DeviceConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceConfiguration%2Did'] = $id;
-        return new DeviceConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1887,7 +1953,7 @@ class DeviceManagementRequestBuilder
     public function deviceCustomAttributeShellScriptsById(string $id): DeviceCustomAttributeShellScriptItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceCustomAttributeShellScript%2Did'] = $id;
-        return new DeviceCustomAttributeShellScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceCustomAttributeShellScriptItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1898,7 +1964,7 @@ class DeviceManagementRequestBuilder
     public function deviceEnrollmentConfigurationsById(string $id): DeviceEnrollmentConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceEnrollmentConfiguration%2Did'] = $id;
-        return new DeviceEnrollmentConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceEnrollmentConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1909,7 +1975,7 @@ class DeviceManagementRequestBuilder
     public function deviceHealthScriptsById(string $id): DeviceHealthScriptItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceHealthScript%2Did'] = $id;
-        return new DeviceHealthScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceHealthScriptItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1920,7 +1986,7 @@ class DeviceManagementRequestBuilder
     public function deviceManagementPartnersById(string $id): DeviceManagementPartnerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementPartner%2Did'] = $id;
-        return new DeviceManagementPartnerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementPartnerItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1931,7 +1997,7 @@ class DeviceManagementRequestBuilder
     public function deviceManagementScriptsById(string $id): DeviceManagementScriptItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementScript%2Did'] = $id;
-        return new DeviceManagementScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementScriptItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1942,7 +2008,7 @@ class DeviceManagementRequestBuilder
     public function deviceShellScriptsById(string $id): DeviceShellScriptItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceShellScript%2Did'] = $id;
-        return new DeviceShellScriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceShellScriptItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1953,7 +2019,7 @@ class DeviceManagementRequestBuilder
     public function domainJoinConnectorsById(string $id): DeviceManagementDomainJoinConnectorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementDomainJoinConnector%2Did'] = $id;
-        return new DeviceManagementDomainJoinConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementDomainJoinConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1964,7 +2030,7 @@ class DeviceManagementRequestBuilder
     public function embeddedSIMActivationCodePoolsById(string $id): EmbeddedSIMActivationCodePoolItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['embeddedSIMActivationCodePool%2Did'] = $id;
-        return new EmbeddedSIMActivationCodePoolItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new EmbeddedSIMActivationCodePoolItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1975,7 +2041,7 @@ class DeviceManagementRequestBuilder
     public function exchangeConnectorsById(string $id): DeviceManagementExchangeConnectorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementExchangeConnector%2Did'] = $id;
-        return new DeviceManagementExchangeConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementExchangeConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -1986,94 +2052,25 @@ class DeviceManagementRequestBuilder
     public function exchangeOnPremisesPoliciesById(string $id): DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementExchangeOnPremisesPolicy%2Did'] = $id;
-        return new DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Get deviceManagement
      * @param DeviceManagementRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?DeviceManagementRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?DeviceManagementRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getAssignedRoleDetails method.
-     * @return GetAssignedRoleDetailsRequestBuilder
-    */
-    public function getAssignedRoleDetails(): GetAssignedRoleDetailsRequestBuilder {
-        return new GetAssignedRoleDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getComanagedDevicesSummary method.
-     * @return GetComanagedDevicesSummaryRequestBuilder
-    */
-    public function getComanagedDevicesSummary(): GetComanagedDevicesSummaryRequestBuilder {
-        return new GetComanagedDevicesSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getComanagementEligibleDevicesSummary method.
-     * @return GetComanagementEligibleDevicesSummaryRequestBuilder
-    */
-    public function getComanagementEligibleDevicesSummary(): GetComanagementEligibleDevicesSummaryRequestBuilder {
-        return new GetComanagementEligibleDevicesSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getEffectivePermissions method.
-     * @return GetEffectivePermissionsRequestBuilder
-    */
-    public function getEffectivePermissions(): GetEffectivePermissionsRequestBuilder {
-        return new GetEffectivePermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getEffectivePermissions method.
-     * @param string $scope Usage: scope='{scope}'
-     * @return GetEffectivePermissionsWithScopeRequestBuilder
-    */
-    public function getEffectivePermissionsWithScope(string $scope): GetEffectivePermissionsWithScopeRequestBuilder {
-        return new GetEffectivePermissionsWithScopeRequestBuilder($this->pathParameters, $this->requestAdapter, $scope);
-    }
-
-    /**
-     * Provides operations to call the getRoleScopeTagsByIds method.
-     * @param string $ids Usage: ids={ids}
-     * @return GetRoleScopeTagsByIdsWithIdsRequestBuilder
-    */
-    public function getRoleScopeTagsByIdsWithIds(string $ids): GetRoleScopeTagsByIdsWithIdsRequestBuilder {
-        return new GetRoleScopeTagsByIdsWithIdsRequestBuilder($this->pathParameters, $this->requestAdapter, $ids);
-    }
-
-    /**
-     * Provides operations to call the getRoleScopeTagsByResource method.
-     * @param string $resource Usage: resource='{resource}'
-     * @return GetRoleScopeTagsByResourceWithResourceRequestBuilder
-    */
-    public function getRoleScopeTagsByResourceWithResource(string $resource): GetRoleScopeTagsByResourceWithResourceRequestBuilder {
-        return new GetRoleScopeTagsByResourceWithResourceRequestBuilder($this->pathParameters, $this->requestAdapter, $resource);
-    }
-
-    /**
-     * Provides operations to call the getSuggestedEnrollmentLimit method.
-     * @param string $enrollmentType Usage: enrollmentType='{enrollmentType}'
-     * @return GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder
-    */
-    public function getSuggestedEnrollmentLimitWithEnrollmentType(string $enrollmentType): GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder {
-        return new GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder($this->pathParameters, $this->requestAdapter, $enrollmentType);
     }
 
     /**
@@ -2084,7 +2081,7 @@ class DeviceManagementRequestBuilder
     public function groupPolicyCategoriesById(string $id): GroupPolicyCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyCategory%2Did'] = $id;
-        return new GroupPolicyCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GroupPolicyCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2095,7 +2092,7 @@ class DeviceManagementRequestBuilder
     public function groupPolicyConfigurationsById(string $id): GroupPolicyConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyConfiguration%2Did'] = $id;
-        return new GroupPolicyConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GroupPolicyConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2106,7 +2103,7 @@ class DeviceManagementRequestBuilder
     public function groupPolicyDefinitionFilesById(string $id): GroupPolicyDefinitionFileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyDefinitionFile%2Did'] = $id;
-        return new GroupPolicyDefinitionFileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GroupPolicyDefinitionFileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2117,7 +2114,7 @@ class DeviceManagementRequestBuilder
     public function groupPolicyDefinitionsById(string $id): GroupPolicyDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyDefinition%2Did'] = $id;
-        return new GroupPolicyDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GroupPolicyDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2128,7 +2125,7 @@ class DeviceManagementRequestBuilder
     public function groupPolicyMigrationReportsById(string $id): GroupPolicyMigrationReportItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyMigrationReport%2Did'] = $id;
-        return new GroupPolicyMigrationReportItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GroupPolicyMigrationReportItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2139,7 +2136,7 @@ class DeviceManagementRequestBuilder
     public function groupPolicyObjectFilesById(string $id): GroupPolicyObjectFileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyObjectFile%2Did'] = $id;
-        return new GroupPolicyObjectFileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GroupPolicyObjectFileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2150,7 +2147,7 @@ class DeviceManagementRequestBuilder
     public function groupPolicyUploadedDefinitionFilesById(string $id): GroupPolicyUploadedDefinitionFileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['groupPolicyUploadedDefinitionFile%2Did'] = $id;
-        return new GroupPolicyUploadedDefinitionFileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new GroupPolicyUploadedDefinitionFileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2161,7 +2158,7 @@ class DeviceManagementRequestBuilder
     public function importedDeviceIdentitiesById(string $id): ImportedDeviceIdentityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['importedDeviceIdentity%2Did'] = $id;
-        return new ImportedDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ImportedDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2172,7 +2169,7 @@ class DeviceManagementRequestBuilder
     public function importedWindowsAutopilotDeviceIdentitiesById(string $id): ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['importedWindowsAutopilotDeviceIdentity%2Did'] = $id;
-        return new ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2183,7 +2180,7 @@ class DeviceManagementRequestBuilder
     public function intentsById(string $id): DeviceManagementIntentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementIntent%2Did'] = $id;
-        return new DeviceManagementIntentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementIntentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2194,7 +2191,7 @@ class DeviceManagementRequestBuilder
     public function intuneBrandingProfilesById(string $id): IntuneBrandingProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['intuneBrandingProfile%2Did'] = $id;
-        return new IntuneBrandingProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new IntuneBrandingProfileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2205,7 +2202,7 @@ class DeviceManagementRequestBuilder
     public function iosUpdateStatusesById(string $id): IosUpdateDeviceStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['iosUpdateDeviceStatus%2Did'] = $id;
-        return new IosUpdateDeviceStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new IosUpdateDeviceStatusItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2216,7 +2213,7 @@ class DeviceManagementRequestBuilder
     public function macOSSoftwareUpdateAccountSummariesById(string $id): MacOSSoftwareUpdateAccountSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['macOSSoftwareUpdateAccountSummary%2Did'] = $id;
-        return new MacOSSoftwareUpdateAccountSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MacOSSoftwareUpdateAccountSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2227,7 +2224,7 @@ class DeviceManagementRequestBuilder
     public function managedDeviceEncryptionStatesById(string $id): ManagedDeviceEncryptionStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedDeviceEncryptionState%2Did'] = $id;
-        return new ManagedDeviceEncryptionStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ManagedDeviceEncryptionStateItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2238,7 +2235,61 @@ class DeviceManagementRequestBuilder
     public function managedDevicesById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedDevice%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
+    }
+
+    /**
+     * Provides operations to call the getEffectivePermissions method.
+     * @param string $scope Usage: scope='{scope}'
+     * @return MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder
+    */
+    public function microsoftGraphGetEffectivePermissionsWithScope(string $scope): MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder {
+        return new MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder($this->pathParameters, $this->requestAdapter, $scope);
+    }
+
+    /**
+     * Provides operations to call the getRoleScopeTagsByIds method.
+     * @param string $ids Usage: ids={ids}
+     * @return MicrosoftGraphGetRoleScopeTagsByIdsWithIdsRequestBuilder
+    */
+    public function microsoftGraphGetRoleScopeTagsByIdsWithIds(string $ids): MicrosoftGraphGetRoleScopeTagsByIdsWithIdsRequestBuilder {
+        return new MicrosoftGraphGetRoleScopeTagsByIdsWithIdsRequestBuilder($this->pathParameters, $this->requestAdapter, $ids);
+    }
+
+    /**
+     * Provides operations to call the getRoleScopeTagsByResource method.
+     * @param string $resource Usage: resource='{resource}'
+     * @return MicrosoftGraphGetRoleScopeTagsByResourceWithResourceRequestBuilder
+    */
+    public function microsoftGraphGetRoleScopeTagsByResourceWithResource(string $resource): MicrosoftGraphGetRoleScopeTagsByResourceWithResourceRequestBuilder {
+        return new MicrosoftGraphGetRoleScopeTagsByResourceWithResourceRequestBuilder($this->pathParameters, $this->requestAdapter, $resource);
+    }
+
+    /**
+     * Provides operations to call the getSuggestedEnrollmentLimit method.
+     * @param string $enrollmentType Usage: enrollmentType='{enrollmentType}'
+     * @return MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder
+    */
+    public function microsoftGraphGetSuggestedEnrollmentLimitWithEnrollmentType(string $enrollmentType): MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder {
+        return new MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder($this->pathParameters, $this->requestAdapter, $enrollmentType);
+    }
+
+    /**
+     * Provides operations to call the scopedForResource method.
+     * @param string $resource Usage: resource='{resource}'
+     * @return MicrosoftGraphScopedForResourceWithResourceRequestBuilder
+    */
+    public function microsoftGraphScopedForResourceWithResource(string $resource): MicrosoftGraphScopedForResourceWithResourceRequestBuilder {
+        return new MicrosoftGraphScopedForResourceWithResourceRequestBuilder($this->pathParameters, $this->requestAdapter, $resource);
+    }
+
+    /**
+     * Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
+     * @param string $domainName Usage: domainName='{domainName}'
+     * @return MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder
+    */
+    public function microsoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainName(string $domainName): MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder {
+        return new MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder($this->pathParameters, $this->requestAdapter, $domainName);
     }
 
     /**
@@ -2249,7 +2300,7 @@ class DeviceManagementRequestBuilder
     public function microsoftTunnelConfigurationsById(string $id): MicrosoftTunnelConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['microsoftTunnelConfiguration%2Did'] = $id;
-        return new MicrosoftTunnelConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftTunnelConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2260,7 +2311,7 @@ class DeviceManagementRequestBuilder
     public function microsoftTunnelHealthThresholdsById(string $id): MicrosoftTunnelHealthThresholdItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['microsoftTunnelHealthThreshold%2Did'] = $id;
-        return new MicrosoftTunnelHealthThresholdItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftTunnelHealthThresholdItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2271,7 +2322,7 @@ class DeviceManagementRequestBuilder
     public function microsoftTunnelServerLogCollectionResponsesById(string $id): MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['microsoftTunnelServerLogCollectionResponse%2Did'] = $id;
-        return new MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2282,7 +2333,7 @@ class DeviceManagementRequestBuilder
     public function microsoftTunnelSitesById(string $id): MicrosoftTunnelSiteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['microsoftTunnelSite%2Did'] = $id;
-        return new MicrosoftTunnelSiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftTunnelSiteItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2293,7 +2344,7 @@ class DeviceManagementRequestBuilder
     public function mobileAppTroubleshootingEventsById(string $id): MobileAppTroubleshootingEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobileAppTroubleshootingEvent%2Did'] = $id;
-        return new MobileAppTroubleshootingEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MobileAppTroubleshootingEventItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2304,7 +2355,7 @@ class DeviceManagementRequestBuilder
     public function mobileThreatDefenseConnectorsById(string $id): MobileThreatDefenseConnectorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['mobileThreatDefenseConnector%2Did'] = $id;
-        return new MobileThreatDefenseConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MobileThreatDefenseConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2315,7 +2366,7 @@ class DeviceManagementRequestBuilder
     public function ndesConnectorsById(string $id): NdesConnectorItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['ndesConnector%2Did'] = $id;
-        return new NdesConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new NdesConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2326,7 +2377,7 @@ class DeviceManagementRequestBuilder
     public function notificationMessageTemplatesById(string $id): NotificationMessageTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['notificationMessageTemplate%2Did'] = $id;
-        return new NotificationMessageTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new NotificationMessageTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2337,24 +2388,23 @@ class DeviceManagementRequestBuilder
     public function oemWarrantyInformationOnboardingById(string $id): OemWarrantyInformationOnboardingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['oemWarrantyInformationOnboarding%2Did'] = $id;
-        return new OemWarrantyInformationOnboardingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new OemWarrantyInformationOnboardingItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
      * Update deviceManagement
      * @param DeviceManagement $body The request body
      * @param DeviceManagementRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(DeviceManagement $body, ?DeviceManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(DeviceManagement $body, ?DeviceManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -2368,7 +2418,7 @@ class DeviceManagementRequestBuilder
     public function remoteActionAuditsById(string $id): RemoteActionAuditItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['remoteActionAudit%2Did'] = $id;
-        return new RemoteActionAuditItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new RemoteActionAuditItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2379,7 +2429,7 @@ class DeviceManagementRequestBuilder
     public function remoteAssistancePartnersById(string $id): RemoteAssistancePartnerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['remoteAssistancePartner%2Did'] = $id;
-        return new RemoteAssistancePartnerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new RemoteAssistancePartnerItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2390,7 +2440,7 @@ class DeviceManagementRequestBuilder
     public function resourceAccessProfilesById(string $id): DeviceManagementResourceAccessProfileBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementResourceAccessProfileBase%2Did'] = $id;
-        return new DeviceManagementResourceAccessProfileBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementResourceAccessProfileBaseItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2401,7 +2451,7 @@ class DeviceManagementRequestBuilder
     public function resourceOperationsById(string $id): ResourceOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['resourceOperation%2Did'] = $id;
-        return new ResourceOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ResourceOperationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2412,7 +2462,7 @@ class DeviceManagementRequestBuilder
     public function reusablePolicySettingsById(string $id): DeviceManagementReusablePolicySettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementReusablePolicySetting%2Did'] = $id;
-        return new DeviceManagementReusablePolicySettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementReusablePolicySettingItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2423,7 +2473,7 @@ class DeviceManagementRequestBuilder
     public function reusableSettingsById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationSettingDefinition%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\ReusableSettings\Item\DeviceManagementConfigurationSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2434,7 +2484,7 @@ class DeviceManagementRequestBuilder
     public function roleAssignmentsById(string $id): DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceAndAppManagementRoleAssignment%2Did'] = $id;
-        return new DeviceAndAppManagementRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceAndAppManagementRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2445,7 +2495,7 @@ class DeviceManagementRequestBuilder
     public function roleDefinitionsById(string $id): RoleDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['roleDefinition%2Did'] = $id;
-        return new RoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new RoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2456,16 +2506,18 @@ class DeviceManagementRequestBuilder
     public function roleScopeTagsById(string $id): RoleScopeTagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['roleScopeTag%2Did'] = $id;
-        return new RoleScopeTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new RoleScopeTagItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
-     * Provides operations to call the scopedForResource method.
-     * @param string $resource Usage: resource='{resource}'
-     * @return ScopedForResourceWithResourceRequestBuilder
+     * Provides operations to manage the serviceNowConnections property of the microsoft.graph.deviceManagement entity.
+     * @param string $id Unique identifier of the item
+     * @return ServiceNowConnectionItemRequestBuilder
     */
-    public function scopedForResourceWithResource(string $resource): ScopedForResourceWithResourceRequestBuilder {
-        return new ScopedForResourceWithResourceRequestBuilder($this->pathParameters, $this->requestAdapter, $resource);
+    public function serviceNowConnectionsById(string $id): ServiceNowConnectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['serviceNowConnection%2Did'] = $id;
+        return new ServiceNowConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2476,7 +2528,7 @@ class DeviceManagementRequestBuilder
     public function settingDefinitionsById(string $id): DeviceManagementSettingDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementSettingDefinition%2Did'] = $id;
-        return new DeviceManagementSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementSettingDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2487,7 +2539,7 @@ class DeviceManagementRequestBuilder
     public function telecomExpenseManagementPartnersById(string $id): TelecomExpenseManagementPartnerItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['telecomExpenseManagementPartner%2Did'] = $id;
-        return new TelecomExpenseManagementPartnerItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TelecomExpenseManagementPartnerItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2498,7 +2550,7 @@ class DeviceManagementRequestBuilder
     public function templatesById(string $id): DeviceManagementTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementTemplate%2Did'] = $id;
-        return new DeviceManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2509,7 +2561,7 @@ class DeviceManagementRequestBuilder
     public function templateSettingsById(string $id): DeviceManagementConfigurationSettingTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementConfigurationSettingTemplate%2Did'] = $id;
-        return new DeviceManagementConfigurationSettingTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementConfigurationSettingTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2520,7 +2572,7 @@ class DeviceManagementRequestBuilder
     public function termsAndConditionsById(string $id): TermsAndConditionsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['termsAndConditions%2Did'] = $id;
-        return new TermsAndConditionsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new TermsAndConditionsItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2533,10 +2585,10 @@ class DeviceManagementRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -2559,10 +2611,10 @@ class DeviceManagementRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -2580,7 +2632,7 @@ class DeviceManagementRequestBuilder
     public function troubleshootingEventsById(string $id): DeviceManagementTroubleshootingEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementTroubleshootingEvent%2Did'] = $id;
-        return new DeviceManagementTroubleshootingEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementTroubleshootingEventItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2591,7 +2643,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAnomalyById(string $id): UserExperienceAnalyticsAnomalyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAnomaly%2Did'] = $id;
-        return new UserExperienceAnalyticsAnomalyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAnomalyItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2602,7 +2654,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAnomalyDeviceById(string $id): UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAnomalyDevice%2Did'] = $id;
-        return new UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2613,7 +2665,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionById(string $id): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAppHealthAppPerformanceByAppVersion%2Did'] = $id;
-        return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2624,7 +2676,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsById(string $id): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails%2Did'] = $id;
-        return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2635,7 +2687,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdById(string $id): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId%2Did'] = $id;
-        return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2646,7 +2698,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAppHealthApplicationPerformanceById(string $id): UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAppHealthApplicationPerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2657,7 +2709,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionById(string $id): UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAppHealthAppPerformanceByOSVersion%2Did'] = $id;
-        return new UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2668,7 +2720,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAppHealthDeviceModelPerformanceById(string $id): UserExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAppHealthDeviceModelPerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2679,7 +2731,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAppHealthDevicePerformanceById(string $id): UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAppHealthDevicePerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2690,7 +2742,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAppHealthDevicePerformanceDetailsById(string $id): UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAppHealthDevicePerformanceDetails%2Did'] = $id;
-        return new UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2701,7 +2753,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsAppHealthOSVersionPerformanceById(string $id): UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsAppHealthOSVersionPerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2712,7 +2764,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsBaselinesById(string $id): UserExperienceAnalyticsBaselineItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsBaseline%2Did'] = $id;
-        return new UserExperienceAnalyticsBaselineItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsBaselineItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2723,7 +2775,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsBatteryHealthAppImpactById(string $id): UserExperienceAnalyticsBatteryHealthAppImpactItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsBatteryHealthAppImpact%2Did'] = $id;
-        return new UserExperienceAnalyticsBatteryHealthAppImpactItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsBatteryHealthAppImpactItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2734,7 +2786,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsBatteryHealthDeviceAppImpactById(string $id): UserExperienceAnalyticsBatteryHealthDeviceAppImpactItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsBatteryHealthDeviceAppImpact%2Did'] = $id;
-        return new UserExperienceAnalyticsBatteryHealthDeviceAppImpactItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsBatteryHealthDeviceAppImpactItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2745,7 +2797,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsBatteryHealthDevicePerformanceById(string $id): UserExperienceAnalyticsBatteryHealthDevicePerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsBatteryHealthDevicePerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsBatteryHealthDevicePerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsBatteryHealthDevicePerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2756,7 +2808,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryById(string $id): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory%2Did'] = $id;
-        return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2767,7 +2819,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsBatteryHealthModelPerformanceById(string $id): UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsBatteryHealthModelPerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2778,7 +2830,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsBatteryHealthOsPerformanceById(string $id): UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsBatteryHealthOsPerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2789,7 +2841,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsCategoriesById(string $id): UserExperienceAnalyticsCategoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsCategory%2Did'] = $id;
-        return new UserExperienceAnalyticsCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsCategoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2800,7 +2852,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsDeviceMetricHistoryById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsMetricHistory%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2811,7 +2863,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsDevicePerformanceById(string $id): UserExperienceAnalyticsDevicePerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsDevicePerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsDevicePerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsDevicePerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2822,7 +2874,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsDeviceScopesById(string $id): UserExperienceAnalyticsDeviceScopeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsDeviceScope%2Did'] = $id;
-        return new UserExperienceAnalyticsDeviceScopeItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsDeviceScopeItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2833,7 +2885,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsDeviceScoresById(string $id): UserExperienceAnalyticsDeviceScoresItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsDeviceScores%2Did'] = $id;
-        return new UserExperienceAnalyticsDeviceScoresItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsDeviceScoresItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2844,7 +2896,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsDeviceStartupHistoryById(string $id): UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsDeviceStartupHistory%2Did'] = $id;
-        return new UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2855,7 +2907,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsDeviceStartupProcessesById(string $id): UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsDeviceStartupProcess%2Did'] = $id;
-        return new UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2866,7 +2918,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsDeviceStartupProcessPerformanceById(string $id): UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsDeviceStartupProcessPerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2877,7 +2929,18 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsDevicesWithoutCloudIdentityById(string $id): UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsDeviceWithoutCloudIdentity%2Did'] = $id;
-        return new UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
+    }
+
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceTimelineEvent property of the microsoft.graph.deviceManagement entity.
+     * @param string $id Unique identifier of the item
+     * @return UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder
+    */
+    public function userExperienceAnalyticsDeviceTimelineEventById(string $id): UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsDeviceTimelineEvent%2Did'] = $id;
+        return new UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2888,7 +2951,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsImpactingProcessById(string $id): UserExperienceAnalyticsImpactingProcessItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsImpactingProcess%2Did'] = $id;
-        return new UserExperienceAnalyticsImpactingProcessItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsImpactingProcessItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2899,7 +2962,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsMetricHistoryById(string $id): \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsMetricHistory%2Did'] = $id;
-        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new \Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\Item\UserExperienceAnalyticsMetricHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2910,7 +2973,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsModelScoresById(string $id): UserExperienceAnalyticsModelScoresItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsModelScores%2Did'] = $id;
-        return new UserExperienceAnalyticsModelScoresItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsModelScoresItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2921,7 +2984,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsNotAutopilotReadyDeviceById(string $id): UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsNotAutopilotReadyDevice%2Did'] = $id;
-        return new UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2932,7 +2995,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsRemoteConnectionById(string $id): UserExperienceAnalyticsRemoteConnectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsRemoteConnection%2Did'] = $id;
-        return new UserExperienceAnalyticsRemoteConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsRemoteConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2943,7 +3006,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsResourcePerformanceById(string $id): UserExperienceAnalyticsResourcePerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsResourcePerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsResourcePerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsResourcePerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2954,23 +3017,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsScoreHistoryById(string $id): UserExperienceAnalyticsScoreHistoryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsScoreHistory%2Did'] = $id;
-        return new UserExperienceAnalyticsScoreHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the userExperienceAnalyticsSummarizedDeviceScopes method.
-     * @return UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder
-    */
-    public function userExperienceAnalyticsSummarizedDeviceScopes(): UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder {
-        return new UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the userExperienceAnalyticsSummarizeWorkFromAnywhereDevices method.
-     * @return UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder
-    */
-    public function userExperienceAnalyticsSummarizeWorkFromAnywhereDevices(): UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder {
-        return new UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+        return new UserExperienceAnalyticsScoreHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2981,7 +3028,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsWorkFromAnywhereMetricsById(string $id): UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsWorkFromAnywhereMetric%2Did'] = $id;
-        return new UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -2992,7 +3039,7 @@ class DeviceManagementRequestBuilder
     public function userExperienceAnalyticsWorkFromAnywhereModelPerformanceById(string $id): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsWorkFromAnywhereModelPerformance%2Did'] = $id;
-        return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3003,16 +3050,7 @@ class DeviceManagementRequestBuilder
     public function userPfxCertificatesById(string $id): UserPFXCertificateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userPFXCertificate%2Did'] = $id;
-        return new UserPFXCertificateItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
-     * @param string $domainName Usage: domainName='{domainName}'
-     * @return VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder
-    */
-    public function verifyWindowsEnrollmentAutoDiscoveryWithDomainName(string $domainName): VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder {
-        return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder($this->pathParameters, $this->requestAdapter, $domainName);
+        return new UserPFXCertificateItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3023,7 +3061,7 @@ class DeviceManagementRequestBuilder
     public function windowsAutopilotDeploymentProfilesById(string $id): WindowsAutopilotDeploymentProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsAutopilotDeploymentProfile%2Did'] = $id;
-        return new WindowsAutopilotDeploymentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsAutopilotDeploymentProfileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3034,7 +3072,7 @@ class DeviceManagementRequestBuilder
     public function windowsAutopilotDeviceIdentitiesById(string $id): WindowsAutopilotDeviceIdentityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsAutopilotDeviceIdentity%2Did'] = $id;
-        return new WindowsAutopilotDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsAutopilotDeviceIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3045,7 +3083,7 @@ class DeviceManagementRequestBuilder
     public function windowsDriverUpdateProfilesById(string $id): WindowsDriverUpdateProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDriverUpdateProfile%2Did'] = $id;
-        return new WindowsDriverUpdateProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsDriverUpdateProfileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3056,7 +3094,7 @@ class DeviceManagementRequestBuilder
     public function windowsFeatureUpdateProfilesById(string $id): WindowsFeatureUpdateProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsFeatureUpdateProfile%2Did'] = $id;
-        return new WindowsFeatureUpdateProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsFeatureUpdateProfileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3067,7 +3105,7 @@ class DeviceManagementRequestBuilder
     public function windowsInformationProtectionAppLearningSummariesById(string $id): WindowsInformationProtectionAppLearningSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsInformationProtectionAppLearningSummary%2Did'] = $id;
-        return new WindowsInformationProtectionAppLearningSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsInformationProtectionAppLearningSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3078,7 +3116,7 @@ class DeviceManagementRequestBuilder
     public function windowsInformationProtectionNetworkLearningSummariesById(string $id): WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsInformationProtectionNetworkLearningSummary%2Did'] = $id;
-        return new WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3089,7 +3127,7 @@ class DeviceManagementRequestBuilder
     public function windowsMalwareInformationById(string $id): WindowsMalwareInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsMalwareInformation%2Did'] = $id;
-        return new WindowsMalwareInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsMalwareInformationItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3100,7 +3138,7 @@ class DeviceManagementRequestBuilder
     public function windowsQualityUpdateProfilesById(string $id): WindowsQualityUpdateProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsQualityUpdateProfile%2Did'] = $id;
-        return new WindowsQualityUpdateProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsQualityUpdateProfileItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3111,7 +3149,7 @@ class DeviceManagementRequestBuilder
     public function windowsUpdateCatalogItemsById(string $id): WindowsUpdateCatalogItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsUpdateCatalogItem%2Did'] = $id;
-        return new WindowsUpdateCatalogItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsUpdateCatalogItemItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3122,7 +3160,7 @@ class DeviceManagementRequestBuilder
     public function zebraFotaArtifactsById(string $id): ZebraFotaArtifactItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['zebraFotaArtifact%2Did'] = $id;
-        return new ZebraFotaArtifactItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ZebraFotaArtifactItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
     /**
@@ -3133,7 +3171,7 @@ class DeviceManagementRequestBuilder
     public function zebraFotaDeploymentsById(string $id): ZebraFotaDeploymentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['zebraFotaDeployment%2Did'] = $id;
-        return new ZebraFotaDeploymentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new ZebraFotaDeploymentItemRequestBuilder($urlTplParams, $this->requestAdapter, $id);
     }
 
 }

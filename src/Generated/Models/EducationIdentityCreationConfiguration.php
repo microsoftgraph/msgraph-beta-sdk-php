@@ -55,7 +55,7 @@ class EducationIdentityCreationConfiguration extends EducationIdentitySynchroniz
 
     /**
      * Sets the userDomains property value. The userDomains property
-     *  @param array<EducationIdentityDomain>|null $value Value to set for the userDomains property.
+     * @param array<EducationIdentityDomain>|null $value Value to set for the userDomains property.
     */
     public function setUserDomains(?array $value): void {
         $this->getBackingStore()->set('userDomains', $value);

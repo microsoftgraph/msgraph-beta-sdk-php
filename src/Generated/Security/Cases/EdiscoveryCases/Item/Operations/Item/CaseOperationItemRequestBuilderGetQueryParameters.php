@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Ope
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Returns a list of case caseOperation objects for this case.
+*/
 class CaseOperationItemRequestBuilderGetQueryParameters 
 {
     /**

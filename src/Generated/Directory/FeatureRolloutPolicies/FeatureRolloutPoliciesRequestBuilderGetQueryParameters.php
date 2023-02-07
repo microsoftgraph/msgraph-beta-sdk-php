@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\FeatureRolloutPolicies;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get featureRolloutPolicies from directory
+*/
 class FeatureRolloutPoliciesRequestBuilderGetQueryParameters 
 {
     /**

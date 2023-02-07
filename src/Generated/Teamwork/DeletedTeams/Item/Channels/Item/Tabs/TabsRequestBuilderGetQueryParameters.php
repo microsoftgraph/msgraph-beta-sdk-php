@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the list of tabs in the specified channel within a team. 
+*/
 class TabsRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categorie
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of setting categories within the intent
+*/
 class CategoriesRequestBuilderGetQueryParameters 
 {
     /**

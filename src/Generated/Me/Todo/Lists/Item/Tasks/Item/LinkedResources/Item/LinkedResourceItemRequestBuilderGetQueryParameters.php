@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Todo\Lists\Item\Tasks\Item\LinkedRes
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of resources linked to the task.
+*/
 class LinkedResourceItemRequestBuilderGetQueryParameters 
 {
     /**

@@ -55,7 +55,7 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
 
     /**
      * Sets the win32App property value. The win32App property
-     *  @param WindowsKioskWin32App|null $value Value to set for the win32App property.
+     * @param WindowsKioskWin32App|null $value Value to set for the win32App property.
     */
     public function setWin32App(?WindowsKioskWin32App $value): void {
         $this->getBackingStore()->set('win32App', $value);

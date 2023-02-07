@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\BusinessFlowTemplates;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * In the Azure AD access reviews feature, list all the businessFlowTemplate objects.
+*/
 class BusinessFlowTemplatesRequestBuilderGetQueryParameters 
 {
     /**

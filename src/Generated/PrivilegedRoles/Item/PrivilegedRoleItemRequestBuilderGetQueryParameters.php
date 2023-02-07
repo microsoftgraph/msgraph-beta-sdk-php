@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedRoles\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties and relationships of privilegedRole object. 
+*/
 class PrivilegedRoleItemRequestBuilderGetQueryParameters 
 {
     /**

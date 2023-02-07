@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device.
+*/
 class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements Parsable 
 {
     /**
@@ -125,7 +128,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
 
     /**
      * Sets the complianceGracePeriodExpirationDateTime property value. The DateTime when device compliance grace period expires
-     *  @param DateTime|null $value Value to set for the complianceGracePeriodExpirationDateTime property.
+     * @param DateTime|null $value Value to set for the complianceGracePeriodExpirationDateTime property.
     */
     public function setComplianceGracePeriodExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('complianceGracePeriodExpirationDateTime', $value);
@@ -133,7 +136,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
 
     /**
      * Sets the deviceDisplayName property value. Device name of the DevicePolicyStatus.
-     *  @param string|null $value Value to set for the deviceDisplayName property.
+     * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
         $this->getBackingStore()->set('deviceDisplayName', $value);
@@ -141,7 +144,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
 
     /**
      * Sets the deviceModel property value. The device model that is being reported
-     *  @param string|null $value Value to set for the deviceModel property.
+     * @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value): void {
         $this->getBackingStore()->set('deviceModel', $value);
@@ -149,7 +152,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
 
     /**
      * Sets the lastReportedDateTime property value. Last modified date time of the policy report.
-     *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
+     * @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
@@ -157,7 +160,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
 
     /**
      * Sets the platform property value. Platform of the device that is being reported
-     *  @param int|null $value Value to set for the platform property.
+     * @param int|null $value Value to set for the platform property.
     */
     public function setPlatform(?int $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -165,7 +168,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
 
     /**
      * Sets the status property value. The status property
-     *  @param ComplianceStatus|null $value Value to set for the status property.
+     * @param ComplianceStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ComplianceStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -173,7 +176,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
 
     /**
      * Sets the userName property value. The User Name that is being reported
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);
@@ -181,7 +184,7 @@ class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements 
 
     /**
      * Sets the userPrincipalName property value. UserPrincipalName.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

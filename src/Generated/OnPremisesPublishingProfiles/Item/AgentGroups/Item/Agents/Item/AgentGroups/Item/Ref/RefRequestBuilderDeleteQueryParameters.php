@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Agent
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Delete ref of navigation property agentGroups for onPremisesPublishingProfiles
+*/
 class RefRequestBuilderDeleteQueryParameters 
 {
     /**

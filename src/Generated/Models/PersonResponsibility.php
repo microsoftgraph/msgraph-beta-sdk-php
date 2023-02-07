@@ -95,7 +95,7 @@ class PersonResponsibility extends ItemFacet implements Parsable
 
     /**
      * Sets the collaborationTags property value. Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
-     *  @param array<string>|null $value Value to set for the collaborationTags property.
+     * @param array<string>|null $value Value to set for the collaborationTags property.
     */
     public function setCollaborationTags(?array $value): void {
         $this->getBackingStore()->set('collaborationTags', $value);
@@ -103,7 +103,7 @@ class PersonResponsibility extends ItemFacet implements Parsable
 
     /**
      * Sets the description property value. Description of the responsibility.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -111,7 +111,7 @@ class PersonResponsibility extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Contains a friendly name for the responsibility.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -119,7 +119,7 @@ class PersonResponsibility extends ItemFacet implements Parsable
 
     /**
      * Sets the thumbnailUrl property value. The thumbnailUrl property
-     *  @param string|null $value Value to set for the thumbnailUrl property.
+     * @param string|null $value Value to set for the thumbnailUrl property.
     */
     public function setThumbnailUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailUrl', $value);
@@ -127,7 +127,7 @@ class PersonResponsibility extends ItemFacet implements Parsable
 
     /**
      * Sets the webUrl property value. Contains a link to a web page or resource about the responsibility.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

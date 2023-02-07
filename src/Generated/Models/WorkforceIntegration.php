@@ -125,7 +125,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the apiVersion property value. API version for the call back URL. Start with 1.
-     *  @param int|null $value Value to set for the apiVersion property.
+     * @param int|null $value Value to set for the apiVersion property.
     */
     public function setApiVersion(?int $value): void {
         $this->getBackingStore()->set('apiVersion', $value);
@@ -133,7 +133,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the workforce integration.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -141,7 +141,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the eligibilityFilteringEnabledEntities property value. The eligibilityFilteringEnabledEntities property
-     *  @param EligibilityFilteringEnabledEntities|null $value Value to set for the eligibilityFilteringEnabledEntities property.
+     * @param EligibilityFilteringEnabledEntities|null $value Value to set for the eligibilityFilteringEnabledEntities property.
     */
     public function setEligibilityFilteringEnabledEntities(?EligibilityFilteringEnabledEntities $value): void {
         $this->getBackingStore()->set('eligibilityFilteringEnabledEntities', $value);
@@ -149,7 +149,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the encryption property value. The workforce integration encryption resource.
-     *  @param WorkforceIntegrationEncryption|null $value Value to set for the encryption property.
+     * @param WorkforceIntegrationEncryption|null $value Value to set for the encryption property.
     */
     public function setEncryption(?WorkforceIntegrationEncryption $value): void {
         $this->getBackingStore()->set('encryption', $value);
@@ -157,7 +157,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the isActive property value. Indicates whether this workforce integration is currently active and available.
-     *  @param bool|null $value Value to set for the isActive property.
+     * @param bool|null $value Value to set for the isActive property.
     */
     public function setIsActive(?bool $value): void {
         $this->getBackingStore()->set('isActive', $value);
@@ -165,7 +165,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the supportedEntities property value. This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
-     *  @param WorkforceIntegrationSupportedEntities|null $value Value to set for the supportedEntities property.
+     * @param WorkforceIntegrationSupportedEntities|null $value Value to set for the supportedEntities property.
     */
     public function setSupportedEntities(?WorkforceIntegrationSupportedEntities $value): void {
         $this->getBackingStore()->set('supportedEntities', $value);
@@ -173,7 +173,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the supports property value. The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
-     *  @param WorkforceIntegrationSupportedEntities|null $value Value to set for the supports property.
+     * @param WorkforceIntegrationSupportedEntities|null $value Value to set for the supports property.
     */
     public function setSupports(?WorkforceIntegrationSupportedEntities $value): void {
         $this->getBackingStore()->set('supports', $value);
@@ -181,7 +181,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
 
     /**
      * Sets the url property value. Workforce Integration URL for callbacks from the Shifts service.
-     *  @param string|null $value Value to set for the url property.
+     * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {
         $this->getBackingStore()->set('url', $value);

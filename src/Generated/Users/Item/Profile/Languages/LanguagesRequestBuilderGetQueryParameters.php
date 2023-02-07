@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Languages;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve a list of languageProficiency objects from a user's profile.
+*/
 class LanguagesRequestBuilderGetQueryParameters 
 {
     /**

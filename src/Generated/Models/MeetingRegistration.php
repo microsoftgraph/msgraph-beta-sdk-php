@@ -126,7 +126,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
 
     /**
      * Sets the customQuestions property value. Custom registration questions.
-     *  @param array<MeetingRegistrationQuestion>|null $value Value to set for the customQuestions property.
+     * @param array<MeetingRegistrationQuestion>|null $value Value to set for the customQuestions property.
     */
     public function setCustomQuestions(?array $value): void {
         $this->getBackingStore()->set('customQuestions', $value);
@@ -134,7 +134,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
 
     /**
      * Sets the description property value. The description of the meeting.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -142,7 +142,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
 
     /**
      * Sets the endDateTime property value. The meeting end time in UTC.
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -150,7 +150,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
 
     /**
      * Sets the registrationPageViewCount property value. The number of times the registration page has been visited. Read-only.
-     *  @param int|null $value Value to set for the registrationPageViewCount property.
+     * @param int|null $value Value to set for the registrationPageViewCount property.
     */
     public function setRegistrationPageViewCount(?int $value): void {
         $this->getBackingStore()->set('registrationPageViewCount', $value);
@@ -158,7 +158,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
 
     /**
      * Sets the registrationPageWebUrl property value. The URL of the registration page. Read-only.
-     *  @param string|null $value Value to set for the registrationPageWebUrl property.
+     * @param string|null $value Value to set for the registrationPageWebUrl property.
     */
     public function setRegistrationPageWebUrl(?string $value): void {
         $this->getBackingStore()->set('registrationPageWebUrl', $value);
@@ -166,7 +166,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
 
     /**
      * Sets the speakers property value. The meeting speaker's information.
-     *  @param array<MeetingSpeaker>|null $value Value to set for the speakers property.
+     * @param array<MeetingSpeaker>|null $value Value to set for the speakers property.
     */
     public function setSpeakers(?array $value): void {
         $this->getBackingStore()->set('speakers', $value);
@@ -174,7 +174,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
 
     /**
      * Sets the startDateTime property value. The meeting start time in UTC.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -182,7 +182,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
 
     /**
      * Sets the subject property value. The subject of the meeting.
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);

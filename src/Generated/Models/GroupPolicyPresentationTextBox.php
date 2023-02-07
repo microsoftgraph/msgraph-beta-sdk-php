@@ -75,7 +75,7 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
 
     /**
      * Sets the defaultValue property value. Localized default string displayed in the text box. The default value is empty.
-     *  @param string|null $value Value to set for the defaultValue property.
+     * @param string|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?string $value): void {
         $this->getBackingStore()->set('defaultValue', $value);
@@ -83,7 +83,7 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
 
     /**
      * Sets the maxLength property value. An unsigned integer that specifies the maximum number of text characters. Default value is 1023.
-     *  @param int|null $value Value to set for the maxLength property.
+     * @param int|null $value Value to set for the maxLength property.
     */
     public function setMaxLength(?int $value): void {
         $this->getBackingStore()->set('maxLength', $value);
@@ -91,7 +91,7 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
 
     /**
      * Sets the required property value. Requirement to enter a value in the text box. Default value is false.
-     *  @param bool|null $value Value to set for the required property.
+     * @param bool|null $value Value to set for the required property.
     */
     public function setRequired(?bool $value): void {
         $this->getBackingStore()->set('required', $value);

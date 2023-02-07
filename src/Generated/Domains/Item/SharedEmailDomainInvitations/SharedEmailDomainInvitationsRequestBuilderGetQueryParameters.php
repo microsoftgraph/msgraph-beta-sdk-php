@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitatio
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get sharedEmailDomainInvitations from domains
+*/
 class SharedEmailDomainInvitationsRequestBuilderGetQueryParameters 
 {
     /**

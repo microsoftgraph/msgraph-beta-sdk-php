@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Windows VPN configuration profile.
+*/
 class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsVpnConfiguration and sets the default values.
+     * Instantiates a new windowsVpnConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -85,7 +88,7 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectionName property value. Connection name displayed to the user.
-     *  @param string|null $value Value to set for the connectionName property.
+     * @param string|null $value Value to set for the connectionName property.
     */
     public function setConnectionName(?string $value): void {
         $this->getBackingStore()->set('connectionName', $value);
@@ -93,7 +96,7 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the customXml property value. Custom XML commands that configures the VPN connection. (UTF8 encoded byte array)
-     *  @param StreamInterface|null $value Value to set for the customXml property.
+     * @param StreamInterface|null $value Value to set for the customXml property.
     */
     public function setCustomXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('customXml', $value);
@@ -101,7 +104,7 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the servers property value. List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-     *  @param array<VpnServer>|null $value Value to set for the servers property.
+     * @param array<VpnServer>|null $value Value to set for the servers property.
     */
     public function setServers(?array $value): void {
         $this->getBackingStore()->set('servers', $value);

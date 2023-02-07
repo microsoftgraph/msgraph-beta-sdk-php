@@ -106,7 +106,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
 
     /**
      * Sets the alert property value. The alert property
-     *  @param ManagedTenantAlert|null $value Value to set for the alert property.
+     * @param ManagedTenantAlert|null $value Value to set for the alert property.
     */
     public function setAlert(?ManagedTenantAlert $value): void {
         $this->getBackingStore()->set('alert', $value);
@@ -114,7 +114,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
 
     /**
      * Sets the content property value. The content property
-     *  @param AlertLogContent|null $value Value to set for the content property.
+     * @param AlertLogContent|null $value Value to set for the content property.
     */
     public function setContent(?AlertLogContent $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -122,7 +122,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
-     *  @param string|null $value Value to set for the createdByUserId property.
+     * @param string|null $value Value to set for the createdByUserId property.
     */
     public function setCreatedByUserId(?string $value): void {
         $this->getBackingStore()->set('createdByUserId', $value);
@@ -130,7 +130,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -138,7 +138,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
-     *  @param string|null $value Value to set for the lastActionByUserId property.
+     * @param string|null $value Value to set for the lastActionByUserId property.
     */
     public function setLastActionByUserId(?string $value): void {
         $this->getBackingStore()->set('lastActionByUserId', $value);
@@ -146,7 +146,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);

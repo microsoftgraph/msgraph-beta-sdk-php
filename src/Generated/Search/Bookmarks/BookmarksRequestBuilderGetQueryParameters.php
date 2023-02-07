@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Search\Bookmarks;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get a list of bookmark objects and their properties.
+*/
 class BookmarksRequestBuilderGetQueryParameters 
 {
     /**

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\GeneralLedger
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get generalLedgerEntries from financials
+*/
 class GeneralLedgerEntryItemRequestBuilderGetQueryParameters 
 {
     /**

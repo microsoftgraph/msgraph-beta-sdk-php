@@ -55,7 +55,7 @@ class MicrosoftStoreForBusinessContainedApp extends MobileContainedApp implement
 
     /**
      * Sets the appUserModelId property value. The app user model ID of the contained app of a MicrosoftStoreForBusinessApp.
-     *  @param string|null $value Value to set for the appUserModelId property.
+     * @param string|null $value Value to set for the appUserModelId property.
     */
     public function setAppUserModelId(?string $value): void {
         $this->getBackingStore()->set('appUserModelId', $value);

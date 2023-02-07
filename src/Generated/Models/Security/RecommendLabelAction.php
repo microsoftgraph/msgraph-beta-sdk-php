@@ -85,7 +85,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
 
     /**
      * Sets the actions property value. Actions to take if the label is accepted by the user.
-     *  @param array<InformationProtectionAction>|null $value Value to set for the actions property.
+     * @param array<InformationProtectionAction>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {
         $this->getBackingStore()->set('actions', $value);
@@ -93,7 +93,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
 
     /**
      * Sets the actionSource property value. The actionSource property
-     *  @param ActionSource|null $value Value to set for the actionSource property.
+     * @param ActionSource|null $value Value to set for the actionSource property.
     */
     public function setActionSource(?ActionSource $value): void {
         $this->getBackingStore()->set('actionSource', $value);
@@ -101,7 +101,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
 
     /**
      * Sets the responsibleSensitiveTypeIds property value. The sensitive information type GUIDs that caused the recommendation to be given.
-     *  @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
+     * @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
     */
     public function setResponsibleSensitiveTypeIds(?array $value): void {
         $this->getBackingStore()->set('responsibleSensitiveTypeIds', $value);
@@ -109,7 +109,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
 
     /**
      * Sets the sensitivityLabelId property value. The sensitivityLabelId property
-     *  @param string|null $value Value to set for the sensitivityLabelId property.
+     * @param string|null $value Value to set for the sensitivityLabelId property.
     */
     public function setSensitivityLabelId(?string $value): void {
         $this->getBackingStore()->set('sensitivityLabelId', $value);

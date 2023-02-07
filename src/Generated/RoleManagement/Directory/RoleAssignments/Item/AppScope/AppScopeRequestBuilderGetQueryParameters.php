@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleAssignment
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Details of the app specific scope when the assignment scope is app specific. Containment entity.
+*/
 class AppScopeRequestBuilderGetQueryParameters 
 {
     /**

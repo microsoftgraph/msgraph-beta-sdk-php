@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Default MacOs Enrollment Profile
+*/
 class DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters 
 {
     /**

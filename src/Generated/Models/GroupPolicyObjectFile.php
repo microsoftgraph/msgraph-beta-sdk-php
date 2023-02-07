@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The Group Policy Object file uploaded by admin.
+*/
 class GroupPolicyObjectFile extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
 
     /**
      * Sets the content property value. The Group Policy Object file content.
-     *  @param string|null $value Value to set for the content property.
+     * @param string|null $value Value to set for the content property.
     */
     public function setContent(?string $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -113,7 +116,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time at which the GroupPolicy was first uploaded.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -121,7 +124,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyObjectId property value. The Group Policy Object GUID from GPO Xml content
-     *  @param string|null $value Value to set for the groupPolicyObjectId property.
+     * @param string|null $value Value to set for the groupPolicyObjectId property.
     */
     public function setGroupPolicyObjectId(?string $value): void {
         $this->getBackingStore()->set('groupPolicyObjectId', $value);
@@ -129,7 +132,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time at which the GroupPolicyObjectFile was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -137,7 +140,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
 
     /**
      * Sets the ouDistinguishedName property value. The distinguished name of the OU.
-     *  @param string|null $value Value to set for the ouDistinguishedName property.
+     * @param string|null $value Value to set for the ouDistinguishedName property.
     */
     public function setOuDistinguishedName(?string $value): void {
         $this->getBackingStore()->set('ouDistinguishedName', $value);
@@ -145,7 +148,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. The list of scope tags for the configuration.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);

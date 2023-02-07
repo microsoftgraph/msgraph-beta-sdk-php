@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\App;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get app
+*/
 class AppRequestBuilderGetQueryParameters 
 {
     /**

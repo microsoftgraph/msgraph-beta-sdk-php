@@ -54,7 +54,7 @@ class EvaluateLabelJobResponse extends JobResponseBase implements Parsable
 
     /**
      * Sets the result property value. The result property
-     *  @param EvaluateLabelJobResultGroup|null $value Value to set for the result property.
+     * @param EvaluateLabelJobResultGroup|null $value Value to set for the result property.
     */
     public function setResult(?EvaluateLabelJobResultGroup $value): void {
         $this->getBackingStore()->set('result', $value);

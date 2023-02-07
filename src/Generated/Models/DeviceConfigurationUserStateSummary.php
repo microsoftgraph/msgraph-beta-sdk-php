@@ -114,7 +114,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the compliantUserCount property value. Number of compliant users
-     *  @param int|null $value Value to set for the compliantUserCount property.
+     * @param int|null $value Value to set for the compliantUserCount property.
     */
     public function setCompliantUserCount(?int $value): void {
         $this->getBackingStore()->set('compliantUserCount', $value);
@@ -122,7 +122,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the conflictUserCount property value. Number of conflict users
-     *  @param int|null $value Value to set for the conflictUserCount property.
+     * @param int|null $value Value to set for the conflictUserCount property.
     */
     public function setConflictUserCount(?int $value): void {
         $this->getBackingStore()->set('conflictUserCount', $value);
@@ -130,7 +130,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the errorUserCount property value. Number of error users
-     *  @param int|null $value Value to set for the errorUserCount property.
+     * @param int|null $value Value to set for the errorUserCount property.
     */
     public function setErrorUserCount(?int $value): void {
         $this->getBackingStore()->set('errorUserCount', $value);
@@ -138,7 +138,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the nonCompliantUserCount property value. Number of NonCompliant users
-     *  @param int|null $value Value to set for the nonCompliantUserCount property.
+     * @param int|null $value Value to set for the nonCompliantUserCount property.
     */
     public function setNonCompliantUserCount(?int $value): void {
         $this->getBackingStore()->set('nonCompliantUserCount', $value);
@@ -146,7 +146,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the notApplicableUserCount property value. Number of not applicable users
-     *  @param int|null $value Value to set for the notApplicableUserCount property.
+     * @param int|null $value Value to set for the notApplicableUserCount property.
     */
     public function setNotApplicableUserCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableUserCount', $value);
@@ -154,7 +154,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the remediatedUserCount property value. Number of remediated users
-     *  @param int|null $value Value to set for the remediatedUserCount property.
+     * @param int|null $value Value to set for the remediatedUserCount property.
     */
     public function setRemediatedUserCount(?int $value): void {
         $this->getBackingStore()->set('remediatedUserCount', $value);
@@ -162,7 +162,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
 
     /**
      * Sets the unknownUserCount property value. Number of unknown users
-     *  @param int|null $value Value to set for the unknownUserCount property.
+     * @param int|null $value Value to set for the unknownUserCount property.
     */
     public function setUnknownUserCount(?int $value): void {
         $this->getBackingStore()->set('unknownUserCount', $value);

@@ -104,7 +104,7 @@ class InformationProtection extends Entity implements Parsable
 
     /**
      * Sets the bitlocker property value. The bitlocker property
-     *  @param Bitlocker|null $value Value to set for the bitlocker property.
+     * @param Bitlocker|null $value Value to set for the bitlocker property.
     */
     public function setBitlocker(?Bitlocker $value): void {
         $this->getBackingStore()->set('bitlocker', $value);
@@ -112,7 +112,7 @@ class InformationProtection extends Entity implements Parsable
 
     /**
      * Sets the dataLossPreventionPolicies property value. The dataLossPreventionPolicies property
-     *  @param array<DataLossPreventionPolicy>|null $value Value to set for the dataLossPreventionPolicies property.
+     * @param array<DataLossPreventionPolicy>|null $value Value to set for the dataLossPreventionPolicies property.
     */
     public function setDataLossPreventionPolicies(?array $value): void {
         $this->getBackingStore()->set('dataLossPreventionPolicies', $value);
@@ -120,7 +120,7 @@ class InformationProtection extends Entity implements Parsable
 
     /**
      * Sets the policy property value. The policy property
-     *  @param InformationProtectionPolicy|null $value Value to set for the policy property.
+     * @param InformationProtectionPolicy|null $value Value to set for the policy property.
     */
     public function setPolicy(?InformationProtectionPolicy $value): void {
         $this->getBackingStore()->set('policy', $value);
@@ -128,7 +128,7 @@ class InformationProtection extends Entity implements Parsable
 
     /**
      * Sets the sensitivityLabels property value. The sensitivityLabels property
-     *  @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
+     * @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
     */
     public function setSensitivityLabels(?array $value): void {
         $this->getBackingStore()->set('sensitivityLabels', $value);
@@ -136,7 +136,7 @@ class InformationProtection extends Entity implements Parsable
 
     /**
      * Sets the sensitivityPolicySettings property value. The sensitivityPolicySettings property
-     *  @param SensitivityPolicySettings|null $value Value to set for the sensitivityPolicySettings property.
+     * @param SensitivityPolicySettings|null $value Value to set for the sensitivityPolicySettings property.
     */
     public function setSensitivityPolicySettings(?SensitivityPolicySettings $value): void {
         $this->getBackingStore()->set('sensitivityPolicySettings', $value);
@@ -144,7 +144,7 @@ class InformationProtection extends Entity implements Parsable
 
     /**
      * Sets the threatAssessmentRequests property value. The threatAssessmentRequests property
-     *  @param array<ThreatAssessmentRequest>|null $value Value to set for the threatAssessmentRequests property.
+     * @param array<ThreatAssessmentRequest>|null $value Value to set for the threatAssessmentRequests property.
     */
     public function setThreatAssessmentRequests(?array $value): void {
         $this->getBackingStore()->set('threatAssessmentRequests', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A reference to both a scope within a resource, and a role in that resource for that scope.
+*/
 class AccessPackageResourceRoleScopesRequestBuilderGetQueryParameters 
 {
     /**

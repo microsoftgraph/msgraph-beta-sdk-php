@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Exception
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get exceptionOccurrences from me
+*/
 class EventItemRequestBuilderGetQueryParameters 
 {
     /**
