@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Trusted Root and PFX certificates for iOS EDU.
+*/
 class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -161,7 +164,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -169,7 +172,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -177,7 +180,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the certFileName property value. File name to display in UI.
-     *  @param string|null $value Value to set for the certFileName property.
+     * @param string|null $value Value to set for the certFileName property.
     */
     public function setCertFileName(?string $value): void {
         $this->getBackingStore()->set('certFileName', $value);
@@ -185,7 +188,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the certificateTemplateName property value. PKCS Certificate Template Name.
-     *  @param string|null $value Value to set for the certificateTemplateName property.
+     * @param string|null $value Value to set for the certificateTemplateName property.
     */
     public function setCertificateTemplateName(?string $value): void {
         $this->getBackingStore()->set('certificateTemplateName', $value);
@@ -193,7 +196,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
-     *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
+     * @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodScale', $value);
@@ -201,7 +204,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the certificateValidityPeriodValue property value. Value for the Certificate Validity Period.
-     *  @param int|null $value Value to set for the certificateValidityPeriodValue property.
+     * @param int|null $value Value to set for the certificateValidityPeriodValue property.
     */
     public function setCertificateValidityPeriodValue(?int $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodValue', $value);
@@ -209,7 +212,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the certificationAuthority property value. PKCS Certification Authority.
-     *  @param string|null $value Value to set for the certificationAuthority property.
+     * @param string|null $value Value to set for the certificationAuthority property.
     */
     public function setCertificationAuthority(?string $value): void {
         $this->getBackingStore()->set('certificationAuthority', $value);
@@ -217,7 +220,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the certificationAuthorityName property value. PKCS Certification Authority Name.
-     *  @param string|null $value Value to set for the certificationAuthorityName property.
+     * @param string|null $value Value to set for the certificationAuthorityName property.
     */
     public function setCertificationAuthorityName(?string $value): void {
         $this->getBackingStore()->set('certificationAuthorityName', $value);
@@ -225,7 +228,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -233,7 +236,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the renewalThresholdPercentage property value. Certificate renewal threshold percentage. Valid values 1 to 99
-     *  @param int|null $value Value to set for the renewalThresholdPercentage property.
+     * @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
     public function setRenewalThresholdPercentage(?int $value): void {
         $this->getBackingStore()->set('renewalThresholdPercentage', $value);
@@ -241,7 +244,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the trustedRootCertificate property value. Trusted Root Certificate.
-     *  @param StreamInterface|null $value Value to set for the trustedRootCertificate property.
+     * @param StreamInterface|null $value Value to set for the trustedRootCertificate property.
     */
     public function setTrustedRootCertificate(?StreamInterface $value): void {
         $this->getBackingStore()->set('trustedRootCertificate', $value);

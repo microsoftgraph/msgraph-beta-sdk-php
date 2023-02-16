@@ -6,19 +6,21 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AuditEvents\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AuditEvents\GetAuditActivityTypesWithCategory\GetAuditActivityTypesWithCategoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AuditEvents\GetAuditCategories\GetAuditCategoriesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AuditEvents\MicrosoftGraphGetAuditActivityTypesWithCategory\MicrosoftGraphGetAuditActivityTypesWithCategoryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AuditEvents\MicrosoftGraphGetAuditCategories\MicrosoftGraphGetAuditCategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuditEvent;
 use Microsoft\Graph\Beta\Generated\Models\AuditEventCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
+*/
 class AuditEventsRequestBuilder 
 {
     /**
@@ -26,6 +28,13 @@ class AuditEventsRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAuditCategories method.
+    */
+    public function microsoftGraphGetAuditCategories(): MicrosoftGraphGetAuditCategoriesRequestBuilder {
+        return new MicrosoftGraphGetAuditCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -45,29 +54,32 @@ class AuditEventsRequestBuilder
     
     /**
      * Instantiates a new AuditEventsRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/deviceManagement/auditEvents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * The Audit Events
      * @param AuditEventsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?AuditEventsRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?AuditEventsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AuditEventCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [AuditEventCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -76,35 +88,26 @@ class AuditEventsRequestBuilder
     /**
      * Provides operations to call the getAuditActivityTypes method.
      * @param string $category Usage: category='{category}'
-     * @return GetAuditActivityTypesWithCategoryRequestBuilder
+     * @return MicrosoftGraphGetAuditActivityTypesWithCategoryRequestBuilder
     */
-    public function getAuditActivityTypesWithCategory(string $category): GetAuditActivityTypesWithCategoryRequestBuilder {
-        return new GetAuditActivityTypesWithCategoryRequestBuilder($this->pathParameters, $this->requestAdapter, $category);
-    }
-
-    /**
-     * Provides operations to call the getAuditCategories method.
-     * @return GetAuditCategoriesRequestBuilder
-    */
-    public function getAuditCategories(): GetAuditCategoriesRequestBuilder {
-        return new GetAuditCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetAuditActivityTypesWithCategory(string $category): MicrosoftGraphGetAuditActivityTypesWithCategoryRequestBuilder {
+        return new MicrosoftGraphGetAuditActivityTypesWithCategoryRequestBuilder($this->pathParameters, $this->requestAdapter, $category);
     }
 
     /**
      * Create new navigation property to auditEvents for deviceManagement
      * @param AuditEvent $body The request body
      * @param AuditEventsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function post(AuditEvent $body, ?AuditEventsRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function post(AuditEvent $body, ?AuditEventsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [AuditEvent::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [AuditEvent::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -120,10 +123,10 @@ class AuditEventsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -146,10 +149,10 @@ class AuditEventsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

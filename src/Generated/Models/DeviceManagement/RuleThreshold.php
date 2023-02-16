@@ -36,7 +36,7 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the aggregation property value. Indicates the built-in aggregation methods. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
-     *  @param AggregationType|null $value Value to set for the aggregation property.
+     * @param AggregationType|null $value Value to set for the aggregation property.
     */
     public function setAggregation(?AggregationType $value): void {
         $this->getBackingStore()->set('aggregation', $value);
@@ -126,7 +126,7 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -134,7 +134,7 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -142,7 +142,7 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the operator property value. Indicates the built-in operator. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.
-     *  @param OperatorType|null $value Value to set for the operator property.
+     * @param OperatorType|null $value Value to set for the operator property.
     */
     public function setOperator(?OperatorType $value): void {
         $this->getBackingStore()->set('operator', $value);
@@ -150,7 +150,7 @@ class RuleThreshold implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the target property value. The target threshold value.
-     *  @param int|null $value Value to set for the target property.
+     * @param int|null $value Value to set for the target property.
     */
     public function setTarget(?int $value): void {
         $this->getBackingStore()->set('target', $value);

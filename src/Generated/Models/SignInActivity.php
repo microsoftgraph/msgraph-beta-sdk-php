@@ -37,7 +37,7 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +121,7 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -129,7 +129,7 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -137,7 +137,7 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastNonInteractiveSignInDateTime property value. The last non-interactive sign-in date for a specific user. You can use this field to calculate the last time a client signed in to the directory on behalf of a user. Because some users may use clients to access tenant resources rather than signing into your tenant directly, you can use the non-interactive sign-in date to along with lastSignInDateTime to identify inactive users. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is: '2014-01-01T00:00:00Z'. Azure AD maintains non-interactive sign-ins going back to May 2020. For more information about using the value of this property, see Manage inactive user accounts in Azure AD.
-     *  @param DateTime|null $value Value to set for the lastNonInteractiveSignInDateTime property.
+     * @param DateTime|null $value Value to set for the lastNonInteractiveSignInDateTime property.
     */
     public function setLastNonInteractiveSignInDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastNonInteractiveSignInDateTime', $value);
@@ -145,7 +145,7 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastNonInteractiveSignInRequestId property value. Request identifier of the last non-interactive sign-in performed by this user.
-     *  @param string|null $value Value to set for the lastNonInteractiveSignInRequestId property.
+     * @param string|null $value Value to set for the lastNonInteractiveSignInRequestId property.
     */
     public function setLastNonInteractiveSignInRequestId(?string $value): void {
         $this->getBackingStore()->set('lastNonInteractiveSignInRequestId', $value);
@@ -153,7 +153,7 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastSignInDateTime property value. The last interactive sign-in date and time for a specific user. You can use this field to calculate the last time a user signed in to the directory with an interactive authentication method. This field can be used to build reports, such as inactive users. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is: '2014-01-01T00:00:00Z'. Azure AD maintains interactive sign-ins going back to April 2020. For more information about using the value of this property, see Manage inactive user accounts in Azure AD.
-     *  @param DateTime|null $value Value to set for the lastSignInDateTime property.
+     * @param DateTime|null $value Value to set for the lastSignInDateTime property.
     */
     public function setLastSignInDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSignInDateTime', $value);
@@ -161,7 +161,7 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastSignInRequestId property value. Request identifier of the last interactive sign-in performed by this user.
-     *  @param string|null $value Value to set for the lastSignInRequestId property.
+     * @param string|null $value Value to set for the lastSignInRequestId property.
     */
     public function setLastSignInRequestId(?string $value): void {
         $this->getBackingStore()->set('lastSignInRequestId', $value);
@@ -169,7 +169,7 @@ class SignInActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

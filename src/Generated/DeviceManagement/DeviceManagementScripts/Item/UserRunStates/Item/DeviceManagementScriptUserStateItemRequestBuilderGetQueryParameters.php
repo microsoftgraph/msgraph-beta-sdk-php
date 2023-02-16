@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScript
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of run states for this script across all users.
+*/
 class DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

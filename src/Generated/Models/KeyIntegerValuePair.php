@@ -55,7 +55,7 @@ class KeyIntegerValuePair extends KeyTypedValuePair implements Parsable
 
     /**
      * Sets the value property value. The integer value of the key-value pair.
-     *  @param int|null $value Value to set for the value property.
+     * @param int|null $value Value to set for the value property.
     */
     public function setValue(?int $value): void {
         $this->getBackingStore()->set('value', $value);

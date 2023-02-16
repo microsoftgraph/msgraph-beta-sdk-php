@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents an Autopilot flow event.
+*/
 class DeviceManagementAutopilotEvent extends Entity implements Parsable 
 {
     /**
@@ -35,7 +38,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the accountSetupStatus property value. The accountSetupStatus property
+     * Gets the accountSetupStatus property value. Deployment states for Autopilot devices
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getAccountSetupStatus(): ?WindowsAutopilotDeploymentState {
@@ -67,7 +70,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the deploymentState property value. The deploymentState property
+     * Gets the deploymentState property value. Deployment states for Autopilot devices
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getDeploymentState(): ?WindowsAutopilotDeploymentState {
@@ -123,7 +126,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceSetupStatus property value. The deviceSetupStatus property
+     * Gets the deviceSetupStatus property value. Deployment states for Autopilot devices
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getDeviceSetupStatus(): ?WindowsAutopilotDeploymentState {
@@ -316,15 +319,15 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the accountSetupDuration property value. Time spent in user ESP.
-     *  @param DateInterval|null $value Value to set for the accountSetupDuration property.
+     * @param DateInterval|null $value Value to set for the accountSetupDuration property.
     */
     public function setAccountSetupDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('accountSetupDuration', $value);
     }
 
     /**
-     * Sets the accountSetupStatus property value. The accountSetupStatus property
-     *  @param WindowsAutopilotDeploymentState|null $value Value to set for the accountSetupStatus property.
+     * Sets the accountSetupStatus property value. Deployment states for Autopilot devices
+     * @param WindowsAutopilotDeploymentState|null $value Value to set for the accountSetupStatus property.
     */
     public function setAccountSetupStatus(?WindowsAutopilotDeploymentState $value): void {
         $this->getBackingStore()->set('accountSetupStatus', $value);
@@ -332,7 +335,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the deploymentDuration property value. Autopilot deployment duration including enrollment.
-     *  @param DateInterval|null $value Value to set for the deploymentDuration property.
+     * @param DateInterval|null $value Value to set for the deploymentDuration property.
     */
     public function setDeploymentDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('deploymentDuration', $value);
@@ -340,7 +343,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the deploymentEndDateTime property value. Deployment end time.
-     *  @param DateTime|null $value Value to set for the deploymentEndDateTime property.
+     * @param DateTime|null $value Value to set for the deploymentEndDateTime property.
     */
     public function setDeploymentEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deploymentEndDateTime', $value);
@@ -348,15 +351,15 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the deploymentStartDateTime property value. Deployment start time.
-     *  @param DateTime|null $value Value to set for the deploymentStartDateTime property.
+     * @param DateTime|null $value Value to set for the deploymentStartDateTime property.
     */
     public function setDeploymentStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deploymentStartDateTime', $value);
     }
 
     /**
-     * Sets the deploymentState property value. The deploymentState property
-     *  @param WindowsAutopilotDeploymentState|null $value Value to set for the deploymentState property.
+     * Sets the deploymentState property value. Deployment states for Autopilot devices
+     * @param WindowsAutopilotDeploymentState|null $value Value to set for the deploymentState property.
     */
     public function setDeploymentState(?WindowsAutopilotDeploymentState $value): void {
         $this->getBackingStore()->set('deploymentState', $value);
@@ -364,7 +367,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the deploymentTotalDuration property value. Total deployment duration from enrollment to Desktop screen.
-     *  @param DateInterval|null $value Value to set for the deploymentTotalDuration property.
+     * @param DateInterval|null $value Value to set for the deploymentTotalDuration property.
     */
     public function setDeploymentTotalDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('deploymentTotalDuration', $value);
@@ -372,7 +375,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. Device id associated with the object
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -380,7 +383,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the devicePreparationDuration property value. Time spent in device enrollment.
-     *  @param DateInterval|null $value Value to set for the devicePreparationDuration property.
+     * @param DateInterval|null $value Value to set for the devicePreparationDuration property.
     */
     public function setDevicePreparationDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('devicePreparationDuration', $value);
@@ -388,7 +391,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the deviceRegisteredDateTime property value. Device registration date.
-     *  @param DateTime|null $value Value to set for the deviceRegisteredDateTime property.
+     * @param DateTime|null $value Value to set for the deviceRegisteredDateTime property.
     */
     public function setDeviceRegisteredDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deviceRegisteredDateTime', $value);
@@ -396,7 +399,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the deviceSerialNumber property value. Device serial number.
-     *  @param string|null $value Value to set for the deviceSerialNumber property.
+     * @param string|null $value Value to set for the deviceSerialNumber property.
     */
     public function setDeviceSerialNumber(?string $value): void {
         $this->getBackingStore()->set('deviceSerialNumber', $value);
@@ -404,15 +407,15 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the deviceSetupDuration property value. Time spent in device ESP.
-     *  @param DateInterval|null $value Value to set for the deviceSetupDuration property.
+     * @param DateInterval|null $value Value to set for the deviceSetupDuration property.
     */
     public function setDeviceSetupDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('deviceSetupDuration', $value);
     }
 
     /**
-     * Sets the deviceSetupStatus property value. The deviceSetupStatus property
-     *  @param WindowsAutopilotDeploymentState|null $value Value to set for the deviceSetupStatus property.
+     * Sets the deviceSetupStatus property value. Deployment states for Autopilot devices
+     * @param WindowsAutopilotDeploymentState|null $value Value to set for the deviceSetupStatus property.
     */
     public function setDeviceSetupStatus(?WindowsAutopilotDeploymentState $value): void {
         $this->getBackingStore()->set('deviceSetupStatus', $value);
@@ -420,7 +423,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the enrollmentFailureDetails property value. Enrollment failure details.
-     *  @param string|null $value Value to set for the enrollmentFailureDetails property.
+     * @param string|null $value Value to set for the enrollmentFailureDetails property.
     */
     public function setEnrollmentFailureDetails(?string $value): void {
         $this->getBackingStore()->set('enrollmentFailureDetails', $value);
@@ -428,7 +431,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the enrollmentStartDateTime property value. Device enrollment start date.
-     *  @param DateTime|null $value Value to set for the enrollmentStartDateTime property.
+     * @param DateTime|null $value Value to set for the enrollmentStartDateTime property.
     */
     public function setEnrollmentStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('enrollmentStartDateTime', $value);
@@ -436,7 +439,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the enrollmentState property value. The enrollmentState property
-     *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
+     * @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
     public function setEnrollmentState(?EnrollmentState $value): void {
         $this->getBackingStore()->set('enrollmentState', $value);
@@ -444,7 +447,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the enrollmentType property value. The enrollmentType property
-     *  @param WindowsAutopilotEnrollmentType|null $value Value to set for the enrollmentType property.
+     * @param WindowsAutopilotEnrollmentType|null $value Value to set for the enrollmentType property.
     */
     public function setEnrollmentType(?WindowsAutopilotEnrollmentType $value): void {
         $this->getBackingStore()->set('enrollmentType', $value);
@@ -452,7 +455,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the eventDateTime property value. Time when the event occurred .
-     *  @param DateTime|null $value Value to set for the eventDateTime property.
+     * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('eventDateTime', $value);
@@ -460,7 +463,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceName property value. Managed device name.
-     *  @param string|null $value Value to set for the managedDeviceName property.
+     * @param string|null $value Value to set for the managedDeviceName property.
     */
     public function setManagedDeviceName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceName', $value);
@@ -468,7 +471,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. Device operating system version.
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -476,7 +479,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the policyStatusDetails property value. Policy and application status details for this device.
-     *  @param array<DeviceManagementAutopilotPolicyStatusDetail>|null $value Value to set for the policyStatusDetails property.
+     * @param array<DeviceManagementAutopilotPolicyStatusDetail>|null $value Value to set for the policyStatusDetails property.
     */
     public function setPolicyStatusDetails(?array $value): void {
         $this->getBackingStore()->set('policyStatusDetails', $value);
@@ -484,7 +487,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the targetedAppCount property value. Count of applications targeted.
-     *  @param int|null $value Value to set for the targetedAppCount property.
+     * @param int|null $value Value to set for the targetedAppCount property.
     */
     public function setTargetedAppCount(?int $value): void {
         $this->getBackingStore()->set('targetedAppCount', $value);
@@ -492,7 +495,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the targetedPolicyCount property value. Count of policies targeted.
-     *  @param int|null $value Value to set for the targetedPolicyCount property.
+     * @param int|null $value Value to set for the targetedPolicyCount property.
     */
     public function setTargetedPolicyCount(?int $value): void {
         $this->getBackingStore()->set('targetedPolicyCount', $value);
@@ -500,7 +503,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. User principal name used to enroll the device.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
@@ -508,7 +511,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the windows10EnrollmentCompletionPageConfigurationDisplayName property value. Enrollment Status Page profile name
-     *  @param string|null $value Value to set for the windows10EnrollmentCompletionPageConfigurationDisplayName property.
+     * @param string|null $value Value to set for the windows10EnrollmentCompletionPageConfigurationDisplayName property.
     */
     public function setWindows10EnrollmentCompletionPageConfigurationDisplayName(?string $value): void {
         $this->getBackingStore()->set('windows10EnrollmentCompletionPageConfigurationDisplayName', $value);
@@ -516,7 +519,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the windows10EnrollmentCompletionPageConfigurationId property value. Enrollment Status Page profile ID
-     *  @param string|null $value Value to set for the windows10EnrollmentCompletionPageConfigurationId property.
+     * @param string|null $value Value to set for the windows10EnrollmentCompletionPageConfigurationId property.
     */
     public function setWindows10EnrollmentCompletionPageConfigurationId(?string $value): void {
         $this->getBackingStore()->set('windows10EnrollmentCompletionPageConfigurationId', $value);
@@ -524,7 +527,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
 
     /**
      * Sets the windowsAutopilotDeploymentProfileDisplayName property value. Autopilot profile name.
-     *  @param string|null $value Value to set for the windowsAutopilotDeploymentProfileDisplayName property.
+     * @param string|null $value Value to set for the windowsAutopilotDeploymentProfileDisplayName property.
     */
     public function setWindowsAutopilotDeploymentProfileDisplayName(?string $value): void {
         $this->getBackingStore()->set('windowsAutopilotDeploymentProfileDisplayName', $value);

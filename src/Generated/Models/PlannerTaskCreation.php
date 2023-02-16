@@ -44,7 +44,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -108,7 +108,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -116,7 +116,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +124,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the creationSourceKind property value. Specifies what kind of creation source the task is created with. The possible values are: external, publication and unknownFutureValue.
-     *  @param PlannerCreationSourceKind|null $value Value to set for the creationSourceKind property.
+     * @param PlannerCreationSourceKind|null $value Value to set for the creationSourceKind property.
     */
     public function setCreationSourceKind(?PlannerCreationSourceKind $value): void {
         $this->getBackingStore()->set('creationSourceKind', $value);
@@ -132,7 +132,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -140,7 +140,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the teamsPublicationInfo property value. Information about the publication process that created this task. This field is deprecated and clients should move to using the new inheritance model.
-     *  @param PlannerTeamsPublicationInfo|null $value Value to set for the teamsPublicationInfo property.
+     * @param PlannerTeamsPublicationInfo|null $value Value to set for the teamsPublicationInfo property.
     */
     public function setTeamsPublicationInfo(?PlannerTeamsPublicationInfo $value): void {
         $this->getBackingStore()->set('teamsPublicationInfo', $value);

@@ -37,7 +37,7 @@ class WorkloadStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +121,7 @@ class WorkloadStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -129,7 +129,7 @@ class WorkloadStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -137,7 +137,7 @@ class WorkloadStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. The display name for the workload. Required. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -145,7 +145,7 @@ class WorkloadStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -153,7 +153,7 @@ class WorkloadStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the offboardedDateTime property value. The date and time the workload was offboarded. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the offboardedDateTime property.
+     * @param DateTime|null $value Value to set for the offboardedDateTime property.
     */
     public function setOffboardedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('offboardedDateTime', $value);
@@ -161,7 +161,7 @@ class WorkloadStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the onboardedDateTime property value. The date and time the workload was onboarded. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the onboardedDateTime property.
+     * @param DateTime|null $value Value to set for the onboardedDateTime property.
     */
     public function setOnboardedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('onboardedDateTime', $value);
@@ -169,7 +169,7 @@ class WorkloadStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the onboardingStatus property value. The onboardingStatus property
-     *  @param WorkloadOnboardingStatus|null $value Value to set for the onboardingStatus property.
+     * @param WorkloadOnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
     public function setOnboardingStatus(?WorkloadOnboardingStatus $value): void {
         $this->getBackingStore()->set('onboardingStatus', $value);

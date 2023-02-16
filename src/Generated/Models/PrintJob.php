@@ -66,7 +66,7 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the print job.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -175,7 +175,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the acknowledgedDateTime property value. The acknowledgedDateTime property
-     *  @param DateTime|null $value Value to set for the acknowledgedDateTime property.
+     * @param DateTime|null $value Value to set for the acknowledgedDateTime property.
     */
     public function setAcknowledgedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('acknowledgedDateTime', $value);
@@ -183,7 +183,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the completedDateTime property value. The completedDateTime property
-     *  @param DateTime|null $value Value to set for the completedDateTime property.
+     * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
@@ -191,7 +191,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the configuration property value. A group of settings that a printer should use to print a job.
-     *  @param PrintJobConfiguration|null $value Value to set for the configuration property.
+     * @param PrintJobConfiguration|null $value Value to set for the configuration property.
     */
     public function setConfiguration(?PrintJobConfiguration $value): void {
         $this->getBackingStore()->set('configuration', $value);
@@ -199,7 +199,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The createdBy property
-     *  @param UserIdentity|null $value Value to set for the createdBy property.
+     * @param UserIdentity|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?UserIdentity $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -207,15 +207,15 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The DateTimeOffset when the job was created. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
-     * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. The name of the print job.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -223,7 +223,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the documents property value. The documents property
-     *  @param array<PrintDocument>|null $value Value to set for the documents property.
+     * @param array<PrintDocument>|null $value Value to set for the documents property.
     */
     public function setDocuments(?array $value): void {
         $this->getBackingStore()->set('documents', $value);
@@ -231,7 +231,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the errorCode property value. The errorCode property
-     *  @param int|null $value Value to set for the errorCode property.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -239,7 +239,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the isFetchable property value. If true, document can be fetched by printer.
-     *  @param bool|null $value Value to set for the isFetchable property.
+     * @param bool|null $value Value to set for the isFetchable property.
     */
     public function setIsFetchable(?bool $value): void {
         $this->getBackingStore()->set('isFetchable', $value);
@@ -247,7 +247,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the redirectedFrom property value. Contains the source job URL, if the job has been redirected from another printer.
-     *  @param string|null $value Value to set for the redirectedFrom property.
+     * @param string|null $value Value to set for the redirectedFrom property.
     */
     public function setRedirectedFrom(?string $value): void {
         $this->getBackingStore()->set('redirectedFrom', $value);
@@ -255,7 +255,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the redirectedTo property value. Contains the destination job URL, if the job has been redirected to another printer.
-     *  @param string|null $value Value to set for the redirectedTo property.
+     * @param string|null $value Value to set for the redirectedTo property.
     */
     public function setRedirectedTo(?string $value): void {
         $this->getBackingStore()->set('redirectedTo', $value);
@@ -263,7 +263,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the print job. Read-only.
-     *  @param PrintJobStatus|null $value Value to set for the status property.
+     * @param PrintJobStatus|null $value Value to set for the status property.
     */
     public function setStatus(?PrintJobStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -271,7 +271,7 @@ class PrintJob extends Entity implements Parsable
 
     /**
      * Sets the tasks property value. A list of printTasks that were triggered by this print job.
-     *  @param array<PrintTask>|null $value Value to set for the tasks property.
+     * @param array<PrintTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);

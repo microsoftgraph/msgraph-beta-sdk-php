@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Policy template reference information
+*/
 class DeviceManagementConfigurationPolicyTemplateReference implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -118,7 +121,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -126,7 +129,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -134,7 +137,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -142,7 +145,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
 
     /**
      * Sets the templateDisplayName property value. Template Display Name of the referenced template. This property is read-only.
-     *  @param string|null $value Value to set for the templateDisplayName property.
+     * @param string|null $value Value to set for the templateDisplayName property.
     */
     public function setTemplateDisplayName(?string $value): void {
         $this->getBackingStore()->set('templateDisplayName', $value);
@@ -150,7 +153,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
 
     /**
      * Sets the templateDisplayVersion property value. Template Display Version of the referenced Template. This property is read-only.
-     *  @param string|null $value Value to set for the templateDisplayVersion property.
+     * @param string|null $value Value to set for the templateDisplayVersion property.
     */
     public function setTemplateDisplayVersion(?string $value): void {
         $this->getBackingStore()->set('templateDisplayVersion', $value);
@@ -158,7 +161,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
 
     /**
      * Sets the templateFamily property value. Describes the TemplateFamily for the Template entity
-     *  @param DeviceManagementConfigurationTemplateFamily|null $value Value to set for the templateFamily property.
+     * @param DeviceManagementConfigurationTemplateFamily|null $value Value to set for the templateFamily property.
     */
     public function setTemplateFamily(?DeviceManagementConfigurationTemplateFamily $value): void {
         $this->getBackingStore()->set('templateFamily', $value);
@@ -166,7 +169,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
 
     /**
      * Sets the templateId property value. Template id
-     *  @param string|null $value Value to set for the templateId property.
+     * @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value): void {
         $this->getBackingStore()->set('templateId', $value);

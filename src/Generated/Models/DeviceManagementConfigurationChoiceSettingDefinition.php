@@ -71,7 +71,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
 
     /**
      * Sets the defaultOptionId property value. Default option for choice setting
-     *  @param string|null $value Value to set for the defaultOptionId property.
+     * @param string|null $value Value to set for the defaultOptionId property.
     */
     public function setDefaultOptionId(?string $value): void {
         $this->getBackingStore()->set('defaultOptionId', $value);
@@ -79,7 +79,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
 
     /**
      * Sets the options property value. Options for the setting that can be selected
-     *  @param array<DeviceManagementConfigurationOptionDefinition>|null $value Value to set for the options property.
+     * @param array<DeviceManagementConfigurationOptionDefinition>|null $value Value to set for the options property.
     */
     public function setOptions(?array $value): void {
         $this->getBackingStore()->set('options', $value);

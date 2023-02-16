@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Setting instance within policy
+*/
 class DeviceManagementConfigurationSettingInstance implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -50,7 +53,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -114,7 +117,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -122,7 +125,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -130,7 +133,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -138,7 +141,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
 
     /**
      * Sets the settingDefinitionId property value. Setting Definition Id
-     *  @param string|null $value Value to set for the settingDefinitionId property.
+     * @param string|null $value Value to set for the settingDefinitionId property.
     */
     public function setSettingDefinitionId(?string $value): void {
         $this->getBackingStore()->set('settingDefinitionId', $value);
@@ -146,7 +149,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
 
     /**
      * Sets the settingInstanceTemplateReference property value. Setting Instance Template Reference
-     *  @param DeviceManagementConfigurationSettingInstanceTemplateReference|null $value Value to set for the settingInstanceTemplateReference property.
+     * @param DeviceManagementConfigurationSettingInstanceTemplateReference|null $value Value to set for the settingInstanceTemplateReference property.
     */
     public function setSettingInstanceTemplateReference(?DeviceManagementConfigurationSettingInstanceTemplateReference $value): void {
         $this->getBackingStore()->set('settingInstanceTemplateReference', $value);

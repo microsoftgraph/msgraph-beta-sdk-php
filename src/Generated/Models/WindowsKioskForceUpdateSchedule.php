@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Windows 10 force update schedule for Kiosk devices.
+*/
 class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -131,7 +134,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -139,7 +142,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -147,7 +150,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the dayofMonth property value. Day of month. Valid values 1 to 31
-     *  @param int|null $value Value to set for the dayofMonth property.
+     * @param int|null $value Value to set for the dayofMonth property.
     */
     public function setDayofMonth(?int $value): void {
         $this->getBackingStore()->set('dayofMonth', $value);
@@ -155,7 +158,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the dayofWeek property value. The dayofWeek property
-     *  @param DayOfWeek|null $value Value to set for the dayofWeek property.
+     * @param DayOfWeek|null $value Value to set for the dayofWeek property.
     */
     public function setDayofWeek(?DayOfWeek $value): void {
         $this->getBackingStore()->set('dayofWeek', $value);
@@ -163,7 +166,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -171,7 +174,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the recurrence property value. Possible values for App update on Windows10 recurrence.
-     *  @param Windows10AppsUpdateRecurrence|null $value Value to set for the recurrence property.
+     * @param Windows10AppsUpdateRecurrence|null $value Value to set for the recurrence property.
     */
     public function setRecurrence(?Windows10AppsUpdateRecurrence $value): void {
         $this->getBackingStore()->set('recurrence', $value);
@@ -179,7 +182,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the runImmediatelyIfAfterStartDateTime property value. If true, runs the task immediately if StartDateTime is in the past, else, runs at the next recurrence.
-     *  @param bool|null $value Value to set for the runImmediatelyIfAfterStartDateTime property.
+     * @param bool|null $value Value to set for the runImmediatelyIfAfterStartDateTime property.
     */
     public function setRunImmediatelyIfAfterStartDateTime(?bool $value): void {
         $this->getBackingStore()->set('runImmediatelyIfAfterStartDateTime', $value);
@@ -187,7 +190,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the startDateTime property value. The start time for the force restart.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);

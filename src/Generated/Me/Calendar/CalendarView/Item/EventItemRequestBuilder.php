@@ -5,43 +5,38 @@ namespace Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Accept\AcceptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Attachments\AttachmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Attachments\Item\AttachmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Calendar\CalendarRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Cancel\CancelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Decline\DeclineRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\DismissReminder\DismissReminderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\ExceptionOccurrences\ExceptionOccurrencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Extensions\ExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Extensions\Item\ExtensionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Forward\ForwardRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\Instances\InstancesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\MicrosoftGraphAccept\MicrosoftGraphAcceptRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\MicrosoftGraphCancel\MicrosoftGraphCancelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\MicrosoftGraphDecline\MicrosoftGraphDeclineRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\MicrosoftGraphDismissReminder\MicrosoftGraphDismissReminderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\MicrosoftGraphForward\MicrosoftGraphForwardRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\MicrosoftGraphSnoozeReminder\MicrosoftGraphSnoozeReminderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\MicrosoftGraphTentativelyAccept\MicrosoftGraphTentativelyAcceptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\MultiValueExtendedProperties\Item\MultiValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\MultiValueExtendedProperties\MultiValueExtendedPropertiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\SingleValueExtendedProperties\Item\SingleValueLegacyExtendedPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\SingleValueExtendedProperties\SingleValueExtendedPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Calendar\CalendarView\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Event;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
+*/
 class EventItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the accept method.
-    */
-    public function accept(): AcceptRequestBuilder {
-        return new AcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.event entity.
     */
@@ -54,27 +49,6 @@ class EventItemRequestBuilder
     */
     public function calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the cancel method.
-    */
-    public function cancel(): CancelRequestBuilder {
-        return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the decline method.
-    */
-    public function decline(): DeclineRequestBuilder {
-        return new DeclineRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the dismissReminder method.
-    */
-    public function dismissReminder(): DismissReminderRequestBuilder {
-        return new DismissReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -92,17 +66,59 @@ class EventItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the forward method.
-    */
-    public function forward(): ForwardRequestBuilder {
-        return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the instances property of the microsoft.graph.event entity.
     */
     public function instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the accept method.
+    */
+    public function microsoftGraphAccept(): MicrosoftGraphAcceptRequestBuilder {
+        return new MicrosoftGraphAcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the cancel method.
+    */
+    public function microsoftGraphCancel(): MicrosoftGraphCancelRequestBuilder {
+        return new MicrosoftGraphCancelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the decline method.
+    */
+    public function microsoftGraphDecline(): MicrosoftGraphDeclineRequestBuilder {
+        return new MicrosoftGraphDeclineRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the dismissReminder method.
+    */
+    public function microsoftGraphDismissReminder(): MicrosoftGraphDismissReminderRequestBuilder {
+        return new MicrosoftGraphDismissReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the forward method.
+    */
+    public function microsoftGraphForward(): MicrosoftGraphForwardRequestBuilder {
+        return new MicrosoftGraphForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the snoozeReminder method.
+    */
+    public function microsoftGraphSnoozeReminder(): MicrosoftGraphSnoozeReminderRequestBuilder {
+        return new MicrosoftGraphSnoozeReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the tentativelyAccept method.
+    */
+    public function microsoftGraphTentativelyAccept(): MicrosoftGraphTentativelyAcceptRequestBuilder {
+        return new MicrosoftGraphTentativelyAcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -130,20 +146,6 @@ class EventItemRequestBuilder
     }
     
     /**
-     * Provides operations to call the snoozeReminder method.
-    */
-    public function snoozeReminder(): SnoozeReminderRequestBuilder {
-        return new SnoozeReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the tentativelyAccept method.
-    */
-    public function tentativelyAccept(): TentativelyAcceptRequestBuilder {
-        return new TentativelyAcceptRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
@@ -161,13 +163,17 @@ class EventItemRequestBuilder
 
     /**
      * Instantiates a new EventItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/me/calendar/calendarView/{event%2Did}{?startDateTime*,endDateTime*,%24select}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
@@ -195,17 +201,16 @@ class EventItemRequestBuilder
     /**
      * The calendar view for the calendar. Navigation property. Read-only.
      * @param EventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?EventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?EventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Event::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Event::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -254,10 +259,10 @@ class EventItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);

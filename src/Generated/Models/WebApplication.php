@@ -36,7 +36,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +156,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the homePageUrl property value. Home page or landing page of the application.
-     *  @param string|null $value Value to set for the homePageUrl property.
+     * @param string|null $value Value to set for the homePageUrl property.
     */
     public function setHomePageUrl(?string $value): void {
         $this->getBackingStore()->set('homePageUrl', $value);
@@ -164,7 +164,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the implicitGrantSettings property value. Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
-     *  @param ImplicitGrantSettings|null $value Value to set for the implicitGrantSettings property.
+     * @param ImplicitGrantSettings|null $value Value to set for the implicitGrantSettings property.
     */
     public function setImplicitGrantSettings(?ImplicitGrantSettings $value): void {
         $this->getBackingStore()->set('implicitGrantSettings', $value);
@@ -172,7 +172,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the logoutUrl property value. Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.
-     *  @param string|null $value Value to set for the logoutUrl property.
+     * @param string|null $value Value to set for the logoutUrl property.
     */
     public function setLogoutUrl(?string $value): void {
         $this->getBackingStore()->set('logoutUrl', $value);
@@ -180,7 +180,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the oauth2AllowImplicitFlow property value. The oauth2AllowImplicitFlow property
-     *  @param bool|null $value Value to set for the oauth2AllowImplicitFlow property.
+     * @param bool|null $value Value to set for the oauth2AllowImplicitFlow property.
     */
     public function setOauth2AllowImplicitFlow(?bool $value): void {
         $this->getBackingStore()->set('oauth2AllowImplicitFlow', $value);
@@ -188,7 +188,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -196,7 +196,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the redirectUris property value. Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
-     *  @param array<string>|null $value Value to set for the redirectUris property.
+     * @param array<string>|null $value Value to set for the redirectUris property.
     */
     public function setRedirectUris(?array $value): void {
         $this->getBackingStore()->set('redirectUris', $value);
@@ -204,7 +204,7 @@ class WebApplication implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the redirectUriSettings property value. Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.
-     *  @param array<RedirectUriSettings>|null $value Value to set for the redirectUriSettings property.
+     * @param array<RedirectUriSettings>|null $value Value to set for the redirectUriSettings property.
     */
     public function setRedirectUriSettings(?array $value): void {
         $this->getBackingStore()->set('redirectUriSettings', $value);

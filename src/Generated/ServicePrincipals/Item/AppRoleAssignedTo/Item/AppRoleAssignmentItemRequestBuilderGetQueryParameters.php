@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignedT
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+*/
 class AppRoleAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AppRoleAssignmentItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new AppRoleAssignmentItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

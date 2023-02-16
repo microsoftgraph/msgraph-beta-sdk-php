@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represents the filter type and evalaution result of the filter.
+*/
 class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, B
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +103,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, B
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +111,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, B
 
     /**
      * Sets the assignmentFilterType property value. Represents type of the assignment filter.
-     *  @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the assignmentFilterType property.
+     * @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the assignmentFilterType property.
     */
     public function setAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value): void {
         $this->getBackingStore()->set('assignmentFilterType', $value);
@@ -116,7 +119,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, B
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +127,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, B
 
     /**
      * Sets the evaluationResult property value. Supported evaluation results for filter.
-     *  @param AssignmentFilterEvaluationResult|null $value Value to set for the evaluationResult property.
+     * @param AssignmentFilterEvaluationResult|null $value Value to set for the evaluationResult property.
     */
     public function setEvaluationResult(?AssignmentFilterEvaluationResult $value): void {
         $this->getBackingStore()->set('evaluationResult', $value);
@@ -132,7 +135,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, B
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

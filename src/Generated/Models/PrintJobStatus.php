@@ -44,7 +44,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -150,7 +150,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the acquiredByPrinter property value. The acquiredByPrinter property
-     *  @param bool|null $value Value to set for the acquiredByPrinter property.
+     * @param bool|null $value Value to set for the acquiredByPrinter property.
     */
     public function setAcquiredByPrinter(?bool $value): void {
         $this->getBackingStore()->set('acquiredByPrinter', $value);
@@ -158,7 +158,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -166,7 +166,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -174,7 +174,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. A human-readable description of the print job's current processing state. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -182,7 +182,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the details property value. Additional details for print job state. Valid values are described in the following table. Read-only.
-     *  @param array<PrintJobStateDetail>|null $value Value to set for the details property.
+     * @param array<PrintJobStateDetail>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value): void {
         $this->getBackingStore()->set('details', $value);
@@ -190,7 +190,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isAcquiredByPrinter property value. True if the job was acknowledged by a printer; false otherwise. Read-only.
-     *  @param bool|null $value Value to set for the isAcquiredByPrinter property.
+     * @param bool|null $value Value to set for the isAcquiredByPrinter property.
     */
     public function setIsAcquiredByPrinter(?bool $value): void {
         $this->getBackingStore()->set('isAcquiredByPrinter', $value);
@@ -198,7 +198,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -206,7 +206,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the processingState property value. The processingState property
-     *  @param PrintJobProcessingState|null $value Value to set for the processingState property.
+     * @param PrintJobProcessingState|null $value Value to set for the processingState property.
     */
     public function setProcessingState(?PrintJobProcessingState $value): void {
         $this->getBackingStore()->set('processingState', $value);
@@ -214,7 +214,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the processingStateDescription property value. The processingStateDescription property
-     *  @param string|null $value Value to set for the processingStateDescription property.
+     * @param string|null $value Value to set for the processingStateDescription property.
     */
     public function setProcessingStateDescription(?string $value): void {
         $this->getBackingStore()->set('processingStateDescription', $value);
@@ -222,7 +222,7 @@ class PrintJobStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param PrintJobProcessingState|null $value Value to set for the state property.
+     * @param PrintJobProcessingState|null $value Value to set for the state property.
     */
     public function setState(?PrintJobProcessingState $value): void {
         $this->getBackingStore()->set('state', $value);

@@ -36,7 +36,7 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the allowedHeaders property value. The request headers that the origin domain may specify on the CORS request. The wildcard character * indicates that any header beginning with the specified prefix is allowed.
-     *  @param array<string>|null $value Value to set for the allowedHeaders property.
+     * @param array<string>|null $value Value to set for the allowedHeaders property.
     */
     public function setAllowedHeaders(?array $value): void {
         $this->getBackingStore()->set('allowedHeaders', $value);
@@ -146,7 +146,7 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the allowedMethods property value. The HTTP request methods that the origin domain may use for a CORS request.
-     *  @param array<string>|null $value Value to set for the allowedMethods property.
+     * @param array<string>|null $value Value to set for the allowedMethods property.
     */
     public function setAllowedMethods(?array $value): void {
         $this->getBackingStore()->set('allowedMethods', $value);
@@ -154,7 +154,7 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the allowedOrigins property value. The origin domains that are permitted to make a request against the service via CORS. The origin domain is the domain from which the request originates. The origin must be an exact case-sensitive match with the origin that the user age sends to the service.
-     *  @param array<string>|null $value Value to set for the allowedOrigins property.
+     * @param array<string>|null $value Value to set for the allowedOrigins property.
     */
     public function setAllowedOrigins(?array $value): void {
         $this->getBackingStore()->set('allowedOrigins', $value);
@@ -162,7 +162,7 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -170,7 +170,7 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the maxAgeInSeconds property value. The maximum amount of time that a browser should cache the response to the preflight OPTIONS request.
-     *  @param int|null $value Value to set for the maxAgeInSeconds property.
+     * @param int|null $value Value to set for the maxAgeInSeconds property.
     */
     public function setMaxAgeInSeconds(?int $value): void {
         $this->getBackingStore()->set('maxAgeInSeconds', $value);
@@ -178,7 +178,7 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -186,7 +186,7 @@ class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the resource property value. Resource within the application segment for which CORS permissions are granted. / grants permission for whole app segment.
-     *  @param string|null $value Value to set for the resource property.
+     * @param string|null $value Value to set for the resource property.
     */
     public function setResource(?string $value): void {
         $this->getBackingStore()->set('resource', $value);

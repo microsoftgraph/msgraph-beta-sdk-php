@@ -36,7 +36,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the cameras property value. The cameras property
-     *  @param array<TeamworkPeripheral>|null $value Value to set for the cameras property.
+     * @param array<TeamworkPeripheral>|null $value Value to set for the cameras property.
     */
     public function setCameras(?array $value): void {
         $this->getBackingStore()->set('cameras', $value);
@@ -134,7 +134,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the contentCameraConfiguration property value. The configuration for the content camera.
-     *  @param TeamworkContentCameraConfiguration|null $value Value to set for the contentCameraConfiguration property.
+     * @param TeamworkContentCameraConfiguration|null $value Value to set for the contentCameraConfiguration property.
     */
     public function setContentCameraConfiguration(?TeamworkContentCameraConfiguration $value): void {
         $this->getBackingStore()->set('contentCameraConfiguration', $value);
@@ -142,7 +142,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the defaultContentCamera property value. The defaultContentCamera property
-     *  @param TeamworkPeripheral|null $value Value to set for the defaultContentCamera property.
+     * @param TeamworkPeripheral|null $value Value to set for the defaultContentCamera property.
     */
     public function setDefaultContentCamera(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('defaultContentCamera', $value);
@@ -150,7 +150,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

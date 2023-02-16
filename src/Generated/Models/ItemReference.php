@@ -36,7 +36,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -51,7 +51,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the driveId property value. Unique identifier of the drive instance that contains the item. Read-only.
+     * Gets the driveId property value. Unique identifier of the drive instance that contains the driveItem. Only returned if the item is located in a [drive][]. Read-only.
      * @return string|null
     */
     public function getDriveId(): ?string {
@@ -59,7 +59,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the driveType property value. Identifies the type of drive. See [drive][] resource for values.
+     * Gets the driveType property value. Identifies the type of drive. Only returned if the item is located in a [drive][].  See [drive][] resource for values.
      * @return string|null
     */
     public function getDriveType(): ?string {
@@ -86,7 +86,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the id property value. Unique identifier of the item in the drive. Read-only.
+     * Gets the id property value. Unique identifier of the driveItem in the drive or a listItem in a list. Read-only.
      * @return string|null
     */
     public function getId(): ?string {
@@ -134,7 +134,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the siteId property value. For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
+     * Gets the siteId property value. For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource or the parent list of the listItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
      * @return string|null
     */
     public function getSiteId(): ?string {
@@ -160,7 +160,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,31 +168,31 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the driveId property value. Unique identifier of the drive instance that contains the item. Read-only.
-     *  @param string|null $value Value to set for the driveId property.
+     * Sets the driveId property value. Unique identifier of the drive instance that contains the driveItem. Only returned if the item is located in a [drive][]. Read-only.
+     * @param string|null $value Value to set for the driveId property.
     */
     public function setDriveId(?string $value): void {
         $this->getBackingStore()->set('driveId', $value);
     }
 
     /**
-     * Sets the driveType property value. Identifies the type of drive. See [drive][] resource for values.
-     *  @param string|null $value Value to set for the driveType property.
+     * Sets the driveType property value. Identifies the type of drive. Only returned if the item is located in a [drive][].  See [drive][] resource for values.
+     * @param string|null $value Value to set for the driveType property.
     */
     public function setDriveType(?string $value): void {
         $this->getBackingStore()->set('driveType', $value);
     }
 
     /**
-     * Sets the id property value. Unique identifier of the item in the drive. Read-only.
-     *  @param string|null $value Value to set for the id property.
+     * Sets the id property value. Unique identifier of the driveItem in the drive or a listItem in a list. Read-only.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -200,7 +200,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. The name of the item being referenced. Read-only.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -208,7 +208,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -216,7 +216,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the path property value. Path that can be used to navigate to the item. Read-only.
-     *  @param string|null $value Value to set for the path property.
+     * @param string|null $value Value to set for the path property.
     */
     public function setPath(?string $value): void {
         $this->getBackingStore()->set('path', $value);
@@ -224,7 +224,7 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the shareId property value. A unique identifier for a shared resource that can be accessed via the [Shares][] API.
-     *  @param string|null $value Value to set for the shareId property.
+     * @param string|null $value Value to set for the shareId property.
     */
     public function setShareId(?string $value): void {
         $this->getBackingStore()->set('shareId', $value);
@@ -232,15 +232,15 @@ class ItemReference implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
-     *  @param SharepointIds|null $value Value to set for the sharepointIds property.
+     * @param SharepointIds|null $value Value to set for the sharepointIds property.
     */
     public function setSharepointIds(?SharepointIds $value): void {
         $this->getBackingStore()->set('sharepointIds', $value);
     }
 
     /**
-     * Sets the siteId property value. For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
-     *  @param string|null $value Value to set for the siteId property.
+     * Sets the siteId property value. For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource or the parent list of the listItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
+     * @param string|null $value Value to set for the siteId property.
     */
     public function setSiteId(?string $value): void {
         $this->getBackingStore()->set('siteId', $value);

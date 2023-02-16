@@ -36,7 +36,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the category property value. The category property
-     *  @param ManagementCategory|null $value Value to set for the category property.
+     * @param ManagementCategory|null $value Value to set for the category property.
     */
     public function setCategory(?ManagementCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -144,7 +144,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the displayName property value. The display name for the management template. Required. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -152,7 +152,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the managementTemplateId property value. The unique identifier for the management template. Required. Read-only.
-     *  @param string|null $value Value to set for the managementTemplateId property.
+     * @param string|null $value Value to set for the managementTemplateId property.
     */
     public function setManagementTemplateId(?string $value): void {
         $this->getBackingStore()->set('managementTemplateId', $value);
@@ -160,7 +160,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the version property value. The version property
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);

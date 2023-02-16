@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * An item describing notification setting.
+*/
 class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -180,7 +183,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -188,7 +191,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the alertType property value. Notification Settings Alert Type.
-     *  @param IosNotificationAlertType|null $value Value to set for the alertType property.
+     * @param IosNotificationAlertType|null $value Value to set for the alertType property.
     */
     public function setAlertType(?IosNotificationAlertType $value): void {
         $this->getBackingStore()->set('alertType', $value);
@@ -196,7 +199,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the appName property value. Application name to be associated with the bundleID.
-     *  @param string|null $value Value to set for the appName property.
+     * @param string|null $value Value to set for the appName property.
     */
     public function setAppName(?string $value): void {
         $this->getBackingStore()->set('appName', $value);
@@ -204,7 +207,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -212,7 +215,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the badgesEnabled property value. Indicates whether badges are allowed for this app.
-     *  @param bool|null $value Value to set for the badgesEnabled property.
+     * @param bool|null $value Value to set for the badgesEnabled property.
     */
     public function setBadgesEnabled(?bool $value): void {
         $this->getBackingStore()->set('badgesEnabled', $value);
@@ -220,7 +223,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the bundleID property value. Bundle id of app to which to apply these notification settings.
-     *  @param string|null $value Value to set for the bundleID property.
+     * @param string|null $value Value to set for the bundleID property.
     */
     public function setBundleID(?string $value): void {
         $this->getBackingStore()->set('bundleID', $value);
@@ -228,7 +231,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the enabled property value. Indicates whether notifications are allowed for this app.
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -236,7 +239,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -244,7 +247,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the previewVisibility property value. Determines when notification previews are visible on an iOS device. Previews can include things like text (from Messages and Mail) and invitation details (from Calendar). When configured, it will override the user's defined preview settings.
-     *  @param IosNotificationPreviewVisibility|null $value Value to set for the previewVisibility property.
+     * @param IosNotificationPreviewVisibility|null $value Value to set for the previewVisibility property.
     */
     public function setPreviewVisibility(?IosNotificationPreviewVisibility $value): void {
         $this->getBackingStore()->set('previewVisibility', $value);
@@ -252,7 +255,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the publisher property value. Publisher to be associated with the bundleID.
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -260,7 +263,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the showInNotificationCenter property value. Indicates whether notifications can be shown in notification center.
-     *  @param bool|null $value Value to set for the showInNotificationCenter property.
+     * @param bool|null $value Value to set for the showInNotificationCenter property.
     */
     public function setShowInNotificationCenter(?bool $value): void {
         $this->getBackingStore()->set('showInNotificationCenter', $value);
@@ -268,7 +271,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the showOnLockScreen property value. Indicates whether notifications can be shown on the lock screen.
-     *  @param bool|null $value Value to set for the showOnLockScreen property.
+     * @param bool|null $value Value to set for the showOnLockScreen property.
     */
     public function setShowOnLockScreen(?bool $value): void {
         $this->getBackingStore()->set('showOnLockScreen', $value);
@@ -276,7 +279,7 @@ class IosNotificationSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the soundsEnabled property value. Indicates whether sounds are allowed for this app.
-     *  @param bool|null $value Value to set for the soundsEnabled property.
+     * @param bool|null $value Value to set for the soundsEnabled property.
     */
     public function setSoundsEnabled(?bool $value): void {
         $this->getBackingStore()->set('soundsEnabled', $value);

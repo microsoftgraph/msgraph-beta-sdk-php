@@ -134,7 +134,7 @@ class DataClassificationService extends Entity implements Parsable
 
     /**
      * Sets the classifyFileJobs property value. The classifyFileJobs property
-     *  @param array<JobResponseBase>|null $value Value to set for the classifyFileJobs property.
+     * @param array<JobResponseBase>|null $value Value to set for the classifyFileJobs property.
     */
     public function setClassifyFileJobs(?array $value): void {
         $this->getBackingStore()->set('classifyFileJobs', $value);
@@ -142,7 +142,7 @@ class DataClassificationService extends Entity implements Parsable
 
     /**
      * Sets the classifyTextJobs property value. The classifyTextJobs property
-     *  @param array<JobResponseBase>|null $value Value to set for the classifyTextJobs property.
+     * @param array<JobResponseBase>|null $value Value to set for the classifyTextJobs property.
     */
     public function setClassifyTextJobs(?array $value): void {
         $this->getBackingStore()->set('classifyTextJobs', $value);
@@ -150,7 +150,7 @@ class DataClassificationService extends Entity implements Parsable
 
     /**
      * Sets the evaluateDlpPoliciesJobs property value. The evaluateDlpPoliciesJobs property
-     *  @param array<JobResponseBase>|null $value Value to set for the evaluateDlpPoliciesJobs property.
+     * @param array<JobResponseBase>|null $value Value to set for the evaluateDlpPoliciesJobs property.
     */
     public function setEvaluateDlpPoliciesJobs(?array $value): void {
         $this->getBackingStore()->set('evaluateDlpPoliciesJobs', $value);
@@ -158,7 +158,7 @@ class DataClassificationService extends Entity implements Parsable
 
     /**
      * Sets the evaluateLabelJobs property value. The evaluateLabelJobs property
-     *  @param array<JobResponseBase>|null $value Value to set for the evaluateLabelJobs property.
+     * @param array<JobResponseBase>|null $value Value to set for the evaluateLabelJobs property.
     */
     public function setEvaluateLabelJobs(?array $value): void {
         $this->getBackingStore()->set('evaluateLabelJobs', $value);
@@ -166,7 +166,7 @@ class DataClassificationService extends Entity implements Parsable
 
     /**
      * Sets the exactMatchDataStores property value. The exactMatchDataStores property
-     *  @param array<ExactMatchDataStore>|null $value Value to set for the exactMatchDataStores property.
+     * @param array<ExactMatchDataStore>|null $value Value to set for the exactMatchDataStores property.
     */
     public function setExactMatchDataStores(?array $value): void {
         $this->getBackingStore()->set('exactMatchDataStores', $value);
@@ -174,7 +174,7 @@ class DataClassificationService extends Entity implements Parsable
 
     /**
      * Sets the exactMatchUploadAgents property value. The exactMatchUploadAgents property
-     *  @param array<ExactMatchUploadAgent>|null $value Value to set for the exactMatchUploadAgents property.
+     * @param array<ExactMatchUploadAgent>|null $value Value to set for the exactMatchUploadAgents property.
     */
     public function setExactMatchUploadAgents(?array $value): void {
         $this->getBackingStore()->set('exactMatchUploadAgents', $value);
@@ -182,7 +182,7 @@ class DataClassificationService extends Entity implements Parsable
 
     /**
      * Sets the jobs property value. The jobs property
-     *  @param array<JobResponseBase>|null $value Value to set for the jobs property.
+     * @param array<JobResponseBase>|null $value Value to set for the jobs property.
     */
     public function setJobs(?array $value): void {
         $this->getBackingStore()->set('jobs', $value);
@@ -190,7 +190,7 @@ class DataClassificationService extends Entity implements Parsable
 
     /**
      * Sets the sensitiveTypes property value. The sensitiveTypes property
-     *  @param array<SensitiveType>|null $value Value to set for the sensitiveTypes property.
+     * @param array<SensitiveType>|null $value Value to set for the sensitiveTypes property.
     */
     public function setSensitiveTypes(?array $value): void {
         $this->getBackingStore()->set('sensitiveTypes', $value);
@@ -198,7 +198,7 @@ class DataClassificationService extends Entity implements Parsable
 
     /**
      * Sets the sensitivityLabels property value. The sensitivityLabels property
-     *  @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
+     * @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
     */
     public function setSensitivityLabels(?array $value): void {
         $this->getBackingStore()->set('sensitivityLabels', $value);

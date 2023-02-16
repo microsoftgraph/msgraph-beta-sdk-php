@@ -165,7 +165,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the canvasLayout property value. Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical section
-     *  @param CanvasLayout|null $value Value to set for the canvasLayout property.
+     * @param CanvasLayout|null $value Value to set for the canvasLayout property.
     */
     public function setCanvasLayout(?CanvasLayout $value): void {
         $this->getBackingStore()->set('canvasLayout', $value);
@@ -173,7 +173,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the contentType property value. Inherited from baseItem.
-     *  @param ContentTypeInfo|null $value Value to set for the contentType property.
+     * @param ContentTypeInfo|null $value Value to set for the contentType property.
     */
     public function setContentType(?ContentTypeInfo $value): void {
         $this->getBackingStore()->set('contentType', $value);
@@ -181,7 +181,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the pageLayout property value. The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.
-     *  @param PageLayoutType|null $value Value to set for the pageLayout property.
+     * @param PageLayoutType|null $value Value to set for the pageLayout property.
     */
     public function setPageLayout(?PageLayoutType $value): void {
         $this->getBackingStore()->set('pageLayout', $value);
@@ -189,7 +189,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the promotionKind property value. Indicates the promotion kind of the sitePage. The possible values are: microsoftReserved, page, newsPost, unknownFutureValue.
-     *  @param PagePromotionType|null $value Value to set for the promotionKind property.
+     * @param PagePromotionType|null $value Value to set for the promotionKind property.
     */
     public function setPromotionKind(?PagePromotionType $value): void {
         $this->getBackingStore()->set('promotionKind', $value);
@@ -197,7 +197,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the publishingState property value. The publishing status and the MM.mm version of the page.
-     *  @param PublicationFacet|null $value Value to set for the publishingState property.
+     * @param PublicationFacet|null $value Value to set for the publishingState property.
     */
     public function setPublishingState(?PublicationFacet $value): void {
         $this->getBackingStore()->set('publishingState', $value);
@@ -205,7 +205,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the reactions property value. Reactions information for the page.
-     *  @param ReactionsFacet|null $value Value to set for the reactions property.
+     * @param ReactionsFacet|null $value Value to set for the reactions property.
     */
     public function setReactions(?ReactionsFacet $value): void {
         $this->getBackingStore()->set('reactions', $value);
@@ -213,7 +213,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the showComments property value. Determines whether or not to show comments at the bottom of the page.
-     *  @param bool|null $value Value to set for the showComments property.
+     * @param bool|null $value Value to set for the showComments property.
     */
     public function setShowComments(?bool $value): void {
         $this->getBackingStore()->set('showComments', $value);
@@ -221,7 +221,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the showRecommendedPages property value. Determines whether or not to show recommended pages at the bottom of the page.
-     *  @param bool|null $value Value to set for the showRecommendedPages property.
+     * @param bool|null $value Value to set for the showRecommendedPages property.
     */
     public function setShowRecommendedPages(?bool $value): void {
         $this->getBackingStore()->set('showRecommendedPages', $value);
@@ -229,7 +229,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the thumbnailWebUrl property value. Url of the sitePage's thumbnail image
-     *  @param string|null $value Value to set for the thumbnailWebUrl property.
+     * @param string|null $value Value to set for the thumbnailWebUrl property.
     */
     public function setThumbnailWebUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailWebUrl', $value);
@@ -237,7 +237,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the title property value. Title of the sitePage.
-     *  @param string|null $value Value to set for the title property.
+     * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
         $this->getBackingStore()->set('title', $value);
@@ -245,7 +245,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the titleArea property value. Title area on the SharePoint page.
-     *  @param TitleArea|null $value Value to set for the titleArea property.
+     * @param TitleArea|null $value Value to set for the titleArea property.
     */
     public function setTitleArea(?TitleArea $value): void {
         $this->getBackingStore()->set('titleArea', $value);
@@ -253,7 +253,7 @@ class SitePage extends BaseItem implements Parsable
 
     /**
      * Sets the webParts property value. Collection of webparts on the SharePoint page
-     *  @param array<WebPart>|null $value Value to set for the webParts property.
+     * @param array<WebPart>|null $value Value to set for the webParts property.
     */
     public function setWebParts(?array $value): void {
         $this->getBackingStore()->set('webParts', $value);

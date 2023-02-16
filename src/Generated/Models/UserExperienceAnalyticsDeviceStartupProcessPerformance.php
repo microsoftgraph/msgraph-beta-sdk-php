@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceStartupProcessPerformance and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceStartupProcessPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -124,7 +124,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
 
     /**
      * Sets the deviceCount property value. User experience analytics device startup process summarized count.
-     *  @param int|null $value Value to set for the deviceCount property.
+     * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
         $this->getBackingStore()->set('deviceCount', $value);
@@ -132,7 +132,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
 
     /**
      * Sets the medianImpactInMs property value. User experience analytics device startup process median impact in milliseconds.
-     *  @param int|null $value Value to set for the medianImpactInMs property.
+     * @param int|null $value Value to set for the medianImpactInMs property.
     */
     public function setMedianImpactInMs(?int $value): void {
         $this->getBackingStore()->set('medianImpactInMs', $value);
@@ -140,7 +140,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
 
     /**
      * Sets the medianImpactInMs2 property value. User experience analytics device startup process median impact in milliseconds.
-     *  @param int|null $value Value to set for the medianImpactInMs2 property.
+     * @param int|null $value Value to set for the medianImpactInMs2 property.
     */
     public function setMedianImpactInMs2(?int $value): void {
         $this->getBackingStore()->set('medianImpactInMs2', $value);
@@ -148,7 +148,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
 
     /**
      * Sets the processName property value. User experience analytics device startup process name.
-     *  @param string|null $value Value to set for the processName property.
+     * @param string|null $value Value to set for the processName property.
     */
     public function setProcessName(?string $value): void {
         $this->getBackingStore()->set('processName', $value);
@@ -156,7 +156,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
 
     /**
      * Sets the productName property value. The user experience analytics device startup process product name.
-     *  @param string|null $value Value to set for the productName property.
+     * @param string|null $value Value to set for the productName property.
     */
     public function setProductName(?string $value): void {
         $this->getBackingStore()->set('productName', $value);
@@ -164,7 +164,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
 
     /**
      * Sets the publisher property value. The User experience analytics device startup process publisher.
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -172,7 +172,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
 
     /**
      * Sets the totalImpactInMs property value. User experience analytics device startup process total impact in milliseconds.
-     *  @param int|null $value Value to set for the totalImpactInMs property.
+     * @param int|null $value Value to set for the totalImpactInMs property.
     */
     public function setTotalImpactInMs(?int $value): void {
         $this->getBackingStore()->set('totalImpactInMs', $value);
@@ -180,7 +180,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
 
     /**
      * Sets the totalImpactInMs2 property value. User experience analytics device startup process total impact in milliseconds.
-     *  @param int|null $value Value to set for the totalImpactInMs2 property.
+     * @param int|null $value Value to set for the totalImpactInMs2 property.
     */
     public function setTotalImpactInMs2(?int $value): void {
         $this->getBackingStore()->set('totalImpactInMs2', $value);

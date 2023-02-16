@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Parameter passed to GetHealthMetricTimeSeries when requesting snapshot time series.
+*/
 class TimeSeriesParameter implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +114,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +122,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +130,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the endDateTime property value. End time of the series being requested. Optional; if not specified, current time is used.
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -135,7 +138,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the metricName property value. The name of the metric for which a time series is requested.
-     *  @param string|null $value Value to set for the metricName property.
+     * @param string|null $value Value to set for the metricName property.
     */
     public function setMetricName(?string $value): void {
         $this->getBackingStore()->set('metricName', $value);
@@ -143,7 +146,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -151,7 +154,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the startDateTime property value. Start time of the series being requested.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);

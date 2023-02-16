@@ -36,7 +36,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -190,7 +190,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -198,7 +198,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the applicationDisplayName property value. Name of the application.
-     *  @param string|null $value Value to set for the applicationDisplayName property.
+     * @param string|null $value Value to set for the applicationDisplayName property.
     */
     public function setApplicationDisplayName(?string $value): void {
         $this->getBackingStore()->set('applicationDisplayName', $value);
@@ -206,7 +206,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the applicationId property value. Azure AD application ID.
-     *  @param string|null $value Value to set for the applicationId property.
+     * @param string|null $value Value to set for the applicationId property.
     */
     public function setApplicationId(?string $value): void {
         $this->getBackingStore()->set('applicationId', $value);
@@ -214,7 +214,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -222,7 +222,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ipAddress property value. IP address.
-     *  @param string|null $value Value to set for the ipAddress property.
+     * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
         $this->getBackingStore()->set('ipAddress', $value);
@@ -230,7 +230,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -238,7 +238,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the remoteTenantId property value. The delegated partner tenant ID.
-     *  @param string|null $value Value to set for the remoteTenantId property.
+     * @param string|null $value Value to set for the remoteTenantId property.
     */
     public function setRemoteTenantId(?string $value): void {
         $this->getBackingStore()->set('remoteTenantId', $value);
@@ -246,7 +246,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the remoteUserId property value. The delegated partner user ID.
-     *  @param string|null $value Value to set for the remoteUserId property.
+     * @param string|null $value Value to set for the remoteUserId property.
     */
     public function setRemoteUserId(?string $value): void {
         $this->getBackingStore()->set('remoteUserId', $value);
@@ -254,7 +254,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the servicePrincipalName property value. Service Principal Name (SPN).
-     *  @param string|null $value Value to set for the servicePrincipalName property.
+     * @param string|null $value Value to set for the servicePrincipalName property.
     */
     public function setServicePrincipalName(?string $value): void {
         $this->getBackingStore()->set('servicePrincipalName', $value);
@@ -262,7 +262,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param CloudPcAuditActorType|null $value Value to set for the type property.
+     * @param CloudPcAuditActorType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcAuditActorType $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -270,7 +270,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userId property value. Azure AD user ID.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -278,7 +278,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userPermissions property value. List of user permissions and application permissions when the audit event was performed.
-     *  @param array<string>|null $value Value to set for the userPermissions property.
+     * @param array<string>|null $value Value to set for the userPermissions property.
     */
     public function setUserPermissions(?array $value): void {
         $this->getBackingStore()->set('userPermissions', $value);
@@ -286,7 +286,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userPrincipalName property value. User Principal Name (UPN).
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
@@ -294,7 +294,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userRoleScopeTags property value. List of role scope tags.
-     *  @param array<CloudPcUserRoleScopeTagInfo>|null $value Value to set for the userRoleScopeTags property.
+     * @param array<CloudPcUserRoleScopeTagInfo>|null $value Value to set for the userRoleScopeTags property.
     */
     public function setUserRoleScopeTags(?array $value): void {
         $this->getBackingStore()->set('userRoleScopeTags', $value);

@@ -36,7 +36,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the address property value. Address of the company.
-     *  @param PhysicalAddress|null $value Value to set for the address property.
+     * @param PhysicalAddress|null $value Value to set for the address property.
     */
     public function setAddress(?PhysicalAddress $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -156,7 +156,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +164,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the department property value. Department Name within a company.
-     *  @param string|null $value Value to set for the department property.
+     * @param string|null $value Value to set for the department property.
     */
     public function setDepartment(?string $value): void {
         $this->getBackingStore()->set('department', $value);
@@ -172,7 +172,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. Company name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -180,7 +180,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -188,7 +188,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the officeLocation property value. Office Location of the person referred to.
-     *  @param string|null $value Value to set for the officeLocation property.
+     * @param string|null $value Value to set for the officeLocation property.
     */
     public function setOfficeLocation(?string $value): void {
         $this->getBackingStore()->set('officeLocation', $value);
@@ -196,7 +196,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the pronunciation property value. Pronunciation guide for the company name.
-     *  @param string|null $value Value to set for the pronunciation property.
+     * @param string|null $value Value to set for the pronunciation property.
     */
     public function setPronunciation(?string $value): void {
         $this->getBackingStore()->set('pronunciation', $value);
@@ -204,7 +204,7 @@ class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the webUrl property value. Link to the company home page.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

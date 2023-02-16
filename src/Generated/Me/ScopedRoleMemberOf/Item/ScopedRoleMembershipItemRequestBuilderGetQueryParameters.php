@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\ScopedRoleMemberOf\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The scoped-role administrative unit memberships for this user. Read-only. Nullable.
+*/
 class ScopedRoleMembershipItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ScopedRoleMembershipItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ScopedRoleMembershipItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -64,7 +64,7 @@ class BookingCustomer extends BookingPerson implements Parsable
 
     /**
      * Sets the addresses property value. Addresses associated with the customer, including home, business and other addresses.
-     *  @param array<PhysicalAddress>|null $value Value to set for the addresses property.
+     * @param array<PhysicalAddress>|null $value Value to set for the addresses property.
     */
     public function setAddresses(?array $value): void {
         $this->getBackingStore()->set('addresses', $value);
@@ -72,7 +72,7 @@ class BookingCustomer extends BookingPerson implements Parsable
 
     /**
      * Sets the phones property value. Phone numbers associated with the customer, including home, business and mobile numbers.
-     *  @param array<Phone>|null $value Value to set for the phones property.
+     * @param array<Phone>|null $value Value to set for the phones property.
     */
     public function setPhones(?array $value): void {
         $this->getBackingStore()->set('phones', $value);

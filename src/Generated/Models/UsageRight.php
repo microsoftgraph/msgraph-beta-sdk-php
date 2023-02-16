@@ -74,7 +74,7 @@ class UsageRight extends Entity implements Parsable
 
     /**
      * Sets the catalogId property value. Product id corresponding to the usage right.
-     *  @param string|null $value Value to set for the catalogId property.
+     * @param string|null $value Value to set for the catalogId property.
     */
     public function setCatalogId(?string $value): void {
         $this->getBackingStore()->set('catalogId', $value);
@@ -82,7 +82,7 @@ class UsageRight extends Entity implements Parsable
 
     /**
      * Sets the serviceIdentifier property value. Identifier of the service corresponding to the usage right.
-     *  @param string|null $value Value to set for the serviceIdentifier property.
+     * @param string|null $value Value to set for the serviceIdentifier property.
     */
     public function setServiceIdentifier(?string $value): void {
         $this->getBackingStore()->set('serviceIdentifier', $value);
@@ -90,7 +90,7 @@ class UsageRight extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param UsageRightState|null $value Value to set for the state property.
+     * @param UsageRightState|null $value Value to set for the state property.
     */
     public function setState(?UsageRightState $value): void {
         $this->getBackingStore()->set('state', $value);

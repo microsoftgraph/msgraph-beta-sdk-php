@@ -74,7 +74,7 @@ class GovernancePolicyTemplate extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -82,7 +82,7 @@ class GovernancePolicyTemplate extends Entity implements Parsable
 
     /**
      * Sets the policy property value. The policy property
-     *  @param GovernancePolicy|null $value Value to set for the policy property.
+     * @param GovernancePolicy|null $value Value to set for the policy property.
     */
     public function setPolicy(?GovernancePolicy $value): void {
         $this->getBackingStore()->set('policy', $value);
@@ -90,7 +90,7 @@ class GovernancePolicyTemplate extends Entity implements Parsable
 
     /**
      * Sets the settings property value. The settings property
-     *  @param BusinessFlowSettings|null $value Value to set for the settings property.
+     * @param BusinessFlowSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?BusinessFlowSettings $value): void {
         $this->getBackingStore()->set('settings', $value);

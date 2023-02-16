@@ -36,7 +36,7 @@ class UserPrintUsageSummary implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class UserPrintUsageSummary implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class UserPrintUsageSummary implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class UserPrintUsageSummary implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the completedJobCount property value. The completedJobCount property
-     *  @param int|null $value Value to set for the completedJobCount property.
+     * @param int|null $value Value to set for the completedJobCount property.
     */
     public function setCompletedJobCount(?int $value): void {
         $this->getBackingStore()->set('completedJobCount', $value);
@@ -154,7 +154,7 @@ class UserPrintUsageSummary implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the incompleteJobCount property value. The incompleteJobCount property
-     *  @param int|null $value Value to set for the incompleteJobCount property.
+     * @param int|null $value Value to set for the incompleteJobCount property.
     */
     public function setIncompleteJobCount(?int $value): void {
         $this->getBackingStore()->set('incompleteJobCount', $value);
@@ -162,7 +162,7 @@ class UserPrintUsageSummary implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -170,7 +170,7 @@ class UserPrintUsageSummary implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the user property value. The user property
-     *  @param Identity|null $value Value to set for the user property.
+     * @param Identity|null $value Value to set for the user property.
     */
     public function setUser(?Identity $value): void {
         $this->getBackingStore()->set('user', $value);
@@ -178,7 +178,7 @@ class UserPrintUsageSummary implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the userDisplayName property value. The userDisplayName property
-     *  @param string|null $value Value to set for the userDisplayName property.
+     * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
         $this->getBackingStore()->set('userDisplayName', $value);
@@ -186,7 +186,7 @@ class UserPrintUsageSummary implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the userPrincipalName property value. The userPrincipalName property
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

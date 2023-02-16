@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Chats\Item\Operations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of all the Teams async operations that ran or are running on the chat. Nullable.
+*/
 class TeamsAsyncOperationItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class TeamsAsyncOperationItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new TeamsAsyncOperationItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

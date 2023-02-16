@@ -65,7 +65,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
 
     /**
      * Sets the applicationType property value. First party Microsoft application presenting this identity.
-     *  @param string|null $value Value to set for the applicationType property.
+     * @param string|null $value Value to set for the applicationType property.
     */
     public function setApplicationType(?string $value): void {
         $this->getBackingStore()->set('applicationType', $value);
@@ -73,7 +73,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
 
     /**
      * Sets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
-     *  @param bool|null $value Value to set for the hidden property.
+     * @param bool|null $value Value to set for the hidden property.
     */
     public function setHidden(?bool $value): void {
         $this->getBackingStore()->set('hidden', $value);

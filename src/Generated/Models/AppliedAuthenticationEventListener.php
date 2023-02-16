@@ -36,7 +36,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -51,7 +51,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the eventType property value. The eventType property
+     * Gets the eventType property value. The type of authentication event that triggered the custom extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
      * @return AuthenticationEventType|null
     */
     public function getEventType(): ?AuthenticationEventType {
@@ -59,7 +59,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the executedListenerId property value. The executedListenerId property
+     * Gets the executedListenerId property value. ID of the Event Listener that was executed.
      * @return string|null
     */
     public function getExecutedListenerId(): ?string {
@@ -81,7 +81,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the handlerResult property value. The handlerResult property
+     * Gets the handlerResult property value. The result from the listening client, such as an Azure Logic App and Azure Functions, of this authentication event.
      * @return AuthenticationEventHandlerResult|null
     */
     public function getHandlerResult(): ?AuthenticationEventHandlerResult {
@@ -110,7 +110,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,31 +118,31 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the eventType property value. The eventType property
-     *  @param AuthenticationEventType|null $value Value to set for the eventType property.
+     * Sets the eventType property value. The type of authentication event that triggered the custom extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue.
+     * @param AuthenticationEventType|null $value Value to set for the eventType property.
     */
     public function setEventType(?AuthenticationEventType $value): void {
         $this->getBackingStore()->set('eventType', $value);
     }
 
     /**
-     * Sets the executedListenerId property value. The executedListenerId property
-     *  @param string|null $value Value to set for the executedListenerId property.
+     * Sets the executedListenerId property value. ID of the Event Listener that was executed.
+     * @param string|null $value Value to set for the executedListenerId property.
     */
     public function setExecutedListenerId(?string $value): void {
         $this->getBackingStore()->set('executedListenerId', $value);
     }
 
     /**
-     * Sets the handlerResult property value. The handlerResult property
-     *  @param AuthenticationEventHandlerResult|null $value Value to set for the handlerResult property.
+     * Sets the handlerResult property value. The result from the listening client, such as an Azure Logic App and Azure Functions, of this authentication event.
+     * @param AuthenticationEventHandlerResult|null $value Value to set for the handlerResult property.
     */
     public function setHandlerResult(?AuthenticationEventHandlerResult $value): void {
         $this->getBackingStore()->set('handlerResult', $value);
@@ -150,7 +150,7 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Backed
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

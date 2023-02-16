@@ -37,7 +37,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +121,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -129,7 +129,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appId property value. The Application ID of the calling application that submitted an update (PATCH) to the action. The appId should be extracted from the auth token and not entered manually by the calling application.
-     *  @param string|null $value Value to set for the appId property.
+     * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
@@ -137,7 +137,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -145,7 +145,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -153,7 +153,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the status property value. Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed.
-     *  @param OperationStatus|null $value Value to set for the status property.
+     * @param OperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?OperationStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -161,7 +161,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the updatedDateTime property value. Timestamp when the actionState was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the updatedDateTime property.
+     * @param DateTime|null $value Value to set for the updatedDateTime property.
     */
     public function setUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('updatedDateTime', $value);
@@ -169,7 +169,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the user property value. The user principal name of the signed-in user that submitted an update (PATCH) to the action. The user should be extracted from the auth token and not entered manually by the calling application.
-     *  @param string|null $value Value to set for the user property.
+     * @param string|null $value Value to set for the user property.
     */
     public function setUser(?string $value): void {
         $this->getBackingStore()->set('user', $value);

@@ -37,7 +37,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -131,7 +131,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -139,7 +139,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -147,7 +147,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
 
     /**
      * Sets the expiryDate property value. The expiry date of the custom domain certificate. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the expiryDate property.
+     * @param DateTime|null $value Value to set for the expiryDate property.
     */
     public function setExpiryDate(?DateTime $value): void {
         $this->getBackingStore()->set('expiryDate', $value);
@@ -155,7 +155,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
 
     /**
      * Sets the issueDate property value. The issue date of the custom domain. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the issueDate property.
+     * @param DateTime|null $value Value to set for the issueDate property.
     */
     public function setIssueDate(?DateTime $value): void {
         $this->getBackingStore()->set('issueDate', $value);
@@ -163,7 +163,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
 
     /**
      * Sets the issuerName property value. The issuer name of the custom domain certificate.
-     *  @param string|null $value Value to set for the issuerName property.
+     * @param string|null $value Value to set for the issuerName property.
     */
     public function setIssuerName(?string $value): void {
         $this->getBackingStore()->set('issuerName', $value);
@@ -171,7 +171,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -179,7 +179,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
 
     /**
      * Sets the subjectName property value. The subject name of the custom domain certificate.
-     *  @param string|null $value Value to set for the subjectName property.
+     * @param string|null $value Value to set for the subjectName property.
     */
     public function setSubjectName(?string $value): void {
         $this->getBackingStore()->set('subjectName', $value);
@@ -187,7 +187,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
 
     /**
      * Sets the thumbprint property value. The thumbprint associated with the custom domain certificate.
-     *  @param string|null $value Value to set for the thumbprint property.
+     * @param string|null $value Value to set for the thumbprint property.
     */
     public function setThumbprint(?string $value): void {
         $this->getBackingStore()->set('thumbprint', $value);

@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Defines results for actions on MacOS Vpp Apps, contains inherited properties for ActionResult.
+*/
 class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -61,7 +64,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -171,7 +174,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the actionFailureReason property value. Possible types of reasons for an Apple Volume Purchase Program token action failure.
-     *  @param VppTokenActionFailureReason|null $value Value to set for the actionFailureReason property.
+     * @param VppTokenActionFailureReason|null $value Value to set for the actionFailureReason property.
     */
     public function setActionFailureReason(?VppTokenActionFailureReason $value): void {
         $this->getBackingStore()->set('actionFailureReason', $value);
@@ -179,7 +182,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the actionName property value. Action name
-     *  @param string|null $value Value to set for the actionName property.
+     * @param string|null $value Value to set for the actionName property.
     */
     public function setActionName(?string $value): void {
         $this->getBackingStore()->set('actionName', $value);
@@ -187,7 +190,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the actionState property value. The actionState property
-     *  @param ActionState|null $value Value to set for the actionState property.
+     * @param ActionState|null $value Value to set for the actionState property.
     */
     public function setActionState(?ActionState $value): void {
         $this->getBackingStore()->set('actionState', $value);
@@ -195,7 +198,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -203,7 +206,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -211,7 +214,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the failedLicensesCount property value. A count of the number of licenses for which revoke failed.
-     *  @param int|null $value Value to set for the failedLicensesCount property.
+     * @param int|null $value Value to set for the failedLicensesCount property.
     */
     public function setFailedLicensesCount(?int $value): void {
         $this->getBackingStore()->set('failedLicensesCount', $value);
@@ -219,7 +222,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the lastUpdatedDateTime property value. Time the action state was last updated
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -227,7 +230,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the managedDeviceId property value. DeviceId associated with the action.
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -235,7 +238,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -243,7 +246,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the startDateTime property value. Time the action was initiated
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -251,7 +254,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the totalLicensesCount property value. A count of the number of licenses for which revoke was attempted.
-     *  @param int|null $value Value to set for the totalLicensesCount property.
+     * @param int|null $value Value to set for the totalLicensesCount property.
     */
     public function setTotalLicensesCount(?int $value): void {
         $this->getBackingStore()->set('totalLicensesCount', $value);
@@ -259,7 +262,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Bac
 
     /**
      * Sets the userId property value. UserId associated with the action.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

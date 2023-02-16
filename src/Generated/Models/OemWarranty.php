@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * OEM Warranty information for a given device
+*/
 class OemWarranty implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class OemWarranty implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class OemWarranty implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class OemWarranty implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalWarranties property value. List of additional warranty offers. This collection can contain a maximum of 100 elements.
-     *  @param array<WarrantyOffer>|null $value Value to set for the additionalWarranties property.
+     * @param array<WarrantyOffer>|null $value Value to set for the additionalWarranties property.
     */
     public function setAdditionalWarranties(?array $value): void {
         $this->getBackingStore()->set('additionalWarranties', $value);
@@ -136,7 +139,7 @@ class OemWarranty implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +147,7 @@ class OemWarranty implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the baseWarranties property value. List of base warranty offers. This collection can contain a maximum of 100 elements.
-     *  @param array<WarrantyOffer>|null $value Value to set for the baseWarranties property.
+     * @param array<WarrantyOffer>|null $value Value to set for the baseWarranties property.
     */
     public function setBaseWarranties(?array $value): void {
         $this->getBackingStore()->set('baseWarranties', $value);
@@ -152,7 +155,7 @@ class OemWarranty implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceConfigurationUrl property value. Device configuration page URL
-     *  @param string|null $value Value to set for the deviceConfigurationUrl property.
+     * @param string|null $value Value to set for the deviceConfigurationUrl property.
     */
     public function setDeviceConfigurationUrl(?string $value): void {
         $this->getBackingStore()->set('deviceConfigurationUrl', $value);
@@ -160,7 +163,7 @@ class OemWarranty implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceWarrantyUrl property value. Device warranty page URL
-     *  @param string|null $value Value to set for the deviceWarrantyUrl property.
+     * @param string|null $value Value to set for the deviceWarrantyUrl property.
     */
     public function setDeviceWarrantyUrl(?string $value): void {
         $this->getBackingStore()->set('deviceWarrantyUrl', $value);
@@ -168,7 +171,7 @@ class OemWarranty implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

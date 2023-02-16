@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\AppConsentApprovalRoute;
 use Microsoft\Graph\Beta\Generated\Models\EntitlementManagement;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessRoot;
 use Microsoft\Graph\Beta\Generated\Models\TermsOfUseContainer;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -48,7 +49,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -90,6 +91,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
             'entitlementManagement' => fn(ParseNode $n) => $o->setEntitlementManagement($n->getObjectValue([EntitlementManagement::class, 'createFromDiscriminatorValue'])),
             'lifecycleWorkflows' => fn(ParseNode $n) => $o->setLifecycleWorkflows($n->getObjectValue([LifecycleWorkflowsContainer::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'privilegedAccess' => fn(ParseNode $n) => $o->setPrivilegedAccess($n->getObjectValue([PrivilegedAccessRoot::class, 'createFromDiscriminatorValue'])),
             'termsOfUse' => fn(ParseNode $n) => $o->setTermsOfUse($n->getObjectValue([TermsOfUseContainer::class, 'createFromDiscriminatorValue'])),
         ];
     }
@@ -111,6 +113,14 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the privilegedAccess property value. The privilegedAccess property
+     * @return PrivilegedAccessRoot|null
+    */
+    public function getPrivilegedAccess(): ?PrivilegedAccessRoot {
+        return $this->getBackingStore()->get('privilegedAccess');
+    }
+
+    /**
      * Gets the termsOfUse property value. The termsOfUse property
      * @return TermsOfUseContainer|null
     */
@@ -128,13 +138,14 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('entitlementManagement', $this->getEntitlementManagement());
         $writer->writeObjectValue('lifecycleWorkflows', $this->getLifecycleWorkflows());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('privilegedAccess', $this->getPrivilegedAccess());
         $writer->writeObjectValue('termsOfUse', $this->getTermsOfUse());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the accessReviews property value. The accessReviews property
-     *  @param AccessReviewSet|null $value Value to set for the accessReviews property.
+     * @param AccessReviewSet|null $value Value to set for the accessReviews property.
     */
     public function setAccessReviews(?AccessReviewSet $value): void {
         $this->getBackingStore()->set('accessReviews', $value);
@@ -142,7 +153,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -150,7 +161,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appConsent property value. The appConsent property
-     *  @param AppConsentApprovalRoute|null $value Value to set for the appConsent property.
+     * @param AppConsentApprovalRoute|null $value Value to set for the appConsent property.
     */
     public function setAppConsent(?AppConsentApprovalRoute $value): void {
         $this->getBackingStore()->set('appConsent', $value);
@@ -158,7 +169,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -166,7 +177,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the entitlementManagement property value. The entitlementManagement property
-     *  @param EntitlementManagement|null $value Value to set for the entitlementManagement property.
+     * @param EntitlementManagement|null $value Value to set for the entitlementManagement property.
     */
     public function setEntitlementManagement(?EntitlementManagement $value): void {
         $this->getBackingStore()->set('entitlementManagement', $value);
@@ -174,7 +185,7 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lifecycleWorkflows property value. The lifecycleWorkflows property
-     *  @param LifecycleWorkflowsContainer|null $value Value to set for the lifecycleWorkflows property.
+     * @param LifecycleWorkflowsContainer|null $value Value to set for the lifecycleWorkflows property.
     */
     public function setLifecycleWorkflows(?LifecycleWorkflowsContainer $value): void {
         $this->getBackingStore()->set('lifecycleWorkflows', $value);
@@ -182,15 +193,23 @@ class IdentityGovernance implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
+     * Sets the privilegedAccess property value. The privilegedAccess property
+     * @param PrivilegedAccessRoot|null $value Value to set for the privilegedAccess property.
+    */
+    public function setPrivilegedAccess(?PrivilegedAccessRoot $value): void {
+        $this->getBackingStore()->set('privilegedAccess', $value);
+    }
+
+    /**
      * Sets the termsOfUse property value. The termsOfUse property
-     *  @param TermsOfUseContainer|null $value Value to set for the termsOfUse property.
+     * @param TermsOfUseContainer|null $value Value to set for the termsOfUse property.
     */
     public function setTermsOfUse(?TermsOfUseContainer $value): void {
         $this->getBackingStore()->set('termsOfUse', $value);

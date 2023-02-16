@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * iOS Kerberos authentication settings for single sign-on
+*/
 class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +133,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +141,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the allowedAppsList property value. List of app identifiers that are allowed to use this login. If this field is omitted, the login applies to all applications on the device. This collection can contain a maximum of 500 elements.
-     *  @param array<AppListItem>|null $value Value to set for the allowedAppsList property.
+     * @param array<AppListItem>|null $value Value to set for the allowedAppsList property.
     */
     public function setAllowedAppsList(?array $value): void {
         $this->getBackingStore()->set('allowedAppsList', $value);
@@ -146,7 +149,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the allowedUrls property value. List of HTTP URLs that must be matched in order to use this login. With iOS 9.0 or later, a wildcard characters may be used.
-     *  @param array<string>|null $value Value to set for the allowedUrls property.
+     * @param array<string>|null $value Value to set for the allowedUrls property.
     */
     public function setAllowedUrls(?array $value): void {
         $this->getBackingStore()->set('allowedUrls', $value);
@@ -154,7 +157,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -162,7 +165,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the displayName property value. The display name of login settings shown on the receiving device.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -170,7 +173,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the kerberosPrincipalName property value. A Kerberos principal name. If not provided, the user is prompted for one during profile installation.
-     *  @param string|null $value Value to set for the kerberosPrincipalName property.
+     * @param string|null $value Value to set for the kerberosPrincipalName property.
     */
     public function setKerberosPrincipalName(?string $value): void {
         $this->getBackingStore()->set('kerberosPrincipalName', $value);
@@ -178,7 +181,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the kerberosRealm property value. A Kerberos realm name. Case sensitive.
-     *  @param string|null $value Value to set for the kerberosRealm property.
+     * @param string|null $value Value to set for the kerberosRealm property.
     */
     public function setKerberosRealm(?string $value): void {
         $this->getBackingStore()->set('kerberosRealm', $value);
@@ -186,7 +189,7 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

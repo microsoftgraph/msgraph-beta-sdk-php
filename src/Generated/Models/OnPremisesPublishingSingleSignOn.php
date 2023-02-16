@@ -36,7 +36,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -80,7 +80,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the singleSignOnMode property value. The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased.
+     * Gets the singleSignOnMode property value. The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased, oAuthToken.
      * @return SingleSignOnMode|null
     */
     public function getSingleSignOnMode(): ?SingleSignOnMode {
@@ -100,7 +100,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +116,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the kerberosSignOnSettings property value. The Kerberos Constrained Delegation settings for applications that use Integrated Window Authentication.
-     *  @param KerberosSignOnSettings|null $value Value to set for the kerberosSignOnSettings property.
+     * @param KerberosSignOnSettings|null $value Value to set for the kerberosSignOnSettings property.
     */
     public function setKerberosSignOnSettings(?KerberosSignOnSettings $value): void {
         $this->getBackingStore()->set('kerberosSignOnSettings', $value);
@@ -124,15 +124,15 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the singleSignOnMode property value. The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased.
-     *  @param SingleSignOnMode|null $value Value to set for the singleSignOnMode property.
+     * Sets the singleSignOnMode property value. The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased, oAuthToken.
+     * @param SingleSignOnMode|null $value Value to set for the singleSignOnMode property.
     */
     public function setSingleSignOnMode(?SingleSignOnMode $value): void {
         $this->getBackingStore()->set('singleSignOnMode', $value);

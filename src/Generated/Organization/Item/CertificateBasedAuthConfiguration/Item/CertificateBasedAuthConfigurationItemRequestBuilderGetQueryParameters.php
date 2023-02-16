@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\CertificateBasedAuthC
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+*/
 class CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

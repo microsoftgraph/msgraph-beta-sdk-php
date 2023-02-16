@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Remote help - response we provide back to the helper after getting response from pubSub
+*/
 class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Ba
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +113,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Ba
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +121,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Ba
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +129,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Ba
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -134,7 +137,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Ba
 
     /**
      * Sets the pubSubEncryption property value. AES encryption Initialization Vector for encrypting client messages sent to PubSub
-     *  @param string|null $value Value to set for the pubSubEncryption property.
+     * @param string|null $value Value to set for the pubSubEncryption property.
     */
     public function setPubSubEncryption(?string $value): void {
         $this->getBackingStore()->set('pubSubEncryption', $value);
@@ -142,7 +145,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Ba
 
     /**
      * Sets the pubSubEncryptionKey property value. The unique identifier for encrypting client messages sent to PubSub
-     *  @param string|null $value Value to set for the pubSubEncryptionKey property.
+     * @param string|null $value Value to set for the pubSubEncryptionKey property.
     */
     public function setPubSubEncryptionKey(?string $value): void {
         $this->getBackingStore()->set('pubSubEncryptionKey', $value);
@@ -150,7 +153,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Ba
 
     /**
      * Sets the sessionKey property value. The unique identifier for a session
-     *  @param string|null $value Value to set for the sessionKey property.
+     * @param string|null $value Value to set for the sessionKey property.
     */
     public function setSessionKey(?string $value): void {
         $this->getBackingStore()->set('sessionKey', $value);

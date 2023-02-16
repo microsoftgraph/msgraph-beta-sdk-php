@@ -65,7 +65,7 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
 
     /**
      * Sets the maximumBackgroundBandwidthPercentage property value. Specifies the maximum background download bandwidth that Delivery Optimization uses across all concurrent download activities as a percentage of available download bandwidth (0-100). Valid values 0 to 100
-     *  @param int|null $value Value to set for the maximumBackgroundBandwidthPercentage property.
+     * @param int|null $value Value to set for the maximumBackgroundBandwidthPercentage property.
     */
     public function setMaximumBackgroundBandwidthPercentage(?int $value): void {
         $this->getBackingStore()->set('maximumBackgroundBandwidthPercentage', $value);
@@ -73,7 +73,7 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
 
     /**
      * Sets the maximumForegroundBandwidthPercentage property value. Specifies the maximum foreground download bandwidth that Delivery Optimization uses across all concurrent download activities as a percentage of available download bandwidth (0-100). Valid values 0 to 100
-     *  @param int|null $value Value to set for the maximumForegroundBandwidthPercentage property.
+     * @param int|null $value Value to set for the maximumForegroundBandwidthPercentage property.
     */
     public function setMaximumForegroundBandwidthPercentage(?int $value): void {
         $this->getBackingStore()->set('maximumForegroundBandwidthPercentage', $value);

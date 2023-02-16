@@ -36,7 +36,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the attributeDestination property value. Information about how to set the attribute, currently a accessPackageUserDirectoryAttributeStore object type.
-     *  @param AccessPackageResourceAttributeDestination|null $value Value to set for the attributeDestination property.
+     * @param AccessPackageResourceAttributeDestination|null $value Value to set for the attributeDestination property.
     */
     public function setAttributeDestination(?AccessPackageResourceAttributeDestination $value): void {
         $this->getBackingStore()->set('attributeDestination', $value);
@@ -156,7 +156,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the attributeName property value. The name of the attribute in the end system. If the destination is accessPackageUserDirectoryAttributeStore, then a user property such as jobTitle or a directory schema extension for the user object type, such as extension_2b676109c7c74ae2b41549205f1947ed_personalTitle.
-     *  @param string|null $value Value to set for the attributeName property.
+     * @param string|null $value Value to set for the attributeName property.
     */
     public function setAttributeName(?string $value): void {
         $this->getBackingStore()->set('attributeName', $value);
@@ -164,7 +164,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the attributeSource property value. Information about how to populate the attribute value when an accessPackageAssignmentRequest is being fulfilled, currently a accessPackageResourceAttributeQuestion object type.
-     *  @param AccessPackageResourceAttributeSource|null $value Value to set for the attributeSource property.
+     * @param AccessPackageResourceAttributeSource|null $value Value to set for the attributeSource property.
     */
     public function setAttributeSource(?AccessPackageResourceAttributeSource $value): void {
         $this->getBackingStore()->set('attributeSource', $value);
@@ -172,7 +172,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -180,7 +180,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the id property value. Unique identifier for the attribute on the access package resource. Read-only.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -188,7 +188,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the isEditable property value. Specifies whether or not an existing attribute value can be edited by the requester.
-     *  @param bool|null $value Value to set for the isEditable property.
+     * @param bool|null $value Value to set for the isEditable property.
     */
     public function setIsEditable(?bool $value): void {
         $this->getBackingStore()->set('isEditable', $value);
@@ -196,7 +196,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the isPersistedOnAssignmentRemoval property value. Specifies whether the attribute will remain in the end system after an assignment ends.
-     *  @param bool|null $value Value to set for the isPersistedOnAssignmentRemoval property.
+     * @param bool|null $value Value to set for the isPersistedOnAssignmentRemoval property.
     */
     public function setIsPersistedOnAssignmentRemoval(?bool $value): void {
         $this->getBackingStore()->set('isPersistedOnAssignmentRemoval', $value);
@@ -204,7 +204,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

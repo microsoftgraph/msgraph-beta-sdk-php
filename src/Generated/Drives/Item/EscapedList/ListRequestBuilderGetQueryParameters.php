@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+*/
 class ListRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ListRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new listRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

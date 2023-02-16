@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics Device without Cloud Identity.
+*/
 class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implements Parsable 
 {
     /**
@@ -64,7 +67,7 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
 
     /**
      * Sets the azureAdDeviceId property value. Azure Active Directory Device Id
-     *  @param string|null $value Value to set for the azureAdDeviceId property.
+     * @param string|null $value Value to set for the azureAdDeviceId property.
     */
     public function setAzureAdDeviceId(?string $value): void {
         $this->getBackingStore()->set('azureAdDeviceId', $value);
@@ -72,7 +75,7 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
 
     /**
      * Sets the deviceName property value. The tenant attach device's name.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);

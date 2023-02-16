@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * A description of why an entity is unsupported.
+*/
 class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Back
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +103,7 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Back
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +111,7 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Back
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +119,7 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Back
 
     /**
      * Sets the message property value. A message explaining why an entity is unsupported.
-     *  @param string|null $value Value to set for the message property.
+     * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
         $this->getBackingStore()->set('message', $value);
@@ -124,7 +127,7 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Back
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -132,7 +135,7 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Back
 
     /**
      * Sets the propertyName property value. If message is related to a specific property in the original entity, then the name of that property.
-     *  @param string|null $value Value to set for the propertyName property.
+     * @param string|null $value Value to set for the propertyName property.
     */
     public function setPropertyName(?string $value): void {
         $this->getBackingStore()->set('propertyName', $value);

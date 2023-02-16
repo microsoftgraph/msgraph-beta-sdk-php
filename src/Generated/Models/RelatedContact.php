@@ -44,7 +44,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the accessConsent property value. Indicates whether the user has been consented to access student data.
-     *  @param bool|null $value Value to set for the accessConsent property.
+     * @param bool|null $value Value to set for the accessConsent property.
     */
     public function setAccessConsent(?bool $value): void {
         $this->getBackingStore()->set('accessConsent', $value);
@@ -148,7 +148,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -156,7 +156,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +164,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. Name of the contact. Required.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -172,7 +172,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the emailAddress property value. Email address of the contact.
-     *  @param string|null $value Value to set for the emailAddress property.
+     * @param string|null $value Value to set for the emailAddress property.
     */
     public function setEmailAddress(?string $value): void {
         $this->getBackingStore()->set('emailAddress', $value);
@@ -180,7 +180,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the id property value. The id property
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -188,7 +188,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mobilePhone property value. Mobile phone number of the contact.
-     *  @param string|null $value Value to set for the mobilePhone property.
+     * @param string|null $value Value to set for the mobilePhone property.
     */
     public function setMobilePhone(?string $value): void {
         $this->getBackingStore()->set('mobilePhone', $value);
@@ -196,7 +196,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -204,7 +204,7 @@ class RelatedContact implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the relationship property value. The relationship property
-     *  @param ContactRelationship|null $value Value to set for the relationship property.
+     * @param ContactRelationship|null $value Value to set for the relationship property.
     */
     public function setRelationship(?ContactRelationship $value): void {
         $this->getBackingStore()->set('relationship', $value);

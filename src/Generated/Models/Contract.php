@@ -85,7 +85,7 @@ class Contract extends DirectoryObject implements Parsable
 
     /**
      * Sets the contractType property value. The contractType property
-     *  @param string|null $value Value to set for the contractType property.
+     * @param string|null $value Value to set for the contractType property.
     */
     public function setContractType(?string $value): void {
         $this->getBackingStore()->set('contractType', $value);
@@ -93,7 +93,7 @@ class Contract extends DirectoryObject implements Parsable
 
     /**
      * Sets the customerId property value. The customerId property
-     *  @param string|null $value Value to set for the customerId property.
+     * @param string|null $value Value to set for the customerId property.
     */
     public function setCustomerId(?string $value): void {
         $this->getBackingStore()->set('customerId', $value);
@@ -101,7 +101,7 @@ class Contract extends DirectoryObject implements Parsable
 
     /**
      * Sets the defaultDomainName property value. The defaultDomainName property
-     *  @param string|null $value Value to set for the defaultDomainName property.
+     * @param string|null $value Value to set for the defaultDomainName property.
     */
     public function setDefaultDomainName(?string $value): void {
         $this->getBackingStore()->set('defaultDomainName', $value);
@@ -109,7 +109,7 @@ class Contract extends DirectoryObject implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

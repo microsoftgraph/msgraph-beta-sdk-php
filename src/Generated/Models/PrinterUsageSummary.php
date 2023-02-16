@@ -36,7 +36,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -150,7 +150,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -158,7 +158,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -166,7 +166,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the completedJobCount property value. The completedJobCount property
-     *  @param int|null $value Value to set for the completedJobCount property.
+     * @param int|null $value Value to set for the completedJobCount property.
     */
     public function setCompletedJobCount(?int $value): void {
         $this->getBackingStore()->set('completedJobCount', $value);
@@ -174,7 +174,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the incompleteJobCount property value. The incompleteJobCount property
-     *  @param int|null $value Value to set for the incompleteJobCount property.
+     * @param int|null $value Value to set for the incompleteJobCount property.
     */
     public function setIncompleteJobCount(?int $value): void {
         $this->getBackingStore()->set('incompleteJobCount', $value);
@@ -182,7 +182,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -190,7 +190,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printer property value. The printer property
-     *  @param DirectoryObject|null $value Value to set for the printer property.
+     * @param DirectoryObject|null $value Value to set for the printer property.
     */
     public function setPrinter(?DirectoryObject $value): void {
         $this->getBackingStore()->set('printer', $value);
@@ -198,7 +198,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printerDisplayName property value. The printerDisplayName property
-     *  @param string|null $value Value to set for the printerDisplayName property.
+     * @param string|null $value Value to set for the printerDisplayName property.
     */
     public function setPrinterDisplayName(?string $value): void {
         $this->getBackingStore()->set('printerDisplayName', $value);
@@ -206,7 +206,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printerId property value. The printerId property
-     *  @param string|null $value Value to set for the printerId property.
+     * @param string|null $value Value to set for the printerId property.
     */
     public function setPrinterId(?string $value): void {
         $this->getBackingStore()->set('printerId', $value);
@@ -214,7 +214,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printerManufacturer property value. The printerManufacturer property
-     *  @param string|null $value Value to set for the printerManufacturer property.
+     * @param string|null $value Value to set for the printerManufacturer property.
     */
     public function setPrinterManufacturer(?string $value): void {
         $this->getBackingStore()->set('printerManufacturer', $value);
@@ -222,7 +222,7 @@ class PrinterUsageSummary implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printerModel property value. The printerModel property
-     *  @param string|null $value Value to set for the printerModel property.
+     * @param string|null $value Value to set for the printerModel property.
     */
     public function setPrinterModel(?string $value): void {
         $this->getBackingStore()->set('printerModel', $value);

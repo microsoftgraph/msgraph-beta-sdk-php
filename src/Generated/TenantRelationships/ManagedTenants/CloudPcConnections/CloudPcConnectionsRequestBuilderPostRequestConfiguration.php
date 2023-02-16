@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Clou
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class CloudPcConnectionsRequestBuilderPostRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
@@ -16,4 +19,14 @@ class CloudPcConnectionsRequestBuilderPostRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * Instantiates a new cloudPcConnectionsRequestBuilderPostRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+    */
+    public function __construct(?array $headers = null, ?array $options = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+    }
+
 }

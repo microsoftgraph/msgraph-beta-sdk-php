@@ -36,7 +36,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the displayName property value. The display name of the user who participates in a virtual appointment. Optional.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -134,7 +134,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the emailAddress property value. The email address of the user who participates in a virtual appointment. Optional.
-     *  @param string|null $value Value to set for the emailAddress property.
+     * @param string|null $value Value to set for the emailAddress property.
     */
     public function setEmailAddress(?string $value): void {
         $this->getBackingStore()->set('emailAddress', $value);
@@ -142,7 +142,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the smsCapablePhoneNumber property value. The phone number for sending SMS texts for the user who participates in a virtual appointment. Optional.
-     *  @param string|null $value Value to set for the smsCapablePhoneNumber property.
+     * @param string|null $value Value to set for the smsCapablePhoneNumber property.
     */
     public function setSmsCapablePhoneNumber(?string $value): void {
         $this->getBackingStore()->set('smsCapablePhoneNumber', $value);

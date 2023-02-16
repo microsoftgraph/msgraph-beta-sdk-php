@@ -45,7 +45,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +121,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the action property value. Specifies whether the tenant allow block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.
-     *  @param TenantAllowBlockListAction|null $value Value to set for the action property.
+     * @param TenantAllowBlockListAction|null $value Value to set for the action property.
     */
     public function setAction(?TenantAllowBlockListAction $value): void {
         $this->getBackingStore()->set('action', $value);
@@ -129,7 +129,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -137,7 +137,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -145,7 +145,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the expirationDateTime property value. Specifies when the tenant allow-block-list expires in date time.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -153,7 +153,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the note property value. Specifies the note added to the tenant allow block list entry in the format of string.
-     *  @param string|null $value Value to set for the note property.
+     * @param string|null $value Value to set for the note property.
     */
     public function setNote(?string $value): void {
         $this->getBackingStore()->set('note', $value);
@@ -161,7 +161,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -169,7 +169,7 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the results property value. Contains the result of the submission that lead to the tenant allow-block-list entry creation.
-     *  @param array<TenantAllowBlockListEntryResult>|null $value Value to set for the results property.
+     * @param array<TenantAllowBlockListEntryResult>|null $value Value to set for the results property.
     */
     public function setResults(?array $value): void {
         $this->getBackingStore()->set('results', $value);

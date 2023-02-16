@@ -36,7 +36,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +156,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the communicationSpeakerHealth property value. The health details about the communication speaker.
-     *  @param TeamworkPeripheralHealth|null $value Value to set for the communicationSpeakerHealth property.
+     * @param TeamworkPeripheralHealth|null $value Value to set for the communicationSpeakerHealth property.
     */
     public function setCommunicationSpeakerHealth(?TeamworkPeripheralHealth $value): void {
         $this->getBackingStore()->set('communicationSpeakerHealth', $value);
@@ -164,7 +164,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the contentCameraHealth property value. The health details about the content camera.
-     *  @param TeamworkPeripheralHealth|null $value Value to set for the contentCameraHealth property.
+     * @param TeamworkPeripheralHealth|null $value Value to set for the contentCameraHealth property.
     */
     public function setContentCameraHealth(?TeamworkPeripheralHealth $value): void {
         $this->getBackingStore()->set('contentCameraHealth', $value);
@@ -172,7 +172,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the displayHealthCollection property value. The health details about displays.
-     *  @param array<TeamworkPeripheralHealth>|null $value Value to set for the displayHealthCollection property.
+     * @param array<TeamworkPeripheralHealth>|null $value Value to set for the displayHealthCollection property.
     */
     public function setDisplayHealthCollection(?array $value): void {
         $this->getBackingStore()->set('displayHealthCollection', $value);
@@ -180,7 +180,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the microphoneHealth property value. The health details about the microphone.
-     *  @param TeamworkPeripheralHealth|null $value Value to set for the microphoneHealth property.
+     * @param TeamworkPeripheralHealth|null $value Value to set for the microphoneHealth property.
     */
     public function setMicrophoneHealth(?TeamworkPeripheralHealth $value): void {
         $this->getBackingStore()->set('microphoneHealth', $value);
@@ -188,7 +188,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -196,7 +196,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the roomCameraHealth property value. The health details about the room camera.
-     *  @param TeamworkPeripheralHealth|null $value Value to set for the roomCameraHealth property.
+     * @param TeamworkPeripheralHealth|null $value Value to set for the roomCameraHealth property.
     */
     public function setRoomCameraHealth(?TeamworkPeripheralHealth $value): void {
         $this->getBackingStore()->set('roomCameraHealth', $value);
@@ -204,7 +204,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the speakerHealth property value. The health details about the speaker.
-     *  @param TeamworkPeripheralHealth|null $value Value to set for the speakerHealth property.
+     * @param TeamworkPeripheralHealth|null $value Value to set for the speakerHealth property.
     */
     public function setSpeakerHealth(?TeamworkPeripheralHealth $value): void {
         $this->getBackingStore()->set('speakerHealth', $value);

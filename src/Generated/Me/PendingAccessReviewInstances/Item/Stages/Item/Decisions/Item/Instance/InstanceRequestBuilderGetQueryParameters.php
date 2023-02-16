@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\PendingAccessReviewInstances\Item\St
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * There is exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
+*/
 class InstanceRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class InstanceRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new instanceRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

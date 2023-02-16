@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represents a user-facing message with locale information as well as a default message to be used if the user's locale doesn't match with any of the localized messages
+*/
 class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Backe
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +103,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Backe
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +111,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Backe
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +119,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Backe
 
     /**
      * Sets the defaultMessage property value. The default message displayed if the user's locale doesn't match with any of the localized messages
-     *  @param string|null $value Value to set for the defaultMessage property.
+     * @param string|null $value Value to set for the defaultMessage property.
     */
     public function setDefaultMessage(?string $value): void {
         $this->getBackingStore()->set('defaultMessage', $value);
@@ -124,7 +127,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Backe
 
     /**
      * Sets the localizedMessages property value. The list of <locale, message> pairs. This collection can contain a maximum of 500 elements.
-     *  @param array<KeyValuePair>|null $value Value to set for the localizedMessages property.
+     * @param array<KeyValuePair>|null $value Value to set for the localizedMessages property.
     */
     public function setLocalizedMessages(?array $value): void {
         $this->getBackingStore()->set('localizedMessages', $value);
@@ -132,7 +135,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Backe
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsMetricHistory and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsMetricHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,7 +75,7 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The user experience analytics device id.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -83,7 +83,7 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
 
     /**
      * Sets the metricDateTime property value. The user experience analytics metric date time.
-     *  @param DateTime|null $value Value to set for the metricDateTime property.
+     * @param DateTime|null $value Value to set for the metricDateTime property.
     */
     public function setMetricDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('metricDateTime', $value);
@@ -91,7 +91,7 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
 
     /**
      * Sets the metricType property value. The user experience analytics metric type.
-     *  @param string|null $value Value to set for the metricType property.
+     * @param string|null $value Value to set for the metricType property.
     */
     public function setMetricType(?string $value): void {
         $this->getBackingStore()->set('metricType', $value);

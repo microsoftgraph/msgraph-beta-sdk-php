@@ -37,7 +37,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -161,7 +161,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -169,7 +169,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -177,7 +177,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the comment property value. The comment for the shared cookie.
-     *  @param string|null $value Value to set for the comment property.
+     * @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value): void {
         $this->getBackingStore()->set('comment', $value);
@@ -185,7 +185,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the displayName property value. The name of the cookie.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -193,7 +193,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the hostOnly property value. Controls whether a cookie is a host-only or domain cookie.
-     *  @param bool|null $value Value to set for the hostOnly property.
+     * @param bool|null $value Value to set for the hostOnly property.
     */
     public function setHostOnly(?bool $value): void {
         $this->getBackingStore()->set('hostOnly', $value);
@@ -201,7 +201,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the hostOrDomain property value. The URL of the cookie.
-     *  @param string|null $value Value to set for the hostOrDomain property.
+     * @param string|null $value Value to set for the hostOrDomain property.
     */
     public function setHostOrDomain(?string $value): void {
         $this->getBackingStore()->set('hostOrDomain', $value);
@@ -209,7 +209,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the lastModifiedBy property value. The lastModifiedBy property
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -217,7 +217,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -225,7 +225,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the path property value. The path of the cookie.
-     *  @param string|null $value Value to set for the path property.
+     * @param string|null $value Value to set for the path property.
     */
     public function setPath(?string $value): void {
         $this->getBackingStore()->set('path', $value);
@@ -233,7 +233,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the publishedDateTime property value. The date and time when the cookie was last published.
-     *  @param DateTime|null $value Value to set for the publishedDateTime property.
+     * @param DateTime|null $value Value to set for the publishedDateTime property.
     */
     public function setPublishedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('publishedDateTime', $value);
@@ -241,7 +241,7 @@ class BrowserSharedCookieHistory implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the sourceEnvironment property value. Specifies how the cookies are shared between Microsoft Edge and Internet Explorer. The possible values are: microsoftEdge, internetExplorer11, both, unknownFutureValue.
-     *  @param BrowserSharedCookieSourceEnvironment|null $value Value to set for the sourceEnvironment property.
+     * @param BrowserSharedCookieSourceEnvironment|null $value Value to set for the sourceEnvironment property.
     */
     public function setSourceEnvironment(?BrowserSharedCookieSourceEnvironment $value): void {
         $this->getBackingStore()->set('sourceEnvironment', $value);

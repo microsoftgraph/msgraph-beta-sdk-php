@@ -36,7 +36,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -160,7 +160,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,7 +168,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the alertImpact property value. The associated alert impact.
-     *  @param AlertImpact|null $value Value to set for the alertImpact property.
+     * @param AlertImpact|null $value Value to set for the alertImpact property.
     */
     public function setAlertImpact(?AlertImpact $value): void {
         $this->getBackingStore()->set('alertImpact', $value);
@@ -176,7 +176,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the alertRecordId property value. The associated alert record ID.
-     *  @param string|null $value Value to set for the alertRecordId property.
+     * @param string|null $value Value to set for the alertRecordId property.
     */
     public function setAlertRecordId(?string $value): void {
         $this->getBackingStore()->set('alertRecordId', $value);
@@ -184,7 +184,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the alertRuleId property value. The associated alert rule ID.
-     *  @param string|null $value Value to set for the alertRuleId property.
+     * @param string|null $value Value to set for the alertRuleId property.
     */
     public function setAlertRuleId(?string $value): void {
         $this->getBackingStore()->set('alertRuleId', $value);
@@ -192,7 +192,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the alertRuleName property value. The associated alert rule name.
-     *  @param string|null $value Value to set for the alertRuleName property.
+     * @param string|null $value Value to set for the alertRuleName property.
     */
     public function setAlertRuleName(?string $value): void {
         $this->getBackingStore()->set('alertRuleName', $value);
@@ -200,7 +200,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the alertRuleTemplate property value. The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
-     *  @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
+     * @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
     public function setAlertRuleTemplate(?AlertRuleTemplate $value): void {
         $this->getBackingStore()->set('alertRuleTemplate', $value);
@@ -208,7 +208,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -216,7 +216,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the id property value. The unique identifier for the portal notification.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -224,7 +224,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isPortalNotificationSent property value. true if the portal notification has already been sent to the user; false otherwise.
-     *  @param bool|null $value Value to set for the isPortalNotificationSent property.
+     * @param bool|null $value Value to set for the isPortalNotificationSent property.
     */
     public function setIsPortalNotificationSent(?bool $value): void {
         $this->getBackingStore()->set('isPortalNotificationSent', $value);
@@ -232,7 +232,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -240,7 +240,7 @@ class PortalNotification implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the severity property value. The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-     *  @param RuleSeverityType|null $value Value to set for the severity property.
+     * @param RuleSeverityType|null $value Value to set for the severity property.
     */
     public function setSeverity(?RuleSeverityType $value): void {
         $this->getBackingStore()->set('severity', $value);

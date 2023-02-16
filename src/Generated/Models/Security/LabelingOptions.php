@@ -36,7 +36,7 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the assignmentMethod property value. The assignmentMethod property
-     *  @param AssignmentMethod|null $value Value to set for the assignmentMethod property.
+     * @param AssignmentMethod|null $value Value to set for the assignmentMethod property.
     */
     public function setAssignmentMethod(?AssignmentMethod $value): void {
         $this->getBackingStore()->set('assignmentMethod', $value);
@@ -136,7 +136,7 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +144,7 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the downgradeJustification property value. The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
-     *  @param DowngradeJustification|null $value Value to set for the downgradeJustification property.
+     * @param DowngradeJustification|null $value Value to set for the downgradeJustification property.
     */
     public function setDowngradeJustification(?DowngradeJustification $value): void {
         $this->getBackingStore()->set('downgradeJustification', $value);
@@ -152,7 +152,7 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the extendedProperties property value. Extended properties will be parsed and returned in the standard Microsoft Purview Information Protection labeled metadata format as part of the label information.
-     *  @param array<KeyValuePair>|null $value Value to set for the extendedProperties property.
+     * @param array<KeyValuePair>|null $value Value to set for the extendedProperties property.
     */
     public function setExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('extendedProperties', $value);
@@ -160,7 +160,7 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the labelId property value. The GUID of the label that should be applied to the information.
-     *  @param string|null $value Value to set for the labelId property.
+     * @param string|null $value Value to set for the labelId property.
     */
     public function setLabelId(?string $value): void {
         $this->getBackingStore()->set('labelId', $value);
@@ -168,7 +168,7 @@ class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

@@ -107,7 +107,7 @@ class ReviewSetQuery extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The user who created the query.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -115,7 +115,7 @@ class ReviewSetQuery extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The time and date when the query was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -123,7 +123,7 @@ class ReviewSetQuery extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the query.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -131,7 +131,7 @@ class ReviewSetQuery extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the query.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -139,7 +139,7 @@ class ReviewSetQuery extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the query was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -147,7 +147,7 @@ class ReviewSetQuery extends Entity implements Parsable
 
     /**
      * Sets the query property value. The query string in KQL (Keyword Query Language) query. For details, see Document metadata fields in Advanced eDiscovery.  This field maps directly to the keywords condition.  You can refine searches by using fields listed in the searchable field name paired with values; for example, subject:'Quarterly Financials' AND Date>=06/01/2016 AND Date<=07/01/2016.
-     *  @param string|null $value Value to set for the query property.
+     * @param string|null $value Value to set for the query property.
     */
     public function setQuery(?string $value): void {
         $this->getBackingStore()->set('query', $value);

@@ -65,7 +65,7 @@ class OmaSettingInteger extends OmaSetting implements Parsable
 
     /**
      * Sets the isReadOnly property value. By setting to true, the CSP (configuration service provider) specified in the OMA-URI will perform a get, instead of set
-     *  @param bool|null $value Value to set for the isReadOnly property.
+     * @param bool|null $value Value to set for the isReadOnly property.
     */
     public function setIsReadOnly(?bool $value): void {
         $this->getBackingStore()->set('isReadOnly', $value);
@@ -73,7 +73,7 @@ class OmaSettingInteger extends OmaSetting implements Parsable
 
     /**
      * Sets the value property value. Value.
-     *  @param int|null $value Value to set for the value property.
+     * @param int|null $value Value to set for the value property.
     */
     public function setValue(?int $value): void {
         $this->getBackingStore()->set('value', $value);

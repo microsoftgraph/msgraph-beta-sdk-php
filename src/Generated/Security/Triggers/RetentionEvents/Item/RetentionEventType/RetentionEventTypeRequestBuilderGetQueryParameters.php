@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Triggers\RetentionEvents\Item\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Specifies the event that will start the retention period for labels that use this event type when an event is created.
+*/
 class RetentionEventTypeRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class RetentionEventTypeRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new retentionEventTypeRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

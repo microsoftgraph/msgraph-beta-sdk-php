@@ -37,7 +37,7 @@ class MicrosoftAccountUserConversationMember extends ConversationMember implemen
     }
 
     /**
-     * Gets the userId property value. ID of the user.
+     * Gets the userId property value. Microsoft Account ID of the user.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -54,8 +54,8 @@ class MicrosoftAccountUserConversationMember extends ConversationMember implemen
     }
 
     /**
-     * Sets the userId property value. ID of the user.
-     *  @param string|null $value Value to set for the userId property.
+     * Sets the userId property value. Microsoft Account ID of the user.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

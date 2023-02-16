@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Search\Qnas\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
+*/
 class QnaItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class QnaItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new QnaItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

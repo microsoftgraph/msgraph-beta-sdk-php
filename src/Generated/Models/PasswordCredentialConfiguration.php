@@ -38,7 +38,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -112,7 +112,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -120,7 +120,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -128,7 +128,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the maxLifetime property value. The maxLifetime property
-     *  @param DateInterval|null $value Value to set for the maxLifetime property.
+     * @param DateInterval|null $value Value to set for the maxLifetime property.
     */
     public function setMaxLifetime(?DateInterval $value): void {
         $this->getBackingStore()->set('maxLifetime', $value);
@@ -136,7 +136,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -144,7 +144,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the restrictForAppsCreatedAfterDateTime property value. Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be backdated. To apply to all applications, this date would be null.
-     *  @param DateTime|null $value Value to set for the restrictForAppsCreatedAfterDateTime property.
+     * @param DateTime|null $value Value to set for the restrictForAppsCreatedAfterDateTime property.
     */
     public function setRestrictForAppsCreatedAfterDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('restrictForAppsCreatedAfterDateTime', $value);
@@ -152,7 +152,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the restrictionType property value. The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy.
-     *  @param AppCredentialRestrictionType|null $value Value to set for the restrictionType property.
+     * @param AppCredentialRestrictionType|null $value Value to set for the restrictionType property.
     */
     public function setRestrictionType(?AppCredentialRestrictionType $value): void {
         $this->getBackingStore()->set('restrictionType', $value);

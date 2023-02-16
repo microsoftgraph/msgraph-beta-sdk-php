@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * A class containing the properties for Audit Actor.
+*/
 class AuditActor implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -200,7 +203,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -208,7 +211,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the applicationDisplayName property value. Name of the Application.
-     *  @param string|null $value Value to set for the applicationDisplayName property.
+     * @param string|null $value Value to set for the applicationDisplayName property.
     */
     public function setApplicationDisplayName(?string $value): void {
         $this->getBackingStore()->set('applicationDisplayName', $value);
@@ -216,7 +219,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the applicationId property value. AAD Application Id.
-     *  @param string|null $value Value to set for the applicationId property.
+     * @param string|null $value Value to set for the applicationId property.
     */
     public function setApplicationId(?string $value): void {
         $this->getBackingStore()->set('applicationId', $value);
@@ -224,7 +227,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the auditActorType property value. Actor Type.
-     *  @param string|null $value Value to set for the auditActorType property.
+     * @param string|null $value Value to set for the auditActorType property.
     */
     public function setAuditActorType(?string $value): void {
         $this->getBackingStore()->set('auditActorType', $value);
@@ -232,7 +235,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -240,7 +243,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ipAddress property value. IPAddress.
-     *  @param string|null $value Value to set for the ipAddress property.
+     * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
         $this->getBackingStore()->set('ipAddress', $value);
@@ -248,7 +251,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -256,7 +259,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the remoteTenantId property value. Remote Tenant Id
-     *  @param string|null $value Value to set for the remoteTenantId property.
+     * @param string|null $value Value to set for the remoteTenantId property.
     */
     public function setRemoteTenantId(?string $value): void {
         $this->getBackingStore()->set('remoteTenantId', $value);
@@ -264,7 +267,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the remoteUserId property value. Remote User Id
-     *  @param string|null $value Value to set for the remoteUserId property.
+     * @param string|null $value Value to set for the remoteUserId property.
     */
     public function setRemoteUserId(?string $value): void {
         $this->getBackingStore()->set('remoteUserId', $value);
@@ -272,7 +275,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the servicePrincipalName property value. Service Principal Name (SPN).
-     *  @param string|null $value Value to set for the servicePrincipalName property.
+     * @param string|null $value Value to set for the servicePrincipalName property.
     */
     public function setServicePrincipalName(?string $value): void {
         $this->getBackingStore()->set('servicePrincipalName', $value);
@@ -280,7 +283,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the type property value. Actor Type.
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -288,7 +291,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userId property value. User Id.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -296,7 +299,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userPermissions property value. List of user permissions when the audit was performed.
-     *  @param array<string>|null $value Value to set for the userPermissions property.
+     * @param array<string>|null $value Value to set for the userPermissions property.
     */
     public function setUserPermissions(?array $value): void {
         $this->getBackingStore()->set('userPermissions', $value);
@@ -304,7 +307,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userPrincipalName property value. User Principal Name (UPN).
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
@@ -312,7 +315,7 @@ class AuditActor implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userRoleScopeTags property value. List of user scope tags when the audit was performed.
-     *  @param array<RoleScopeTagInfo>|null $value Value to set for the userRoleScopeTags property.
+     * @param array<RoleScopeTagInfo>|null $value Value to set for the userRoleScopeTags property.
     */
     public function setUserRoleScopeTags(?array $value): void {
         $this->getBackingStore()->set('userRoleScopeTags', $value);

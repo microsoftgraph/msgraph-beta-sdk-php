@@ -36,7 +36,7 @@ class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the countryOrRegionCode property value. The countryOrRegionCode property
-     *  @param string|null $value Value to set for the countryOrRegionCode property.
+     * @param string|null $value Value to set for the countryOrRegionCode property.
     */
     public function setCountryOrRegionCode(?string $value): void {
         $this->getBackingStore()->set('countryOrRegionCode', $value);
@@ -144,7 +144,7 @@ class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -152,7 +152,7 @@ class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the organization property value. The organization property
-     *  @param string|null $value Value to set for the organization property.
+     * @param string|null $value Value to set for the organization property.
     */
     public function setOrganization(?string $value): void {
         $this->getBackingStore()->set('organization', $value);
@@ -160,7 +160,7 @@ class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the url property value. The url property
-     *  @param string|null $value Value to set for the url property.
+     * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {
         $this->getBackingStore()->set('url', $value);
@@ -168,7 +168,7 @@ class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the vendor property value. The vendor property
-     *  @param string|null $value Value to set for the vendor property.
+     * @param string|null $value Value to set for the vendor property.
     */
     public function setVendor(?string $value): void {
         $this->getBackingStore()->set('vendor', $value);

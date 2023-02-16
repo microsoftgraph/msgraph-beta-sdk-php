@@ -61,7 +61,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -151,7 +151,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the accountDomain property value. Domain of user account used to logon.
-     *  @param string|null $value Value to set for the accountDomain property.
+     * @param string|null $value Value to set for the accountDomain property.
     */
     public function setAccountDomain(?string $value): void {
         $this->getBackingStore()->set('accountDomain', $value);
@@ -159,7 +159,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the accountName property value. Account name of user account used to logon.
-     *  @param string|null $value Value to set for the accountName property.
+     * @param string|null $value Value to set for the accountName property.
     */
     public function setAccountName(?string $value): void {
         $this->getBackingStore()->set('accountName', $value);
@@ -167,7 +167,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the accountType property value. User Account type, per Windows definition. Possible values are: unknown, standard, power, administrator.
-     *  @param UserAccountSecurityType|null $value Value to set for the accountType property.
+     * @param UserAccountSecurityType|null $value Value to set for the accountType property.
     */
     public function setAccountType(?UserAccountSecurityType $value): void {
         $this->getBackingStore()->set('accountType', $value);
@@ -175,7 +175,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -183,7 +183,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -191,7 +191,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the firstSeenDateTime property value. DateTime at which the earliest logon by this user account occurred (provider-determined period). The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the firstSeenDateTime property.
+     * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('firstSeenDateTime', $value);
@@ -199,7 +199,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastSeenDateTime property value. DateTime at which the latest logon by this user account occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
+     * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSeenDateTime', $value);
@@ -207,7 +207,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the logonId property value. User logon ID.
-     *  @param string|null $value Value to set for the logonId property.
+     * @param string|null $value Value to set for the logonId property.
     */
     public function setLogonId(?string $value): void {
         $this->getBackingStore()->set('logonId', $value);
@@ -215,7 +215,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     *  @param array<LogonType>|null $value Value to set for the logonTypes property.
+     * @param array<LogonType>|null $value Value to set for the logonTypes property.
     */
     public function setLogonTypes(?array $value): void {
         $this->getBackingStore()->set('logonTypes', $value);
@@ -223,7 +223,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ExternalColumns\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+*/
 class ColumnDefinitionItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ColumnDefinitionItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ColumnDefinitionItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

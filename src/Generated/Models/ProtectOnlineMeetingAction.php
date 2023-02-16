@@ -95,7 +95,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
 
     /**
      * Sets the allowedForwarders property value. The allowedForwarders property
-     *  @param OnlineMeetingForwarders|null $value Value to set for the allowedForwarders property.
+     * @param OnlineMeetingForwarders|null $value Value to set for the allowedForwarders property.
     */
     public function setAllowedForwarders(?OnlineMeetingForwarders $value): void {
         $this->getBackingStore()->set('allowedForwarders', $value);
@@ -103,7 +103,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
 
     /**
      * Sets the allowedPresenters property value. The allowedPresenters property
-     *  @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
+     * @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
     */
     public function setAllowedPresenters(?OnlineMeetingPresenters $value): void {
         $this->getBackingStore()->set('allowedPresenters', $value);
@@ -111,7 +111,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
 
     /**
      * Sets the isCopyToClipboardEnabled property value. The isCopyToClipboardEnabled property
-     *  @param bool|null $value Value to set for the isCopyToClipboardEnabled property.
+     * @param bool|null $value Value to set for the isCopyToClipboardEnabled property.
     */
     public function setIsCopyToClipboardEnabled(?bool $value): void {
         $this->getBackingStore()->set('isCopyToClipboardEnabled', $value);
@@ -119,7 +119,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
 
     /**
      * Sets the isLobbyEnabled property value. The isLobbyEnabled property
-     *  @param bool|null $value Value to set for the isLobbyEnabled property.
+     * @param bool|null $value Value to set for the isLobbyEnabled property.
     */
     public function setIsLobbyEnabled(?bool $value): void {
         $this->getBackingStore()->set('isLobbyEnabled', $value);
@@ -127,7 +127,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
 
     /**
      * Sets the lobbyBypassSettings property value. The lobbyBypassSettings property
-     *  @param LobbyBypassSettings|null $value Value to set for the lobbyBypassSettings property.
+     * @param LobbyBypassSettings|null $value Value to set for the lobbyBypassSettings property.
     */
     public function setLobbyBypassSettings(?LobbyBypassSettings $value): void {
         $this->getBackingStore()->set('lobbyBypassSettings', $value);

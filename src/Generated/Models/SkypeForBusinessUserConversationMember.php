@@ -46,7 +46,7 @@ class SkypeForBusinessUserConversationMember extends ConversationMember implemen
     }
 
     /**
-     * Gets the userId property value. ID of the user.
+     * Gets the userId property value. Azure Active Directory ID of the user.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -65,15 +65,15 @@ class SkypeForBusinessUserConversationMember extends ConversationMember implemen
 
     /**
      * Sets the tenantId property value. ID of the tenant that the user belongs to.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
-     * Sets the userId property value. ID of the user.
-     *  @param string|null $value Value to set for the userId property.
+     * Sets the userId property value. Azure Active Directory ID of the user.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

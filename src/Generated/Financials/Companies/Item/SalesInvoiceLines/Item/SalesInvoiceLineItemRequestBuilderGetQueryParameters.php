@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoiceL
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get salesInvoiceLines from financials
+*/
 class SalesInvoiceLineItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class SalesInvoiceLineItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new SalesInvoiceLineItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

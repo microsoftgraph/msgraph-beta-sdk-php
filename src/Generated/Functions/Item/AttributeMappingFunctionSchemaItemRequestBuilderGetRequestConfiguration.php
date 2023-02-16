@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\Functions\Item;
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
@@ -21,4 +24,26 @@ class AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration
     */
     public ?AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters {
+        return new AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

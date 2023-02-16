@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Contains properties used to determine when to offer an app to devices and when to install the app on devices.
+*/
 class WinGetAppInstallTimeSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class WinGetAppInstallTimeSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -101,7 +104,7 @@ class WinGetAppInstallTimeSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -109,7 +112,7 @@ class WinGetAppInstallTimeSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -117,7 +120,7 @@ class WinGetAppInstallTimeSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the deadlineDateTime property value. The time at which the app should be installed.
-     *  @param DateTime|null $value Value to set for the deadlineDateTime property.
+     * @param DateTime|null $value Value to set for the deadlineDateTime property.
     */
     public function setDeadlineDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deadlineDateTime', $value);
@@ -125,7 +128,7 @@ class WinGetAppInstallTimeSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -133,7 +136,7 @@ class WinGetAppInstallTimeSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the useLocalTime property value. Whether the local device time or UTC time should be used when determining the deadline times.
-     *  @param bool|null $value Value to set for the useLocalTime property.
+     * @param bool|null $value Value to set for the useLocalTime property.
     */
     public function setUseLocalTime(?bool $value): void {
         $this->getBackingStore()->set('useLocalTime', $value);

@@ -37,7 +37,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -171,7 +171,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -179,7 +179,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the azureStorageAccountId property value. The resource ID of the Azure Storage account in which the Cloud PC snapshot is being saved.
-     *  @param string|null $value Value to set for the azureStorageAccountId property.
+     * @param string|null $value Value to set for the azureStorageAccountId property.
     */
     public function setAzureStorageAccountId(?string $value): void {
         $this->getBackingStore()->set('azureStorageAccountId', $value);
@@ -187,7 +187,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the azureStorageAccountName property value. The name of the Azure Storage account in which the Cloud PC snapshot is being saved.
-     *  @param string|null $value Value to set for the azureStorageAccountName property.
+     * @param string|null $value Value to set for the azureStorageAccountName property.
     */
     public function setAzureStorageAccountName(?string $value): void {
         $this->getBackingStore()->set('azureStorageAccountName', $value);
@@ -195,7 +195,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the azureStorageContainerName property value. The name of the container in an Azure Storage account in which the Cloud PC snapshot is being saved.
-     *  @param string|null $value Value to set for the azureStorageContainerName property.
+     * @param string|null $value Value to set for the azureStorageContainerName property.
     */
     public function setAzureStorageContainerName(?string $value): void {
         $this->getBackingStore()->set('azureStorageContainerName', $value);
@@ -203,7 +203,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -211,7 +211,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the inReview property value. True if the Cloud PC is set to in review by the administrator.
-     *  @param bool|null $value Value to set for the inReview property.
+     * @param bool|null $value Value to set for the inReview property.
     */
     public function setInReview(?bool $value): void {
         $this->getBackingStore()->set('inReview', $value);
@@ -219,7 +219,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -227,7 +227,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the restorePointDateTime property value. The specific date and time of the Cloud PC snapshot that was taken and saved automatically, when the Cloud PC is set to in review. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the restorePointDateTime property.
+     * @param DateTime|null $value Value to set for the restorePointDateTime property.
     */
     public function setRestorePointDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('restorePointDateTime', $value);
@@ -235,7 +235,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the reviewStartDateTime property value. The specific date and time when the Cloud PC was set to in review. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the reviewStartDateTime property.
+     * @param DateTime|null $value Value to set for the reviewStartDateTime property.
     */
     public function setReviewStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('reviewStartDateTime', $value);
@@ -243,7 +243,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the subscriptionId property value. The ID of the Azure subscription in which the Cloud PC snapshot is being saved, in GUID format.
-     *  @param string|null $value Value to set for the subscriptionId property.
+     * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('subscriptionId', $value);
@@ -251,7 +251,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the subscriptionName property value. The name of the Azure subscription in which the Cloud PC snapshot is being saved.
-     *  @param string|null $value Value to set for the subscriptionName property.
+     * @param string|null $value Value to set for the subscriptionName property.
     */
     public function setSubscriptionName(?string $value): void {
         $this->getBackingStore()->set('subscriptionName', $value);
@@ -259,7 +259,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userAccessLevel property value. The userAccessLevel property
-     *  @param CloudPcUserAccessLevel|null $value Value to set for the userAccessLevel property.
+     * @param CloudPcUserAccessLevel|null $value Value to set for the userAccessLevel property.
     */
     public function setUserAccessLevel(?CloudPcUserAccessLevel $value): void {
         $this->getBackingStore()->set('userAccessLevel', $value);

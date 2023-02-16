@@ -37,7 +37,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the auditCorrelationId property value. The auditCorrelationId property
-     *  @param string|null $value Value to set for the auditCorrelationId property.
+     * @param string|null $value Value to set for the auditCorrelationId property.
     */
     public function setAuditCorrelationId(?string $value): void {
         $this->getBackingStore()->set('auditCorrelationId', $value);
@@ -127,7 +127,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -135,7 +135,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the evaluationDateTime property value. The evaluationDateTime property
-     *  @param DateTime|null $value Value to set for the evaluationDateTime property.
+     * @param DateTime|null $value Value to set for the evaluationDateTime property.
     */
     public function setEvaluationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('evaluationDateTime', $value);
@@ -143,7 +143,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the matchingRules property value. The matchingRules property
-     *  @param array<MatchingDlpRule>|null $value Value to set for the matchingRules property.
+     * @param array<MatchingDlpRule>|null $value Value to set for the matchingRules property.
     */
     public function setMatchingRules(?array $value): void {
         $this->getBackingStore()->set('matchingRules', $value);
@@ -151,7 +151,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

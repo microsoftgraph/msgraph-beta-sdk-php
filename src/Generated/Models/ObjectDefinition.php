@@ -36,7 +36,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the attributes property value. The attributes property
-     *  @param array<AttributeDefinition>|null $value Value to set for the attributes property.
+     * @param array<AttributeDefinition>|null $value Value to set for the attributes property.
     */
     public function setAttributes(?array $value): void {
         $this->getBackingStore()->set('attributes', $value);
@@ -136,7 +136,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +144,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the metadata property value. The metadata property
-     *  @param array<MetadataEntry>|null $value Value to set for the metadata property.
+     * @param array<MetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);
@@ -152,7 +152,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -160,7 +160,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class ObjectDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedApis property value. The supportedApis property
-     *  @param array<string>|null $value Value to set for the supportedApis property.
+     * @param array<string>|null $value Value to set for the supportedApis property.
     */
     public function setSupportedApis(?array $value): void {
         $this->getBackingStore()->set('supportedApis', $value);

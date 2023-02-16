@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\Notebooks\Item\Secti
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class SectionGroupItemRequestBuilderPatchRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
@@ -16,4 +19,14 @@ class SectionGroupItemRequestBuilderPatchRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * Instantiates a new SectionGroupItemRequestBuilderPatchRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+    */
+    public function __construct(?array $headers = null, ?array $options = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+    }
+
 }

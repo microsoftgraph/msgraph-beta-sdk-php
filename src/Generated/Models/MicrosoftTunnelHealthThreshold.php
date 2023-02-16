@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftTunnelHealthThreshold extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new microsoftTunnelHealthThreshold and sets the default values.
+     * Instantiates a new MicrosoftTunnelHealthThreshold and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -84,7 +84,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
 
     /**
      * Sets the defaultHealthyThreshold property value. The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized. Read-only.
-     *  @param int|null $value Value to set for the defaultHealthyThreshold property.
+     * @param int|null $value Value to set for the defaultHealthyThreshold property.
     */
     public function setDefaultHealthyThreshold(?int $value): void {
         $this->getBackingStore()->set('defaultHealthyThreshold', $value);
@@ -92,7 +92,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
 
     /**
      * Sets the defaultUnhealthyThreshold property value. The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency unhealthy > 20ms, health metrics can be customized. Read-only.
-     *  @param int|null $value Value to set for the defaultUnhealthyThreshold property.
+     * @param int|null $value Value to set for the defaultUnhealthyThreshold property.
     */
     public function setDefaultUnhealthyThreshold(?int $value): void {
         $this->getBackingStore()->set('defaultUnhealthyThreshold', $value);
@@ -100,7 +100,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
 
     /**
      * Sets the healthyThreshold property value. The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized.
-     *  @param int|null $value Value to set for the healthyThreshold property.
+     * @param int|null $value Value to set for the healthyThreshold property.
     */
     public function setHealthyThreshold(?int $value): void {
         $this->getBackingStore()->set('healthyThreshold', $value);
@@ -108,7 +108,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
 
     /**
      * Sets the unhealthyThreshold property value. The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency Unhealthy > 20ms, health metrics can be customized.
-     *  @param int|null $value Value to set for the unhealthyThreshold property.
+     * @param int|null $value Value to set for the unhealthyThreshold property.
     */
     public function setUnhealthyThreshold(?int $value): void {
         $this->getBackingStore()->set('unhealthyThreshold', $value);

@@ -74,7 +74,7 @@ class RbacApplicationMultiple extends Entity implements Parsable
 
     /**
      * Sets the resourceNamespaces property value. The resourceNamespaces property
-     *  @param array<UnifiedRbacResourceNamespace>|null $value Value to set for the resourceNamespaces property.
+     * @param array<UnifiedRbacResourceNamespace>|null $value Value to set for the resourceNamespaces property.
     */
     public function setResourceNamespaces(?array $value): void {
         $this->getBackingStore()->set('resourceNamespaces', $value);
@@ -82,7 +82,7 @@ class RbacApplicationMultiple extends Entity implements Parsable
 
     /**
      * Sets the roleAssignments property value. The roleAssignments property
-     *  @param array<UnifiedRoleAssignmentMultiple>|null $value Value to set for the roleAssignments property.
+     * @param array<UnifiedRoleAssignmentMultiple>|null $value Value to set for the roleAssignments property.
     */
     public function setRoleAssignments(?array $value): void {
         $this->getBackingStore()->set('roleAssignments', $value);
@@ -90,7 +90,7 @@ class RbacApplicationMultiple extends Entity implements Parsable
 
     /**
      * Sets the roleDefinitions property value. The roleDefinitions property
-     *  @param array<UnifiedRoleDefinition>|null $value Value to set for the roleDefinitions property.
+     * @param array<UnifiedRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
     public function setRoleDefinitions(?array $value): void {
         $this->getBackingStore()->set('roleDefinitions', $value);

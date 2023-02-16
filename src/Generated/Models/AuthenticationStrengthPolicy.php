@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationStrengthPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new authenticationStrengthPolicy and sets the default values.
+     * Instantiates a new AuthenticationStrengthPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -125,7 +125,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
 
     /**
      * Sets the allowedCombinations property value. A collection of authentication method modes that are required be used to satify this authentication strength.
-     *  @param array<AuthenticationMethodModes>|null $value Value to set for the allowedCombinations property.
+     * @param array<AuthenticationMethodModes>|null $value Value to set for the allowedCombinations property.
     */
     public function setAllowedCombinations(?array $value): void {
         $this->getBackingStore()->set('allowedCombinations', $value);
@@ -133,7 +133,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
 
     /**
      * Sets the combinationConfigurations property value. Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.
-     *  @param array<AuthenticationCombinationConfiguration>|null $value Value to set for the combinationConfigurations property.
+     * @param array<AuthenticationCombinationConfiguration>|null $value Value to set for the combinationConfigurations property.
     */
     public function setCombinationConfigurations(?array $value): void {
         $this->getBackingStore()->set('combinationConfigurations', $value);
@@ -141,7 +141,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The datetime when this policy was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -149,7 +149,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
 
     /**
      * Sets the description property value. The human-readable description of this policy.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -157,7 +157,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The human-readable display name of this policy. Supports $filter (eq, ne, not , and in).
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -165,7 +165,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
 
     /**
      * Sets the modifiedDateTime property value. The datetime when this policy was last modified.
-     *  @param DateTime|null $value Value to set for the modifiedDateTime property.
+     * @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);
@@ -173,7 +173,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
 
     /**
      * Sets the policyType property value. The policyType property
-     *  @param AuthenticationStrengthPolicyType|null $value Value to set for the policyType property.
+     * @param AuthenticationStrengthPolicyType|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?AuthenticationStrengthPolicyType $value): void {
         $this->getBackingStore()->set('policyType', $value);
@@ -181,7 +181,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
 
     /**
      * Sets the requirementsSatisfied property value. The requirementsSatisfied property
-     *  @param AuthenticationStrengthRequirements|null $value Value to set for the requirementsSatisfied property.
+     * @param AuthenticationStrengthRequirements|null $value Value to set for the requirementsSatisfied property.
     */
     public function setRequirementsSatisfied(?AuthenticationStrengthRequirements $value): void {
         $this->getBackingStore()->set('requirementsSatisfied', $value);

@@ -36,7 +36,7 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +116,7 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
 
     /**
      * Sets the dependedOnBy property value. Identifier of child setting that is dependent on the current setting
-     *  @param string|null $value Value to set for the dependedOnBy property.
+     * @param string|null $value Value to set for the dependedOnBy property.
     */
     public function setDependedOnBy(?string $value): void {
         $this->getBackingStore()->set('dependedOnBy', $value);
@@ -124,7 +124,7 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -132,7 +132,7 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
 
     /**
      * Sets the required property value. Value that determines if the child setting is required based on the parent setting's selection
-     *  @param bool|null $value Value to set for the required property.
+     * @param bool|null $value Value to set for the required property.
     */
     public function setRequired(?bool $value): void {
         $this->getBackingStore()->set('required', $value);

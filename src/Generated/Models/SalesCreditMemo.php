@@ -366,7 +366,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the billingPostalAddress property value. The billingPostalAddress property
-     *  @param PostalAddressType|null $value Value to set for the billingPostalAddress property.
+     * @param PostalAddressType|null $value Value to set for the billingPostalAddress property.
     */
     public function setBillingPostalAddress(?PostalAddressType $value): void {
         $this->getBackingStore()->set('billingPostalAddress', $value);
@@ -374,7 +374,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the billToCustomerId property value. The billToCustomerId property
-     *  @param string|null $value Value to set for the billToCustomerId property.
+     * @param string|null $value Value to set for the billToCustomerId property.
     */
     public function setBillToCustomerId(?string $value): void {
         $this->getBackingStore()->set('billToCustomerId', $value);
@@ -382,7 +382,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the billToCustomerNumber property value. The billToCustomerNumber property
-     *  @param string|null $value Value to set for the billToCustomerNumber property.
+     * @param string|null $value Value to set for the billToCustomerNumber property.
     */
     public function setBillToCustomerNumber(?string $value): void {
         $this->getBackingStore()->set('billToCustomerNumber', $value);
@@ -390,7 +390,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the billToName property value. The billToName property
-     *  @param string|null $value Value to set for the billToName property.
+     * @param string|null $value Value to set for the billToName property.
     */
     public function setBillToName(?string $value): void {
         $this->getBackingStore()->set('billToName', $value);
@@ -398,7 +398,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the creditMemoDate property value. The creditMemoDate property
-     *  @param Date|null $value Value to set for the creditMemoDate property.
+     * @param Date|null $value Value to set for the creditMemoDate property.
     */
     public function setCreditMemoDate(?Date $value): void {
         $this->getBackingStore()->set('creditMemoDate', $value);
@@ -406,7 +406,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the currency property value. The currency property
-     *  @param Currency|null $value Value to set for the currency property.
+     * @param Currency|null $value Value to set for the currency property.
     */
     public function setCurrency(?Currency $value): void {
         $this->getBackingStore()->set('currency', $value);
@@ -414,7 +414,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the currencyCode property value. The currencyCode property
-     *  @param string|null $value Value to set for the currencyCode property.
+     * @param string|null $value Value to set for the currencyCode property.
     */
     public function setCurrencyCode(?string $value): void {
         $this->getBackingStore()->set('currencyCode', $value);
@@ -422,7 +422,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the currencyId property value. The currencyId property
-     *  @param string|null $value Value to set for the currencyId property.
+     * @param string|null $value Value to set for the currencyId property.
     */
     public function setCurrencyId(?string $value): void {
         $this->getBackingStore()->set('currencyId', $value);
@@ -430,7 +430,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the customer property value. The customer property
-     *  @param Customer|null $value Value to set for the customer property.
+     * @param Customer|null $value Value to set for the customer property.
     */
     public function setCustomer(?Customer $value): void {
         $this->getBackingStore()->set('customer', $value);
@@ -438,7 +438,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the customerId property value. The customerId property
-     *  @param string|null $value Value to set for the customerId property.
+     * @param string|null $value Value to set for the customerId property.
     */
     public function setCustomerId(?string $value): void {
         $this->getBackingStore()->set('customerId', $value);
@@ -446,7 +446,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the customerName property value. The customerName property
-     *  @param string|null $value Value to set for the customerName property.
+     * @param string|null $value Value to set for the customerName property.
     */
     public function setCustomerName(?string $value): void {
         $this->getBackingStore()->set('customerName', $value);
@@ -454,7 +454,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the customerNumber property value. The customerNumber property
-     *  @param string|null $value Value to set for the customerNumber property.
+     * @param string|null $value Value to set for the customerNumber property.
     */
     public function setCustomerNumber(?string $value): void {
         $this->getBackingStore()->set('customerNumber', $value);
@@ -462,7 +462,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the discountAmount property value. The discountAmount property
-     *  @param string|null $value Value to set for the discountAmount property.
+     * @param string|null $value Value to set for the discountAmount property.
     */
     public function setDiscountAmount(?string $value): void {
         $this->getBackingStore()->set('discountAmount', $value);
@@ -470,7 +470,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the discountAppliedBeforeTax property value. The discountAppliedBeforeTax property
-     *  @param bool|null $value Value to set for the discountAppliedBeforeTax property.
+     * @param bool|null $value Value to set for the discountAppliedBeforeTax property.
     */
     public function setDiscountAppliedBeforeTax(?bool $value): void {
         $this->getBackingStore()->set('discountAppliedBeforeTax', $value);
@@ -478,7 +478,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the dueDate property value. The dueDate property
-     *  @param Date|null $value Value to set for the dueDate property.
+     * @param Date|null $value Value to set for the dueDate property.
     */
     public function setDueDate(?Date $value): void {
         $this->getBackingStore()->set('dueDate', $value);
@@ -486,7 +486,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the email property value. The email property
-     *  @param string|null $value Value to set for the email property.
+     * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
@@ -494,7 +494,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the externalDocumentNumber property value. The externalDocumentNumber property
-     *  @param string|null $value Value to set for the externalDocumentNumber property.
+     * @param string|null $value Value to set for the externalDocumentNumber property.
     */
     public function setExternalDocumentNumber(?string $value): void {
         $this->getBackingStore()->set('externalDocumentNumber', $value);
@@ -502,7 +502,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the invoiceId property value. The invoiceId property
-     *  @param string|null $value Value to set for the invoiceId property.
+     * @param string|null $value Value to set for the invoiceId property.
     */
     public function setInvoiceId(?string $value): void {
         $this->getBackingStore()->set('invoiceId', $value);
@@ -510,7 +510,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the invoiceNumber property value. The invoiceNumber property
-     *  @param string|null $value Value to set for the invoiceNumber property.
+     * @param string|null $value Value to set for the invoiceNumber property.
     */
     public function setInvoiceNumber(?string $value): void {
         $this->getBackingStore()->set('invoiceNumber', $value);
@@ -518,7 +518,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -526,7 +526,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the number property value. The number property
-     *  @param string|null $value Value to set for the number property.
+     * @param string|null $value Value to set for the number property.
     */
     public function setNumber(?string $value): void {
         $this->getBackingStore()->set('number', $value);
@@ -534,7 +534,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the paymentTerm property value. The paymentTerm property
-     *  @param PaymentTerm|null $value Value to set for the paymentTerm property.
+     * @param PaymentTerm|null $value Value to set for the paymentTerm property.
     */
     public function setPaymentTerm(?PaymentTerm $value): void {
         $this->getBackingStore()->set('paymentTerm', $value);
@@ -542,7 +542,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the paymentTermsId property value. The paymentTermsId property
-     *  @param string|null $value Value to set for the paymentTermsId property.
+     * @param string|null $value Value to set for the paymentTermsId property.
     */
     public function setPaymentTermsId(?string $value): void {
         $this->getBackingStore()->set('paymentTermsId', $value);
@@ -550,7 +550,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the phoneNumber property value. The phoneNumber property
-     *  @param string|null $value Value to set for the phoneNumber property.
+     * @param string|null $value Value to set for the phoneNumber property.
     */
     public function setPhoneNumber(?string $value): void {
         $this->getBackingStore()->set('phoneNumber', $value);
@@ -558,7 +558,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the pricesIncludeTax property value. The pricesIncludeTax property
-     *  @param bool|null $value Value to set for the pricesIncludeTax property.
+     * @param bool|null $value Value to set for the pricesIncludeTax property.
     */
     public function setPricesIncludeTax(?bool $value): void {
         $this->getBackingStore()->set('pricesIncludeTax', $value);
@@ -566,7 +566,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the salesCreditMemoLines property value. The salesCreditMemoLines property
-     *  @param array<SalesCreditMemoLine>|null $value Value to set for the salesCreditMemoLines property.
+     * @param array<SalesCreditMemoLine>|null $value Value to set for the salesCreditMemoLines property.
     */
     public function setSalesCreditMemoLines(?array $value): void {
         $this->getBackingStore()->set('salesCreditMemoLines', $value);
@@ -574,7 +574,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the salesperson property value. The salesperson property
-     *  @param string|null $value Value to set for the salesperson property.
+     * @param string|null $value Value to set for the salesperson property.
     */
     public function setSalesperson(?string $value): void {
         $this->getBackingStore()->set('salesperson', $value);
@@ -582,7 +582,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the sellingPostalAddress property value. The sellingPostalAddress property
-     *  @param PostalAddressType|null $value Value to set for the sellingPostalAddress property.
+     * @param PostalAddressType|null $value Value to set for the sellingPostalAddress property.
     */
     public function setSellingPostalAddress(?PostalAddressType $value): void {
         $this->getBackingStore()->set('sellingPostalAddress', $value);
@@ -590,7 +590,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -598,7 +598,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the totalAmountExcludingTax property value. The totalAmountExcludingTax property
-     *  @param string|null $value Value to set for the totalAmountExcludingTax property.
+     * @param string|null $value Value to set for the totalAmountExcludingTax property.
     */
     public function setTotalAmountExcludingTax(?string $value): void {
         $this->getBackingStore()->set('totalAmountExcludingTax', $value);
@@ -606,7 +606,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the totalAmountIncludingTax property value. The totalAmountIncludingTax property
-     *  @param string|null $value Value to set for the totalAmountIncludingTax property.
+     * @param string|null $value Value to set for the totalAmountIncludingTax property.
     */
     public function setTotalAmountIncludingTax(?string $value): void {
         $this->getBackingStore()->set('totalAmountIncludingTax', $value);
@@ -614,7 +614,7 @@ class SalesCreditMemo extends Entity implements Parsable
 
     /**
      * Sets the totalTaxAmount property value. The totalTaxAmount property
-     *  @param string|null $value Value to set for the totalTaxAmount property.
+     * @param string|null $value Value to set for the totalTaxAmount property.
     */
     public function setTotalTaxAmount(?string $value): void {
         $this->getBackingStore()->set('totalTaxAmount', $value);

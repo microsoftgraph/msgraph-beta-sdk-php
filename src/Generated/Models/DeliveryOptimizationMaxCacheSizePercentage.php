@@ -55,7 +55,7 @@ class DeliveryOptimizationMaxCacheSizePercentage extends DeliveryOptimizationMax
 
     /**
      * Sets the maximumCacheSizePercentage property value. Specifies the maximum cache size that Delivery Optimization can utilize, as a percentage of disk size (1-100). Valid values 1 to 100
-     *  @param int|null $value Value to set for the maximumCacheSizePercentage property.
+     * @param int|null $value Value to set for the maximumCacheSizePercentage property.
     */
     public function setMaximumCacheSizePercentage(?int $value): void {
         $this->getBackingStore()->set('maximumCacheSizePercentage', $value);

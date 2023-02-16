@@ -36,7 +36,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the expression property value. The expression property
-     *  @param string|null $value Value to set for the expression property.
+     * @param string|null $value Value to set for the expression property.
     */
     public function setExpression(?string $value): void {
         $this->getBackingStore()->set('expression', $value);
@@ -144,7 +144,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -152,7 +152,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +160,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the parameters property value. The parameters property
-     *  @param array<StringKeyAttributeMappingSourceValuePair>|null $value Value to set for the parameters property.
+     * @param array<StringKeyAttributeMappingSourceValuePair>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value): void {
         $this->getBackingStore()->set('parameters', $value);
@@ -168,7 +168,7 @@ class AttributeMappingSource implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the type property value. The type property
-     *  @param AttributeMappingSourceType|null $value Value to set for the type property.
+     * @param AttributeMappingSourceType|null $value Value to set for the type property.
     */
     public function setType(?AttributeMappingSourceType $value): void {
         $this->getBackingStore()->set('type', $value);

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceEnrollmentConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceEnrollmentConfiguration and sets the default values.
+     * Instantiates a new DeviceEnrollmentConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -148,7 +148,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments for the device configuration profile
-     *  @param array<EnrollmentConfigurationAssignment>|null $value Value to set for the assignments property.
+     * @param array<EnrollmentConfigurationAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -156,7 +156,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Created date time in UTC of the device enrollment configuration
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -164,7 +164,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the device enrollment configuration
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -172,7 +172,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
 
     /**
      * Sets the deviceEnrollmentConfigurationType property value. Describes the TemplateFamily for the Template entity
-     *  @param DeviceEnrollmentConfigurationType|null $value Value to set for the deviceEnrollmentConfigurationType property.
+     * @param DeviceEnrollmentConfigurationType|null $value Value to set for the deviceEnrollmentConfigurationType property.
     */
     public function setDeviceEnrollmentConfigurationType(?DeviceEnrollmentConfigurationType $value): void {
         $this->getBackingStore()->set('deviceEnrollmentConfigurationType', $value);
@@ -180,7 +180,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the device enrollment configuration
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -188,7 +188,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified date time in UTC of the device enrollment configuration
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -196,7 +196,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
 
     /**
      * Sets the priority property value. Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -204,7 +204,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. Optional role scope tags for the enrollment restrictions.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -212,7 +212,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
 
     /**
      * Sets the version property value. The version of the device enrollment configuration
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);

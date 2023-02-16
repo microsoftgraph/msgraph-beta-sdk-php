@@ -65,7 +65,7 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
 
     /**
      * Sets the children property value. Option Children
-     *  @param array<DeviceManagementConfigurationSettingInstanceTemplate>|null $value Value to set for the children property.
+     * @param array<DeviceManagementConfigurationSettingInstanceTemplate>|null $value Value to set for the children property.
     */
     public function setChildren(?array $value): void {
         $this->getBackingStore()->set('children', $value);
@@ -73,7 +73,7 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
 
     /**
      * Sets the settingDefinitionOptionId property value. Default Constant Value
-     *  @param string|null $value Value to set for the settingDefinitionOptionId property.
+     * @param string|null $value Value to set for the settingDefinitionOptionId property.
     */
     public function setSettingDefinitionOptionId(?string $value): void {
         $this->getBackingStore()->set('settingDefinitionOptionId', $value);

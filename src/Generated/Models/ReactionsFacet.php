@@ -36,7 +36,7 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the commentCount property value. Count of comments.
-     *  @param int|null $value Value to set for the commentCount property.
+     * @param int|null $value Value to set for the commentCount property.
     */
     public function setCommentCount(?int $value): void {
         $this->getBackingStore()->set('commentCount', $value);
@@ -134,7 +134,7 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the likeCount property value. Count of likes.
-     *  @param int|null $value Value to set for the likeCount property.
+     * @param int|null $value Value to set for the likeCount property.
     */
     public function setLikeCount(?int $value): void {
         $this->getBackingStore()->set('likeCount', $value);
@@ -142,7 +142,7 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class ReactionsFacet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the shareCount property value. Count of shares.
-     *  @param int|null $value Value to set for the shareCount property.
+     * @param int|null $value Value to set for the shareCount property.
     */
     public function setShareCount(?int $value): void {
         $this->getBackingStore()->set('shareCount', $value);

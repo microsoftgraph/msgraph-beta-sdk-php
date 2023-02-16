@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RemoteAssistancePartner extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new remoteAssistancePartner and sets the default values.
+     * Instantiates a new RemoteAssistancePartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,7 +95,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name of the partner.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -103,7 +103,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
 
     /**
      * Sets the lastConnectionDateTime property value. Timestamp of the last request sent to Intune by the TEM partner.
-     *  @param DateTime|null $value Value to set for the lastConnectionDateTime property.
+     * @param DateTime|null $value Value to set for the lastConnectionDateTime property.
     */
     public function setLastConnectionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastConnectionDateTime', $value);
@@ -111,7 +111,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
 
     /**
      * Sets the onboardingRequestExpiryDateTime property value. When the OnboardingStatus is Onboarding, This is the date time when the onboarding request expires.
-     *  @param DateTime|null $value Value to set for the onboardingRequestExpiryDateTime property.
+     * @param DateTime|null $value Value to set for the onboardingRequestExpiryDateTime property.
     */
     public function setOnboardingRequestExpiryDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('onboardingRequestExpiryDateTime', $value);
@@ -119,7 +119,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
 
     /**
      * Sets the onboardingStatus property value. The current TeamViewer connector status
-     *  @param RemoteAssistanceOnboardingStatus|null $value Value to set for the onboardingStatus property.
+     * @param RemoteAssistanceOnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
     public function setOnboardingStatus(?RemoteAssistanceOnboardingStatus $value): void {
         $this->getBackingStore()->set('onboardingStatus', $value);
@@ -127,7 +127,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
 
     /**
      * Sets the onboardingUrl property value. URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.
-     *  @param string|null $value Value to set for the onboardingUrl property.
+     * @param string|null $value Value to set for the onboardingUrl property.
     */
     public function setOnboardingUrl(?string $value): void {
         $this->getBackingStore()->set('onboardingUrl', $value);

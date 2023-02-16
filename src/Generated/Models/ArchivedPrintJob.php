@@ -53,7 +53,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -221,7 +221,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the acquiredByPrinter property value. True if the job was acquired by a printer; false otherwise. Read-only.
-     *  @param bool|null $value Value to set for the acquiredByPrinter property.
+     * @param bool|null $value Value to set for the acquiredByPrinter property.
     */
     public function setAcquiredByPrinter(?bool $value): void {
         $this->getBackingStore()->set('acquiredByPrinter', $value);
@@ -229,7 +229,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the acquiredDateTime property value. The dateTimeOffset when the job was acquired by the printer, if any. Read-only.
-     *  @param DateTime|null $value Value to set for the acquiredDateTime property.
+     * @param DateTime|null $value Value to set for the acquiredDateTime property.
     */
     public function setAcquiredDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('acquiredDateTime', $value);
@@ -237,7 +237,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -245,7 +245,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -253,7 +253,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the blackAndWhitePageCount property value. The number of black and white pages that were printed. Read-only.
-     *  @param int|null $value Value to set for the blackAndWhitePageCount property.
+     * @param int|null $value Value to set for the blackAndWhitePageCount property.
     */
     public function setBlackAndWhitePageCount(?int $value): void {
         $this->getBackingStore()->set('blackAndWhitePageCount', $value);
@@ -261,7 +261,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the colorPageCount property value. The number of color pages that were printed. Read-only.
-     *  @param int|null $value Value to set for the colorPageCount property.
+     * @param int|null $value Value to set for the colorPageCount property.
     */
     public function setColorPageCount(?int $value): void {
         $this->getBackingStore()->set('colorPageCount', $value);
@@ -269,7 +269,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the completionDateTime property value. The dateTimeOffset when the job was completed, canceled or aborted. Read-only.
-     *  @param DateTime|null $value Value to set for the completionDateTime property.
+     * @param DateTime|null $value Value to set for the completionDateTime property.
     */
     public function setCompletionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completionDateTime', $value);
@@ -277,7 +277,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the copiesPrinted property value. The number of copies that were printed. Read-only.
-     *  @param int|null $value Value to set for the copiesPrinted property.
+     * @param int|null $value Value to set for the copiesPrinted property.
     */
     public function setCopiesPrinted(?int $value): void {
         $this->getBackingStore()->set('copiesPrinted', $value);
@@ -285,7 +285,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the createdBy property value. The user who created the print job. Read-only.
-     *  @param UserIdentity|null $value Value to set for the createdBy property.
+     * @param UserIdentity|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?UserIdentity $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -293,7 +293,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the createdDateTime property value. The dateTimeOffset when the job was created. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -301,7 +301,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the duplexPageCount property value. The number of duplex (double-sided) pages that were printed. Read-only.
-     *  @param int|null $value Value to set for the duplexPageCount property.
+     * @param int|null $value Value to set for the duplexPageCount property.
     */
     public function setDuplexPageCount(?int $value): void {
         $this->getBackingStore()->set('duplexPageCount', $value);
@@ -309,7 +309,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the id property value. The archived print job's GUID. Read-only.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -317,7 +317,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -325,7 +325,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the pageCount property value. The total number of pages that were printed. Read-only.
-     *  @param int|null $value Value to set for the pageCount property.
+     * @param int|null $value Value to set for the pageCount property.
     */
     public function setPageCount(?int $value): void {
         $this->getBackingStore()->set('pageCount', $value);
@@ -333,7 +333,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printerId property value. The printer ID that the job was queued for. Read-only.
-     *  @param string|null $value Value to set for the printerId property.
+     * @param string|null $value Value to set for the printerId property.
     */
     public function setPrinterId(?string $value): void {
         $this->getBackingStore()->set('printerId', $value);
@@ -341,7 +341,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the processingState property value. The processingState property
-     *  @param PrintJobProcessingState|null $value Value to set for the processingState property.
+     * @param PrintJobProcessingState|null $value Value to set for the processingState property.
     */
     public function setProcessingState(?PrintJobProcessingState $value): void {
         $this->getBackingStore()->set('processingState', $value);
@@ -349,7 +349,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the simplexPageCount property value. The number of simplex (single-sided) pages that were printed. Read-only.
-     *  @param int|null $value Value to set for the simplexPageCount property.
+     * @param int|null $value Value to set for the simplexPageCount property.
     */
     public function setSimplexPageCount(?int $value): void {
         $this->getBackingStore()->set('simplexPageCount', $value);

@@ -2,17 +2,23 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AccessReviewDecisionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
+class AccessReviewDecisionCollectionResponse extends BaseCollectionPaginationCountResponse implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * Instantiates a new AccessReviewDecisionCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -22,6 +28,14 @@ class AccessReviewDecisionCollectionResponse extends BaseCollectionPaginationCou
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewDecisionCollectionResponse {
         return new AccessReviewDecisionCollectionResponse();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -50,11 +64,20 @@ class AccessReviewDecisionCollectionResponse extends BaseCollectionPaginationCou
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('value', $this->getValue());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the value property value. The value property
-     *  @param array<AccessReviewDecision>|null $value Value to set for the value property.
+     * @param array<AccessReviewDecision>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);

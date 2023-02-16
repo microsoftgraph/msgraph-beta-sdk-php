@@ -82,6 +82,14 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
+     * Gets the enabledSkipKeys property value. enabledSkipKeys contains all the enabled skip keys as strings
+     * @return array<string>|null
+    */
+    public function getEnabledSkipKeys(): ?array {
+        return $this->getBackingStore()->get('enabledSkipKeys');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -94,6 +102,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
             'deviceNameTemplate' => fn(ParseNode $n) => $o->setDeviceNameTemplate($n->getStringValue()),
             'diagnosticsDisabled' => fn(ParseNode $n) => $o->setDiagnosticsDisabled($n->getBooleanValue()),
             'displayToneSetupDisabled' => fn(ParseNode $n) => $o->setDisplayToneSetupDisabled($n->getBooleanValue()),
+            'enabledSkipKeys' => fn(ParseNode $n) => $o->setEnabledSkipKeys($n->getCollectionOfPrimitiveValues()),
             'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
             'isMandatory' => fn(ParseNode $n) => $o->setIsMandatory($n->getBooleanValue()),
             'locationDisabled' => fn(ParseNode $n) => $o->setLocationDisabled($n->getBooleanValue()),
@@ -226,6 +235,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
         $writer->writeStringValue('deviceNameTemplate', $this->getDeviceNameTemplate());
         $writer->writeBooleanValue('diagnosticsDisabled', $this->getDiagnosticsDisabled());
         $writer->writeBooleanValue('displayToneSetupDisabled', $this->getDisplayToneSetupDisabled());
+        $writer->writeCollectionOfPrimitiveValues('enabledSkipKeys', $this->getEnabledSkipKeys());
         $writer->writeBooleanValue('isDefault', $this->getIsDefault());
         $writer->writeBooleanValue('isMandatory', $this->getIsMandatory());
         $writer->writeBooleanValue('locationDisabled', $this->getLocationDisabled());
@@ -243,7 +253,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the appleIdDisabled property value. Indicates if Apple id setup pane is disabled
-     *  @param bool|null $value Value to set for the appleIdDisabled property.
+     * @param bool|null $value Value to set for the appleIdDisabled property.
     */
     public function setAppleIdDisabled(?bool $value): void {
         $this->getBackingStore()->set('appleIdDisabled', $value);
@@ -251,7 +261,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the applePayDisabled property value. Indicates if Apple pay setup pane is disabled
-     *  @param bool|null $value Value to set for the applePayDisabled property.
+     * @param bool|null $value Value to set for the applePayDisabled property.
     */
     public function setApplePayDisabled(?bool $value): void {
         $this->getBackingStore()->set('applePayDisabled', $value);
@@ -259,7 +269,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the configurationWebUrl property value. URL for setup assistant login
-     *  @param bool|null $value Value to set for the configurationWebUrl property.
+     * @param bool|null $value Value to set for the configurationWebUrl property.
     */
     public function setConfigurationWebUrl(?bool $value): void {
         $this->getBackingStore()->set('configurationWebUrl', $value);
@@ -267,7 +277,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the deviceNameTemplate property value. Sets a literal or name pattern.
-     *  @param string|null $value Value to set for the deviceNameTemplate property.
+     * @param string|null $value Value to set for the deviceNameTemplate property.
     */
     public function setDeviceNameTemplate(?string $value): void {
         $this->getBackingStore()->set('deviceNameTemplate', $value);
@@ -275,7 +285,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the diagnosticsDisabled property value. Indicates if diagnostics setup pane is disabled
-     *  @param bool|null $value Value to set for the diagnosticsDisabled property.
+     * @param bool|null $value Value to set for the diagnosticsDisabled property.
     */
     public function setDiagnosticsDisabled(?bool $value): void {
         $this->getBackingStore()->set('diagnosticsDisabled', $value);
@@ -283,15 +293,23 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the displayToneSetupDisabled property value. Indicates if displaytone setup screen is disabled
-     *  @param bool|null $value Value to set for the displayToneSetupDisabled property.
+     * @param bool|null $value Value to set for the displayToneSetupDisabled property.
     */
     public function setDisplayToneSetupDisabled(?bool $value): void {
         $this->getBackingStore()->set('displayToneSetupDisabled', $value);
     }
 
     /**
+     * Sets the enabledSkipKeys property value. enabledSkipKeys contains all the enabled skip keys as strings
+     * @param array<string>|null $value Value to set for the enabledSkipKeys property.
+    */
+    public function setEnabledSkipKeys(?array $value): void {
+        $this->getBackingStore()->set('enabledSkipKeys', $value);
+    }
+
+    /**
      * Sets the isDefault property value. Indicates if this is the default profile
-     *  @param bool|null $value Value to set for the isDefault property.
+     * @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value): void {
         $this->getBackingStore()->set('isDefault', $value);
@@ -299,7 +317,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the isMandatory property value. Indicates if the profile is mandatory
-     *  @param bool|null $value Value to set for the isMandatory property.
+     * @param bool|null $value Value to set for the isMandatory property.
     */
     public function setIsMandatory(?bool $value): void {
         $this->getBackingStore()->set('isMandatory', $value);
@@ -307,7 +325,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the locationDisabled property value. Indicates if Location service setup pane is disabled
-     *  @param bool|null $value Value to set for the locationDisabled property.
+     * @param bool|null $value Value to set for the locationDisabled property.
     */
     public function setLocationDisabled(?bool $value): void {
         $this->getBackingStore()->set('locationDisabled', $value);
@@ -315,7 +333,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the privacyPaneDisabled property value. Indicates if privacy screen is disabled
-     *  @param bool|null $value Value to set for the privacyPaneDisabled property.
+     * @param bool|null $value Value to set for the privacyPaneDisabled property.
     */
     public function setPrivacyPaneDisabled(?bool $value): void {
         $this->getBackingStore()->set('privacyPaneDisabled', $value);
@@ -323,7 +341,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the profileRemovalDisabled property value. Indicates if the profile removal option is disabled
-     *  @param bool|null $value Value to set for the profileRemovalDisabled property.
+     * @param bool|null $value Value to set for the profileRemovalDisabled property.
     */
     public function setProfileRemovalDisabled(?bool $value): void {
         $this->getBackingStore()->set('profileRemovalDisabled', $value);
@@ -331,7 +349,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the restoreBlocked property value. Indicates if Restore setup pane is blocked
-     *  @param bool|null $value Value to set for the restoreBlocked property.
+     * @param bool|null $value Value to set for the restoreBlocked property.
     */
     public function setRestoreBlocked(?bool $value): void {
         $this->getBackingStore()->set('restoreBlocked', $value);
@@ -339,7 +357,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the screenTimeScreenDisabled property value. Indicates if screen timeout setup is disabled
-     *  @param bool|null $value Value to set for the screenTimeScreenDisabled property.
+     * @param bool|null $value Value to set for the screenTimeScreenDisabled property.
     */
     public function setScreenTimeScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('screenTimeScreenDisabled', $value);
@@ -347,7 +365,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the siriDisabled property value. Indicates if siri setup pane is disabled
-     *  @param bool|null $value Value to set for the siriDisabled property.
+     * @param bool|null $value Value to set for the siriDisabled property.
     */
     public function setSiriDisabled(?bool $value): void {
         $this->getBackingStore()->set('siriDisabled', $value);
@@ -355,7 +373,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
-     *  @param bool|null $value Value to set for the supervisedModeEnabled property.
+     * @param bool|null $value Value to set for the supervisedModeEnabled property.
     */
     public function setSupervisedModeEnabled(?bool $value): void {
         $this->getBackingStore()->set('supervisedModeEnabled', $value);
@@ -363,7 +381,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the supportDepartment property value. Support department information
-     *  @param string|null $value Value to set for the supportDepartment property.
+     * @param string|null $value Value to set for the supportDepartment property.
     */
     public function setSupportDepartment(?string $value): void {
         $this->getBackingStore()->set('supportDepartment', $value);
@@ -371,7 +389,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the supportPhoneNumber property value. Support phone number
-     *  @param string|null $value Value to set for the supportPhoneNumber property.
+     * @param string|null $value Value to set for the supportPhoneNumber property.
     */
     public function setSupportPhoneNumber(?string $value): void {
         $this->getBackingStore()->set('supportPhoneNumber', $value);
@@ -379,7 +397,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the termsAndConditionsDisabled property value. Indicates if 'Terms and Conditions' setup pane is disabled
-     *  @param bool|null $value Value to set for the termsAndConditionsDisabled property.
+     * @param bool|null $value Value to set for the termsAndConditionsDisabled property.
     */
     public function setTermsAndConditionsDisabled(?bool $value): void {
         $this->getBackingStore()->set('termsAndConditionsDisabled', $value);
@@ -387,7 +405,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
 
     /**
      * Sets the touchIdDisabled property value. Indicates if touch id setup pane is disabled
-     *  @param bool|null $value Value to set for the touchIdDisabled property.
+     * @param bool|null $value Value to set for the touchIdDisabled property.
     */
     public function setTouchIdDisabled(?bool $value): void {
         $this->getBackingStore()->set('touchIdDisabled', $value);

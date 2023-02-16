@@ -55,7 +55,7 @@ class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint 
 
     /**
      * Sets the regex property value. The RegEx pattern to match against
-     *  @param string|null $value Value to set for the regex property.
+     * @param string|null $value Value to set for the regex property.
     */
     public function setRegex(?string $value): void {
         $this->getBackingStore()->set('regex', $value);

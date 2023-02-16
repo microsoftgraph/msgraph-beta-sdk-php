@@ -12,6 +12,9 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
+/**
+ * The Zebra FOTA deployment complex type that describes the settings required to create a FOTA deployment.
+*/
 class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -38,7 +41,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -242,7 +245,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -250,7 +253,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -258,7 +261,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the batteryRuleMinimumBatteryLevelPercentage property value. Minimum battery level (%) required for both download and installation. Default: -1 (System defaults). Maximum is 100.
-     *  @param int|null $value Value to set for the batteryRuleMinimumBatteryLevelPercentage property.
+     * @param int|null $value Value to set for the batteryRuleMinimumBatteryLevelPercentage property.
     */
     public function setBatteryRuleMinimumBatteryLevelPercentage(?int $value): void {
         $this->getBackingStore()->set('batteryRuleMinimumBatteryLevelPercentage', $value);
@@ -266,7 +269,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the batteryRuleRequireCharger property value. Flag indicating if charger is required. When set to false, the client can install updates whether the device is in or out of the charger. Applied only for installation. Defaults to false.
-     *  @param bool|null $value Value to set for the batteryRuleRequireCharger property.
+     * @param bool|null $value Value to set for the batteryRuleRequireCharger property.
     */
     public function setBatteryRuleRequireCharger(?bool $value): void {
         $this->getBackingStore()->set('batteryRuleRequireCharger', $value);
@@ -274,7 +277,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the deviceModel property value. Deploy update for devices with this model only.
-     *  @param string|null $value Value to set for the deviceModel property.
+     * @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value): void {
         $this->getBackingStore()->set('deviceModel', $value);
@@ -282,7 +285,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the downloadRuleNetworkType property value. Represents various network types for Zebra FOTA deployment.
-     *  @param ZebraFotaNetworkType|null $value Value to set for the downloadRuleNetworkType property.
+     * @param ZebraFotaNetworkType|null $value Value to set for the downloadRuleNetworkType property.
     */
     public function setDownloadRuleNetworkType(?ZebraFotaNetworkType $value): void {
         $this->getBackingStore()->set('downloadRuleNetworkType', $value);
@@ -290,7 +293,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the downloadRuleStartDateTime property value. Date and time in the device time zone when the download will start (e.g., 2018-07-25T10:20:32). The default value is UTC now and the maximum is 10 days from deployment creation.
-     *  @param DateTime|null $value Value to set for the downloadRuleStartDateTime property.
+     * @param DateTime|null $value Value to set for the downloadRuleStartDateTime property.
     */
     public function setDownloadRuleStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('downloadRuleStartDateTime', $value);
@@ -298,7 +301,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the firmwareTargetArtifactDescription property value. A description provided by Zebra for the the firmware artifact to update the device to (e.g.: LifeGuard Update 120 (released 29-June-2022).
-     *  @param string|null $value Value to set for the firmwareTargetArtifactDescription property.
+     * @param string|null $value Value to set for the firmwareTargetArtifactDescription property.
     */
     public function setFirmwareTargetArtifactDescription(?string $value): void {
         $this->getBackingStore()->set('firmwareTargetArtifactDescription', $value);
@@ -306,7 +309,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the firmwareTargetBoardSupportPackageVersion property value. Deployment's Board Support Package (BSP. E.g.: '01.18.02.00'). Required only for custom update type.
-     *  @param string|null $value Value to set for the firmwareTargetBoardSupportPackageVersion property.
+     * @param string|null $value Value to set for the firmwareTargetBoardSupportPackageVersion property.
     */
     public function setFirmwareTargetBoardSupportPackageVersion(?string $value): void {
         $this->getBackingStore()->set('firmwareTargetBoardSupportPackageVersion', $value);
@@ -314,7 +317,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the firmwareTargetOsVersion property value. Target OS Version (e.g.: '8.1.0'). Required only for custom update type.
-     *  @param string|null $value Value to set for the firmwareTargetOsVersion property.
+     * @param string|null $value Value to set for the firmwareTargetOsVersion property.
     */
     public function setFirmwareTargetOsVersion(?string $value): void {
         $this->getBackingStore()->set('firmwareTargetOsVersion', $value);
@@ -322,7 +325,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the firmwareTargetPatch property value. Target patch name (e.g.: 'U06'). Required only for custom update type.
-     *  @param string|null $value Value to set for the firmwareTargetPatch property.
+     * @param string|null $value Value to set for the firmwareTargetPatch property.
     */
     public function setFirmwareTargetPatch(?string $value): void {
         $this->getBackingStore()->set('firmwareTargetPatch', $value);
@@ -330,7 +333,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the installRuleStartDateTime property value. Date and time in device time zone when the install will start. Default - download startDate if configured, otherwise defaults to NOW. Ignored when deployment update type was set to auto.
-     *  @param DateTime|null $value Value to set for the installRuleStartDateTime property.
+     * @param DateTime|null $value Value to set for the installRuleStartDateTime property.
     */
     public function setInstallRuleStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('installRuleStartDateTime', $value);
@@ -338,7 +341,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the installRuleWindowEndTime property value. Time of day after which the install cannot start. Possible range is 00:30:00 to 23:59:59. Should be greater than 'installRuleWindowStartTime' by 30 mins. The time is expressed in a 24-hour format, as hh:mm, and is in the device time zone. Default - 23:59:59. Respected for all values of update type, including AUTO.
-     *  @param Time|null $value Value to set for the installRuleWindowEndTime property.
+     * @param Time|null $value Value to set for the installRuleWindowEndTime property.
     */
     public function setInstallRuleWindowEndTime(?Time $value): void {
         $this->getBackingStore()->set('installRuleWindowEndTime', $value);
@@ -346,7 +349,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the installRuleWindowStartTime property value. Time of day (00:00:00 - 23:30:00) when installation should begin. The time is expressed in a 24-hour format, as hh:mm, and is in the device time zone. Default - 00:00:00. Respected for all values of update type, including AUTO.
-     *  @param Time|null $value Value to set for the installRuleWindowStartTime property.
+     * @param Time|null $value Value to set for the installRuleWindowStartTime property.
     */
     public function setInstallRuleWindowStartTime(?Time $value): void {
         $this->getBackingStore()->set('installRuleWindowStartTime', $value);
@@ -354,7 +357,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -362,7 +365,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the scheduleDurationInDays property value. Maximum 28 days. Default is 28 days. Sequence of dates are: 1) Download start date. 2) Install start date. 3) Schedule end date. If any of the values are not provided, the date provided in the preceding step of the sequence is used. If no values are provided, the string value of the current UTC is used.
-     *  @param int|null $value Value to set for the scheduleDurationInDays property.
+     * @param int|null $value Value to set for the scheduleDurationInDays property.
     */
     public function setScheduleDurationInDays(?int $value): void {
         $this->getBackingStore()->set('scheduleDurationInDays', $value);
@@ -370,7 +373,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the scheduleMode property value. Represents various schedule modes for Zebra FOTA deployment.
-     *  @param ZebraFotaScheduleMode|null $value Value to set for the scheduleMode property.
+     * @param ZebraFotaScheduleMode|null $value Value to set for the scheduleMode property.
     */
     public function setScheduleMode(?ZebraFotaScheduleMode $value): void {
         $this->getBackingStore()->set('scheduleMode', $value);
@@ -378,7 +381,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the timeZoneOffsetInMinutes property value. This attribute indicates the deployment time offset (e.g.180 represents an offset of +03:00, and -270 represents an offset of -04:30). The time offset is the time timezone where the devices are located. The deployment start and end data uses this timezone
-     *  @param int|null $value Value to set for the timeZoneOffsetInMinutes property.
+     * @param int|null $value Value to set for the timeZoneOffsetInMinutes property.
     */
     public function setTimeZoneOffsetInMinutes(?int $value): void {
         $this->getBackingStore()->set('timeZoneOffsetInMinutes', $value);
@@ -386,7 +389,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the updateType property value. Represents various update types for Zebra FOTA deployment.
-     *  @param ZebraFotaUpdateType|null $value Value to set for the updateType property.
+     * @param ZebraFotaUpdateType|null $value Value to set for the updateType property.
     */
     public function setUpdateType(?ZebraFotaUpdateType $value): void {
         $this->getBackingStore()->set('updateType', $value);

@@ -81,7 +81,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
 
     /**
      * Sets the childIds property value. Dependent child settings to this group of settings
-     *  @param array<string>|null $value Value to set for the childIds property.
+     * @param array<string>|null $value Value to set for the childIds property.
     */
     public function setChildIds(?array $value): void {
         $this->getBackingStore()->set('childIds', $value);
@@ -89,7 +89,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
 
     /**
      * Sets the dependedOnBy property value. List of child settings that depend on this setting
-     *  @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
+     * @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
     */
     public function setDependedOnBy(?array $value): void {
         $this->getBackingStore()->set('dependedOnBy', $value);
@@ -97,7 +97,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
 
     /**
      * Sets the dependentOn property value. List of Dependencies for the setting group
-     *  @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
+     * @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
     */
     public function setDependentOn(?array $value): void {
         $this->getBackingStore()->set('dependentOn', $value);

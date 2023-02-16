@@ -94,7 +94,7 @@ class VirtualAppointment extends Entity implements Parsable
 
     /**
      * Sets the appointmentClientJoinWebUrl property value. The join web URL of the virtual appointment for clients with waiting room and browser join. Optional.
-     *  @param string|null $value Value to set for the appointmentClientJoinWebUrl property.
+     * @param string|null $value Value to set for the appointmentClientJoinWebUrl property.
     */
     public function setAppointmentClientJoinWebUrl(?string $value): void {
         $this->getBackingStore()->set('appointmentClientJoinWebUrl', $value);
@@ -102,7 +102,7 @@ class VirtualAppointment extends Entity implements Parsable
 
     /**
      * Sets the appointmentClients property value. The client information for the virtual appointment, including name, email, and SMS phone number. Optional.
-     *  @param array<VirtualAppointmentUser>|null $value Value to set for the appointmentClients property.
+     * @param array<VirtualAppointmentUser>|null $value Value to set for the appointmentClients property.
     */
     public function setAppointmentClients(?array $value): void {
         $this->getBackingStore()->set('appointmentClients', $value);
@@ -110,7 +110,7 @@ class VirtualAppointment extends Entity implements Parsable
 
     /**
      * Sets the externalAppointmentId property value. The identifier of the appointment from the scheduling system, associated with the current virtual appointment. Optional.
-     *  @param string|null $value Value to set for the externalAppointmentId property.
+     * @param string|null $value Value to set for the externalAppointmentId property.
     */
     public function setExternalAppointmentId(?string $value): void {
         $this->getBackingStore()->set('externalAppointmentId', $value);
@@ -118,7 +118,7 @@ class VirtualAppointment extends Entity implements Parsable
 
     /**
      * Sets the externalAppointmentUrl property value. The URL of the appointment resource from the scheduling system, associated with the current virtual appointment. Optional.
-     *  @param string|null $value Value to set for the externalAppointmentUrl property.
+     * @param string|null $value Value to set for the externalAppointmentUrl property.
     */
     public function setExternalAppointmentUrl(?string $value): void {
         $this->getBackingStore()->set('externalAppointmentUrl', $value);
@@ -126,7 +126,7 @@ class VirtualAppointment extends Entity implements Parsable
 
     /**
      * Sets the settings property value. The settings associated with the virtual appointment resource. Optional.
-     *  @param VirtualAppointmentSettings|null $value Value to set for the settings property.
+     * @param VirtualAppointmentSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?VirtualAppointmentSettings $value): void {
         $this->getBackingStore()->set('settings', $value);

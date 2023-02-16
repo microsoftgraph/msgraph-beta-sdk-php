@@ -36,7 +36,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -160,7 +160,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,7 +168,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -176,7 +176,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the dependedOnBy property value. List of Settings that depends on this option
-     *  @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
+     * @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
     */
     public function setDependedOnBy(?array $value): void {
         $this->getBackingStore()->set('dependedOnBy', $value);
@@ -184,7 +184,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the dependentOn property value. List of dependent settings for this option
-     *  @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
+     * @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
     */
     public function setDependentOn(?array $value): void {
         $this->getBackingStore()->set('dependentOn', $value);
@@ -192,7 +192,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the description property value. Description of the option
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -200,7 +200,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the displayName property value. Friendly name of the option
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -208,7 +208,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the helpText property value. Help text of the option
-     *  @param string|null $value Value to set for the helpText property.
+     * @param string|null $value Value to set for the helpText property.
     */
     public function setHelpText(?string $value): void {
         $this->getBackingStore()->set('helpText', $value);
@@ -216,7 +216,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the itemId property value. Identifier of option
-     *  @param string|null $value Value to set for the itemId property.
+     * @param string|null $value Value to set for the itemId property.
     */
     public function setItemId(?string $value): void {
         $this->getBackingStore()->set('itemId', $value);
@@ -224,7 +224,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the name property value. Name of the option
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -232,7 +232,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -240,7 +240,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
 
     /**
      * Sets the optionValue property value. Value of the option
-     *  @param DeviceManagementConfigurationSettingValue|null $value Value to set for the optionValue property.
+     * @param DeviceManagementConfigurationSettingValue|null $value Value to set for the optionValue property.
     */
     public function setOptionValue(?DeviceManagementConfigurationSettingValue $value): void {
         $this->getBackingStore()->set('optionValue', $value);

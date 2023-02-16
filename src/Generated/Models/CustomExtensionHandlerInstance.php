@@ -36,7 +36,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the customExtensionId property value. Identifier of the customAccessPackageWorkflowExtension triggered at this instance.
-     *  @param string|null $value Value to set for the customExtensionId property.
+     * @param string|null $value Value to set for the customExtensionId property.
     */
     public function setCustomExtensionId(?string $value): void {
         $this->getBackingStore()->set('customExtensionId', $value);
@@ -144,7 +144,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the externalCorrelationId property value. The unique run ID for the logic app.
-     *  @param string|null $value Value to set for the externalCorrelationId property.
+     * @param string|null $value Value to set for the externalCorrelationId property.
     */
     public function setExternalCorrelationId(?string $value): void {
         $this->getBackingStore()->set('externalCorrelationId', $value);
@@ -152,7 +152,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +160,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the stage property value. Indicates the stage of the request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
-     *  @param AccessPackageCustomExtensionStage|null $value Value to set for the stage property.
+     * @param AccessPackageCustomExtensionStage|null $value Value to set for the stage property.
     */
     public function setStage(?AccessPackageCustomExtensionStage $value): void {
         $this->getBackingStore()->set('stage', $value);
@@ -168,7 +168,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the status property value. Status of the request to run the access package custom extension workflow that is associated with the logic app. The possible values are: requestSent, requestReceived, unknownFutureValue.
-     *  @param AccessPackageCustomExtensionHandlerStatus|null $value Value to set for the status property.
+     * @param AccessPackageCustomExtensionHandlerStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AccessPackageCustomExtensionHandlerStatus $value): void {
         $this->getBackingStore()->set('status', $value);

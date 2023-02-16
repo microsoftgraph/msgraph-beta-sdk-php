@@ -285,7 +285,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the assignedProducts property value. All the products assigned for the user.
-     *  @param array<string>|null $value Value to set for the assignedProducts property.
+     * @param array<string>|null $value Value to set for the assignedProducts property.
     */
     public function setAssignedProducts(?array $value): void {
         $this->getBackingStore()->set('assignedProducts', $value);
@@ -293,7 +293,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the deletedDate property value. The date when the delete operation happened. Default value is 'null' when the user has not been deleted.
-     *  @param Date|null $value Value to set for the deletedDate property.
+     * @param Date|null $value Value to set for the deletedDate property.
     */
     public function setDeletedDate(?Date $value): void {
         $this->getBackingStore()->set('deletedDate', $value);
@@ -301,7 +301,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -309,7 +309,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the exchangeLastActivityDate property value. The date when user last read or sent email.
-     *  @param Date|null $value Value to set for the exchangeLastActivityDate property.
+     * @param Date|null $value Value to set for the exchangeLastActivityDate property.
     */
     public function setExchangeLastActivityDate(?Date $value): void {
         $this->getBackingStore()->set('exchangeLastActivityDate', $value);
@@ -317,7 +317,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the exchangeLicenseAssignDate property value. The last date when the user was assigned an Exchange license.
-     *  @param Date|null $value Value to set for the exchangeLicenseAssignDate property.
+     * @param Date|null $value Value to set for the exchangeLicenseAssignDate property.
     */
     public function setExchangeLicenseAssignDate(?Date $value): void {
         $this->getBackingStore()->set('exchangeLicenseAssignDate', $value);
@@ -325,7 +325,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the hasExchangeLicense property value. Whether the user has been assigned an Exchange license.
-     *  @param bool|null $value Value to set for the hasExchangeLicense property.
+     * @param bool|null $value Value to set for the hasExchangeLicense property.
     */
     public function setHasExchangeLicense(?bool $value): void {
         $this->getBackingStore()->set('hasExchangeLicense', $value);
@@ -333,7 +333,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the hasOneDriveLicense property value. Whether the user has been assigned a OneDrive license.
-     *  @param bool|null $value Value to set for the hasOneDriveLicense property.
+     * @param bool|null $value Value to set for the hasOneDriveLicense property.
     */
     public function setHasOneDriveLicense(?bool $value): void {
         $this->getBackingStore()->set('hasOneDriveLicense', $value);
@@ -341,7 +341,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the hasSharePointLicense property value. Whether the user has been assigned a SharePoint license.
-     *  @param bool|null $value Value to set for the hasSharePointLicense property.
+     * @param bool|null $value Value to set for the hasSharePointLicense property.
     */
     public function setHasSharePointLicense(?bool $value): void {
         $this->getBackingStore()->set('hasSharePointLicense', $value);
@@ -349,7 +349,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the hasSkypeForBusinessLicense property value. Whether the user has been assigned a Skype For Business license.
-     *  @param bool|null $value Value to set for the hasSkypeForBusinessLicense property.
+     * @param bool|null $value Value to set for the hasSkypeForBusinessLicense property.
     */
     public function setHasSkypeForBusinessLicense(?bool $value): void {
         $this->getBackingStore()->set('hasSkypeForBusinessLicense', $value);
@@ -357,7 +357,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the hasTeamsLicense property value. Whether the user has been assigned a Teams license.
-     *  @param bool|null $value Value to set for the hasTeamsLicense property.
+     * @param bool|null $value Value to set for the hasTeamsLicense property.
     */
     public function setHasTeamsLicense(?bool $value): void {
         $this->getBackingStore()->set('hasTeamsLicense', $value);
@@ -365,7 +365,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the hasYammerLicense property value. Whether the user has been assigned a Yammer license.
-     *  @param bool|null $value Value to set for the hasYammerLicense property.
+     * @param bool|null $value Value to set for the hasYammerLicense property.
     */
     public function setHasYammerLicense(?bool $value): void {
         $this->getBackingStore()->set('hasYammerLicense', $value);
@@ -373,7 +373,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the isDeleted property value. Whether this user has been deleted or soft deleted.
-     *  @param bool|null $value Value to set for the isDeleted property.
+     * @param bool|null $value Value to set for the isDeleted property.
     */
     public function setIsDeleted(?bool $value): void {
         $this->getBackingStore()->set('isDeleted', $value);
@@ -381,7 +381,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the oneDriveLastActivityDate property value. The date when user last viewed or edited files, shared files internally or externally, or synced files.
-     *  @param Date|null $value Value to set for the oneDriveLastActivityDate property.
+     * @param Date|null $value Value to set for the oneDriveLastActivityDate property.
     */
     public function setOneDriveLastActivityDate(?Date $value): void {
         $this->getBackingStore()->set('oneDriveLastActivityDate', $value);
@@ -389,7 +389,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the oneDriveLicenseAssignDate property value. The last date when the user was assigned a OneDrive license.
-     *  @param Date|null $value Value to set for the oneDriveLicenseAssignDate property.
+     * @param Date|null $value Value to set for the oneDriveLicenseAssignDate property.
     */
     public function setOneDriveLicenseAssignDate(?Date $value): void {
         $this->getBackingStore()->set('oneDriveLicenseAssignDate', $value);
@@ -397,7 +397,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
-     *  @param Date|null $value Value to set for the reportRefreshDate property.
+     * @param Date|null $value Value to set for the reportRefreshDate property.
     */
     public function setReportRefreshDate(?Date $value): void {
         $this->getBackingStore()->set('reportRefreshDate', $value);
@@ -405,7 +405,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the sharePointLastActivityDate property value. The date when user last viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages.
-     *  @param Date|null $value Value to set for the sharePointLastActivityDate property.
+     * @param Date|null $value Value to set for the sharePointLastActivityDate property.
     */
     public function setSharePointLastActivityDate(?Date $value): void {
         $this->getBackingStore()->set('sharePointLastActivityDate', $value);
@@ -413,7 +413,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the sharePointLicenseAssignDate property value. The last date when the user was assigned a SharePoint license.
-     *  @param Date|null $value Value to set for the sharePointLicenseAssignDate property.
+     * @param Date|null $value Value to set for the sharePointLicenseAssignDate property.
     */
     public function setSharePointLicenseAssignDate(?Date $value): void {
         $this->getBackingStore()->set('sharePointLicenseAssignDate', $value);
@@ -421,7 +421,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the skypeForBusinessLastActivityDate property value. The date when user last organized or participated in conferences, or joined peer-to-peer sessions.
-     *  @param Date|null $value Value to set for the skypeForBusinessLastActivityDate property.
+     * @param Date|null $value Value to set for the skypeForBusinessLastActivityDate property.
     */
     public function setSkypeForBusinessLastActivityDate(?Date $value): void {
         $this->getBackingStore()->set('skypeForBusinessLastActivityDate', $value);
@@ -429,7 +429,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the skypeForBusinessLicenseAssignDate property value. The last date when the user was assigned a Skype For Business license.
-     *  @param Date|null $value Value to set for the skypeForBusinessLicenseAssignDate property.
+     * @param Date|null $value Value to set for the skypeForBusinessLicenseAssignDate property.
     */
     public function setSkypeForBusinessLicenseAssignDate(?Date $value): void {
         $this->getBackingStore()->set('skypeForBusinessLicenseAssignDate', $value);
@@ -437,7 +437,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the teamsLastActivityDate property value. The date when user last posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls.
-     *  @param Date|null $value Value to set for the teamsLastActivityDate property.
+     * @param Date|null $value Value to set for the teamsLastActivityDate property.
     */
     public function setTeamsLastActivityDate(?Date $value): void {
         $this->getBackingStore()->set('teamsLastActivityDate', $value);
@@ -445,7 +445,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the teamsLicenseAssignDate property value. The last date when the user was assigned a Teams license.
-     *  @param Date|null $value Value to set for the teamsLicenseAssignDate property.
+     * @param Date|null $value Value to set for the teamsLicenseAssignDate property.
     */
     public function setTeamsLicenseAssignDate(?Date $value): void {
         $this->getBackingStore()->set('teamsLicenseAssignDate', $value);
@@ -453,7 +453,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant’s collection of verified domains. This property is required when a user is created.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
@@ -461,7 +461,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the yammerLastActivityDate property value. The date when user last posted, read, or liked message.
-     *  @param Date|null $value Value to set for the yammerLastActivityDate property.
+     * @param Date|null $value Value to set for the yammerLastActivityDate property.
     */
     public function setYammerLastActivityDate(?Date $value): void {
         $this->getBackingStore()->set('yammerLastActivityDate', $value);
@@ -469,7 +469,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
 
     /**
      * Sets the yammerLicenseAssignDate property value. The last date when the user was assigned a Yammer license.
-     *  @param Date|null $value Value to set for the yammerLicenseAssignDate property.
+     * @param Date|null $value Value to set for the yammerLicenseAssignDate property.
     */
     public function setYammerLicenseAssignDate(?Date $value): void {
         $this->getBackingStore()->set('yammerLicenseAssignDate', $value);

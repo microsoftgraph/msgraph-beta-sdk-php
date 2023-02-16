@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Organi
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class OrganizationSettingsRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
@@ -21,4 +24,26 @@ class OrganizationSettingsRequestBuilderGetRequestConfiguration
     */
     public ?OrganizationSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new organizationSettingsRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return OrganizationSettingsRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): OrganizationSettingsRequestBuilderGetQueryParameters {
+        return new OrganizationSettingsRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new organizationSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param OrganizationSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?OrganizationSettingsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

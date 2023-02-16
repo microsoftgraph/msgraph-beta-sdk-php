@@ -43,7 +43,7 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, BackedM
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -107,7 +107,7 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -115,7 +115,7 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the applications property value. The list of applications targeted with your cross-tenant access policy.
-     *  @param CrossTenantAccessPolicyTargetConfiguration|null $value Value to set for the applications property.
+     * @param CrossTenantAccessPolicyTargetConfiguration|null $value Value to set for the applications property.
     */
     public function setApplications(?CrossTenantAccessPolicyTargetConfiguration $value): void {
         $this->getBackingStore()->set('applications', $value);
@@ -123,7 +123,7 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -131,7 +131,7 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -139,7 +139,7 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the usersAndGroups property value. The list of users and groups targeted with your cross-tenant access policy.
-     *  @param CrossTenantAccessPolicyTargetConfiguration|null $value Value to set for the usersAndGroups property.
+     * @param CrossTenantAccessPolicyTargetConfiguration|null $value Value to set for the usersAndGroups property.
     */
     public function setUsersAndGroups(?CrossTenantAccessPolicyTargetConfiguration $value): void {
         $this->getBackingStore()->set('usersAndGroups', $value);

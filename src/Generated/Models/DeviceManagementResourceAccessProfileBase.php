@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementResourceAccessProfileBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementResourceAccessProfileBase and sets the default values.
+     * Instantiates a new DeviceManagementResourceAccessProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -126,7 +126,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
 
     /**
      * Sets the assignments property value. The list of assignments for the device configuration profile.
-     *  @param array<DeviceManagementResourceAccessProfileAssignment>|null $value Value to set for the assignments property.
+     * @param array<DeviceManagementResourceAccessProfileAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -134,7 +134,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
 
     /**
      * Sets the creationDateTime property value. DateTime profile was created
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
+     * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('creationDateTime', $value);
@@ -142,7 +142,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
 
     /**
      * Sets the description property value. Profile description
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -150,7 +150,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
 
     /**
      * Sets the displayName property value. Profile display name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -158,7 +158,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
 
     /**
      * Sets the lastModifiedDateTime property value. DateTime profile was last modified
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -166,7 +166,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
 
     /**
      * Sets the roleScopeTagIds property value. Scope Tags
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -174,7 +174,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
 
     /**
      * Sets the version property value. Version of the profile
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);

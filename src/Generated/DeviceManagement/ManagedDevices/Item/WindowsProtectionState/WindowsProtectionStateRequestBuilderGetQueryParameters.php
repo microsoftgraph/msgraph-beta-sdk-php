@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\Wi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The device protection status. This property is read-only.
+*/
 class WindowsProtectionStateRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class WindowsProtectionStateRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new windowsProtectionStateRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

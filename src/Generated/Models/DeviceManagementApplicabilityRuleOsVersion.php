@@ -36,7 +36,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
 
     /**
      * Sets the maxOSVersion property value. Max OS version for Applicability Rule.
-     *  @param string|null $value Value to set for the maxOSVersion property.
+     * @param string|null $value Value to set for the maxOSVersion property.
     */
     public function setMaxOSVersion(?string $value): void {
         $this->getBackingStore()->set('maxOSVersion', $value);
@@ -144,7 +144,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
 
     /**
      * Sets the minOSVersion property value. Min OS version for Applicability Rule.
-     *  @param string|null $value Value to set for the minOSVersion property.
+     * @param string|null $value Value to set for the minOSVersion property.
     */
     public function setMinOSVersion(?string $value): void {
         $this->getBackingStore()->set('minOSVersion', $value);
@@ -152,7 +152,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
 
     /**
      * Sets the name property value. Name for object.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -160,7 +160,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
 
     /**
      * Sets the ruleType property value. Supported Applicability rule types for Device Configuration
-     *  @param DeviceManagementApplicabilityRuleType|null $value Value to set for the ruleType property.
+     * @param DeviceManagementApplicabilityRuleType|null $value Value to set for the ruleType property.
     */
     public function setRuleType(?DeviceManagementApplicabilityRuleType $value): void {
         $this->getBackingStore()->set('ruleType', $value);

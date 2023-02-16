@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConditionalAccessSetti
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
+*/
 class ConditionalAccessSettingsRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ConditionalAccessSettingsRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new conditionalAccessSettingsRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

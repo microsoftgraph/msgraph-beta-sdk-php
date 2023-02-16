@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Intune branding profiles targeted to AAD groups
+*/
 class IntuneBrandingProfileItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class IntuneBrandingProfileItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new IntuneBrandingProfileItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

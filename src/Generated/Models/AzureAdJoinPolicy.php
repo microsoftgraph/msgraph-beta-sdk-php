@@ -36,7 +36,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the allowedGroups property value. The identifiers of the groups that are in the scope of the policy. Required when the appliesTo property is set to selected.
-     *  @param array<string>|null $value Value to set for the allowedGroups property.
+     * @param array<string>|null $value Value to set for the allowedGroups property.
     */
     public function setAllowedGroups(?array $value): void {
         $this->getBackingStore()->set('allowedGroups', $value);
@@ -136,7 +136,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the allowedUsers property value. The identifiers of users that are in the scope of the policy. Required when the appliesTo property is set to selected.
-     *  @param array<string>|null $value Value to set for the allowedUsers property.
+     * @param array<string>|null $value Value to set for the allowedUsers property.
     */
     public function setAllowedUsers(?array $value): void {
         $this->getBackingStore()->set('allowedUsers', $value);
@@ -144,7 +144,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appliesTo property value. Specifies whether to block or allow fine-grained control of the policy scope. The possible values are: 0 (meaning none), 1 (meaning all), 2 (meaning selected), 3 (meaning unknownFutureValue). The default value is 1. When set to 2, at least one user or group identifier must be specified in either allowedUsers or allowedGroups.  Setting this property to 0 or 1 removes all identifiers in both allowedUsers and allowedGroups.
-     *  @param PolicyScope|null $value Value to set for the appliesTo property.
+     * @param PolicyScope|null $value Value to set for the appliesTo property.
     */
     public function setAppliesTo(?PolicyScope $value): void {
         $this->getBackingStore()->set('appliesTo', $value);
@@ -152,7 +152,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -160,7 +160,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isAdminConfigurable property value. Specifies whether this policy scope is configurable by the admin. The default value is false. When an admin has enabled Intune (MEM) to manage devices, this property is set to false and appliesTo defaults to 1 (meaning all).
-     *  @param bool|null $value Value to set for the isAdminConfigurable property.
+     * @param bool|null $value Value to set for the isAdminConfigurable property.
     */
     public function setIsAdminConfigurable(?bool $value): void {
         $this->getBackingStore()->set('isAdminConfigurable', $value);
@@ -168,7 +168,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

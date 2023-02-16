@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Singleton entity which represents the Exchange OnPremises policy configured for a tenant.
+*/
 class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsable 
 {
     /**
@@ -95,7 +98,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
 
     /**
      * Sets the accessRules property value. The list of device access rules in Exchange. The access rules apply globally to the entire Exchange organization
-     *  @param array<DeviceManagementExchangeAccessRule>|null $value Value to set for the accessRules property.
+     * @param array<DeviceManagementExchangeAccessRule>|null $value Value to set for the accessRules property.
     */
     public function setAccessRules(?array $value): void {
         $this->getBackingStore()->set('accessRules', $value);
@@ -103,7 +106,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
 
     /**
      * Sets the conditionalAccessSettings property value. The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
-     *  @param OnPremisesConditionalAccessSettings|null $value Value to set for the conditionalAccessSettings property.
+     * @param OnPremisesConditionalAccessSettings|null $value Value to set for the conditionalAccessSettings property.
     */
     public function setConditionalAccessSettings(?OnPremisesConditionalAccessSettings $value): void {
         $this->getBackingStore()->set('conditionalAccessSettings', $value);
@@ -111,7 +114,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
 
     /**
      * Sets the defaultAccessLevel property value. Access Level in Exchange.
-     *  @param DeviceManagementExchangeAccessLevel|null $value Value to set for the defaultAccessLevel property.
+     * @param DeviceManagementExchangeAccessLevel|null $value Value to set for the defaultAccessLevel property.
     */
     public function setDefaultAccessLevel(?DeviceManagementExchangeAccessLevel $value): void {
         $this->getBackingStore()->set('defaultAccessLevel', $value);
@@ -119,7 +122,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
 
     /**
      * Sets the knownDeviceClasses property value. The list of device classes known to Exchange
-     *  @param array<DeviceManagementExchangeDeviceClass>|null $value Value to set for the knownDeviceClasses property.
+     * @param array<DeviceManagementExchangeDeviceClass>|null $value Value to set for the knownDeviceClasses property.
     */
     public function setKnownDeviceClasses(?array $value): void {
         $this->getBackingStore()->set('knownDeviceClasses', $value);
@@ -127,7 +130,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
 
     /**
      * Sets the notificationContent property value. Notification text that will be sent to users quarantined by this policy. This is UTF8 encoded byte array HTML.
-     *  @param StreamInterface|null $value Value to set for the notificationContent property.
+     * @param StreamInterface|null $value Value to set for the notificationContent property.
     */
     public function setNotificationContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('notificationContent', $value);

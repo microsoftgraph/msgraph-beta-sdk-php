@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * A complex type to store the windows update rollout settings including offer start date time, offer end date time, and days between each set of offers.
+*/
 class WindowsUpdateRolloutSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +114,7 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +122,7 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +130,7 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -135,7 +138,7 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the offerEndDateTimeInUTC property value. The feature update's ending  of release date and time to be set, update, and displayed for a feature Update profile for example: 2020-06-09T10:00:00Z.
-     *  @param DateTime|null $value Value to set for the offerEndDateTimeInUTC property.
+     * @param DateTime|null $value Value to set for the offerEndDateTimeInUTC property.
     */
     public function setOfferEndDateTimeInUTC(?DateTime $value): void {
         $this->getBackingStore()->set('offerEndDateTimeInUTC', $value);
@@ -143,7 +146,7 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the offerIntervalInDays property value. The number of day(s) between each set of offers to be set, updated, and displayed for a feature update profile, for example: if OfferStartDateTimeInUTC is 2020-06-09T10:00:00Z, and OfferIntervalInDays is 1, then the next two sets of offers will be made consecutively on 2020-06-10T10:00:00Z (next day at the same specified time) and 2020-06-11T10:00:00Z (next next day at the same specified time) with 1 day in between each set of offers.
-     *  @param int|null $value Value to set for the offerIntervalInDays property.
+     * @param int|null $value Value to set for the offerIntervalInDays property.
     */
     public function setOfferIntervalInDays(?int $value): void {
         $this->getBackingStore()->set('offerIntervalInDays', $value);
@@ -151,7 +154,7 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the offerStartDateTimeInUTC property value. The feature update's starting date and time to be set, update, and displayed for a feature Update profile for example: 2020-06-09T10:00:00Z.
-     *  @param DateTime|null $value Value to set for the offerStartDateTimeInUTC property.
+     * @param DateTime|null $value Value to set for the offerStartDateTimeInUTC property.
     */
     public function setOfferStartDateTimeInUTC(?DateTime $value): void {
         $this->getBackingStore()->set('offerStartDateTimeInUTC', $value);

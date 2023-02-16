@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The channels those are either shared with this deleted team or created in this deleted team.
+*/
 class ChannelItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ChannelItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ChannelItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

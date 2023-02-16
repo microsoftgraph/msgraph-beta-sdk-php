@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents an Azure AD access review decision on an instance of a review.
+*/
 class AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

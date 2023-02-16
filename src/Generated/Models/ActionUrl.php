@@ -36,7 +36,7 @@ class ActionUrl implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -51,7 +51,7 @@ class ActionUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Brief title for the page that the links directs to.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -80,7 +80,7 @@ class ActionUrl implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the url property value. The url property
+     * Gets the url property value. The URL to the documentation or Azure portal page.
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -100,7 +100,7 @@ class ActionUrl implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,15 +108,15 @@ class ActionUrl implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. Brief title for the page that the links directs to.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -124,15 +124,15 @@ class ActionUrl implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the url property value. The url property
-     *  @param string|null $value Value to set for the url property.
+     * Sets the url property value. The URL to the documentation or Azure portal page.
+     * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {
         $this->getBackingStore()->set('url', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Connections\Item\Operations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get operations from connections
+*/
 class ConnectionOperationItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ConnectionOperationItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ConnectionOperationItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

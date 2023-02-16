@@ -36,7 +36,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
-     *  @param ConditionalAccessFilter|null $value Value to set for the deviceFilter property.
+     * @param ConditionalAccessFilter|null $value Value to set for the deviceFilter property.
     */
     public function setDeviceFilter(?ConditionalAccessFilter $value): void {
         $this->getBackingStore()->set('deviceFilter', $value);
@@ -154,7 +154,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the excludeDevices property value. States excluded from the scope of the policy. Possible values: Compliant, DomainJoined. Cannot be set if deviceFIlter is set.
-     *  @param array<string>|null $value Value to set for the excludeDevices property.
+     * @param array<string>|null $value Value to set for the excludeDevices property.
     */
     public function setExcludeDevices(?array $value): void {
         $this->getBackingStore()->set('excludeDevices', $value);
@@ -162,7 +162,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the excludeDeviceStates property value. The excludeDeviceStates property
-     *  @param array<string>|null $value Value to set for the excludeDeviceStates property.
+     * @param array<string>|null $value Value to set for the excludeDeviceStates property.
     */
     public function setExcludeDeviceStates(?array $value): void {
         $this->getBackingStore()->set('excludeDeviceStates', $value);
@@ -170,7 +170,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the includeDevices property value. States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFIlter is set.
-     *  @param array<string>|null $value Value to set for the includeDevices property.
+     * @param array<string>|null $value Value to set for the includeDevices property.
     */
     public function setIncludeDevices(?array $value): void {
         $this->getBackingStore()->set('includeDevices', $value);
@@ -178,7 +178,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the includeDeviceStates property value. The includeDeviceStates property
-     *  @param array<string>|null $value Value to set for the includeDeviceStates property.
+     * @param array<string>|null $value Value to set for the includeDeviceStates property.
     */
     public function setIncludeDeviceStates(?array $value): void {
         $this->getBackingStore()->set('includeDeviceStates', $value);
@@ -186,7 +186,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

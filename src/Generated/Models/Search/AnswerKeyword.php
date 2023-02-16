@@ -36,7 +36,7 @@ class AnswerKeyword implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class AnswerKeyword implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class AnswerKeyword implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class AnswerKeyword implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the keywords property value. A collection of keywords used to trigger the search answer.
-     *  @param array<string>|null $value Value to set for the keywords property.
+     * @param array<string>|null $value Value to set for the keywords property.
     */
     public function setKeywords(?array $value): void {
         $this->getBackingStore()->set('keywords', $value);
@@ -134,7 +134,7 @@ class AnswerKeyword implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the matchSimilarKeywords property value. If true, indicates that the search term contains similar words to the keywords that should trigger the search answer.
-     *  @param bool|null $value Value to set for the matchSimilarKeywords property.
+     * @param bool|null $value Value to set for the matchSimilarKeywords property.
     */
     public function setMatchSimilarKeywords(?bool $value): void {
         $this->getBackingStore()->set('matchSimilarKeywords', $value);
@@ -142,7 +142,7 @@ class AnswerKeyword implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class AnswerKeyword implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the reservedKeywords property value. Unique keywords that will guarantee the search answer is triggered.
-     *  @param array<string>|null $value Value to set for the reservedKeywords property.
+     * @param array<string>|null $value Value to set for the reservedKeywords property.
     */
     public function setReservedKeywords(?array $value): void {
         $this->getBackingStore()->set('reservedKeywords', $value);

@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represents information for a local user or group used for user rights setting.
+*/
 class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +113,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +121,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +129,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
 
     /**
      * Sets the description property value. Admin’s description of this local user or group.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -134,7 +137,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
 
     /**
      * Sets the name property value. The name of this local user or group.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -142,7 +145,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +153,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
 
     /**
      * Sets the securityIdentifier property value. The security identifier of this local user or group (e.g. S-1-5-32-544).
-     *  @param string|null $value Value to set for the securityIdentifier property.
+     * @param string|null $value Value to set for the securityIdentifier property.
     */
     public function setSecurityIdentifier(?string $value): void {
         $this->getBackingStore()->set('securityIdentifier', $value);

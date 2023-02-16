@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Choice Setting Value Template
+*/
 class DeviceManagementConfigurationChoiceSettingValueTemplate implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the defaultValue property value. Choice Setting Value Default Template.
-     *  @param DeviceManagementConfigurationChoiceSettingValueDefaultTemplate|null $value Value to set for the defaultValue property.
+     * @param DeviceManagementConfigurationChoiceSettingValueDefaultTemplate|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?DeviceManagementConfigurationChoiceSettingValueDefaultTemplate $value): void {
         $this->getBackingStore()->set('defaultValue', $value);
@@ -144,7 +147,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -152,7 +155,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the recommendedValueDefinition property value. Recommended definition override.
-     *  @param DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null $value Value to set for the recommendedValueDefinition property.
+     * @param DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null $value Value to set for the recommendedValueDefinition property.
     */
     public function setRecommendedValueDefinition(?DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate $value): void {
         $this->getBackingStore()->set('recommendedValueDefinition', $value);
@@ -160,7 +163,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the requiredValueDefinition property value. Required definition override.
-     *  @param DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null $value Value to set for the requiredValueDefinition property.
+     * @param DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null $value Value to set for the requiredValueDefinition property.
     */
     public function setRequiredValueDefinition(?DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate $value): void {
         $this->getBackingStore()->set('requiredValueDefinition', $value);
@@ -168,7 +171,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the settingValueTemplateId property value. Setting Value Template Id
-     *  @param string|null $value Value to set for the settingValueTemplateId property.
+     * @param string|null $value Value to set for the settingValueTemplateId property.
     */
     public function setSettingValueTemplateId(?string $value): void {
         $this->getBackingStore()->set('settingValueTemplateId', $value);

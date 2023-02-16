@@ -36,7 +36,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the configuredDisplays property value. The list of configured displays. Applicable only for Microsoft Teams Rooms devices.
-     *  @param array<TeamworkConfiguredPeripheral>|null $value Value to set for the configuredDisplays property.
+     * @param array<TeamworkConfiguredPeripheral>|null $value Value to set for the configuredDisplays property.
     */
     public function setConfiguredDisplays(?array $value): void {
         $this->getBackingStore()->set('configuredDisplays', $value);
@@ -154,7 +154,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the displayCount property value. Total number of connected displays, including the inbuilt display. Applicable only for Teams Rooms devices.
-     *  @param int|null $value Value to set for the displayCount property.
+     * @param int|null $value Value to set for the displayCount property.
     */
     public function setDisplayCount(?int $value): void {
         $this->getBackingStore()->set('displayCount', $value);
@@ -162,7 +162,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the inBuiltDisplayScreenConfiguration property value. Configuration for the inbuilt display. Not applicable for Teams Rooms devices.
-     *  @param TeamworkDisplayScreenConfiguration|null $value Value to set for the inBuiltDisplayScreenConfiguration property.
+     * @param TeamworkDisplayScreenConfiguration|null $value Value to set for the inBuiltDisplayScreenConfiguration property.
     */
     public function setInBuiltDisplayScreenConfiguration(?TeamworkDisplayScreenConfiguration $value): void {
         $this->getBackingStore()->set('inBuiltDisplayScreenConfiguration', $value);
@@ -170,7 +170,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the isContentDuplicationAllowed property value. True if content duplication is allowed. Applicable only for Teams Rooms devices.
-     *  @param bool|null $value Value to set for the isContentDuplicationAllowed property.
+     * @param bool|null $value Value to set for the isContentDuplicationAllowed property.
     */
     public function setIsContentDuplicationAllowed(?bool $value): void {
         $this->getBackingStore()->set('isContentDuplicationAllowed', $value);
@@ -178,7 +178,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the isDualDisplayModeEnabled property value. True if dual display mode is enabled. If isDualDisplayModeEnabled is true, then the content will be displayed on both front of room screens instead of just the one screen, when it is shared via the HDMI ingest module on the Microsoft Teams Rooms device. Applicable only for Teams Rooms devices.
-     *  @param bool|null $value Value to set for the isDualDisplayModeEnabled property.
+     * @param bool|null $value Value to set for the isDualDisplayModeEnabled property.
     */
     public function setIsDualDisplayModeEnabled(?bool $value): void {
         $this->getBackingStore()->set('isDualDisplayModeEnabled', $value);
@@ -186,7 +186,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

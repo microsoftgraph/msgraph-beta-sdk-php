@@ -36,7 +36,7 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the initiatedBy property value. The participant who initiated the recording.
-     *  @param ParticipantInfo|null $value Value to set for the initiatedBy property.
+     * @param ParticipantInfo|null $value Value to set for the initiatedBy property.
     */
     public function setInitiatedBy(?ParticipantInfo $value): void {
         $this->getBackingStore()->set('initiatedBy', $value);
@@ -134,7 +134,7 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the initiator property value. The identities of recording initiator.
-     *  @param IdentitySet|null $value Value to set for the initiator property.
+     * @param IdentitySet|null $value Value to set for the initiator property.
     */
     public function setInitiator(?IdentitySet $value): void {
         $this->getBackingStore()->set('initiator', $value);
@@ -142,7 +142,7 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class RecordingInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the recordingStatus property value. The recordingStatus property
-     *  @param RecordingStatus|null $value Value to set for the recordingStatus property.
+     * @param RecordingStatus|null $value Value to set for the recordingStatus property.
     */
     public function setRecordingStatus(?RecordingStatus $value): void {
         $this->getBackingStore()->set('recordingStatus', $value);

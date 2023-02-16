@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProviderTenantSetting extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new providerTenantSetting and sets the default values.
+     * Instantiates a new ProviderTenantSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,7 +95,7 @@ class ProviderTenantSetting extends Entity implements Parsable
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
-     *  @param string|null $value Value to set for the azureTenantId property.
+     * @param string|null $value Value to set for the azureTenantId property.
     */
     public function setAzureTenantId(?string $value): void {
         $this->getBackingStore()->set('azureTenantId', $value);
@@ -103,7 +103,7 @@ class ProviderTenantSetting extends Entity implements Parsable
 
     /**
      * Sets the enabled property value. The enabled property
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -111,7 +111,7 @@ class ProviderTenantSetting extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -119,7 +119,7 @@ class ProviderTenantSetting extends Entity implements Parsable
 
     /**
      * Sets the provider property value. The provider property
-     *  @param string|null $value Value to set for the provider property.
+     * @param string|null $value Value to set for the provider property.
     */
     public function setProvider(?string $value): void {
         $this->getBackingStore()->set('provider', $value);
@@ -127,7 +127,7 @@ class ProviderTenantSetting extends Entity implements Parsable
 
     /**
      * Sets the vendor property value. The vendor property
-     *  @param string|null $value Value to set for the vendor property.
+     * @param string|null $value Value to set for the vendor property.
     */
     public function setVendor(?string $value): void {
         $this->getBackingStore()->set('vendor', $value);

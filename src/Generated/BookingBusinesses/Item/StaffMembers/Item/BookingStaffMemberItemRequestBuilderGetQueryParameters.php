@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\StaffMembers\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * All the staff members that provide services in this business. Read-only. Nullable.
+*/
 class BookingStaffMemberItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class BookingStaffMemberItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new BookingStaffMemberItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

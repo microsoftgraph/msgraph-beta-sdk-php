@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * This entity represents a single payload with requested assignment filter Id
+*/
 class PayloadByFilter implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class PayloadByFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class PayloadByFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class PayloadByFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the assignmentFilterType property value. Represents type of the assignment filter.
-     *  @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the assignmentFilterType property.
+     * @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the assignmentFilterType property.
     */
     public function setAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value): void {
         $this->getBackingStore()->set('assignmentFilterType', $value);
@@ -136,7 +139,7 @@ class PayloadByFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +147,7 @@ class PayloadByFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the groupId property value. The Azure AD security group ID
-     *  @param string|null $value Value to set for the groupId property.
+     * @param string|null $value Value to set for the groupId property.
     */
     public function setGroupId(?string $value): void {
         $this->getBackingStore()->set('groupId', $value);
@@ -152,7 +155,7 @@ class PayloadByFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +163,7 @@ class PayloadByFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the payloadId property value. The policy identifier
-     *  @param string|null $value Value to set for the payloadId property.
+     * @param string|null $value Value to set for the payloadId property.
     */
     public function setPayloadId(?string $value): void {
         $this->getBackingStore()->set('payloadId', $value);
@@ -168,7 +171,7 @@ class PayloadByFilter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the payloadType property value. This enum represents associated assignment payload type
-     *  @param AssociatedAssignmentPayloadType|null $value Value to set for the payloadType property.
+     * @param AssociatedAssignmentPayloadType|null $value Value to set for the payloadType property.
     */
     public function setPayloadType(?AssociatedAssignmentPayloadType $value): void {
         $this->getBackingStore()->set('payloadType', $value);

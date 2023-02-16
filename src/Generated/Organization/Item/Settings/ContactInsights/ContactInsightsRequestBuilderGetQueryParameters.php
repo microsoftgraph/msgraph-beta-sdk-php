@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ContactInsig
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
+*/
 class ContactInsightsRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ContactInsightsRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new contactInsightsRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

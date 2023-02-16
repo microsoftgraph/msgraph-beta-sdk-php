@@ -59,7 +59,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -177,7 +177,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the accessRecommendationsEnabled property value. Indicates whether showing recommendations to reviewers is enabled.
-     *  @param bool|null $value Value to set for the accessRecommendationsEnabled property.
+     * @param bool|null $value Value to set for the accessRecommendationsEnabled property.
     */
     public function setAccessRecommendationsEnabled(?bool $value): void {
         $this->getBackingStore()->set('accessRecommendationsEnabled', $value);
@@ -185,7 +185,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the activityDurationInDays property value. The number of days of user activities to show to reviewers.
-     *  @param int|null $value Value to set for the activityDurationInDays property.
+     * @param int|null $value Value to set for the activityDurationInDays property.
     */
     public function setActivityDurationInDays(?int $value): void {
         $this->getBackingStore()->set('activityDurationInDays', $value);
@@ -193,7 +193,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -201,7 +201,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the autoApplyReviewResultsEnabled property value. Indicates whether the auto-apply capability, to automatically change the target object access resource, is enabled.  If not enabled, a user must, after the review completes, apply the access review.
-     *  @param bool|null $value Value to set for the autoApplyReviewResultsEnabled property.
+     * @param bool|null $value Value to set for the autoApplyReviewResultsEnabled property.
     */
     public function setAutoApplyReviewResultsEnabled(?bool $value): void {
         $this->getBackingStore()->set('autoApplyReviewResultsEnabled', $value);
@@ -209,7 +209,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the autoReviewEnabled property value. Indicates whether a decision should be set if the reviewer did not supply one. For use when auto-apply is enabled. If you don't want to have a review decision recorded unless the reviewer makes an explicit choice, set it to false.
-     *  @param bool|null $value Value to set for the autoReviewEnabled property.
+     * @param bool|null $value Value to set for the autoReviewEnabled property.
     */
     public function setAutoReviewEnabled(?bool $value): void {
         $this->getBackingStore()->set('autoReviewEnabled', $value);
@@ -217,7 +217,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the autoReviewSettings property value. Detailed settings for how the feature should set the review decision. For use when auto-apply is enabled.
-     *  @param AutoReviewSettings|null $value Value to set for the autoReviewSettings property.
+     * @param AutoReviewSettings|null $value Value to set for the autoReviewSettings property.
     */
     public function setAutoReviewSettings(?AutoReviewSettings $value): void {
         $this->getBackingStore()->set('autoReviewSettings', $value);
@@ -225,7 +225,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -233,7 +233,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the justificationRequiredOnApproval property value. Indicates whether reviewers are required to provide a justification when reviewing access.
-     *  @param bool|null $value Value to set for the justificationRequiredOnApproval property.
+     * @param bool|null $value Value to set for the justificationRequiredOnApproval property.
     */
     public function setJustificationRequiredOnApproval(?bool $value): void {
         $this->getBackingStore()->set('justificationRequiredOnApproval', $value);
@@ -241,7 +241,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the mailNotificationsEnabled property value. Indicates whether sending mails to reviewers and the review creator is enabled.
-     *  @param bool|null $value Value to set for the mailNotificationsEnabled property.
+     * @param bool|null $value Value to set for the mailNotificationsEnabled property.
     */
     public function setMailNotificationsEnabled(?bool $value): void {
         $this->getBackingStore()->set('mailNotificationsEnabled', $value);
@@ -249,7 +249,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -257,7 +257,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the recurrenceSettings property value. Detailed settings for recurrence.
-     *  @param AccessReviewRecurrenceSettings|null $value Value to set for the recurrenceSettings property.
+     * @param AccessReviewRecurrenceSettings|null $value Value to set for the recurrenceSettings property.
     */
     public function setRecurrenceSettings(?AccessReviewRecurrenceSettings $value): void {
         $this->getBackingStore()->set('recurrenceSettings', $value);
@@ -265,7 +265,7 @@ class AccessReviewSettings implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the remindersEnabled property value. Indicates whether sending reminder emails to reviewers is enabled.
-     *  @param bool|null $value Value to set for the remindersEnabled property.
+     * @param bool|null $value Value to set for the remindersEnabled property.
     */
     public function setRemindersEnabled(?bool $value): void {
         $this->getBackingStore()->set('remindersEnabled', $value);

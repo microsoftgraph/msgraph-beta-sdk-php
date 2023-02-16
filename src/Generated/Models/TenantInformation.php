@@ -36,7 +36,7 @@ class TenantInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class TenantInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class TenantInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class TenantInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the defaultDomainName property value. Primary domain name of an Azure AD tenant.
-     *  @param string|null $value Value to set for the defaultDomainName property.
+     * @param string|null $value Value to set for the defaultDomainName property.
     */
     public function setDefaultDomainName(?string $value): void {
         $this->getBackingStore()->set('defaultDomainName', $value);
@@ -144,7 +144,7 @@ class TenantInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. Display name of an Azure AD tenant.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -152,7 +152,7 @@ class TenantInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the federationBrandName property value. Name shown to users that sign in to an Azure AD tenant.
-     *  @param string|null $value Value to set for the federationBrandName property.
+     * @param string|null $value Value to set for the federationBrandName property.
     */
     public function setFederationBrandName(?string $value): void {
         $this->getBackingStore()->set('federationBrandName', $value);
@@ -160,7 +160,7 @@ class TenantInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class TenantInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tenantId property value. Unique identifier of an Azure AD tenant.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

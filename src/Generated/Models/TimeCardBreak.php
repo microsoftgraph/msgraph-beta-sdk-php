@@ -36,7 +36,7 @@ class TimeCardBreak implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class TimeCardBreak implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class TimeCardBreak implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class TimeCardBreak implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the breakId property value. ID of the timeCardBreak.
-     *  @param string|null $value Value to set for the breakId property.
+     * @param string|null $value Value to set for the breakId property.
     */
     public function setBreakId(?string $value): void {
         $this->getBackingStore()->set('breakId', $value);
@@ -144,7 +144,7 @@ class TimeCardBreak implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the end property value. The start event of the timeCardBreak.
-     *  @param TimeCardEvent|null $value Value to set for the end property.
+     * @param TimeCardEvent|null $value Value to set for the end property.
     */
     public function setEnd(?TimeCardEvent $value): void {
         $this->getBackingStore()->set('end', $value);
@@ -152,7 +152,7 @@ class TimeCardBreak implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the notes property value. Notes about the timeCardBreak.
-     *  @param ItemBody|null $value Value to set for the notes property.
+     * @param ItemBody|null $value Value to set for the notes property.
     */
     public function setNotes(?ItemBody $value): void {
         $this->getBackingStore()->set('notes', $value);
@@ -160,7 +160,7 @@ class TimeCardBreak implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class TimeCardBreak implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the start property value. The start property
-     *  @param TimeCardEvent|null $value Value to set for the start property.
+     * @param TimeCardEvent|null $value Value to set for the start property.
     */
     public function setStart(?TimeCardEvent $value): void {
         $this->getBackingStore()->set('start', $value);

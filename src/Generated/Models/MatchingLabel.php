@@ -36,7 +36,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -180,7 +180,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -188,7 +188,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the applicationMode property value. The applicationMode property
-     *  @param ApplicationMode|null $value Value to set for the applicationMode property.
+     * @param ApplicationMode|null $value Value to set for the applicationMode property.
     */
     public function setApplicationMode(?ApplicationMode $value): void {
         $this->getBackingStore()->set('applicationMode', $value);
@@ -196,7 +196,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -204,7 +204,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -212,7 +212,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -220,7 +220,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the id property value. The id property
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -228,7 +228,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isEndpointProtectionEnabled property value. The isEndpointProtectionEnabled property
-     *  @param bool|null $value Value to set for the isEndpointProtectionEnabled property.
+     * @param bool|null $value Value to set for the isEndpointProtectionEnabled property.
     */
     public function setIsEndpointProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEndpointProtectionEnabled', $value);
@@ -236,7 +236,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the labelActions property value. The labelActions property
-     *  @param array<LabelActionBase>|null $value Value to set for the labelActions property.
+     * @param array<LabelActionBase>|null $value Value to set for the labelActions property.
     */
     public function setLabelActions(?array $value): void {
         $this->getBackingStore()->set('labelActions', $value);
@@ -244,7 +244,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -252,7 +252,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -260,7 +260,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the policyTip property value. The policyTip property
-     *  @param string|null $value Value to set for the policyTip property.
+     * @param string|null $value Value to set for the policyTip property.
     */
     public function setPolicyTip(?string $value): void {
         $this->getBackingStore()->set('policyTip', $value);
@@ -268,7 +268,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the priority property value. The priority property
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -276,7 +276,7 @@ class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the toolTip property value. The toolTip property
-     *  @param string|null $value Value to set for the toolTip property.
+     * @param string|null $value Value to set for the toolTip property.
     */
     public function setToolTip(?string $value): void {
         $this->getBackingStore()->set('toolTip', $value);

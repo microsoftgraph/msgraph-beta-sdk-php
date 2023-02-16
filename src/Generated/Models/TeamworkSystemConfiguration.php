@@ -37,7 +37,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -201,7 +201,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -209,7 +209,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -217,7 +217,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the dateTimeConfiguration property value. The date and time configurations for a device.
-     *  @param TeamworkDateTimeConfiguration|null $value Value to set for the dateTimeConfiguration property.
+     * @param TeamworkDateTimeConfiguration|null $value Value to set for the dateTimeConfiguration property.
     */
     public function setDateTimeConfiguration(?TeamworkDateTimeConfiguration $value): void {
         $this->getBackingStore()->set('dateTimeConfiguration', $value);
@@ -225,7 +225,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the defaultPassword property value. The default password for the device. Write-Only.
-     *  @param string|null $value Value to set for the defaultPassword property.
+     * @param string|null $value Value to set for the defaultPassword property.
     */
     public function setDefaultPassword(?string $value): void {
         $this->getBackingStore()->set('defaultPassword', $value);
@@ -233,7 +233,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the deviceLockTimeout property value. The device lock timeout in seconds.
-     *  @param DateInterval|null $value Value to set for the deviceLockTimeout property.
+     * @param DateInterval|null $value Value to set for the deviceLockTimeout property.
     */
     public function setDeviceLockTimeout(?DateInterval $value): void {
         $this->getBackingStore()->set('deviceLockTimeout', $value);
@@ -241,7 +241,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the isDeviceLockEnabled property value. True if the device lock is enabled.
-     *  @param bool|null $value Value to set for the isDeviceLockEnabled property.
+     * @param bool|null $value Value to set for the isDeviceLockEnabled property.
     */
     public function setIsDeviceLockEnabled(?bool $value): void {
         $this->getBackingStore()->set('isDeviceLockEnabled', $value);
@@ -249,7 +249,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the isLoggingEnabled property value. True if logging is enabled.
-     *  @param bool|null $value Value to set for the isLoggingEnabled property.
+     * @param bool|null $value Value to set for the isLoggingEnabled property.
     */
     public function setIsLoggingEnabled(?bool $value): void {
         $this->getBackingStore()->set('isLoggingEnabled', $value);
@@ -257,7 +257,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the isPowerSavingEnabled property value. True if power saving is enabled.
-     *  @param bool|null $value Value to set for the isPowerSavingEnabled property.
+     * @param bool|null $value Value to set for the isPowerSavingEnabled property.
     */
     public function setIsPowerSavingEnabled(?bool $value): void {
         $this->getBackingStore()->set('isPowerSavingEnabled', $value);
@@ -265,7 +265,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the isScreenCaptureEnabled property value. True if screen capture is enabled.
-     *  @param bool|null $value Value to set for the isScreenCaptureEnabled property.
+     * @param bool|null $value Value to set for the isScreenCaptureEnabled property.
     */
     public function setIsScreenCaptureEnabled(?bool $value): void {
         $this->getBackingStore()->set('isScreenCaptureEnabled', $value);
@@ -273,7 +273,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the isSilentModeEnabled property value. True if silent mode is enabled.
-     *  @param bool|null $value Value to set for the isSilentModeEnabled property.
+     * @param bool|null $value Value to set for the isSilentModeEnabled property.
     */
     public function setIsSilentModeEnabled(?bool $value): void {
         $this->getBackingStore()->set('isSilentModeEnabled', $value);
@@ -281,7 +281,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the language property value. The language option for the device.
-     *  @param string|null $value Value to set for the language property.
+     * @param string|null $value Value to set for the language property.
     */
     public function setLanguage(?string $value): void {
         $this->getBackingStore()->set('language', $value);
@@ -289,7 +289,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the lockPin property value. The pin that unlocks the device. Write-Only.
-     *  @param string|null $value Value to set for the lockPin property.
+     * @param string|null $value Value to set for the lockPin property.
     */
     public function setLockPin(?string $value): void {
         $this->getBackingStore()->set('lockPin', $value);
@@ -297,7 +297,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the loggingLevel property value. The logging level for the device.
-     *  @param string|null $value Value to set for the loggingLevel property.
+     * @param string|null $value Value to set for the loggingLevel property.
     */
     public function setLoggingLevel(?string $value): void {
         $this->getBackingStore()->set('loggingLevel', $value);
@@ -305,7 +305,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the networkConfiguration property value. The network configuration for the device.
-     *  @param TeamworkNetworkConfiguration|null $value Value to set for the networkConfiguration property.
+     * @param TeamworkNetworkConfiguration|null $value Value to set for the networkConfiguration property.
     */
     public function setNetworkConfiguration(?TeamworkNetworkConfiguration $value): void {
         $this->getBackingStore()->set('networkConfiguration', $value);
@@ -313,7 +313,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

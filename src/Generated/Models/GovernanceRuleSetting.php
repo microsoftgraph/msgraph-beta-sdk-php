@@ -36,7 +36,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +116,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -124,7 +124,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the ruleIdentifier property value. The id of the rule. For example, ExpirationRule and MfaRule.
-     *  @param string|null $value Value to set for the ruleIdentifier property.
+     * @param string|null $value Value to set for the ruleIdentifier property.
     */
     public function setRuleIdentifier(?string $value): void {
         $this->getBackingStore()->set('ruleIdentifier', $value);
@@ -132,7 +132,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the setting property value. The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
-     *  @param string|null $value Value to set for the setting property.
+     * @param string|null $value Value to set for the setting property.
     */
     public function setSetting(?string $value): void {
         $this->getBackingStore()->set('setting', $value);

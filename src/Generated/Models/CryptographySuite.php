@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * VPN Security Association Parameters
+*/
 class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +143,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +151,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the authenticationTransformConstants property value. Authentication Transform Constants. Possible values are: md5_96, sha1_96, sha_256_128, aes128Gcm, aes192Gcm, aes256Gcm.
-     *  @param AuthenticationTransformConstant|null $value Value to set for the authenticationTransformConstants property.
+     * @param AuthenticationTransformConstant|null $value Value to set for the authenticationTransformConstants property.
     */
     public function setAuthenticationTransformConstants(?AuthenticationTransformConstant $value): void {
         $this->getBackingStore()->set('authenticationTransformConstants', $value);
@@ -156,7 +159,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +167,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the cipherTransformConstants property value. Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-     *  @param VpnEncryptionAlgorithmType|null $value Value to set for the cipherTransformConstants property.
+     * @param VpnEncryptionAlgorithmType|null $value Value to set for the cipherTransformConstants property.
     */
     public function setCipherTransformConstants(?VpnEncryptionAlgorithmType $value): void {
         $this->getBackingStore()->set('cipherTransformConstants', $value);
@@ -172,7 +175,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the dhGroup property value. Diffie Hellman Group. Possible values are: group1, group2, group14, ecp256, ecp384, group24.
-     *  @param DiffieHellmanGroup|null $value Value to set for the dhGroup property.
+     * @param DiffieHellmanGroup|null $value Value to set for the dhGroup property.
     */
     public function setDhGroup(?DiffieHellmanGroup $value): void {
         $this->getBackingStore()->set('dhGroup', $value);
@@ -180,7 +183,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the encryptionMethod property value. Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-     *  @param VpnEncryptionAlgorithmType|null $value Value to set for the encryptionMethod property.
+     * @param VpnEncryptionAlgorithmType|null $value Value to set for the encryptionMethod property.
     */
     public function setEncryptionMethod(?VpnEncryptionAlgorithmType $value): void {
         $this->getBackingStore()->set('encryptionMethod', $value);
@@ -188,7 +191,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the integrityCheckMethod property value. Integrity Check Method. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
-     *  @param VpnIntegrityAlgorithmType|null $value Value to set for the integrityCheckMethod property.
+     * @param VpnIntegrityAlgorithmType|null $value Value to set for the integrityCheckMethod property.
     */
     public function setIntegrityCheckMethod(?VpnIntegrityAlgorithmType $value): void {
         $this->getBackingStore()->set('integrityCheckMethod', $value);
@@ -196,7 +199,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -204,7 +207,7 @@ class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the pfsGroup property value. Perfect Forward Secrecy Group. Possible values are: pfs1, pfs2, pfs2048, ecp256, ecp384, pfsMM, pfs24.
-     *  @param PerfectForwardSecrecyGroup|null $value Value to set for the pfsGroup property.
+     * @param PerfectForwardSecrecyGroup|null $value Value to set for the pfsGroup property.
     */
     public function setPfsGroup(?PerfectForwardSecrecyGroup $value): void {
         $this->getBackingStore()->set('pfsGroup', $value);

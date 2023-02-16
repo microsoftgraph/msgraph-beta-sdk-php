@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyMigrationRe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A list of unsupported group policy extensions inside the Group Policy Object.
+*/
 class UnsupportedGroupPolicyExtensionItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class UnsupportedGroupPolicyExtensionItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new UnsupportedGroupPolicyExtensionItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

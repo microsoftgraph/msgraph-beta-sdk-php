@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new fileSecurityProfile and sets the default values.
+     * Instantiates a new FileSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -205,7 +205,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the activityGroupNames property value. The activityGroupNames property
-     *  @param array<string>|null $value Value to set for the activityGroupNames property.
+     * @param array<string>|null $value Value to set for the activityGroupNames property.
     */
     public function setActivityGroupNames(?array $value): void {
         $this->getBackingStore()->set('activityGroupNames', $value);
@@ -213,7 +213,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
-     *  @param string|null $value Value to set for the azureSubscriptionId property.
+     * @param string|null $value Value to set for the azureSubscriptionId property.
     */
     public function setAzureSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('azureSubscriptionId', $value);
@@ -221,7 +221,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
-     *  @param string|null $value Value to set for the azureTenantId property.
+     * @param string|null $value Value to set for the azureTenantId property.
     */
     public function setAzureTenantId(?string $value): void {
         $this->getBackingStore()->set('azureTenantId', $value);
@@ -229,7 +229,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the certificateThumbprint property value. The certificateThumbprint property
-     *  @param string|null $value Value to set for the certificateThumbprint property.
+     * @param string|null $value Value to set for the certificateThumbprint property.
     */
     public function setCertificateThumbprint(?string $value): void {
         $this->getBackingStore()->set('certificateThumbprint', $value);
@@ -237,7 +237,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the extensions property value. The extensions property
-     *  @param array<string>|null $value Value to set for the extensions property.
+     * @param array<string>|null $value Value to set for the extensions property.
     */
     public function setExtensions(?array $value): void {
         $this->getBackingStore()->set('extensions', $value);
@@ -245,7 +245,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the fileType property value. The fileType property
-     *  @param string|null $value Value to set for the fileType property.
+     * @param string|null $value Value to set for the fileType property.
     */
     public function setFileType(?string $value): void {
         $this->getBackingStore()->set('fileType', $value);
@@ -253,7 +253,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the firstSeenDateTime property value. The firstSeenDateTime property
-     *  @param DateTime|null $value Value to set for the firstSeenDateTime property.
+     * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('firstSeenDateTime', $value);
@@ -261,7 +261,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the hashes property value. The hashes property
-     *  @param array<FileHash>|null $value Value to set for the hashes property.
+     * @param array<FileHash>|null $value Value to set for the hashes property.
     */
     public function setHashes(?array $value): void {
         $this->getBackingStore()->set('hashes', $value);
@@ -269,7 +269,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the lastSeenDateTime property value. The lastSeenDateTime property
-     *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
+     * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSeenDateTime', $value);
@@ -277,7 +277,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the malwareStates property value. The malwareStates property
-     *  @param array<MalwareState>|null $value Value to set for the malwareStates property.
+     * @param array<MalwareState>|null $value Value to set for the malwareStates property.
     */
     public function setMalwareStates(?array $value): void {
         $this->getBackingStore()->set('malwareStates', $value);
@@ -285,7 +285,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the names property value. The names property
-     *  @param array<string>|null $value Value to set for the names property.
+     * @param array<string>|null $value Value to set for the names property.
     */
     public function setNames(?array $value): void {
         $this->getBackingStore()->set('names', $value);
@@ -293,7 +293,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the riskScore property value. The riskScore property
-     *  @param string|null $value Value to set for the riskScore property.
+     * @param string|null $value Value to set for the riskScore property.
     */
     public function setRiskScore(?string $value): void {
         $this->getBackingStore()->set('riskScore', $value);
@@ -301,7 +301,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the size property value. The size property
-     *  @param int|null $value Value to set for the size property.
+     * @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value): void {
         $this->getBackingStore()->set('size', $value);
@@ -309,7 +309,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the tags property value. The tags property
-     *  @param array<string>|null $value Value to set for the tags property.
+     * @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {
         $this->getBackingStore()->set('tags', $value);
@@ -317,7 +317,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
-     *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
+     * @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
     public function setVendorInformation(?SecurityVendorInformation $value): void {
         $this->getBackingStore()->set('vendorInformation', $value);
@@ -325,7 +325,7 @@ class FileSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the vulnerabilityStates property value. The vulnerabilityStates property
-     *  @param array<VulnerabilityState>|null $value Value to set for the vulnerabilityStates property.
+     * @param array<VulnerabilityState>|null $value Value to set for the vulnerabilityStates property.
     */
     public function setVulnerabilityStates(?array $value): void {
         $this->getBackingStore()->set('vulnerabilityStates', $value);

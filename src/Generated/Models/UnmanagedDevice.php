@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Unmanaged device discovered in the network.
+*/
 class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -191,7 +194,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -199,7 +202,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -207,7 +210,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceName property value. Device name.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -215,7 +218,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the domain property value. Domain.
-     *  @param string|null $value Value to set for the domain property.
+     * @param string|null $value Value to set for the domain property.
     */
     public function setDomain(?string $value): void {
         $this->getBackingStore()->set('domain', $value);
@@ -223,7 +226,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ipAddress property value. IP address.
-     *  @param string|null $value Value to set for the ipAddress property.
+     * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
         $this->getBackingStore()->set('ipAddress', $value);
@@ -231,7 +234,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastLoggedOnUser property value. Last logged on user.
-     *  @param string|null $value Value to set for the lastLoggedOnUser property.
+     * @param string|null $value Value to set for the lastLoggedOnUser property.
     */
     public function setLastLoggedOnUser(?string $value): void {
         $this->getBackingStore()->set('lastLoggedOnUser', $value);
@@ -239,7 +242,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastSeenDateTime property value. Last seen date and time.
-     *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
+     * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSeenDateTime', $value);
@@ -247,7 +250,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the location property value. Location.
-     *  @param string|null $value Value to set for the location property.
+     * @param string|null $value Value to set for the location property.
     */
     public function setLocation(?string $value): void {
         $this->getBackingStore()->set('location', $value);
@@ -255,7 +258,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the macAddress property value. MAC address.
-     *  @param string|null $value Value to set for the macAddress property.
+     * @param string|null $value Value to set for the macAddress property.
     */
     public function setMacAddress(?string $value): void {
         $this->getBackingStore()->set('macAddress', $value);
@@ -263,7 +266,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the manufacturer property value. Manufacturer.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -271,7 +274,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the model property value. Model.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -279,7 +282,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -287,7 +290,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the os property value. Operating system.
-     *  @param string|null $value Value to set for the os property.
+     * @param string|null $value Value to set for the os property.
     */
     public function setOs(?string $value): void {
         $this->getBackingStore()->set('os', $value);
@@ -295,7 +298,7 @@ class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the osVersion property value. Operating system version.
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);

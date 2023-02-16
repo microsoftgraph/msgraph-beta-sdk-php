@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Base properties of the script parameter.
+*/
 class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -45,7 +48,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -129,7 +132,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -137,7 +140,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the applyDefaultValueWhenNotAssigned property value. Whether Apply DefaultValue When Not Assigned
-     *  @param bool|null $value Value to set for the applyDefaultValueWhenNotAssigned property.
+     * @param bool|null $value Value to set for the applyDefaultValueWhenNotAssigned property.
     */
     public function setApplyDefaultValueWhenNotAssigned(?bool $value): void {
         $this->getBackingStore()->set('applyDefaultValueWhenNotAssigned', $value);
@@ -145,7 +148,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -153,7 +156,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the description property value. The description of the param
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -161,7 +164,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the isRequired property value. Whether the param is required
-     *  @param bool|null $value Value to set for the isRequired property.
+     * @param bool|null $value Value to set for the isRequired property.
     */
     public function setIsRequired(?bool $value): void {
         $this->getBackingStore()->set('isRequired', $value);
@@ -169,7 +172,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the name property value. The name of the param
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -177,7 +180,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

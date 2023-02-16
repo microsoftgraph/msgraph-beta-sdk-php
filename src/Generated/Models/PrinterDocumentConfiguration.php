@@ -36,7 +36,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -280,7 +280,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -288,7 +288,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -296,7 +296,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the collate property value. The collate property
-     *  @param bool|null $value Value to set for the collate property.
+     * @param bool|null $value Value to set for the collate property.
     */
     public function setCollate(?bool $value): void {
         $this->getBackingStore()->set('collate', $value);
@@ -304,7 +304,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the colorMode property value. The colorMode property
-     *  @param PrintColorMode|null $value Value to set for the colorMode property.
+     * @param PrintColorMode|null $value Value to set for the colorMode property.
     */
     public function setColorMode(?PrintColorMode $value): void {
         $this->getBackingStore()->set('colorMode', $value);
@@ -312,7 +312,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the copies property value. The copies property
-     *  @param int|null $value Value to set for the copies property.
+     * @param int|null $value Value to set for the copies property.
     */
     public function setCopies(?int $value): void {
         $this->getBackingStore()->set('copies', $value);
@@ -320,7 +320,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the dpi property value. The dpi property
-     *  @param int|null $value Value to set for the dpi property.
+     * @param int|null $value Value to set for the dpi property.
     */
     public function setDpi(?int $value): void {
         $this->getBackingStore()->set('dpi', $value);
@@ -328,7 +328,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the duplexMode property value. The duplexMode property
-     *  @param PrintDuplexMode|null $value Value to set for the duplexMode property.
+     * @param PrintDuplexMode|null $value Value to set for the duplexMode property.
     */
     public function setDuplexMode(?PrintDuplexMode $value): void {
         $this->getBackingStore()->set('duplexMode', $value);
@@ -336,7 +336,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the feedDirection property value. The feedDirection property
-     *  @param PrinterFeedDirection|null $value Value to set for the feedDirection property.
+     * @param PrinterFeedDirection|null $value Value to set for the feedDirection property.
     */
     public function setFeedDirection(?PrinterFeedDirection $value): void {
         $this->getBackingStore()->set('feedDirection', $value);
@@ -344,7 +344,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the feedOrientation property value. The feedOrientation property
-     *  @param PrinterFeedOrientation|null $value Value to set for the feedOrientation property.
+     * @param PrinterFeedOrientation|null $value Value to set for the feedOrientation property.
     */
     public function setFeedOrientation(?PrinterFeedOrientation $value): void {
         $this->getBackingStore()->set('feedOrientation', $value);
@@ -352,7 +352,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the finishings property value. The finishings property
-     *  @param array<PrintFinishing>|null $value Value to set for the finishings property.
+     * @param array<PrintFinishing>|null $value Value to set for the finishings property.
     */
     public function setFinishings(?array $value): void {
         $this->getBackingStore()->set('finishings', $value);
@@ -360,7 +360,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the fitPdfToPage property value. The fitPdfToPage property
-     *  @param bool|null $value Value to set for the fitPdfToPage property.
+     * @param bool|null $value Value to set for the fitPdfToPage property.
     */
     public function setFitPdfToPage(?bool $value): void {
         $this->getBackingStore()->set('fitPdfToPage', $value);
@@ -368,7 +368,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the inputBin property value. The inputBin property
-     *  @param string|null $value Value to set for the inputBin property.
+     * @param string|null $value Value to set for the inputBin property.
     */
     public function setInputBin(?string $value): void {
         $this->getBackingStore()->set('inputBin', $value);
@@ -376,7 +376,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the margin property value. The margin property
-     *  @param PrintMargin|null $value Value to set for the margin property.
+     * @param PrintMargin|null $value Value to set for the margin property.
     */
     public function setMargin(?PrintMargin $value): void {
         $this->getBackingStore()->set('margin', $value);
@@ -384,7 +384,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the mediaSize property value. The mediaSize property
-     *  @param string|null $value Value to set for the mediaSize property.
+     * @param string|null $value Value to set for the mediaSize property.
     */
     public function setMediaSize(?string $value): void {
         $this->getBackingStore()->set('mediaSize', $value);
@@ -392,7 +392,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the mediaType property value. The mediaType property
-     *  @param string|null $value Value to set for the mediaType property.
+     * @param string|null $value Value to set for the mediaType property.
     */
     public function setMediaType(?string $value): void {
         $this->getBackingStore()->set('mediaType', $value);
@@ -400,7 +400,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the multipageLayout property value. The multipageLayout property
-     *  @param PrintMultipageLayout|null $value Value to set for the multipageLayout property.
+     * @param PrintMultipageLayout|null $value Value to set for the multipageLayout property.
     */
     public function setMultipageLayout(?PrintMultipageLayout $value): void {
         $this->getBackingStore()->set('multipageLayout', $value);
@@ -408,7 +408,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -416,7 +416,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the orientation property value. The orientation property
-     *  @param PrintOrientation|null $value Value to set for the orientation property.
+     * @param PrintOrientation|null $value Value to set for the orientation property.
     */
     public function setOrientation(?PrintOrientation $value): void {
         $this->getBackingStore()->set('orientation', $value);
@@ -424,7 +424,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the outputBin property value. The outputBin property
-     *  @param string|null $value Value to set for the outputBin property.
+     * @param string|null $value Value to set for the outputBin property.
     */
     public function setOutputBin(?string $value): void {
         $this->getBackingStore()->set('outputBin', $value);
@@ -432,7 +432,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the pageRanges property value. The pageRanges property
-     *  @param array<IntegerRange>|null $value Value to set for the pageRanges property.
+     * @param array<IntegerRange>|null $value Value to set for the pageRanges property.
     */
     public function setPageRanges(?array $value): void {
         $this->getBackingStore()->set('pageRanges', $value);
@@ -440,7 +440,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the pagesPerSheet property value. The pagesPerSheet property
-     *  @param int|null $value Value to set for the pagesPerSheet property.
+     * @param int|null $value Value to set for the pagesPerSheet property.
     */
     public function setPagesPerSheet(?int $value): void {
         $this->getBackingStore()->set('pagesPerSheet', $value);
@@ -448,7 +448,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the quality property value. The quality property
-     *  @param PrintQuality|null $value Value to set for the quality property.
+     * @param PrintQuality|null $value Value to set for the quality property.
     */
     public function setQuality(?PrintQuality $value): void {
         $this->getBackingStore()->set('quality', $value);
@@ -456,7 +456,7 @@ class PrinterDocumentConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the scaling property value. The scaling property
-     *  @param PrintScaling|null $value Value to set for the scaling property.
+     * @param PrintScaling|null $value Value to set for the scaling property.
     */
     public function setScaling(?PrintScaling $value): void {
         $this->getBackingStore()->set('scaling', $value);

@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Entity representing setting comparison result
+*/
 class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +143,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +151,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +159,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the comparisonResult property value. Setting comparison result type
-     *  @param DeviceManagementComparisonResult|null $value Value to set for the comparisonResult property.
+     * @param DeviceManagementComparisonResult|null $value Value to set for the comparisonResult property.
     */
     public function setComparisonResult(?DeviceManagementComparisonResult $value): void {
         $this->getBackingStore()->set('comparisonResult', $value);
@@ -164,7 +167,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the currentValueJson property value. JSON representation of current intent (or) template setting's value
-     *  @param string|null $value Value to set for the currentValueJson property.
+     * @param string|null $value Value to set for the currentValueJson property.
     */
     public function setCurrentValueJson(?string $value): void {
         $this->getBackingStore()->set('currentValueJson', $value);
@@ -172,7 +175,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the definitionId property value. The ID of the setting definition for this instance
-     *  @param string|null $value Value to set for the definitionId property.
+     * @param string|null $value Value to set for the definitionId property.
     */
     public function setDefinitionId(?string $value): void {
         $this->getBackingStore()->set('definitionId', $value);
@@ -180,7 +183,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the displayName property value. The setting's display name
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -188,7 +191,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the id property value. The setting ID
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -196,7 +199,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the newValueJson property value. JSON representation of new template setting's value
-     *  @param string|null $value Value to set for the newValueJson property.
+     * @param string|null $value Value to set for the newValueJson property.
     */
     public function setNewValueJson(?string $value): void {
         $this->getBackingStore()->set('newValueJson', $value);
@@ -204,7 +207,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

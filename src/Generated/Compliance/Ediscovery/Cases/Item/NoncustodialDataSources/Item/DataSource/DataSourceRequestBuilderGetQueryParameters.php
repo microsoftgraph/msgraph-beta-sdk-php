@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Noncus
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * User source or SharePoint site data source as non-custodial data source.
+*/
 class DataSourceRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class DataSourceRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new dataSourceRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

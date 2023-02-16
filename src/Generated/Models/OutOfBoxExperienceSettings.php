@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Out of box experience setting
+*/
 class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +143,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +151,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +159,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the deviceUsageType property value. The deviceUsageType property
-     *  @param WindowsDeviceUsageType|null $value Value to set for the deviceUsageType property.
+     * @param WindowsDeviceUsageType|null $value Value to set for the deviceUsageType property.
     */
     public function setDeviceUsageType(?WindowsDeviceUsageType $value): void {
         $this->getBackingStore()->set('deviceUsageType', $value);
@@ -164,7 +167,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the hideEscapeLink property value. If set to true, then the user can't start over with different account, on company sign-in
-     *  @param bool|null $value Value to set for the hideEscapeLink property.
+     * @param bool|null $value Value to set for the hideEscapeLink property.
     */
     public function setHideEscapeLink(?bool $value): void {
         $this->getBackingStore()->set('hideEscapeLink', $value);
@@ -172,7 +175,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the hideEULA property value. Show or hide EULA to user
-     *  @param bool|null $value Value to set for the hideEULA property.
+     * @param bool|null $value Value to set for the hideEULA property.
     */
     public function setHideEULA(?bool $value): void {
         $this->getBackingStore()->set('hideEULA', $value);
@@ -180,7 +183,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the hidePrivacySettings property value. Show or hide privacy settings to user
-     *  @param bool|null $value Value to set for the hidePrivacySettings property.
+     * @param bool|null $value Value to set for the hidePrivacySettings property.
     */
     public function setHidePrivacySettings(?bool $value): void {
         $this->getBackingStore()->set('hidePrivacySettings', $value);
@@ -188,7 +191,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -196,7 +199,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the skipKeyboardSelectionPage property value. If set, then skip the keyboard selection page if Language and Region are set
-     *  @param bool|null $value Value to set for the skipKeyboardSelectionPage property.
+     * @param bool|null $value Value to set for the skipKeyboardSelectionPage property.
     */
     public function setSkipKeyboardSelectionPage(?bool $value): void {
         $this->getBackingStore()->set('skipKeyboardSelectionPage', $value);
@@ -204,7 +207,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the userType property value. The userType property
-     *  @param WindowsUserType|null $value Value to set for the userType property.
+     * @param WindowsUserType|null $value Value to set for the userType property.
     */
     public function setUserType(?WindowsUserType $value): void {
         $this->getBackingStore()->set('userType', $value);

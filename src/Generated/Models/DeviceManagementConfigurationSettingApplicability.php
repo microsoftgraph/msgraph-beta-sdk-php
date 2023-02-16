@@ -44,7 +44,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -128,7 +128,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -136,7 +136,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +144,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
 
     /**
      * Sets the description property value. description of the setting
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -152,7 +152,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
 
     /**
      * Sets the deviceMode property value. Describes applicability for the mode the device is in
-     *  @param DeviceManagementConfigurationDeviceMode|null $value Value to set for the deviceMode property.
+     * @param DeviceManagementConfigurationDeviceMode|null $value Value to set for the deviceMode property.
     */
     public function setDeviceMode(?DeviceManagementConfigurationDeviceMode $value): void {
         $this->getBackingStore()->set('deviceMode', $value);
@@ -160,7 +160,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
 
     /**
      * Sets the platform property value. Supported platform types.
-     *  @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platform property.
+     * @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platform property.
     */
     public function setPlatform(?DeviceManagementConfigurationPlatforms $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -176,7 +176,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
 
     /**
      * Sets the technologies property value. Describes which technology this setting can be deployed with
-     *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
+     * @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value): void {
         $this->getBackingStore()->set('technologies', $value);

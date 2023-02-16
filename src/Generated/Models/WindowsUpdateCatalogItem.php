@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsUpdateCatalogItem extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new windowsUpdateCatalogItem and sets the default values.
+     * Instantiates a new WindowsUpdateCatalogItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,7 +83,7 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the catalog item.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -91,7 +91,7 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
 
     /**
      * Sets the endOfSupportDate property value. The last supported date for a catalog item
-     *  @param DateTime|null $value Value to set for the endOfSupportDate property.
+     * @param DateTime|null $value Value to set for the endOfSupportDate property.
     */
     public function setEndOfSupportDate(?DateTime $value): void {
         $this->getBackingStore()->set('endOfSupportDate', $value);
@@ -99,7 +99,7 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
 
     /**
      * Sets the releaseDateTime property value. The date the catalog item was released
-     *  @param DateTime|null $value Value to set for the releaseDateTime property.
+     * @param DateTime|null $value Value to set for the releaseDateTime property.
     */
     public function setReleaseDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('releaseDateTime', $value);

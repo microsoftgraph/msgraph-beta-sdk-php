@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Bandwidth business hours and percentages type
+*/
 class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
 
     /**
      * Sets the bandwidthBeginBusinessHours property value. Specifies the beginning of business hours using a 24-hour clock (0-23). Valid values 0 to 23
-     *  @param int|null $value Value to set for the bandwidthBeginBusinessHours property.
+     * @param int|null $value Value to set for the bandwidthBeginBusinessHours property.
     */
     public function setBandwidthBeginBusinessHours(?int $value): void {
         $this->getBackingStore()->set('bandwidthBeginBusinessHours', $value);
@@ -144,7 +147,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
 
     /**
      * Sets the bandwidthEndBusinessHours property value. Specifies the end of business hours using a 24-hour clock (0-23). Valid values 0 to 23
-     *  @param int|null $value Value to set for the bandwidthEndBusinessHours property.
+     * @param int|null $value Value to set for the bandwidthEndBusinessHours property.
     */
     public function setBandwidthEndBusinessHours(?int $value): void {
         $this->getBackingStore()->set('bandwidthEndBusinessHours', $value);
@@ -152,7 +155,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
 
     /**
      * Sets the bandwidthPercentageDuringBusinessHours property value. Specifies the percentage of bandwidth to limit during business hours (0-100). Valid values 0 to 100
-     *  @param int|null $value Value to set for the bandwidthPercentageDuringBusinessHours property.
+     * @param int|null $value Value to set for the bandwidthPercentageDuringBusinessHours property.
     */
     public function setBandwidthPercentageDuringBusinessHours(?int $value): void {
         $this->getBackingStore()->set('bandwidthPercentageDuringBusinessHours', $value);
@@ -160,7 +163,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
 
     /**
      * Sets the bandwidthPercentageOutsideBusinessHours property value. Specifies the percentage of bandwidth to limit outsidse business hours (0-100). Valid values 0 to 100
-     *  @param int|null $value Value to set for the bandwidthPercentageOutsideBusinessHours property.
+     * @param int|null $value Value to set for the bandwidthPercentageOutsideBusinessHours property.
     */
     public function setBandwidthPercentageOutsideBusinessHours(?int $value): void {
         $this->getBackingStore()->set('bandwidthPercentageOutsideBusinessHours', $value);
@@ -168,7 +171,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

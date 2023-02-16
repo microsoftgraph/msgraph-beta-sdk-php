@@ -36,7 +36,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the notificationChannelType property value. The type of the notification channel. The possible values are: portal, email, phoneCall, sms, unknownFutureValue.
-     *  @param NotificationChannelType|null $value Value to set for the notificationChannelType property.
+     * @param NotificationChannelType|null $value Value to set for the notificationChannelType property.
     */
     public function setNotificationChannelType(?NotificationChannelType $value): void {
         $this->getBackingStore()->set('notificationChannelType', $value);
@@ -134,7 +134,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the notificationReceivers property value. Information about the notification receivers, such as locale and contact information. For example, en-us for locale and serena.davis@contoso.com for contact information.
-     *  @param array<NotificationReceiver>|null $value Value to set for the notificationReceivers property.
+     * @param array<NotificationReceiver>|null $value Value to set for the notificationReceivers property.
     */
     public function setNotificationReceivers(?array $value): void {
         $this->getBackingStore()->set('notificationReceivers', $value);
@@ -142,7 +142,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class NotificationChannel implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the receivers property value. The contact information about the notification receivers, such as email addresses. For portal notifications, receivers can be left blank. For email notifications, receivers consists of email addresses such as serena.davis@contoso.com.
-     *  @param array<string>|null $value Value to set for the receivers property.
+     * @param array<string>|null $value Value to set for the receivers property.
     */
     public function setReceivers(?array $value): void {
         $this->getBackingStore()->set('receivers', $value);

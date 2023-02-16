@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * A complex type to represent the result of bulk driver action.
+*/
 class BulkDriverActionResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +113,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +121,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +129,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the failedDriverIds property value. List of driver Ids where the action is failed.
-     *  @param array<string>|null $value Value to set for the failedDriverIds property.
+     * @param array<string>|null $value Value to set for the failedDriverIds property.
     */
     public function setFailedDriverIds(?array $value): void {
         $this->getBackingStore()->set('failedDriverIds', $value);
@@ -134,7 +137,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the notFoundDriverIds property value. List of driver Ids that are not found.
-     *  @param array<string>|null $value Value to set for the notFoundDriverIds property.
+     * @param array<string>|null $value Value to set for the notFoundDriverIds property.
     */
     public function setNotFoundDriverIds(?array $value): void {
         $this->getBackingStore()->set('notFoundDriverIds', $value);
@@ -142,7 +145,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +153,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the successfulDriverIds property value. List of driver Ids where the action is successful.
-     *  @param array<string>|null $value Value to set for the successfulDriverIds property.
+     * @param array<string>|null $value Value to set for the successfulDriverIds property.
     */
     public function setSuccessfulDriverIds(?array $value): void {
         $this->getBackingStore()->set('successfulDriverIds', $value);

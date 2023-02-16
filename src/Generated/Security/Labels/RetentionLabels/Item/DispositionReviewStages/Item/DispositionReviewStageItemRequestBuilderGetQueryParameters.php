@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\Di
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Review stages during which reviewers are notified to determine whether a document must be deleted or retained.
+*/
 class DispositionReviewStageItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class DispositionReviewStageItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new DispositionReviewStageItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\MicrosoftApp
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get the _settings_ in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
+*/
 class MicrosoftApplicationDataAccessRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class MicrosoftApplicationDataAccessRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new microsoftApplicationDataAccessRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -36,7 +36,7 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -51,7 +51,7 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
     }
 
     /**
-     * Gets the externalBucketId property value. The externalBucketId property
+     * Gets the externalBucketId property value. Application-specified identifier of the bucket.
      * @return string|null
     */
     public function getExternalBucketId(): ?string {
@@ -72,7 +72,7 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name of the bucket.
      * @return string|null
     */
     public function getName(): ?string {
@@ -100,7 +100,7 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,23 +108,23 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the externalBucketId property value. The externalBucketId property
-     *  @param string|null $value Value to set for the externalBucketId property.
+     * Sets the externalBucketId property value. Application-specified identifier of the bucket.
+     * @param string|null $value Value to set for the externalBucketId property.
     */
     public function setExternalBucketId(?string $value): void {
         $this->getBackingStore()->set('externalBucketId', $value);
     }
 
     /**
-     * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * Sets the name property value. Name of the bucket.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -132,7 +132,7 @@ class PlannerPlanConfigurationBucketLocalization implements AdditionalDataHolder
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

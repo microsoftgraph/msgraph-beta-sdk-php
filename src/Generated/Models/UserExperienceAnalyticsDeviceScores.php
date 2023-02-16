@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceScores and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceScores and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -134,7 +134,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
 
     /**
      * Sets the appReliabilityScore property value. The user experience analytics device app reliability score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the appReliabilityScore property.
+     * @param float|null $value Value to set for the appReliabilityScore property.
     */
     public function setAppReliabilityScore(?float $value): void {
         $this->getBackingStore()->set('appReliabilityScore', $value);
@@ -142,7 +142,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
 
     /**
      * Sets the batteryHealthScore property value. The user experience analytics device battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the batteryHealthScore property.
+     * @param float|null $value Value to set for the batteryHealthScore property.
     */
     public function setBatteryHealthScore(?float $value): void {
         $this->getBackingStore()->set('batteryHealthScore', $value);
@@ -150,7 +150,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. The user experience analytics device name.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -158,7 +158,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
 
     /**
      * Sets the endpointAnalyticsScore property value. The user experience analytics device score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the endpointAnalyticsScore property.
+     * @param float|null $value Value to set for the endpointAnalyticsScore property.
     */
     public function setEndpointAnalyticsScore(?float $value): void {
         $this->getBackingStore()->set('endpointAnalyticsScore', $value);
@@ -166,7 +166,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
 
     /**
      * Sets the healthStatus property value. The healthStatus property
-     *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
+     * @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
         $this->getBackingStore()->set('healthStatus', $value);
@@ -174,7 +174,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
 
     /**
      * Sets the manufacturer property value. The user experience analytics device manufacturer.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -182,7 +182,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
 
     /**
      * Sets the model property value. The user experience analytics device model.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -190,7 +190,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
 
     /**
      * Sets the startupPerformanceScore property value. The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the startupPerformanceScore property.
+     * @param float|null $value Value to set for the startupPerformanceScore property.
     */
     public function setStartupPerformanceScore(?float $value): void {
         $this->getBackingStore()->set('startupPerformanceScore', $value);
@@ -198,7 +198,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
 
     /**
      * Sets the workFromAnywhereScore property value. The user experience analytics device work From anywhere score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the workFromAnywhereScore property.
+     * @param float|null $value Value to set for the workFromAnywhereScore property.
     */
     public function setWorkFromAnywhereScore(?float $value): void {
         $this->getBackingStore()->set('workFromAnywhereScore', $value);

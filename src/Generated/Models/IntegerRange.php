@@ -36,7 +36,7 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the end property value. The inclusive upper bound of the integer range.
-     *  @param int|null $value Value to set for the end property.
+     * @param int|null $value Value to set for the end property.
     */
     public function setEnd(?int $value): void {
         $this->getBackingStore()->set('end', $value);
@@ -144,7 +144,7 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the maximum property value. The maximum property
-     *  @param int|null $value Value to set for the maximum property.
+     * @param int|null $value Value to set for the maximum property.
     */
     public function setMaximum(?int $value): void {
         $this->getBackingStore()->set('maximum', $value);
@@ -152,7 +152,7 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the minimum property value. The minimum property
-     *  @param int|null $value Value to set for the minimum property.
+     * @param int|null $value Value to set for the minimum property.
     */
     public function setMinimum(?int $value): void {
         $this->getBackingStore()->set('minimum', $value);
@@ -160,7 +160,7 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class IntegerRange implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the start property value. The inclusive lower bound of the integer range.
-     *  @param int|null $value Value to set for the start property.
+     * @param int|null $value Value to set for the start property.
     */
     public function setStart(?int $value): void {
         $this->getBackingStore()->set('start', $value);

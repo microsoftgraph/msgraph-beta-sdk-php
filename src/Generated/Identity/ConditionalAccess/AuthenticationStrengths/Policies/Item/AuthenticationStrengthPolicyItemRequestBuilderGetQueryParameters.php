@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Authenticati
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
+*/
 class AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

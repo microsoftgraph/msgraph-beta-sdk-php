@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceStartupProcess and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceStartupProcess and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -94,7 +94,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
 
     /**
      * Sets the managedDeviceId property value. The user experience analytics device id.
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -102,7 +102,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
 
     /**
      * Sets the processName property value. User experience analytics device startup process name.
-     *  @param string|null $value Value to set for the processName property.
+     * @param string|null $value Value to set for the processName property.
     */
     public function setProcessName(?string $value): void {
         $this->getBackingStore()->set('processName', $value);
@@ -110,7 +110,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
 
     /**
      * Sets the productName property value. The user experience analytics device startup process product name.
-     *  @param string|null $value Value to set for the productName property.
+     * @param string|null $value Value to set for the productName property.
     */
     public function setProductName(?string $value): void {
         $this->getBackingStore()->set('productName', $value);
@@ -118,7 +118,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
 
     /**
      * Sets the publisher property value. The User experience analytics device startup process publisher.
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -126,7 +126,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
 
     /**
      * Sets the startupImpactInMs property value. User experience analytics device startup process impact in milliseconds.
-     *  @param int|null $value Value to set for the startupImpactInMs property.
+     * @param int|null $value Value to set for the startupImpactInMs property.
     */
     public function setStartupImpactInMs(?int $value): void {
         $this->getBackingStore()->set('startupImpactInMs', $value);

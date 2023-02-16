@@ -36,7 +36,7 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -64,7 +64,7 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name of the override. Allowed override values will be dependent on the property affected by the rule.
      * @return string|null
     */
     public function getName(): ?string {
@@ -80,7 +80,7 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the rules property value. The rules property
+     * Gets the rules property value. Overridden rules. These are used as rules for the override instead of the default rules.
      * @return array<string>|null
     */
     public function getRules(): ?array {
@@ -100,7 +100,7 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,15 +108,15 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * Sets the name property value. Name of the override. Allowed override values will be dependent on the property affected by the rule.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -124,15 +124,15 @@ class PlannerRuleOverride implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the rules property value. The rules property
-     *  @param array<string>|null $value Value to set for the rules property.
+     * Sets the rules property value. Overridden rules. These are used as rules for the override instead of the default rules.
+     * @param array<string>|null $value Value to set for the rules property.
     */
     public function setRules(?array $value): void {
         $this->getBackingStore()->set('rules', $value);

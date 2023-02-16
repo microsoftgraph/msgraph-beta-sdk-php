@@ -114,7 +114,7 @@ class OutlookTaskFolder extends Entity implements Parsable
 
     /**
      * Sets the changeKey property value. The version of the task folder.
-     *  @param string|null $value Value to set for the changeKey property.
+     * @param string|null $value Value to set for the changeKey property.
     */
     public function setChangeKey(?string $value): void {
         $this->getBackingStore()->set('changeKey', $value);
@@ -122,7 +122,7 @@ class OutlookTaskFolder extends Entity implements Parsable
 
     /**
      * Sets the isDefaultFolder property value. True if the folder is the default task folder.
-     *  @param bool|null $value Value to set for the isDefaultFolder property.
+     * @param bool|null $value Value to set for the isDefaultFolder property.
     */
     public function setIsDefaultFolder(?bool $value): void {
         $this->getBackingStore()->set('isDefaultFolder', $value);
@@ -130,7 +130,7 @@ class OutlookTaskFolder extends Entity implements Parsable
 
     /**
      * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.
-     *  @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
+     * @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
     */
     public function setMultiValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('multiValueExtendedProperties', $value);
@@ -138,7 +138,7 @@ class OutlookTaskFolder extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name of the task folder.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -146,7 +146,7 @@ class OutlookTaskFolder extends Entity implements Parsable
 
     /**
      * Sets the parentGroupKey property value. The unique GUID identifier for the task folder's parent group.
-     *  @param string|null $value Value to set for the parentGroupKey property.
+     * @param string|null $value Value to set for the parentGroupKey property.
     */
     public function setParentGroupKey(?string $value): void {
         $this->getBackingStore()->set('parentGroupKey', $value);
@@ -154,7 +154,7 @@ class OutlookTaskFolder extends Entity implements Parsable
 
     /**
      * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the task folder. Read-only. Nullable.
-     *  @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
+     * @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
     public function setSingleValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('singleValueExtendedProperties', $value);
@@ -162,7 +162,7 @@ class OutlookTaskFolder extends Entity implements Parsable
 
     /**
      * Sets the tasks property value. The tasks in this task folder. Read-only. Nullable.
-     *  @param array<OutlookTask>|null $value Value to set for the tasks property.
+     * @param array<OutlookTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);

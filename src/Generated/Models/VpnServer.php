@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * VPN Server definition.
+*/
 class VpnServer implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class VpnServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +113,7 @@ class VpnServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +121,7 @@ class VpnServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the address property value. Address (IP address, FQDN or URL)
-     *  @param string|null $value Value to set for the address property.
+     * @param string|null $value Value to set for the address property.
     */
     public function setAddress(?string $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -126,7 +129,7 @@ class VpnServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -134,7 +137,7 @@ class VpnServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. Description.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -142,7 +145,7 @@ class VpnServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isDefaultServer property value. Default server.
-     *  @param bool|null $value Value to set for the isDefaultServer property.
+     * @param bool|null $value Value to set for the isDefaultServer property.
     */
     public function setIsDefaultServer(?bool $value): void {
         $this->getBackingStore()->set('isDefaultServer', $value);
@@ -150,7 +153,7 @@ class VpnServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

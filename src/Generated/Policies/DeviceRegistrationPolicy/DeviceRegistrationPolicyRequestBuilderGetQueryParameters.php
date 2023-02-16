@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\DeviceRegistrationPolicy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
+*/
 class DeviceRegistrationPolicyRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class DeviceRegistrationPolicyRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new deviceRegistrationPolicyRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

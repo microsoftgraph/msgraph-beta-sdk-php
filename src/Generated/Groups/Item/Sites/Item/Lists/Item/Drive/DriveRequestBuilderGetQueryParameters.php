@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\Drive
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
+*/
 class DriveRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class DriveRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new driveRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

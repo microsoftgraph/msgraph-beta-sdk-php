@@ -36,7 +36,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the enabled property value. The enabled property
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -154,7 +154,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the endpoint property value. The endpoint property
-     *  @param string|null $value Value to set for the endpoint property.
+     * @param string|null $value Value to set for the endpoint property.
     */
     public function setEndpoint(?string $value): void {
         $this->getBackingStore()->set('endpoint', $value);
@@ -162,7 +162,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -170,7 +170,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the provider property value. The provider property
-     *  @param string|null $value Value to set for the provider property.
+     * @param string|null $value Value to set for the provider property.
     */
     public function setProvider(?string $value): void {
         $this->getBackingStore()->set('provider', $value);
@@ -178,7 +178,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the region property value. The region property
-     *  @param string|null $value Value to set for the region property.
+     * @param string|null $value Value to set for the region property.
     */
     public function setRegion(?string $value): void {
         $this->getBackingStore()->set('region', $value);
@@ -186,7 +186,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the vendor property value. The vendor property
-     *  @param string|null $value Value to set for the vendor property.
+     * @param string|null $value Value to set for the vendor property.
     */
     public function setVendor(?string $value): void {
         $this->getBackingStore()->set('vendor', $value);

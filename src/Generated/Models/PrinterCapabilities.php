@@ -36,7 +36,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -470,7 +470,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -478,7 +478,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -486,7 +486,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the bottomMargins property value. A list of supported bottom margins(in microns) for the printer.
-     *  @param array<int>|null $value Value to set for the bottomMargins property.
+     * @param array<int>|null $value Value to set for the bottomMargins property.
     */
     public function setBottomMargins(?array $value): void {
         $this->getBackingStore()->set('bottomMargins', $value);
@@ -494,7 +494,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the collation property value. True if the printer supports collating when printing muliple copies of a multi-page document; false otherwise.
-     *  @param bool|null $value Value to set for the collation property.
+     * @param bool|null $value Value to set for the collation property.
     */
     public function setCollation(?bool $value): void {
         $this->getBackingStore()->set('collation', $value);
@@ -502,7 +502,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the colorModes property value. The color modes supported by the printer. Valid values are described in the following table.
-     *  @param array<PrintColorMode>|null $value Value to set for the colorModes property.
+     * @param array<PrintColorMode>|null $value Value to set for the colorModes property.
     */
     public function setColorModes(?array $value): void {
         $this->getBackingStore()->set('colorModes', $value);
@@ -510,7 +510,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the contentTypes property value. A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types.
-     *  @param array<string>|null $value Value to set for the contentTypes property.
+     * @param array<string>|null $value Value to set for the contentTypes property.
     */
     public function setContentTypes(?array $value): void {
         $this->getBackingStore()->set('contentTypes', $value);
@@ -518,7 +518,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the copiesPerJob property value. The range of copies per job supported by the printer.
-     *  @param IntegerRange|null $value Value to set for the copiesPerJob property.
+     * @param IntegerRange|null $value Value to set for the copiesPerJob property.
     */
     public function setCopiesPerJob(?IntegerRange $value): void {
         $this->getBackingStore()->set('copiesPerJob', $value);
@@ -526,7 +526,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the dpis property value. The list of print resolutions in DPI that are supported by the printer.
-     *  @param array<int>|null $value Value to set for the dpis property.
+     * @param array<int>|null $value Value to set for the dpis property.
     */
     public function setDpis(?array $value): void {
         $this->getBackingStore()->set('dpis', $value);
@@ -534,7 +534,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the duplexModes property value. The list of duplex modes that are supported by the printer. Valid values are described in the following table.
-     *  @param array<PrintDuplexMode>|null $value Value to set for the duplexModes property.
+     * @param array<PrintDuplexMode>|null $value Value to set for the duplexModes property.
     */
     public function setDuplexModes(?array $value): void {
         $this->getBackingStore()->set('duplexModes', $value);
@@ -542,7 +542,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the feedDirections property value. The feedDirections property
-     *  @param array<PrinterFeedDirection>|null $value Value to set for the feedDirections property.
+     * @param array<PrinterFeedDirection>|null $value Value to set for the feedDirections property.
     */
     public function setFeedDirections(?array $value): void {
         $this->getBackingStore()->set('feedDirections', $value);
@@ -550,7 +550,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the feedOrientations property value. The list of feed orientations that are supported by the printer.
-     *  @param array<PrinterFeedOrientation>|null $value Value to set for the feedOrientations property.
+     * @param array<PrinterFeedOrientation>|null $value Value to set for the feedOrientations property.
     */
     public function setFeedOrientations(?array $value): void {
         $this->getBackingStore()->set('feedOrientations', $value);
@@ -558,7 +558,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the finishings property value. Finishing processes the printer supports for a printed document.
-     *  @param array<PrintFinishing>|null $value Value to set for the finishings property.
+     * @param array<PrintFinishing>|null $value Value to set for the finishings property.
     */
     public function setFinishings(?array $value): void {
         $this->getBackingStore()->set('finishings', $value);
@@ -566,7 +566,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the inputBins property value. Supported input bins for the printer.
-     *  @param array<string>|null $value Value to set for the inputBins property.
+     * @param array<string>|null $value Value to set for the inputBins property.
     */
     public function setInputBins(?array $value): void {
         $this->getBackingStore()->set('inputBins', $value);
@@ -574,7 +574,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isColorPrintingSupported property value. True if color printing is supported by the printer; false otherwise. Read-only.
-     *  @param bool|null $value Value to set for the isColorPrintingSupported property.
+     * @param bool|null $value Value to set for the isColorPrintingSupported property.
     */
     public function setIsColorPrintingSupported(?bool $value): void {
         $this->getBackingStore()->set('isColorPrintingSupported', $value);
@@ -582,7 +582,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isPageRangeSupported property value. True if the printer supports printing by page ranges; false otherwise.
-     *  @param bool|null $value Value to set for the isPageRangeSupported property.
+     * @param bool|null $value Value to set for the isPageRangeSupported property.
     */
     public function setIsPageRangeSupported(?bool $value): void {
         $this->getBackingStore()->set('isPageRangeSupported', $value);
@@ -590,7 +590,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the leftMargins property value. A list of supported left margins(in microns) for the printer.
-     *  @param array<int>|null $value Value to set for the leftMargins property.
+     * @param array<int>|null $value Value to set for the leftMargins property.
     */
     public function setLeftMargins(?array $value): void {
         $this->getBackingStore()->set('leftMargins', $value);
@@ -598,7 +598,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mediaColors property value. The media (i.e., paper) colors supported by the printer.
-     *  @param array<string>|null $value Value to set for the mediaColors property.
+     * @param array<string>|null $value Value to set for the mediaColors property.
     */
     public function setMediaColors(?array $value): void {
         $this->getBackingStore()->set('mediaColors', $value);
@@ -606,7 +606,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mediaSizes property value. The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. Valid values are in the following table.
-     *  @param array<string>|null $value Value to set for the mediaSizes property.
+     * @param array<string>|null $value Value to set for the mediaSizes property.
     */
     public function setMediaSizes(?array $value): void {
         $this->getBackingStore()->set('mediaSizes', $value);
@@ -614,7 +614,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mediaTypes property value. The media types supported by the printer.
-     *  @param array<string>|null $value Value to set for the mediaTypes property.
+     * @param array<string>|null $value Value to set for the mediaTypes property.
     */
     public function setMediaTypes(?array $value): void {
         $this->getBackingStore()->set('mediaTypes', $value);
@@ -622,7 +622,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the multipageLayouts property value. The presentation directions supported by the printer. Supported values are described in the following table.
-     *  @param array<PrintMultipageLayout>|null $value Value to set for the multipageLayouts property.
+     * @param array<PrintMultipageLayout>|null $value Value to set for the multipageLayouts property.
     */
     public function setMultipageLayouts(?array $value): void {
         $this->getBackingStore()->set('multipageLayouts', $value);
@@ -630,7 +630,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -638,7 +638,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the orientations property value. The print orientations supported by the printer. Valid values are described in the following table.
-     *  @param array<PrintOrientation>|null $value Value to set for the orientations property.
+     * @param array<PrintOrientation>|null $value Value to set for the orientations property.
     */
     public function setOrientations(?array $value): void {
         $this->getBackingStore()->set('orientations', $value);
@@ -646,7 +646,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the outputBins property value. The printer's supported output bins (trays).
-     *  @param array<string>|null $value Value to set for the outputBins property.
+     * @param array<string>|null $value Value to set for the outputBins property.
     */
     public function setOutputBins(?array $value): void {
         $this->getBackingStore()->set('outputBins', $value);
@@ -654,7 +654,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the pagesPerSheet property value. Supported number of Input Pages to impose upon a single Impression.
-     *  @param array<int>|null $value Value to set for the pagesPerSheet property.
+     * @param array<int>|null $value Value to set for the pagesPerSheet property.
     */
     public function setPagesPerSheet(?array $value): void {
         $this->getBackingStore()->set('pagesPerSheet', $value);
@@ -662,7 +662,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the qualities property value. The print qualities supported by the printer.
-     *  @param array<PrintQuality>|null $value Value to set for the qualities property.
+     * @param array<PrintQuality>|null $value Value to set for the qualities property.
     */
     public function setQualities(?array $value): void {
         $this->getBackingStore()->set('qualities', $value);
@@ -670,7 +670,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the rightMargins property value. A list of supported right margins(in microns) for the printer.
-     *  @param array<int>|null $value Value to set for the rightMargins property.
+     * @param array<int>|null $value Value to set for the rightMargins property.
     */
     public function setRightMargins(?array $value): void {
         $this->getBackingStore()->set('rightMargins', $value);
@@ -678,7 +678,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the scalings property value. Supported print scalings.
-     *  @param array<PrintScaling>|null $value Value to set for the scalings property.
+     * @param array<PrintScaling>|null $value Value to set for the scalings property.
     */
     public function setScalings(?array $value): void {
         $this->getBackingStore()->set('scalings', $value);
@@ -686,7 +686,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedColorConfigurations property value. The supportedColorConfigurations property
-     *  @param array<PrintColorConfiguration>|null $value Value to set for the supportedColorConfigurations property.
+     * @param array<PrintColorConfiguration>|null $value Value to set for the supportedColorConfigurations property.
     */
     public function setSupportedColorConfigurations(?array $value): void {
         $this->getBackingStore()->set('supportedColorConfigurations', $value);
@@ -694,7 +694,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedCopiesPerJob property value. The supportedCopiesPerJob property
-     *  @param IntegerRange|null $value Value to set for the supportedCopiesPerJob property.
+     * @param IntegerRange|null $value Value to set for the supportedCopiesPerJob property.
     */
     public function setSupportedCopiesPerJob(?IntegerRange $value): void {
         $this->getBackingStore()->set('supportedCopiesPerJob', $value);
@@ -702,7 +702,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedDocumentMimeTypes property value. The supportedDocumentMimeTypes property
-     *  @param array<string>|null $value Value to set for the supportedDocumentMimeTypes property.
+     * @param array<string>|null $value Value to set for the supportedDocumentMimeTypes property.
     */
     public function setSupportedDocumentMimeTypes(?array $value): void {
         $this->getBackingStore()->set('supportedDocumentMimeTypes', $value);
@@ -710,7 +710,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedDuplexConfigurations property value. The supportedDuplexConfigurations property
-     *  @param array<PrintDuplexConfiguration>|null $value Value to set for the supportedDuplexConfigurations property.
+     * @param array<PrintDuplexConfiguration>|null $value Value to set for the supportedDuplexConfigurations property.
     */
     public function setSupportedDuplexConfigurations(?array $value): void {
         $this->getBackingStore()->set('supportedDuplexConfigurations', $value);
@@ -718,7 +718,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedFinishings property value. The supportedFinishings property
-     *  @param array<PrintFinishing>|null $value Value to set for the supportedFinishings property.
+     * @param array<PrintFinishing>|null $value Value to set for the supportedFinishings property.
     */
     public function setSupportedFinishings(?array $value): void {
         $this->getBackingStore()->set('supportedFinishings', $value);
@@ -726,7 +726,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedMediaColors property value. The supportedMediaColors property
-     *  @param array<string>|null $value Value to set for the supportedMediaColors property.
+     * @param array<string>|null $value Value to set for the supportedMediaColors property.
     */
     public function setSupportedMediaColors(?array $value): void {
         $this->getBackingStore()->set('supportedMediaColors', $value);
@@ -734,7 +734,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedMediaSizes property value. The supportedMediaSizes property
-     *  @param array<string>|null $value Value to set for the supportedMediaSizes property.
+     * @param array<string>|null $value Value to set for the supportedMediaSizes property.
     */
     public function setSupportedMediaSizes(?array $value): void {
         $this->getBackingStore()->set('supportedMediaSizes', $value);
@@ -742,7 +742,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedMediaTypes property value. The supportedMediaTypes property
-     *  @param array<PrintMediaType>|null $value Value to set for the supportedMediaTypes property.
+     * @param array<PrintMediaType>|null $value Value to set for the supportedMediaTypes property.
     */
     public function setSupportedMediaTypes(?array $value): void {
         $this->getBackingStore()->set('supportedMediaTypes', $value);
@@ -750,7 +750,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedOrientations property value. The supportedOrientations property
-     *  @param array<PrintOrientation>|null $value Value to set for the supportedOrientations property.
+     * @param array<PrintOrientation>|null $value Value to set for the supportedOrientations property.
     */
     public function setSupportedOrientations(?array $value): void {
         $this->getBackingStore()->set('supportedOrientations', $value);
@@ -758,7 +758,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedOutputBins property value. The supportedOutputBins property
-     *  @param array<string>|null $value Value to set for the supportedOutputBins property.
+     * @param array<string>|null $value Value to set for the supportedOutputBins property.
     */
     public function setSupportedOutputBins(?array $value): void {
         $this->getBackingStore()->set('supportedOutputBins', $value);
@@ -766,7 +766,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedPagesPerSheet property value. The supportedPagesPerSheet property
-     *  @param IntegerRange|null $value Value to set for the supportedPagesPerSheet property.
+     * @param IntegerRange|null $value Value to set for the supportedPagesPerSheet property.
     */
     public function setSupportedPagesPerSheet(?IntegerRange $value): void {
         $this->getBackingStore()->set('supportedPagesPerSheet', $value);
@@ -774,7 +774,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedPresentationDirections property value. The supportedPresentationDirections property
-     *  @param array<PrintPresentationDirection>|null $value Value to set for the supportedPresentationDirections property.
+     * @param array<PrintPresentationDirection>|null $value Value to set for the supportedPresentationDirections property.
     */
     public function setSupportedPresentationDirections(?array $value): void {
         $this->getBackingStore()->set('supportedPresentationDirections', $value);
@@ -782,7 +782,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportedPrintQualities property value. The supportedPrintQualities property
-     *  @param array<PrintQuality>|null $value Value to set for the supportedPrintQualities property.
+     * @param array<PrintQuality>|null $value Value to set for the supportedPrintQualities property.
     */
     public function setSupportedPrintQualities(?array $value): void {
         $this->getBackingStore()->set('supportedPrintQualities', $value);
@@ -790,7 +790,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportsFitPdfToPage property value. True if the printer supports scaling PDF pages to match the print media size; false otherwise.
-     *  @param bool|null $value Value to set for the supportsFitPdfToPage property.
+     * @param bool|null $value Value to set for the supportsFitPdfToPage property.
     */
     public function setSupportsFitPdfToPage(?bool $value): void {
         $this->getBackingStore()->set('supportsFitPdfToPage', $value);
@@ -798,7 +798,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the topMargins property value. A list of supported top margins(in microns) for the printer.
-     *  @param array<int>|null $value Value to set for the topMargins property.
+     * @param array<int>|null $value Value to set for the topMargins property.
     */
     public function setTopMargins(?array $value): void {
         $this->getBackingStore()->set('topMargins', $value);

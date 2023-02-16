@@ -36,7 +36,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the adminConfiguration property value. The admin configuration of the policy on the user's authentication app. For a policy that does not impact the success/failure of the authentication, the evaluation defaults to notApplicable. The possible values are: notApplicable, enabled, disabled, unknownFutureValue.
-     *  @param AuthenticationAppAdminConfiguration|null $value Value to set for the adminConfiguration property.
+     * @param AuthenticationAppAdminConfiguration|null $value Value to set for the adminConfiguration property.
     */
     public function setAdminConfiguration(?AuthenticationAppAdminConfiguration $value): void {
         $this->getBackingStore()->set('adminConfiguration', $value);
@@ -136,7 +136,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the authenticationEvaluation property value. Evaluates the success/failure of the authentication based on the admin configuration of the policy on the user's client authentication app. The possible values are: success, failure, unknownFutureValue.
-     *  @param AuthenticationAppEvaluation|null $value Value to set for the authenticationEvaluation property.
+     * @param AuthenticationAppEvaluation|null $value Value to set for the authenticationEvaluation property.
     */
     public function setAuthenticationEvaluation(?AuthenticationAppEvaluation $value): void {
         $this->getBackingStore()->set('authenticationEvaluation', $value);
@@ -144,7 +144,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -152,7 +152,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +160,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the policyName property value. The name of the policy enforced on the user's authentication app.
-     *  @param string|null $value Value to set for the policyName property.
+     * @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {
         $this->getBackingStore()->set('policyName', $value);
@@ -168,7 +168,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the status property value. Refers to whether the policy executed as expected on the user's client authentication app. The possible values are: unknown, appLockOutOfDate, appLockEnabled, appLockDisabled, appContextOutOfDate, appContextShown, appContextNotShown, locationContextOutOfDate, locationContextShown, locationContextNotShown, numberMatchOutOfDate, numberMatchCorrectNumberEntered, numberMatchIncorrectNumberEntered, numberMatchDeny, tamperResistantHardwareOutOfDate, tamperResistantHardwareUsed, tamperResistantHardwareNotUsed, unknownFutureValue.
-     *  @param AuthenticationAppPolicyStatus|null $value Value to set for the status property.
+     * @param AuthenticationAppPolicyStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AuthenticationAppPolicyStatus $value): void {
         $this->getBackingStore()->set('status', $value);

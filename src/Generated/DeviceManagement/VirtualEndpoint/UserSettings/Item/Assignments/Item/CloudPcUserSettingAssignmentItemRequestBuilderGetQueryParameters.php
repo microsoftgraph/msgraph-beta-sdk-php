@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\UserSe
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the set of Microsoft 365 groups and security groups in Azure Active Directory that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.
+*/
 class CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

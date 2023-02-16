@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The user experience analytics Work From Anywhere metrics devices summary.
+*/
 class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -220,7 +223,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -228,7 +231,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the autopilotDevicesSummary property value. The value of work from anywhere autopilot devices summary.
-     *  @param UserExperienceAnalyticsAutopilotDevicesSummary|null $value Value to set for the autopilotDevicesSummary property.
+     * @param UserExperienceAnalyticsAutopilotDevicesSummary|null $value Value to set for the autopilotDevicesSummary property.
     */
     public function setAutopilotDevicesSummary(?UserExperienceAnalyticsAutopilotDevicesSummary $value): void {
         $this->getBackingStore()->set('autopilotDevicesSummary', $value);
@@ -236,7 +239,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -244,7 +247,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the cloudIdentityDevicesSummary property value. The user experience analytics work from anywhere Cloud Identity devices summary.
-     *  @param UserExperienceAnalyticsCloudIdentityDevicesSummary|null $value Value to set for the cloudIdentityDevicesSummary property.
+     * @param UserExperienceAnalyticsCloudIdentityDevicesSummary|null $value Value to set for the cloudIdentityDevicesSummary property.
     */
     public function setCloudIdentityDevicesSummary(?UserExperienceAnalyticsCloudIdentityDevicesSummary $value): void {
         $this->getBackingStore()->set('cloudIdentityDevicesSummary', $value);
@@ -252,7 +255,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the cloudManagementDevicesSummary property value. The user experience work from anywhere Cloud management devices summary.
-     *  @param UserExperienceAnalyticsCloudManagementDevicesSummary|null $value Value to set for the cloudManagementDevicesSummary property.
+     * @param UserExperienceAnalyticsCloudManagementDevicesSummary|null $value Value to set for the cloudManagementDevicesSummary property.
     */
     public function setCloudManagementDevicesSummary(?UserExperienceAnalyticsCloudManagementDevicesSummary $value): void {
         $this->getBackingStore()->set('cloudManagementDevicesSummary', $value);
@@ -260,7 +263,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the coManagedDevices property value. Total number of co-managed devices. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the coManagedDevices property.
+     * @param int|null $value Value to set for the coManagedDevices property.
     */
     public function setCoManagedDevices(?int $value): void {
         $this->getBackingStore()->set('coManagedDevices', $value);
@@ -268,7 +271,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the devicesNotAutopilotRegistered property.
+     * @param int|null $value Value to set for the devicesNotAutopilotRegistered property.
     */
     public function setDevicesNotAutopilotRegistered(?int $value): void {
         $this->getBackingStore()->set('devicesNotAutopilotRegistered', $value);
@@ -276,7 +279,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the devicesWithoutAutopilotProfileAssigned property.
+     * @param int|null $value Value to set for the devicesWithoutAutopilotProfileAssigned property.
     */
     public function setDevicesWithoutAutopilotProfileAssigned(?int $value): void {
         $this->getBackingStore()->set('devicesWithoutAutopilotProfileAssigned', $value);
@@ -284,7 +287,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the devicesWithoutCloudIdentity property value. The count of devices that are not cloud identity. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the devicesWithoutCloudIdentity property.
+     * @param int|null $value Value to set for the devicesWithoutCloudIdentity property.
     */
     public function setDevicesWithoutCloudIdentity(?int $value): void {
         $this->getBackingStore()->set('devicesWithoutCloudIdentity', $value);
@@ -292,7 +295,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the intuneDevices property value. The count of intune devices that are not autopilot registerd. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the intuneDevices property.
+     * @param int|null $value Value to set for the intuneDevices property.
     */
     public function setIntuneDevices(?int $value): void {
         $this->getBackingStore()->set('intuneDevices', $value);
@@ -300,7 +303,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -308,7 +311,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the tenantAttachDevices property value. Total count of tenant attach devices. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the tenantAttachDevices property.
+     * @param int|null $value Value to set for the tenantAttachDevices property.
     */
     public function setTenantAttachDevices(?int $value): void {
         $this->getBackingStore()->set('tenantAttachDevices', $value);
@@ -316,7 +319,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the totalDevices property value. The total count of devices. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the totalDevices property.
+     * @param int|null $value Value to set for the totalDevices property.
     */
     public function setTotalDevices(?int $value): void {
         $this->getBackingStore()->set('totalDevices', $value);
@@ -324,7 +327,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the unsupportedOSversionDevices property value. The count of Windows 10 devices that have unsupported OS versions. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the unsupportedOSversionDevices property.
+     * @param int|null $value Value to set for the unsupportedOSversionDevices property.
     */
     public function setUnsupportedOSversionDevices(?int $value): void {
         $this->getBackingStore()->set('unsupportedOSversionDevices', $value);
@@ -332,7 +335,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the windows10Devices property value. The count of windows 10 devices. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the windows10Devices property.
+     * @param int|null $value Value to set for the windows10Devices property.
     */
     public function setWindows10Devices(?int $value): void {
         $this->getBackingStore()->set('windows10Devices', $value);
@@ -340,7 +343,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the windows10DevicesSummary property value. The user experience analytics work from anywhere Windows 10 devices summary.
-     *  @param UserExperienceAnalyticsWindows10DevicesSummary|null $value Value to set for the windows10DevicesSummary property.
+     * @param UserExperienceAnalyticsWindows10DevicesSummary|null $value Value to set for the windows10DevicesSummary property.
     */
     public function setWindows10DevicesSummary(?UserExperienceAnalyticsWindows10DevicesSummary $value): void {
         $this->getBackingStore()->set('windows10DevicesSummary', $value);
@@ -348,7 +351,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
 
     /**
      * Sets the windows10DevicesWithoutTenantAttach property value. The count of windows 10 devices that are Intune and Comanaged. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the windows10DevicesWithoutTenantAttach property.
+     * @param int|null $value Value to set for the windows10DevicesWithoutTenantAttach property.
     */
     public function setWindows10DevicesWithoutTenantAttach(?int $value): void {
         $this->getBackingStore()->set('windows10DevicesWithoutTenantAttach', $value);

@@ -36,7 +36,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the adminAgentSoftwareUpdateStatus property value. The software update available for the admin agent.
-     *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the adminAgentSoftwareUpdateStatus property.
+     * @param TeamworkSoftwareUpdateStatus|null $value Value to set for the adminAgentSoftwareUpdateStatus property.
     */
     public function setAdminAgentSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
         $this->getBackingStore()->set('adminAgentSoftwareUpdateStatus', $value);
@@ -156,7 +156,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +164,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the companyPortalSoftwareUpdateStatus property value. The software update available for the company portal.
-     *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the companyPortalSoftwareUpdateStatus property.
+     * @param TeamworkSoftwareUpdateStatus|null $value Value to set for the companyPortalSoftwareUpdateStatus property.
     */
     public function setCompanyPortalSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
         $this->getBackingStore()->set('companyPortalSoftwareUpdateStatus', $value);
@@ -172,7 +172,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the firmwareSoftwareUpdateStatus property value. The software update available for the firmware.
-     *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the firmwareSoftwareUpdateStatus property.
+     * @param TeamworkSoftwareUpdateStatus|null $value Value to set for the firmwareSoftwareUpdateStatus property.
     */
     public function setFirmwareSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
         $this->getBackingStore()->set('firmwareSoftwareUpdateStatus', $value);
@@ -180,7 +180,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -188,7 +188,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the operatingSystemSoftwareUpdateStatus property value. The software update available for the operating system.
-     *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the operatingSystemSoftwareUpdateStatus property.
+     * @param TeamworkSoftwareUpdateStatus|null $value Value to set for the operatingSystemSoftwareUpdateStatus property.
     */
     public function setOperatingSystemSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
         $this->getBackingStore()->set('operatingSystemSoftwareUpdateStatus', $value);
@@ -196,7 +196,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the partnerAgentSoftwareUpdateStatus property value. The software update available for the partner agent.
-     *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the partnerAgentSoftwareUpdateStatus property.
+     * @param TeamworkSoftwareUpdateStatus|null $value Value to set for the partnerAgentSoftwareUpdateStatus property.
     */
     public function setPartnerAgentSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
         $this->getBackingStore()->set('partnerAgentSoftwareUpdateStatus', $value);
@@ -204,7 +204,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the teamsClientSoftwareUpdateStatus property value. The software update available for the Teams client.
-     *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the teamsClientSoftwareUpdateStatus property.
+     * @param TeamworkSoftwareUpdateStatus|null $value Value to set for the teamsClientSoftwareUpdateStatus property.
     */
     public function setTeamsClientSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
         $this->getBackingStore()->set('teamsClientSoftwareUpdateStatus', $value);

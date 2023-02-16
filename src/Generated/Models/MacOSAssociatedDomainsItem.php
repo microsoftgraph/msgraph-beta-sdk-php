@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * A mapping of application identifiers to associated domains.
+*/
 class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +113,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +121,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the applicationIdentifier property value. The application identifier of the app to associate domains with.
-     *  @param string|null $value Value to set for the applicationIdentifier property.
+     * @param string|null $value Value to set for the applicationIdentifier property.
     */
     public function setApplicationIdentifier(?string $value): void {
         $this->getBackingStore()->set('applicationIdentifier', $value);
@@ -126,7 +129,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -134,7 +137,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the directDownloadsEnabled property value. Determines whether data should be downloaded directly or via a CDN.
-     *  @param bool|null $value Value to set for the directDownloadsEnabled property.
+     * @param bool|null $value Value to set for the directDownloadsEnabled property.
     */
     public function setDirectDownloadsEnabled(?bool $value): void {
         $this->getBackingStore()->set('directDownloadsEnabled', $value);
@@ -142,7 +145,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the domains property value. The list of domains to associate.
-     *  @param array<string>|null $value Value to set for the domains property.
+     * @param array<string>|null $value Value to set for the domains property.
     */
     public function setDomains(?array $value): void {
         $this->getBackingStore()->set('domains', $value);
@@ -150,7 +153,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

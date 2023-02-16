@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Mapping between an Android app permission and the action Android should take when that permission is requested.
+*/
 class AndroidPermissionAction implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -44,7 +47,7 @@ class AndroidPermissionAction implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +103,7 @@ class AndroidPermissionAction implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the action property value. Android action taken when an app requests a dangerous permission.
-     *  @param AndroidPermissionActionType|null $value Value to set for the action property.
+     * @param AndroidPermissionActionType|null $value Value to set for the action property.
     */
     public function setAction(?AndroidPermissionActionType $value): void {
         $this->getBackingStore()->set('action', $value);
@@ -108,7 +111,7 @@ class AndroidPermissionAction implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -116,7 +119,7 @@ class AndroidPermissionAction implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +127,7 @@ class AndroidPermissionAction implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -132,7 +135,7 @@ class AndroidPermissionAction implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the permission property value. Android permission string, defined in the official Android documentation.  Example 'android.permission.READ_CONTACTS'.
-     *  @param string|null $value Value to set for the permission property.
+     * @param string|null $value Value to set for the permission property.
     */
     public function setPermission(?string $value): void {
         $this->getBackingStore()->set('permission', $value);

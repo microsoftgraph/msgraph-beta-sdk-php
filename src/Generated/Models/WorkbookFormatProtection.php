@@ -64,7 +64,7 @@ class WorkbookFormatProtection extends Entity implements Parsable
 
     /**
      * Sets the formulaHidden property value. The formulaHidden property
-     *  @param bool|null $value Value to set for the formulaHidden property.
+     * @param bool|null $value Value to set for the formulaHidden property.
     */
     public function setFormulaHidden(?bool $value): void {
         $this->getBackingStore()->set('formulaHidden', $value);
@@ -72,7 +72,7 @@ class WorkbookFormatProtection extends Entity implements Parsable
 
     /**
      * Sets the locked property value. The locked property
-     *  @param bool|null $value Value to set for the locked property.
+     * @param bool|null $value Value to set for the locked property.
     */
     public function setLocked(?bool $value): void {
         $this->getBackingStore()->set('locked', $value);

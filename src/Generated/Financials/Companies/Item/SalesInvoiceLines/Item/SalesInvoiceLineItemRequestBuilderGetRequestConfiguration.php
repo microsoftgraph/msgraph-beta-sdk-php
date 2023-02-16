@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoiceL
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class SalesInvoiceLineItemRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
@@ -21,4 +24,26 @@ class SalesInvoiceLineItemRequestBuilderGetRequestConfiguration
     */
     public ?SalesInvoiceLineItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new SalesInvoiceLineItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return SalesInvoiceLineItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): SalesInvoiceLineItemRequestBuilderGetQueryParameters {
+        return new SalesInvoiceLineItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new SalesInvoiceLineItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SalesInvoiceLineItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SalesInvoiceLineItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -36,7 +36,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -203,7 +203,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the onPremisesApplicationSegments property value. Represents the application segment collection for an on-premises wildcard application.
+     * Gets the onPremisesApplicationSegments property value. The onPremisesApplicationSegments property
      * @return array<OnPremisesApplicationSegment>|null
     */
     public function getOnPremisesApplicationSegments(): ?array {
@@ -211,7 +211,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the segmentsConfiguration property value. The segmentsConfiguration property
+     * Gets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Azure AD Application Proxy.
      * @return SegmentConfiguration|null
     */
     public function getSegmentsConfiguration(): ?SegmentConfiguration {
@@ -290,7 +290,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -298,7 +298,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the alternateUrl property value. If you are configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that will point to the traffic manager.
-     *  @param string|null $value Value to set for the alternateUrl property.
+     * @param string|null $value Value to set for the alternateUrl property.
     */
     public function setAlternateUrl(?string $value): void {
         $this->getBackingStore()->set('alternateUrl', $value);
@@ -306,7 +306,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the applicationServerTimeout property value. The duration the connector will wait for a response from the backend application before closing the connection. Possible values are default, long. When set to default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. Use long if your server takes more than 85 seconds to respond to requests or if you are unable to access the application and the error status is 'Backend Timeout'. Default value is default.
-     *  @param string|null $value Value to set for the applicationServerTimeout property.
+     * @param string|null $value Value to set for the applicationServerTimeout property.
     */
     public function setApplicationServerTimeout(?string $value): void {
         $this->getBackingStore()->set('applicationServerTimeout', $value);
@@ -314,7 +314,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the applicationType property value. Indicates if this application is an Application Proxy configured application. This is pre-set by the system. Read-only.
-     *  @param string|null $value Value to set for the applicationType property.
+     * @param string|null $value Value to set for the applicationType property.
     */
     public function setApplicationType(?string $value): void {
         $this->getBackingStore()->set('applicationType', $value);
@@ -322,7 +322,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -330,7 +330,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Passthru does not require authentication. Possible values are: passthru, aadPreAuthentication.
-     *  @param ExternalAuthenticationType|null $value Value to set for the externalAuthenticationType property.
+     * @param ExternalAuthenticationType|null $value Value to set for the externalAuthenticationType property.
     */
     public function setExternalAuthenticationType(?ExternalAuthenticationType $value): void {
         $this->getBackingStore()->set('externalAuthenticationType', $value);
@@ -338,7 +338,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the externalUrl property value. The published external url for the application. For example, https://intranet-contoso.msappproxy.net/.
-     *  @param string|null $value Value to set for the externalUrl property.
+     * @param string|null $value Value to set for the externalUrl property.
     */
     public function setExternalUrl(?string $value): void {
         $this->getBackingStore()->set('externalUrl', $value);
@@ -346,7 +346,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the internalUrl property value. The internal url of the application. For example, https://intranet/.
-     *  @param string|null $value Value to set for the internalUrl property.
+     * @param string|null $value Value to set for the internalUrl property.
     */
     public function setInternalUrl(?string $value): void {
         $this->getBackingStore()->set('internalUrl', $value);
@@ -354,7 +354,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the isBackendCertificateValidationEnabled property value. Indicates whether backend SSL certificate validation is enabled for the application. For all new Application Proxy apps, the property will be set to true by default. For all existing apps, the property will be set to false.
-     *  @param bool|null $value Value to set for the isBackendCertificateValidationEnabled property.
+     * @param bool|null $value Value to set for the isBackendCertificateValidationEnabled property.
     */
     public function setIsBackendCertificateValidationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isBackendCertificateValidationEnabled', $value);
@@ -362,7 +362,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the isHttpOnlyCookieEnabled property value. Indicates if the HTTPOnly cookie flag should be set in the HTTP response headers. Set this value to true to have Application Proxy cookies include the HTTPOnly flag in the HTTP response headers. If using Remote Desktop Services, set this value to False. Default value is false.
-     *  @param bool|null $value Value to set for the isHttpOnlyCookieEnabled property.
+     * @param bool|null $value Value to set for the isHttpOnlyCookieEnabled property.
     */
     public function setIsHttpOnlyCookieEnabled(?bool $value): void {
         $this->getBackingStore()->set('isHttpOnlyCookieEnabled', $value);
@@ -370,7 +370,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the isOnPremPublishingEnabled property value. Indicates if the application is currently being published via Application Proxy or not. This is pre-set by the system. Read-only.
-     *  @param bool|null $value Value to set for the isOnPremPublishingEnabled property.
+     * @param bool|null $value Value to set for the isOnPremPublishingEnabled property.
     */
     public function setIsOnPremPublishingEnabled(?bool $value): void {
         $this->getBackingStore()->set('isOnPremPublishingEnabled', $value);
@@ -378,7 +378,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the isPersistentCookieEnabled property value. Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Azure Active Directory. Default value is false.
-     *  @param bool|null $value Value to set for the isPersistentCookieEnabled property.
+     * @param bool|null $value Value to set for the isPersistentCookieEnabled property.
     */
     public function setIsPersistentCookieEnabled(?bool $value): void {
         $this->getBackingStore()->set('isPersistentCookieEnabled', $value);
@@ -386,7 +386,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the isSecureCookieEnabled property value. Indicates if the Secure cookie flag should be set in the HTTP response headers. Set this value to true to transmit cookies over a secure channel such as an encrypted HTTPS request. Default value is true.
-     *  @param bool|null $value Value to set for the isSecureCookieEnabled property.
+     * @param bool|null $value Value to set for the isSecureCookieEnabled property.
     */
     public function setIsSecureCookieEnabled(?bool $value): void {
         $this->getBackingStore()->set('isSecureCookieEnabled', $value);
@@ -394,7 +394,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the isStateSessionEnabled property value. Indicates whether validation of the state parameter when the client uses the OAuth 2.0 authorization code grant flow is enabled. This setting allows admins to specify whether they want to enable CSRF protection for their apps.
-     *  @param bool|null $value Value to set for the isStateSessionEnabled property.
+     * @param bool|null $value Value to set for the isStateSessionEnabled property.
     */
     public function setIsStateSessionEnabled(?bool $value): void {
         $this->getBackingStore()->set('isStateSessionEnabled', $value);
@@ -402,7 +402,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the isTranslateHostHeaderEnabled property value. Indicates if the application should translate urls in the reponse headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true.
-     *  @param bool|null $value Value to set for the isTranslateHostHeaderEnabled property.
+     * @param bool|null $value Value to set for the isTranslateHostHeaderEnabled property.
     */
     public function setIsTranslateHostHeaderEnabled(?bool $value): void {
         $this->getBackingStore()->set('isTranslateHostHeaderEnabled', $value);
@@ -410,7 +410,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the isTranslateLinksInBodyEnabled property value. Indicates if the application should translate urls in the application body. Keep this value as false unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see Link translation with Application Proxy. Default value is false.
-     *  @param bool|null $value Value to set for the isTranslateLinksInBodyEnabled property.
+     * @param bool|null $value Value to set for the isTranslateLinksInBodyEnabled property.
     */
     public function setIsTranslateLinksInBodyEnabled(?bool $value): void {
         $this->getBackingStore()->set('isTranslateLinksInBodyEnabled', $value);
@@ -418,23 +418,23 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the onPremisesApplicationSegments property value. Represents the application segment collection for an on-premises wildcard application.
-     *  @param array<OnPremisesApplicationSegment>|null $value Value to set for the onPremisesApplicationSegments property.
+     * Sets the onPremisesApplicationSegments property value. The onPremisesApplicationSegments property
+     * @param array<OnPremisesApplicationSegment>|null $value Value to set for the onPremisesApplicationSegments property.
     */
     public function setOnPremisesApplicationSegments(?array $value): void {
         $this->getBackingStore()->set('onPremisesApplicationSegments', $value);
     }
 
     /**
-     * Sets the segmentsConfiguration property value. The segmentsConfiguration property
-     *  @param SegmentConfiguration|null $value Value to set for the segmentsConfiguration property.
+     * Sets the segmentsConfiguration property value. Represents the collection of application segments for an on-premises wildcard application that's published through Azure AD Application Proxy.
+     * @param SegmentConfiguration|null $value Value to set for the segmentsConfiguration property.
     */
     public function setSegmentsConfiguration(?SegmentConfiguration $value): void {
         $this->getBackingStore()->set('segmentsConfiguration', $value);
@@ -442,7 +442,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the singleSignOnSettings property value. Represents the single sign-on configuration for the on-premises application.
-     *  @param OnPremisesPublishingSingleSignOn|null $value Value to set for the singleSignOnSettings property.
+     * @param OnPremisesPublishingSingleSignOn|null $value Value to set for the singleSignOnSettings property.
     */
     public function setSingleSignOnSettings(?OnPremisesPublishingSingleSignOn $value): void {
         $this->getBackingStore()->set('singleSignOnSettings', $value);
@@ -450,7 +450,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the useAlternateUrlForTranslationAndRedirect property value. The useAlternateUrlForTranslationAndRedirect property
-     *  @param bool|null $value Value to set for the useAlternateUrlForTranslationAndRedirect property.
+     * @param bool|null $value Value to set for the useAlternateUrlForTranslationAndRedirect property.
     */
     public function setUseAlternateUrlForTranslationAndRedirect(?bool $value): void {
         $this->getBackingStore()->set('useAlternateUrlForTranslationAndRedirect', $value);
@@ -458,7 +458,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the verifiedCustomDomainCertificatesMetadata property value. Details of the certificate associated with the application when a custom domain is in use. null when using the default domain. Read-only.
-     *  @param VerifiedCustomDomainCertificatesMetadata|null $value Value to set for the verifiedCustomDomainCertificatesMetadata property.
+     * @param VerifiedCustomDomainCertificatesMetadata|null $value Value to set for the verifiedCustomDomainCertificatesMetadata property.
     */
     public function setVerifiedCustomDomainCertificatesMetadata(?VerifiedCustomDomainCertificatesMetadata $value): void {
         $this->getBackingStore()->set('verifiedCustomDomainCertificatesMetadata', $value);
@@ -466,7 +466,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the verifiedCustomDomainKeyCredential property value. The associated key credential for the custom domain used.
-     *  @param KeyCredential|null $value Value to set for the verifiedCustomDomainKeyCredential property.
+     * @param KeyCredential|null $value Value to set for the verifiedCustomDomainKeyCredential property.
     */
     public function setVerifiedCustomDomainKeyCredential(?KeyCredential $value): void {
         $this->getBackingStore()->set('verifiedCustomDomainKeyCredential', $value);
@@ -474,7 +474,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the verifiedCustomDomainPasswordCredential property value. The associated password credential for the custom domain used.
-     *  @param PasswordCredential|null $value Value to set for the verifiedCustomDomainPasswordCredential property.
+     * @param PasswordCredential|null $value Value to set for the verifiedCustomDomainPasswordCredential property.
     */
     public function setVerifiedCustomDomainPasswordCredential(?PasswordCredential $value): void {
         $this->getBackingStore()->set('verifiedCustomDomainPasswordCredential', $value);

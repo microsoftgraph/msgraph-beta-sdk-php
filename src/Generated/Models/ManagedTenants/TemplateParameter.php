@@ -36,7 +36,7 @@ class TemplateParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class TemplateParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class TemplateParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class TemplateParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. The description for the template parameter. Optional. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -154,7 +154,7 @@ class TemplateParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. The display name for the template parameter. Required. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -162,7 +162,7 @@ class TemplateParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the jsonAllowedValues property value. The allowed values for the template parameter represented by a serialized string of JSON. Optional. Read-only.
-     *  @param string|null $value Value to set for the jsonAllowedValues property.
+     * @param string|null $value Value to set for the jsonAllowedValues property.
     */
     public function setJsonAllowedValues(?string $value): void {
         $this->getBackingStore()->set('jsonAllowedValues', $value);
@@ -170,7 +170,7 @@ class TemplateParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the jsonDefaultValue property value. The default value for the template parameter represented by a serialized string of JSON. Required. Read-only.
-     *  @param string|null $value Value to set for the jsonDefaultValue property.
+     * @param string|null $value Value to set for the jsonDefaultValue property.
     */
     public function setJsonDefaultValue(?string $value): void {
         $this->getBackingStore()->set('jsonDefaultValue', $value);
@@ -178,7 +178,7 @@ class TemplateParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -186,7 +186,7 @@ class TemplateParameter implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the valueType property value. The valueType property
-     *  @param ManagementParameterValueType|null $value Value to set for the valueType property.
+     * @param ManagementParameterValueType|null $value Value to set for the valueType property.
     */
     public function setValueType(?ManagementParameterValueType $value): void {
         $this->getBackingStore()->set('valueType', $value);

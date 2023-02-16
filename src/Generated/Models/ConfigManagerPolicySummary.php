@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * A ConfigManager policy summary.
+*/
 class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +143,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +151,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +159,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the compliantDeviceCount property value. The number of devices evaluated to be compliant by the policy.
-     *  @param int|null $value Value to set for the compliantDeviceCount property.
+     * @param int|null $value Value to set for the compliantDeviceCount property.
     */
     public function setCompliantDeviceCount(?int $value): void {
         $this->getBackingStore()->set('compliantDeviceCount', $value);
@@ -164,7 +167,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the enforcedDeviceCount property value. The number of devices that have have been remediated by the policy.
-     *  @param int|null $value Value to set for the enforcedDeviceCount property.
+     * @param int|null $value Value to set for the enforcedDeviceCount property.
     */
     public function setEnforcedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('enforcedDeviceCount', $value);
@@ -172,7 +175,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the failedDeviceCount property value. The number of devices that failed to be evaluated by the policy.
-     *  @param int|null $value Value to set for the failedDeviceCount property.
+     * @param int|null $value Value to set for the failedDeviceCount property.
     */
     public function setFailedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('failedDeviceCount', $value);
@@ -180,7 +183,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the nonCompliantDeviceCount property value. The number of devices evaluated to be noncompliant by the policy.
-     *  @param int|null $value Value to set for the nonCompliantDeviceCount property.
+     * @param int|null $value Value to set for the nonCompliantDeviceCount property.
     */
     public function setNonCompliantDeviceCount(?int $value): void {
         $this->getBackingStore()->set('nonCompliantDeviceCount', $value);
@@ -188,7 +191,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -196,7 +199,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the pendingDeviceCount property value. The number of devices that have acknowledged the policy but are pending evaluation.
-     *  @param int|null $value Value to set for the pendingDeviceCount property.
+     * @param int|null $value Value to set for the pendingDeviceCount property.
     */
     public function setPendingDeviceCount(?int $value): void {
         $this->getBackingStore()->set('pendingDeviceCount', $value);
@@ -204,7 +207,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the targetedDeviceCount property value. The number of devices targeted by the policy.
-     *  @param int|null $value Value to set for the targetedDeviceCount property.
+     * @param int|null $value Value to set for the targetedDeviceCount property.
     */
     public function setTargetedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('targetedDeviceCount', $value);

@@ -12,6 +12,9 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * The entity represents an ADML (Administrative Template language) XML file uploaded by Administrator.
+*/
 class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -38,7 +41,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -132,7 +135,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -140,7 +143,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -148,7 +151,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the content property value. The contents of the uploaded ADML file.
-     *  @param StreamInterface|null $value Value to set for the content property.
+     * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -156,7 +159,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the fileName property value. The file name of the uploaded ADML file.
-     *  @param string|null $value Value to set for the fileName property.
+     * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
         $this->getBackingStore()->set('fileName', $value);
@@ -164,7 +167,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the id property value. Key of the entity.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -172,7 +175,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the languageCode property value. The language code of the uploaded ADML file.
-     *  @param string|null $value Value to set for the languageCode property.
+     * @param string|null $value Value to set for the languageCode property.
     */
     public function setLanguageCode(?string $value): void {
         $this->getBackingStore()->set('languageCode', $value);
@@ -180,7 +183,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -188,7 +191,7 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

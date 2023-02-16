@@ -36,7 +36,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the installStatus property value. The status of a partner agent installation. Possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.
-     *  @param CloudPcPartnerAgentInstallStatus|null $value Value to set for the installStatus property.
+     * @param CloudPcPartnerAgentInstallStatus|null $value Value to set for the installStatus property.
     */
     public function setInstallStatus(?CloudPcPartnerAgentInstallStatus $value): void {
         $this->getBackingStore()->set('installStatus', $value);
@@ -144,7 +144,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the isThirdPartyPartner property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent.  When 'FALSE', the agent is a Microsoft agent or is not known.  The default value is 'FALSE'.
-     *  @param bool|null $value Value to set for the isThirdPartyPartner property.
+     * @param bool|null $value Value to set for the isThirdPartyPartner property.
     */
     public function setIsThirdPartyPartner(?bool $value): void {
         $this->getBackingStore()->set('isThirdPartyPartner', $value);
@@ -152,7 +152,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +160,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the partnerAgentName property value. Indicates the name of a partner agent and includes first-party and third-party. Currently, Citrix is the only third-party value. Read-Only.
-     *  @param CloudPcPartnerAgentName|null $value Value to set for the partnerAgentName property.
+     * @param CloudPcPartnerAgentName|null $value Value to set for the partnerAgentName property.
     */
     public function setPartnerAgentName(?CloudPcPartnerAgentName $value): void {
         $this->getBackingStore()->set('partnerAgentName', $value);
@@ -168,7 +168,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the retriable property value. Indicates if the partner agent is a third party. When 'TRUE', the agent is a third-party (non-Microsoft) agent. When 'FALSE', the agent is a Microsoft agent or is not known. The default value is 'FALSE'.
-     *  @param bool|null $value Value to set for the retriable property.
+     * @param bool|null $value Value to set for the retriable property.
     */
     public function setRetriable(?bool $value): void {
         $this->getBackingStore()->set('retriable', $value);

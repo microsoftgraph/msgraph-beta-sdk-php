@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of access reviews instances past, present and future, if this object is a recurring access review.
+*/
 class AccessReviewItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AccessReviewItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new AccessReviewItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

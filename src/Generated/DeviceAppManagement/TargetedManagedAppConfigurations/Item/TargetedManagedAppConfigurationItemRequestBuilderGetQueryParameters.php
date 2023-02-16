@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\TargetedManagedAppC
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Targeted managed app configurations.
+*/
 class TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

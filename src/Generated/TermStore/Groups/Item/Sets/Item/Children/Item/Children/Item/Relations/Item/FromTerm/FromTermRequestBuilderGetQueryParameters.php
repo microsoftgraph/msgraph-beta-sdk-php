@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item\Childre
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
+*/
 class FromTermRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class FromTermRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new fromTermRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

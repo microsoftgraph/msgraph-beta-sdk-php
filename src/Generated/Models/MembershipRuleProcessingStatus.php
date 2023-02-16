@@ -37,7 +37,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +127,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the errorMessage property value. Detailed error message if dynamic group processing ran into an error.  Optional. Read-only.
-     *  @param string|null $value Value to set for the errorMessage property.
+     * @param string|null $value Value to set for the errorMessage property.
     */
     public function setErrorMessage(?string $value): void {
         $this->getBackingStore()->set('errorMessage', $value);
@@ -135,7 +135,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the lastMembershipUpdated property value. Most recent date and time when membership of a dynamic group was updated.  Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastMembershipUpdated property.
+     * @param DateTime|null $value Value to set for the lastMembershipUpdated property.
     */
     public function setLastMembershipUpdated(?DateTime $value): void {
         $this->getBackingStore()->set('lastMembershipUpdated', $value);
@@ -143,7 +143,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -151,7 +151,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the status property value. Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.
-     *  @param MembershipRuleProcessingStatusDetails|null $value Value to set for the status property.
+     * @param MembershipRuleProcessingStatusDetails|null $value Value to set for the status property.
     */
     public function setStatus(?MembershipRuleProcessingStatusDetails $value): void {
         $this->getBackingStore()->set('status', $value);

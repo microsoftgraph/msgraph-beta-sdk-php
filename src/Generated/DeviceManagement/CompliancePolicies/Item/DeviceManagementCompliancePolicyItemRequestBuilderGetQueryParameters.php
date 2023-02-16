@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * List of all compliance policies
+*/
 class DeviceManagementCompliancePolicyItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class DeviceManagementCompliancePolicyItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new DeviceManagementCompliancePolicyItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

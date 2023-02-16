@@ -36,7 +36,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the durationInDays property value. The duration in days for recurrence.
-     *  @param int|null $value Value to set for the durationInDays property.
+     * @param int|null $value Value to set for the durationInDays property.
     */
     public function setDurationInDays(?int $value): void {
         $this->getBackingStore()->set('durationInDays', $value);
@@ -144,7 +144,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -152,7 +152,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the recurrenceCount property value. The count of recurrences, if the value of recurrenceEndType is occurrences, or 0 otherwise.
-     *  @param int|null $value Value to set for the recurrenceCount property.
+     * @param int|null $value Value to set for the recurrenceCount property.
     */
     public function setRecurrenceCount(?int $value): void {
         $this->getBackingStore()->set('recurrenceCount', $value);
@@ -160,7 +160,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the recurrenceEndType property value. How the recurrence ends. Possible values: never, endBy, occurrences, or recurrenceCount. If it is never, then there is no explicit end of the recurrence series. If it is endBy, then the recurrence ends at a certain date. If it is occurrences, then the series ends after recurrenceCount instances of the review have completed.
-     *  @param string|null $value Value to set for the recurrenceEndType property.
+     * @param string|null $value Value to set for the recurrenceEndType property.
     */
     public function setRecurrenceEndType(?string $value): void {
         $this->getBackingStore()->set('recurrenceEndType', $value);
@@ -168,7 +168,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the recurrenceType property value. The recurrence interval. Possible vaules: onetime, weekly, monthly, quarterly, halfyearly or annual.
-     *  @param string|null $value Value to set for the recurrenceType property.
+     * @param string|null $value Value to set for the recurrenceType property.
     */
     public function setRecurrenceType(?string $value): void {
         $this->getBackingStore()->set('recurrenceType', $value);

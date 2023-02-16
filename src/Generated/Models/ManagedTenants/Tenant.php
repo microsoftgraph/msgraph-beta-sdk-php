@@ -106,7 +106,7 @@ class Tenant extends Entity implements Parsable
 
     /**
      * Sets the contract property value. The relationship details for the tenant with the managing entity.
-     *  @param TenantContract|null $value Value to set for the contract property.
+     * @param TenantContract|null $value Value to set for the contract property.
     */
     public function setContract(?TenantContract $value): void {
         $this->getBackingStore()->set('contract', $value);
@@ -114,7 +114,7 @@ class Tenant extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time the tenant was created in the multi-tenant management platform. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -122,7 +122,7 @@ class Tenant extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -130,7 +130,7 @@ class Tenant extends Entity implements Parsable
 
     /**
      * Sets the lastUpdatedDateTime property value. The date and time the tenant was last updated within the multi-tenant management platform. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -138,7 +138,7 @@ class Tenant extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -146,7 +146,7 @@ class Tenant extends Entity implements Parsable
 
     /**
      * Sets the tenantStatusInformation property value. The onboarding status information for the tenant. Optional. Read-only.
-     *  @param TenantStatusInformation|null $value Value to set for the tenantStatusInformation property.
+     * @param TenantStatusInformation|null $value Value to set for the tenantStatusInformation property.
     */
     public function setTenantStatusInformation(?TenantStatusInformation $value): void {
         $this->getBackingStore()->set('tenantStatusInformation', $value);

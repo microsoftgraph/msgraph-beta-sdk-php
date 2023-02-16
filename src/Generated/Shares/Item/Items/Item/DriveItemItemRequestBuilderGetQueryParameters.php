@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Shares\Item\Items\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * All driveItems contained in the sharing root. This collection cannot be enumerated.
+*/
 class DriveItemItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class DriveItemItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new DriveItemItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

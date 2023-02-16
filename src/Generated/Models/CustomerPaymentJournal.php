@@ -115,7 +115,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
 
     /**
      * Sets the account property value. The account property
-     *  @param Account|null $value Value to set for the account property.
+     * @param Account|null $value Value to set for the account property.
     */
     public function setAccount(?Account $value): void {
         $this->getBackingStore()->set('account', $value);
@@ -123,7 +123,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
 
     /**
      * Sets the balancingAccountId property value. The balancingAccountId property
-     *  @param string|null $value Value to set for the balancingAccountId property.
+     * @param string|null $value Value to set for the balancingAccountId property.
     */
     public function setBalancingAccountId(?string $value): void {
         $this->getBackingStore()->set('balancingAccountId', $value);
@@ -131,7 +131,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
 
     /**
      * Sets the balancingAccountNumber property value. The balancingAccountNumber property
-     *  @param string|null $value Value to set for the balancingAccountNumber property.
+     * @param string|null $value Value to set for the balancingAccountNumber property.
     */
     public function setBalancingAccountNumber(?string $value): void {
         $this->getBackingStore()->set('balancingAccountNumber', $value);
@@ -139,7 +139,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
 
     /**
      * Sets the code property value. The code property
-     *  @param string|null $value Value to set for the code property.
+     * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
         $this->getBackingStore()->set('code', $value);
@@ -147,7 +147,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
 
     /**
      * Sets the customerPayments property value. The customerPayments property
-     *  @param array<CustomerPayment>|null $value Value to set for the customerPayments property.
+     * @param array<CustomerPayment>|null $value Value to set for the customerPayments property.
     */
     public function setCustomerPayments(?array $value): void {
         $this->getBackingStore()->set('customerPayments', $value);
@@ -155,7 +155,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -163,7 +163,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);

@@ -36,7 +36,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the error property value. Error details, if expression evaluation resulted in an error.
-     *  @param PublicError|null $value Value to set for the error property.
+     * @param PublicError|null $value Value to set for the error property.
     */
     public function setError(?PublicError $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -154,7 +154,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the evaluationResult property value. A collection of values produced by the evaluation of the expression.
-     *  @param array<string>|null $value Value to set for the evaluationResult property.
+     * @param array<string>|null $value Value to set for the evaluationResult property.
     */
     public function setEvaluationResult(?array $value): void {
         $this->getBackingStore()->set('evaluationResult', $value);
@@ -162,7 +162,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the evaluationSucceeded property value. true if the evaluation was successful.
-     *  @param bool|null $value Value to set for the evaluationSucceeded property.
+     * @param bool|null $value Value to set for the evaluationSucceeded property.
     */
     public function setEvaluationSucceeded(?bool $value): void {
         $this->getBackingStore()->set('evaluationSucceeded', $value);
@@ -170,7 +170,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -178,7 +178,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the parsedExpression property value. An attributeMappingSource object representing the parsed expression.
-     *  @param AttributeMappingSource|null $value Value to set for the parsedExpression property.
+     * @param AttributeMappingSource|null $value Value to set for the parsedExpression property.
     */
     public function setParsedExpression(?AttributeMappingSource $value): void {
         $this->getBackingStore()->set('parsedExpression', $value);
@@ -186,7 +186,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the parsingSucceeded property value. true if the expression was parsed successfully.
-     *  @param bool|null $value Value to set for the parsingSucceeded property.
+     * @param bool|null $value Value to set for the parsingSucceeded property.
     */
     public function setParsingSucceeded(?bool $value): void {
         $this->getBackingStore()->set('parsingSucceeded', $value);

@@ -181,7 +181,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the childFolderCount property value. The number of immediate child mailFolders in the current mailFolder.
-     *  @param int|null $value Value to set for the childFolderCount property.
+     * @param int|null $value Value to set for the childFolderCount property.
     */
     public function setChildFolderCount(?int $value): void {
         $this->getBackingStore()->set('childFolderCount', $value);
@@ -189,7 +189,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the childFolders property value. The collection of child folders in the mailFolder.
-     *  @param array<MailFolder>|null $value Value to set for the childFolders property.
+     * @param array<MailFolder>|null $value Value to set for the childFolders property.
     */
     public function setChildFolders(?array $value): void {
         $this->getBackingStore()->set('childFolders', $value);
@@ -197,7 +197,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The mailFolder's display name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -205,7 +205,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the isHidden property value. Indicates whether the mailFolder is hidden. This property can be set only when creating the folder. Find more information in Hidden mail folders.
-     *  @param bool|null $value Value to set for the isHidden property.
+     * @param bool|null $value Value to set for the isHidden property.
     */
     public function setIsHidden(?bool $value): void {
         $this->getBackingStore()->set('isHidden', $value);
@@ -213,7 +213,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the messageRules property value. The collection of rules that apply to the user's Inbox folder.
-     *  @param array<MessageRule>|null $value Value to set for the messageRules property.
+     * @param array<MessageRule>|null $value Value to set for the messageRules property.
     */
     public function setMessageRules(?array $value): void {
         $this->getBackingStore()->set('messageRules', $value);
@@ -221,7 +221,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the messages property value. The collection of messages in the mailFolder.
-     *  @param array<Message>|null $value Value to set for the messages property.
+     * @param array<Message>|null $value Value to set for the messages property.
     */
     public function setMessages(?array $value): void {
         $this->getBackingStore()->set('messages', $value);
@@ -229,7 +229,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.
-     *  @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
+     * @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
     */
     public function setMultiValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('multiValueExtendedProperties', $value);
@@ -237,7 +237,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the parentFolderId property value. The unique identifier for the mailFolder's parent mailFolder.
-     *  @param string|null $value Value to set for the parentFolderId property.
+     * @param string|null $value Value to set for the parentFolderId property.
     */
     public function setParentFolderId(?string $value): void {
         $this->getBackingStore()->set('parentFolderId', $value);
@@ -245,7 +245,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.
-     *  @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
+     * @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
     public function setSingleValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('singleValueExtendedProperties', $value);
@@ -253,7 +253,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the totalItemCount property value. The number of items in the mailFolder.
-     *  @param int|null $value Value to set for the totalItemCount property.
+     * @param int|null $value Value to set for the totalItemCount property.
     */
     public function setTotalItemCount(?int $value): void {
         $this->getBackingStore()->set('totalItemCount', $value);
@@ -261,7 +261,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the unreadItemCount property value. The number of items in the mailFolder marked as unread.
-     *  @param int|null $value Value to set for the unreadItemCount property.
+     * @param int|null $value Value to set for the unreadItemCount property.
     */
     public function setUnreadItemCount(?int $value): void {
         $this->getBackingStore()->set('unreadItemCount', $value);
@@ -269,7 +269,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the userConfigurations property value. The userConfigurations property
-     *  @param array<UserConfiguration>|null $value Value to set for the userConfigurations property.
+     * @param array<UserConfiguration>|null $value Value to set for the userConfigurations property.
     */
     public function setUserConfigurations(?array $value): void {
         $this->getBackingStore()->set('userConfigurations', $value);
@@ -277,7 +277,7 @@ class MailFolder extends Entity implements Parsable
 
     /**
      * Sets the wellKnownName property value. The well-known folder name for the folder. The possible values are listed above. This property is only set for default folders created by Outlook. For other folders, this property is null.
-     *  @param string|null $value Value to set for the wellKnownName property.
+     * @param string|null $value Value to set for the wellKnownName property.
     */
     public function setWellKnownName(?string $value): void {
         $this->getBackingStore()->set('wellKnownName', $value);

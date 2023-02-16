@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
+*/
 class AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

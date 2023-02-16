@@ -36,7 +36,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the allProperties property value. Enables locking all sensitive properties. The sensitive properties are keyCredentials, passwordCredentials, and tokenEncryptionKeyId.
-     *  @param bool|null $value Value to set for the allProperties property.
+     * @param bool|null $value Value to set for the allProperties property.
     */
     public function setAllProperties(?bool $value): void {
         $this->getBackingStore()->set('allProperties', $value);
@@ -146,7 +146,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -154,7 +154,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the credentialsWithUsageSign property value. Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Sign.
-     *  @param bool|null $value Value to set for the credentialsWithUsageSign property.
+     * @param bool|null $value Value to set for the credentialsWithUsageSign property.
     */
     public function setCredentialsWithUsageSign(?bool $value): void {
         $this->getBackingStore()->set('credentialsWithUsageSign', $value);
@@ -162,7 +162,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the credentialsWithUsageVerify property value. Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Verify. This locks OAuth service principals.
-     *  @param bool|null $value Value to set for the credentialsWithUsageVerify property.
+     * @param bool|null $value Value to set for the credentialsWithUsageVerify property.
     */
     public function setCredentialsWithUsageVerify(?bool $value): void {
         $this->getBackingStore()->set('credentialsWithUsageVerify', $value);
@@ -170,7 +170,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the isEnabled property value. Enables or disables service principal lock configuration. To allow the sensitive properties to be updated, update this property to false to disable the lock on the service principal.
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -178,7 +178,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -186,7 +186,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the tokenEncryptionKeyId property value. Locks the tokenEncryptionKeyId property for modification on the service principal.
-     *  @param bool|null $value Value to set for the tokenEncryptionKeyId property.
+     * @param bool|null $value Value to set for the tokenEncryptionKeyId property.
     */
     public function setTokenEncryptionKeyId(?bool $value): void {
         $this->getBackingStore()->set('tokenEncryptionKeyId', $value);

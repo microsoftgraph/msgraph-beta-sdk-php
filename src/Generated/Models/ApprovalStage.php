@@ -36,7 +36,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the approvalStageTimeOutInDays property value. The number of days that a request can be pending a response before it is automatically denied.
-     *  @param int|null $value Value to set for the approvalStageTimeOutInDays property.
+     * @param int|null $value Value to set for the approvalStageTimeOutInDays property.
     */
     public function setApprovalStageTimeOutInDays(?int $value): void {
         $this->getBackingStore()->set('approvalStageTimeOutInDays', $value);
@@ -156,7 +156,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +164,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the escalationApprovers property value. If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.  When creating or updating a policy, if there are no escalation approvers, or escalation approvers are not required for the stage, the value of this property should be an empty collection.
-     *  @param array<UserSet>|null $value Value to set for the escalationApprovers property.
+     * @param array<UserSet>|null $value Value to set for the escalationApprovers property.
     */
     public function setEscalationApprovers(?array $value): void {
         $this->getBackingStore()->set('escalationApprovers', $value);
@@ -172,7 +172,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the escalationTimeInMinutes property value. If escalation is required, the time a request can be pending a response from a primary approver.
-     *  @param int|null $value Value to set for the escalationTimeInMinutes property.
+     * @param int|null $value Value to set for the escalationTimeInMinutes property.
     */
     public function setEscalationTimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('escalationTimeInMinutes', $value);
@@ -180,7 +180,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isApproverJustificationRequired property value. Indicates whether the approver is required to provide a justification for approving a request.
-     *  @param bool|null $value Value to set for the isApproverJustificationRequired property.
+     * @param bool|null $value Value to set for the isApproverJustificationRequired property.
     */
     public function setIsApproverJustificationRequired(?bool $value): void {
         $this->getBackingStore()->set('isApproverJustificationRequired', $value);
@@ -188,7 +188,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isEscalationEnabled property value. If true, then one or more escalation approvers are configured in this approval stage.
-     *  @param bool|null $value Value to set for the isEscalationEnabled property.
+     * @param bool|null $value Value to set for the isEscalationEnabled property.
     */
     public function setIsEscalationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEscalationEnabled', $value);
@@ -196,7 +196,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -204,7 +204,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the primaryApprovers property value. The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors. When creating or updating a policy, include at least one userSet in this collection.
-     *  @param array<UserSet>|null $value Value to set for the primaryApprovers property.
+     * @param array<UserSet>|null $value Value to set for the primaryApprovers property.
     */
     public function setPrimaryApprovers(?array $value): void {
         $this->getBackingStore()->set('primaryApprovers', $value);

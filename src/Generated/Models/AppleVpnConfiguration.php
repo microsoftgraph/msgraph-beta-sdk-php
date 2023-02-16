@@ -274,7 +274,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the associatedDomains property value. Associated Domains
-     *  @param array<string>|null $value Value to set for the associatedDomains property.
+     * @param array<string>|null $value Value to set for the associatedDomains property.
     */
     public function setAssociatedDomains(?array $value): void {
         $this->getBackingStore()->set('associatedDomains', $value);
@@ -282,7 +282,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the authenticationMethod property value. VPN Authentication Method.
-     *  @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?VpnAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -290,7 +290,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectionName property value. Connection name displayed to the user.
-     *  @param string|null $value Value to set for the connectionName property.
+     * @param string|null $value Value to set for the connectionName property.
     */
     public function setConnectionName(?string $value): void {
         $this->getBackingStore()->set('connectionName', $value);
@@ -298,7 +298,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectionType property value. Apple VPN connection type.
-     *  @param AppleVpnConnectionType|null $value Value to set for the connectionType property.
+     * @param AppleVpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?AppleVpnConnectionType $value): void {
         $this->getBackingStore()->set('connectionType', $value);
@@ -306,7 +306,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the customData property value. Custom data when connection type is set to Custom VPN. Use this field to enable functionality not supported by Intune, but available in your VPN solution. Contact your VPN vendor to learn how to add these key/value pairs. This collection can contain a maximum of 25 elements.
-     *  @param array<KeyValue>|null $value Value to set for the customData property.
+     * @param array<KeyValue>|null $value Value to set for the customData property.
     */
     public function setCustomData(?array $value): void {
         $this->getBackingStore()->set('customData', $value);
@@ -314,7 +314,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the customKeyValueData property value. Custom data when connection type is set to Custom VPN. Use this field to enable functionality not supported by Intune, but available in your VPN solution. Contact your VPN vendor to learn how to add these key/value pairs. This collection can contain a maximum of 25 elements.
-     *  @param array<KeyValuePair>|null $value Value to set for the customKeyValueData property.
+     * @param array<KeyValuePair>|null $value Value to set for the customKeyValueData property.
     */
     public function setCustomKeyValueData(?array $value): void {
         $this->getBackingStore()->set('customKeyValueData', $value);
@@ -322,7 +322,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the disableOnDemandUserOverride property value. Toggle to prevent user from disabling automatic VPN in the Settings app
-     *  @param bool|null $value Value to set for the disableOnDemandUserOverride property.
+     * @param bool|null $value Value to set for the disableOnDemandUserOverride property.
     */
     public function setDisableOnDemandUserOverride(?bool $value): void {
         $this->getBackingStore()->set('disableOnDemandUserOverride', $value);
@@ -330,7 +330,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the disconnectOnIdle property value. Whether to disconnect after on-demand connection idles
-     *  @param bool|null $value Value to set for the disconnectOnIdle property.
+     * @param bool|null $value Value to set for the disconnectOnIdle property.
     */
     public function setDisconnectOnIdle(?bool $value): void {
         $this->getBackingStore()->set('disconnectOnIdle', $value);
@@ -338,7 +338,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the disconnectOnIdleTimerInSeconds property value. The length of time in seconds to wait before disconnecting an on-demand connection. Valid values 0 to 65535
-     *  @param int|null $value Value to set for the disconnectOnIdleTimerInSeconds property.
+     * @param int|null $value Value to set for the disconnectOnIdleTimerInSeconds property.
     */
     public function setDisconnectOnIdleTimerInSeconds(?int $value): void {
         $this->getBackingStore()->set('disconnectOnIdleTimerInSeconds', $value);
@@ -346,7 +346,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the enablePerApp property value. Setting this to true creates Per-App VPN payload which can later be associated with Apps that can trigger this VPN conneciton on the end user's iOS device.
-     *  @param bool|null $value Value to set for the enablePerApp property.
+     * @param bool|null $value Value to set for the enablePerApp property.
     */
     public function setEnablePerApp(?bool $value): void {
         $this->getBackingStore()->set('enablePerApp', $value);
@@ -354,7 +354,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the enableSplitTunneling property value. Send all network traffic through VPN.
-     *  @param bool|null $value Value to set for the enableSplitTunneling property.
+     * @param bool|null $value Value to set for the enableSplitTunneling property.
     */
     public function setEnableSplitTunneling(?bool $value): void {
         $this->getBackingStore()->set('enableSplitTunneling', $value);
@@ -362,7 +362,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the excludedDomains property value. Domains that are accessed through the public internet instead of through VPN, even when per-app VPN is activated
-     *  @param array<string>|null $value Value to set for the excludedDomains property.
+     * @param array<string>|null $value Value to set for the excludedDomains property.
     */
     public function setExcludedDomains(?array $value): void {
         $this->getBackingStore()->set('excludedDomains', $value);
@@ -370,7 +370,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the identifier property value. Identifier provided by VPN vendor when connection type is set to Custom VPN. For example: Cisco AnyConnect uses an identifier of the form com.cisco.anyconnect.applevpn.plugin
-     *  @param string|null $value Value to set for the identifier property.
+     * @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value): void {
         $this->getBackingStore()->set('identifier', $value);
@@ -378,7 +378,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the loginGroupOrDomain property value. Login group or domain when connection type is set to Dell SonicWALL Mobile Connection.
-     *  @param string|null $value Value to set for the loginGroupOrDomain property.
+     * @param string|null $value Value to set for the loginGroupOrDomain property.
     */
     public function setLoginGroupOrDomain(?string $value): void {
         $this->getBackingStore()->set('loginGroupOrDomain', $value);
@@ -386,7 +386,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the onDemandRules property value. On-Demand Rules. This collection can contain a maximum of 500 elements.
-     *  @param array<VpnOnDemandRule>|null $value Value to set for the onDemandRules property.
+     * @param array<VpnOnDemandRule>|null $value Value to set for the onDemandRules property.
     */
     public function setOnDemandRules(?array $value): void {
         $this->getBackingStore()->set('onDemandRules', $value);
@@ -394,7 +394,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the optInToDeviceIdSharing property value. Opt-In to sharing the device's Id to third-party vpn clients for use during network access control validation.
-     *  @param bool|null $value Value to set for the optInToDeviceIdSharing property.
+     * @param bool|null $value Value to set for the optInToDeviceIdSharing property.
     */
     public function setOptInToDeviceIdSharing(?bool $value): void {
         $this->getBackingStore()->set('optInToDeviceIdSharing', $value);
@@ -402,7 +402,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the providerType property value. Provider type for per-app VPN. Possible values are: notConfigured, appProxy, packetTunnel.
-     *  @param VpnProviderType|null $value Value to set for the providerType property.
+     * @param VpnProviderType|null $value Value to set for the providerType property.
     */
     public function setProviderType(?VpnProviderType $value): void {
         $this->getBackingStore()->set('providerType', $value);
@@ -410,7 +410,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the proxyServer property value. Proxy Server.
-     *  @param VpnProxyServer|null $value Value to set for the proxyServer property.
+     * @param VpnProxyServer|null $value Value to set for the proxyServer property.
     */
     public function setProxyServer(?VpnProxyServer $value): void {
         $this->getBackingStore()->set('proxyServer', $value);
@@ -418,7 +418,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the realm property value. Realm when connection type is set to Pulse Secure.
-     *  @param string|null $value Value to set for the realm property.
+     * @param string|null $value Value to set for the realm property.
     */
     public function setRealm(?string $value): void {
         $this->getBackingStore()->set('realm', $value);
@@ -426,7 +426,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the role property value. Role when connection type is set to Pulse Secure.
-     *  @param string|null $value Value to set for the role property.
+     * @param string|null $value Value to set for the role property.
     */
     public function setRole(?string $value): void {
         $this->getBackingStore()->set('role', $value);
@@ -434,7 +434,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the safariDomains property value. Safari domains when this VPN per App setting is enabled. In addition to the apps associated with this VPN, Safari domains specified here will also be able to trigger this VPN connection.
-     *  @param array<string>|null $value Value to set for the safariDomains property.
+     * @param array<string>|null $value Value to set for the safariDomains property.
     */
     public function setSafariDomains(?array $value): void {
         $this->getBackingStore()->set('safariDomains', $value);
@@ -442,7 +442,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the server property value. VPN Server definition.
-     *  @param VpnServer|null $value Value to set for the server property.
+     * @param VpnServer|null $value Value to set for the server property.
     */
     public function setServer(?VpnServer $value): void {
         $this->getBackingStore()->set('server', $value);

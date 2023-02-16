@@ -37,7 +37,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -151,7 +151,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -159,7 +159,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -167,7 +167,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the company property value. Detail about the company or employer.
-     *  @param CompanyDetail|null $value Value to set for the company property.
+     * @param CompanyDetail|null $value Value to set for the company property.
     */
     public function setCompany(?CompanyDetail $value): void {
         $this->getBackingStore()->set('company', $value);
@@ -175,7 +175,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. Description of the position in question.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -183,7 +183,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the endMonthYear property value. When the position ended.
-     *  @param Date|null $value Value to set for the endMonthYear property.
+     * @param Date|null $value Value to set for the endMonthYear property.
     */
     public function setEndMonthYear(?Date $value): void {
         $this->getBackingStore()->set('endMonthYear', $value);
@@ -191,7 +191,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the jobTitle property value. The title held when in that position.
-     *  @param string|null $value Value to set for the jobTitle property.
+     * @param string|null $value Value to set for the jobTitle property.
     */
     public function setJobTitle(?string $value): void {
         $this->getBackingStore()->set('jobTitle', $value);
@@ -199,7 +199,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -207,7 +207,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the role property value. The role the position entailed.
-     *  @param string|null $value Value to set for the role property.
+     * @param string|null $value Value to set for the role property.
     */
     public function setRole(?string $value): void {
         $this->getBackingStore()->set('role', $value);
@@ -215,7 +215,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the startMonthYear property value. The start month and year of the position.
-     *  @param Date|null $value Value to set for the startMonthYear property.
+     * @param Date|null $value Value to set for the startMonthYear property.
     */
     public function setStartMonthYear(?Date $value): void {
         $this->getBackingStore()->set('startMonthYear', $value);
@@ -223,7 +223,7 @@ class PositionDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the summary property value. Short summary of the position.
-     *  @param string|null $value Value to set for the summary property.
+     * @param string|null $value Value to set for the summary property.
     */
     public function setSummary(?string $value): void {
         $this->getBackingStore()->set('summary', $value);

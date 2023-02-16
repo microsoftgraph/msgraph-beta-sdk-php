@@ -36,7 +36,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -160,7 +160,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,7 +168,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -176,7 +176,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the browser property value. Indicates the browser information of the used for signing-in.
-     *  @param string|null $value Value to set for the browser property.
+     * @param string|null $value Value to set for the browser property.
     */
     public function setBrowser(?string $value): void {
         $this->getBackingStore()->set('browser', $value);
@@ -184,7 +184,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the browserId property value. The browserId property
-     *  @param string|null $value Value to set for the browserId property.
+     * @param string|null $value Value to set for the browserId property.
     */
     public function setBrowserId(?string $value): void {
         $this->getBackingStore()->set('browserId', $value);
@@ -192,7 +192,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceId property value. Refers to the UniqueID of the device used for signing-in.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -200,7 +200,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. Refers to the name of the device used for signing-in.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -208,7 +208,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isCompliant property value. Indicates whether the device is compliant or not.
-     *  @param bool|null $value Value to set for the isCompliant property.
+     * @param bool|null $value Value to set for the isCompliant property.
     */
     public function setIsCompliant(?bool $value): void {
         $this->getBackingStore()->set('isCompliant', $value);
@@ -216,7 +216,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isManaged property value. Indicates if the device is managed or not.
-     *  @param bool|null $value Value to set for the isManaged property.
+     * @param bool|null $value Value to set for the isManaged property.
     */
     public function setIsManaged(?bool $value): void {
         $this->getBackingStore()->set('isManaged', $value);
@@ -224,7 +224,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -232,7 +232,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the operatingSystem property value. Indicates the OS name and version used for signing-in.
-     *  @param string|null $value Value to set for the operatingSystem property.
+     * @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {
         $this->getBackingStore()->set('operatingSystem', $value);
@@ -240,7 +240,7 @@ class DeviceDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the trustType property value. Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
-     *  @param string|null $value Value to set for the trustType property.
+     * @param string|null $value Value to set for the trustType property.
     */
     public function setTrustType(?string $value): void {
         $this->getBackingStore()->set('trustType', $value);

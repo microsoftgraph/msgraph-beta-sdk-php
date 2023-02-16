@@ -36,7 +36,7 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
 
     /**
      * Sets the isContentCameraInverted property value. True if the content camera is inverted.
-     *  @param bool|null $value Value to set for the isContentCameraInverted property.
+     * @param bool|null $value Value to set for the isContentCameraInverted property.
     */
     public function setIsContentCameraInverted(?bool $value): void {
         $this->getBackingStore()->set('isContentCameraInverted', $value);
@@ -134,7 +134,7 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
 
     /**
      * Sets the isContentCameraOptional property value. True if the content camera is optional.
-     *  @param bool|null $value Value to set for the isContentCameraOptional property.
+     * @param bool|null $value Value to set for the isContentCameraOptional property.
     */
     public function setIsContentCameraOptional(?bool $value): void {
         $this->getBackingStore()->set('isContentCameraOptional', $value);
@@ -142,7 +142,7 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
 
     /**
      * Sets the isContentEnhancementEnabled property value. True if the content enhancement is enabled.
-     *  @param bool|null $value Value to set for the isContentEnhancementEnabled property.
+     * @param bool|null $value Value to set for the isContentEnhancementEnabled property.
     */
     public function setIsContentEnhancementEnabled(?bool $value): void {
         $this->getBackingStore()->set('isContentEnhancementEnabled', $value);
@@ -150,7 +150,7 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Backed
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

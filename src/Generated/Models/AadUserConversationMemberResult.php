@@ -55,7 +55,7 @@ class AadUserConversationMemberResult extends ActionResultPart implements Parsab
 
     /**
      * Sets the userId property value. The user object ID of the Azure AD user that was being added as part of the bulk operation.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

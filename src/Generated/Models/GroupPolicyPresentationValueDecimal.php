@@ -54,7 +54,7 @@ class GroupPolicyPresentationValueDecimal extends GroupPolicyPresentationValue i
 
     /**
      * Sets the value property value. An unsigned integer value for the associated presentation.
-     *  @param int|null $value Value to set for the value property.
+     * @param int|null $value Value to set for the value property.
     */
     public function setValue(?int $value): void {
         $this->getBackingStore()->set('value', $value);

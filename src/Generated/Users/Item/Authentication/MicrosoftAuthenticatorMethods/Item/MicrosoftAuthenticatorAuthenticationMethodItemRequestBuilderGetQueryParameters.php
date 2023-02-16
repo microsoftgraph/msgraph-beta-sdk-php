@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\MicrosoftAuth
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The details of the Microsoft Authenticator app registered to a user for authentication.
+*/
 class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParame
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

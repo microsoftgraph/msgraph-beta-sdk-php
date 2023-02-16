@@ -6,21 +6,23 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Enable\EnableRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetPlatformSupportedPropertiesWithPlatform\GetPlatformSupportedPropertiesWithPlatformRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetState\GetStateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\ValidateFilter\ValidateFilterRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\MicrosoftGraphEnable\MicrosoftGraphEnableRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\MicrosoftGraphGetPlatformSupportedPropertiesWithPlatform\MicrosoftGraphGetPlatformSupportedPropertiesWithPlatformRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\MicrosoftGraphGetState\MicrosoftGraphGetStateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\MicrosoftGraphValidateFilter\MicrosoftGraphValidateFilterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilter;
 use Microsoft\Graph\Beta\Generated\Models\DeviceAndAppManagementAssignmentFilterCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the assignmentFilters property of the microsoft.graph.deviceManagement entity.
+*/
 class AssignmentFiltersRequestBuilder 
 {
     /**
@@ -33,8 +35,22 @@ class AssignmentFiltersRequestBuilder
     /**
      * Provides operations to call the enable method.
     */
-    public function enable(): EnableRequestBuilder {
-        return new EnableRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphEnable(): MicrosoftGraphEnableRequestBuilder {
+        return new MicrosoftGraphEnableRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getState method.
+    */
+    public function microsoftGraphGetState(): MicrosoftGraphGetStateRequestBuilder {
+        return new MicrosoftGraphGetStateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the validateFilter method.
+    */
+    public function microsoftGraphValidateFilter(): MicrosoftGraphValidateFilterRequestBuilder {
+        return new MicrosoftGraphValidateFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -53,37 +69,33 @@ class AssignmentFiltersRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Provides operations to call the validateFilter method.
-    */
-    public function validateFilter(): ValidateFilterRequestBuilder {
-        return new ValidateFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Instantiates a new AssignmentFiltersRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/deviceManagement/assignmentFilters{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * The list of assignment filters
      * @param AssignmentFiltersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?AssignmentFiltersRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?AssignmentFiltersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceAndAppManagementAssignmentFilterCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceAndAppManagementAssignmentFilterCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -92,35 +104,26 @@ class AssignmentFiltersRequestBuilder
     /**
      * Provides operations to call the getPlatformSupportedProperties method.
      * @param string $platform Usage: platform='{platform}'
-     * @return GetPlatformSupportedPropertiesWithPlatformRequestBuilder
+     * @return MicrosoftGraphGetPlatformSupportedPropertiesWithPlatformRequestBuilder
     */
-    public function getPlatformSupportedPropertiesWithPlatform(string $platform): GetPlatformSupportedPropertiesWithPlatformRequestBuilder {
-        return new GetPlatformSupportedPropertiesWithPlatformRequestBuilder($this->pathParameters, $this->requestAdapter, $platform);
-    }
-
-    /**
-     * Provides operations to call the getState method.
-     * @return GetStateRequestBuilder
-    */
-    public function getState(): GetStateRequestBuilder {
-        return new GetStateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetPlatformSupportedPropertiesWithPlatform(string $platform): MicrosoftGraphGetPlatformSupportedPropertiesWithPlatformRequestBuilder {
+        return new MicrosoftGraphGetPlatformSupportedPropertiesWithPlatformRequestBuilder($this->pathParameters, $this->requestAdapter, $platform);
     }
 
     /**
      * Create new navigation property to assignmentFilters for deviceManagement
      * @param DeviceAndAppManagementAssignmentFilter $body The request body
      * @param AssignmentFiltersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function post(DeviceAndAppManagementAssignmentFilter $body, ?AssignmentFiltersRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function post(DeviceAndAppManagementAssignmentFilter $body, ?AssignmentFiltersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceAndAppManagementAssignmentFilter::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceAndAppManagementAssignmentFilter::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -136,10 +139,10 @@ class AssignmentFiltersRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -162,10 +165,10 @@ class AssignmentFiltersRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

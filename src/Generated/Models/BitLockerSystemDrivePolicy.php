@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * BitLocker Encryption Base Policies.
+*/
 class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -200,7 +203,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -208,7 +211,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -216,7 +219,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the encryptionMethod property value. Select the encryption method for operating system drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
-     *  @param BitLockerEncryptionMethod|null $value Value to set for the encryptionMethod property.
+     * @param BitLockerEncryptionMethod|null $value Value to set for the encryptionMethod property.
     */
     public function setEncryptionMethod(?BitLockerEncryptionMethod $value): void {
         $this->getBackingStore()->set('encryptionMethod', $value);
@@ -224,7 +227,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the minimumPinLength property value. Indicates the minimum length of startup pin. Valid values 4 to 20
-     *  @param int|null $value Value to set for the minimumPinLength property.
+     * @param int|null $value Value to set for the minimumPinLength property.
     */
     public function setMinimumPinLength(?int $value): void {
         $this->getBackingStore()->set('minimumPinLength', $value);
@@ -232,7 +235,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -240,7 +243,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the prebootRecoveryEnableMessageAndUrl property value. Enable pre-boot recovery message and Url. If requireStartupAuthentication is false, this value does not affect.
-     *  @param bool|null $value Value to set for the prebootRecoveryEnableMessageAndUrl property.
+     * @param bool|null $value Value to set for the prebootRecoveryEnableMessageAndUrl property.
     */
     public function setPrebootRecoveryEnableMessageAndUrl(?bool $value): void {
         $this->getBackingStore()->set('prebootRecoveryEnableMessageAndUrl', $value);
@@ -248,7 +251,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the prebootRecoveryMessage property value. Defines a custom recovery message.
-     *  @param string|null $value Value to set for the prebootRecoveryMessage property.
+     * @param string|null $value Value to set for the prebootRecoveryMessage property.
     */
     public function setPrebootRecoveryMessage(?string $value): void {
         $this->getBackingStore()->set('prebootRecoveryMessage', $value);
@@ -256,7 +259,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the prebootRecoveryUrl property value. Defines a custom recovery URL.
-     *  @param string|null $value Value to set for the prebootRecoveryUrl property.
+     * @param string|null $value Value to set for the prebootRecoveryUrl property.
     */
     public function setPrebootRecoveryUrl(?string $value): void {
         $this->getBackingStore()->set('prebootRecoveryUrl', $value);
@@ -264,7 +267,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the recoveryOptions property value. Allows to recover BitLocker encrypted operating system drives in the absence of the required startup key information. This policy setting is applied when you turn on BitLocker.
-     *  @param BitLockerRecoveryOptions|null $value Value to set for the recoveryOptions property.
+     * @param BitLockerRecoveryOptions|null $value Value to set for the recoveryOptions property.
     */
     public function setRecoveryOptions(?BitLockerRecoveryOptions $value): void {
         $this->getBackingStore()->set('recoveryOptions', $value);
@@ -272,7 +275,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the startupAuthenticationBlockWithoutTpmChip property value. Indicates whether to allow BitLocker without a compatible TPM (requires a password or a startup key on a USB flash drive).
-     *  @param bool|null $value Value to set for the startupAuthenticationBlockWithoutTpmChip property.
+     * @param bool|null $value Value to set for the startupAuthenticationBlockWithoutTpmChip property.
     */
     public function setStartupAuthenticationBlockWithoutTpmChip(?bool $value): void {
         $this->getBackingStore()->set('startupAuthenticationBlockWithoutTpmChip', $value);
@@ -280,7 +283,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the startupAuthenticationRequired property value. Require additional authentication at startup.
-     *  @param bool|null $value Value to set for the startupAuthenticationRequired property.
+     * @param bool|null $value Value to set for the startupAuthenticationRequired property.
     */
     public function setStartupAuthenticationRequired(?bool $value): void {
         $this->getBackingStore()->set('startupAuthenticationRequired', $value);
@@ -288,7 +291,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the startupAuthenticationTpmKeyUsage property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmKeyUsage property.
+     * @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmKeyUsage property.
     */
     public function setStartupAuthenticationTpmKeyUsage(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('startupAuthenticationTpmKeyUsage', $value);
@@ -296,7 +299,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the startupAuthenticationTpmPinAndKeyUsage property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmPinAndKeyUsage property.
+     * @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmPinAndKeyUsage property.
     */
     public function setStartupAuthenticationTpmPinAndKeyUsage(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('startupAuthenticationTpmPinAndKeyUsage', $value);
@@ -304,7 +307,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the startupAuthenticationTpmPinUsage property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmPinUsage property.
+     * @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmPinUsage property.
     */
     public function setStartupAuthenticationTpmPinUsage(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('startupAuthenticationTpmPinUsage', $value);
@@ -312,7 +315,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the startupAuthenticationTpmUsage property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmUsage property.
+     * @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmUsage property.
     */
     public function setStartupAuthenticationTpmUsage(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('startupAuthenticationTpmUsage', $value);

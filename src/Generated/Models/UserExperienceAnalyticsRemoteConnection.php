@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsRemoteConnection and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsRemoteConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -174,7 +174,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the cloudPcFailurePercentage property value. The sign in failure percentage of Cloud PC Device. Valid values 0 to 100
-     *  @param float|null $value Value to set for the cloudPcFailurePercentage property.
+     * @param float|null $value Value to set for the cloudPcFailurePercentage property.
     */
     public function setCloudPcFailurePercentage(?float $value): void {
         $this->getBackingStore()->set('cloudPcFailurePercentage', $value);
@@ -182,7 +182,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the cloudPcRoundTripTime property value. The round tip time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the cloudPcRoundTripTime property.
+     * @param float|null $value Value to set for the cloudPcRoundTripTime property.
     */
     public function setCloudPcRoundTripTime(?float $value): void {
         $this->getBackingStore()->set('cloudPcRoundTripTime', $value);
@@ -190,7 +190,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the cloudPcSignInTime property value. The sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the cloudPcSignInTime property.
+     * @param float|null $value Value to set for the cloudPcSignInTime property.
     */
     public function setCloudPcSignInTime(?float $value): void {
         $this->getBackingStore()->set('cloudPcSignInTime', $value);
@@ -198,7 +198,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the coreBootTime property value. The core boot time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the coreBootTime property.
+     * @param float|null $value Value to set for the coreBootTime property.
     */
     public function setCoreBootTime(?float $value): void {
         $this->getBackingStore()->set('coreBootTime', $value);
@@ -206,7 +206,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the coreSignInTime property value. The core sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the coreSignInTime property.
+     * @param float|null $value Value to set for the coreSignInTime property.
     */
     public function setCoreSignInTime(?float $value): void {
         $this->getBackingStore()->set('coreSignInTime', $value);
@@ -214,7 +214,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the deviceCount property value. The count of remote connection. Valid values 0 to 2147483647
-     *  @param int|null $value Value to set for the deviceCount property.
+     * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
         $this->getBackingStore()->set('deviceCount', $value);
@@ -222,7 +222,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The id of the device.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -230,7 +230,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. The name of the device.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -238,7 +238,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the manufacturer property value. The user experience analytics manufacturer.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -246,7 +246,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the model property value. The user experience analytics device model.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -254,7 +254,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the remoteSignInTime property value. The remote sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the remoteSignInTime property.
+     * @param float|null $value Value to set for the remoteSignInTime property.
     */
     public function setRemoteSignInTime(?float $value): void {
         $this->getBackingStore()->set('remoteSignInTime', $value);
@@ -262,7 +262,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The user experience analytics userPrincipalName.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
@@ -270,7 +270,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
 
     /**
      * Sets the virtualNetwork property value. The user experience analytics virtual network.
-     *  @param string|null $value Value to set for the virtualNetwork property.
+     * @param string|null $value Value to set for the virtualNetwork property.
     */
     public function setVirtualNetwork(?string $value): void {
         $this->getBackingStore()->set('virtualNetwork', $value);

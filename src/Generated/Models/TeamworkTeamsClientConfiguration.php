@@ -44,7 +44,7 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the accountConfiguration property value. The configuration of the Microsoft Teams client user account for a device.
-     *  @param TeamworkAccountConfiguration|null $value Value to set for the accountConfiguration property.
+     * @param TeamworkAccountConfiguration|null $value Value to set for the accountConfiguration property.
     */
     public function setAccountConfiguration(?TeamworkAccountConfiguration $value): void {
         $this->getBackingStore()->set('accountConfiguration', $value);
@@ -108,7 +108,7 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -116,7 +116,7 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +124,7 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the featuresConfiguration property value. The configuration of Microsoft Teams client features for a device.
-     *  @param TeamworkFeaturesConfiguration|null $value Value to set for the featuresConfiguration property.
+     * @param TeamworkFeaturesConfiguration|null $value Value to set for the featuresConfiguration property.
     */
     public function setFeaturesConfiguration(?TeamworkFeaturesConfiguration $value): void {
         $this->getBackingStore()->set('featuresConfiguration', $value);
@@ -132,7 +132,7 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

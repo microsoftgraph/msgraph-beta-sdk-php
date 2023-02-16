@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Template;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The template this team was created from. See available templates.
+*/
 class TemplateRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class TemplateRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new templateRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

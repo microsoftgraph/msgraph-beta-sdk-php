@@ -36,7 +36,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -180,7 +180,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -188,7 +188,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the apiConnectors property value. Represents entry point for API connectors.
-     *  @param array<IdentityApiConnector>|null $value Value to set for the apiConnectors property.
+     * @param array<IdentityApiConnector>|null $value Value to set for the apiConnectors property.
     */
     public function setApiConnectors(?array $value): void {
         $this->getBackingStore()->set('apiConnectors', $value);
@@ -196,7 +196,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the authenticationEventListeners property value. The authenticationEventListeners property
-     *  @param array<AuthenticationEventListener>|null $value Value to set for the authenticationEventListeners property.
+     * @param array<AuthenticationEventListener>|null $value Value to set for the authenticationEventListeners property.
     */
     public function setAuthenticationEventListeners(?array $value): void {
         $this->getBackingStore()->set('authenticationEventListeners', $value);
@@ -204,7 +204,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the b2cUserFlows property value. Represents entry point for B2C identity userflows.
-     *  @param array<B2cIdentityUserFlow>|null $value Value to set for the b2cUserFlows property.
+     * @param array<B2cIdentityUserFlow>|null $value Value to set for the b2cUserFlows property.
     */
     public function setB2cUserFlows(?array $value): void {
         $this->getBackingStore()->set('b2cUserFlows', $value);
@@ -212,7 +212,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the b2xUserFlows property value. Represents entry point for B2X and self-service sign-up identity userflows.
-     *  @param array<B2xIdentityUserFlow>|null $value Value to set for the b2xUserFlows property.
+     * @param array<B2xIdentityUserFlow>|null $value Value to set for the b2xUserFlows property.
     */
     public function setB2xUserFlows(?array $value): void {
         $this->getBackingStore()->set('b2xUserFlows', $value);
@@ -220,7 +220,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -228,7 +228,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the conditionalAccess property value. the entry point for the Conditional Access (CA) object model.
-     *  @param ConditionalAccessRoot|null $value Value to set for the conditionalAccess property.
+     * @param ConditionalAccessRoot|null $value Value to set for the conditionalAccess property.
     */
     public function setConditionalAccess(?ConditionalAccessRoot $value): void {
         $this->getBackingStore()->set('conditionalAccess', $value);
@@ -236,7 +236,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the continuousAccessEvaluationPolicy property value. Represents entry point for continuous access evaluation policy.
-     *  @param ContinuousAccessEvaluationPolicy|null $value Value to set for the continuousAccessEvaluationPolicy property.
+     * @param ContinuousAccessEvaluationPolicy|null $value Value to set for the continuousAccessEvaluationPolicy property.
     */
     public function setContinuousAccessEvaluationPolicy(?ContinuousAccessEvaluationPolicy $value): void {
         $this->getBackingStore()->set('continuousAccessEvaluationPolicy', $value);
@@ -244,7 +244,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the customAuthenticationExtensions property value. The customAuthenticationExtensions property
-     *  @param array<CustomAuthenticationExtension>|null $value Value to set for the customAuthenticationExtensions property.
+     * @param array<CustomAuthenticationExtension>|null $value Value to set for the customAuthenticationExtensions property.
     */
     public function setCustomAuthenticationExtensions(?array $value): void {
         $this->getBackingStore()->set('customAuthenticationExtensions', $value);
@@ -252,7 +252,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the identityProviders property value. Represents entry point for identity provider base.
-     *  @param array<IdentityProviderBase>|null $value Value to set for the identityProviders property.
+     * @param array<IdentityProviderBase>|null $value Value to set for the identityProviders property.
     */
     public function setIdentityProviders(?array $value): void {
         $this->getBackingStore()->set('identityProviders', $value);
@@ -260,7 +260,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -268,7 +268,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userFlowAttributes property value. Represents entry point for identity userflow attributes.
-     *  @param array<IdentityUserFlowAttribute>|null $value Value to set for the userFlowAttributes property.
+     * @param array<IdentityUserFlowAttribute>|null $value Value to set for the userFlowAttributes property.
     */
     public function setUserFlowAttributes(?array $value): void {
         $this->getBackingStore()->set('userFlowAttributes', $value);
@@ -276,7 +276,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userFlows property value. The userFlows property
-     *  @param array<IdentityUserFlow>|null $value Value to set for the userFlows property.
+     * @param array<IdentityUserFlow>|null $value Value to set for the userFlows property.
     */
     public function setUserFlows(?array $value): void {
         $this->getBackingStore()->set('userFlows', $value);

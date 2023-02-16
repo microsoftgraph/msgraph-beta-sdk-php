@@ -55,7 +55,7 @@ class AnonymousGuestConversationMember extends ConversationMember implements Par
 
     /**
      * Sets the anonymousGuestId property value. Unique ID that represents the user. Note: This ID can change if the user leaves and rejoins the meeting, or joins from a different device.
-     *  @param string|null $value Value to set for the anonymousGuestId property.
+     * @param string|null $value Value to set for the anonymousGuestId property.
     */
     public function setAnonymousGuestId(?string $value): void {
         $this->getBackingStore()->set('anonymousGuestId', $value);

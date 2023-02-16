@@ -86,7 +86,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
 
     /**
      * Sets the conditionalAccessPolicyState property value. The state for the conditional access policy. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only.
-     *  @param string|null $value Value to set for the conditionalAccessPolicyState property.
+     * @param string|null $value Value to set for the conditionalAccessPolicyState property.
     */
     public function setConditionalAccessPolicyState(?string $value): void {
         $this->getBackingStore()->set('conditionalAccessPolicyState', $value);
@@ -94,7 +94,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
 
     /**
      * Sets the latestPolicyModifiedDateTime property value. The date and time the conditional access policy was last modified. Required. Read-only.
-     *  @param DateTime|null $value Value to set for the latestPolicyModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the latestPolicyModifiedDateTime property.
     */
     public function setLatestPolicyModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('latestPolicyModifiedDateTime', $value);
@@ -102,7 +102,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
 
     /**
      * Sets the requiresDeviceCompliance property value. A flag indicating whether the conditional access policy requires device compliance. Required. Read-only.
-     *  @param bool|null $value Value to set for the requiresDeviceCompliance property.
+     * @param bool|null $value Value to set for the requiresDeviceCompliance property.
     */
     public function setRequiresDeviceCompliance(?bool $value): void {
         $this->getBackingStore()->set('requiresDeviceCompliance', $value);
@@ -110,7 +110,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantDisplayName property.
+     * @param string|null $value Value to set for the tenantDisplayName property.
     */
     public function setTenantDisplayName(?string $value): void {
         $this->getBackingStore()->set('tenantDisplayName', $value);

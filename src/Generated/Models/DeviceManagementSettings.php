@@ -36,7 +36,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -210,7 +210,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -218,7 +218,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the androidDeviceAdministratorEnrollmentEnabled property value. The property to determine if Android device administrator enrollment is enabled for this account.
-     *  @param bool|null $value Value to set for the androidDeviceAdministratorEnrollmentEnabled property.
+     * @param bool|null $value Value to set for the androidDeviceAdministratorEnrollmentEnabled property.
     */
     public function setAndroidDeviceAdministratorEnrollmentEnabled(?bool $value): void {
         $this->getBackingStore()->set('androidDeviceAdministratorEnrollmentEnabled', $value);
@@ -226,7 +226,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -234,7 +234,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the derivedCredentialProvider property value. Provider type for Derived Credentials.
-     *  @param DerivedCredentialProviderType|null $value Value to set for the derivedCredentialProvider property.
+     * @param DerivedCredentialProviderType|null $value Value to set for the derivedCredentialProvider property.
     */
     public function setDerivedCredentialProvider(?DerivedCredentialProviderType $value): void {
         $this->getBackingStore()->set('derivedCredentialProvider', $value);
@@ -242,7 +242,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the derivedCredentialUrl property value. The Derived Credential Provider self-service URI.
-     *  @param string|null $value Value to set for the derivedCredentialUrl property.
+     * @param string|null $value Value to set for the derivedCredentialUrl property.
     */
     public function setDerivedCredentialUrl(?string $value): void {
         $this->getBackingStore()->set('derivedCredentialUrl', $value);
@@ -250,7 +250,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the deviceComplianceCheckinThresholdDays property value. The number of days a device is allowed to go without checking in to remain compliant.
-     *  @param int|null $value Value to set for the deviceComplianceCheckinThresholdDays property.
+     * @param int|null $value Value to set for the deviceComplianceCheckinThresholdDays property.
     */
     public function setDeviceComplianceCheckinThresholdDays(?int $value): void {
         $this->getBackingStore()->set('deviceComplianceCheckinThresholdDays', $value);
@@ -258,7 +258,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the deviceInactivityBeforeRetirementInDay property value. When the device does not check in for specified number of days, the company data might be removed and the device will not be under management. Valid values 30 to 270
-     *  @param int|null $value Value to set for the deviceInactivityBeforeRetirementInDay property.
+     * @param int|null $value Value to set for the deviceInactivityBeforeRetirementInDay property.
     */
     public function setDeviceInactivityBeforeRetirementInDay(?int $value): void {
         $this->getBackingStore()->set('deviceInactivityBeforeRetirementInDay', $value);
@@ -266,7 +266,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the enableAutopilotDiagnostics property value. Determines whether the autopilot diagnostic feature is enabled or not.
-     *  @param bool|null $value Value to set for the enableAutopilotDiagnostics property.
+     * @param bool|null $value Value to set for the enableAutopilotDiagnostics property.
     */
     public function setEnableAutopilotDiagnostics(?bool $value): void {
         $this->getBackingStore()->set('enableAutopilotDiagnostics', $value);
@@ -274,7 +274,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the enableDeviceGroupMembershipReport property value. Determines whether the device group membership report feature is enabled or not.
-     *  @param bool|null $value Value to set for the enableDeviceGroupMembershipReport property.
+     * @param bool|null $value Value to set for the enableDeviceGroupMembershipReport property.
     */
     public function setEnableDeviceGroupMembershipReport(?bool $value): void {
         $this->getBackingStore()->set('enableDeviceGroupMembershipReport', $value);
@@ -282,7 +282,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the enableEnhancedTroubleshootingExperience property value. Determines whether the enhanced troubleshooting UX is enabled or not.
-     *  @param bool|null $value Value to set for the enableEnhancedTroubleshootingExperience property.
+     * @param bool|null $value Value to set for the enableEnhancedTroubleshootingExperience property.
     */
     public function setEnableEnhancedTroubleshootingExperience(?bool $value): void {
         $this->getBackingStore()->set('enableEnhancedTroubleshootingExperience', $value);
@@ -290,7 +290,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the enableLogCollection property value. Determines whether the log collection feature should be available for use.
-     *  @param bool|null $value Value to set for the enableLogCollection property.
+     * @param bool|null $value Value to set for the enableLogCollection property.
     */
     public function setEnableLogCollection(?bool $value): void {
         $this->getBackingStore()->set('enableLogCollection', $value);
@@ -298,7 +298,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the enhancedJailBreak property value. Is feature enabled or not for enhanced jailbreak detection.
-     *  @param bool|null $value Value to set for the enhancedJailBreak property.
+     * @param bool|null $value Value to set for the enhancedJailBreak property.
     */
     public function setEnhancedJailBreak(?bool $value): void {
         $this->getBackingStore()->set('enhancedJailBreak', $value);
@@ -306,7 +306,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the ignoreDevicesForUnsupportedSettingsEnabled property value. The property to determine whether to ignore unsupported compliance settings on certian models of devices.
-     *  @param bool|null $value Value to set for the ignoreDevicesForUnsupportedSettingsEnabled property.
+     * @param bool|null $value Value to set for the ignoreDevicesForUnsupportedSettingsEnabled property.
     */
     public function setIgnoreDevicesForUnsupportedSettingsEnabled(?bool $value): void {
         $this->getBackingStore()->set('ignoreDevicesForUnsupportedSettingsEnabled', $value);
@@ -314,7 +314,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the isScheduledActionEnabled property value. Is feature enabled or not for scheduled action for rule.
-     *  @param bool|null $value Value to set for the isScheduledActionEnabled property.
+     * @param bool|null $value Value to set for the isScheduledActionEnabled property.
     */
     public function setIsScheduledActionEnabled(?bool $value): void {
         $this->getBackingStore()->set('isScheduledActionEnabled', $value);
@@ -322,7 +322,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -330,7 +330,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the secureByDefault property value. Device should be noncompliant when there is no compliance policy targeted when this is true
-     *  @param bool|null $value Value to set for the secureByDefault property.
+     * @param bool|null $value Value to set for the secureByDefault property.
     */
     public function setSecureByDefault(?bool $value): void {
         $this->getBackingStore()->set('secureByDefault', $value);

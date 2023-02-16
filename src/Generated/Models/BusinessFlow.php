@@ -134,7 +134,7 @@ class BusinessFlow extends Entity implements Parsable
 
     /**
      * Sets the customData property value. The customData property
-     *  @param string|null $value Value to set for the customData property.
+     * @param string|null $value Value to set for the customData property.
     */
     public function setCustomData(?string $value): void {
         $this->getBackingStore()->set('customData', $value);
@@ -142,7 +142,7 @@ class BusinessFlow extends Entity implements Parsable
 
     /**
      * Sets the deDuplicationId property value. The deDuplicationId property
-     *  @param string|null $value Value to set for the deDuplicationId property.
+     * @param string|null $value Value to set for the deDuplicationId property.
     */
     public function setDeDuplicationId(?string $value): void {
         $this->getBackingStore()->set('deDuplicationId', $value);
@@ -150,7 +150,7 @@ class BusinessFlow extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -158,7 +158,7 @@ class BusinessFlow extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -166,7 +166,7 @@ class BusinessFlow extends Entity implements Parsable
 
     /**
      * Sets the policy property value. The policy property
-     *  @param GovernancePolicy|null $value Value to set for the policy property.
+     * @param GovernancePolicy|null $value Value to set for the policy property.
     */
     public function setPolicy(?GovernancePolicy $value): void {
         $this->getBackingStore()->set('policy', $value);
@@ -174,7 +174,7 @@ class BusinessFlow extends Entity implements Parsable
 
     /**
      * Sets the policyTemplateId property value. The policyTemplateId property
-     *  @param string|null $value Value to set for the policyTemplateId property.
+     * @param string|null $value Value to set for the policyTemplateId property.
     */
     public function setPolicyTemplateId(?string $value): void {
         $this->getBackingStore()->set('policyTemplateId', $value);
@@ -182,7 +182,7 @@ class BusinessFlow extends Entity implements Parsable
 
     /**
      * Sets the recordVersion property value. The recordVersion property
-     *  @param string|null $value Value to set for the recordVersion property.
+     * @param string|null $value Value to set for the recordVersion property.
     */
     public function setRecordVersion(?string $value): void {
         $this->getBackingStore()->set('recordVersion', $value);
@@ -190,7 +190,7 @@ class BusinessFlow extends Entity implements Parsable
 
     /**
      * Sets the schemaId property value. The schemaId property
-     *  @param string|null $value Value to set for the schemaId property.
+     * @param string|null $value Value to set for the schemaId property.
     */
     public function setSchemaId(?string $value): void {
         $this->getBackingStore()->set('schemaId', $value);
@@ -198,7 +198,7 @@ class BusinessFlow extends Entity implements Parsable
 
     /**
      * Sets the settings property value. The settings property
-     *  @param BusinessFlowSettings|null $value Value to set for the settings property.
+     * @param BusinessFlowSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?BusinessFlowSettings $value): void {
         $this->getBackingStore()->set('settings', $value);

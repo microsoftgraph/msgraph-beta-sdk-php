@@ -36,7 +36,7 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the connection property value. The connected state and time since the peripheral device was connected.
-     *  @param TeamworkConnection|null $value Value to set for the connection property.
+     * @param TeamworkConnection|null $value Value to set for the connection property.
     */
     public function setConnection(?TeamworkConnection $value): void {
         $this->getBackingStore()->set('connection', $value);
@@ -134,7 +134,7 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the isOptional property value. True if the peripheral is optional. Used for health computation.
-     *  @param bool|null $value Value to set for the isOptional property.
+     * @param bool|null $value Value to set for the isOptional property.
     */
     public function setIsOptional(?bool $value): void {
         $this->getBackingStore()->set('isOptional', $value);
@@ -142,7 +142,7 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the peripheral property value. The peripheral property
-     *  @param TeamworkPeripheral|null $value Value to set for the peripheral property.
+     * @param TeamworkPeripheral|null $value Value to set for the peripheral property.
     */
     public function setPeripheral(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('peripheral', $value);

@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The user experience analytics tenant level information for all the device scope configurations
+*/
 class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
 
     /**
      * Sets the completedDeviceScopeIds property value. A collection of the user experience analytics device scope Unique Identifiers that are enabled and finished recalculating the report metric.
-     *  @param array<string>|null $value Value to set for the completedDeviceScopeIds property.
+     * @param array<string>|null $value Value to set for the completedDeviceScopeIds property.
     */
     public function setCompletedDeviceScopeIds(?array $value): void {
         $this->getBackingStore()->set('completedDeviceScopeIds', $value);
@@ -144,7 +147,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
 
     /**
      * Sets the insufficientDataDeviceScopeIds property value. A collection of user experience analytics device scope Unique Identitfiers that are enabled but there is insufficient data to calculate results.
-     *  @param array<string>|null $value Value to set for the insufficientDataDeviceScopeIds property.
+     * @param array<string>|null $value Value to set for the insufficientDataDeviceScopeIds property.
     */
     public function setInsufficientDataDeviceScopeIds(?array $value): void {
         $this->getBackingStore()->set('insufficientDataDeviceScopeIds', $value);
@@ -152,7 +155,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +163,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
 
     /**
      * Sets the totalDeviceScopes property value. The total number of user experience analytics device scopes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the totalDeviceScopes property.
+     * @param int|null $value Value to set for the totalDeviceScopes property.
     */
     public function setTotalDeviceScopes(?int $value): void {
         $this->getBackingStore()->set('totalDeviceScopes', $value);
@@ -168,7 +171,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
 
     /**
      * Sets the totalDeviceScopesEnabled property value. The total number of user experience analytics device scopes that are enabled. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the totalDeviceScopesEnabled property.
+     * @param int|null $value Value to set for the totalDeviceScopesEnabled property.
     */
     public function setTotalDeviceScopesEnabled(?int $value): void {
         $this->getBackingStore()->set('totalDeviceScopesEnabled', $value);

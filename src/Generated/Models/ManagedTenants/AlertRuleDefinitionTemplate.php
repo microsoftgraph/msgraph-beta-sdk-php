@@ -36,7 +36,7 @@ class AlertRuleDefinitionTemplate implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -90,7 +90,7 @@ class AlertRuleDefinitionTemplate implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -98,7 +98,7 @@ class AlertRuleDefinitionTemplate implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -106,7 +106,7 @@ class AlertRuleDefinitionTemplate implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the defaultSeverity property value. The defaultSeverity property
-     *  @param AlertSeverity|null $value Value to set for the defaultSeverity property.
+     * @param AlertSeverity|null $value Value to set for the defaultSeverity property.
     */
     public function setDefaultSeverity(?AlertSeverity $value): void {
         $this->getBackingStore()->set('defaultSeverity', $value);
@@ -114,7 +114,7 @@ class AlertRuleDefinitionTemplate implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

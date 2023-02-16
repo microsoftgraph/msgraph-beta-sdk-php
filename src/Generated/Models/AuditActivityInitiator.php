@@ -36,7 +36,7 @@ class AuditActivityInitiator implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class AuditActivityInitiator implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class AuditActivityInitiator implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the app property value. If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
-     *  @param AppIdentity|null $value Value to set for the app property.
+     * @param AppIdentity|null $value Value to set for the app property.
     */
     public function setApp(?AppIdentity $value): void {
         $this->getBackingStore()->set('app', $value);
@@ -116,7 +116,7 @@ class AuditActivityInitiator implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +124,7 @@ class AuditActivityInitiator implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -132,7 +132,7 @@ class AuditActivityInitiator implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the user property value. If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
-     *  @param AuditUserIdentity|null $value Value to set for the user property.
+     * @param AuditUserIdentity|null $value Value to set for the user property.
     */
     public function setUser(?AuditUserIdentity $value): void {
         $this->getBackingStore()->set('user', $value);

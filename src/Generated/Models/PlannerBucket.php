@@ -56,7 +56,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the orderHint property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
+     * Gets the orderHint property value. Hint used to order items of this type in a list view. For details about the supported format, see Using order hints in Planner.
      * @return string|null
     */
     public function getOrderHint(): ?string {
@@ -94,7 +94,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
 
     /**
      * Sets the creationSource property value. Contains information about the origin of the bucket.
-     *  @param PlannerBucketCreation|null $value Value to set for the creationSource property.
+     * @param PlannerBucketCreation|null $value Value to set for the creationSource property.
     */
     public function setCreationSource(?PlannerBucketCreation $value): void {
         $this->getBackingStore()->set('creationSource', $value);
@@ -102,15 +102,15 @@ class PlannerBucket extends PlannerDelta implements Parsable
 
     /**
      * Sets the name property value. Name of the bucket.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
     }
 
     /**
-     * Sets the orderHint property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
-     *  @param string|null $value Value to set for the orderHint property.
+     * Sets the orderHint property value. Hint used to order items of this type in a list view. For details about the supported format, see Using order hints in Planner.
+     * @param string|null $value Value to set for the orderHint property.
     */
     public function setOrderHint(?string $value): void {
         $this->getBackingStore()->set('orderHint', $value);
@@ -118,7 +118,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
 
     /**
      * Sets the planId property value. Plan ID to which the bucket belongs.
-     *  @param string|null $value Value to set for the planId property.
+     * @param string|null $value Value to set for the planId property.
     */
     public function setPlanId(?string $value): void {
         $this->getBackingStore()->set('planId', $value);
@@ -126,7 +126,7 @@ class PlannerBucket extends PlannerDelta implements Parsable
 
     /**
      * Sets the tasks property value. Read-only. Nullable. The collection of tasks in the bucket.
-     *  @param array<PlannerTask>|null $value Value to set for the tasks property.
+     * @param array<PlannerTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);

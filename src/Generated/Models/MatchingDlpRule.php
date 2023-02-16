@@ -44,7 +44,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -160,7 +160,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the actions property value. The actions property
-     *  @param array<DlpActionInfo>|null $value Value to set for the actions property.
+     * @param array<DlpActionInfo>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {
         $this->getBackingStore()->set('actions', $value);
@@ -168,7 +168,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -176,7 +176,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -184,7 +184,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isMostRestrictive property value. The isMostRestrictive property
-     *  @param bool|null $value Value to set for the isMostRestrictive property.
+     * @param bool|null $value Value to set for the isMostRestrictive property.
     */
     public function setIsMostRestrictive(?bool $value): void {
         $this->getBackingStore()->set('isMostRestrictive', $value);
@@ -192,7 +192,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -200,7 +200,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the policyId property value. The policyId property
-     *  @param string|null $value Value to set for the policyId property.
+     * @param string|null $value Value to set for the policyId property.
     */
     public function setPolicyId(?string $value): void {
         $this->getBackingStore()->set('policyId', $value);
@@ -208,7 +208,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the policyName property value. The policyName property
-     *  @param string|null $value Value to set for the policyName property.
+     * @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {
         $this->getBackingStore()->set('policyName', $value);
@@ -216,7 +216,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the priority property value. The priority property
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -224,7 +224,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ruleId property value. The ruleId property
-     *  @param string|null $value Value to set for the ruleId property.
+     * @param string|null $value Value to set for the ruleId property.
     */
     public function setRuleId(?string $value): void {
         $this->getBackingStore()->set('ruleId', $value);
@@ -232,7 +232,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ruleMode property value. The ruleMode property
-     *  @param RuleMode|null $value Value to set for the ruleMode property.
+     * @param RuleMode|null $value Value to set for the ruleMode property.
     */
     public function setRuleMode(?RuleMode $value): void {
         $this->getBackingStore()->set('ruleMode', $value);
@@ -240,7 +240,7 @@ class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ruleName property value. The ruleName property
-     *  @param string|null $value Value to set for the ruleName property.
+     * @param string|null $value Value to set for the ruleName property.
     */
     public function setRuleName(?string $value): void {
         $this->getBackingStore()->set('ruleName', $value);

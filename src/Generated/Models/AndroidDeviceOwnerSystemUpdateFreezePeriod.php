@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represents one item in the list of freeze periods for Android Device Owner system updates
+*/
 class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
 
     /**
      * Sets the endDay property value. The day of the end date of the freeze period. Valid values 1 to 31
-     *  @param int|null $value Value to set for the endDay property.
+     * @param int|null $value Value to set for the endDay property.
     */
     public function setEndDay(?int $value): void {
         $this->getBackingStore()->set('endDay', $value);
@@ -144,7 +147,7 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
 
     /**
      * Sets the endMonth property value. The month of the end date of the freeze period. Valid values 1 to 12
-     *  @param int|null $value Value to set for the endMonth property.
+     * @param int|null $value Value to set for the endMonth property.
     */
     public function setEndMonth(?int $value): void {
         $this->getBackingStore()->set('endMonth', $value);
@@ -152,7 +155,7 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +163,7 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
 
     /**
      * Sets the startDay property value. The day of the start date of the freeze period. Valid values 1 to 31
-     *  @param int|null $value Value to set for the startDay property.
+     * @param int|null $value Value to set for the startDay property.
     */
     public function setStartDay(?int $value): void {
         $this->getBackingStore()->set('startDay', $value);
@@ -168,7 +171,7 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
 
     /**
      * Sets the startMonth property value. The month of the start date of the freeze period. Valid values 1 to 12
-     *  @param int|null $value Value to set for the startMonth property.
+     * @param int|null $value Value to set for the startMonth property.
     */
     public function setStartMonth(?int $value): void {
         $this->getBackingStore()->set('startMonth', $value);

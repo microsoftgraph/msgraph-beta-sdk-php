@@ -36,7 +36,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -190,7 +190,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -198,7 +198,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the applications property value. Applications and user actions included in and excluded from the policy. Required.
-     *  @param ConditionalAccessApplications|null $value Value to set for the applications property.
+     * @param ConditionalAccessApplications|null $value Value to set for the applications property.
     */
     public function setApplications(?ConditionalAccessApplications $value): void {
         $this->getBackingStore()->set('applications', $value);
@@ -206,7 +206,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -214,7 +214,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the clientApplications property value. Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.
-     *  @param ConditionalAccessClientApplications|null $value Value to set for the clientApplications property.
+     * @param ConditionalAccessClientApplications|null $value Value to set for the clientApplications property.
     */
     public function setClientApplications(?ConditionalAccessClientApplications $value): void {
         $this->getBackingStore()->set('clientApplications', $value);
@@ -222,7 +222,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
-     *  @param array<ConditionalAccessClientApp>|null $value Value to set for the clientAppTypes property.
+     * @param array<ConditionalAccessClientApp>|null $value Value to set for the clientAppTypes property.
     */
     public function setClientAppTypes(?array $value): void {
         $this->getBackingStore()->set('clientAppTypes', $value);
@@ -230,7 +230,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the devices property value. Devices in the policy.
-     *  @param ConditionalAccessDevices|null $value Value to set for the devices property.
+     * @param ConditionalAccessDevices|null $value Value to set for the devices property.
     */
     public function setDevices(?ConditionalAccessDevices $value): void {
         $this->getBackingStore()->set('devices', $value);
@@ -238,7 +238,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the deviceStates property value. Device states in the policy.
-     *  @param ConditionalAccessDeviceStates|null $value Value to set for the deviceStates property.
+     * @param ConditionalAccessDeviceStates|null $value Value to set for the deviceStates property.
     */
     public function setDeviceStates(?ConditionalAccessDeviceStates $value): void {
         $this->getBackingStore()->set('deviceStates', $value);
@@ -246,7 +246,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the locations property value. Locations included in and excluded from the policy.
-     *  @param ConditionalAccessLocations|null $value Value to set for the locations property.
+     * @param ConditionalAccessLocations|null $value Value to set for the locations property.
     */
     public function setLocations(?ConditionalAccessLocations $value): void {
         $this->getBackingStore()->set('locations', $value);
@@ -254,7 +254,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -262,7 +262,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the platforms property value. Platforms included in and excluded from the policy.
-     *  @param ConditionalAccessPlatforms|null $value Value to set for the platforms property.
+     * @param ConditionalAccessPlatforms|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?ConditionalAccessPlatforms $value): void {
         $this->getBackingStore()->set('platforms', $value);
@@ -270,7 +270,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the servicePrincipalRiskLevels property value. Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.
-     *  @param array<RiskLevel>|null $value Value to set for the servicePrincipalRiskLevels property.
+     * @param array<RiskLevel>|null $value Value to set for the servicePrincipalRiskLevels property.
     */
     public function setServicePrincipalRiskLevels(?array $value): void {
         $this->getBackingStore()->set('servicePrincipalRiskLevels', $value);
@@ -278,7 +278,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the signInRiskLevels property value. Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
-     *  @param array<RiskLevel>|null $value Value to set for the signInRiskLevels property.
+     * @param array<RiskLevel>|null $value Value to set for the signInRiskLevels property.
     */
     public function setSignInRiskLevels(?array $value): void {
         $this->getBackingStore()->set('signInRiskLevels', $value);
@@ -286,7 +286,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the userRiskLevels property value. User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
-     *  @param array<RiskLevel>|null $value Value to set for the userRiskLevels property.
+     * @param array<RiskLevel>|null $value Value to set for the userRiskLevels property.
     */
     public function setUserRiskLevels(?array $value): void {
         $this->getBackingStore()->set('userRiskLevels', $value);
@@ -294,7 +294,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
-     *  @param ConditionalAccessUsers|null $value Value to set for the users property.
+     * @param ConditionalAccessUsers|null $value Value to set for the users property.
     */
     public function setUsers(?ConditionalAccessUsers $value): void {
         $this->getBackingStore()->set('users', $value);

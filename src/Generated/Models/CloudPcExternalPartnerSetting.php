@@ -95,7 +95,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
 
     /**
      * Sets the enableConnection property value. Enable or disable the connection to an external partner. If true, an external partner API will accept incoming calls from external partners. Required. Supports $filter (eq).
-     *  @param bool|null $value Value to set for the enableConnection property.
+     * @param bool|null $value Value to set for the enableConnection property.
     */
     public function setEnableConnection(?bool $value): void {
         $this->getBackingStore()->set('enableConnection', $value);
@@ -103,7 +103,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
 
     /**
      * Sets the lastSyncDateTime property value. Last data sync time for this external partner. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
-     *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
@@ -111,7 +111,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
 
     /**
      * Sets the partnerId property value. The external partner ID.
-     *  @param string|null $value Value to set for the partnerId property.
+     * @param string|null $value Value to set for the partnerId property.
     */
     public function setPartnerId(?string $value): void {
         $this->getBackingStore()->set('partnerId', $value);
@@ -119,7 +119,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param CloudPcExternalPartnerStatus|null $value Value to set for the status property.
+     * @param CloudPcExternalPartnerStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcExternalPartnerStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -127,7 +127,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
 
     /**
      * Sets the statusDetails property value. Status details message.
-     *  @param string|null $value Value to set for the statusDetails property.
+     * @param string|null $value Value to set for the statusDetails property.
     */
     public function setStatusDetails(?string $value): void {
         $this->getBackingStore()->set('statusDetails', $value);

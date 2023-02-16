@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Models and Manufactures meatadata for managed devices in the account
+*/
 class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +103,7 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +111,7 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +119,7 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
 
     /**
      * Sets the deviceManufacturers property value. List of Manufactures for managed devices in the account
-     *  @param array<string>|null $value Value to set for the deviceManufacturers property.
+     * @param array<string>|null $value Value to set for the deviceManufacturers property.
     */
     public function setDeviceManufacturers(?array $value): void {
         $this->getBackingStore()->set('deviceManufacturers', $value);
@@ -124,7 +127,7 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
 
     /**
      * Sets the deviceModels property value. List of Models for managed devices in the account
-     *  @param array<string>|null $value Value to set for the deviceModels property.
+     * @param array<string>|null $value Value to set for the deviceModels property.
     */
     public function setDeviceModels(?array $value): void {
         $this->getBackingStore()->set('deviceModels', $value);
@@ -132,7 +135,7 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Backe
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

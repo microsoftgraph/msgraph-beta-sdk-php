@@ -31,12 +31,19 @@ class PlannerPlanContainer implements AdditionalDataHolder, BackedModel, Parsabl
      * @return PlannerPlanContainer
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerPlanContainer {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.plannerSharedWithContainer': return new PlannerSharedWithContainer();
+            }
+        }
         return new PlannerPlanContainer();
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +117,7 @@ class PlannerPlanContainer implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +125,7 @@ class PlannerPlanContainer implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +133,7 @@ class PlannerPlanContainer implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the containerId property value. The identifier of the resource that contains the plan. Optional.
-     *  @param string|null $value Value to set for the containerId property.
+     * @param string|null $value Value to set for the containerId property.
     */
     public function setContainerId(?string $value): void {
         $this->getBackingStore()->set('containerId', $value);
@@ -134,7 +141,7 @@ class PlannerPlanContainer implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -142,7 +149,7 @@ class PlannerPlanContainer implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster, and project. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster, project. Optional.
-     *  @param PlannerContainerType|null $value Value to set for the type property.
+     * @param PlannerContainerType|null $value Value to set for the type property.
     */
     public function setType(?PlannerContainerType $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -150,7 +157,7 @@ class PlannerPlanContainer implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the url property value. The full canonical URL of the container. Optional.
-     *  @param string|null $value Value to set for the url property.
+     * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {
         $this->getBackingStore()->set('url', $value);

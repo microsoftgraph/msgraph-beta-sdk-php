@@ -36,7 +36,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the detail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
-     *  @param RiskDetail|null $value Value to set for the detail property.
+     * @param RiskDetail|null $value Value to set for the detail property.
     */
     public function setDetail(?RiskDetail $value): void {
         $this->getBackingStore()->set('detail', $value);
@@ -134,7 +134,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the eventTypes property value. The eventTypes property
-     *  @param array<RiskEventType>|null $value Value to set for the eventTypes property.
+     * @param array<RiskEventType>|null $value Value to set for the eventTypes property.
     */
     public function setEventTypes(?array $value): void {
         $this->getBackingStore()->set('eventTypes', $value);
@@ -142,7 +142,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class RiskUserActivity implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the riskEventTypes property value. The riskEventTypes property
-     *  @param array<string>|null $value Value to set for the riskEventTypes property.
+     * @param array<string>|null $value Value to set for the riskEventTypes property.
     */
     public function setRiskEventTypes(?array $value): void {
         $this->getBackingStore()->set('riskEventTypes', $value);

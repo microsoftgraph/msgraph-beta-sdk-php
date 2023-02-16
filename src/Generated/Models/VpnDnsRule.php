@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * VPN DNS Rule definition.
+*/
 class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +133,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +141,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the autoTrigger property value. Automatically connect to the VPN when the device connects to this domain: Default False.
-     *  @param bool|null $value Value to set for the autoTrigger property.
+     * @param bool|null $value Value to set for the autoTrigger property.
     */
     public function setAutoTrigger(?bool $value): void {
         $this->getBackingStore()->set('autoTrigger', $value);
@@ -146,7 +149,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -154,7 +157,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. Name.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -162,7 +165,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -170,7 +173,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the persistent property value. Keep this rule active even when the VPN is not connected: Default False
-     *  @param bool|null $value Value to set for the persistent property.
+     * @param bool|null $value Value to set for the persistent property.
     */
     public function setPersistent(?bool $value): void {
         $this->getBackingStore()->set('persistent', $value);
@@ -178,7 +181,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the proxyServerUri property value. Proxy Server Uri.
-     *  @param string|null $value Value to set for the proxyServerUri property.
+     * @param string|null $value Value to set for the proxyServerUri property.
     */
     public function setProxyServerUri(?string $value): void {
         $this->getBackingStore()->set('proxyServerUri', $value);
@@ -186,7 +189,7 @@ class VpnDnsRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the servers property value. Servers.
-     *  @param array<string>|null $value Value to set for the servers property.
+     * @param array<string>|null $value Value to set for the servers property.
     */
     public function setServers(?array $value): void {
         $this->getBackingStore()->set('servers', $value);

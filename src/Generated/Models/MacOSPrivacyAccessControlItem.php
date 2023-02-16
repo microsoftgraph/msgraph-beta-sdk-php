@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represents per-process privacy preferences.
+*/
 class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -44,7 +47,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -340,7 +343,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the accessibility property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the accessibility property.
+     * @param Enablement|null $value Value to set for the accessibility property.
     */
     public function setAccessibility(?Enablement $value): void {
         $this->getBackingStore()->set('accessibility', $value);
@@ -348,7 +351,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -356,7 +359,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the addressBook property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the addressBook property.
+     * @param Enablement|null $value Value to set for the addressBook property.
     */
     public function setAddressBook(?Enablement $value): void {
         $this->getBackingStore()->set('addressBook', $value);
@@ -364,7 +367,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the appleEventsAllowedReceivers property value. Allow or deny the app or process to send a restricted Apple event to another app or process. You will need to know the identifier, identifier type, and code requirement of the receiving app or process. This collection can contain a maximum of 500 elements.
-     *  @param array<MacOSAppleEventReceiver>|null $value Value to set for the appleEventsAllowedReceivers property.
+     * @param array<MacOSAppleEventReceiver>|null $value Value to set for the appleEventsAllowedReceivers property.
     */
     public function setAppleEventsAllowedReceivers(?array $value): void {
         $this->getBackingStore()->set('appleEventsAllowedReceivers', $value);
@@ -372,7 +375,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -380,7 +383,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the blockCamera property value. Block access to camera app.
-     *  @param bool|null $value Value to set for the blockCamera property.
+     * @param bool|null $value Value to set for the blockCamera property.
     */
     public function setBlockCamera(?bool $value): void {
         $this->getBackingStore()->set('blockCamera', $value);
@@ -388,7 +391,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the blockListenEvent property value. Block the app or process from listening to events from input devices such as mouse, keyboard, and trackpad.Requires macOS 10.15 or later.
-     *  @param bool|null $value Value to set for the blockListenEvent property.
+     * @param bool|null $value Value to set for the blockListenEvent property.
     */
     public function setBlockListenEvent(?bool $value): void {
         $this->getBackingStore()->set('blockListenEvent', $value);
@@ -396,7 +399,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the blockMicrophone property value. Block access to microphone.
-     *  @param bool|null $value Value to set for the blockMicrophone property.
+     * @param bool|null $value Value to set for the blockMicrophone property.
     */
     public function setBlockMicrophone(?bool $value): void {
         $this->getBackingStore()->set('blockMicrophone', $value);
@@ -404,7 +407,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the blockScreenCapture property value. Block app from capturing contents of system display. Requires macOS 10.15 or later.
-     *  @param bool|null $value Value to set for the blockScreenCapture property.
+     * @param bool|null $value Value to set for the blockScreenCapture property.
     */
     public function setBlockScreenCapture(?bool $value): void {
         $this->getBackingStore()->set('blockScreenCapture', $value);
@@ -412,7 +415,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the calendar property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the calendar property.
+     * @param Enablement|null $value Value to set for the calendar property.
     */
     public function setCalendar(?Enablement $value): void {
         $this->getBackingStore()->set('calendar', $value);
@@ -420,7 +423,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the codeRequirement property value. Enter the code requirement, which can be obtained with the command 'codesign –display -r –' in the Terminal app. Include everything after '=>'.
-     *  @param string|null $value Value to set for the codeRequirement property.
+     * @param string|null $value Value to set for the codeRequirement property.
     */
     public function setCodeRequirement(?string $value): void {
         $this->getBackingStore()->set('codeRequirement', $value);
@@ -428,7 +431,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the displayName property value. The display name of the app, process, or executable.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -436,7 +439,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the fileProviderPresence property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the fileProviderPresence property.
+     * @param Enablement|null $value Value to set for the fileProviderPresence property.
     */
     public function setFileProviderPresence(?Enablement $value): void {
         $this->getBackingStore()->set('fileProviderPresence', $value);
@@ -444,7 +447,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the identifier property value. The bundle ID or path of the app, process, or executable.
-     *  @param string|null $value Value to set for the identifier property.
+     * @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value): void {
         $this->getBackingStore()->set('identifier', $value);
@@ -452,7 +455,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the identifierType property value. Process identifier types for MacOS Privacy Preferences
-     *  @param MacOSProcessIdentifierType|null $value Value to set for the identifierType property.
+     * @param MacOSProcessIdentifierType|null $value Value to set for the identifierType property.
     */
     public function setIdentifierType(?MacOSProcessIdentifierType $value): void {
         $this->getBackingStore()->set('identifierType', $value);
@@ -460,7 +463,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the mediaLibrary property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the mediaLibrary property.
+     * @param Enablement|null $value Value to set for the mediaLibrary property.
     */
     public function setMediaLibrary(?Enablement $value): void {
         $this->getBackingStore()->set('mediaLibrary', $value);
@@ -468,7 +471,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -476,7 +479,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the photos property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the photos property.
+     * @param Enablement|null $value Value to set for the photos property.
     */
     public function setPhotos(?Enablement $value): void {
         $this->getBackingStore()->set('photos', $value);
@@ -484,7 +487,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the postEvent property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the postEvent property.
+     * @param Enablement|null $value Value to set for the postEvent property.
     */
     public function setPostEvent(?Enablement $value): void {
         $this->getBackingStore()->set('postEvent', $value);
@@ -492,7 +495,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the reminders property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the reminders property.
+     * @param Enablement|null $value Value to set for the reminders property.
     */
     public function setReminders(?Enablement $value): void {
         $this->getBackingStore()->set('reminders', $value);
@@ -500,7 +503,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the speechRecognition property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the speechRecognition property.
+     * @param Enablement|null $value Value to set for the speechRecognition property.
     */
     public function setSpeechRecognition(?Enablement $value): void {
         $this->getBackingStore()->set('speechRecognition', $value);
@@ -508,7 +511,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the staticCodeValidation property value. Statically validates the code requirement. Use this setting if the process invalidates its dynamic code signature.
-     *  @param bool|null $value Value to set for the staticCodeValidation property.
+     * @param bool|null $value Value to set for the staticCodeValidation property.
     */
     public function setStaticCodeValidation(?bool $value): void {
         $this->getBackingStore()->set('staticCodeValidation', $value);
@@ -516,7 +519,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the systemPolicyAllFiles property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the systemPolicyAllFiles property.
+     * @param Enablement|null $value Value to set for the systemPolicyAllFiles property.
     */
     public function setSystemPolicyAllFiles(?Enablement $value): void {
         $this->getBackingStore()->set('systemPolicyAllFiles', $value);
@@ -524,7 +527,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the systemPolicyDesktopFolder property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the systemPolicyDesktopFolder property.
+     * @param Enablement|null $value Value to set for the systemPolicyDesktopFolder property.
     */
     public function setSystemPolicyDesktopFolder(?Enablement $value): void {
         $this->getBackingStore()->set('systemPolicyDesktopFolder', $value);
@@ -532,7 +535,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the systemPolicyDocumentsFolder property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the systemPolicyDocumentsFolder property.
+     * @param Enablement|null $value Value to set for the systemPolicyDocumentsFolder property.
     */
     public function setSystemPolicyDocumentsFolder(?Enablement $value): void {
         $this->getBackingStore()->set('systemPolicyDocumentsFolder', $value);
@@ -540,7 +543,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the systemPolicyDownloadsFolder property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the systemPolicyDownloadsFolder property.
+     * @param Enablement|null $value Value to set for the systemPolicyDownloadsFolder property.
     */
     public function setSystemPolicyDownloadsFolder(?Enablement $value): void {
         $this->getBackingStore()->set('systemPolicyDownloadsFolder', $value);
@@ -548,7 +551,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the systemPolicyNetworkVolumes property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the systemPolicyNetworkVolumes property.
+     * @param Enablement|null $value Value to set for the systemPolicyNetworkVolumes property.
     */
     public function setSystemPolicyNetworkVolumes(?Enablement $value): void {
         $this->getBackingStore()->set('systemPolicyNetworkVolumes', $value);
@@ -556,7 +559,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the systemPolicyRemovableVolumes property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the systemPolicyRemovableVolumes property.
+     * @param Enablement|null $value Value to set for the systemPolicyRemovableVolumes property.
     */
     public function setSystemPolicyRemovableVolumes(?Enablement $value): void {
         $this->getBackingStore()->set('systemPolicyRemovableVolumes', $value);
@@ -564,7 +567,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the systemPolicySystemAdminFiles property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the systemPolicySystemAdminFiles property.
+     * @param Enablement|null $value Value to set for the systemPolicySystemAdminFiles property.
     */
     public function setSystemPolicySystemAdminFiles(?Enablement $value): void {
         $this->getBackingStore()->set('systemPolicySystemAdminFiles', $value);

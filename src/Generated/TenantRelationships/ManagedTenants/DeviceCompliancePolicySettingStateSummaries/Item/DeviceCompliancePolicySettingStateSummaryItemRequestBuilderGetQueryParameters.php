@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Devi
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Summary information for device compliance policy setting states across managed tenants.
+*/
 class DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQueryParamet
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

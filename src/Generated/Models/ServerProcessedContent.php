@@ -36,7 +36,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +156,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the componentDependencies property value. A key-value map where keys are string identifiers and values are component ids. SharePoint servers might decide to use this hint to preload the script for corresponding components for performance boost.
-     *  @param array<MetaDataKeyStringPair>|null $value Value to set for the componentDependencies property.
+     * @param array<MetaDataKeyStringPair>|null $value Value to set for the componentDependencies property.
     */
     public function setComponentDependencies(?array $value): void {
         $this->getBackingStore()->set('componentDependencies', $value);
@@ -164,7 +164,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the customMetadata property value. A key-value map where keys are string identifier and values are object of custom key-value pair.
-     *  @param array<MetaDataKeyValuePair>|null $value Value to set for the customMetadata property.
+     * @param array<MetaDataKeyValuePair>|null $value Value to set for the customMetadata property.
     */
     public function setCustomMetadata(?array $value): void {
         $this->getBackingStore()->set('customMetadata', $value);
@@ -172,7 +172,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the htmlStrings property value. A key-value map where keys are string identifiers and values are rich text with HTML format. SharePoint servers treat the values as HTML content and run services like safety checks, search index and link fixup on them.
-     *  @param array<MetaDataKeyStringPair>|null $value Value to set for the htmlStrings property.
+     * @param array<MetaDataKeyStringPair>|null $value Value to set for the htmlStrings property.
     */
     public function setHtmlStrings(?array $value): void {
         $this->getBackingStore()->set('htmlStrings', $value);
@@ -180,7 +180,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the imageSources property value. A key-value map where keys are string identifiers and values are image sources. SharePoint servers treat the values as image sources and run services like search index and link fixup on them.
-     *  @param array<MetaDataKeyStringPair>|null $value Value to set for the imageSources property.
+     * @param array<MetaDataKeyStringPair>|null $value Value to set for the imageSources property.
     */
     public function setImageSources(?array $value): void {
         $this->getBackingStore()->set('imageSources', $value);
@@ -188,7 +188,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the links property value. A key-value map where keys are string identifiers and values are links. SharePoint servers treat the values as links and run services like link fixup on them.
-     *  @param array<MetaDataKeyStringPair>|null $value Value to set for the links property.
+     * @param array<MetaDataKeyStringPair>|null $value Value to set for the links property.
     */
     public function setLinks(?array $value): void {
         $this->getBackingStore()->set('links', $value);
@@ -196,7 +196,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -204,7 +204,7 @@ class ServerProcessedContent implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the searchablePlainTexts property value. A key-value map where keys are string identifiers and values are strings that should be search indexed.
-     *  @param array<MetaDataKeyStringPair>|null $value Value to set for the searchablePlainTexts property.
+     * @param array<MetaDataKeyStringPair>|null $value Value to set for the searchablePlainTexts property.
     */
     public function setSearchablePlainTexts(?array $value): void {
         $this->getBackingStore()->set('searchablePlainTexts', $value);

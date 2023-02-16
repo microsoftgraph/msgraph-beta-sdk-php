@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Remote help - response we provide back to the helper on retrieve session API call
+*/
 class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -69,7 +72,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -171,7 +174,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the acsGroupId property value. ACS Group Id
-     *  @param string|null $value Value to set for the acsGroupId property.
+     * @param string|null $value Value to set for the acsGroupId property.
     */
     public function setAcsGroupId(?string $value): void {
         $this->getBackingStore()->set('acsGroupId', $value);
@@ -179,7 +182,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the acsHelperUserId property value. Helper ACS User Id
-     *  @param string|null $value Value to set for the acsHelperUserId property.
+     * @param string|null $value Value to set for the acsHelperUserId property.
     */
     public function setAcsHelperUserId(?string $value): void {
         $this->getBackingStore()->set('acsHelperUserId', $value);
@@ -187,7 +190,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the acsHelperUserToken property value. Helper ACS User Token
-     *  @param string|null $value Value to set for the acsHelperUserToken property.
+     * @param string|null $value Value to set for the acsHelperUserToken property.
     */
     public function setAcsHelperUserToken(?string $value): void {
         $this->getBackingStore()->set('acsHelperUserToken', $value);
@@ -195,7 +198,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the acsSharerUserId property value. Sharer ACS User Id
-     *  @param string|null $value Value to set for the acsSharerUserId property.
+     * @param string|null $value Value to set for the acsSharerUserId property.
     */
     public function setAcsSharerUserId(?string $value): void {
         $this->getBackingStore()->set('acsSharerUserId', $value);
@@ -203,7 +206,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -211,7 +214,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -219,7 +222,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the deviceName property value. Android Device Name
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -227,7 +230,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -235,7 +238,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the pubSubGroupId property value. Azure Pubsub Group Id
-     *  @param string|null $value Value to set for the pubSubGroupId property.
+     * @param string|null $value Value to set for the pubSubGroupId property.
     */
     public function setPubSubGroupId(?string $value): void {
         $this->getBackingStore()->set('pubSubGroupId', $value);
@@ -243,7 +246,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the pubSubHelperAccessUri property value. Azure Pubsub Group Id
-     *  @param string|null $value Value to set for the pubSubHelperAccessUri property.
+     * @param string|null $value Value to set for the pubSubHelperAccessUri property.
     */
     public function setPubSubHelperAccessUri(?string $value): void {
         $this->getBackingStore()->set('pubSubHelperAccessUri', $value);
@@ -251,7 +254,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the sessionExpirationDateTime property value. Azure Pubsub Session Expiration Date Time.
-     *  @param DateTime|null $value Value to set for the sessionExpirationDateTime property.
+     * @param DateTime|null $value Value to set for the sessionExpirationDateTime property.
     */
     public function setSessionExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('sessionExpirationDateTime', $value);
@@ -259,7 +262,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the sessionKey property value. The unique identifier for a session
-     *  @param string|null $value Value to set for the sessionKey property.
+     * @param string|null $value Value to set for the sessionKey property.
     */
     public function setSessionKey(?string $value): void {
         $this->getBackingStore()->set('sessionKey', $value);

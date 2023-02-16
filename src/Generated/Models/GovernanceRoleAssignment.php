@@ -185,7 +185,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the assignmentState property value. The state of the assignment. The value can be Eligible for eligible assignment or Active if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
-     *  @param string|null $value Value to set for the assignmentState property.
+     * @param string|null $value Value to set for the assignmentState property.
     */
     public function setAssignmentState(?string $value): void {
         $this->getBackingStore()->set('assignmentState', $value);
@@ -193,7 +193,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the endDateTime property value. For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -201,7 +201,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the externalId property value. The external ID the resource that is used to identify the role assignment in the provider.
-     *  @param string|null $value Value to set for the externalId property.
+     * @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value): void {
         $this->getBackingStore()->set('externalId', $value);
@@ -209,7 +209,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the linkedEligibleRoleAssignment property value. Read-only. If this is an active assignment and created due to activation on an eligible assignment, it represents the object of that eligible assignment; Otherwise, the value is null.
-     *  @param GovernanceRoleAssignment|null $value Value to set for the linkedEligibleRoleAssignment property.
+     * @param GovernanceRoleAssignment|null $value Value to set for the linkedEligibleRoleAssignment property.
     */
     public function setLinkedEligibleRoleAssignment(?GovernanceRoleAssignment $value): void {
         $this->getBackingStore()->set('linkedEligibleRoleAssignment', $value);
@@ -217,7 +217,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the linkedEligibleRoleAssignmentId property value. If this is an active assignment and created due to activation on an eligible assignment, it represents the ID of that eligible assignment; Otherwise, the value is null.
-     *  @param string|null $value Value to set for the linkedEligibleRoleAssignmentId property.
+     * @param string|null $value Value to set for the linkedEligibleRoleAssignmentId property.
     */
     public function setLinkedEligibleRoleAssignmentId(?string $value): void {
         $this->getBackingStore()->set('linkedEligibleRoleAssignmentId', $value);
@@ -225,7 +225,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the memberType property value. The type of member. The value can be: Inherited (if the role assignment is inherited from a parent resource scope), Group (if the role assignment is not inherited, but comes from the membership of a group assignment), or User (if the role assignment is neither inherited nor from a group assignment).
-     *  @param string|null $value Value to set for the memberType property.
+     * @param string|null $value Value to set for the memberType property.
     */
     public function setMemberType(?string $value): void {
         $this->getBackingStore()->set('memberType', $value);
@@ -233,7 +233,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the resource property value. Read-only. The resource associated with the role assignment.
-     *  @param GovernanceResource|null $value Value to set for the resource property.
+     * @param GovernanceResource|null $value Value to set for the resource property.
     */
     public function setResource(?GovernanceResource $value): void {
         $this->getBackingStore()->set('resource', $value);
@@ -241,7 +241,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the resourceId property value. Required. The ID of the resource which the role assignment is associated with.
-     *  @param string|null $value Value to set for the resourceId property.
+     * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
         $this->getBackingStore()->set('resourceId', $value);
@@ -249,7 +249,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the roleDefinition property value. Read-only. The role definition associated with the role assignment.
-     *  @param GovernanceRoleDefinition|null $value Value to set for the roleDefinition property.
+     * @param GovernanceRoleDefinition|null $value Value to set for the roleDefinition property.
     */
     public function setRoleDefinition(?GovernanceRoleDefinition $value): void {
         $this->getBackingStore()->set('roleDefinition', $value);
@@ -257,7 +257,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the roleDefinitionId property value. Required. The ID of the role definition which the role assignment is associated with.
-     *  @param string|null $value Value to set for the roleDefinitionId property.
+     * @param string|null $value Value to set for the roleDefinitionId property.
     */
     public function setRoleDefinitionId(?string $value): void {
         $this->getBackingStore()->set('roleDefinitionId', $value);
@@ -265,7 +265,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the startDateTime property value. The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -273,7 +273,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -281,7 +281,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the subject property value. Read-only. The subject associated with the role assignment.
-     *  @param GovernanceSubject|null $value Value to set for the subject property.
+     * @param GovernanceSubject|null $value Value to set for the subject property.
     */
     public function setSubject(?GovernanceSubject $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -289,7 +289,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
 
     /**
      * Sets the subjectId property value. Required. The ID of the subject which the role assignment is associated with.
-     *  @param string|null $value Value to set for the subjectId property.
+     * @param string|null $value Value to set for the subjectId property.
     */
     public function setSubjectId(?string $value): void {
         $this->getBackingStore()->set('subjectId', $value);

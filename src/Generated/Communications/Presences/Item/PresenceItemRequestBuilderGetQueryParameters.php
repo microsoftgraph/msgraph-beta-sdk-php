@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Communications\Presences\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get presences from communications
+*/
 class PresenceItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class PresenceItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new PresenceItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

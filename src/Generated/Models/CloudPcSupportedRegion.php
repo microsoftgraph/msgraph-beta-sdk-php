@@ -84,7 +84,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name for the supported region. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -92,7 +92,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
 
     /**
      * Sets the regionGroup property value. The regionGroup property
-     *  @param CloudPcRegionGroup|null $value Value to set for the regionGroup property.
+     * @param CloudPcRegionGroup|null $value Value to set for the regionGroup property.
     */
     public function setRegionGroup(?CloudPcRegionGroup $value): void {
         $this->getBackingStore()->set('regionGroup', $value);
@@ -100,7 +100,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
 
     /**
      * Sets the regionStatus property value. The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
-     *  @param CloudPcSupportedRegionStatus|null $value Value to set for the regionStatus property.
+     * @param CloudPcSupportedRegionStatus|null $value Value to set for the regionStatus property.
     */
     public function setRegionStatus(?CloudPcSupportedRegionStatus $value): void {
         $this->getBackingStore()->set('regionStatus', $value);
@@ -108,7 +108,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
 
     /**
      * Sets the supportedSolution property value. The supportedSolution property
-     *  @param CloudPcManagementService|null $value Value to set for the supportedSolution property.
+     * @param CloudPcManagementService|null $value Value to set for the supportedSolution property.
     */
     public function setSupportedSolution(?CloudPcManagementService $value): void {
         $this->getBackingStore()->set('supportedSolution', $value);

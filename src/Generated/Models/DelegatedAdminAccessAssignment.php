@@ -95,7 +95,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
 
     /**
      * Sets the accessContainer property value. The accessContainer property
-     *  @param DelegatedAdminAccessContainer|null $value Value to set for the accessContainer property.
+     * @param DelegatedAdminAccessContainer|null $value Value to set for the accessContainer property.
     */
     public function setAccessContainer(?DelegatedAdminAccessContainer $value): void {
         $this->getBackingStore()->set('accessContainer', $value);
@@ -103,7 +103,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
 
     /**
      * Sets the accessDetails property value. The accessDetails property
-     *  @param DelegatedAdminAccessDetails|null $value Value to set for the accessDetails property.
+     * @param DelegatedAdminAccessDetails|null $value Value to set for the accessDetails property.
     */
     public function setAccessDetails(?DelegatedAdminAccessDetails $value): void {
         $this->getBackingStore()->set('accessDetails', $value);
@@ -111,7 +111,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time in ISO 8601 format and in UTC time when the access assignment was created. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -119,7 +119,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time in ISO 8601 and in UTC time when this access assignment was last modified. Read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -127,7 +127,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the access assignment. Read-only. The possible values are: pending, active, deleting, deleted, error, unknownFutureValue.
-     *  @param DelegatedAdminAccessAssignmentStatus|null $value Value to set for the status property.
+     * @param DelegatedAdminAccessAssignmentStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DelegatedAdminAccessAssignmentStatus $value): void {
         $this->getBackingStore()->set('status', $value);

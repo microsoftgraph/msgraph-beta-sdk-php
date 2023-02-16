@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploy
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The list of group assignments for the profile.
+*/
 class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderGetQueryParam
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

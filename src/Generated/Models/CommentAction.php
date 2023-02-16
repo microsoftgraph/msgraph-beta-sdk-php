@@ -36,7 +36,7 @@ class CommentAction implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class CommentAction implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class CommentAction implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class CommentAction implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isReply property value. If true, this activity was a reply to an existing comment thread.
-     *  @param bool|null $value Value to set for the isReply property.
+     * @param bool|null $value Value to set for the isReply property.
     */
     public function setIsReply(?bool $value): void {
         $this->getBackingStore()->set('isReply', $value);
@@ -134,7 +134,7 @@ class CommentAction implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -142,7 +142,7 @@ class CommentAction implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the parentAuthor property value. The identity of the user who started the comment thread.
-     *  @param IdentitySet|null $value Value to set for the parentAuthor property.
+     * @param IdentitySet|null $value Value to set for the parentAuthor property.
     */
     public function setParentAuthor(?IdentitySet $value): void {
         $this->getBackingStore()->set('parentAuthor', $value);
@@ -150,7 +150,7 @@ class CommentAction implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the participants property value. The identities of the users participating in this comment thread.
-     *  @param array<IdentitySet>|null $value Value to set for the participants property.
+     * @param array<IdentitySet>|null $value Value to set for the participants property.
     */
     public function setParticipants(?array $value): void {
         $this->getBackingStore()->set('participants', $value);

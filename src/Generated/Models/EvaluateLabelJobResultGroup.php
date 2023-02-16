@@ -36,7 +36,7 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the automatic property value. The automatic property
-     *  @param EvaluateLabelJobResult|null $value Value to set for the automatic property.
+     * @param EvaluateLabelJobResult|null $value Value to set for the automatic property.
     */
     public function setAutomatic(?EvaluateLabelJobResult $value): void {
         $this->getBackingStore()->set('automatic', $value);
@@ -116,7 +116,7 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +124,7 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -132,7 +132,7 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the recommended property value. The recommended property
-     *  @param EvaluateLabelJobResult|null $value Value to set for the recommended property.
+     * @param EvaluateLabelJobResult|null $value Value to set for the recommended property.
     */
     public function setRecommended(?EvaluateLabelJobResult $value): void {
         $this->getBackingStore()->set('recommended', $value);

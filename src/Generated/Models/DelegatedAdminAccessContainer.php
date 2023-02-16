@@ -52,7 +52,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the accessContainerId property value. The identifier of the access container (for example, a security group). For 'securityGroup' access containers, this must be a valid ID of an Azure AD security group in the Microsoft partner's tenant.
-     *  @param string|null $value Value to set for the accessContainerId property.
+     * @param string|null $value Value to set for the accessContainerId property.
     */
     public function setAccessContainerId(?string $value): void {
         $this->getBackingStore()->set('accessContainerId', $value);
@@ -108,7 +108,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the accessContainerType property value. The accessContainerType property
-     *  @param DelegatedAdminAccessContainerType|null $value Value to set for the accessContainerType property.
+     * @param DelegatedAdminAccessContainerType|null $value Value to set for the accessContainerType property.
     */
     public function setAccessContainerType(?DelegatedAdminAccessContainerType $value): void {
         $this->getBackingStore()->set('accessContainerType', $value);
@@ -116,7 +116,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -124,7 +124,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -132,7 +132,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

@@ -45,7 +45,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -139,7 +139,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -147,7 +147,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -155,7 +155,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the confidence property value. The confidence property
-     *  @param int|null $value Value to set for the confidence property.
+     * @param int|null $value Value to set for the confidence property.
     */
     public function setConfidence(?int $value): void {
         $this->getBackingStore()->set('confidence', $value);
@@ -163,7 +163,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -171,7 +171,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the id property value. The id property
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -179,7 +179,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -187,7 +187,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the recommendedConfidence property value. The recommendedConfidence property
-     *  @param int|null $value Value to set for the recommendedConfidence property.
+     * @param int|null $value Value to set for the recommendedConfidence property.
     */
     public function setRecommendedConfidence(?int $value): void {
         $this->getBackingStore()->set('recommendedConfidence', $value);
@@ -195,7 +195,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the uniqueCount property value. The uniqueCount property
-     *  @param int|null $value Value to set for the uniqueCount property.
+     * @param int|null $value Value to set for the uniqueCount property.
     */
     public function setUniqueCount(?int $value): void {
         $this->getBackingStore()->set('uniqueCount', $value);

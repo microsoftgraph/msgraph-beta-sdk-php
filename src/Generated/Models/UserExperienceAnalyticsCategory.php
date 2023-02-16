@@ -64,7 +64,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
 
     /**
      * Sets the insights property value. The insights for the user experience analytics category.
-     *  @param array<UserExperienceAnalyticsInsight>|null $value Value to set for the insights property.
+     * @param array<UserExperienceAnalyticsInsight>|null $value Value to set for the insights property.
     */
     public function setInsights(?array $value): void {
         $this->getBackingStore()->set('insights', $value);
@@ -72,7 +72,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
 
     /**
      * Sets the metricValues property value. The metric values for the user experience analytics category.
-     *  @param array<UserExperienceAnalyticsMetric>|null $value Value to set for the metricValues property.
+     * @param array<UserExperienceAnalyticsMetric>|null $value Value to set for the metricValues property.
     */
     public function setMetricValues(?array $value): void {
         $this->getBackingStore()->set('metricValues', $value);

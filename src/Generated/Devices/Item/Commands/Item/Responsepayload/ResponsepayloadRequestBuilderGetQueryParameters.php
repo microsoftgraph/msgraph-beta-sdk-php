@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Devices\Item\Commands\Item\Responsepayl
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get responsepayload from devices
+*/
 class ResponsepayloadRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ResponsepayloadRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new responsepayloadRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendar
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The calendars in the calendar group. Navigation property. Read-only. Nullable.
+*/
 class CalendarItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class CalendarItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new CalendarItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $select = null) {
+        $this->select = $select;
+    }
+
 }

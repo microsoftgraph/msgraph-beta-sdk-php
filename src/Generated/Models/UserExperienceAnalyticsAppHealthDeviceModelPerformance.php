@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device model performance entity contains device model performance details.
+*/
 class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity implements Parsable 
 {
     /**
@@ -114,7 +117,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
 
     /**
      * Sets the activeDeviceCount property value. The number of active devices for the model. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the activeDeviceCount property.
+     * @param int|null $value Value to set for the activeDeviceCount property.
     */
     public function setActiveDeviceCount(?int $value): void {
         $this->getBackingStore()->set('activeDeviceCount', $value);
@@ -122,7 +125,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
 
     /**
      * Sets the deviceManufacturer property value. The manufacturer name of the device.
-     *  @param string|null $value Value to set for the deviceManufacturer property.
+     * @param string|null $value Value to set for the deviceManufacturer property.
     */
     public function setDeviceManufacturer(?string $value): void {
         $this->getBackingStore()->set('deviceManufacturer', $value);
@@ -130,7 +133,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
 
     /**
      * Sets the deviceModel property value. The model name of the device.
-     *  @param string|null $value Value to set for the deviceModel property.
+     * @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value): void {
         $this->getBackingStore()->set('deviceModel', $value);
@@ -138,7 +141,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
 
     /**
      * Sets the healthStatus property value. The healthStatus property
-     *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
+     * @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
         $this->getBackingStore()->set('healthStatus', $value);
@@ -146,7 +149,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
 
     /**
      * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the model device in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
+     * @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
     public function setMeanTimeToFailureInMinutes(?int $value): void {
         $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);
@@ -154,7 +157,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
 
     /**
      * Sets the modelAppHealthScore property value. The app health score of the device model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the modelAppHealthScore property.
+     * @param float|null $value Value to set for the modelAppHealthScore property.
     */
     public function setModelAppHealthScore(?float $value): void {
         $this->getBackingStore()->set('modelAppHealthScore', $value);
@@ -162,7 +165,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
 
     /**
      * Sets the modelAppHealthStatus property value. The overall app health status of the device model.
-     *  @param string|null $value Value to set for the modelAppHealthStatus property.
+     * @param string|null $value Value to set for the modelAppHealthStatus property.
     */
     public function setModelAppHealthStatus(?string $value): void {
         $this->getBackingStore()->set('modelAppHealthStatus', $value);

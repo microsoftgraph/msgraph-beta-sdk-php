@@ -36,7 +36,7 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -51,16 +51,24 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the effectiveValue property value. The effectiveValue property
+     * @return DeploymentStateValue|null
+    */
+    public function getEffectiveValue(): ?DeploymentStateValue {
+        return $this->getBackingStore()->get('effectiveValue');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'effectiveValue' => fn(ParseNode $n) => $o->setEffectiveValue($n->getEnumValue(DeploymentStateValue::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reasons' => fn(ParseNode $n) => $o->setReasons($n->getCollectionOfObjectValues([DeploymentStateReason::class, 'createFromDiscriminatorValue'])),
             'requestedValue' => fn(ParseNode $n) => $o->setRequestedValue($n->getEnumValue(RequestedDeploymentStateValue::class)),
-            'value' => fn(ParseNode $n) => $o->setValue($n->getEnumValue(DeploymentStateValue::class)),
         ];
     }
 
@@ -89,28 +97,20 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. The value property
-     * @return DeploymentStateValue|null
-    */
-    public function getValue(): ?DeploymentStateValue {
-        return $this->getBackingStore()->get('value');
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('effectiveValue', $this->getEffectiveValue());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('reasons', $this->getReasons());
         $writer->writeEnumValue('requestedValue', $this->getRequestedValue());
-        $writer->writeEnumValue('value', $this->getValue());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,15 +118,23 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
+     * Sets the effectiveValue property value. The effectiveValue property
+     * @param DeploymentStateValue|null $value Value to set for the effectiveValue property.
+    */
+    public function setEffectiveValue(?DeploymentStateValue $value): void {
+        $this->getBackingStore()->set('effectiveValue', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -134,7 +142,7 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the reasons property value. Specifies the reasons the deployment has its state value. Read-only.
-     *  @param array<DeploymentStateReason>|null $value Value to set for the reasons property.
+     * @param array<DeploymentStateReason>|null $value Value to set for the reasons property.
     */
     public function setReasons(?array $value): void {
         $this->getBackingStore()->set('reasons', $value);
@@ -142,18 +150,10 @@ class DeploymentState implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the requestedValue property value. The requestedValue property
-     *  @param RequestedDeploymentStateValue|null $value Value to set for the requestedValue property.
+     * @param RequestedDeploymentStateValue|null $value Value to set for the requestedValue property.
     */
     public function setRequestedValue(?RequestedDeploymentStateValue $value): void {
         $this->getBackingStore()->set('requestedValue', $value);
-    }
-
-    /**
-     * Sets the value property value. The value property
-     *  @param DeploymentStateValue|null $value Value to set for the value property.
-    */
-    public function setValue(?DeploymentStateValue $value): void {
-        $this->getBackingStore()->set('value', $value);
     }
 
 }

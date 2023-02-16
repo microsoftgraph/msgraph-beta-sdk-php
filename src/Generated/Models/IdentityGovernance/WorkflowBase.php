@@ -46,7 +46,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -200,7 +200,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -208,7 +208,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -216,7 +216,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the category property value. The category property
-     *  @param LifecycleWorkflowCategory|null $value Value to set for the category property.
+     * @param LifecycleWorkflowCategory|null $value Value to set for the category property.
     */
     public function setCategory(?LifecycleWorkflowCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -224,7 +224,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the createdBy property value. The user who created the workflow.
-     *  @param User|null $value Value to set for the createdBy property.
+     * @param User|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?User $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -232,7 +232,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the createdDateTime property value. When a workflow was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -240,7 +240,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. A string that describes the purpose of the workflow.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -248,7 +248,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. A string to identify the workflow.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -256,7 +256,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the executionConditions property value. Defines when and for who the workflow will run.
-     *  @param WorkflowExecutionConditions|null $value Value to set for the executionConditions property.
+     * @param WorkflowExecutionConditions|null $value Value to set for the executionConditions property.
     */
     public function setExecutionConditions(?WorkflowExecutionConditions $value): void {
         $this->getBackingStore()->set('executionConditions', $value);
@@ -264,7 +264,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isEnabled property value. Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -272,7 +272,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isSchedulingEnabled property value. If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Cannot be true for a disabled workflow (where isEnabled is false).
-     *  @param bool|null $value Value to set for the isSchedulingEnabled property.
+     * @param bool|null $value Value to set for the isSchedulingEnabled property.
     */
     public function setIsSchedulingEnabled(?bool $value): void {
         $this->getBackingStore()->set('isSchedulingEnabled', $value);
@@ -280,7 +280,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the workflow.
-     *  @param User|null $value Value to set for the lastModifiedBy property.
+     * @param User|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?User $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -288,7 +288,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. When the workflow was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -296,7 +296,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -304,7 +304,7 @@ class WorkflowBase implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tasks property value. The tasks in the workflow.
-     *  @param array<Task>|null $value Value to set for the tasks property.
+     * @param array<Task>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);

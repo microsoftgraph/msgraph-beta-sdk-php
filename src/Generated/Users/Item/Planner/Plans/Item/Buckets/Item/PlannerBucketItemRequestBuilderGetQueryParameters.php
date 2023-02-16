@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\Plans\Item\Buckets\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of buckets in the plan. Read-only. Nullable.
+*/
 class PlannerBucketItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class PlannerBucketItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new PlannerBucketItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

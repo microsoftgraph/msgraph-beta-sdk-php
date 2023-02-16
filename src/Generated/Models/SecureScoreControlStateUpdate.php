@@ -37,7 +37,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -131,7 +131,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -139,7 +139,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the assignedTo property value. The assignedTo property
-     *  @param string|null $value Value to set for the assignedTo property.
+     * @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value): void {
         $this->getBackingStore()->set('assignedTo', $value);
@@ -147,7 +147,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -155,7 +155,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the comment property value. The comment property
-     *  @param string|null $value Value to set for the comment property.
+     * @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value): void {
         $this->getBackingStore()->set('comment', $value);
@@ -163,7 +163,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -171,7 +171,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the state property value. The state property
-     *  @param string|null $value Value to set for the state property.
+     * @param string|null $value Value to set for the state property.
     */
     public function setState(?string $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -179,7 +179,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the updatedBy property value. The updatedBy property
-     *  @param string|null $value Value to set for the updatedBy property.
+     * @param string|null $value Value to set for the updatedBy property.
     */
     public function setUpdatedBy(?string $value): void {
         $this->getBackingStore()->set('updatedBy', $value);
@@ -187,7 +187,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the updatedDateTime property value. The updatedDateTime property
-     *  @param DateTime|null $value Value to set for the updatedDateTime property.
+     * @param DateTime|null $value Value to set for the updatedDateTime property.
     */
     public function setUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('updatedDateTime', $value);

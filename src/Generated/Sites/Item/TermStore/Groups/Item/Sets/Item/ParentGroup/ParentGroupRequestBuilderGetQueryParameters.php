@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Groups\Item\Sets\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The parent [group] that contains the set.
+*/
 class ParentGroupRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ParentGroupRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new parentGroupRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

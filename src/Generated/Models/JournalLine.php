@@ -166,7 +166,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the account property value. The account property
-     *  @param Account|null $value Value to set for the account property.
+     * @param Account|null $value Value to set for the account property.
     */
     public function setAccount(?Account $value): void {
         $this->getBackingStore()->set('account', $value);
@@ -174,7 +174,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the accountId property value. The accountId property
-     *  @param string|null $value Value to set for the accountId property.
+     * @param string|null $value Value to set for the accountId property.
     */
     public function setAccountId(?string $value): void {
         $this->getBackingStore()->set('accountId', $value);
@@ -182,7 +182,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the accountNumber property value. The accountNumber property
-     *  @param string|null $value Value to set for the accountNumber property.
+     * @param string|null $value Value to set for the accountNumber property.
     */
     public function setAccountNumber(?string $value): void {
         $this->getBackingStore()->set('accountNumber', $value);
@@ -190,7 +190,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the amount property value. The amount property
-     *  @param string|null $value Value to set for the amount property.
+     * @param string|null $value Value to set for the amount property.
     */
     public function setAmount(?string $value): void {
         $this->getBackingStore()->set('amount', $value);
@@ -198,7 +198,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the comment property value. The comment property
-     *  @param string|null $value Value to set for the comment property.
+     * @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value): void {
         $this->getBackingStore()->set('comment', $value);
@@ -206,7 +206,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -214,7 +214,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the documentNumber property value. The documentNumber property
-     *  @param string|null $value Value to set for the documentNumber property.
+     * @param string|null $value Value to set for the documentNumber property.
     */
     public function setDocumentNumber(?string $value): void {
         $this->getBackingStore()->set('documentNumber', $value);
@@ -222,7 +222,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the externalDocumentNumber property value. The externalDocumentNumber property
-     *  @param string|null $value Value to set for the externalDocumentNumber property.
+     * @param string|null $value Value to set for the externalDocumentNumber property.
     */
     public function setExternalDocumentNumber(?string $value): void {
         $this->getBackingStore()->set('externalDocumentNumber', $value);
@@ -230,7 +230,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the journalDisplayName property value. The journalDisplayName property
-     *  @param string|null $value Value to set for the journalDisplayName property.
+     * @param string|null $value Value to set for the journalDisplayName property.
     */
     public function setJournalDisplayName(?string $value): void {
         $this->getBackingStore()->set('journalDisplayName', $value);
@@ -238,7 +238,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -246,7 +246,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the lineNumber property value. The lineNumber property
-     *  @param int|null $value Value to set for the lineNumber property.
+     * @param int|null $value Value to set for the lineNumber property.
     */
     public function setLineNumber(?int $value): void {
         $this->getBackingStore()->set('lineNumber', $value);
@@ -254,7 +254,7 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the postingDate property value. The postingDate property
-     *  @param Date|null $value Value to set for the postingDate property.
+     * @param Date|null $value Value to set for the postingDate property.
     */
     public function setPostingDate(?Date $value): void {
         $this->getBackingStore()->set('postingDate', $value);

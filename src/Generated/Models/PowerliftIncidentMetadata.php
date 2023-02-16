@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Collection of app diagnostics associated with a user.
+*/
 class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -161,7 +164,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -169,7 +172,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the application property value. The name of the application the diagnostic is from. Example: com.microsoft.CompanyPortal
-     *  @param string|null $value Value to set for the application property.
+     * @param string|null $value Value to set for the application property.
     */
     public function setApplication(?string $value): void {
         $this->getBackingStore()->set('application', $value);
@@ -177,7 +180,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -185,7 +188,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the clientVersion property value. The version of the application. Example: 5.2203.1
-     *  @param string|null $value Value to set for the clientVersion property.
+     * @param string|null $value Value to set for the clientVersion property.
     */
     public function setClientVersion(?string $value): void {
         $this->getBackingStore()->set('clientVersion', $value);
@@ -193,7 +196,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the createdAtDateTime property value. The time the app diagnostic was created. Example: 2022-04-19T17:24:45.313Z
-     *  @param DateTime|null $value Value to set for the createdAtDateTime property.
+     * @param DateTime|null $value Value to set for the createdAtDateTime property.
     */
     public function setCreatedAtDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdAtDateTime', $value);
@@ -201,7 +204,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the easyId property value. The unique app diagnostic identifier as a user friendly 8 character hexadecimal string. Example: 8520467A
-     *  @param string|null $value Value to set for the easyId property.
+     * @param string|null $value Value to set for the easyId property.
     */
     public function setEasyId(?string $value): void {
         $this->getBackingStore()->set('easyId', $value);
@@ -209,7 +212,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the fileNames property value. A list of files that are associated with the diagnostic.
-     *  @param array<string>|null $value Value to set for the fileNames property.
+     * @param array<string>|null $value Value to set for the fileNames property.
     */
     public function setFileNames(?array $value): void {
         $this->getBackingStore()->set('fileNames', $value);
@@ -217,7 +220,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the locale property value. The locale information of the application. Example: en-US
-     *  @param string|null $value Value to set for the locale property.
+     * @param string|null $value Value to set for the locale property.
     */
     public function setLocale(?string $value): void {
         $this->getBackingStore()->set('locale', $value);
@@ -225,7 +228,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -233,7 +236,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the platform property value. The device's OS the diagnostic is from. Example: iOS
-     *  @param string|null $value Value to set for the platform property.
+     * @param string|null $value Value to set for the platform property.
     */
     public function setPlatform(?string $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -241,7 +244,7 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the powerliftId property value. The unique identifier of the app diagnostic. Example: 8520467a-49a9-44a4-8447-8dfb8bec6726
-     *  @param string|null $value Value to set for the powerliftId property.
+     * @param string|null $value Value to set for the powerliftId property.
     */
     public function setPowerliftId(?string $value): void {
         $this->getBackingStore()->set('powerliftId', $value);

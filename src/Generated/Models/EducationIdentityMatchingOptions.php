@@ -36,7 +36,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the appliesTo property value. The appliesTo property
-     *  @param EducationUserRole|null $value Value to set for the appliesTo property.
+     * @param EducationUserRole|null $value Value to set for the appliesTo property.
     */
     public function setAppliesTo(?EducationUserRole $value): void {
         $this->getBackingStore()->set('appliesTo', $value);
@@ -136,7 +136,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +144,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -152,7 +152,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the sourcePropertyName property value. The name of the source property, which should be a field name in the source data. This property is case-sensitive.
-     *  @param string|null $value Value to set for the sourcePropertyName property.
+     * @param string|null $value Value to set for the sourcePropertyName property.
     */
     public function setSourcePropertyName(?string $value): void {
         $this->getBackingStore()->set('sourcePropertyName', $value);
@@ -160,7 +160,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the targetDomain property value. The domain to suffix with the source property to match on the target. If provided as null, the source property will be used to match with the target property.
-     *  @param string|null $value Value to set for the targetDomain property.
+     * @param string|null $value Value to set for the targetDomain property.
     */
     public function setTargetDomain(?string $value): void {
         $this->getBackingStore()->set('targetDomain', $value);
@@ -168,7 +168,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, BackedMo
 
     /**
      * Sets the targetPropertyName property value. The name of the target property, which should be a valid property in Azure AD. This property is case-sensitive.
-     *  @param string|null $value Value to set for the targetPropertyName property.
+     * @param string|null $value Value to set for the targetPropertyName property.
     */
     public function setTargetPropertyName(?string $value): void {
         $this->getBackingStore()->set('targetPropertyName', $value);

@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The user experience work from anywhere Cloud management devices summary.
+*/
 class UserExperienceAnalyticsCloudManagementDevicesSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +113,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +121,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +129,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
 
     /**
      * Sets the coManagedDeviceCount property value. Total number of  co-managed devices.
-     *  @param int|null $value Value to set for the coManagedDeviceCount property.
+     * @param int|null $value Value to set for the coManagedDeviceCount property.
     */
     public function setCoManagedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('coManagedDeviceCount', $value);
@@ -134,7 +137,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
 
     /**
      * Sets the intuneDeviceCount property value. The count of intune devices that are not autopilot registerd.
-     *  @param int|null $value Value to set for the intuneDeviceCount property.
+     * @param int|null $value Value to set for the intuneDeviceCount property.
     */
     public function setIntuneDeviceCount(?int $value): void {
         $this->getBackingStore()->set('intuneDeviceCount', $value);
@@ -142,7 +145,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +153,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
 
     /**
      * Sets the tenantAttachDeviceCount property value. Total count of tenant attach devices.
-     *  @param int|null $value Value to set for the tenantAttachDeviceCount property.
+     * @param int|null $value Value to set for the tenantAttachDeviceCount property.
     */
     public function setTenantAttachDeviceCount(?int $value): void {
         $this->getBackingStore()->set('tenantAttachDeviceCount', $value);

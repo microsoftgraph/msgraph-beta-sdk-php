@@ -95,7 +95,7 @@ class DeviceSetupConfiguration extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. DateTime the object was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -103,7 +103,7 @@ class DeviceSetupConfiguration extends Entity implements Parsable
 
     /**
      * Sets the description property value. Admin provided description of the Device Configuration.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -111,7 +111,7 @@ class DeviceSetupConfiguration extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Admin provided name of the device configuration.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -119,7 +119,7 @@ class DeviceSetupConfiguration extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. DateTime the object was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -127,7 +127,7 @@ class DeviceSetupConfiguration extends Entity implements Parsable
 
     /**
      * Sets the version property value. Version of the device configuration.
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);

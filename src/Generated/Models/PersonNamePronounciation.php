@@ -36,7 +36,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -154,7 +154,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the first property value. The first property
-     *  @param string|null $value Value to set for the first property.
+     * @param string|null $value Value to set for the first property.
     */
     public function setFirst(?string $value): void {
         $this->getBackingStore()->set('first', $value);
@@ -162,7 +162,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the last property value. The last property
-     *  @param string|null $value Value to set for the last property.
+     * @param string|null $value Value to set for the last property.
     */
     public function setLast(?string $value): void {
         $this->getBackingStore()->set('last', $value);
@@ -170,7 +170,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the maiden property value. The maiden property
-     *  @param string|null $value Value to set for the maiden property.
+     * @param string|null $value Value to set for the maiden property.
     */
     public function setMaiden(?string $value): void {
         $this->getBackingStore()->set('maiden', $value);
@@ -178,7 +178,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the middle property value. The middle property
-     *  @param string|null $value Value to set for the middle property.
+     * @param string|null $value Value to set for the middle property.
     */
     public function setMiddle(?string $value): void {
         $this->getBackingStore()->set('middle', $value);
@@ -186,7 +186,7 @@ class PersonNamePronounciation implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

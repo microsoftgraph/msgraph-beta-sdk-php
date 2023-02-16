@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Windows management app health state entity.
+*/
 class WindowsManagementAppHealthState extends Entity implements Parsable 
 {
     /**
@@ -95,7 +98,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. Name of the device on which Windows management app is installed.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -103,7 +106,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
 
     /**
      * Sets the deviceOSVersion property value. Windows 10 OS version of the device on which Windows management app is installed.
-     *  @param string|null $value Value to set for the deviceOSVersion property.
+     * @param string|null $value Value to set for the deviceOSVersion property.
     */
     public function setDeviceOSVersion(?string $value): void {
         $this->getBackingStore()->set('deviceOSVersion', $value);
@@ -111,7 +114,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
 
     /**
      * Sets the healthState property value. Indicates health state of the Windows management app.
-     *  @param HealthState|null $value Value to set for the healthState property.
+     * @param HealthState|null $value Value to set for the healthState property.
     */
     public function setHealthState(?HealthState $value): void {
         $this->getBackingStore()->set('healthState', $value);
@@ -119,7 +122,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
 
     /**
      * Sets the installedVersion property value. Windows management app installed version.
-     *  @param string|null $value Value to set for the installedVersion property.
+     * @param string|null $value Value to set for the installedVersion property.
     */
     public function setInstalledVersion(?string $value): void {
         $this->getBackingStore()->set('installedVersion', $value);
@@ -127,7 +130,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
 
     /**
      * Sets the lastCheckInDateTime property value. Windows management app last check-in time.
-     *  @param DateTime|null $value Value to set for the lastCheckInDateTime property.
+     * @param DateTime|null $value Value to set for the lastCheckInDateTime property.
     */
     public function setLastCheckInDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastCheckInDateTime', $value);

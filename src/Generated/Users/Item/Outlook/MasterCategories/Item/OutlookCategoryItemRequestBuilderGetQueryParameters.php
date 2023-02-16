@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\MasterCategories\Ite
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A list of categories defined for the user.
+*/
 class OutlookCategoryItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class OutlookCategoryItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new OutlookCategoryItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $select = null) {
+        $this->select = $select;
+    }
+
 }

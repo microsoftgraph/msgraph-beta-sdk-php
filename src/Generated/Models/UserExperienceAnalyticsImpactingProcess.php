@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics top impacting process entity.
+*/
 class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable 
 {
     /**
@@ -104,7 +107,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
 
     /**
      * Sets the category property value. The category of impacting process.
-     *  @param string|null $value Value to set for the category property.
+     * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -112,7 +115,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of process.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -120,7 +123,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The unique identifier of the impacted device.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -128,7 +131,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
 
     /**
      * Sets the impactValue property value. The impact value of the process. Valid values 0 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the impactValue property.
+     * @param float|null $value Value to set for the impactValue property.
     */
     public function setImpactValue(?float $value): void {
         $this->getBackingStore()->set('impactValue', $value);
@@ -136,7 +139,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
 
     /**
      * Sets the processName property value. The process name.
-     *  @param string|null $value Value to set for the processName property.
+     * @param string|null $value Value to set for the processName property.
     */
     public function setProcessName(?string $value): void {
         $this->getBackingStore()->set('processName', $value);
@@ -144,7 +147,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
 
     /**
      * Sets the publisher property value. The publisher of the process.
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);

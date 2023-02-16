@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\JoinedTeams\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+*/
 class TeamItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class TeamItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new TeamItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

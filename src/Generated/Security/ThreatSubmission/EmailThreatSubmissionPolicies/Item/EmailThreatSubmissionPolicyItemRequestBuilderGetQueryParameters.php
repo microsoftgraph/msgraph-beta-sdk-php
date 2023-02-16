@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreatSu
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get emailThreatSubmissionPolicies from security
+*/
 class EmailThreatSubmissionPolicyItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class EmailThreatSubmissionPolicyItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new EmailThreatSubmissionPolicyItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

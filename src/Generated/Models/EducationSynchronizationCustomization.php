@@ -37,7 +37,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +121,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -129,7 +129,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
 
     /**
      * Sets the allowDisplayNameUpdate property value. Indicates whether the display name of the resource can be overwritten by the sync.
-     *  @param bool|null $value Value to set for the allowDisplayNameUpdate property.
+     * @param bool|null $value Value to set for the allowDisplayNameUpdate property.
     */
     public function setAllowDisplayNameUpdate(?bool $value): void {
         $this->getBackingStore()->set('allowDisplayNameUpdate', $value);
@@ -137,7 +137,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -145,7 +145,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
 
     /**
      * Sets the isSyncDeferred property value. Indicates whether synchronization of the parent entity is deferred to a later date.
-     *  @param bool|null $value Value to set for the isSyncDeferred property.
+     * @param bool|null $value Value to set for the isSyncDeferred property.
     */
     public function setIsSyncDeferred(?bool $value): void {
         $this->getBackingStore()->set('isSyncDeferred', $value);
@@ -153,7 +153,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -161,7 +161,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
 
     /**
      * Sets the optionalPropertiesToSync property value. The collection of property names to sync. If set to null, all properties will be synchronized. Does not apply to Student Enrollments or Teacher Rosters
-     *  @param array<string>|null $value Value to set for the optionalPropertiesToSync property.
+     * @param array<string>|null $value Value to set for the optionalPropertiesToSync property.
     */
     public function setOptionalPropertiesToSync(?array $value): void {
         $this->getBackingStore()->set('optionalPropertiesToSync', $value);
@@ -169,7 +169,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Bac
 
     /**
      * Sets the synchronizationStartDate property value. The date that the synchronization should start. This value should be set to a future date. If set to null, the resource will be synchronized when the profile setup completes. Only applies to Student Enrollments
-     *  @param DateTime|null $value Value to set for the synchronizationStartDate property.
+     * @param DateTime|null $value Value to set for the synchronizationStartDate property.
     */
     public function setSynchronizationStartDate(?DateTime $value): void {
         $this->getBackingStore()->set('synchronizationStartDate', $value);

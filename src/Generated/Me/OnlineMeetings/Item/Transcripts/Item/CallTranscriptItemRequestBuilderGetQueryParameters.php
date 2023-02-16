@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Transcripts\Item
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The transcripts of an online meeting. Read-only.
+*/
 class CallTranscriptItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class CallTranscriptItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new CallTranscriptItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

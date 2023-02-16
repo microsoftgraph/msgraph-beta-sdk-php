@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CartToClassAssociation
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The Cart To Class Associations.
+*/
 class CartToClassAssociationItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class CartToClassAssociationItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new CartToClassAssociationItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

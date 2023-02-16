@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LearningProvider extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new LearningProvider and sets the default values.
+     * Instantiates a new learningProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -124,7 +124,7 @@ class LearningProvider extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name that appears in Viva Learning. Required.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -132,7 +132,7 @@ class LearningProvider extends Entity implements Parsable
 
     /**
      * Sets the isEnabled property value. The state of the provider. Optional.
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -140,7 +140,7 @@ class LearningProvider extends Entity implements Parsable
 
     /**
      * Sets the learningContents property value. Learning catalog items for the provider.
-     *  @param array<LearningContent>|null $value Value to set for the learningContents property.
+     * @param array<LearningContent>|null $value Value to set for the learningContents property.
     */
     public function setLearningContents(?array $value): void {
         $this->getBackingStore()->set('learningContents', $value);
@@ -148,7 +148,7 @@ class LearningProvider extends Entity implements Parsable
 
     /**
      * Sets the loginWebUrl property value. Authentication URL to access the courses for the provider. Optional.
-     *  @param string|null $value Value to set for the loginWebUrl property.
+     * @param string|null $value Value to set for the loginWebUrl property.
     */
     public function setLoginWebUrl(?string $value): void {
         $this->getBackingStore()->set('loginWebUrl', $value);
@@ -156,7 +156,7 @@ class LearningProvider extends Entity implements Parsable
 
     /**
      * Sets the longLogoWebUrlForDarkTheme property value. The long logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
-     *  @param string|null $value Value to set for the longLogoWebUrlForDarkTheme property.
+     * @param string|null $value Value to set for the longLogoWebUrlForDarkTheme property.
     */
     public function setLongLogoWebUrlForDarkTheme(?string $value): void {
         $this->getBackingStore()->set('longLogoWebUrlForDarkTheme', $value);
@@ -164,7 +164,7 @@ class LearningProvider extends Entity implements Parsable
 
     /**
      * Sets the longLogoWebUrlForLightTheme property value. The long logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering  within the Viva Learning app. Required.
-     *  @param string|null $value Value to set for the longLogoWebUrlForLightTheme property.
+     * @param string|null $value Value to set for the longLogoWebUrlForLightTheme property.
     */
     public function setLongLogoWebUrlForLightTheme(?string $value): void {
         $this->getBackingStore()->set('longLogoWebUrlForLightTheme', $value);
@@ -172,7 +172,7 @@ class LearningProvider extends Entity implements Parsable
 
     /**
      * Sets the squareLogoWebUrlForDarkTheme property value. The square logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
-     *  @param string|null $value Value to set for the squareLogoWebUrlForDarkTheme property.
+     * @param string|null $value Value to set for the squareLogoWebUrlForDarkTheme property.
     */
     public function setSquareLogoWebUrlForDarkTheme(?string $value): void {
         $this->getBackingStore()->set('squareLogoWebUrlForDarkTheme', $value);
@@ -180,7 +180,7 @@ class LearningProvider extends Entity implements Parsable
 
     /**
      * Sets the squareLogoWebUrlForLightTheme property value. The square logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
-     *  @param string|null $value Value to set for the squareLogoWebUrlForLightTheme property.
+     * @param string|null $value Value to set for the squareLogoWebUrlForLightTheme property.
     */
     public function setSquareLogoWebUrlForLightTheme(?string $value): void {
         $this->getBackingStore()->set('squareLogoWebUrlForLightTheme', $value);

@@ -44,7 +44,7 @@ class RequestorSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class RequestorSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the acceptRequests property value. Indicates whether new requests are accepted on this policy.
-     *  @param bool|null $value Value to set for the acceptRequests property.
+     * @param bool|null $value Value to set for the acceptRequests property.
     */
     public function setAcceptRequests(?bool $value): void {
         $this->getBackingStore()->set('acceptRequests', $value);
@@ -118,7 +118,7 @@ class RequestorSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -126,7 +126,7 @@ class RequestorSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the allowedRequestors property value. The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
-     *  @param array<UserSet>|null $value Value to set for the allowedRequestors property.
+     * @param array<UserSet>|null $value Value to set for the allowedRequestors property.
     */
     public function setAllowedRequestors(?array $value): void {
         $this->getBackingStore()->set('allowedRequestors', $value);
@@ -134,7 +134,7 @@ class RequestorSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -142,7 +142,7 @@ class RequestorSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class RequestorSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the scopeType property value. Who can request. One of NoSubjects, SpecificDirectorySubjects, SpecificConnectedOrganizationSubjects, AllConfiguredConnectedOrganizationSubjects, AllExistingConnectedOrganizationSubjects, AllExistingDirectoryMemberUsers, AllExistingDirectorySubjects or AllExternalSubjects.
-     *  @param string|null $value Value to set for the scopeType property.
+     * @param string|null $value Value to set for the scopeType property.
     */
     public function setScopeType(?string $value): void {
         $this->getBackingStore()->set('scopeType', $value);

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The security baseline compliance state of a setting for a device
+*/
 class SecurityBaselineSettingState extends Entity implements Parsable 
 {
     /**
@@ -124,7 +127,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
 
     /**
      * Sets the contributingPolicies property value. The policies that contribute to this setting instance
-     *  @param array<SecurityBaselineContributingPolicy>|null $value Value to set for the contributingPolicies property.
+     * @param array<SecurityBaselineContributingPolicy>|null $value Value to set for the contributingPolicies property.
     */
     public function setContributingPolicies(?array $value): void {
         $this->getBackingStore()->set('contributingPolicies', $value);
@@ -132,7 +135,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
 
     /**
      * Sets the errorCode property value. The error code if the setting is in error state
-     *  @param string|null $value Value to set for the errorCode property.
+     * @param string|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?string $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -140,7 +143,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
 
     /**
      * Sets the settingCategoryId property value. The setting category id which this setting belongs to
-     *  @param string|null $value Value to set for the settingCategoryId property.
+     * @param string|null $value Value to set for the settingCategoryId property.
     */
     public function setSettingCategoryId(?string $value): void {
         $this->getBackingStore()->set('settingCategoryId', $value);
@@ -148,7 +151,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
 
     /**
      * Sets the settingCategoryName property value. The setting category name which this setting belongs to
-     *  @param string|null $value Value to set for the settingCategoryName property.
+     * @param string|null $value Value to set for the settingCategoryName property.
     */
     public function setSettingCategoryName(?string $value): void {
         $this->getBackingStore()->set('settingCategoryName', $value);
@@ -156,7 +159,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
 
     /**
      * Sets the settingId property value. The setting id guid
-     *  @param string|null $value Value to set for the settingId property.
+     * @param string|null $value Value to set for the settingId property.
     */
     public function setSettingId(?string $value): void {
         $this->getBackingStore()->set('settingId', $value);
@@ -164,7 +167,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
 
     /**
      * Sets the settingName property value. The setting name that is being reported
-     *  @param string|null $value Value to set for the settingName property.
+     * @param string|null $value Value to set for the settingName property.
     */
     public function setSettingName(?string $value): void {
         $this->getBackingStore()->set('settingName', $value);
@@ -172,7 +175,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
 
     /**
      * Sets the sourcePolicies property value. The policies that contribute to this setting instance
-     *  @param array<SettingSource>|null $value Value to set for the sourcePolicies property.
+     * @param array<SettingSource>|null $value Value to set for the sourcePolicies property.
     */
     public function setSourcePolicies(?array $value): void {
         $this->getBackingStore()->set('sourcePolicies', $value);
@@ -180,7 +183,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
 
     /**
      * Sets the state property value. Security Baseline Compliance State
-     *  @param SecurityBaselineComplianceState|null $value Value to set for the state property.
+     * @param SecurityBaselineComplianceState|null $value Value to set for the state property.
     */
     public function setState(?SecurityBaselineComplianceState $value): void {
         $this->getBackingStore()->set('state', $value);

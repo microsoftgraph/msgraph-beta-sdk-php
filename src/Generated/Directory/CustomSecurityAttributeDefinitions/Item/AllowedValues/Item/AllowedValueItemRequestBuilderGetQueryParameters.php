@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefini
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Values that are predefined for this custom security attribute.This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
+*/
 class AllowedValueItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AllowedValueItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new AllowedValueItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

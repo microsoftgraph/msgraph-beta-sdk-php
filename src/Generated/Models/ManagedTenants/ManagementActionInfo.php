@@ -36,7 +36,7 @@ class ManagementActionInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class ManagementActionInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class ManagementActionInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class ManagementActionInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the managementActionId property value. The identifier for the management action. Required. Read-only.
-     *  @param string|null $value Value to set for the managementActionId property.
+     * @param string|null $value Value to set for the managementActionId property.
     */
     public function setManagementActionId(?string $value): void {
         $this->getBackingStore()->set('managementActionId', $value);
@@ -134,7 +134,7 @@ class ManagementActionInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the managementTemplateId property value. The identifier for the management template. Required. Read-only.
-     *  @param string|null $value Value to set for the managementTemplateId property.
+     * @param string|null $value Value to set for the managementTemplateId property.
     */
     public function setManagementTemplateId(?string $value): void {
         $this->getBackingStore()->set('managementTemplateId', $value);
@@ -142,7 +142,7 @@ class ManagementActionInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the managementTemplateVersion property value. The managementTemplateVersion property
-     *  @param int|null $value Value to set for the managementTemplateVersion property.
+     * @param int|null $value Value to set for the managementTemplateVersion property.
     */
     public function setManagementTemplateVersion(?int $value): void {
         $this->getBackingStore()->set('managementTemplateVersion', $value);
@@ -150,7 +150,7 @@ class ManagementActionInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

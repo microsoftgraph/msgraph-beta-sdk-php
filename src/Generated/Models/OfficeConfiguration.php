@@ -36,7 +36,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the clientConfigurations property value. List of office Client configuration.
-     *  @param array<OfficeClientConfiguration>|null $value Value to set for the clientConfigurations property.
+     * @param array<OfficeClientConfiguration>|null $value Value to set for the clientConfigurations property.
     */
     public function setClientConfigurations(?array $value): void {
         $this->getBackingStore()->set('clientConfigurations', $value);
@@ -134,7 +134,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -142,7 +142,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tenantCheckinStatuses property value. List of office Client check-in status.
-     *  @param array<OfficeClientCheckinStatus>|null $value Value to set for the tenantCheckinStatuses property.
+     * @param array<OfficeClientCheckinStatus>|null $value Value to set for the tenantCheckinStatuses property.
     */
     public function setTenantCheckinStatuses(?array $value): void {
         $this->getBackingStore()->set('tenantCheckinStatuses', $value);
@@ -150,7 +150,7 @@ class OfficeConfiguration implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tenantUserCheckinSummary property value. Entity that describes tenant check-in statues
-     *  @param OfficeUserCheckinSummary|null $value Value to set for the tenantUserCheckinSummary property.
+     * @param OfficeUserCheckinSummary|null $value Value to set for the tenantUserCheckinSummary property.
     */
     public function setTenantUserCheckinSummary(?OfficeUserCheckinSummary $value): void {
         $this->getBackingStore()->set('tenantUserCheckinSummary', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Agreements\Item\Files\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+*/
 class AgreementFileLocalizationItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AgreementFileLocalizationItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new AgreementFileLocalizationItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }
