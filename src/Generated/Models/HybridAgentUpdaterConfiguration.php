@@ -37,7 +37,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the allowUpdateConfigurationOverride property value. Indicates if updater configuration will be skipped and the agent will receive an update when the next version of the agent is available.
-     *  @param bool|null $value Value to set for the allowUpdateConfigurationOverride property.
+     * @param bool|null $value Value to set for the allowUpdateConfigurationOverride property.
     */
     public function setAllowUpdateConfigurationOverride(?bool $value): void {
         $this->getBackingStore()->set('allowUpdateConfigurationOverride', $value);
@@ -127,7 +127,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -135,7 +135,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the deferUpdateDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the deferUpdateDateTime property.
+     * @param DateTime|null $value Value to set for the deferUpdateDateTime property.
     */
     public function setDeferUpdateDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deferUpdateDateTime', $value);
@@ -143,7 +143,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -151,7 +151,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the updateWindow property value. The updateWindow property
-     *  @param UpdateWindow|null $value Value to set for the updateWindow property.
+     * @param UpdateWindow|null $value Value to set for the updateWindow property.
     */
     public function setUpdateWindow(?UpdateWindow $value): void {
         $this->getBackingStore()->set('updateWindow', $value);

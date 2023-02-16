@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics resource performance entity.
+*/
 class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsable 
 {
     /**
@@ -174,7 +177,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the averageSpikeTimeScore property value. AverageSpikeTimeScore of a device or a model type. Valid values 0 to 100
-     *  @param int|null $value Value to set for the averageSpikeTimeScore property.
+     * @param int|null $value Value to set for the averageSpikeTimeScore property.
     */
     public function setAverageSpikeTimeScore(?int $value): void {
         $this->getBackingStore()->set('averageSpikeTimeScore', $value);
@@ -182,7 +185,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the cpuSpikeTimePercentage property value. CPU spike time in percentage. Valid values 0 to 100
-     *  @param float|null $value Value to set for the cpuSpikeTimePercentage property.
+     * @param float|null $value Value to set for the cpuSpikeTimePercentage property.
     */
     public function setCpuSpikeTimePercentage(?float $value): void {
         $this->getBackingStore()->set('cpuSpikeTimePercentage', $value);
@@ -190,7 +193,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the cpuSpikeTimePercentageThreshold property value. Threshold of cpuSpikeTimeScore. Valid values 0 to 100
-     *  @param float|null $value Value to set for the cpuSpikeTimePercentageThreshold property.
+     * @param float|null $value Value to set for the cpuSpikeTimePercentageThreshold property.
     */
     public function setCpuSpikeTimePercentageThreshold(?float $value): void {
         $this->getBackingStore()->set('cpuSpikeTimePercentageThreshold', $value);
@@ -198,7 +201,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the cpuSpikeTimeScore property value. The user experience analytics device CPU spike time score. Valid values 0 to 100
-     *  @param int|null $value Value to set for the cpuSpikeTimeScore property.
+     * @param int|null $value Value to set for the cpuSpikeTimeScore property.
     */
     public function setCpuSpikeTimeScore(?int $value): void {
         $this->getBackingStore()->set('cpuSpikeTimeScore', $value);
@@ -206,7 +209,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the deviceCount property value. User experience analytics summarized device count.
-     *  @param int|null $value Value to set for the deviceCount property.
+     * @param int|null $value Value to set for the deviceCount property.
     */
     public function setDeviceCount(?int $value): void {
         $this->getBackingStore()->set('deviceCount', $value);
@@ -214,7 +217,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the deviceId property value. The id of the device.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -222,7 +225,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the deviceName property value. The name of the device.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -230,7 +233,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the deviceResourcePerformanceScore property value. Resource performance score of a specific device. Valid values 0 to 100
-     *  @param int|null $value Value to set for the deviceResourcePerformanceScore property.
+     * @param int|null $value Value to set for the deviceResourcePerformanceScore property.
     */
     public function setDeviceResourcePerformanceScore(?int $value): void {
         $this->getBackingStore()->set('deviceResourcePerformanceScore', $value);
@@ -238,7 +241,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the manufacturer property value. The user experience analytics device manufacturer.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -246,7 +249,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the model property value. The user experience analytics device model.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -254,7 +257,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the ramSpikeTimePercentage property value. RAM spike time in percentage. Valid values 0 to 100
-     *  @param float|null $value Value to set for the ramSpikeTimePercentage property.
+     * @param float|null $value Value to set for the ramSpikeTimePercentage property.
     */
     public function setRamSpikeTimePercentage(?float $value): void {
         $this->getBackingStore()->set('ramSpikeTimePercentage', $value);
@@ -262,7 +265,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the ramSpikeTimePercentageThreshold property value. Threshold of ramSpikeTimeScore. Valid values 0 to 100
-     *  @param float|null $value Value to set for the ramSpikeTimePercentageThreshold property.
+     * @param float|null $value Value to set for the ramSpikeTimePercentageThreshold property.
     */
     public function setRamSpikeTimePercentageThreshold(?float $value): void {
         $this->getBackingStore()->set('ramSpikeTimePercentageThreshold', $value);
@@ -270,7 +273,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
 
     /**
      * Sets the ramSpikeTimeScore property value. The user experience analytics device RAM spike time score. Valid values 0 to 100
-     *  @param int|null $value Value to set for the ramSpikeTimeScore property.
+     * @param int|null $value Value to set for the ramSpikeTimeScore property.
     */
     public function setRamSpikeTimeScore(?int $value): void {
         $this->getBackingStore()->set('ramSpikeTimeScore', $value);

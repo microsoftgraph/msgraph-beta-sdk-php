@@ -36,7 +36,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the emailToSendLogsAndFeedback property value. Email address to send logs and feedback.
-     *  @param string|null $value Value to set for the emailToSendLogsAndFeedback property.
+     * @param string|null $value Value to set for the emailToSendLogsAndFeedback property.
     */
     public function setEmailToSendLogsAndFeedback(?string $value): void {
         $this->getBackingStore()->set('emailToSendLogsAndFeedback', $value);
@@ -154,7 +154,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the isAutoScreenShareEnabled property value. True if auto screen shared is enabled.
-     *  @param bool|null $value Value to set for the isAutoScreenShareEnabled property.
+     * @param bool|null $value Value to set for the isAutoScreenShareEnabled property.
     */
     public function setIsAutoScreenShareEnabled(?bool $value): void {
         $this->getBackingStore()->set('isAutoScreenShareEnabled', $value);
@@ -162,7 +162,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the isBluetoothBeaconingEnabled property value. True if Bluetooth beaconing is enabled.
-     *  @param bool|null $value Value to set for the isBluetoothBeaconingEnabled property.
+     * @param bool|null $value Value to set for the isBluetoothBeaconingEnabled property.
     */
     public function setIsBluetoothBeaconingEnabled(?bool $value): void {
         $this->getBackingStore()->set('isBluetoothBeaconingEnabled', $value);
@@ -170,7 +170,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the isHideMeetingNamesEnabled property value. True if hiding meeting names is enabled.
-     *  @param bool|null $value Value to set for the isHideMeetingNamesEnabled property.
+     * @param bool|null $value Value to set for the isHideMeetingNamesEnabled property.
     */
     public function setIsHideMeetingNamesEnabled(?bool $value): void {
         $this->getBackingStore()->set('isHideMeetingNamesEnabled', $value);
@@ -178,7 +178,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the isSendLogsAndFeedbackEnabled property value. True if sending logs and feedback is enabled.
-     *  @param bool|null $value Value to set for the isSendLogsAndFeedbackEnabled property.
+     * @param bool|null $value Value to set for the isSendLogsAndFeedbackEnabled property.
     */
     public function setIsSendLogsAndFeedbackEnabled(?bool $value): void {
         $this->getBackingStore()->set('isSendLogsAndFeedbackEnabled', $value);
@@ -186,7 +186,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

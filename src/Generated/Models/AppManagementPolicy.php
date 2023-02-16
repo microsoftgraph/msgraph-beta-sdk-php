@@ -75,7 +75,7 @@ class AppManagementPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the appliesTo property value. The appliesTo property
-     *  @param array<DirectoryObject>|null $value Value to set for the appliesTo property.
+     * @param array<DirectoryObject>|null $value Value to set for the appliesTo property.
     */
     public function setAppliesTo(?array $value): void {
         $this->getBackingStore()->set('appliesTo', $value);
@@ -83,7 +83,7 @@ class AppManagementPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the isEnabled property value. The isEnabled property
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -91,7 +91,7 @@ class AppManagementPolicy extends PolicyBase implements Parsable
 
     /**
      * Sets the restrictions property value. The restrictions property
-     *  @param AppManagementConfiguration|null $value Value to set for the restrictions property.
+     * @param AppManagementConfiguration|null $value Value to set for the restrictions property.
     */
     public function setRestrictions(?AppManagementConfiguration $value): void {
         $this->getBackingStore()->set('restrictions', $value);

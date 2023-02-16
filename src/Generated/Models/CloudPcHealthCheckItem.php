@@ -37,7 +37,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +121,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -129,7 +129,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalDetails property value. Additional message for this health check.
-     *  @param string|null $value Value to set for the additionalDetails property.
+     * @param string|null $value Value to set for the additionalDetails property.
     */
     public function setAdditionalDetails(?string $value): void {
         $this->getBackingStore()->set('additionalDetails', $value);
@@ -137,7 +137,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -145,7 +145,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the displayName property value. The connectivity health check item name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -153,7 +153,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the lastHealthCheckDateTime property value. Timestamp when the last check occurs. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the lastHealthCheckDateTime property.
+     * @param DateTime|null $value Value to set for the lastHealthCheckDateTime property.
     */
     public function setLastHealthCheckDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastHealthCheckDateTime', $value);
@@ -161,7 +161,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -169,7 +169,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the result property value. The result property
-     *  @param CloudPcConnectivityEventResult|null $value Value to set for the result property.
+     * @param CloudPcConnectivityEventResult|null $value Value to set for the result property.
     */
     public function setResult(?CloudPcConnectivityEventResult $value): void {
         $this->getBackingStore()->set('result', $value);

@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Enrollment Profile used to enroll COSU devices using Google's Cloud Management.
+*/
 class AndroidForWorkEnrollmentProfile extends Entity implements Parsable 
 {
     /**
@@ -145,7 +148,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the accountId property value. Tenant GUID the enrollment profile belongs to.
-     *  @param string|null $value Value to set for the accountId property.
+     * @param string|null $value Value to set for the accountId property.
     */
     public function setAccountId(?string $value): void {
         $this->getBackingStore()->set('accountId', $value);
@@ -153,7 +156,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Date time the enrollment profile was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -161,7 +164,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description for the enrollment profile.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -169,7 +172,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name for the enrollment profile.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -177,7 +180,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the enrolledDeviceCount property value. Total number of Android devices that have enrolled using this enrollment profile.
-     *  @param int|null $value Value to set for the enrolledDeviceCount property.
+     * @param int|null $value Value to set for the enrolledDeviceCount property.
     */
     public function setEnrolledDeviceCount(?int $value): void {
         $this->getBackingStore()->set('enrolledDeviceCount', $value);
@@ -185,7 +188,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Date time the enrollment profile was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -193,7 +196,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the qrCodeContent property value. String used to generate a QR code for the token.
-     *  @param string|null $value Value to set for the qrCodeContent property.
+     * @param string|null $value Value to set for the qrCodeContent property.
     */
     public function setQrCodeContent(?string $value): void {
         $this->getBackingStore()->set('qrCodeContent', $value);
@@ -201,7 +204,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the qrCodeImage property value. String used to generate a QR code for the token.
-     *  @param MimeContent|null $value Value to set for the qrCodeImage property.
+     * @param MimeContent|null $value Value to set for the qrCodeImage property.
     */
     public function setQrCodeImage(?MimeContent $value): void {
         $this->getBackingStore()->set('qrCodeImage', $value);
@@ -209,7 +212,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the tokenExpirationDateTime property value. Date time the most recently created token will expire.
-     *  @param DateTime|null $value Value to set for the tokenExpirationDateTime property.
+     * @param DateTime|null $value Value to set for the tokenExpirationDateTime property.
     */
     public function setTokenExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('tokenExpirationDateTime', $value);
@@ -217,7 +220,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the tokenValue property value. Value of the most recently created token for this enrollment profile.
-     *  @param string|null $value Value to set for the tokenValue property.
+     * @param string|null $value Value to set for the tokenValue property.
     */
     public function setTokenValue(?string $value): void {
         $this->getBackingStore()->set('tokenValue', $value);

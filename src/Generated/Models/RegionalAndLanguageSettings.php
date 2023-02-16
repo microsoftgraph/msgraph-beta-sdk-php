@@ -114,7 +114,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
 
     /**
      * Sets the authoringLanguages property value. Prioritized list of languages the user reads and authors in.Returned by default. Not nullable.
-     *  @param array<LocaleInfo>|null $value Value to set for the authoringLanguages property.
+     * @param array<LocaleInfo>|null $value Value to set for the authoringLanguages property.
     */
     public function setAuthoringLanguages(?array $value): void {
         $this->getBackingStore()->set('authoringLanguages', $value);
@@ -122,7 +122,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
 
     /**
      * Sets the defaultDisplayLanguage property value. The  user's preferred user interface language (menus, buttons, ribbons, warning messages) for Microsoft web applications.Returned by default. Not nullable.
-     *  @param LocaleInfo|null $value Value to set for the defaultDisplayLanguage property.
+     * @param LocaleInfo|null $value Value to set for the defaultDisplayLanguage property.
     */
     public function setDefaultDisplayLanguage(?LocaleInfo $value): void {
         $this->getBackingStore()->set('defaultDisplayLanguage', $value);
@@ -130,7 +130,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
 
     /**
      * Sets the defaultRegionalFormat property value. The locale that drives the default date, time, and calendar formatting.Returned by default.
-     *  @param LocaleInfo|null $value Value to set for the defaultRegionalFormat property.
+     * @param LocaleInfo|null $value Value to set for the defaultRegionalFormat property.
     */
     public function setDefaultRegionalFormat(?LocaleInfo $value): void {
         $this->getBackingStore()->set('defaultRegionalFormat', $value);
@@ -138,7 +138,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
 
     /**
      * Sets the defaultSpeechInputLanguage property value. The language a user expected to use as input for text to speech scenarios.Returned by default.
-     *  @param LocaleInfo|null $value Value to set for the defaultSpeechInputLanguage property.
+     * @param LocaleInfo|null $value Value to set for the defaultSpeechInputLanguage property.
     */
     public function setDefaultSpeechInputLanguage(?LocaleInfo $value): void {
         $this->getBackingStore()->set('defaultSpeechInputLanguage', $value);
@@ -146,7 +146,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
 
     /**
      * Sets the defaultTranslationLanguage property value. The language a user expects to have documents, emails, and messages translated into.Returned by default.
-     *  @param LocaleInfo|null $value Value to set for the defaultTranslationLanguage property.
+     * @param LocaleInfo|null $value Value to set for the defaultTranslationLanguage property.
     */
     public function setDefaultTranslationLanguage(?LocaleInfo $value): void {
         $this->getBackingStore()->set('defaultTranslationLanguage', $value);
@@ -154,7 +154,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
 
     /**
      * Sets the regionalFormatOverrides property value. Allows a user to override their defaultRegionalFormat with field specific formats.Returned by default.
-     *  @param RegionalFormatOverrides|null $value Value to set for the regionalFormatOverrides property.
+     * @param RegionalFormatOverrides|null $value Value to set for the regionalFormatOverrides property.
     */
     public function setRegionalFormatOverrides(?RegionalFormatOverrides $value): void {
         $this->getBackingStore()->set('regionalFormatOverrides', $value);
@@ -162,7 +162,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
 
     /**
      * Sets the translationPreferences property value. The user's preferred settings when consuming translated documents, emails, messages, and websites.Returned by default. Not nullable.
-     *  @param TranslationPreferences|null $value Value to set for the translationPreferences property.
+     * @param TranslationPreferences|null $value Value to set for the translationPreferences property.
     */
     public function setTranslationPreferences(?TranslationPreferences $value): void {
         $this->getBackingStore()->set('translationPreferences', $value);

@@ -115,7 +115,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
 
     /**
      * Sets the authMethod property value. The authMethod property
-     *  @param UsageAuthMethod|null $value Value to set for the authMethod property.
+     * @param UsageAuthMethod|null $value Value to set for the authMethod property.
     */
     public function setAuthMethod(?UsageAuthMethod $value): void {
         $this->getBackingStore()->set('authMethod', $value);
@@ -123,7 +123,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
 
     /**
      * Sets the eventDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the eventDateTime property.
+     * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('eventDateTime', $value);
@@ -131,7 +131,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
 
     /**
      * Sets the failureReason property value. Provides the failure reason for the corresponding reset or registration workflow.
-     *  @param string|null $value Value to set for the failureReason property.
+     * @param string|null $value Value to set for the failureReason property.
     */
     public function setFailureReason(?string $value): void {
         $this->getBackingStore()->set('failureReason', $value);
@@ -139,7 +139,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
 
     /**
      * Sets the feature property value. The feature property
-     *  @param FeatureType|null $value Value to set for the feature property.
+     * @param FeatureType|null $value Value to set for the feature property.
     */
     public function setFeature(?FeatureType $value): void {
         $this->getBackingStore()->set('feature', $value);
@@ -147,7 +147,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
 
     /**
      * Sets the isSuccess property value. Indicates success or failure of the workflow.
-     *  @param bool|null $value Value to set for the isSuccess property.
+     * @param bool|null $value Value to set for the isSuccess property.
     */
     public function setIsSuccess(?bool $value): void {
         $this->getBackingStore()->set('isSuccess', $value);
@@ -155,7 +155,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
 
     /**
      * Sets the userDisplayName property value. User name of the user performing the reset or registration workflow.
-     *  @param string|null $value Value to set for the userDisplayName property.
+     * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
         $this->getBackingStore()->set('userDisplayName', $value);
@@ -163,7 +163,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. User principal name of the user performing the reset or registration workflow.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

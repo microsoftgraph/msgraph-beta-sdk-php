@@ -55,7 +55,7 @@ class WebSegmentConfiguration extends SegmentConfiguration implements Parsable
 
     /**
      * Sets the applicationSegments property value. The applicationSegments property
-     *  @param array<WebApplicationSegment>|null $value Value to set for the applicationSegments property.
+     * @param array<WebApplicationSegment>|null $value Value to set for the applicationSegments property.
     */
     public function setApplicationSegments(?array $value): void {
         $this->getBackingStore()->set('applicationSegments', $value);

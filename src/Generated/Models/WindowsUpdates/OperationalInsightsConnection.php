@@ -75,7 +75,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
 
     /**
      * Sets the azureResourceGroupName property value. The name of the Azure resource group that contains the Log Analytics workspace.
-     *  @param string|null $value Value to set for the azureResourceGroupName property.
+     * @param string|null $value Value to set for the azureResourceGroupName property.
     */
     public function setAzureResourceGroupName(?string $value): void {
         $this->getBackingStore()->set('azureResourceGroupName', $value);
@@ -83,7 +83,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
 
     /**
      * Sets the azureSubscriptionId property value. The Azure subscription ID that contains the Log Analytics workspace.
-     *  @param string|null $value Value to set for the azureSubscriptionId property.
+     * @param string|null $value Value to set for the azureSubscriptionId property.
     */
     public function setAzureSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('azureSubscriptionId', $value);
@@ -91,7 +91,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
 
     /**
      * Sets the workspaceName property value. The name of the Log Analytics workspace.
-     *  @param string|null $value Value to set for the workspaceName property.
+     * @param string|null $value Value to set for the workspaceName property.
     */
     public function setWorkspaceName(?string $value): void {
         $this->getBackingStore()->set('workspaceName', $value);

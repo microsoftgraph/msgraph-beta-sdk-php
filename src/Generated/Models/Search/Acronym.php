@@ -64,7 +64,7 @@ class Acronym extends SearchAnswer implements Parsable
 
     /**
      * Sets the standsFor property value. What the acronym stands for.
-     *  @param string|null $value Value to set for the standsFor property.
+     * @param string|null $value Value to set for the standsFor property.
     */
     public function setStandsFor(?string $value): void {
         $this->getBackingStore()->set('standsFor', $value);
@@ -72,7 +72,7 @@ class Acronym extends SearchAnswer implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param AnswerState|null $value Value to set for the state property.
+     * @param AnswerState|null $value Value to set for the state property.
     */
     public function setState(?AnswerState $value): void {
         $this->getBackingStore()->set('state', $value);

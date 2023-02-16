@@ -36,7 +36,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -160,7 +160,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,7 +168,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -176,7 +176,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the editable property value. true if the synchronization rule can be customized; false if this rule is read-only and should not be changed.
-     *  @param bool|null $value Value to set for the editable property.
+     * @param bool|null $value Value to set for the editable property.
     */
     public function setEditable(?bool $value): void {
         $this->getBackingStore()->set('editable', $value);
@@ -184,7 +184,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the id property value. Synchronization rule identifier. Must be one of the identifiers recognized by the synchronization engine. Supported rule identifiers can be found in the synchronization template returned by the API.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -192,7 +192,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the metadata property value. Additional extension properties. Unless instructed explicitly by the support team, metadata values should not be changed.
-     *  @param array<StringKeyStringValuePair>|null $value Value to set for the metadata property.
+     * @param array<StringKeyStringValuePair>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);
@@ -200,7 +200,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. Human-readable name of the synchronization rule. Not nullable.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -208,7 +208,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the objectMappings property value. Collection of object mappings supported by the rule. Tells the synchronization engine which objects should be synchronized.
-     *  @param array<ObjectMapping>|null $value Value to set for the objectMappings property.
+     * @param array<ObjectMapping>|null $value Value to set for the objectMappings property.
     */
     public function setObjectMappings(?array $value): void {
         $this->getBackingStore()->set('objectMappings', $value);
@@ -216,7 +216,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -224,7 +224,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the priority property value. Priority relative to other rules in the synchronizationSchema. Rules with the lowest priority number will be processed first.
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -232,7 +232,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sourceDirectoryName property value. Name of the source directory. Must match one of the directory definitions in synchronizationSchema.
-     *  @param string|null $value Value to set for the sourceDirectoryName property.
+     * @param string|null $value Value to set for the sourceDirectoryName property.
     */
     public function setSourceDirectoryName(?string $value): void {
         $this->getBackingStore()->set('sourceDirectoryName', $value);
@@ -240,7 +240,7 @@ class SynchronizationRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the targetDirectoryName property value. Name of the target directory. Must match one of the directory definitions in synchronizationSchema.
-     *  @param string|null $value Value to set for the targetDirectoryName property.
+     * @param string|null $value Value to set for the targetDirectoryName property.
     */
     public function setTargetDirectoryName(?string $value): void {
         $this->getBackingStore()->set('targetDirectoryName', $value);

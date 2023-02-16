@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains the properties for auto-assigning a Role Scope Tag to a group to be applied to Devices.
+*/
 class RoleScopeTagAutoAssignment extends Entity implements Parsable 
 {
     /**
@@ -54,7 +57,7 @@ class RoleScopeTagAutoAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. The auto-assignment target for the specific Role Scope Tag.
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

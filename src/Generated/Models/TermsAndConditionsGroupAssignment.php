@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A termsAndConditionsGroupAssignment entity represents the assignment of a given Terms and Conditions (T&C) policy to a given group. Users in the group will be required to accept the terms in order to have devices enrolled into Intune.
+*/
 class TermsAndConditionsGroupAssignment extends Entity implements Parsable 
 {
     /**
@@ -64,7 +67,7 @@ class TermsAndConditionsGroupAssignment extends Entity implements Parsable
 
     /**
      * Sets the targetGroupId property value. Unique identifier of a group that the T&C policy is assigned to.
-     *  @param string|null $value Value to set for the targetGroupId property.
+     * @param string|null $value Value to set for the targetGroupId property.
     */
     public function setTargetGroupId(?string $value): void {
         $this->getBackingStore()->set('targetGroupId', $value);
@@ -72,7 +75,7 @@ class TermsAndConditionsGroupAssignment extends Entity implements Parsable
 
     /**
      * Sets the termsAndConditions property value. Navigation link to the terms and conditions that are assigned.
-     *  @param TermsAndConditions|null $value Value to set for the termsAndConditions property.
+     * @param TermsAndConditions|null $value Value to set for the termsAndConditions property.
     */
     public function setTermsAndConditions(?TermsAndConditions $value): void {
         $this->getBackingStore()->set('termsAndConditions', $value);

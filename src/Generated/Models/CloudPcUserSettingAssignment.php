@@ -65,7 +65,7 @@ class CloudPcUserSettingAssignment extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time this assignment was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -73,7 +73,7 @@ class CloudPcUserSettingAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. The assignment target for the user setting. Currently, the only target supported for this user setting is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
-     *  @param CloudPcManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param CloudPcManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?CloudPcManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

@@ -37,7 +37,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -171,7 +171,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -179,7 +179,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the appliedPolicies property value. List of policies delivered to the device as last checkin.
-     *  @param array<string>|null $value Value to set for the appliedPolicies property.
+     * @param array<string>|null $value Value to set for the appliedPolicies property.
     */
     public function setAppliedPolicies(?array $value): void {
         $this->getBackingStore()->set('appliedPolicies', $value);
@@ -187,7 +187,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -195,7 +195,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the checkinDateTime property value. Last device check-in time in UTC.
-     *  @param DateTime|null $value Value to set for the checkinDateTime property.
+     * @param DateTime|null $value Value to set for the checkinDateTime property.
     */
     public function setCheckinDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('checkinDateTime', $value);
@@ -203,7 +203,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the deviceName property value. Device name trying to check-in.
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -211,7 +211,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the devicePlatform property value. Device platform trying to check-in.
-     *  @param string|null $value Value to set for the devicePlatform property.
+     * @param string|null $value Value to set for the devicePlatform property.
     */
     public function setDevicePlatform(?string $value): void {
         $this->getBackingStore()->set('devicePlatform', $value);
@@ -219,7 +219,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the devicePlatformVersion property value. Device platform version trying to check-in.
-     *  @param string|null $value Value to set for the devicePlatformVersion property.
+     * @param string|null $value Value to set for the devicePlatformVersion property.
     */
     public function setDevicePlatformVersion(?string $value): void {
         $this->getBackingStore()->set('devicePlatformVersion', $value);
@@ -227,7 +227,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the errorMessage property value. Error message if any associated for the last checkin.
-     *  @param string|null $value Value to set for the errorMessage property.
+     * @param string|null $value Value to set for the errorMessage property.
     */
     public function setErrorMessage(?string $value): void {
         $this->getBackingStore()->set('errorMessage', $value);
@@ -235,7 +235,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -243,7 +243,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the userId property value. User identifier using the device.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -251,7 +251,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the userPrincipalName property value. User principal name using the device.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
@@ -259,7 +259,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the wasSuccessful property value. If the last checkin was successful.
-     *  @param bool|null $value Value to set for the wasSuccessful property.
+     * @param bool|null $value Value to set for the wasSuccessful property.
     */
     public function setWasSuccessful(?bool $value): void {
         $this->getBackingStore()->set('wasSuccessful', $value);

@@ -85,7 +85,7 @@ class Dimension extends Entity implements Parsable
 
     /**
      * Sets the code property value. The code property
-     *  @param string|null $value Value to set for the code property.
+     * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
         $this->getBackingStore()->set('code', $value);
@@ -93,7 +93,7 @@ class Dimension extends Entity implements Parsable
 
     /**
      * Sets the dimensionValues property value. The dimensionValues property
-     *  @param array<DimensionValue>|null $value Value to set for the dimensionValues property.
+     * @param array<DimensionValue>|null $value Value to set for the dimensionValues property.
     */
     public function setDimensionValues(?array $value): void {
         $this->getBackingStore()->set('dimensionValues', $value);
@@ -101,7 +101,7 @@ class Dimension extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -109,7 +109,7 @@ class Dimension extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);

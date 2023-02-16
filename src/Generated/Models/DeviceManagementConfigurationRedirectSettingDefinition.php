@@ -74,7 +74,7 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
 
     /**
      * Sets the deepLink property value. A deep link that points to the specific location in the Intune console where feature support must be managed from.
-     *  @param string|null $value Value to set for the deepLink property.
+     * @param string|null $value Value to set for the deepLink property.
     */
     public function setDeepLink(?string $value): void {
         $this->getBackingStore()->set('deepLink', $value);
@@ -82,7 +82,7 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
 
     /**
      * Sets the redirectMessage property value. A message that explains that clicking the link will redirect the user to a supported page to manage the settings.
-     *  @param string|null $value Value to set for the redirectMessage property.
+     * @param string|null $value Value to set for the redirectMessage property.
     */
     public function setRedirectMessage(?string $value): void {
         $this->getBackingStore()->set('redirectMessage', $value);
@@ -90,7 +90,7 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
 
     /**
      * Sets the redirectReason property value. Indicates the reason for redirecting the user to an alternative location in the console.  For example: WiFi profiles are not supported in the settings catalog and must be created with a template policy.
-     *  @param string|null $value Value to set for the redirectReason property.
+     * @param string|null $value Value to set for the redirectReason property.
     */
     public function setRedirectReason(?string $value): void {
         $this->getBackingStore()->set('redirectReason', $value);

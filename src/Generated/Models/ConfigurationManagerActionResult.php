@@ -64,7 +64,7 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
 
     /**
      * Sets the actionDeliveryStatus property value. Delivery state of Configuration Manager device action
-     *  @param ConfigurationManagerActionDeliveryStatus|null $value Value to set for the actionDeliveryStatus property.
+     * @param ConfigurationManagerActionDeliveryStatus|null $value Value to set for the actionDeliveryStatus property.
     */
     public function setActionDeliveryStatus(?ConfigurationManagerActionDeliveryStatus $value): void {
         $this->getBackingStore()->set('actionDeliveryStatus', $value);
@@ -72,7 +72,7 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
 
     /**
      * Sets the errorCode property value. Error code of Configuration Manager action from client
-     *  @param int|null $value Value to set for the errorCode property.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);

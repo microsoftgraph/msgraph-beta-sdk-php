@@ -9,75 +9,78 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\CachedReportConfigur
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\CachedReportConfigurations\Item\DeviceManagementCachedReportConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\ExportJobs\ExportJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\ExportJobs\Item\DeviceManagementExportJobItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetActiveMalwareReport\GetActiveMalwareReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetActiveMalwareSummaryReport\GetActiveMalwareSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAllCertificatesReport\GetAllCertificatesReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAppsInstallSummaryReport\GetAppsInstallSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetAppStatusOverviewReport\GetAppStatusOverviewReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCachedReport\GetCachedReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCertificatesReport\GetCertificatesReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCompliancePoliciesReportForDevice\GetCompliancePoliciesReportForDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCompliancePolicyDevicesReport\GetCompliancePolicyDevicesReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCompliancePolicyDeviceSummaryReport\GetCompliancePolicyDeviceSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCompliancePolicyNonComplianceReport\GetCompliancePolicyNonComplianceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetCompliancePolicyNonComplianceSummaryReport\GetCompliancePolicyNonComplianceSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetComplianceSettingDetailsReport\GetComplianceSettingDetailsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetComplianceSettingNonComplianceReport\GetComplianceSettingNonComplianceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetComplianceSettingsReport\GetComplianceSettingsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigManagerDevicePolicyStatusReport\GetConfigManagerDevicePolicyStatusReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationPoliciesReportForDevice\GetConfigurationPoliciesReportForDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationPolicyDevicesReport\GetConfigurationPolicyDevicesReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationPolicyDeviceSummaryReport\GetConfigurationPolicyDeviceSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationPolicyNonComplianceReport\GetConfigurationPolicyNonComplianceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationPolicyNonComplianceSummaryReport\GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationPolicySettingsDeviceSummaryReport\GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationSettingDetailsReport\GetConfigurationSettingDetailsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationSettingNonComplianceReport\GetConfigurationSettingNonComplianceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationSettingsReport\GetConfigurationSettingsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceConfigurationPolicySettingsSummaryReport\GetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceConfigurationPolicyStatusSummary\GetDeviceConfigurationPolicyStatusSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceInstallStatusReport\GetDeviceInstallStatusReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentPerSettingContributingProfiles\GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentSettingsReport\GetDeviceManagementIntentSettingsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceNonComplianceReport\GetDeviceNonComplianceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEncryptionReportForDevices\GetEncryptionReportForDevicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEnrollmentConfigurationPoliciesByDevice\GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetFailedMobileAppsReport\GetFailedMobileAppsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetFailedMobileAppsSummaryReport\GetFailedMobileAppsSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetGroupPolicySettingsDeviceSettingsReport\GetGroupPolicySettingsDeviceSettingsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetHistoricalReport\GetHistoricalReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMalwareSummaryReport\GetMalwareSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMobileApplicationManagementAppConfigurationReport\GetMobileApplicationManagementAppConfigurationReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMobileApplicationManagementAppRegistrationSummaryReport\GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetNoncompliantDevicesAndSettingsReport\GetNoncompliantDevicesAndSettingsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetPolicyNonComplianceMetadata\GetPolicyNonComplianceMetadataRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetPolicyNonComplianceReport\GetPolicyNonComplianceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetPolicyNonComplianceSummaryReport\GetPolicyNonComplianceSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetQuietTimePolicyUsersReport\GetQuietTimePolicyUsersReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetQuietTimePolicyUserSummaryReport\GetQuietTimePolicyUserSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetRelatedAppsStatusReport\GetRelatedAppsStatusReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetRemoteAssistanceSessionsReport\GetRemoteAssistanceSessionsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetReportFilters\GetReportFiltersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetSettingNonComplianceReport\GetSettingNonComplianceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyDefenderAgentsReport\GetUnhealthyDefenderAgentsReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyFirewallReport\GetUnhealthyFirewallReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyFirewallSummaryReport\GetUnhealthyFirewallSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUserInstallStatusReport\GetUserInstallStatusReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertSummaryReport\GetWindowsQualityUpdateAlertSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertsPerPolicyPerDeviceReport\GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertSummaryReport\GetWindowsUpdateAlertSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport\GetZebraFotaDeploymentReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetActiveMalwareReport\MicrosoftGraphGetActiveMalwareReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetActiveMalwareSummaryReport\MicrosoftGraphGetActiveMalwareSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetAllCertificatesReport\MicrosoftGraphGetAllCertificatesReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetAppsInstallSummaryReport\MicrosoftGraphGetAppsInstallSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetAppStatusOverviewReport\MicrosoftGraphGetAppStatusOverviewReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetCachedReport\MicrosoftGraphGetCachedReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetCertificatesReport\MicrosoftGraphGetCertificatesReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetCompliancePoliciesReportForDevice\MicrosoftGraphGetCompliancePoliciesReportForDeviceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetCompliancePolicyDevicesReport\MicrosoftGraphGetCompliancePolicyDevicesReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetCompliancePolicyDeviceSummaryReport\MicrosoftGraphGetCompliancePolicyDeviceSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetCompliancePolicyNonComplianceReport\MicrosoftGraphGetCompliancePolicyNonComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetCompliancePolicyNonComplianceSummaryReport\MicrosoftGraphGetCompliancePolicyNonComplianceSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetComplianceSettingDetailsReport\MicrosoftGraphGetComplianceSettingDetailsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetComplianceSettingNonComplianceReport\MicrosoftGraphGetComplianceSettingNonComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetComplianceSettingsReport\MicrosoftGraphGetComplianceSettingsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigManagerDevicePolicyStatusReport\MicrosoftGraphGetConfigManagerDevicePolicyStatusReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigurationPoliciesReportForDevice\MicrosoftGraphGetConfigurationPoliciesReportForDeviceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigurationPolicyDevicesReport\MicrosoftGraphGetConfigurationPolicyDevicesReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigurationPolicyDeviceSummaryReport\MicrosoftGraphGetConfigurationPolicyDeviceSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigurationPolicyNonComplianceReport\MicrosoftGraphGetConfigurationPolicyNonComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigurationPolicyNonComplianceSummaryReport\MicrosoftGraphGetConfigurationPolicyNonComplianceSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigurationPolicySettingsDeviceSummaryReport\MicrosoftGraphGetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigurationSettingDetailsReport\MicrosoftGraphGetConfigurationSettingDetailsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigurationSettingNonComplianceReport\MicrosoftGraphGetConfigurationSettingNonComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetConfigurationSettingsReport\MicrosoftGraphGetConfigurationSettingsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetDeviceConfigurationPolicySettingsSummaryReport\MicrosoftGraphGetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetDeviceConfigurationPolicyStatusSummary\MicrosoftGraphGetDeviceConfigurationPolicyStatusSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetDeviceInstallStatusReport\MicrosoftGraphGetDeviceInstallStatusReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetDeviceManagementIntentPerSettingContributingProfiles\MicrosoftGraphGetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetDeviceManagementIntentSettingsReport\MicrosoftGraphGetDeviceManagementIntentSettingsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetDeviceNonComplianceReport\MicrosoftGraphGetDeviceNonComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetDevicesWithoutCompliancePolicyReport\MicrosoftGraphGetDevicesWithoutCompliancePolicyReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetEncryptionReportForDevices\MicrosoftGraphGetEncryptionReportForDevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetEnrollmentConfigurationPoliciesByDevice\MicrosoftGraphGetEnrollmentConfigurationPoliciesByDeviceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetFailedMobileAppsReport\MicrosoftGraphGetFailedMobileAppsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetFailedMobileAppsSummaryReport\MicrosoftGraphGetFailedMobileAppsSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetGroupPolicySettingsDeviceSettingsReport\MicrosoftGraphGetGroupPolicySettingsDeviceSettingsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetHistoricalReport\MicrosoftGraphGetHistoricalReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetMalwareSummaryReport\MicrosoftGraphGetMalwareSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetMobileApplicationManagementAppConfigurationReport\MicrosoftGraphGetMobileApplicationManagementAppConfigurationReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetMobileApplicationManagementAppRegistrationSummaryReport\MicrosoftGraphGetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetNoncompliantDevicesAndSettingsReport\MicrosoftGraphGetNoncompliantDevicesAndSettingsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetPolicyNonComplianceMetadata\MicrosoftGraphGetPolicyNonComplianceMetadataRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetPolicyNonComplianceReport\MicrosoftGraphGetPolicyNonComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetPolicyNonComplianceSummaryReport\MicrosoftGraphGetPolicyNonComplianceSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetQuietTimePolicyUsersReport\MicrosoftGraphGetQuietTimePolicyUsersReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetQuietTimePolicyUserSummaryReport\MicrosoftGraphGetQuietTimePolicyUserSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetRelatedAppsStatusReport\MicrosoftGraphGetRelatedAppsStatusReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetRemoteAssistanceSessionsReport\MicrosoftGraphGetRemoteAssistanceSessionsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetReportFilters\MicrosoftGraphGetReportFiltersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetSettingNonComplianceReport\MicrosoftGraphGetSettingNonComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetUnhealthyDefenderAgentsReport\MicrosoftGraphGetUnhealthyDefenderAgentsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetUnhealthyFirewallReport\MicrosoftGraphGetUnhealthyFirewallReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetUnhealthyFirewallSummaryReport\MicrosoftGraphGetUnhealthyFirewallSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetUserInstallStatusReport\MicrosoftGraphGetUserInstallStatusReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport\MicrosoftGraphGetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetWindowsQualityUpdateAlertSummaryReport\MicrosoftGraphGetWindowsQualityUpdateAlertSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetWindowsUpdateAlertsPerPolicyPerDeviceReport\MicrosoftGraphGetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetWindowsUpdateAlertSummaryReport\MicrosoftGraphGetWindowsUpdateAlertSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\MicrosoftGraphGetZebraFotaDeploymentReport\MicrosoftGraphGetZebraFotaDeploymentReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementReports;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity.
+*/
 class ReportsRequestBuilder 
 {
     /**
@@ -97,414 +100,421 @@ class ReportsRequestBuilder
     /**
      * Provides operations to call the getActiveMalwareReport method.
     */
-    public function getActiveMalwareReport(): GetActiveMalwareReportRequestBuilder {
-        return new GetActiveMalwareReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetActiveMalwareReport(): MicrosoftGraphGetActiveMalwareReportRequestBuilder {
+        return new MicrosoftGraphGetActiveMalwareReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getActiveMalwareSummaryReport method.
     */
-    public function getActiveMalwareSummaryReport(): GetActiveMalwareSummaryReportRequestBuilder {
-        return new GetActiveMalwareSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetActiveMalwareSummaryReport(): MicrosoftGraphGetActiveMalwareSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetActiveMalwareSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getAllCertificatesReport method.
     */
-    public function getAllCertificatesReport(): GetAllCertificatesReportRequestBuilder {
-        return new GetAllCertificatesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetAllCertificatesReport(): MicrosoftGraphGetAllCertificatesReportRequestBuilder {
+        return new MicrosoftGraphGetAllCertificatesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getAppsInstallSummaryReport method.
     */
-    public function getAppsInstallSummaryReport(): GetAppsInstallSummaryReportRequestBuilder {
-        return new GetAppsInstallSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetAppsInstallSummaryReport(): MicrosoftGraphGetAppsInstallSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetAppsInstallSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getAppStatusOverviewReport method.
     */
-    public function getAppStatusOverviewReport(): GetAppStatusOverviewReportRequestBuilder {
-        return new GetAppStatusOverviewReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetAppStatusOverviewReport(): MicrosoftGraphGetAppStatusOverviewReportRequestBuilder {
+        return new MicrosoftGraphGetAppStatusOverviewReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getCachedReport method.
     */
-    public function getCachedReport(): GetCachedReportRequestBuilder {
-        return new GetCachedReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetCachedReport(): MicrosoftGraphGetCachedReportRequestBuilder {
+        return new MicrosoftGraphGetCachedReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getCertificatesReport method.
     */
-    public function getCertificatesReport(): GetCertificatesReportRequestBuilder {
-        return new GetCertificatesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetCertificatesReport(): MicrosoftGraphGetCertificatesReportRequestBuilder {
+        return new MicrosoftGraphGetCertificatesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getCompliancePoliciesReportForDevice method.
     */
-    public function getCompliancePoliciesReportForDevice(): GetCompliancePoliciesReportForDeviceRequestBuilder {
-        return new GetCompliancePoliciesReportForDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetCompliancePoliciesReportForDevice(): MicrosoftGraphGetCompliancePoliciesReportForDeviceRequestBuilder {
+        return new MicrosoftGraphGetCompliancePoliciesReportForDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getCompliancePolicyDevicesReport method.
     */
-    public function getCompliancePolicyDevicesReport(): GetCompliancePolicyDevicesReportRequestBuilder {
-        return new GetCompliancePolicyDevicesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetCompliancePolicyDevicesReport(): MicrosoftGraphGetCompliancePolicyDevicesReportRequestBuilder {
+        return new MicrosoftGraphGetCompliancePolicyDevicesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getCompliancePolicyDeviceSummaryReport method.
     */
-    public function getCompliancePolicyDeviceSummaryReport(): GetCompliancePolicyDeviceSummaryReportRequestBuilder {
-        return new GetCompliancePolicyDeviceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetCompliancePolicyDeviceSummaryReport(): MicrosoftGraphGetCompliancePolicyDeviceSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetCompliancePolicyDeviceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getCompliancePolicyNonComplianceReport method.
     */
-    public function getCompliancePolicyNonComplianceReport(): GetCompliancePolicyNonComplianceReportRequestBuilder {
-        return new GetCompliancePolicyNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetCompliancePolicyNonComplianceReport(): MicrosoftGraphGetCompliancePolicyNonComplianceReportRequestBuilder {
+        return new MicrosoftGraphGetCompliancePolicyNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getCompliancePolicyNonComplianceSummaryReport method.
     */
-    public function getCompliancePolicyNonComplianceSummaryReport(): GetCompliancePolicyNonComplianceSummaryReportRequestBuilder {
-        return new GetCompliancePolicyNonComplianceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetCompliancePolicyNonComplianceSummaryReport(): MicrosoftGraphGetCompliancePolicyNonComplianceSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetCompliancePolicyNonComplianceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getComplianceSettingDetailsReport method.
     */
-    public function getComplianceSettingDetailsReport(): GetComplianceSettingDetailsReportRequestBuilder {
-        return new GetComplianceSettingDetailsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetComplianceSettingDetailsReport(): MicrosoftGraphGetComplianceSettingDetailsReportRequestBuilder {
+        return new MicrosoftGraphGetComplianceSettingDetailsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getComplianceSettingNonComplianceReport method.
     */
-    public function getComplianceSettingNonComplianceReport(): GetComplianceSettingNonComplianceReportRequestBuilder {
-        return new GetComplianceSettingNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetComplianceSettingNonComplianceReport(): MicrosoftGraphGetComplianceSettingNonComplianceReportRequestBuilder {
+        return new MicrosoftGraphGetComplianceSettingNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getComplianceSettingsReport method.
     */
-    public function getComplianceSettingsReport(): GetComplianceSettingsReportRequestBuilder {
-        return new GetComplianceSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetComplianceSettingsReport(): MicrosoftGraphGetComplianceSettingsReportRequestBuilder {
+        return new MicrosoftGraphGetComplianceSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigManagerDevicePolicyStatusReport method.
     */
-    public function getConfigManagerDevicePolicyStatusReport(): GetConfigManagerDevicePolicyStatusReportRequestBuilder {
-        return new GetConfigManagerDevicePolicyStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigManagerDevicePolicyStatusReport(): MicrosoftGraphGetConfigManagerDevicePolicyStatusReportRequestBuilder {
+        return new MicrosoftGraphGetConfigManagerDevicePolicyStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigurationPoliciesReportForDevice method.
     */
-    public function getConfigurationPoliciesReportForDevice(): GetConfigurationPoliciesReportForDeviceRequestBuilder {
-        return new GetConfigurationPoliciesReportForDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigurationPoliciesReportForDevice(): MicrosoftGraphGetConfigurationPoliciesReportForDeviceRequestBuilder {
+        return new MicrosoftGraphGetConfigurationPoliciesReportForDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigurationPolicyDevicesReport method.
     */
-    public function getConfigurationPolicyDevicesReport(): GetConfigurationPolicyDevicesReportRequestBuilder {
-        return new GetConfigurationPolicyDevicesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigurationPolicyDevicesReport(): MicrosoftGraphGetConfigurationPolicyDevicesReportRequestBuilder {
+        return new MicrosoftGraphGetConfigurationPolicyDevicesReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigurationPolicyDeviceSummaryReport method.
     */
-    public function getConfigurationPolicyDeviceSummaryReport(): GetConfigurationPolicyDeviceSummaryReportRequestBuilder {
-        return new GetConfigurationPolicyDeviceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigurationPolicyDeviceSummaryReport(): MicrosoftGraphGetConfigurationPolicyDeviceSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetConfigurationPolicyDeviceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigurationPolicyNonComplianceReport method.
     */
-    public function getConfigurationPolicyNonComplianceReport(): GetConfigurationPolicyNonComplianceReportRequestBuilder {
-        return new GetConfigurationPolicyNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigurationPolicyNonComplianceReport(): MicrosoftGraphGetConfigurationPolicyNonComplianceReportRequestBuilder {
+        return new MicrosoftGraphGetConfigurationPolicyNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method.
     */
-    public function getConfigurationPolicyNonComplianceSummaryReport(): GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder {
-        return new GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigurationPolicyNonComplianceSummaryReport(): MicrosoftGraphGetConfigurationPolicyNonComplianceSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetConfigurationPolicyNonComplianceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigurationPolicySettingsDeviceSummaryReport method.
     */
-    public function getConfigurationPolicySettingsDeviceSummaryReport(): GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder {
-        return new GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigurationPolicySettingsDeviceSummaryReport(): MicrosoftGraphGetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigurationSettingDetailsReport method.
     */
-    public function getConfigurationSettingDetailsReport(): GetConfigurationSettingDetailsReportRequestBuilder {
-        return new GetConfigurationSettingDetailsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigurationSettingDetailsReport(): MicrosoftGraphGetConfigurationSettingDetailsReportRequestBuilder {
+        return new MicrosoftGraphGetConfigurationSettingDetailsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigurationSettingNonComplianceReport method.
     */
-    public function getConfigurationSettingNonComplianceReport(): GetConfigurationSettingNonComplianceReportRequestBuilder {
-        return new GetConfigurationSettingNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigurationSettingNonComplianceReport(): MicrosoftGraphGetConfigurationSettingNonComplianceReportRequestBuilder {
+        return new MicrosoftGraphGetConfigurationSettingNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getConfigurationSettingsReport method.
     */
-    public function getConfigurationSettingsReport(): GetConfigurationSettingsReportRequestBuilder {
-        return new GetConfigurationSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetConfigurationSettingsReport(): MicrosoftGraphGetConfigurationSettingsReportRequestBuilder {
+        return new MicrosoftGraphGetConfigurationSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getDeviceConfigurationPolicySettingsSummaryReport method.
     */
-    public function getDeviceConfigurationPolicySettingsSummaryReport(): GetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder {
-        return new GetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetDeviceConfigurationPolicySettingsSummaryReport(): MicrosoftGraphGetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getDeviceConfigurationPolicyStatusSummary method.
     */
-    public function getDeviceConfigurationPolicyStatusSummary(): GetDeviceConfigurationPolicyStatusSummaryRequestBuilder {
-        return new GetDeviceConfigurationPolicyStatusSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetDeviceConfigurationPolicyStatusSummary(): MicrosoftGraphGetDeviceConfigurationPolicyStatusSummaryRequestBuilder {
+        return new MicrosoftGraphGetDeviceConfigurationPolicyStatusSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getDeviceInstallStatusReport method.
     */
-    public function getDeviceInstallStatusReport(): GetDeviceInstallStatusReportRequestBuilder {
-        return new GetDeviceInstallStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetDeviceInstallStatusReport(): MicrosoftGraphGetDeviceInstallStatusReportRequestBuilder {
+        return new MicrosoftGraphGetDeviceInstallStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getDeviceManagementIntentPerSettingContributingProfiles method.
     */
-    public function getDeviceManagementIntentPerSettingContributingProfiles(): GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder {
-        return new GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetDeviceManagementIntentPerSettingContributingProfiles(): MicrosoftGraphGetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder {
+        return new MicrosoftGraphGetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getDeviceManagementIntentSettingsReport method.
     */
-    public function getDeviceManagementIntentSettingsReport(): GetDeviceManagementIntentSettingsReportRequestBuilder {
-        return new GetDeviceManagementIntentSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetDeviceManagementIntentSettingsReport(): MicrosoftGraphGetDeviceManagementIntentSettingsReportRequestBuilder {
+        return new MicrosoftGraphGetDeviceManagementIntentSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getDeviceNonComplianceReport method.
     */
-    public function getDeviceNonComplianceReport(): GetDeviceNonComplianceReportRequestBuilder {
-        return new GetDeviceNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetDeviceNonComplianceReport(): MicrosoftGraphGetDeviceNonComplianceReportRequestBuilder {
+        return new MicrosoftGraphGetDeviceNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDevicesWithoutCompliancePolicyReport method.
+    */
+    public function microsoftGraphGetDevicesWithoutCompliancePolicyReport(): MicrosoftGraphGetDevicesWithoutCompliancePolicyReportRequestBuilder {
+        return new MicrosoftGraphGetDevicesWithoutCompliancePolicyReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getEncryptionReportForDevices method.
     */
-    public function getEncryptionReportForDevices(): GetEncryptionReportForDevicesRequestBuilder {
-        return new GetEncryptionReportForDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetEncryptionReportForDevices(): MicrosoftGraphGetEncryptionReportForDevicesRequestBuilder {
+        return new MicrosoftGraphGetEncryptionReportForDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getEnrollmentConfigurationPoliciesByDevice method.
     */
-    public function getEnrollmentConfigurationPoliciesByDevice(): GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder {
-        return new GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetEnrollmentConfigurationPoliciesByDevice(): MicrosoftGraphGetEnrollmentConfigurationPoliciesByDeviceRequestBuilder {
+        return new MicrosoftGraphGetEnrollmentConfigurationPoliciesByDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getFailedMobileAppsReport method.
     */
-    public function getFailedMobileAppsReport(): GetFailedMobileAppsReportRequestBuilder {
-        return new GetFailedMobileAppsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetFailedMobileAppsReport(): MicrosoftGraphGetFailedMobileAppsReportRequestBuilder {
+        return new MicrosoftGraphGetFailedMobileAppsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getFailedMobileAppsSummaryReport method.
     */
-    public function getFailedMobileAppsSummaryReport(): GetFailedMobileAppsSummaryReportRequestBuilder {
-        return new GetFailedMobileAppsSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetFailedMobileAppsSummaryReport(): MicrosoftGraphGetFailedMobileAppsSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetFailedMobileAppsSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getGroupPolicySettingsDeviceSettingsReport method.
     */
-    public function getGroupPolicySettingsDeviceSettingsReport(): GetGroupPolicySettingsDeviceSettingsReportRequestBuilder {
-        return new GetGroupPolicySettingsDeviceSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetGroupPolicySettingsDeviceSettingsReport(): MicrosoftGraphGetGroupPolicySettingsDeviceSettingsReportRequestBuilder {
+        return new MicrosoftGraphGetGroupPolicySettingsDeviceSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getHistoricalReport method.
     */
-    public function getHistoricalReport(): GetHistoricalReportRequestBuilder {
-        return new GetHistoricalReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetHistoricalReport(): MicrosoftGraphGetHistoricalReportRequestBuilder {
+        return new MicrosoftGraphGetHistoricalReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getMalwareSummaryReport method.
     */
-    public function getMalwareSummaryReport(): GetMalwareSummaryReportRequestBuilder {
-        return new GetMalwareSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetMalwareSummaryReport(): MicrosoftGraphGetMalwareSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetMalwareSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getMobileApplicationManagementAppConfigurationReport method.
     */
-    public function getMobileApplicationManagementAppConfigurationReport(): GetMobileApplicationManagementAppConfigurationReportRequestBuilder {
-        return new GetMobileApplicationManagementAppConfigurationReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetMobileApplicationManagementAppConfigurationReport(): MicrosoftGraphGetMobileApplicationManagementAppConfigurationReportRequestBuilder {
+        return new MicrosoftGraphGetMobileApplicationManagementAppConfigurationReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getMobileApplicationManagementAppRegistrationSummaryReport method.
     */
-    public function getMobileApplicationManagementAppRegistrationSummaryReport(): GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder {
-        return new GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetMobileApplicationManagementAppRegistrationSummaryReport(): MicrosoftGraphGetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getNoncompliantDevicesAndSettingsReport method.
     */
-    public function getNoncompliantDevicesAndSettingsReport(): GetNoncompliantDevicesAndSettingsReportRequestBuilder {
-        return new GetNoncompliantDevicesAndSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetNoncompliantDevicesAndSettingsReport(): MicrosoftGraphGetNoncompliantDevicesAndSettingsReportRequestBuilder {
+        return new MicrosoftGraphGetNoncompliantDevicesAndSettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getPolicyNonComplianceMetadata method.
     */
-    public function getPolicyNonComplianceMetadata(): GetPolicyNonComplianceMetadataRequestBuilder {
-        return new GetPolicyNonComplianceMetadataRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetPolicyNonComplianceMetadata(): MicrosoftGraphGetPolicyNonComplianceMetadataRequestBuilder {
+        return new MicrosoftGraphGetPolicyNonComplianceMetadataRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getPolicyNonComplianceReport method.
     */
-    public function getPolicyNonComplianceReport(): GetPolicyNonComplianceReportRequestBuilder {
-        return new GetPolicyNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetPolicyNonComplianceReport(): MicrosoftGraphGetPolicyNonComplianceReportRequestBuilder {
+        return new MicrosoftGraphGetPolicyNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getPolicyNonComplianceSummaryReport method.
     */
-    public function getPolicyNonComplianceSummaryReport(): GetPolicyNonComplianceSummaryReportRequestBuilder {
-        return new GetPolicyNonComplianceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetPolicyNonComplianceSummaryReport(): MicrosoftGraphGetPolicyNonComplianceSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetPolicyNonComplianceSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getQuietTimePolicyUsersReport method.
     */
-    public function getQuietTimePolicyUsersReport(): GetQuietTimePolicyUsersReportRequestBuilder {
-        return new GetQuietTimePolicyUsersReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetQuietTimePolicyUsersReport(): MicrosoftGraphGetQuietTimePolicyUsersReportRequestBuilder {
+        return new MicrosoftGraphGetQuietTimePolicyUsersReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getQuietTimePolicyUserSummaryReport method.
     */
-    public function getQuietTimePolicyUserSummaryReport(): GetQuietTimePolicyUserSummaryReportRequestBuilder {
-        return new GetQuietTimePolicyUserSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetQuietTimePolicyUserSummaryReport(): MicrosoftGraphGetQuietTimePolicyUserSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetQuietTimePolicyUserSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getRelatedAppsStatusReport method.
     */
-    public function getRelatedAppsStatusReport(): GetRelatedAppsStatusReportRequestBuilder {
-        return new GetRelatedAppsStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetRelatedAppsStatusReport(): MicrosoftGraphGetRelatedAppsStatusReportRequestBuilder {
+        return new MicrosoftGraphGetRelatedAppsStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getRemoteAssistanceSessionsReport method.
     */
-    public function getRemoteAssistanceSessionsReport(): GetRemoteAssistanceSessionsReportRequestBuilder {
-        return new GetRemoteAssistanceSessionsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetRemoteAssistanceSessionsReport(): MicrosoftGraphGetRemoteAssistanceSessionsReportRequestBuilder {
+        return new MicrosoftGraphGetRemoteAssistanceSessionsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getReportFilters method.
     */
-    public function getReportFilters(): GetReportFiltersRequestBuilder {
-        return new GetReportFiltersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetReportFilters(): MicrosoftGraphGetReportFiltersRequestBuilder {
+        return new MicrosoftGraphGetReportFiltersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getSettingNonComplianceReport method.
     */
-    public function getSettingNonComplianceReport(): GetSettingNonComplianceReportRequestBuilder {
-        return new GetSettingNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetSettingNonComplianceReport(): MicrosoftGraphGetSettingNonComplianceReportRequestBuilder {
+        return new MicrosoftGraphGetSettingNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getUnhealthyDefenderAgentsReport method.
     */
-    public function getUnhealthyDefenderAgentsReport(): GetUnhealthyDefenderAgentsReportRequestBuilder {
-        return new GetUnhealthyDefenderAgentsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetUnhealthyDefenderAgentsReport(): MicrosoftGraphGetUnhealthyDefenderAgentsReportRequestBuilder {
+        return new MicrosoftGraphGetUnhealthyDefenderAgentsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getUnhealthyFirewallReport method.
     */
-    public function getUnhealthyFirewallReport(): GetUnhealthyFirewallReportRequestBuilder {
-        return new GetUnhealthyFirewallReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetUnhealthyFirewallReport(): MicrosoftGraphGetUnhealthyFirewallReportRequestBuilder {
+        return new MicrosoftGraphGetUnhealthyFirewallReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getUnhealthyFirewallSummaryReport method.
     */
-    public function getUnhealthyFirewallSummaryReport(): GetUnhealthyFirewallSummaryReportRequestBuilder {
-        return new GetUnhealthyFirewallSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetUnhealthyFirewallSummaryReport(): MicrosoftGraphGetUnhealthyFirewallSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetUnhealthyFirewallSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getUserInstallStatusReport method.
     */
-    public function getUserInstallStatusReport(): GetUserInstallStatusReportRequestBuilder {
-        return new GetUserInstallStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetUserInstallStatusReport(): MicrosoftGraphGetUserInstallStatusReportRequestBuilder {
+        return new MicrosoftGraphGetUserInstallStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport method.
     */
-    public function getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport(): GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder {
-        return new GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport(): MicrosoftGraphGetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder {
+        return new MicrosoftGraphGetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getWindowsQualityUpdateAlertSummaryReport method.
     */
-    public function getWindowsQualityUpdateAlertSummaryReport(): GetWindowsQualityUpdateAlertSummaryReportRequestBuilder {
-        return new GetWindowsQualityUpdateAlertSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetWindowsQualityUpdateAlertSummaryReport(): MicrosoftGraphGetWindowsQualityUpdateAlertSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetWindowsQualityUpdateAlertSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getWindowsUpdateAlertsPerPolicyPerDeviceReport method.
     */
-    public function getWindowsUpdateAlertsPerPolicyPerDeviceReport(): GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder {
-        return new GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetWindowsUpdateAlertsPerPolicyPerDeviceReport(): MicrosoftGraphGetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder {
+        return new MicrosoftGraphGetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getWindowsUpdateAlertSummaryReport method.
     */
-    public function getWindowsUpdateAlertSummaryReport(): GetWindowsUpdateAlertSummaryReportRequestBuilder {
-        return new GetWindowsUpdateAlertSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetWindowsUpdateAlertSummaryReport(): MicrosoftGraphGetWindowsUpdateAlertSummaryReportRequestBuilder {
+        return new MicrosoftGraphGetWindowsUpdateAlertSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getZebraFotaDeploymentReport method.
     */
-    public function getZebraFotaDeploymentReport(): GetZebraFotaDeploymentReportRequestBuilder {
-        return new GetZebraFotaDeploymentReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphGetZebraFotaDeploymentReport(): MicrosoftGraphGetZebraFotaDeploymentReportRequestBuilder {
+        return new MicrosoftGraphGetZebraFotaDeploymentReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -535,29 +545,32 @@ class ReportsRequestBuilder
 
     /**
      * Instantiates a new ReportsRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/deviceManagement/reports{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
      * Delete navigation property reports for deviceManagement
      * @param ReportsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ReportsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ReportsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -577,17 +590,16 @@ class ReportsRequestBuilder
     /**
      * Reports singleton
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReports::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReports::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -597,17 +609,16 @@ class ReportsRequestBuilder
      * Update the navigation property reports in deviceManagement
      * @param DeviceManagementReports $body The request body
      * @param ReportsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(DeviceManagementReports $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(DeviceManagementReports $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReports::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementReports::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -625,7 +636,7 @@ class ReportsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -644,10 +655,10 @@ class ReportsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -670,10 +681,10 @@ class ReportsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

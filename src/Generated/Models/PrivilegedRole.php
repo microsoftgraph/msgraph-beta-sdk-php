@@ -84,7 +84,7 @@ class PrivilegedRole extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The assignments for this role. Read-only. Nullable.
-     *  @param array<PrivilegedRoleAssignment>|null $value Value to set for the assignments property.
+     * @param array<PrivilegedRoleAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -92,7 +92,7 @@ class PrivilegedRole extends Entity implements Parsable
 
     /**
      * Sets the name property value. Role name.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -100,7 +100,7 @@ class PrivilegedRole extends Entity implements Parsable
 
     /**
      * Sets the settings property value. The settings for this role. Read-only. Nullable.
-     *  @param PrivilegedRoleSettings|null $value Value to set for the settings property.
+     * @param PrivilegedRoleSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?PrivilegedRoleSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -108,7 +108,7 @@ class PrivilegedRole extends Entity implements Parsable
 
     /**
      * Sets the summary property value. The summary information for this role. Read-only. Nullable.
-     *  @param PrivilegedRoleSummary|null $value Value to set for the summary property.
+     * @param PrivilegedRoleSummary|null $value Value to set for the summary property.
     */
     public function setSummary(?PrivilegedRoleSummary $value): void {
         $this->getBackingStore()->set('summary', $value);

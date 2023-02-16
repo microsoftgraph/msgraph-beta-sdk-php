@@ -244,7 +244,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the birthday property value. The person's birthday.
-     *  @param string|null $value Value to set for the birthday property.
+     * @param string|null $value Value to set for the birthday property.
     */
     public function setBirthday(?string $value): void {
         $this->getBackingStore()->set('birthday', $value);
@@ -252,7 +252,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the companyName property value. The name of the person's company.
-     *  @param string|null $value Value to set for the companyName property.
+     * @param string|null $value Value to set for the companyName property.
     */
     public function setCompanyName(?string $value): void {
         $this->getBackingStore()->set('companyName', $value);
@@ -260,7 +260,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the department property value. The person's department.
-     *  @param string|null $value Value to set for the department property.
+     * @param string|null $value Value to set for the department property.
     */
     public function setDepartment(?string $value): void {
         $this->getBackingStore()->set('department', $value);
@@ -268,7 +268,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The person's display name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -276,7 +276,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the emailAddresses property value. The person's email addresses.
-     *  @param array<RankedEmailAddress>|null $value Value to set for the emailAddresses property.
+     * @param array<RankedEmailAddress>|null $value Value to set for the emailAddresses property.
     */
     public function setEmailAddresses(?array $value): void {
         $this->getBackingStore()->set('emailAddresses', $value);
@@ -284,7 +284,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the givenName property value. The person's given name.
-     *  @param string|null $value Value to set for the givenName property.
+     * @param string|null $value Value to set for the givenName property.
     */
     public function setGivenName(?string $value): void {
         $this->getBackingStore()->set('givenName', $value);
@@ -292,7 +292,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the isFavorite property value. true if the user has flagged this person as a favorite.
-     *  @param bool|null $value Value to set for the isFavorite property.
+     * @param bool|null $value Value to set for the isFavorite property.
     */
     public function setIsFavorite(?bool $value): void {
         $this->getBackingStore()->set('isFavorite', $value);
@@ -300,7 +300,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the mailboxType property value. The type of mailbox that is represented by the person's email address.
-     *  @param string|null $value Value to set for the mailboxType property.
+     * @param string|null $value Value to set for the mailboxType property.
     */
     public function setMailboxType(?string $value): void {
         $this->getBackingStore()->set('mailboxType', $value);
@@ -308,7 +308,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the officeLocation property value. The location of the person's office.
-     *  @param string|null $value Value to set for the officeLocation property.
+     * @param string|null $value Value to set for the officeLocation property.
     */
     public function setOfficeLocation(?string $value): void {
         $this->getBackingStore()->set('officeLocation', $value);
@@ -316,7 +316,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the personNotes property value. Free-form notes that the user has taken about this person.
-     *  @param string|null $value Value to set for the personNotes property.
+     * @param string|null $value Value to set for the personNotes property.
     */
     public function setPersonNotes(?string $value): void {
         $this->getBackingStore()->set('personNotes', $value);
@@ -324,7 +324,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the personType property value. The type of person, for example distribution list.
-     *  @param string|null $value Value to set for the personType property.
+     * @param string|null $value Value to set for the personType property.
     */
     public function setPersonType(?string $value): void {
         $this->getBackingStore()->set('personType', $value);
@@ -332,7 +332,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the phones property value. The person's phone numbers.
-     *  @param array<Phone>|null $value Value to set for the phones property.
+     * @param array<Phone>|null $value Value to set for the phones property.
     */
     public function setPhones(?array $value): void {
         $this->getBackingStore()->set('phones', $value);
@@ -340,7 +340,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the postalAddresses property value. The person's addresses.
-     *  @param array<Location>|null $value Value to set for the postalAddresses property.
+     * @param array<Location>|null $value Value to set for the postalAddresses property.
     */
     public function setPostalAddresses(?array $value): void {
         $this->getBackingStore()->set('postalAddresses', $value);
@@ -348,7 +348,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the profession property value. The person's profession.
-     *  @param string|null $value Value to set for the profession property.
+     * @param string|null $value Value to set for the profession property.
     */
     public function setProfession(?string $value): void {
         $this->getBackingStore()->set('profession', $value);
@@ -356,7 +356,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the sources property value. The sources the user data comes from, for example Directory or Outlook Contacts.
-     *  @param array<PersonDataSource>|null $value Value to set for the sources property.
+     * @param array<PersonDataSource>|null $value Value to set for the sources property.
     */
     public function setSources(?array $value): void {
         $this->getBackingStore()->set('sources', $value);
@@ -364,7 +364,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the surname property value. The person's surname.
-     *  @param string|null $value Value to set for the surname property.
+     * @param string|null $value Value to set for the surname property.
     */
     public function setSurname(?string $value): void {
         $this->getBackingStore()->set('surname', $value);
@@ -372,7 +372,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the title property value. The person's title.
-     *  @param string|null $value Value to set for the title property.
+     * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
         $this->getBackingStore()->set('title', $value);
@@ -380,7 +380,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);
@@ -388,7 +388,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the websites property value. The person's websites.
-     *  @param array<Website>|null $value Value to set for the websites property.
+     * @param array<Website>|null $value Value to set for the websites property.
     */
     public function setWebsites(?array $value): void {
         $this->getBackingStore()->set('websites', $value);
@@ -396,7 +396,7 @@ class Person extends Entity implements Parsable
 
     /**
      * Sets the yomiCompany property value. The phonetic Japanese name of the person's company.
-     *  @param string|null $value Value to set for the yomiCompany property.
+     * @param string|null $value Value to set for the yomiCompany property.
     */
     public function setYomiCompany(?string $value): void {
         $this->getBackingStore()->set('yomiCompany', $value);

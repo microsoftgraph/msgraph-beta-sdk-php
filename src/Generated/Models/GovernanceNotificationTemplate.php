@@ -36,7 +36,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the culture property value. The culture property
-     *  @param string|null $value Value to set for the culture property.
+     * @param string|null $value Value to set for the culture property.
     */
     public function setCulture(?string $value): void {
         $this->getBackingStore()->set('culture', $value);
@@ -154,7 +154,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the id property value. The id property
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -162,7 +162,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -170,7 +170,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the source property value. The source property
-     *  @param string|null $value Value to set for the source property.
+     * @param string|null $value Value to set for the source property.
     */
     public function setSource(?string $value): void {
         $this->getBackingStore()->set('source', $value);
@@ -178,7 +178,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the type property value. The type property
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -186,7 +186,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the version property value. The version property
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

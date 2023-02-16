@@ -65,7 +65,7 @@ class PlannerBucketPropertyRule extends PlannerPropertyRule implements Parsable
 
     /**
      * Sets the order property value. The order property
-     *  @param array<string>|null $value Value to set for the order property.
+     * @param array<string>|null $value Value to set for the order property.
     */
     public function setOrder(?array $value): void {
         $this->getBackingStore()->set('order', $value);
@@ -73,7 +73,7 @@ class PlannerBucketPropertyRule extends PlannerPropertyRule implements Parsable
 
     /**
      * Sets the title property value. The title property
-     *  @param array<string>|null $value Value to set for the title property.
+     * @param array<string>|null $value Value to set for the title property.
     */
     public function setTitle(?array $value): void {
         $this->getBackingStore()->set('title', $value);

@@ -55,7 +55,7 @@ class Sharepoint extends Entity implements Parsable
 
     /**
      * Sets the settings property value. Represents the tenant-level settings for SharePoint and OneDrive.
-     *  @param Settings|null $value Value to set for the settings property.
+     * @param Settings|null $value Value to set for the settings property.
     */
     public function setSettings(?Settings $value): void {
         $this->getBackingStore()->set('settings', $value);

@@ -36,7 +36,7 @@ class ClassificationResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class ClassificationResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class ClassificationResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class ClassificationResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the confidenceLevel property value. The confidence level, 0 to 100, of the result.
-     *  @param int|null $value Value to set for the confidenceLevel property.
+     * @param int|null $value Value to set for the confidenceLevel property.
     */
     public function setConfidenceLevel(?int $value): void {
         $this->getBackingStore()->set('confidenceLevel', $value);
@@ -134,7 +134,7 @@ class ClassificationResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the count property value. The number of instances of the specific information type in the input.
-     *  @param int|null $value Value to set for the count property.
+     * @param int|null $value Value to set for the count property.
     */
     public function setCount(?int $value): void {
         $this->getBackingStore()->set('count', $value);
@@ -142,7 +142,7 @@ class ClassificationResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class ClassificationResult implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the sensitiveTypeId property value. The GUID of the discovered sensitive information type.
-     *  @param string|null $value Value to set for the sensitiveTypeId property.
+     * @param string|null $value Value to set for the sensitiveTypeId property.
     */
     public function setSensitiveTypeId(?string $value): void {
         $this->getBackingStore()->set('sensitiveTypeId', $value);

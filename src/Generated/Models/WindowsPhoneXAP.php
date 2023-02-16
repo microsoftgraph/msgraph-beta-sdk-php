@@ -75,7 +75,7 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
 
     /**
      * Sets the identityVersion property value. The identity version.
-     *  @param string|null $value Value to set for the identityVersion property.
+     * @param string|null $value Value to set for the identityVersion property.
     */
     public function setIdentityVersion(?string $value): void {
         $this->getBackingStore()->set('identityVersion', $value);
@@ -83,7 +83,7 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. The minimum operating system required for a Windows mobile app.
-     *  @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
+     * @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
@@ -91,7 +91,7 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
 
     /**
      * Sets the productIdentifier property value. The Product Identifier.
-     *  @param string|null $value Value to set for the productIdentifier property.
+     * @param string|null $value Value to set for the productIdentifier property.
     */
     public function setProductIdentifier(?string $value): void {
         $this->getBackingStore()->set('productIdentifier', $value);

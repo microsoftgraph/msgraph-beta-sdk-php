@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new WindowsDomainJoinConfiguration and sets the default values.
+     * Instantiates a new windowsDomainJoinConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,7 +95,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Sets the activeDirectoryDomainName property value. Active Directory domain name to join.
-     *  @param string|null $value Value to set for the activeDirectoryDomainName property.
+     * @param string|null $value Value to set for the activeDirectoryDomainName property.
     */
     public function setActiveDirectoryDomainName(?string $value): void {
         $this->getBackingStore()->set('activeDirectoryDomainName', $value);
@@ -103,7 +103,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Sets the computerNameStaticPrefix property value. Fixed prefix to be used for computer name.
-     *  @param string|null $value Value to set for the computerNameStaticPrefix property.
+     * @param string|null $value Value to set for the computerNameStaticPrefix property.
     */
     public function setComputerNameStaticPrefix(?string $value): void {
         $this->getBackingStore()->set('computerNameStaticPrefix', $value);
@@ -111,7 +111,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Sets the computerNameSuffixRandomCharCount property value. Dynamically generated characters used as suffix for computer name. Valid values 3 to 14
-     *  @param int|null $value Value to set for the computerNameSuffixRandomCharCount property.
+     * @param int|null $value Value to set for the computerNameSuffixRandomCharCount property.
     */
     public function setComputerNameSuffixRandomCharCount(?int $value): void {
         $this->getBackingStore()->set('computerNameSuffixRandomCharCount', $value);
@@ -119,7 +119,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Sets the networkAccessConfigurations property value. Reference to device configurations required for network connectivity
-     *  @param array<DeviceConfiguration>|null $value Value to set for the networkAccessConfigurations property.
+     * @param array<DeviceConfiguration>|null $value Value to set for the networkAccessConfigurations property.
     */
     public function setNetworkAccessConfigurations(?array $value): void {
         $this->getBackingStore()->set('networkAccessConfigurations', $value);
@@ -127,7 +127,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Sets the organizationalUnit property value. Organizational unit (OU) where the computer account will be created. If this parameter is NULL, the well known computer object container will be used as published in the domain.
-     *  @param string|null $value Value to set for the organizationalUnit property.
+     * @param string|null $value Value to set for the organizationalUnit property.
     */
     public function setOrganizationalUnit(?string $value): void {
         $this->getBackingStore()->set('organizationalUnit', $value);

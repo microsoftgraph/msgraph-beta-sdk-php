@@ -295,7 +295,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the attachments property value. References to attached objects like files, tabs, meetings etc.
-     *  @param array<ChatMessageAttachment>|null $value Value to set for the attachments property.
+     * @param array<ChatMessageAttachment>|null $value Value to set for the attachments property.
     */
     public function setAttachments(?array $value): void {
         $this->getBackingStore()->set('attachments', $value);
@@ -303,7 +303,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the body property value. The body property
-     *  @param ItemBody|null $value Value to set for the body property.
+     * @param ItemBody|null $value Value to set for the body property.
     */
     public function setBody(?ItemBody $value): void {
         $this->getBackingStore()->set('body', $value);
@@ -311,7 +311,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the channelIdentity property value. If the message was sent in a channel, represents identity of the channel.
-     *  @param ChannelIdentity|null $value Value to set for the channelIdentity property.
+     * @param ChannelIdentity|null $value Value to set for the channelIdentity property.
     */
     public function setChannelIdentity(?ChannelIdentity $value): void {
         $this->getBackingStore()->set('channelIdentity', $value);
@@ -319,7 +319,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the chatId property value. If the message was sent in a chat, represents the identity of the chat.
-     *  @param string|null $value Value to set for the chatId property.
+     * @param string|null $value Value to set for the chatId property.
     */
     public function setChatId(?string $value): void {
         $this->getBackingStore()->set('chatId', $value);
@@ -327,7 +327,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Timestamp of when the chat message was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -335,7 +335,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the deletedDateTime property value. Read only. Timestamp at which the chat message was deleted, or null if not deleted.
-     *  @param DateTime|null $value Value to set for the deletedDateTime property.
+     * @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deletedDateTime', $value);
@@ -343,7 +343,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the etag property value. Read-only. Version number of the chat message.
-     *  @param string|null $value Value to set for the etag property.
+     * @param string|null $value Value to set for the etag property.
     */
     public function setEtag(?string $value): void {
         $this->getBackingStore()->set('etag', $value);
@@ -351,7 +351,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the eventDetail property value. Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.
-     *  @param EventMessageDetail|null $value Value to set for the eventDetail property.
+     * @param EventMessageDetail|null $value Value to set for the eventDetail property.
     */
     public function setEventDetail(?EventMessageDetail $value): void {
         $this->getBackingStore()->set('eventDetail', $value);
@@ -359,7 +359,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the from property value. Details of the sender of the chat message. Can only be set during migration.
-     *  @param ChatMessageFromIdentitySet|null $value Value to set for the from property.
+     * @param ChatMessageFromIdentitySet|null $value Value to set for the from property.
     */
     public function setFrom(?ChatMessageFromIdentitySet $value): void {
         $this->getBackingStore()->set('from', $value);
@@ -367,7 +367,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the hostedContents property value. Content in a message hosted by Microsoft Teams - for example, images or code snippets.
-     *  @param array<ChatMessageHostedContent>|null $value Value to set for the hostedContents property.
+     * @param array<ChatMessageHostedContent>|null $value Value to set for the hostedContents property.
     */
     public function setHostedContents(?array $value): void {
         $this->getBackingStore()->set('hostedContents', $value);
@@ -375,7 +375,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the importance property value. The importance property
-     *  @param ChatMessageImportance|null $value Value to set for the importance property.
+     * @param ChatMessageImportance|null $value Value to set for the importance property.
     */
     public function setImportance(?ChatMessageImportance $value): void {
         $this->getBackingStore()->set('importance', $value);
@@ -383,7 +383,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the lastEditedDateTime property value. Read only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null.
-     *  @param DateTime|null $value Value to set for the lastEditedDateTime property.
+     * @param DateTime|null $value Value to set for the lastEditedDateTime property.
     */
     public function setLastEditedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastEditedDateTime', $value);
@@ -391,7 +391,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Read only. Timestamp when the chat message is created (initial setting) or modified, including when a reaction is added or removed.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -399,7 +399,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the locale property value. Locale of the chat message set by the client. Always set to en-us.
-     *  @param string|null $value Value to set for the locale property.
+     * @param string|null $value Value to set for the locale property.
     */
     public function setLocale(?string $value): void {
         $this->getBackingStore()->set('locale', $value);
@@ -407,7 +407,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the mentions property value. List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag.
-     *  @param array<ChatMessageMention>|null $value Value to set for the mentions property.
+     * @param array<ChatMessageMention>|null $value Value to set for the mentions property.
     */
     public function setMentions(?array $value): void {
         $this->getBackingStore()->set('mentions', $value);
@@ -415,7 +415,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the messageHistory property value. List of activity history of a message item, including modification time and actions, such as reactionAdded, reactionRemoved, or reaction changes, on the message.
-     *  @param array<ChatMessageHistoryItem>|null $value Value to set for the messageHistory property.
+     * @param array<ChatMessageHistoryItem>|null $value Value to set for the messageHistory property.
     */
     public function setMessageHistory(?array $value): void {
         $this->getBackingStore()->set('messageHistory', $value);
@@ -423,7 +423,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the messageType property value. The messageType property
-     *  @param ChatMessageType|null $value Value to set for the messageType property.
+     * @param ChatMessageType|null $value Value to set for the messageType property.
     */
     public function setMessageType(?ChatMessageType $value): void {
         $this->getBackingStore()->set('messageType', $value);
@@ -431,7 +431,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the onBehalfOf property value. User attribution of the message when bot sends a message on behalf of a user.
-     *  @param ChatMessageFromIdentitySet|null $value Value to set for the onBehalfOf property.
+     * @param ChatMessageFromIdentitySet|null $value Value to set for the onBehalfOf property.
     */
     public function setOnBehalfOf(?ChatMessageFromIdentitySet $value): void {
         $this->getBackingStore()->set('onBehalfOf', $value);
@@ -439,7 +439,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the policyViolation property value. Defines the properties of a policy violation set by a data loss prevention (DLP) application.
-     *  @param ChatMessagePolicyViolation|null $value Value to set for the policyViolation property.
+     * @param ChatMessagePolicyViolation|null $value Value to set for the policyViolation property.
     */
     public function setPolicyViolation(?ChatMessagePolicyViolation $value): void {
         $this->getBackingStore()->set('policyViolation', $value);
@@ -447,7 +447,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the reactions property value. Reactions for this chat message (for example, Like).
-     *  @param array<ChatMessageReaction>|null $value Value to set for the reactions property.
+     * @param array<ChatMessageReaction>|null $value Value to set for the reactions property.
     */
     public function setReactions(?array $value): void {
         $this->getBackingStore()->set('reactions', $value);
@@ -455,7 +455,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the replies property value. Replies for a specified message. Supports $expand for channel messages.
-     *  @param array<ChatMessage>|null $value Value to set for the replies property.
+     * @param array<ChatMessage>|null $value Value to set for the replies property.
     */
     public function setReplies(?array $value): void {
         $this->getBackingStore()->set('replies', $value);
@@ -463,7 +463,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the replyToId property value. Read-only. ID of the parent chat message or root chat message of the thread. (Only applies to chat messages in channels, not chats.)
-     *  @param string|null $value Value to set for the replyToId property.
+     * @param string|null $value Value to set for the replyToId property.
     */
     public function setReplyToId(?string $value): void {
         $this->getBackingStore()->set('replyToId', $value);
@@ -471,7 +471,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the subject property value. The subject of the chat message, in plaintext.
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -479,7 +479,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the summary property value. Summary text of the chat message that could be used for push notifications and summary views or fall back views. Only applies to channel chat messages, not chat messages in a chat.
-     *  @param string|null $value Value to set for the summary property.
+     * @param string|null $value Value to set for the summary property.
     */
     public function setSummary(?string $value): void {
         $this->getBackingStore()->set('summary', $value);
@@ -487,7 +487,7 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the webUrl property value. Read-only. Link to the message in Microsoft Teams.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

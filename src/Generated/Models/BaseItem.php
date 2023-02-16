@@ -168,7 +168,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. Identity of the user, device, or application which created the item. Read-only.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -176,7 +176,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the createdByUser property value. The createdByUser property
-     *  @param User|null $value Value to set for the createdByUser property.
+     * @param User|null $value Value to set for the createdByUser property.
     */
     public function setCreatedByUser(?User $value): void {
         $this->getBackingStore()->set('createdByUser', $value);
@@ -184,7 +184,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Date and time of item creation. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -192,7 +192,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -200,7 +200,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the eTag property value. ETag for the item. Read-only.
-     *  @param string|null $value Value to set for the eTag property.
+     * @param string|null $value Value to set for the eTag property.
     */
     public function setETag(?string $value): void {
         $this->getBackingStore()->set('eTag', $value);
@@ -208,7 +208,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. Identity of the user, device, and application which last modified the item. Read-only.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -216,7 +216,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedByUser property value. The lastModifiedByUser property
-     *  @param User|null $value Value to set for the lastModifiedByUser property.
+     * @param User|null $value Value to set for the lastModifiedByUser property.
     */
     public function setLastModifiedByUser(?User $value): void {
         $this->getBackingStore()->set('lastModifiedByUser', $value);
@@ -224,7 +224,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Date and time the item was last modified. Read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -232,7 +232,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name of the item. Read-write.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -240,7 +240,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the parentReference property value. Parent information, if the item has a parent. Read-write.
-     *  @param ItemReference|null $value Value to set for the parentReference property.
+     * @param ItemReference|null $value Value to set for the parentReference property.
     */
     public function setParentReference(?ItemReference $value): void {
         $this->getBackingStore()->set('parentReference', $value);
@@ -248,7 +248,7 @@ class BaseItem extends Entity implements Parsable
 
     /**
      * Sets the webUrl property value. URL that displays the resource in the browser. Read-only.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

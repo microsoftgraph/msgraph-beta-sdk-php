@@ -135,7 +135,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
 
     /**
      * Sets the compliantDeviceCount property value. The number of devices with a compliant status. Required. Read-only.
-     *  @param int|null $value Value to set for the compliantDeviceCount property.
+     * @param int|null $value Value to set for the compliantDeviceCount property.
     */
     public function setCompliantDeviceCount(?int $value): void {
         $this->getBackingStore()->set('compliantDeviceCount', $value);
@@ -143,7 +143,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
 
     /**
      * Sets the configManagerDeviceCount property value. The number of devices manged by Configuration Manager. Required. Read-only.
-     *  @param int|null $value Value to set for the configManagerDeviceCount property.
+     * @param int|null $value Value to set for the configManagerDeviceCount property.
     */
     public function setConfigManagerDeviceCount(?int $value): void {
         $this->getBackingStore()->set('configManagerDeviceCount', $value);
@@ -151,7 +151,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
 
     /**
      * Sets the countDateTime property value. The date and time compliance snapshot was performed. Required. Read-only.
-     *  @param string|null $value Value to set for the countDateTime property.
+     * @param string|null $value Value to set for the countDateTime property.
     */
     public function setCountDateTime(?string $value): void {
         $this->getBackingStore()->set('countDateTime', $value);
@@ -159,7 +159,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
 
     /**
      * Sets the errorDeviceCount property value. The number of devices with an error status. Required. Read-only.
-     *  @param int|null $value Value to set for the errorDeviceCount property.
+     * @param int|null $value Value to set for the errorDeviceCount property.
     */
     public function setErrorDeviceCount(?int $value): void {
         $this->getBackingStore()->set('errorDeviceCount', $value);
@@ -167,7 +167,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
 
     /**
      * Sets the inGracePeriodDeviceCount property value. The number of devices that are in a grace period status. Required. Read-only.
-     *  @param int|null $value Value to set for the inGracePeriodDeviceCount property.
+     * @param int|null $value Value to set for the inGracePeriodDeviceCount property.
     */
     public function setInGracePeriodDeviceCount(?int $value): void {
         $this->getBackingStore()->set('inGracePeriodDeviceCount', $value);
@@ -175,7 +175,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
 
     /**
      * Sets the noncompliantDeviceCount property value. The number of devices that are in a non-compliant status. Required. Read-only.
-     *  @param int|null $value Value to set for the noncompliantDeviceCount property.
+     * @param int|null $value Value to set for the noncompliantDeviceCount property.
     */
     public function setNoncompliantDeviceCount(?int $value): void {
         $this->getBackingStore()->set('noncompliantDeviceCount', $value);
@@ -183,7 +183,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantDisplayName property.
+     * @param string|null $value Value to set for the tenantDisplayName property.
     */
     public function setTenantDisplayName(?string $value): void {
         $this->getBackingStore()->set('tenantDisplayName', $value);
@@ -191,7 +191,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -199,7 +199,7 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
 
     /**
      * Sets the unknownDeviceCount property value. The number of devices in an unknown status. Required. Read-only.
-     *  @param int|null $value Value to set for the unknownDeviceCount property.
+     * @param int|null $value Value to set for the unknownDeviceCount property.
     */
     public function setUnknownDeviceCount(?int $value): void {
         $this->getBackingStore()->set('unknownDeviceCount', $value);

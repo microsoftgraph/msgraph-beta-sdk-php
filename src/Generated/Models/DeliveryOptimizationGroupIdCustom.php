@@ -55,7 +55,7 @@ class DeliveryOptimizationGroupIdCustom extends DeliveryOptimizationGroupIdSourc
 
     /**
      * Sets the groupIdCustom property value. Specifies an arbitrary group ID that the device belongs to
-     *  @param string|null $value Value to set for the groupIdCustom property.
+     * @param string|null $value Value to set for the groupIdCustom property.
     */
     public function setGroupIdCustom(?string $value): void {
         $this->getBackingStore()->set('groupIdCustom', $value);

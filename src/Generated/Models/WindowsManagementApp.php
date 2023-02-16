@@ -84,7 +84,7 @@ class WindowsManagementApp extends Entity implements Parsable
 
     /**
      * Sets the availableVersion property value. Windows management app available version.
-     *  @param string|null $value Value to set for the availableVersion property.
+     * @param string|null $value Value to set for the availableVersion property.
     */
     public function setAvailableVersion(?string $value): void {
         $this->getBackingStore()->set('availableVersion', $value);
@@ -92,7 +92,7 @@ class WindowsManagementApp extends Entity implements Parsable
 
     /**
      * Sets the healthStates property value. The list of health states for installed Windows management app.
-     *  @param array<WindowsManagementAppHealthState>|null $value Value to set for the healthStates property.
+     * @param array<WindowsManagementAppHealthState>|null $value Value to set for the healthStates property.
     */
     public function setHealthStates(?array $value): void {
         $this->getBackingStore()->set('healthStates', $value);
@@ -100,7 +100,7 @@ class WindowsManagementApp extends Entity implements Parsable
 
     /**
      * Sets the managedInstaller property value. ManagedInstallerStatus
-     *  @param ManagedInstallerStatus|null $value Value to set for the managedInstaller property.
+     * @param ManagedInstallerStatus|null $value Value to set for the managedInstaller property.
     */
     public function setManagedInstaller(?ManagedInstallerStatus $value): void {
         $this->getBackingStore()->set('managedInstaller', $value);
@@ -108,7 +108,7 @@ class WindowsManagementApp extends Entity implements Parsable
 
     /**
      * Sets the managedInstallerConfiguredDateTime property value. Managed Installer Configured Date Time
-     *  @param string|null $value Value to set for the managedInstallerConfiguredDateTime property.
+     * @param string|null $value Value to set for the managedInstallerConfiguredDateTime property.
     */
     public function setManagedInstallerConfiguredDateTime(?string $value): void {
         $this->getBackingStore()->set('managedInstallerConfiguredDateTime', $value);

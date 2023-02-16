@@ -54,7 +54,7 @@ class Approval extends Entity implements Parsable
 
     /**
      * Sets the steps property value. The steps property
-     *  @param array<ApprovalStep>|null $value Value to set for the steps property.
+     * @param array<ApprovalStep>|null $value Value to set for the steps property.
     */
     public function setSteps(?array $value): void {
         $this->getBackingStore()->set('steps', $value);

@@ -36,7 +36,7 @@ class EventPropagationResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class EventPropagationResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class EventPropagationResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class EventPropagationResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the location property value. The name of the specific location in the workload associated with the event.
-     *  @param string|null $value Value to set for the location property.
+     * @param string|null $value Value to set for the location property.
     */
     public function setLocation(?string $value): void {
         $this->getBackingStore()->set('location', $value);
@@ -144,7 +144,7 @@ class EventPropagationResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -152,7 +152,7 @@ class EventPropagationResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the serviceName property value. The name of the workload associated with the event.
-     *  @param string|null $value Value to set for the serviceName property.
+     * @param string|null $value Value to set for the serviceName property.
     */
     public function setServiceName(?string $value): void {
         $this->getBackingStore()->set('serviceName', $value);
@@ -160,7 +160,7 @@ class EventPropagationResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the status property value. Indicates the status of the event creation request. The possible values are: none, inProcessing, failed, success.
-     *  @param EventPropagationStatus|null $value Value to set for the status property.
+     * @param EventPropagationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?EventPropagationStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -168,7 +168,7 @@ class EventPropagationResult implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the statusInformation property value. Additional information about the status of the event creation request.
-     *  @param string|null $value Value to set for the statusInformation property.
+     * @param string|null $value Value to set for the statusInformation property.
     */
     public function setStatusInformation(?string $value): void {
         $this->getBackingStore()->set('statusInformation', $value);

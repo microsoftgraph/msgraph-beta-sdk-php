@@ -36,7 +36,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the applicationFilter property value. Filter that defines the dynamic-application-syntax rule to include/exclude cloud applications. A filter can use custom security attributes to include/exclude applications.
-     *  @param ConditionalAccessFilter|null $value Value to set for the applicationFilter property.
+     * @param ConditionalAccessFilter|null $value Value to set for the applicationFilter property.
     */
     public function setApplicationFilter(?ConditionalAccessFilter $value): void {
         $this->getBackingStore()->set('applicationFilter', $value);
@@ -146,7 +146,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -154,7 +154,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the excludeApplications property value. Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
-     *  @param array<string>|null $value Value to set for the excludeApplications property.
+     * @param array<string>|null $value Value to set for the excludeApplications property.
     */
     public function setExcludeApplications(?array $value): void {
         $this->getBackingStore()->set('excludeApplications', $value);
@@ -162,7 +162,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the includeApplications property value. Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
-     *  @param array<string>|null $value Value to set for the includeApplications property.
+     * @param array<string>|null $value Value to set for the includeApplications property.
     */
     public function setIncludeApplications(?array $value): void {
         $this->getBackingStore()->set('includeApplications', $value);
@@ -170,7 +170,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the includeAuthenticationContextClassReferences property value. Authentication context class references include. Supported values are c1 through c25.
-     *  @param array<string>|null $value Value to set for the includeAuthenticationContextClassReferences property.
+     * @param array<string>|null $value Value to set for the includeAuthenticationContextClassReferences property.
     */
     public function setIncludeAuthenticationContextClassReferences(?array $value): void {
         $this->getBackingStore()->set('includeAuthenticationContextClassReferences', $value);
@@ -178,7 +178,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the includeUserActions property value. User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice
-     *  @param array<string>|null $value Value to set for the includeUserActions property.
+     * @param array<string>|null $value Value to set for the includeUserActions property.
     */
     public function setIncludeUserActions(?array $value): void {
         $this->getBackingStore()->set('includeUserActions', $value);
@@ -186,7 +186,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

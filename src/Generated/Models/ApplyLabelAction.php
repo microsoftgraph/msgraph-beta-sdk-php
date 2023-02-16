@@ -85,7 +85,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the actions property value. The collection of specific actions that should be taken by the consuming application to label the document. See  informationProtectionAction for the full list.
-     *  @param array<InformationProtectionAction>|null $value Value to set for the actions property.
+     * @param array<InformationProtectionAction>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value): void {
         $this->getBackingStore()->set('actions', $value);
@@ -93,7 +93,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the actionSource property value. The actionSource property
-     *  @param ActionSource|null $value Value to set for the actionSource property.
+     * @param ActionSource|null $value Value to set for the actionSource property.
     */
     public function setActionSource(?ActionSource $value): void {
         $this->getBackingStore()->set('actionSource', $value);
@@ -101,7 +101,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the label property value. Object that describes the details of the label to apply.
-     *  @param LabelDetails|null $value Value to set for the label property.
+     * @param LabelDetails|null $value Value to set for the label property.
     */
     public function setLabel(?LabelDetails $value): void {
         $this->getBackingStore()->set('label', $value);
@@ -109,7 +109,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the responsibleSensitiveTypeIds property value. If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
-     *  @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
+     * @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
     */
     public function setResponsibleSensitiveTypeIds(?array $value): void {
         $this->getBackingStore()->set('responsibleSensitiveTypeIds', $value);

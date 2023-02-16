@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Windows Firewall Profile Policies.
+*/
 class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -310,7 +313,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -318,7 +321,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the authorizedApplicationRulesFromGroupPolicyMerged property value. Configures the firewall to merge authorized application rules from group policy with those from local store instead of ignoring the local store rules. When AuthorizedApplicationRulesFromGroupPolicyNotMerged and AuthorizedApplicationRulesFromGroupPolicyMerged are both true, AuthorizedApplicationRulesFromGroupPolicyMerged takes priority.
-     *  @param bool|null $value Value to set for the authorizedApplicationRulesFromGroupPolicyMerged property.
+     * @param bool|null $value Value to set for the authorizedApplicationRulesFromGroupPolicyMerged property.
     */
     public function setAuthorizedApplicationRulesFromGroupPolicyMerged(?bool $value): void {
         $this->getBackingStore()->set('authorizedApplicationRulesFromGroupPolicyMerged', $value);
@@ -326,7 +329,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the authorizedApplicationRulesFromGroupPolicyNotMerged property value. Configures the firewall to prevent merging authorized application rules from group policy with those from local store instead of ignoring the local store rules. When AuthorizedApplicationRulesFromGroupPolicyNotMerged and AuthorizedApplicationRulesFromGroupPolicyMerged are both true, AuthorizedApplicationRulesFromGroupPolicyMerged takes priority.
-     *  @param bool|null $value Value to set for the authorizedApplicationRulesFromGroupPolicyNotMerged property.
+     * @param bool|null $value Value to set for the authorizedApplicationRulesFromGroupPolicyNotMerged property.
     */
     public function setAuthorizedApplicationRulesFromGroupPolicyNotMerged(?bool $value): void {
         $this->getBackingStore()->set('authorizedApplicationRulesFromGroupPolicyNotMerged', $value);
@@ -334,7 +337,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -342,7 +345,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the connectionSecurityRulesFromGroupPolicyMerged property value. Configures the firewall to merge connection security rules from group policy with those from local store instead of ignoring the local store rules. When ConnectionSecurityRulesFromGroupPolicyNotMerged and ConnectionSecurityRulesFromGroupPolicyMerged are both true, ConnectionSecurityRulesFromGroupPolicyMerged takes priority.
-     *  @param bool|null $value Value to set for the connectionSecurityRulesFromGroupPolicyMerged property.
+     * @param bool|null $value Value to set for the connectionSecurityRulesFromGroupPolicyMerged property.
     */
     public function setConnectionSecurityRulesFromGroupPolicyMerged(?bool $value): void {
         $this->getBackingStore()->set('connectionSecurityRulesFromGroupPolicyMerged', $value);
@@ -350,7 +353,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the connectionSecurityRulesFromGroupPolicyNotMerged property value. Configures the firewall to prevent merging connection security rules from group policy with those from local store instead of ignoring the local store rules. When ConnectionSecurityRulesFromGroupPolicyNotMerged and ConnectionSecurityRulesFromGroupPolicyMerged are both true, ConnectionSecurityRulesFromGroupPolicyMerged takes priority.
-     *  @param bool|null $value Value to set for the connectionSecurityRulesFromGroupPolicyNotMerged property.
+     * @param bool|null $value Value to set for the connectionSecurityRulesFromGroupPolicyNotMerged property.
     */
     public function setConnectionSecurityRulesFromGroupPolicyNotMerged(?bool $value): void {
         $this->getBackingStore()->set('connectionSecurityRulesFromGroupPolicyNotMerged', $value);
@@ -358,7 +361,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the firewallEnabled property value. State Management Setting.
-     *  @param StateManagementSetting|null $value Value to set for the firewallEnabled property.
+     * @param StateManagementSetting|null $value Value to set for the firewallEnabled property.
     */
     public function setFirewallEnabled(?StateManagementSetting $value): void {
         $this->getBackingStore()->set('firewallEnabled', $value);
@@ -366,7 +369,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the globalPortRulesFromGroupPolicyMerged property value. Configures the firewall to merge global port rules from group policy with those from local store instead of ignoring the local store rules. When GlobalPortRulesFromGroupPolicyNotMerged and GlobalPortRulesFromGroupPolicyMerged are both true, GlobalPortRulesFromGroupPolicyMerged takes priority.
-     *  @param bool|null $value Value to set for the globalPortRulesFromGroupPolicyMerged property.
+     * @param bool|null $value Value to set for the globalPortRulesFromGroupPolicyMerged property.
     */
     public function setGlobalPortRulesFromGroupPolicyMerged(?bool $value): void {
         $this->getBackingStore()->set('globalPortRulesFromGroupPolicyMerged', $value);
@@ -374,7 +377,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the globalPortRulesFromGroupPolicyNotMerged property value. Configures the firewall to prevent merging global port rules from group policy with those from local store instead of ignoring the local store rules. When GlobalPortRulesFromGroupPolicyNotMerged and GlobalPortRulesFromGroupPolicyMerged are both true, GlobalPortRulesFromGroupPolicyMerged takes priority.
-     *  @param bool|null $value Value to set for the globalPortRulesFromGroupPolicyNotMerged property.
+     * @param bool|null $value Value to set for the globalPortRulesFromGroupPolicyNotMerged property.
     */
     public function setGlobalPortRulesFromGroupPolicyNotMerged(?bool $value): void {
         $this->getBackingStore()->set('globalPortRulesFromGroupPolicyNotMerged', $value);
@@ -382,7 +385,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the inboundConnectionsBlocked property value. Configures the firewall to block all incoming connections by default. When InboundConnectionsRequired and InboundConnectionsBlocked are both true, InboundConnectionsBlocked takes priority.
-     *  @param bool|null $value Value to set for the inboundConnectionsBlocked property.
+     * @param bool|null $value Value to set for the inboundConnectionsBlocked property.
     */
     public function setInboundConnectionsBlocked(?bool $value): void {
         $this->getBackingStore()->set('inboundConnectionsBlocked', $value);
@@ -390,7 +393,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the inboundConnectionsRequired property value. Configures the firewall to allow all incoming connections by default. When InboundConnectionsRequired and InboundConnectionsBlocked are both true, InboundConnectionsBlocked takes priority.
-     *  @param bool|null $value Value to set for the inboundConnectionsRequired property.
+     * @param bool|null $value Value to set for the inboundConnectionsRequired property.
     */
     public function setInboundConnectionsRequired(?bool $value): void {
         $this->getBackingStore()->set('inboundConnectionsRequired', $value);
@@ -398,7 +401,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the inboundNotificationsBlocked property value. Prevents the firewall from displaying notifications when an application is blocked from listening on a port. When InboundNotificationsRequired and InboundNotificationsBlocked are both true, InboundNotificationsBlocked takes priority.
-     *  @param bool|null $value Value to set for the inboundNotificationsBlocked property.
+     * @param bool|null $value Value to set for the inboundNotificationsBlocked property.
     */
     public function setInboundNotificationsBlocked(?bool $value): void {
         $this->getBackingStore()->set('inboundNotificationsBlocked', $value);
@@ -406,7 +409,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the inboundNotificationsRequired property value. Allows the firewall to display notifications when an application is blocked from listening on a port. When InboundNotificationsRequired and InboundNotificationsBlocked are both true, InboundNotificationsBlocked takes priority.
-     *  @param bool|null $value Value to set for the inboundNotificationsRequired property.
+     * @param bool|null $value Value to set for the inboundNotificationsRequired property.
     */
     public function setInboundNotificationsRequired(?bool $value): void {
         $this->getBackingStore()->set('inboundNotificationsRequired', $value);
@@ -414,7 +417,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the incomingTrafficBlocked property value. Configures the firewall to block all incoming traffic regardless of other policy settings. When IncomingTrafficRequired and IncomingTrafficBlocked are both true, IncomingTrafficBlocked takes priority.
-     *  @param bool|null $value Value to set for the incomingTrafficBlocked property.
+     * @param bool|null $value Value to set for the incomingTrafficBlocked property.
     */
     public function setIncomingTrafficBlocked(?bool $value): void {
         $this->getBackingStore()->set('incomingTrafficBlocked', $value);
@@ -422,7 +425,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the incomingTrafficRequired property value. Configures the firewall to allow incoming traffic pursuant to other policy settings. When IncomingTrafficRequired and IncomingTrafficBlocked are both true, IncomingTrafficBlocked takes priority.
-     *  @param bool|null $value Value to set for the incomingTrafficRequired property.
+     * @param bool|null $value Value to set for the incomingTrafficRequired property.
     */
     public function setIncomingTrafficRequired(?bool $value): void {
         $this->getBackingStore()->set('incomingTrafficRequired', $value);
@@ -430,7 +433,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -438,7 +441,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the outboundConnectionsBlocked property value. Configures the firewall to block all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above.
-     *  @param bool|null $value Value to set for the outboundConnectionsBlocked property.
+     * @param bool|null $value Value to set for the outboundConnectionsBlocked property.
     */
     public function setOutboundConnectionsBlocked(?bool $value): void {
         $this->getBackingStore()->set('outboundConnectionsBlocked', $value);
@@ -446,7 +449,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the outboundConnectionsRequired property value. Configures the firewall to allow all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above.
-     *  @param bool|null $value Value to set for the outboundConnectionsRequired property.
+     * @param bool|null $value Value to set for the outboundConnectionsRequired property.
     */
     public function setOutboundConnectionsRequired(?bool $value): void {
         $this->getBackingStore()->set('outboundConnectionsRequired', $value);
@@ -454,7 +457,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the policyRulesFromGroupPolicyMerged property value. Configures the firewall to merge Firewall Rule policies from group policy with those from local store instead of ignoring the local store rules. When PolicyRulesFromGroupPolicyNotMerged and PolicyRulesFromGroupPolicyMerged are both true, PolicyRulesFromGroupPolicyMerged takes priority.
-     *  @param bool|null $value Value to set for the policyRulesFromGroupPolicyMerged property.
+     * @param bool|null $value Value to set for the policyRulesFromGroupPolicyMerged property.
     */
     public function setPolicyRulesFromGroupPolicyMerged(?bool $value): void {
         $this->getBackingStore()->set('policyRulesFromGroupPolicyMerged', $value);
@@ -462,7 +465,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the policyRulesFromGroupPolicyNotMerged property value. Configures the firewall to prevent merging Firewall Rule policies from group policy with those from local store instead of ignoring the local store rules. When PolicyRulesFromGroupPolicyNotMerged and PolicyRulesFromGroupPolicyMerged are both true, PolicyRulesFromGroupPolicyMerged takes priority.
-     *  @param bool|null $value Value to set for the policyRulesFromGroupPolicyNotMerged property.
+     * @param bool|null $value Value to set for the policyRulesFromGroupPolicyNotMerged property.
     */
     public function setPolicyRulesFromGroupPolicyNotMerged(?bool $value): void {
         $this->getBackingStore()->set('policyRulesFromGroupPolicyNotMerged', $value);
@@ -470,7 +473,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the securedPacketExemptionAllowed property value. Configures the firewall to allow the host computer to respond to unsolicited network traffic of that traffic is secured by IPSec even when stealthModeBlocked is set to true. When SecuredPacketExemptionBlocked and SecuredPacketExemptionAllowed are both true, SecuredPacketExemptionAllowed takes priority.
-     *  @param bool|null $value Value to set for the securedPacketExemptionAllowed property.
+     * @param bool|null $value Value to set for the securedPacketExemptionAllowed property.
     */
     public function setSecuredPacketExemptionAllowed(?bool $value): void {
         $this->getBackingStore()->set('securedPacketExemptionAllowed', $value);
@@ -478,7 +481,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the securedPacketExemptionBlocked property value. Configures the firewall to block the host computer to respond to unsolicited network traffic of that traffic is secured by IPSec even when stealthModeBlocked is set to true. When SecuredPacketExemptionBlocked and SecuredPacketExemptionAllowed are both true, SecuredPacketExemptionAllowed takes priority.
-     *  @param bool|null $value Value to set for the securedPacketExemptionBlocked property.
+     * @param bool|null $value Value to set for the securedPacketExemptionBlocked property.
     */
     public function setSecuredPacketExemptionBlocked(?bool $value): void {
         $this->getBackingStore()->set('securedPacketExemptionBlocked', $value);
@@ -486,7 +489,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the stealthModeBlocked property value. Prevent the server from operating in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority.
-     *  @param bool|null $value Value to set for the stealthModeBlocked property.
+     * @param bool|null $value Value to set for the stealthModeBlocked property.
     */
     public function setStealthModeBlocked(?bool $value): void {
         $this->getBackingStore()->set('stealthModeBlocked', $value);
@@ -494,7 +497,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the stealthModeRequired property value. Allow the server to operate in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority.
-     *  @param bool|null $value Value to set for the stealthModeRequired property.
+     * @param bool|null $value Value to set for the stealthModeRequired property.
     */
     public function setStealthModeRequired(?bool $value): void {
         $this->getBackingStore()->set('stealthModeRequired', $value);
@@ -502,7 +505,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the unicastResponsesToMulticastBroadcastsBlocked property value. Configures the firewall to block unicast responses to multicast broadcast traffic. When UnicastResponsesToMulticastBroadcastsRequired and UnicastResponsesToMulticastBroadcastsBlocked are both true, UnicastResponsesToMulticastBroadcastsBlocked takes priority.
-     *  @param bool|null $value Value to set for the unicastResponsesToMulticastBroadcastsBlocked property.
+     * @param bool|null $value Value to set for the unicastResponsesToMulticastBroadcastsBlocked property.
     */
     public function setUnicastResponsesToMulticastBroadcastsBlocked(?bool $value): void {
         $this->getBackingStore()->set('unicastResponsesToMulticastBroadcastsBlocked', $value);
@@ -510,7 +513,7 @@ class WindowsFirewallNetworkProfile implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the unicastResponsesToMulticastBroadcastsRequired property value. Configures the firewall to allow unicast responses to multicast broadcast traffic. When UnicastResponsesToMulticastBroadcastsRequired and UnicastResponsesToMulticastBroadcastsBlocked are both true, UnicastResponsesToMulticastBroadcastsBlocked takes priority.
-     *  @param bool|null $value Value to set for the unicastResponsesToMulticastBroadcastsRequired property.
+     * @param bool|null $value Value to set for the unicastResponsesToMulticastBroadcastsRequired property.
     */
     public function setUnicastResponsesToMulticastBroadcastsRequired(?bool $value): void {
         $this->getBackingStore()->set('unicastResponsesToMulticastBroadcastsRequired', $value);

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedSignupStatus extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedSignupStatus and sets the default values.
+     * Instantiates a new privilegedSignupStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -64,7 +64,7 @@ class PrivilegedSignupStatus extends Entity implements Parsable
 
     /**
      * Sets the isRegistered property value. The isRegistered property
-     *  @param bool|null $value Value to set for the isRegistered property.
+     * @param bool|null $value Value to set for the isRegistered property.
     */
     public function setIsRegistered(?bool $value): void {
         $this->getBackingStore()->set('isRegistered', $value);
@@ -72,7 +72,7 @@ class PrivilegedSignupStatus extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param SetupStatus|null $value Value to set for the status property.
+     * @param SetupStatus|null $value Value to set for the status property.
     */
     public function setStatus(?SetupStatus $value): void {
         $this->getBackingStore()->set('status', $value);

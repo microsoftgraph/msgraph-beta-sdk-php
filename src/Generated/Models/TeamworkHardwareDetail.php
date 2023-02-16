@@ -36,7 +36,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the macAddresses property value. MAC address.
-     *  @param array<string>|null $value Value to set for the macAddresses property.
+     * @param array<string>|null $value Value to set for the macAddresses property.
     */
     public function setMacAddresses(?array $value): void {
         $this->getBackingStore()->set('macAddresses', $value);
@@ -154,7 +154,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the manufacturer property value. Device manufacturer.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -162,7 +162,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the model property value. Devie model.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -170,7 +170,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -178,7 +178,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the serialNumber property value. Device serial number.
-     *  @param string|null $value Value to set for the serialNumber property.
+     * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
         $this->getBackingStore()->set('serialNumber', $value);
@@ -186,7 +186,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the uniqueId property value. The unique identifier for the device.
-     *  @param string|null $value Value to set for the uniqueId property.
+     * @param string|null $value Value to set for the uniqueId property.
     */
     public function setUniqueId(?string $value): void {
         $this->getBackingStore()->set('uniqueId', $value);

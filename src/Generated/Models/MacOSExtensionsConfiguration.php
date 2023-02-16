@@ -115,7 +115,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
 
     /**
      * Sets the kernelExtensionAllowedTeamIdentifiers property value. All kernel extensions validly signed by the team identifiers in this list will be allowed to load.
-     *  @param array<string>|null $value Value to set for the kernelExtensionAllowedTeamIdentifiers property.
+     * @param array<string>|null $value Value to set for the kernelExtensionAllowedTeamIdentifiers property.
     */
     public function setKernelExtensionAllowedTeamIdentifiers(?array $value): void {
         $this->getBackingStore()->set('kernelExtensionAllowedTeamIdentifiers', $value);
@@ -123,7 +123,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
 
     /**
      * Sets the kernelExtensionOverridesAllowed property value. If set to true, users can approve additional kernel extensions not explicitly allowed by configurations profiles.
-     *  @param bool|null $value Value to set for the kernelExtensionOverridesAllowed property.
+     * @param bool|null $value Value to set for the kernelExtensionOverridesAllowed property.
     */
     public function setKernelExtensionOverridesAllowed(?bool $value): void {
         $this->getBackingStore()->set('kernelExtensionOverridesAllowed', $value);
@@ -131,7 +131,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
 
     /**
      * Sets the kernelExtensionsAllowed property value. A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.
-     *  @param array<MacOSKernelExtension>|null $value Value to set for the kernelExtensionsAllowed property.
+     * @param array<MacOSKernelExtension>|null $value Value to set for the kernelExtensionsAllowed property.
     */
     public function setKernelExtensionsAllowed(?array $value): void {
         $this->getBackingStore()->set('kernelExtensionsAllowed', $value);
@@ -139,7 +139,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
 
     /**
      * Sets the systemExtensionsAllowed property value. Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.
-     *  @param array<MacOSSystemExtension>|null $value Value to set for the systemExtensionsAllowed property.
+     * @param array<MacOSSystemExtension>|null $value Value to set for the systemExtensionsAllowed property.
     */
     public function setSystemExtensionsAllowed(?array $value): void {
         $this->getBackingStore()->set('systemExtensionsAllowed', $value);
@@ -147,7 +147,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
 
     /**
      * Sets the systemExtensionsAllowedTeamIdentifiers property value. Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.
-     *  @param array<string>|null $value Value to set for the systemExtensionsAllowedTeamIdentifiers property.
+     * @param array<string>|null $value Value to set for the systemExtensionsAllowedTeamIdentifiers property.
     */
     public function setSystemExtensionsAllowedTeamIdentifiers(?array $value): void {
         $this->getBackingStore()->set('systemExtensionsAllowedTeamIdentifiers', $value);
@@ -155,7 +155,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
 
     /**
      * Sets the systemExtensionsAllowedTypes property value. Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.
-     *  @param array<MacOSSystemExtensionTypeMapping>|null $value Value to set for the systemExtensionsAllowedTypes property.
+     * @param array<MacOSSystemExtensionTypeMapping>|null $value Value to set for the systemExtensionsAllowedTypes property.
     */
     public function setSystemExtensionsAllowedTypes(?array $value): void {
         $this->getBackingStore()->set('systemExtensionsAllowedTypes', $value);
@@ -163,7 +163,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
 
     /**
      * Sets the systemExtensionsBlockOverride property value. Gets or sets whether to allow the user to approve additional system extensions not explicitly allowed by configuration profiles.
-     *  @param bool|null $value Value to set for the systemExtensionsBlockOverride property.
+     * @param bool|null $value Value to set for the systemExtensionsBlockOverride property.
     */
     public function setSystemExtensionsBlockOverride(?bool $value): void {
         $this->getBackingStore()->set('systemExtensionsBlockOverride', $value);

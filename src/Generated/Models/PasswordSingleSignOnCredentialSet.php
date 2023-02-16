@@ -36,7 +36,7 @@ class PasswordSingleSignOnCredentialSet implements AdditionalDataHolder, BackedM
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class PasswordSingleSignOnCredentialSet implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class PasswordSingleSignOnCredentialSet implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +116,7 @@ class PasswordSingleSignOnCredentialSet implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the credentials property value. A list of credential objects that define the complete sign in flow.
-     *  @param array<Credential>|null $value Value to set for the credentials property.
+     * @param array<Credential>|null $value Value to set for the credentials property.
     */
     public function setCredentials(?array $value): void {
         $this->getBackingStore()->set('credentials', $value);
@@ -124,7 +124,7 @@ class PasswordSingleSignOnCredentialSet implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the id property value. The ID of the user or group this credential set belongs to.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -132,7 +132,7 @@ class PasswordSingleSignOnCredentialSet implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

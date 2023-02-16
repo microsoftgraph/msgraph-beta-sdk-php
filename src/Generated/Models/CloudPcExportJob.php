@@ -84,7 +84,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
+     * Gets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, sharedUseLicenseUsageReport, sharedUseLicenseUsageRealTimeReport, or unknownFutureValue.
      * @return CloudPcReportName|null
     */
     public function getReportName(): ?CloudPcReportName {
@@ -125,7 +125,7 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Sets the expirationDateTime property value. The date and time when the export job expires.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -133,7 +133,7 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Sets the exportJobStatus property value. The status of the export job. The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
-     *  @param CloudPcExportJobStatus|null $value Value to set for the exportJobStatus property.
+     * @param CloudPcExportJobStatus|null $value Value to set for the exportJobStatus property.
     */
     public function setExportJobStatus(?CloudPcExportJobStatus $value): void {
         $this->getBackingStore()->set('exportJobStatus', $value);
@@ -141,7 +141,7 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Sets the exportUrl property value. The storage account URL of the exported report. It can be used to download the file.
-     *  @param string|null $value Value to set for the exportUrl property.
+     * @param string|null $value Value to set for the exportUrl property.
     */
     public function setExportUrl(?string $value): void {
         $this->getBackingStore()->set('exportUrl', $value);
@@ -149,7 +149,7 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Sets the filter property value. The filter applied on the report.
-     *  @param string|null $value Value to set for the filter property.
+     * @param string|null $value Value to set for the filter property.
     */
     public function setFilter(?string $value): void {
         $this->getBackingStore()->set('filter', $value);
@@ -157,15 +157,15 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Sets the format property value. The format of the exported report.
-     *  @param string|null $value Value to set for the format property.
+     * @param string|null $value Value to set for the format property.
     */
     public function setFormat(?string $value): void {
         $this->getBackingStore()->set('format', $value);
     }
 
     /**
-     * Sets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
-     *  @param CloudPcReportName|null $value Value to set for the reportName property.
+     * Sets the reportName property value. The report name. The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, sharedUseLicenseUsageReport, sharedUseLicenseUsageRealTimeReport, or unknownFutureValue.
+     * @param CloudPcReportName|null $value Value to set for the reportName property.
     */
     public function setReportName(?CloudPcReportName $value): void {
         $this->getBackingStore()->set('reportName', $value);
@@ -173,7 +173,7 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Sets the requestDateTime property value. The date and time when the export job was requested.
-     *  @param DateTime|null $value Value to set for the requestDateTime property.
+     * @param DateTime|null $value Value to set for the requestDateTime property.
     */
     public function setRequestDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('requestDateTime', $value);
@@ -181,7 +181,7 @@ class CloudPcExportJob extends Entity implements Parsable
 
     /**
      * Sets the select property value. The selected columns of the report.
-     *  @param array<string>|null $value Value to set for the select property.
+     * @param array<string>|null $value Value to set for the select property.
     */
     public function setSelect(?array $value): void {
         $this->getBackingStore()->set('select', $value);

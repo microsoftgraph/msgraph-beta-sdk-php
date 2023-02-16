@@ -54,7 +54,7 @@ class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue
 
     /**
      * Sets the values property value. A collection of non-empty strings for the associated presentation.
-     *  @param array<string>|null $value Value to set for the values property.
+     * @param array<string>|null $value Value to set for the values property.
     */
     public function setValues(?array $value): void {
         $this->getBackingStore()->set('values', $value);

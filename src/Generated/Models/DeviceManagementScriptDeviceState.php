@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for device run state of the device management script.
+*/
 class DeviceManagementScriptDeviceState extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the errorCode property value. Error code corresponding to erroneous execution of the device management script.
-     *  @param int|null $value Value to set for the errorCode property.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -113,7 +116,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the errorDescription property value. Error description corresponding to erroneous execution of the device management script.
-     *  @param string|null $value Value to set for the errorDescription property.
+     * @param string|null $value Value to set for the errorDescription property.
     */
     public function setErrorDescription(?string $value): void {
         $this->getBackingStore()->set('errorDescription', $value);
@@ -121,7 +124,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the lastStateUpdateDateTime property value. Latest time the device management script executes.
-     *  @param DateTime|null $value Value to set for the lastStateUpdateDateTime property.
+     * @param DateTime|null $value Value to set for the lastStateUpdateDateTime property.
     */
     public function setLastStateUpdateDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastStateUpdateDateTime', $value);
@@ -129,7 +132,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the managedDevice property value. The managed devices that executes the device management script.
-     *  @param ManagedDevice|null $value Value to set for the managedDevice property.
+     * @param ManagedDevice|null $value Value to set for the managedDevice property.
     */
     public function setManagedDevice(?ManagedDevice $value): void {
         $this->getBackingStore()->set('managedDevice', $value);
@@ -137,7 +140,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the resultMessage property value. Details of execution output.
-     *  @param string|null $value Value to set for the resultMessage property.
+     * @param string|null $value Value to set for the resultMessage property.
     */
     public function setResultMessage(?string $value): void {
         $this->getBackingStore()->set('resultMessage', $value);
@@ -145,7 +148,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
 
     /**
      * Sets the runState property value. Indicates the type of execution status of the device management script.
-     *  @param RunState|null $value Value to set for the runState property.
+     * @param RunState|null $value Value to set for the runState property.
     */
     public function setRunState(?RunState $value): void {
         $this->getBackingStore()->set('runState', $value);

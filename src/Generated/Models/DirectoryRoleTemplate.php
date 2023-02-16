@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DirectoryRoleTemplate extends DirectoryObject implements Parsable 
 {
     /**
-     * Instantiates a new DirectoryRoleTemplate and sets the default values.
+     * Instantiates a new directoryRoleTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -65,7 +65,7 @@ class DirectoryRoleTemplate extends DirectoryObject implements Parsable
 
     /**
      * Sets the description property value. The description to set for the directory role. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -73,7 +73,7 @@ class DirectoryRoleTemplate extends DirectoryObject implements Parsable
 
     /**
      * Sets the displayName property value. The display name to set for the directory role. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

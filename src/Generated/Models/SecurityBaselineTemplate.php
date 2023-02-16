@@ -75,7 +75,7 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
 
     /**
      * Sets the categoryDeviceStateSummaries property value. The security baseline per category device state summary
-     *  @param array<SecurityBaselineCategoryStateSummary>|null $value Value to set for the categoryDeviceStateSummaries property.
+     * @param array<SecurityBaselineCategoryStateSummary>|null $value Value to set for the categoryDeviceStateSummaries property.
     */
     public function setCategoryDeviceStateSummaries(?array $value): void {
         $this->getBackingStore()->set('categoryDeviceStateSummaries', $value);
@@ -83,7 +83,7 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
 
     /**
      * Sets the deviceStates property value. The security baseline device states
-     *  @param array<SecurityBaselineDeviceState>|null $value Value to set for the deviceStates property.
+     * @param array<SecurityBaselineDeviceState>|null $value Value to set for the deviceStates property.
     */
     public function setDeviceStates(?array $value): void {
         $this->getBackingStore()->set('deviceStates', $value);
@@ -91,7 +91,7 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
 
     /**
      * Sets the deviceStateSummary property value. The security baseline device state summary
-     *  @param SecurityBaselineStateSummary|null $value Value to set for the deviceStateSummary property.
+     * @param SecurityBaselineStateSummary|null $value Value to set for the deviceStateSummary property.
     */
     public function setDeviceStateSummary(?SecurityBaselineStateSummary $value): void {
         $this->getBackingStore()->set('deviceStateSummary', $value);

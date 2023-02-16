@@ -36,7 +36,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the directoryAudits property value. The directoryAudits property
-     *  @param array<DirectoryAudit>|null $value Value to set for the directoryAudits property.
+     * @param array<DirectoryAudit>|null $value Value to set for the directoryAudits property.
     */
     public function setDirectoryAudits(?array $value): void {
         $this->getBackingStore()->set('directoryAudits', $value);
@@ -144,7 +144,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the directoryProvisioning property value. The directoryProvisioning property
-     *  @param array<ProvisioningObjectSummary>|null $value Value to set for the directoryProvisioning property.
+     * @param array<ProvisioningObjectSummary>|null $value Value to set for the directoryProvisioning property.
     */
     public function setDirectoryProvisioning(?array $value): void {
         $this->getBackingStore()->set('directoryProvisioning', $value);
@@ -152,7 +152,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +160,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the provisioning property value. The provisioning property
-     *  @param array<ProvisioningObjectSummary>|null $value Value to set for the provisioning property.
+     * @param array<ProvisioningObjectSummary>|null $value Value to set for the provisioning property.
     */
     public function setProvisioning(?array $value): void {
         $this->getBackingStore()->set('provisioning', $value);
@@ -168,7 +168,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the signIns property value. The signIns property
-     *  @param array<SignIn>|null $value Value to set for the signIns property.
+     * @param array<SignIn>|null $value Value to set for the signIns property.
     */
     public function setSignIns(?array $value): void {
         $this->getBackingStore()->set('signIns', $value);

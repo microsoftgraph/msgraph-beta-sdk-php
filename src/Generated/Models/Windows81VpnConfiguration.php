@@ -101,7 +101,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the applyOnlyToWindows81 property value. Value indicating whether this policy only applies to Windows 8.1. This property is read-only.
-     *  @param bool|null $value Value to set for the applyOnlyToWindows81 property.
+     * @param bool|null $value Value to set for the applyOnlyToWindows81 property.
     */
     public function setApplyOnlyToWindows81(?bool $value): void {
         $this->getBackingStore()->set('applyOnlyToWindows81', $value);
@@ -109,7 +109,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the connectionType property value. Windows VPN connection type.
-     *  @param WindowsVpnConnectionType|null $value Value to set for the connectionType property.
+     * @param WindowsVpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?WindowsVpnConnectionType $value): void {
         $this->getBackingStore()->set('connectionType', $value);
@@ -117,7 +117,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the enableSplitTunneling property value. Enable split tunneling for the VPN.
-     *  @param bool|null $value Value to set for the enableSplitTunneling property.
+     * @param bool|null $value Value to set for the enableSplitTunneling property.
     */
     public function setEnableSplitTunneling(?bool $value): void {
         $this->getBackingStore()->set('enableSplitTunneling', $value);
@@ -125,7 +125,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the loginGroupOrDomain property value. Login group or domain when connection type is set to Dell SonicWALL Mobile Connection.
-     *  @param string|null $value Value to set for the loginGroupOrDomain property.
+     * @param string|null $value Value to set for the loginGroupOrDomain property.
     */
     public function setLoginGroupOrDomain(?string $value): void {
         $this->getBackingStore()->set('loginGroupOrDomain', $value);
@@ -133,7 +133,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Sets the proxyServer property value. Proxy Server.
-     *  @param Windows81VpnProxyServer|null $value Value to set for the proxyServer property.
+     * @param Windows81VpnProxyServer|null $value Value to set for the proxyServer property.
     */
     public function setProxyServer(?Windows81VpnProxyServer $value): void {
         $this->getBackingStore()->set('proxyServer', $value);

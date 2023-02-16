@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Atte
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The attendance reports of an online meeting. Read-only.
+*/
 class MeetingAttendanceReportItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class MeetingAttendanceReportItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new MeetingAttendanceReportItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

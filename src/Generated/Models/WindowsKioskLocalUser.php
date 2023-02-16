@@ -55,7 +55,7 @@ class WindowsKioskLocalUser extends WindowsKioskUser implements Parsable
 
     /**
      * Sets the userName property value. The local user that will be locked to this kiosk configuration
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);

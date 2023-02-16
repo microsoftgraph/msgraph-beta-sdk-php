@@ -145,7 +145,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the edgeKioskEnablePublicBrowsing property value. Enable public browsing kiosk mode for the Microsoft Edge browser. The Default is false.
-     *  @param bool|null $value Value to set for the edgeKioskEnablePublicBrowsing property.
+     * @param bool|null $value Value to set for the edgeKioskEnablePublicBrowsing property.
     */
     public function setEdgeKioskEnablePublicBrowsing(?bool $value): void {
         $this->getBackingStore()->set('edgeKioskEnablePublicBrowsing', $value);
@@ -153,7 +153,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the kioskBrowserBlockedUrlExceptions property value. Specify URLs that the kiosk browser is allowed to navigate to
-     *  @param array<string>|null $value Value to set for the kioskBrowserBlockedUrlExceptions property.
+     * @param array<string>|null $value Value to set for the kioskBrowserBlockedUrlExceptions property.
     */
     public function setKioskBrowserBlockedUrlExceptions(?array $value): void {
         $this->getBackingStore()->set('kioskBrowserBlockedUrlExceptions', $value);
@@ -161,7 +161,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the kioskBrowserBlockedURLs property value. Specify URLs that the kiosk browsers should not navigate to
-     *  @param array<string>|null $value Value to set for the kioskBrowserBlockedURLs property.
+     * @param array<string>|null $value Value to set for the kioskBrowserBlockedURLs property.
     */
     public function setKioskBrowserBlockedURLs(?array $value): void {
         $this->getBackingStore()->set('kioskBrowserBlockedURLs', $value);
@@ -169,7 +169,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the kioskBrowserDefaultUrl property value. Specify the default URL the browser should navigate to on launch.
-     *  @param string|null $value Value to set for the kioskBrowserDefaultUrl property.
+     * @param string|null $value Value to set for the kioskBrowserDefaultUrl property.
     */
     public function setKioskBrowserDefaultUrl(?string $value): void {
         $this->getBackingStore()->set('kioskBrowserDefaultUrl', $value);
@@ -177,7 +177,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the kioskBrowserEnableEndSessionButton property value. Enable the kiosk browser's end session button. By default, the end session button is disabled.
-     *  @param bool|null $value Value to set for the kioskBrowserEnableEndSessionButton property.
+     * @param bool|null $value Value to set for the kioskBrowserEnableEndSessionButton property.
     */
     public function setKioskBrowserEnableEndSessionButton(?bool $value): void {
         $this->getBackingStore()->set('kioskBrowserEnableEndSessionButton', $value);
@@ -185,7 +185,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the kioskBrowserEnableHomeButton property value. Enable the kiosk browser's home button. By default, the home button is disabled.
-     *  @param bool|null $value Value to set for the kioskBrowserEnableHomeButton property.
+     * @param bool|null $value Value to set for the kioskBrowserEnableHomeButton property.
     */
     public function setKioskBrowserEnableHomeButton(?bool $value): void {
         $this->getBackingStore()->set('kioskBrowserEnableHomeButton', $value);
@@ -193,7 +193,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the kioskBrowserEnableNavigationButtons property value. Enable the kiosk browser's navigation buttons(forward/back). By default, the navigation buttons are disabled.
-     *  @param bool|null $value Value to set for the kioskBrowserEnableNavigationButtons property.
+     * @param bool|null $value Value to set for the kioskBrowserEnableNavigationButtons property.
     */
     public function setKioskBrowserEnableNavigationButtons(?bool $value): void {
         $this->getBackingStore()->set('kioskBrowserEnableNavigationButtons', $value);
@@ -201,7 +201,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the kioskBrowserRestartOnIdleTimeInMinutes property value. Specify the number of minutes the session is idle until the kiosk browser restarts in a fresh state.  Valid values are 1-1440. Valid values 1 to 1440
-     *  @param int|null $value Value to set for the kioskBrowserRestartOnIdleTimeInMinutes property.
+     * @param int|null $value Value to set for the kioskBrowserRestartOnIdleTimeInMinutes property.
     */
     public function setKioskBrowserRestartOnIdleTimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('kioskBrowserRestartOnIdleTimeInMinutes', $value);
@@ -209,7 +209,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the kioskProfiles property value. This policy setting allows to define a list of Kiosk profiles for a Kiosk configuration. This collection can contain a maximum of 3 elements.
-     *  @param array<WindowsKioskProfile>|null $value Value to set for the kioskProfiles property.
+     * @param array<WindowsKioskProfile>|null $value Value to set for the kioskProfiles property.
     */
     public function setKioskProfiles(?array $value): void {
         $this->getBackingStore()->set('kioskProfiles', $value);
@@ -217,7 +217,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the windowsKioskForceUpdateSchedule property value. force update schedule for Kiosk devices.
-     *  @param WindowsKioskForceUpdateSchedule|null $value Value to set for the windowsKioskForceUpdateSchedule property.
+     * @param WindowsKioskForceUpdateSchedule|null $value Value to set for the windowsKioskForceUpdateSchedule property.
     */
     public function setWindowsKioskForceUpdateSchedule(?WindowsKioskForceUpdateSchedule $value): void {
         $this->getBackingStore()->set('windowsKioskForceUpdateSchedule', $value);

@@ -65,7 +65,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
 
     /**
      * Sets the value property value. Value of the secret setting.
-     *  @param string|null $value Value to set for the value property.
+     * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);
@@ -73,7 +73,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
 
     /**
      * Sets the valueState property value. type tracking the encryption state of a secret setting value
-     *  @param DeviceManagementConfigurationSecretSettingValueState|null $value Value to set for the valueState property.
+     * @param DeviceManagementConfigurationSecretSettingValueState|null $value Value to set for the valueState property.
     */
     public function setValueState(?DeviceManagementConfigurationSecretSettingValueState $value): void {
         $this->getBackingStore()->set('valueState', $value);

@@ -54,7 +54,7 @@ class GroupPolicyPresentationValueBoolean extends GroupPolicyPresentationValue i
 
     /**
      * Sets the value property value. An boolean value for the associated presentation.
-     *  @param bool|null $value Value to set for the value property.
+     * @param bool|null $value Value to set for the value property.
     */
     public function setValue(?bool $value): void {
         $this->getBackingStore()->set('value', $value);

@@ -106,7 +106,7 @@ class ItemPublication extends ItemFacet implements Parsable
 
     /**
      * Sets the description property value. Description of the publication.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -114,7 +114,7 @@ class ItemPublication extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Title of the publication.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -122,7 +122,7 @@ class ItemPublication extends ItemFacet implements Parsable
 
     /**
      * Sets the publishedDate property value. The date that the publication was published.
-     *  @param Date|null $value Value to set for the publishedDate property.
+     * @param Date|null $value Value to set for the publishedDate property.
     */
     public function setPublishedDate(?Date $value): void {
         $this->getBackingStore()->set('publishedDate', $value);
@@ -130,7 +130,7 @@ class ItemPublication extends ItemFacet implements Parsable
 
     /**
      * Sets the publisher property value. Publication or publisher for the publication.
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -138,7 +138,7 @@ class ItemPublication extends ItemFacet implements Parsable
 
     /**
      * Sets the thumbnailUrl property value. URL referencing a thumbnail of the publication.
-     *  @param string|null $value Value to set for the thumbnailUrl property.
+     * @param string|null $value Value to set for the thumbnailUrl property.
     */
     public function setThumbnailUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailUrl', $value);
@@ -146,7 +146,7 @@ class ItemPublication extends ItemFacet implements Parsable
 
     /**
      * Sets the webUrl property value. URL referencing the publication.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

@@ -54,7 +54,7 @@ class DeletedTeam extends Entity implements Parsable
 
     /**
      * Sets the channels property value. The channels those are either shared with this deleted team or created in this deleted team.
-     *  @param array<Channel>|null $value Value to set for the channels property.
+     * @param array<Channel>|null $value Value to set for the channels property.
     */
     public function setChannels(?array $value): void {
         $this->getBackingStore()->set('channels', $value);

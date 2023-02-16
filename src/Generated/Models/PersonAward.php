@@ -106,7 +106,7 @@ class PersonAward extends ItemFacet implements Parsable
 
     /**
      * Sets the description property value. Descpription of the award or honor.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -114,7 +114,7 @@ class PersonAward extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Name of the award or honor.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -122,7 +122,7 @@ class PersonAward extends ItemFacet implements Parsable
 
     /**
      * Sets the issuedDate property value. The date that the award or honor was granted.
-     *  @param Date|null $value Value to set for the issuedDate property.
+     * @param Date|null $value Value to set for the issuedDate property.
     */
     public function setIssuedDate(?Date $value): void {
         $this->getBackingStore()->set('issuedDate', $value);
@@ -130,7 +130,7 @@ class PersonAward extends ItemFacet implements Parsable
 
     /**
      * Sets the issuingAuthority property value. Authority which granted the award or honor.
-     *  @param string|null $value Value to set for the issuingAuthority property.
+     * @param string|null $value Value to set for the issuingAuthority property.
     */
     public function setIssuingAuthority(?string $value): void {
         $this->getBackingStore()->set('issuingAuthority', $value);
@@ -138,7 +138,7 @@ class PersonAward extends ItemFacet implements Parsable
 
     /**
      * Sets the thumbnailUrl property value. URL referencing a thumbnail of the award or honor.
-     *  @param string|null $value Value to set for the thumbnailUrl property.
+     * @param string|null $value Value to set for the thumbnailUrl property.
     */
     public function setThumbnailUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailUrl', $value);
@@ -146,7 +146,7 @@ class PersonAward extends ItemFacet implements Parsable
 
     /**
      * Sets the webUrl property value. URL referencing the award or honor.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

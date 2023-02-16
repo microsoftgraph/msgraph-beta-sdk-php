@@ -54,7 +54,7 @@ class SharedEmailDomain extends Entity implements Parsable
 
     /**
      * Sets the provisioningStatus property value. The provisioningStatus property
-     *  @param string|null $value Value to set for the provisioningStatus property.
+     * @param string|null $value Value to set for the provisioningStatus property.
     */
     public function setProvisioningStatus(?string $value): void {
         $this->getBackingStore()->set('provisioningStatus', $value);

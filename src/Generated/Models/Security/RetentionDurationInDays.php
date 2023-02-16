@@ -55,7 +55,7 @@ class RetentionDurationInDays extends RetentionDuration implements Parsable
 
     /**
      * Sets the days property value. Specifies the time period in days for which an item with the applied retention label will be retained for.
-     *  @param int|null $value Value to set for the days property.
+     * @param int|null $value Value to set for the days property.
     */
     public function setDays(?int $value): void {
         $this->getBackingStore()->set('days', $value);

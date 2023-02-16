@@ -115,7 +115,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the allOtherUpdateBehavior property value. Update behavior options for macOS software updates.
-     *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the allOtherUpdateBehavior property.
+     * @param MacOSSoftwareUpdateBehavior|null $value Value to set for the allOtherUpdateBehavior property.
     */
     public function setAllOtherUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
         $this->getBackingStore()->set('allOtherUpdateBehavior', $value);
@@ -123,7 +123,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the configDataUpdateBehavior property value. Update behavior options for macOS software updates.
-     *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the configDataUpdateBehavior property.
+     * @param MacOSSoftwareUpdateBehavior|null $value Value to set for the configDataUpdateBehavior property.
     */
     public function setConfigDataUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
         $this->getBackingStore()->set('configDataUpdateBehavior', $value);
@@ -131,7 +131,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the criticalUpdateBehavior property value. Update behavior options for macOS software updates.
-     *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the criticalUpdateBehavior property.
+     * @param MacOSSoftwareUpdateBehavior|null $value Value to set for the criticalUpdateBehavior property.
     */
     public function setCriticalUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
         $this->getBackingStore()->set('criticalUpdateBehavior', $value);
@@ -139,7 +139,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the customUpdateTimeWindows property value. Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.
-     *  @param array<CustomUpdateTimeWindow>|null $value Value to set for the customUpdateTimeWindows property.
+     * @param array<CustomUpdateTimeWindow>|null $value Value to set for the customUpdateTimeWindows property.
     */
     public function setCustomUpdateTimeWindows(?array $value): void {
         $this->getBackingStore()->set('customUpdateTimeWindows', $value);
@@ -147,7 +147,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the firmwareUpdateBehavior property value. Update behavior options for macOS software updates.
-     *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the firmwareUpdateBehavior property.
+     * @param MacOSSoftwareUpdateBehavior|null $value Value to set for the firmwareUpdateBehavior property.
     */
     public function setFirmwareUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
         $this->getBackingStore()->set('firmwareUpdateBehavior', $value);
@@ -155,7 +155,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the updateScheduleType property value. Update schedule type for macOS software updates.
-     *  @param MacOSSoftwareUpdateScheduleType|null $value Value to set for the updateScheduleType property.
+     * @param MacOSSoftwareUpdateScheduleType|null $value Value to set for the updateScheduleType property.
     */
     public function setUpdateScheduleType(?MacOSSoftwareUpdateScheduleType $value): void {
         $this->getBackingStore()->set('updateScheduleType', $value);
@@ -163,7 +163,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Sets the updateTimeWindowUtcOffsetInMinutes property value. Minutes indicating UTC offset for each update time window
-     *  @param int|null $value Value to set for the updateTimeWindowUtcOffsetInMinutes property.
+     * @param int|null $value Value to set for the updateTimeWindowUtcOffsetInMinutes property.
     */
     public function setUpdateTimeWindowUtcOffsetInMinutes(?int $value): void {
         $this->getBackingStore()->set('updateTimeWindowUtcOffsetInMinutes', $value);

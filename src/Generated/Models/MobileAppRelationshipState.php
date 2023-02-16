@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Describes the installation status details of the child app in the context of UPN and device id.
+*/
 class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -161,7 +164,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -169,7 +172,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -177,7 +180,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the deviceId property value. The corresponding device id.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -185,7 +188,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the errorCode property value. The error code for install or uninstall failures of target app.
-     *  @param int|null $value Value to set for the errorCode property.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -193,7 +196,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the installState property value. A list of possible states for application status on an individual device. When devices contact the Intune service and find targeted application enforcement intent, the status of the enforcement is recorded and becomes accessible in the Graph API. Since the application status is identified during device interaction with the Intune service, status records do not immediately appear upon application group assignment; it is created only after the assignment is evaluated in the service and devices start receiving the policy during check-ins.
-     *  @param ResultantAppState|null $value Value to set for the installState property.
+     * @param ResultantAppState|null $value Value to set for the installState property.
     */
     public function setInstallState(?ResultantAppState $value): void {
         $this->getBackingStore()->set('installState', $value);
@@ -201,7 +204,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the installStateDetail property value. Enum indicating additional details regarding why an application has a particular install state.
-     *  @param ResultantAppStateDetail|null $value Value to set for the installStateDetail property.
+     * @param ResultantAppStateDetail|null $value Value to set for the installStateDetail property.
     */
     public function setInstallStateDetail(?ResultantAppStateDetail $value): void {
         $this->getBackingStore()->set('installStateDetail', $value);
@@ -209,7 +212,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -217,7 +220,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the sourceIds property value. The collection of source mobile app's ids.
-     *  @param array<string>|null $value Value to set for the sourceIds property.
+     * @param array<string>|null $value Value to set for the sourceIds property.
     */
     public function setSourceIds(?array $value): void {
         $this->getBackingStore()->set('sourceIds', $value);
@@ -225,7 +228,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the targetDisplayName property value. The related target app's display name.
-     *  @param string|null $value Value to set for the targetDisplayName property.
+     * @param string|null $value Value to set for the targetDisplayName property.
     */
     public function setTargetDisplayName(?string $value): void {
         $this->getBackingStore()->set('targetDisplayName', $value);
@@ -233,7 +236,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the targetId property value. The related target app's id.
-     *  @param string|null $value Value to set for the targetId property.
+     * @param string|null $value Value to set for the targetId property.
     */
     public function setTargetId(?string $value): void {
         $this->getBackingStore()->set('targetId', $value);
@@ -241,7 +244,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the targetLastSyncDateTime property value. The last sync time of the target app.
-     *  @param DateTime|null $value Value to set for the targetLastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the targetLastSyncDateTime property.
     */
     public function setTargetLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('targetLastSyncDateTime', $value);

@@ -55,7 +55,7 @@ class UserConfiguration extends Entity implements Parsable
 
     /**
      * Sets the binaryData property value. The binaryData property
-     *  @param StreamInterface|null $value Value to set for the binaryData property.
+     * @param StreamInterface|null $value Value to set for the binaryData property.
     */
     public function setBinaryData(?StreamInterface $value): void {
         $this->getBackingStore()->set('binaryData', $value);

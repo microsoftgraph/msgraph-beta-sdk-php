@@ -96,24 +96,11 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\DomainJ
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DomainJoinConnectors\Item\DeviceManagementDomainJoinConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\EmbeddedSIMActivationCodePoolsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\EmbeddedSIMActivationCodePoolItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableAndroidDeviceAdministratorEnrollment\EnableAndroidDeviceAdministratorEnrollmentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableLegacyPcManagement\EnableLegacyPcManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\EnableUnlicensedAdminstrators\EnableUnlicensedAdminstratorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\EvaluateAssignmentFilter\EvaluateAssignmentFilterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors\ExchangeConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors\Item\DeviceManagementExchangeConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\ExchangeOnPremisesPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Item\DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicy\ExchangeOnPremisesPolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetAssignedRoleDetails\GetAssignedRoleDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetAssignmentFiltersStatusDetails\GetAssignmentFiltersStatusDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetComanagedDevicesSummary\GetComanagedDevicesSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetComanagementEligibleDevicesSummary\GetComanagementEligibleDevicesSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermissions\GetEffectivePermissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermissionsWithScope\GetEffectivePermissionsWithScopeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByIdsWithIds\GetRoleScopeTagsByIdsWithIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByResourceWithResource\GetRoleScopeTagsByResourceWithResourceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetSuggestedEnrollmentLimitWithEnrollmentType\GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\GroupPolicyCategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyCategories\Item\GroupPolicyCategoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations\GroupPolicyConfigurationsRequestBuilder;
@@ -144,6 +131,24 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionState
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\ManagedDeviceEncryptionStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceOverview\ManagedDeviceOverviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\ManagedDevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphEnableAndroidDeviceAdministratorEnrollment\MicrosoftGraphEnableAndroidDeviceAdministratorEnrollmentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphEnableLegacyPcManagement\MicrosoftGraphEnableLegacyPcManagementRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphEnableUnlicensedAdminstrators\MicrosoftGraphEnableUnlicensedAdminstratorsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphEvaluateAssignmentFilter\MicrosoftGraphEvaluateAssignmentFilterRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetAssignedRoleDetails\MicrosoftGraphGetAssignedRoleDetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetAssignmentFiltersStatusDetails\MicrosoftGraphGetAssignmentFiltersStatusDetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetComanagedDevicesSummary\MicrosoftGraphGetComanagedDevicesSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetComanagementEligibleDevicesSummary\MicrosoftGraphGetComanagementEligibleDevicesSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetEffectivePermissions\MicrosoftGraphGetEffectivePermissionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetEffectivePermissionsWithScope\MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetRoleScopeTagsByIdsWithIds\MicrosoftGraphGetRoleScopeTagsByIdsWithIdsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetRoleScopeTagsByResourceWithResource\MicrosoftGraphGetRoleScopeTagsByResourceWithResourceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentType\MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphScopedForResourceWithResource\MicrosoftGraphScopedForResourceWithResourceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphSendCustomNotificationToCompanyPortal\MicrosoftGraphSendCustomNotificationToCompanyPortalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphUserExperienceAnalyticsSummarizedDeviceScopes\MicrosoftGraphUserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevices\MicrosoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainName\MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigurations\Item\MicrosoftTunnelConfigurationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelConfigurations\MicrosoftTunnelConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Item\MicrosoftTunnelHealthThresholdItemRequestBuilder;
@@ -182,8 +187,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleDefinitions\Item\RoleDef
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleDefinitions\RoleDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\RoleScopeTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\RoleScopeTagsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ScopedForResourceWithResource\ScopedForResourceWithResourceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\SendCustomNotificationToCompanyPortal\SendCustomNotificationToCompanyPortalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ServiceNowConnections\Item\ServiceNowConnectionItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ServiceNowConnections\ServiceNowConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SettingDefinitions\Item\DeviceManagementSettingDefinitionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SettingDefinitions\SettingDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\SoftwareUpdateStatusSummary\SoftwareUpdateStatusSummaryRequestBuilder;
@@ -255,6 +260,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevic
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceStartupProcessPerformance\UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\Item\UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceTimelineEvent\Item\UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceTimelineEvent\UserExperienceAnalyticsDeviceTimelineEventRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsImpactingProcess\Item\UserExperienceAnalyticsImpactingProcessItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsImpactingProcess\UserExperienceAnalyticsImpactingProcessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsMetricHistory\UserExperienceAnalyticsMetricHistoryRequestBuilder;
@@ -269,8 +276,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsResou
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsResourcePerformance\UserExperienceAnalyticsResourcePerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsScoreHistory\Item\UserExperienceAnalyticsScoreHistoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsScoreHistory\UserExperienceAnalyticsScoreHistoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsSummarizedDeviceScopes\UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevices\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\Item\UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder;
@@ -278,7 +283,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkF
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance\UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\Item\UserPFXCertificateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\UserPfxCertificatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VerifyWindowsEnrollmentAutoDiscoveryWithDomainName\VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\VirtualEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\WindowsAutopilotDeploymentProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\WindowsAutopilotDeploymentProfilesRequestBuilder;
@@ -309,11 +313,13 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the deviceManagement singleton.
+*/
 class DeviceManagementRequestBuilder 
 {
     /**
@@ -681,34 +687,6 @@ class DeviceManagementRequestBuilder
     }
     
     /**
-     * Provides operations to call the enableAndroidDeviceAdministratorEnrollment method.
-    */
-    public function enableAndroidDeviceAdministratorEnrollment(): EnableAndroidDeviceAdministratorEnrollmentRequestBuilder {
-        return new EnableAndroidDeviceAdministratorEnrollmentRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the enableLegacyPcManagement method.
-    */
-    public function enableLegacyPcManagement(): EnableLegacyPcManagementRequestBuilder {
-        return new EnableLegacyPcManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the enableUnlicensedAdminstrators method.
-    */
-    public function enableUnlicensedAdminstrators(): EnableUnlicensedAdminstratorsRequestBuilder {
-        return new EnableUnlicensedAdminstratorsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the evaluateAssignmentFilter method.
-    */
-    public function evaluateAssignmentFilter(): EvaluateAssignmentFilterRequestBuilder {
-        return new EvaluateAssignmentFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
     */
     public function exchangeConnectors(): ExchangeConnectorsRequestBuilder {
@@ -727,13 +705,6 @@ class DeviceManagementRequestBuilder
     */
     public function exchangeOnPremisesPolicy(): ExchangeOnPremisesPolicyRequestBuilder {
         return new ExchangeOnPremisesPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getAssignmentFiltersStatusDetails method.
-    */
-    public function getAssignmentFiltersStatusDetails(): GetAssignmentFiltersStatusDetailsRequestBuilder {
-        return new GetAssignmentFiltersStatusDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -846,6 +817,90 @@ class DeviceManagementRequestBuilder
     */
     public function managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the enableAndroidDeviceAdministratorEnrollment method.
+    */
+    public function microsoftGraphEnableAndroidDeviceAdministratorEnrollment(): MicrosoftGraphEnableAndroidDeviceAdministratorEnrollmentRequestBuilder {
+        return new MicrosoftGraphEnableAndroidDeviceAdministratorEnrollmentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the enableLegacyPcManagement method.
+    */
+    public function microsoftGraphEnableLegacyPcManagement(): MicrosoftGraphEnableLegacyPcManagementRequestBuilder {
+        return new MicrosoftGraphEnableLegacyPcManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the enableUnlicensedAdminstrators method.
+    */
+    public function microsoftGraphEnableUnlicensedAdminstrators(): MicrosoftGraphEnableUnlicensedAdminstratorsRequestBuilder {
+        return new MicrosoftGraphEnableUnlicensedAdminstratorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the evaluateAssignmentFilter method.
+    */
+    public function microsoftGraphEvaluateAssignmentFilter(): MicrosoftGraphEvaluateAssignmentFilterRequestBuilder {
+        return new MicrosoftGraphEvaluateAssignmentFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAssignedRoleDetails method.
+    */
+    public function microsoftGraphGetAssignedRoleDetails(): MicrosoftGraphGetAssignedRoleDetailsRequestBuilder {
+        return new MicrosoftGraphGetAssignedRoleDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAssignmentFiltersStatusDetails method.
+    */
+    public function microsoftGraphGetAssignmentFiltersStatusDetails(): MicrosoftGraphGetAssignmentFiltersStatusDetailsRequestBuilder {
+        return new MicrosoftGraphGetAssignmentFiltersStatusDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getComanagedDevicesSummary method.
+    */
+    public function microsoftGraphGetComanagedDevicesSummary(): MicrosoftGraphGetComanagedDevicesSummaryRequestBuilder {
+        return new MicrosoftGraphGetComanagedDevicesSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getComanagementEligibleDevicesSummary method.
+    */
+    public function microsoftGraphGetComanagementEligibleDevicesSummary(): MicrosoftGraphGetComanagementEligibleDevicesSummaryRequestBuilder {
+        return new MicrosoftGraphGetComanagementEligibleDevicesSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getEffectivePermissions method.
+    */
+    public function microsoftGraphGetEffectivePermissions(): MicrosoftGraphGetEffectivePermissionsRequestBuilder {
+        return new MicrosoftGraphGetEffectivePermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the sendCustomNotificationToCompanyPortal method.
+    */
+    public function microsoftGraphSendCustomNotificationToCompanyPortal(): MicrosoftGraphSendCustomNotificationToCompanyPortalRequestBuilder {
+        return new MicrosoftGraphSendCustomNotificationToCompanyPortalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the userExperienceAnalyticsSummarizedDeviceScopes method.
+    */
+    public function microsoftGraphUserExperienceAnalyticsSummarizedDeviceScopes(): MicrosoftGraphUserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder {
+        return new MicrosoftGraphUserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the userExperienceAnalyticsSummarizeWorkFromAnywhereDevices method.
+    */
+    public function microsoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevices(): MicrosoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder {
+        return new MicrosoftGraphUserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1006,10 +1061,10 @@ class DeviceManagementRequestBuilder
     }
     
     /**
-     * Provides operations to call the sendCustomNotificationToCompanyPortal method.
+     * Provides operations to manage the serviceNowConnections property of the microsoft.graph.deviceManagement entity.
     */
-    public function sendCustomNotificationToCompanyPortal(): SendCustomNotificationToCompanyPortalRequestBuilder {
-        return new SendCustomNotificationToCompanyPortalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function serviceNowConnections(): ServiceNowConnectionsRequestBuilder {
+        return new ServiceNowConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1288,6 +1343,13 @@ class DeviceManagementRequestBuilder
     */
     public function userExperienceAnalyticsDevicesWithoutCloudIdentity(): UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder {
         return new UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceTimelineEvent property of the microsoft.graph.deviceManagement entity.
+    */
+    public function userExperienceAnalyticsDeviceTimelineEvent(): UserExperienceAnalyticsDeviceTimelineEventRequestBuilder {
+        return new UserExperienceAnalyticsDeviceTimelineEventRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1738,13 +1800,17 @@ class DeviceManagementRequestBuilder
 
     /**
      * Instantiates a new DeviceManagementRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/deviceManagement{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
@@ -1992,88 +2058,19 @@ class DeviceManagementRequestBuilder
     /**
      * Get deviceManagement
      * @param DeviceManagementRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?DeviceManagementRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?DeviceManagementRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getAssignedRoleDetails method.
-     * @return GetAssignedRoleDetailsRequestBuilder
-    */
-    public function getAssignedRoleDetails(): GetAssignedRoleDetailsRequestBuilder {
-        return new GetAssignedRoleDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getComanagedDevicesSummary method.
-     * @return GetComanagedDevicesSummaryRequestBuilder
-    */
-    public function getComanagedDevicesSummary(): GetComanagedDevicesSummaryRequestBuilder {
-        return new GetComanagedDevicesSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getComanagementEligibleDevicesSummary method.
-     * @return GetComanagementEligibleDevicesSummaryRequestBuilder
-    */
-    public function getComanagementEligibleDevicesSummary(): GetComanagementEligibleDevicesSummaryRequestBuilder {
-        return new GetComanagementEligibleDevicesSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getEffectivePermissions method.
-     * @return GetEffectivePermissionsRequestBuilder
-    */
-    public function getEffectivePermissions(): GetEffectivePermissionsRequestBuilder {
-        return new GetEffectivePermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getEffectivePermissions method.
-     * @param string $scope Usage: scope='{scope}'
-     * @return GetEffectivePermissionsWithScopeRequestBuilder
-    */
-    public function getEffectivePermissionsWithScope(string $scope): GetEffectivePermissionsWithScopeRequestBuilder {
-        return new GetEffectivePermissionsWithScopeRequestBuilder($this->pathParameters, $this->requestAdapter, $scope);
-    }
-
-    /**
-     * Provides operations to call the getRoleScopeTagsByIds method.
-     * @param string $ids Usage: ids={ids}
-     * @return GetRoleScopeTagsByIdsWithIdsRequestBuilder
-    */
-    public function getRoleScopeTagsByIdsWithIds(string $ids): GetRoleScopeTagsByIdsWithIdsRequestBuilder {
-        return new GetRoleScopeTagsByIdsWithIdsRequestBuilder($this->pathParameters, $this->requestAdapter, $ids);
-    }
-
-    /**
-     * Provides operations to call the getRoleScopeTagsByResource method.
-     * @param string $resource Usage: resource='{resource}'
-     * @return GetRoleScopeTagsByResourceWithResourceRequestBuilder
-    */
-    public function getRoleScopeTagsByResourceWithResource(string $resource): GetRoleScopeTagsByResourceWithResourceRequestBuilder {
-        return new GetRoleScopeTagsByResourceWithResourceRequestBuilder($this->pathParameters, $this->requestAdapter, $resource);
-    }
-
-    /**
-     * Provides operations to call the getSuggestedEnrollmentLimit method.
-     * @param string $enrollmentType Usage: enrollmentType='{enrollmentType}'
-     * @return GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder
-    */
-    public function getSuggestedEnrollmentLimitWithEnrollmentType(string $enrollmentType): GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder {
-        return new GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder($this->pathParameters, $this->requestAdapter, $enrollmentType);
     }
 
     /**
@@ -2242,6 +2239,60 @@ class DeviceManagementRequestBuilder
     }
 
     /**
+     * Provides operations to call the getEffectivePermissions method.
+     * @param string $scope Usage: scope='{scope}'
+     * @return MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder
+    */
+    public function microsoftGraphGetEffectivePermissionsWithScope(string $scope): MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder {
+        return new MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder($this->pathParameters, $this->requestAdapter, $scope);
+    }
+
+    /**
+     * Provides operations to call the getRoleScopeTagsByIds method.
+     * @param string $ids Usage: ids={ids}
+     * @return MicrosoftGraphGetRoleScopeTagsByIdsWithIdsRequestBuilder
+    */
+    public function microsoftGraphGetRoleScopeTagsByIdsWithIds(string $ids): MicrosoftGraphGetRoleScopeTagsByIdsWithIdsRequestBuilder {
+        return new MicrosoftGraphGetRoleScopeTagsByIdsWithIdsRequestBuilder($this->pathParameters, $this->requestAdapter, $ids);
+    }
+
+    /**
+     * Provides operations to call the getRoleScopeTagsByResource method.
+     * @param string $resource Usage: resource='{resource}'
+     * @return MicrosoftGraphGetRoleScopeTagsByResourceWithResourceRequestBuilder
+    */
+    public function microsoftGraphGetRoleScopeTagsByResourceWithResource(string $resource): MicrosoftGraphGetRoleScopeTagsByResourceWithResourceRequestBuilder {
+        return new MicrosoftGraphGetRoleScopeTagsByResourceWithResourceRequestBuilder($this->pathParameters, $this->requestAdapter, $resource);
+    }
+
+    /**
+     * Provides operations to call the getSuggestedEnrollmentLimit method.
+     * @param string $enrollmentType Usage: enrollmentType='{enrollmentType}'
+     * @return MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder
+    */
+    public function microsoftGraphGetSuggestedEnrollmentLimitWithEnrollmentType(string $enrollmentType): MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder {
+        return new MicrosoftGraphGetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder($this->pathParameters, $this->requestAdapter, $enrollmentType);
+    }
+
+    /**
+     * Provides operations to call the scopedForResource method.
+     * @param string $resource Usage: resource='{resource}'
+     * @return MicrosoftGraphScopedForResourceWithResourceRequestBuilder
+    */
+    public function microsoftGraphScopedForResourceWithResource(string $resource): MicrosoftGraphScopedForResourceWithResourceRequestBuilder {
+        return new MicrosoftGraphScopedForResourceWithResourceRequestBuilder($this->pathParameters, $this->requestAdapter, $resource);
+    }
+
+    /**
+     * Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
+     * @param string $domainName Usage: domainName='{domainName}'
+     * @return MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder
+    */
+    public function microsoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainName(string $domainName): MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder {
+        return new MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder($this->pathParameters, $this->requestAdapter, $domainName);
+    }
+
+    /**
      * Provides operations to manage the microsoftTunnelConfigurations property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftTunnelConfigurationItemRequestBuilder
@@ -2344,17 +2395,16 @@ class DeviceManagementRequestBuilder
      * Update deviceManagement
      * @param DeviceManagement $body The request body
      * @param DeviceManagementRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(DeviceManagement $body, ?DeviceManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(DeviceManagement $body, ?DeviceManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagement::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -2460,12 +2510,14 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Provides operations to call the scopedForResource method.
-     * @param string $resource Usage: resource='{resource}'
-     * @return ScopedForResourceWithResourceRequestBuilder
+     * Provides operations to manage the serviceNowConnections property of the microsoft.graph.deviceManagement entity.
+     * @param string $id Unique identifier of the item
+     * @return ServiceNowConnectionItemRequestBuilder
     */
-    public function scopedForResourceWithResource(string $resource): ScopedForResourceWithResourceRequestBuilder {
-        return new ScopedForResourceWithResourceRequestBuilder($this->pathParameters, $this->requestAdapter, $resource);
+    public function serviceNowConnectionsById(string $id): ServiceNowConnectionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['serviceNowConnection%2Did'] = $id;
+        return new ServiceNowConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -2533,10 +2585,10 @@ class DeviceManagementRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -2559,10 +2611,10 @@ class DeviceManagementRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -2881,6 +2933,17 @@ class DeviceManagementRequestBuilder
     }
 
     /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceTimelineEvent property of the microsoft.graph.deviceManagement entity.
+     * @param string $id Unique identifier of the item
+     * @return UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder
+    */
+    public function userExperienceAnalyticsDeviceTimelineEventById(string $id): UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsDeviceTimelineEvent%2Did'] = $id;
+        return new UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Provides operations to manage the userExperienceAnalyticsImpactingProcess property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsImpactingProcessItemRequestBuilder
@@ -2958,22 +3021,6 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Provides operations to call the userExperienceAnalyticsSummarizedDeviceScopes method.
-     * @return UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder
-    */
-    public function userExperienceAnalyticsSummarizedDeviceScopes(): UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder {
-        return new UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the userExperienceAnalyticsSummarizeWorkFromAnywhereDevices method.
-     * @return UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder
-    */
-    public function userExperienceAnalyticsSummarizeWorkFromAnywhereDevices(): UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder {
-        return new UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
      * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder
@@ -3004,15 +3051,6 @@ class DeviceManagementRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userPFXCertificate%2Did'] = $id;
         return new UserPFXCertificateItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
-     * @param string $domainName Usage: domainName='{domainName}'
-     * @return VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder
-    */
-    public function verifyWindowsEnrollmentAutoDiscoveryWithDomainName(string $domainName): VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder {
-        return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder($this->pathParameters, $this->requestAdapter, $domainName);
     }
 
     /**

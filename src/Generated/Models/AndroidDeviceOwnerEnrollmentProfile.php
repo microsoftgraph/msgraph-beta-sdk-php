@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Enrollment Profile used to enroll Android Enterprise devices using Google's Cloud Management.
+*/
 class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable 
 {
     /**
@@ -113,6 +116,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
             'enrollmentMode' => fn(ParseNode $n) => $o->setEnrollmentMode($n->getEnumValue(AndroidDeviceOwnerEnrollmentMode::class)),
             'enrollmentTokenType' => fn(ParseNode $n) => $o->setEnrollmentTokenType($n->getEnumValue(AndroidDeviceOwnerEnrollmentTokenType::class)),
             'enrollmentTokenUsageCount' => fn(ParseNode $n) => $o->setEnrollmentTokenUsageCount($n->getIntegerValue()),
+            'isTeamsDeviceProfile' => fn(ParseNode $n) => $o->setIsTeamsDeviceProfile($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'qrCodeContent' => fn(ParseNode $n) => $o->setQrCodeContent($n->getStringValue()),
             'qrCodeImage' => fn(ParseNode $n) => $o->setQrCodeImage($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
@@ -125,6 +129,14 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
             'wifiSecurityType' => fn(ParseNode $n) => $o->setWifiSecurityType($n->getEnumValue(AospWifiSecurityType::class)),
             'wifiSsid' => fn(ParseNode $n) => $o->setWifiSsid($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the isTeamsDeviceProfile property value. Boolean indicating if this profile is an Android AOSP for Teams device profile.
+     * @return bool|null
+    */
+    public function getIsTeamsDeviceProfile(): ?bool {
+        return $this->getBackingStore()->get('isTeamsDeviceProfile');
     }
 
     /**
@@ -230,6 +242,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
         $writer->writeEnumValue('enrollmentMode', $this->getEnrollmentMode());
         $writer->writeEnumValue('enrollmentTokenType', $this->getEnrollmentTokenType());
         $writer->writeIntegerValue('enrollmentTokenUsageCount', $this->getEnrollmentTokenUsageCount());
+        $writer->writeBooleanValue('isTeamsDeviceProfile', $this->getIsTeamsDeviceProfile());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('qrCodeContent', $this->getQrCodeContent());
         $writer->writeObjectValue('qrCodeImage', $this->getQrCodeImage());
@@ -245,7 +258,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the accountId property value. Tenant GUID the enrollment profile belongs to.
-     *  @param string|null $value Value to set for the accountId property.
+     * @param string|null $value Value to set for the accountId property.
     */
     public function setAccountId(?string $value): void {
         $this->getBackingStore()->set('accountId', $value);
@@ -253,7 +266,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the configureWifi property value. Boolean that indicates that the Wi-Fi network should be configured during device provisioning. When set to TRUE, device provisioning will use Wi-Fi related properties to automatically connect to Wi-Fi networks. When set to FALSE or undefined, other Wi-Fi related properties will be ignored. Default value is TRUE. Returned by default.
-     *  @param bool|null $value Value to set for the configureWifi property.
+     * @param bool|null $value Value to set for the configureWifi property.
     */
     public function setConfigureWifi(?bool $value): void {
         $this->getBackingStore()->set('configureWifi', $value);
@@ -261,7 +274,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Date time the enrollment profile was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -269,7 +282,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description for the enrollment profile.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -277,7 +290,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name for the enrollment profile.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -285,7 +298,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the enrolledDeviceCount property value. Total number of Android devices that have enrolled using this enrollment profile.
-     *  @param int|null $value Value to set for the enrolledDeviceCount property.
+     * @param int|null $value Value to set for the enrolledDeviceCount property.
     */
     public function setEnrolledDeviceCount(?int $value): void {
         $this->getBackingStore()->set('enrolledDeviceCount', $value);
@@ -293,7 +306,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the enrollmentMode property value. The enrollment mode for an enrollment profile.
-     *  @param AndroidDeviceOwnerEnrollmentMode|null $value Value to set for the enrollmentMode property.
+     * @param AndroidDeviceOwnerEnrollmentMode|null $value Value to set for the enrollmentMode property.
     */
     public function setEnrollmentMode(?AndroidDeviceOwnerEnrollmentMode $value): void {
         $this->getBackingStore()->set('enrollmentMode', $value);
@@ -301,7 +314,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the enrollmentTokenType property value. The enrollment token type for an enrollment profile.
-     *  @param AndroidDeviceOwnerEnrollmentTokenType|null $value Value to set for the enrollmentTokenType property.
+     * @param AndroidDeviceOwnerEnrollmentTokenType|null $value Value to set for the enrollmentTokenType property.
     */
     public function setEnrollmentTokenType(?AndroidDeviceOwnerEnrollmentTokenType $value): void {
         $this->getBackingStore()->set('enrollmentTokenType', $value);
@@ -309,15 +322,23 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the enrollmentTokenUsageCount property value. Total number of AOSP devices that have enrolled using the current token.
-     *  @param int|null $value Value to set for the enrollmentTokenUsageCount property.
+     * @param int|null $value Value to set for the enrollmentTokenUsageCount property.
     */
     public function setEnrollmentTokenUsageCount(?int $value): void {
         $this->getBackingStore()->set('enrollmentTokenUsageCount', $value);
     }
 
     /**
+     * Sets the isTeamsDeviceProfile property value. Boolean indicating if this profile is an Android AOSP for Teams device profile.
+     * @param bool|null $value Value to set for the isTeamsDeviceProfile property.
+    */
+    public function setIsTeamsDeviceProfile(?bool $value): void {
+        $this->getBackingStore()->set('isTeamsDeviceProfile', $value);
+    }
+
+    /**
      * Sets the lastModifiedDateTime property value. Date time the enrollment profile was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -325,7 +346,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the qrCodeContent property value. String used to generate a QR code for the token.
-     *  @param string|null $value Value to set for the qrCodeContent property.
+     * @param string|null $value Value to set for the qrCodeContent property.
     */
     public function setQrCodeContent(?string $value): void {
         $this->getBackingStore()->set('qrCodeContent', $value);
@@ -333,7 +354,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the qrCodeImage property value. String used to generate a QR code for the token.
-     *  @param MimeContent|null $value Value to set for the qrCodeImage property.
+     * @param MimeContent|null $value Value to set for the qrCodeImage property.
     */
     public function setQrCodeImage(?MimeContent $value): void {
         $this->getBackingStore()->set('qrCodeImage', $value);
@@ -341,7 +362,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -349,7 +370,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the tokenCreationDateTime property value. Date time the most recently created token was created.
-     *  @param DateTime|null $value Value to set for the tokenCreationDateTime property.
+     * @param DateTime|null $value Value to set for the tokenCreationDateTime property.
     */
     public function setTokenCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('tokenCreationDateTime', $value);
@@ -357,7 +378,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the tokenExpirationDateTime property value. Date time the most recently created token will expire.
-     *  @param DateTime|null $value Value to set for the tokenExpirationDateTime property.
+     * @param DateTime|null $value Value to set for the tokenExpirationDateTime property.
     */
     public function setTokenExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('tokenExpirationDateTime', $value);
@@ -365,7 +386,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the tokenValue property value. Value of the most recently created token for this enrollment profile.
-     *  @param string|null $value Value to set for the tokenValue property.
+     * @param string|null $value Value to set for the tokenValue property.
     */
     public function setTokenValue(?string $value): void {
         $this->getBackingStore()->set('tokenValue', $value);
@@ -373,7 +394,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the wifiHidden property value. Boolean that indicates if hidden wifi networks are enabled
-     *  @param bool|null $value Value to set for the wifiHidden property.
+     * @param bool|null $value Value to set for the wifiHidden property.
     */
     public function setWifiHidden(?bool $value): void {
         $this->getBackingStore()->set('wifiHidden', $value);
@@ -381,7 +402,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the wifiPassword property value. String that contains the wi-fi login password
-     *  @param string|null $value Value to set for the wifiPassword property.
+     * @param string|null $value Value to set for the wifiPassword property.
     */
     public function setWifiPassword(?string $value): void {
         $this->getBackingStore()->set('wifiPassword', $value);
@@ -389,7 +410,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the wifiSecurityType property value. This enum represents Wi-Fi Security Types for Android Device Owner AOSP Scenarios.
-     *  @param AospWifiSecurityType|null $value Value to set for the wifiSecurityType property.
+     * @param AospWifiSecurityType|null $value Value to set for the wifiSecurityType property.
     */
     public function setWifiSecurityType(?AospWifiSecurityType $value): void {
         $this->getBackingStore()->set('wifiSecurityType', $value);
@@ -397,7 +418,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the wifiSsid property value. String that contains the wi-fi login ssid
-     *  @param string|null $value Value to set for the wifiSsid property.
+     * @param string|null $value Value to set for the wifiSsid property.
     */
     public function setWifiSsid(?string $value): void {
         $this->getBackingStore()->set('wifiSsid', $value);

@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Operating System version range.
+*/
 class OperatingSystemVersionRange implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +113,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +121,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +129,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the description property value. The description of this range (e.g. Valid 1702 builds)
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -134,7 +137,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the highestVersion property value. The highest inclusive version that this range contains.
-     *  @param string|null $value Value to set for the highestVersion property.
+     * @param string|null $value Value to set for the highestVersion property.
     */
     public function setHighestVersion(?string $value): void {
         $this->getBackingStore()->set('highestVersion', $value);
@@ -142,7 +145,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the lowestVersion property value. The lowest inclusive version that this range contains.
-     *  @param string|null $value Value to set for the lowestVersion property.
+     * @param string|null $value Value to set for the lowestVersion property.
     */
     public function setLowestVersion(?string $value): void {
         $this->getBackingStore()->set('lowestVersion', $value);
@@ -150,7 +153,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

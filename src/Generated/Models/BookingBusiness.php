@@ -213,7 +213,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
-     *  @param PhysicalAddress|null $value Value to set for the address property.
+     * @param PhysicalAddress|null $value Value to set for the address property.
     */
     public function setAddress(?PhysicalAddress $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -221,7 +221,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the appointments property value. All the appointments of this business. Read-only. Nullable.
-     *  @param array<BookingAppointment>|null $value Value to set for the appointments property.
+     * @param array<BookingAppointment>|null $value Value to set for the appointments property.
     */
     public function setAppointments(?array $value): void {
         $this->getBackingStore()->set('appointments', $value);
@@ -229,7 +229,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the businessHours property value. The hours of operation for the business.
-     *  @param array<BookingWorkHours>|null $value Value to set for the businessHours property.
+     * @param array<BookingWorkHours>|null $value Value to set for the businessHours property.
     */
     public function setBusinessHours(?array $value): void {
         $this->getBackingStore()->set('businessHours', $value);
@@ -237,7 +237,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the businessType property value. The type of business.
-     *  @param string|null $value Value to set for the businessType property.
+     * @param string|null $value Value to set for the businessType property.
     */
     public function setBusinessType(?string $value): void {
         $this->getBackingStore()->set('businessType', $value);
@@ -245,7 +245,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the calendarView property value. The set of appointments of this business in a specified date range. Read-only. Nullable.
-     *  @param array<BookingAppointment>|null $value Value to set for the calendarView property.
+     * @param array<BookingAppointment>|null $value Value to set for the calendarView property.
     */
     public function setCalendarView(?array $value): void {
         $this->getBackingStore()->set('calendarView', $value);
@@ -253,7 +253,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the customers property value. All the customers of this business. Read-only. Nullable.
-     *  @param array<BookingCustomer>|null $value Value to set for the customers property.
+     * @param array<BookingCustomer>|null $value Value to set for the customers property.
     */
     public function setCustomers(?array $value): void {
         $this->getBackingStore()->set('customers', $value);
@@ -261,7 +261,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the customQuestions property value. All the custom questions of this business. Read-only. Nullable.
-     *  @param array<BookingCustomQuestion>|null $value Value to set for the customQuestions property.
+     * @param array<BookingCustomQuestion>|null $value Value to set for the customQuestions property.
     */
     public function setCustomQuestions(?array $value): void {
         $this->getBackingStore()->set('customQuestions', $value);
@@ -269,7 +269,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the defaultCurrencyIso property value. The code for the currency that the business operates in on Microsoft Bookings.
-     *  @param string|null $value Value to set for the defaultCurrencyIso property.
+     * @param string|null $value Value to set for the defaultCurrencyIso property.
     */
     public function setDefaultCurrencyIso(?string $value): void {
         $this->getBackingStore()->set('defaultCurrencyIso', $value);
@@ -277,7 +277,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the email property value. The email address for the business.
-     *  @param string|null $value Value to set for the email property.
+     * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
@@ -285,7 +285,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the isPublished property value. The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only.
-     *  @param bool|null $value Value to set for the isPublished property.
+     * @param bool|null $value Value to set for the isPublished property.
     */
     public function setIsPublished(?bool $value): void {
         $this->getBackingStore()->set('isPublished', $value);
@@ -293,7 +293,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the languageTag property value. The language of the self service booking page
-     *  @param string|null $value Value to set for the languageTag property.
+     * @param string|null $value Value to set for the languageTag property.
     */
     public function setLanguageTag(?string $value): void {
         $this->getBackingStore()->set('languageTag', $value);
@@ -301,7 +301,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the phone property value. The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page.
-     *  @param string|null $value Value to set for the phone property.
+     * @param string|null $value Value to set for the phone property.
     */
     public function setPhone(?string $value): void {
         $this->getBackingStore()->set('phone', $value);
@@ -309,7 +309,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the publicUrl property value. The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only.
-     *  @param string|null $value Value to set for the publicUrl property.
+     * @param string|null $value Value to set for the publicUrl property.
     */
     public function setPublicUrl(?string $value): void {
         $this->getBackingStore()->set('publicUrl', $value);
@@ -317,7 +317,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the schedulingPolicy property value. Specifies how bookings can be created for this business.
-     *  @param BookingSchedulingPolicy|null $value Value to set for the schedulingPolicy property.
+     * @param BookingSchedulingPolicy|null $value Value to set for the schedulingPolicy property.
     */
     public function setSchedulingPolicy(?BookingSchedulingPolicy $value): void {
         $this->getBackingStore()->set('schedulingPolicy', $value);
@@ -325,7 +325,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the services property value. All the services offered by this business. Read-only. Nullable.
-     *  @param array<BookingService>|null $value Value to set for the services property.
+     * @param array<BookingService>|null $value Value to set for the services property.
     */
     public function setServices(?array $value): void {
         $this->getBackingStore()->set('services', $value);
@@ -333,7 +333,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the staffMembers property value. All the staff members that provide services in this business. Read-only. Nullable.
-     *  @param array<BookingStaffMember>|null $value Value to set for the staffMembers property.
+     * @param array<BookingStaffMember>|null $value Value to set for the staffMembers property.
     */
     public function setStaffMembers(?array $value): void {
         $this->getBackingStore()->set('staffMembers', $value);
@@ -341,7 +341,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
 
     /**
      * Sets the webSiteUrl property value. The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page.
-     *  @param string|null $value Value to set for the webSiteUrl property.
+     * @param string|null $value Value to set for the webSiteUrl property.
     */
     public function setWebSiteUrl(?string $value): void {
         $this->getBackingStore()->set('webSiteUrl', $value);

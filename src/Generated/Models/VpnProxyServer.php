@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * VPN Proxy Server.
+*/
 class VpnProxyServer implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -44,7 +47,7 @@ class VpnProxyServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -118,7 +121,7 @@ class VpnProxyServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -126,7 +129,7 @@ class VpnProxyServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the address property value. Address.
-     *  @param string|null $value Value to set for the address property.
+     * @param string|null $value Value to set for the address property.
     */
     public function setAddress(?string $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -134,7 +137,7 @@ class VpnProxyServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the automaticConfigurationScriptUrl property value. Proxy's automatic configuration script url.
-     *  @param string|null $value Value to set for the automaticConfigurationScriptUrl property.
+     * @param string|null $value Value to set for the automaticConfigurationScriptUrl property.
     */
     public function setAutomaticConfigurationScriptUrl(?string $value): void {
         $this->getBackingStore()->set('automaticConfigurationScriptUrl', $value);
@@ -142,7 +145,7 @@ class VpnProxyServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -150,7 +153,7 @@ class VpnProxyServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -158,7 +161,7 @@ class VpnProxyServer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the port property value. Port. Valid values 0 to 65535
-     *  @param int|null $value Value to set for the port property.
+     * @param int|null $value Value to set for the port property.
     */
     public function setPort(?int $value): void {
         $this->getBackingStore()->set('port', $value);

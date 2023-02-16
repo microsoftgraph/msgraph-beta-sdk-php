@@ -105,7 +105,7 @@ class ManagementAction extends Entity implements Parsable
 
     /**
      * Sets the category property value. The category property
-     *  @param ManagementCategory|null $value Value to set for the category property.
+     * @param ManagementCategory|null $value Value to set for the category property.
     */
     public function setCategory(?ManagementCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -113,7 +113,7 @@ class ManagementAction extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description for the management action. Optional. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -121,7 +121,7 @@ class ManagementAction extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the management action. Optional. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -129,7 +129,7 @@ class ManagementAction extends Entity implements Parsable
 
     /**
      * Sets the referenceTemplateId property value. The reference for the management template used to generate the management action. Required. Read-only.
-     *  @param string|null $value Value to set for the referenceTemplateId property.
+     * @param string|null $value Value to set for the referenceTemplateId property.
     */
     public function setReferenceTemplateId(?string $value): void {
         $this->getBackingStore()->set('referenceTemplateId', $value);
@@ -137,7 +137,7 @@ class ManagementAction extends Entity implements Parsable
 
     /**
      * Sets the referenceTemplateVersion property value. The referenceTemplateVersion property
-     *  @param int|null $value Value to set for the referenceTemplateVersion property.
+     * @param int|null $value Value to set for the referenceTemplateVersion property.
     */
     public function setReferenceTemplateVersion(?int $value): void {
         $this->getBackingStore()->set('referenceTemplateVersion', $value);
@@ -145,7 +145,7 @@ class ManagementAction extends Entity implements Parsable
 
     /**
      * Sets the workloadActions property value. The collection of workload actions associated with the management action. Required. Read-only.
-     *  @param array<WorkloadAction>|null $value Value to set for the workloadActions property.
+     * @param array<WorkloadAction>|null $value Value to set for the workloadActions property.
     */
     public function setWorkloadActions(?array $value): void {
         $this->getBackingStore()->set('workloadActions', $value);

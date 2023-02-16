@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for user run state of the device management script.
+*/
 class DeviceManagementScriptUserState extends Entity implements Parsable 
 {
     /**
@@ -84,7 +87,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
 
     /**
      * Sets the deviceRunStates property value. List of run states for this script across all devices of specific user.
-     *  @param array<DeviceManagementScriptDeviceState>|null $value Value to set for the deviceRunStates property.
+     * @param array<DeviceManagementScriptDeviceState>|null $value Value to set for the deviceRunStates property.
     */
     public function setDeviceRunStates(?array $value): void {
         $this->getBackingStore()->set('deviceRunStates', $value);
@@ -92,7 +95,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
 
     /**
      * Sets the errorDeviceCount property value. Error device count for specific user.
-     *  @param int|null $value Value to set for the errorDeviceCount property.
+     * @param int|null $value Value to set for the errorDeviceCount property.
     */
     public function setErrorDeviceCount(?int $value): void {
         $this->getBackingStore()->set('errorDeviceCount', $value);
@@ -100,7 +103,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
 
     /**
      * Sets the successDeviceCount property value. Success device count for specific user.
-     *  @param int|null $value Value to set for the successDeviceCount property.
+     * @param int|null $value Value to set for the successDeviceCount property.
     */
     public function setSuccessDeviceCount(?int $value): void {
         $this->getBackingStore()->set('successDeviceCount', $value);
@@ -108,7 +111,7 @@ class DeviceManagementScriptUserState extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. User principle name of specific user.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

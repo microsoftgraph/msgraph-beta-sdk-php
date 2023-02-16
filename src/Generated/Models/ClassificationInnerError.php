@@ -45,7 +45,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +121,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the activityId property value. The activityId property
-     *  @param string|null $value Value to set for the activityId property.
+     * @param string|null $value Value to set for the activityId property.
     */
     public function setActivityId(?string $value): void {
         $this->getBackingStore()->set('activityId', $value);
@@ -129,7 +129,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -137,7 +137,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -145,7 +145,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the clientRequestId property value. The clientRequestId property
-     *  @param string|null $value Value to set for the clientRequestId property.
+     * @param string|null $value Value to set for the clientRequestId property.
     */
     public function setClientRequestId(?string $value): void {
         $this->getBackingStore()->set('clientRequestId', $value);
@@ -153,7 +153,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the code property value. The code property
-     *  @param string|null $value Value to set for the code property.
+     * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
         $this->getBackingStore()->set('code', $value);
@@ -161,7 +161,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the errorDateTime property value. The errorDateTime property
-     *  @param DateTime|null $value Value to set for the errorDateTime property.
+     * @param DateTime|null $value Value to set for the errorDateTime property.
     */
     public function setErrorDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('errorDateTime', $value);
@@ -169,7 +169,7 @@ class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

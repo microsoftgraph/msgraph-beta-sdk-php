@@ -74,7 +74,7 @@ class DirectorySetting extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name of this group of settings, which comes from the associated template. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -82,7 +82,7 @@ class DirectorySetting extends Entity implements Parsable
 
     /**
      * Sets the templateId property value. Unique identifier for the template used to create this group of settings. Read-only.
-     *  @param string|null $value Value to set for the templateId property.
+     * @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value): void {
         $this->getBackingStore()->set('templateId', $value);
@@ -90,7 +90,7 @@ class DirectorySetting extends Entity implements Parsable
 
     /**
      * Sets the values property value. Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced directorySettingTemplates object.
-     *  @param array<SettingValue>|null $value Value to set for the values property.
+     * @param array<SettingValue>|null $value Value to set for the values property.
     */
     public function setValues(?array $value): void {
         $this->getBackingStore()->set('values', $value);

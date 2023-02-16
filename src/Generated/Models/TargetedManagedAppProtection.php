@@ -93,7 +93,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
 
     /**
      * Sets the appGroupType property value. Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
-     *  @param TargetedManagedAppGroupType|null $value Value to set for the appGroupType property.
+     * @param TargetedManagedAppGroupType|null $value Value to set for the appGroupType property.
     */
     public function setAppGroupType(?TargetedManagedAppGroupType $value): void {
         $this->getBackingStore()->set('appGroupType', $value);
@@ -101,7 +101,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
 
     /**
      * Sets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
-     *  @param array<TargetedManagedAppPolicyAssignment>|null $value Value to set for the assignments property.
+     * @param array<TargetedManagedAppPolicyAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -109,7 +109,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
 
     /**
      * Sets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
-     *  @param bool|null $value Value to set for the isAssigned property.
+     * @param bool|null $value Value to set for the isAssigned property.
     */
     public function setIsAssigned(?bool $value): void {
         $this->getBackingStore()->set('isAssigned', $value);
@@ -117,7 +117,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
 
     /**
      * Sets the targetedAppManagementLevels property value. Management levels for apps
-     *  @param AppManagementLevel|null $value Value to set for the targetedAppManagementLevels property.
+     * @param AppManagementLevel|null $value Value to set for the targetedAppManagementLevels property.
     */
     public function setTargetedAppManagementLevels(?AppManagementLevel $value): void {
         $this->getBackingStore()->set('targetedAppManagementLevels', $value);

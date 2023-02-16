@@ -185,7 +185,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the actionReason property value. Reason for invoking this action.
-     *  @param string|null $value Value to set for the actionReason property.
+     * @param string|null $value Value to set for the actionReason property.
     */
     public function setActionReason(?string $value): void {
         $this->getBackingStore()->set('actionReason', $value);
@@ -193,7 +193,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the appId property value. The Application ID of the calling application that submitted (POST) the action. The appId should be extracted from the auth token and not entered manually by the calling application.
-     *  @param string|null $value Value to set for the appId property.
+     * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
@@ -201,7 +201,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the azureTenantId property value. Azure tenant ID of the entity to determine which tenant the entity belongs to (multi-tenancy support). The azureTenantId should be extracted from the auth token and not entered manually by the calling application.
-     *  @param string|null $value Value to set for the azureTenantId property.
+     * @param string|null $value Value to set for the azureTenantId property.
     */
     public function setAzureTenantId(?string $value): void {
         $this->getBackingStore()->set('azureTenantId', $value);
@@ -209,7 +209,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the clientContext property value. The clientContext property
-     *  @param string|null $value Value to set for the clientContext property.
+     * @param string|null $value Value to set for the clientContext property.
     */
     public function setClientContext(?string $value): void {
         $this->getBackingStore()->set('clientContext', $value);
@@ -217,7 +217,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the completedDateTime property value. Timestamp when the action was completed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the completedDateTime property.
+     * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
@@ -225,7 +225,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Timestamp when the action is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -233,7 +233,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the errorInfo property value. Error info when the action fails.
-     *  @param ResultInfo|null $value Value to set for the errorInfo property.
+     * @param ResultInfo|null $value Value to set for the errorInfo property.
     */
     public function setErrorInfo(?ResultInfo $value): void {
         $this->getBackingStore()->set('errorInfo', $value);
@@ -241,7 +241,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. Timestamp when this action was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -249,7 +249,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the name property value. Action name.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -257,7 +257,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the parameters property value. Collection of parameters (key-value pairs) necessary to invoke the action, for example, URL or fileHash to block.). Required.
-     *  @param array<KeyValuePair>|null $value Value to set for the parameters property.
+     * @param array<KeyValuePair>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value): void {
         $this->getBackingStore()->set('parameters', $value);
@@ -265,7 +265,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the states property value. Collection of securityActionState to keep the history of an action.
-     *  @param array<SecurityActionState>|null $value Value to set for the states property.
+     * @param array<SecurityActionState>|null $value Value to set for the states property.
     */
     public function setStates(?array $value): void {
         $this->getBackingStore()->set('states', $value);
@@ -273,7 +273,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the status property value. Status of the action. Possible values are: NotStarted, Running, Completed, Failed.
-     *  @param OperationStatus|null $value Value to set for the status property.
+     * @param OperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?OperationStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -281,7 +281,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the user property value. The user principal name of the signed-in user that submitted  (POST) the action. The user should be extracted from the auth token and not entered manually by the calling application.
-     *  @param string|null $value Value to set for the user property.
+     * @param string|null $value Value to set for the user property.
     */
     public function setUser(?string $value): void {
         $this->getBackingStore()->set('user', $value);
@@ -289,7 +289,7 @@ class SecurityAction extends Entity implements Parsable
 
     /**
      * Sets the vendorInformation property value. Complex Type containing details about the Security product/service vendor, provider, and sub-provider (for example, vendor=Microsoft; provider=Windows Defender ATP; sub-provider=AppLocker).
-     *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
+     * @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
     public function setVendorInformation(?SecurityVendorInformation $value): void {
         $this->getBackingStore()->set('vendorInformation', $value);

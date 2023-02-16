@@ -36,7 +36,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the category property value. The submission result category. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable and unkownFutureValue.
-     *  @param SubmissionResultCategory|null $value Value to set for the category property.
+     * @param SubmissionResultCategory|null $value Value to set for the category property.
     */
     public function setCategory(?SubmissionResultCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -154,7 +154,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the detail property value. Specifies the additional details provided by Microsoft to substantiate their analysis result.
-     *  @param SubmissionResultDetail|null $value Value to set for the detail property.
+     * @param SubmissionResultDetail|null $value Value to set for the detail property.
     */
     public function setDetail(?SubmissionResultDetail $value): void {
         $this->getBackingStore()->set('detail', $value);
@@ -162,7 +162,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the detectedFiles property value. Specifies the files detected by Microsoft in the submitted emails.
-     *  @param array<SubmissionDetectedFile>|null $value Value to set for the detectedFiles property.
+     * @param array<SubmissionDetectedFile>|null $value Value to set for the detectedFiles property.
     */
     public function setDetectedFiles(?array $value): void {
         $this->getBackingStore()->set('detectedFiles', $value);
@@ -170,7 +170,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the detectedUrls property value. Specifes the URLs detected by Microsoft in the submitted email.
-     *  @param array<string>|null $value Value to set for the detectedUrls property.
+     * @param array<string>|null $value Value to set for the detectedUrls property.
     */
     public function setDetectedUrls(?array $value): void {
         $this->getBackingStore()->set('detectedUrls', $value);
@@ -178,7 +178,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -186,7 +186,7 @@ class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userMailboxSetting property value. Specifies the setting for user mailbox denoted by a comma-separated string.
-     *  @param UserMailboxSetting|null $value Value to set for the userMailboxSetting property.
+     * @param UserMailboxSetting|null $value Value to set for the userMailboxSetting property.
     */
     public function setUserMailboxSetting(?UserMailboxSetting $value): void {
         $this->getBackingStore()->set('userMailboxSetting', $value);

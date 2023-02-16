@@ -176,7 +176,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the applicableDeviceType property value. The applicable iOS Device Type.
-     *  @param IosDeviceType|null $value Value to set for the applicableDeviceType property.
+     * @param IosDeviceType|null $value Value to set for the applicableDeviceType property.
     */
     public function setApplicableDeviceType(?IosDeviceType $value): void {
         $this->getBackingStore()->set('applicableDeviceType', $value);
@@ -184,7 +184,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the appStoreUrl property value. The store URL.
-     *  @param string|null $value Value to set for the appStoreUrl property.
+     * @param string|null $value Value to set for the appStoreUrl property.
     */
     public function setAppStoreUrl(?string $value): void {
         $this->getBackingStore()->set('appStoreUrl', $value);
@@ -192,7 +192,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the assignedLicenses property value. The licenses assigned to this app.
-     *  @param array<IosVppAppAssignedLicense>|null $value Value to set for the assignedLicenses property.
+     * @param array<IosVppAppAssignedLicense>|null $value Value to set for the assignedLicenses property.
     */
     public function setAssignedLicenses(?array $value): void {
         $this->getBackingStore()->set('assignedLicenses', $value);
@@ -200,7 +200,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the bundleId property value. The Identity Name.
-     *  @param string|null $value Value to set for the bundleId property.
+     * @param string|null $value Value to set for the bundleId property.
     */
     public function setBundleId(?string $value): void {
         $this->getBackingStore()->set('bundleId', $value);
@@ -208,7 +208,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the licensingType property value. The supported License Type.
-     *  @param VppLicensingType|null $value Value to set for the licensingType property.
+     * @param VppLicensingType|null $value Value to set for the licensingType property.
     */
     public function setLicensingType(?VppLicensingType $value): void {
         $this->getBackingStore()->set('licensingType', $value);
@@ -216,7 +216,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the releaseDateTime property value. The VPP application release date and time.
-     *  @param DateTime|null $value Value to set for the releaseDateTime property.
+     * @param DateTime|null $value Value to set for the releaseDateTime property.
     */
     public function setReleaseDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('releaseDateTime', $value);
@@ -224,7 +224,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the revokeLicenseActionResults property value. Results of revoke license actions on this app.
-     *  @param array<IosVppAppRevokeLicensesActionResult>|null $value Value to set for the revokeLicenseActionResults property.
+     * @param array<IosVppAppRevokeLicensesActionResult>|null $value Value to set for the revokeLicenseActionResults property.
     */
     public function setRevokeLicenseActionResults(?array $value): void {
         $this->getBackingStore()->set('revokeLicenseActionResults', $value);
@@ -232,7 +232,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the totalLicenseCount property value. The total number of VPP licenses.
-     *  @param int|null $value Value to set for the totalLicenseCount property.
+     * @param int|null $value Value to set for the totalLicenseCount property.
     */
     public function setTotalLicenseCount(?int $value): void {
         $this->getBackingStore()->set('totalLicenseCount', $value);
@@ -240,7 +240,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the usedLicenseCount property value. The number of VPP licenses in use.
-     *  @param int|null $value Value to set for the usedLicenseCount property.
+     * @param int|null $value Value to set for the usedLicenseCount property.
     */
     public function setUsedLicenseCount(?int $value): void {
         $this->getBackingStore()->set('usedLicenseCount', $value);
@@ -248,7 +248,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the vppTokenAccountType property value. Possible types of an Apple Volume Purchase Program token.
-     *  @param VppTokenAccountType|null $value Value to set for the vppTokenAccountType property.
+     * @param VppTokenAccountType|null $value Value to set for the vppTokenAccountType property.
     */
     public function setVppTokenAccountType(?VppTokenAccountType $value): void {
         $this->getBackingStore()->set('vppTokenAccountType', $value);
@@ -256,7 +256,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the vppTokenAppleId property value. The Apple Id associated with the given Apple Volume Purchase Program Token.
-     *  @param string|null $value Value to set for the vppTokenAppleId property.
+     * @param string|null $value Value to set for the vppTokenAppleId property.
     */
     public function setVppTokenAppleId(?string $value): void {
         $this->getBackingStore()->set('vppTokenAppleId', $value);
@@ -264,7 +264,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the vppTokenId property value. Identifier of the VPP token associated with this app.
-     *  @param string|null $value Value to set for the vppTokenId property.
+     * @param string|null $value Value to set for the vppTokenId property.
     */
     public function setVppTokenId(?string $value): void {
         $this->getBackingStore()->set('vppTokenId', $value);
@@ -272,7 +272,7 @@ class IosVppApp extends MobileApp implements Parsable
 
     /**
      * Sets the vppTokenOrganizationName property value. The organization associated with the Apple Volume Purchase Program Token
-     *  @param string|null $value Value to set for the vppTokenOrganizationName property.
+     * @param string|null $value Value to set for the vppTokenOrganizationName property.
     */
     public function setVppTokenOrganizationName(?string $value): void {
         $this->getBackingStore()->set('vppTokenOrganizationName', $value);

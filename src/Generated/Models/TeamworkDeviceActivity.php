@@ -95,7 +95,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
 
     /**
      * Sets the activePeripherals property value. The active peripheral devices attached to the device.
-     *  @param TeamworkActivePeripherals|null $value Value to set for the activePeripherals property.
+     * @param TeamworkActivePeripherals|null $value Value to set for the activePeripherals property.
     */
     public function setActivePeripherals(?TeamworkActivePeripherals $value): void {
         $this->getBackingStore()->set('activePeripherals', $value);
@@ -103,7 +103,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. Identity of the user who created the device activity document.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -111,7 +111,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The UTC date and time when the device activity document was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -119,7 +119,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. Identity of the user who last modified the device activity details.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -127,7 +127,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The UTC date and time when the device activity detail was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);

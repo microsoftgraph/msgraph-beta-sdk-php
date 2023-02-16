@@ -72,7 +72,7 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
 
     /**
      * Sets the customSubjectAlternativeNames property value. Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
-     *  @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
+     * @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
     */
     public function setCustomSubjectAlternativeNames(?array $value): void {
         $this->getBackingStore()->set('customSubjectAlternativeNames', $value);
@@ -80,7 +80,7 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
 
     /**
      * Sets the extendedKeyUsages property value. Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
-     *  @param array<ExtendedKeyUsage>|null $value Value to set for the extendedKeyUsages property.
+     * @param array<ExtendedKeyUsage>|null $value Value to set for the extendedKeyUsages property.
     */
     public function setExtendedKeyUsages(?array $value): void {
         $this->getBackingStore()->set('extendedKeyUsages', $value);

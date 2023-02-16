@@ -65,7 +65,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
 
     /**
      * Sets the isExpeditable property value. Indicates whether the content can be deployed as an expedited quality update. Read-only.
-     *  @param bool|null $value Value to set for the isExpeditable property.
+     * @param bool|null $value Value to set for the isExpeditable property.
     */
     public function setIsExpeditable(?bool $value): void {
         $this->getBackingStore()->set('isExpeditable', $value);
@@ -73,7 +73,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
 
     /**
      * Sets the qualityUpdateClassification property value. The qualityUpdateClassification property
-     *  @param QualityUpdateClassification|null $value Value to set for the qualityUpdateClassification property.
+     * @param QualityUpdateClassification|null $value Value to set for the qualityUpdateClassification property.
     */
     public function setQualityUpdateClassification(?QualityUpdateClassification $value): void {
         $this->getBackingStore()->set('qualityUpdateClassification', $value);

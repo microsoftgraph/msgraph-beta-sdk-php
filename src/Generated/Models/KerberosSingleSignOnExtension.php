@@ -255,7 +255,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the activeDirectorySiteCode property value. Gets or sets the Active Directory site.
-     *  @param string|null $value Value to set for the activeDirectorySiteCode property.
+     * @param string|null $value Value to set for the activeDirectorySiteCode property.
     */
     public function setActiveDirectorySiteCode(?string $value): void {
         $this->getBackingStore()->set('activeDirectorySiteCode', $value);
@@ -263,7 +263,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the blockActiveDirectorySiteAutoDiscovery property value. Enables or disables whether the Kerberos extension can automatically determine its site name.
-     *  @param bool|null $value Value to set for the blockActiveDirectorySiteAutoDiscovery property.
+     * @param bool|null $value Value to set for the blockActiveDirectorySiteAutoDiscovery property.
     */
     public function setBlockActiveDirectorySiteAutoDiscovery(?bool $value): void {
         $this->getBackingStore()->set('blockActiveDirectorySiteAutoDiscovery', $value);
@@ -271,7 +271,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the blockAutomaticLogin property value. Enables or disables Keychain usage.
-     *  @param bool|null $value Value to set for the blockAutomaticLogin property.
+     * @param bool|null $value Value to set for the blockAutomaticLogin property.
     */
     public function setBlockAutomaticLogin(?bool $value): void {
         $this->getBackingStore()->set('blockAutomaticLogin', $value);
@@ -279,7 +279,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the cacheName property value. Gets or sets the Generic Security Services name of the Kerberos cache to use for this profile.
-     *  @param string|null $value Value to set for the cacheName property.
+     * @param string|null $value Value to set for the cacheName property.
     */
     public function setCacheName(?string $value): void {
         $this->getBackingStore()->set('cacheName', $value);
@@ -287,7 +287,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the credentialBundleIdAccessControlList property value. Gets or sets a list of app Bundle IDs allowed to access the Kerberos Ticket Granting Ticket.
-     *  @param array<string>|null $value Value to set for the credentialBundleIdAccessControlList property.
+     * @param array<string>|null $value Value to set for the credentialBundleIdAccessControlList property.
     */
     public function setCredentialBundleIdAccessControlList(?array $value): void {
         $this->getBackingStore()->set('credentialBundleIdAccessControlList', $value);
@@ -295,7 +295,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the domainRealms property value. Gets or sets a list of realms for custom domain-realm mapping. Realms are case sensitive.
-     *  @param array<string>|null $value Value to set for the domainRealms property.
+     * @param array<string>|null $value Value to set for the domainRealms property.
     */
     public function setDomainRealms(?array $value): void {
         $this->getBackingStore()->set('domainRealms', $value);
@@ -303,7 +303,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the domains property value. Gets or sets a list of hosts or domain names for which the app extension performs SSO.
-     *  @param array<string>|null $value Value to set for the domains property.
+     * @param array<string>|null $value Value to set for the domains property.
     */
     public function setDomains(?array $value): void {
         $this->getBackingStore()->set('domains', $value);
@@ -311,7 +311,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the isDefaultRealm property value. When true, this profile's realm will be selected as the default. Necessary if multiple Kerberos-type profiles are configured.
-     *  @param bool|null $value Value to set for the isDefaultRealm property.
+     * @param bool|null $value Value to set for the isDefaultRealm property.
     */
     public function setIsDefaultRealm(?bool $value): void {
         $this->getBackingStore()->set('isDefaultRealm', $value);
@@ -319,7 +319,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordBlockModification property value. Enables or disables password changes.
-     *  @param bool|null $value Value to set for the passwordBlockModification property.
+     * @param bool|null $value Value to set for the passwordBlockModification property.
     */
     public function setPasswordBlockModification(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockModification', $value);
@@ -327,7 +327,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordChangeUrl property value. Gets or sets the URL that the user will be sent to when they initiate a password change.
-     *  @param string|null $value Value to set for the passwordChangeUrl property.
+     * @param string|null $value Value to set for the passwordChangeUrl property.
     */
     public function setPasswordChangeUrl(?string $value): void {
         $this->getBackingStore()->set('passwordChangeUrl', $value);
@@ -335,7 +335,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordEnableLocalSync property value. Enables or disables password syncing. This won't affect users logged in with a mobile account on macOS.
-     *  @param bool|null $value Value to set for the passwordEnableLocalSync property.
+     * @param bool|null $value Value to set for the passwordEnableLocalSync property.
     */
     public function setPasswordEnableLocalSync(?bool $value): void {
         $this->getBackingStore()->set('passwordEnableLocalSync', $value);
@@ -343,7 +343,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordExpirationDays property value. Overrides the default password expiration in days. For most domains, this value is calculated automatically.
-     *  @param int|null $value Value to set for the passwordExpirationDays property.
+     * @param int|null $value Value to set for the passwordExpirationDays property.
     */
     public function setPasswordExpirationDays(?int $value): void {
         $this->getBackingStore()->set('passwordExpirationDays', $value);
@@ -351,7 +351,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordExpirationNotificationDays property value. Gets or sets the number of days until the user is notified that their password will expire (default is 15).
-     *  @param int|null $value Value to set for the passwordExpirationNotificationDays property.
+     * @param int|null $value Value to set for the passwordExpirationNotificationDays property.
     */
     public function setPasswordExpirationNotificationDays(?int $value): void {
         $this->getBackingStore()->set('passwordExpirationNotificationDays', $value);
@@ -359,7 +359,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordMinimumAgeDays property value. Gets or sets the minimum number of days until a user can change their password again.
-     *  @param int|null $value Value to set for the passwordMinimumAgeDays property.
+     * @param int|null $value Value to set for the passwordMinimumAgeDays property.
     */
     public function setPasswordMinimumAgeDays(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumAgeDays', $value);
@@ -367,7 +367,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordMinimumLength property value. Gets or sets the minimum length of a password.
-     *  @param int|null $value Value to set for the passwordMinimumLength property.
+     * @param int|null $value Value to set for the passwordMinimumLength property.
     */
     public function setPasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLength', $value);
@@ -375,7 +375,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordPreviousPasswordBlockCount property value. Gets or sets the number of previous passwords to block.
-     *  @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
+     * @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
     */
     public function setPasswordPreviousPasswordBlockCount(?int $value): void {
         $this->getBackingStore()->set('passwordPreviousPasswordBlockCount', $value);
@@ -383,7 +383,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordRequireActiveDirectoryComplexity property value. Enables or disables whether passwords must meet Active Directory's complexity requirements.
-     *  @param bool|null $value Value to set for the passwordRequireActiveDirectoryComplexity property.
+     * @param bool|null $value Value to set for the passwordRequireActiveDirectoryComplexity property.
     */
     public function setPasswordRequireActiveDirectoryComplexity(?bool $value): void {
         $this->getBackingStore()->set('passwordRequireActiveDirectoryComplexity', $value);
@@ -391,7 +391,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the passwordRequirementsDescription property value. Gets or sets a description of the password complexity requirements.
-     *  @param string|null $value Value to set for the passwordRequirementsDescription property.
+     * @param string|null $value Value to set for the passwordRequirementsDescription property.
     */
     public function setPasswordRequirementsDescription(?string $value): void {
         $this->getBackingStore()->set('passwordRequirementsDescription', $value);
@@ -399,7 +399,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the realm property value. Gets or sets the case-sensitive realm name for this profile.
-     *  @param string|null $value Value to set for the realm property.
+     * @param string|null $value Value to set for the realm property.
     */
     public function setRealm(?string $value): void {
         $this->getBackingStore()->set('realm', $value);
@@ -407,7 +407,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the requireUserPresence property value. Gets or sets whether to require authentication via Touch ID, Face ID, or a passcode to access the keychain entry.
-     *  @param bool|null $value Value to set for the requireUserPresence property.
+     * @param bool|null $value Value to set for the requireUserPresence property.
     */
     public function setRequireUserPresence(?bool $value): void {
         $this->getBackingStore()->set('requireUserPresence', $value);
@@ -415,7 +415,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
 
     /**
      * Sets the userPrincipalName property value. Gets or sets the principle user name to use for this profile. The realm name does not need to be included.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

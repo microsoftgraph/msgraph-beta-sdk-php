@@ -105,7 +105,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
 
     /**
      * Sets the detectionType property value. Contains all supported Powershell Script output detection type.
-     *  @param Win32LobAppPowerShellScriptDetectionType|null $value Value to set for the detectionType property.
+     * @param Win32LobAppPowerShellScriptDetectionType|null $value Value to set for the detectionType property.
     */
     public function setDetectionType(?Win32LobAppPowerShellScriptDetectionType $value): void {
         $this->getBackingStore()->set('detectionType', $value);
@@ -113,7 +113,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
 
     /**
      * Sets the displayName property value. The unique display name for this rule
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -121,7 +121,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
 
     /**
      * Sets the enforceSignatureCheck property value. A value indicating whether signature check is enforced
-     *  @param bool|null $value Value to set for the enforceSignatureCheck property.
+     * @param bool|null $value Value to set for the enforceSignatureCheck property.
     */
     public function setEnforceSignatureCheck(?bool $value): void {
         $this->getBackingStore()->set('enforceSignatureCheck', $value);
@@ -129,7 +129,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
 
     /**
      * Sets the runAs32Bit property value. A value indicating whether this script should run as 32-bit
-     *  @param bool|null $value Value to set for the runAs32Bit property.
+     * @param bool|null $value Value to set for the runAs32Bit property.
     */
     public function setRunAs32Bit(?bool $value): void {
         $this->getBackingStore()->set('runAs32Bit', $value);
@@ -137,7 +137,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
 
     /**
      * Sets the runAsAccount property value. Indicates the type of execution context the app runs in.
-     *  @param RunAsAccountType|null $value Value to set for the runAsAccount property.
+     * @param RunAsAccountType|null $value Value to set for the runAsAccount property.
     */
     public function setRunAsAccount(?RunAsAccountType $value): void {
         $this->getBackingStore()->set('runAsAccount', $value);
@@ -145,7 +145,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
 
     /**
      * Sets the scriptContent property value. The base64 encoded script content to detect Win32 Line of Business (LoB) app
-     *  @param string|null $value Value to set for the scriptContent property.
+     * @param string|null $value Value to set for the scriptContent property.
     */
     public function setScriptContent(?string $value): void {
         $this->getBackingStore()->set('scriptContent', $value);

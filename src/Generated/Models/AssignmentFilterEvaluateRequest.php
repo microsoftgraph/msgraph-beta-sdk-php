@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Request for assignment filter evaluation for devices.
+*/
 class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +143,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +151,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +159,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -164,7 +167,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the orderBy property value. Order the devices should be sorted in. Default is ascending on device name.
-     *  @param array<string>|null $value Value to set for the orderBy property.
+     * @param array<string>|null $value Value to set for the orderBy property.
     */
     public function setOrderBy(?array $value): void {
         $this->getBackingStore()->set('orderBy', $value);
@@ -172,7 +175,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the platform property value. Supported platform types.
-     *  @param DevicePlatformType|null $value Value to set for the platform property.
+     * @param DevicePlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DevicePlatformType $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -180,7 +183,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the rule property value. Rule definition of the Assignment Filter.
-     *  @param string|null $value Value to set for the rule property.
+     * @param string|null $value Value to set for the rule property.
     */
     public function setRule(?string $value): void {
         $this->getBackingStore()->set('rule', $value);
@@ -188,7 +191,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the search property value. Search keyword applied to scope found devices.
-     *  @param string|null $value Value to set for the search property.
+     * @param string|null $value Value to set for the search property.
     */
     public function setSearch(?string $value): void {
         $this->getBackingStore()->set('search', $value);
@@ -196,7 +199,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the skip property value. Number of records to skip. Default value is 0
-     *  @param int|null $value Value to set for the skip property.
+     * @param int|null $value Value to set for the skip property.
     */
     public function setSkip(?int $value): void {
         $this->getBackingStore()->set('skip', $value);
@@ -204,7 +207,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the top property value. Limit of records per request. Default value is 100, if provided less than 0 or greater than 100
-     *  @param int|null $value Value to set for the top property.
+     * @param int|null $value Value to set for the top property.
     */
     public function setTop(?int $value): void {
         $this->getBackingStore()->set('top', $value);

@@ -207,7 +207,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the category property value. The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
-     *  @param ManagementCategory|null $value Value to set for the category property.
+     * @param ManagementCategory|null $value Value to set for the category property.
     */
     public function setCategory(?ManagementCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -215,7 +215,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
-     *  @param string|null $value Value to set for the createdByUserId property.
+     * @param string|null $value Value to set for the createdByUserId property.
     */
     public function setCreatedByUserId(?string $value): void {
         $this->getBackingStore()->set('createdByUserId', $value);
@@ -223,7 +223,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -231,7 +231,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description for the management template. Optional. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -239,7 +239,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the management template. Required. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -247,7 +247,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the informationLinks property value. The informationLinks property
-     *  @param array<ActionUrl>|null $value Value to set for the informationLinks property.
+     * @param array<ActionUrl>|null $value Value to set for the informationLinks property.
     */
     public function setInformationLinks(?array $value): void {
         $this->getBackingStore()->set('informationLinks', $value);
@@ -255,7 +255,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
-     *  @param string|null $value Value to set for the lastActionByUserId property.
+     * @param string|null $value Value to set for the lastActionByUserId property.
     */
     public function setLastActionByUserId(?string $value): void {
         $this->getBackingStore()->set('lastActionByUserId', $value);
@@ -263,7 +263,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -271,7 +271,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateCollections property value. The managementTemplateCollections property
-     *  @param array<ManagementTemplateCollection>|null $value Value to set for the managementTemplateCollections property.
+     * @param array<ManagementTemplateCollection>|null $value Value to set for the managementTemplateCollections property.
     */
     public function setManagementTemplateCollections(?array $value): void {
         $this->getBackingStore()->set('managementTemplateCollections', $value);
@@ -279,7 +279,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateSteps property value. The managementTemplateSteps property
-     *  @param array<ManagementTemplateStep>|null $value Value to set for the managementTemplateSteps property.
+     * @param array<ManagementTemplateStep>|null $value Value to set for the managementTemplateSteps property.
     */
     public function setManagementTemplateSteps(?array $value): void {
         $this->getBackingStore()->set('managementTemplateSteps', $value);
@@ -287,7 +287,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the parameters property value. The collection of parameters used by the management template. Optional. Read-only.
-     *  @param array<TemplateParameter>|null $value Value to set for the parameters property.
+     * @param array<TemplateParameter>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value): void {
         $this->getBackingStore()->set('parameters', $value);
@@ -295,7 +295,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the priority property value. The priority property
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -303,7 +303,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the provider property value. The provider property
-     *  @param ManagementProvider|null $value Value to set for the provider property.
+     * @param ManagementProvider|null $value Value to set for the provider property.
     */
     public function setProvider(?ManagementProvider $value): void {
         $this->getBackingStore()->set('provider', $value);
@@ -311,7 +311,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the userImpact property value. The userImpact property
-     *  @param string|null $value Value to set for the userImpact property.
+     * @param string|null $value Value to set for the userImpact property.
     */
     public function setUserImpact(?string $value): void {
         $this->getBackingStore()->set('userImpact', $value);
@@ -319,7 +319,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the version property value. The version property
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);
@@ -327,7 +327,7 @@ class ManagementTemplate extends Entity implements Parsable
 
     /**
      * Sets the workloadActions property value. The collection of workload actions associated with the management template. Optional. Read-only.
-     *  @param array<WorkloadAction>|null $value Value to set for the workloadActions property.
+     * @param array<WorkloadAction>|null $value Value to set for the workloadActions property.
     */
     public function setWorkloadActions(?array $value): void {
         $this->getBackingStore()->set('workloadActions', $value);

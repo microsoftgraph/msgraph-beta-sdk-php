@@ -15,13 +15,14 @@ use Microsoft\Graph\Beta\Generated\Sites\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Drives\Item\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\ExternalColumns\ExternalColumnsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\GetApplicableContentTypesForListWithListId\GetApplicableContentTypesForListWithListIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\GetByPathWithPathRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Items\Item\BaseItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Items\ItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ListItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\ListsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\MicrosoftGraphGetApplicableContentTypesForListWithListId\MicrosoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\MicrosoftGraphGetByPathWithPath\MicrosoftGraphGetByPathWithPathRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Onenote\OnenoteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Operations\Item\RichLongRunningOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\Operations\OperationsRequestBuilder;
@@ -34,11 +35,13 @@ use Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\TermStoreRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the collection of site entities.
+*/
 class SiteItemRequestBuilder 
 {
     /**
@@ -81,6 +84,13 @@ class SiteItemRequestBuilder
     */
     public function externalColumns(): ExternalColumnsRequestBuilder {
         return new ExternalColumnsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the informationProtection property of the microsoft.graph.site entity.
+    */
+    public function informationProtection(): InformationProtectionRequestBuilder {
+        return new InformationProtectionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -167,13 +177,17 @@ class SiteItemRequestBuilder
 
     /**
      * Instantiates a new SiteItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/sites/{site%2Did}{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
@@ -212,49 +226,20 @@ class SiteItemRequestBuilder
     /**
      * Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
      * @param SiteItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/site-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?SiteItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?SiteItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Site::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Site::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getActivitiesByInterval method.
-     * @param string $endDateTime Usage: endDateTime='{endDateTime}'
-     * @param string $interval Usage: interval='{interval}'
-     * @param string $startDateTime Usage: startDateTime='{startDateTime}'
-     * @return GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
-    */
-    public function getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string $endDateTime, string $interval, string $startDateTime): GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
-        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $interval, $startDateTime);
-    }
-
-    /**
-     * Provides operations to call the getApplicableContentTypesForList method.
-     * @param string $listId Usage: listId='{listId}'
-     * @return GetApplicableContentTypesForListWithListIdRequestBuilder
-    */
-    public function getApplicableContentTypesForListWithListId(string $listId): GetApplicableContentTypesForListWithListIdRequestBuilder {
-        return new GetApplicableContentTypesForListWithListIdRequestBuilder($this->pathParameters, $this->requestAdapter, $listId);
-    }
-
-    /**
-     * Provides operations to call the getByPath method.
-     * @param string $path Usage: path='{path}'
-     * @return GetByPathWithPathRequestBuilder
-    */
-    public function getByPathWithPath(string $path): GetByPathWithPathRequestBuilder {
-        return new GetByPathWithPathRequestBuilder($this->pathParameters, $this->requestAdapter, $path);
     }
 
     /**
@@ -277,6 +262,35 @@ class SiteItemRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['list%2Did'] = $id;
         return new ListItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to call the getActivitiesByInterval method.
+     * @param string $endDateTime Usage: endDateTime='{endDateTime}'
+     * @param string $interval Usage: interval='{interval}'
+     * @param string $startDateTime Usage: startDateTime='{startDateTime}'
+     * @return MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
+    */
+    public function microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string $endDateTime, string $interval, string $startDateTime): MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+        return new MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $interval, $startDateTime);
+    }
+
+    /**
+     * Provides operations to call the getApplicableContentTypesForList method.
+     * @param string $listId Usage: listId='{listId}'
+     * @return MicrosoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder
+    */
+    public function microsoftGraphGetApplicableContentTypesForListWithListId(string $listId): MicrosoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder {
+        return new MicrosoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder($this->pathParameters, $this->requestAdapter, $listId);
+    }
+
+    /**
+     * Provides operations to call the getByPath method.
+     * @param string $path Usage: path='{path}'
+     * @return MicrosoftGraphGetByPathWithPathRequestBuilder
+    */
+    public function microsoftGraphGetByPathWithPath(string $path): MicrosoftGraphGetByPathWithPathRequestBuilder {
+        return new MicrosoftGraphGetByPathWithPathRequestBuilder($this->pathParameters, $this->requestAdapter, $path);
     }
 
     /**
@@ -305,17 +319,16 @@ class SiteItemRequestBuilder
      * Update entity in sites
      * @param Site $body The request body
      * @param SiteItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Site $body, ?SiteItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(Site $body, ?SiteItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Site::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Site::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -353,10 +366,10 @@ class SiteItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -379,10 +392,10 @@ class SiteItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

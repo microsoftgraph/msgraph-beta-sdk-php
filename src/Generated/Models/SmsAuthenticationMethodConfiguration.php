@@ -55,7 +55,7 @@ class SmsAuthenticationMethodConfiguration extends AuthenticationMethodConfigura
 
     /**
      * Sets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
-     *  @param array<SmsAuthenticationMethodTarget>|null $value Value to set for the includeTargets property.
+     * @param array<SmsAuthenticationMethodTarget>|null $value Value to set for the includeTargets property.
     */
     public function setIncludeTargets(?array $value): void {
         $this->getBackingStore()->set('includeTargets', $value);

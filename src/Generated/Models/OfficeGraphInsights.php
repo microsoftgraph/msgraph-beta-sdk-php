@@ -81,7 +81,7 @@ class OfficeGraphInsights extends Entity implements Parsable
 
     /**
      * Sets the shared property value. Access this property from the derived type itemInsights.
-     *  @param array<SharedInsight>|null $value Value to set for the shared property.
+     * @param array<SharedInsight>|null $value Value to set for the shared property.
     */
     public function setShared(?array $value): void {
         $this->getBackingStore()->set('shared', $value);
@@ -89,7 +89,7 @@ class OfficeGraphInsights extends Entity implements Parsable
 
     /**
      * Sets the trending property value. Access this property from the derived type itemInsights.
-     *  @param array<Trending>|null $value Value to set for the trending property.
+     * @param array<Trending>|null $value Value to set for the trending property.
     */
     public function setTrending(?array $value): void {
         $this->getBackingStore()->set('trending', $value);
@@ -97,7 +97,7 @@ class OfficeGraphInsights extends Entity implements Parsable
 
     /**
      * Sets the used property value. Access this property from the derived type itemInsights.
-     *  @param array<UsedInsight>|null $value Value to set for the used property.
+     * @param array<UsedInsight>|null $value Value to set for the used property.
     */
     public function setUsed(?array $value): void {
         $this->getBackingStore()->set('used', $value);

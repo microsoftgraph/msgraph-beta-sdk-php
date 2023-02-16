@@ -65,7 +65,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
 
     /**
      * Sets the androidManagedStoreAppTrackIds property value. The track IDs to enable for this app assignment.
-     *  @param array<string>|null $value Value to set for the androidManagedStoreAppTrackIds property.
+     * @param array<string>|null $value Value to set for the androidManagedStoreAppTrackIds property.
     */
     public function setAndroidManagedStoreAppTrackIds(?array $value): void {
         $this->getBackingStore()->set('androidManagedStoreAppTrackIds', $value);
@@ -73,7 +73,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
 
     /**
      * Sets the autoUpdateMode property value. Prioritization for automatic updates of Android Managed Store apps set on assignment.
-     *  @param AndroidManagedStoreAutoUpdateMode|null $value Value to set for the autoUpdateMode property.
+     * @param AndroidManagedStoreAutoUpdateMode|null $value Value to set for the autoUpdateMode property.
     */
     public function setAutoUpdateMode(?AndroidManagedStoreAutoUpdateMode $value): void {
         $this->getBackingStore()->set('autoUpdateMode', $value);

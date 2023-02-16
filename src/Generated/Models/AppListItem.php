@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represents an app in the list of managed applications
+*/
 class AppListItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -43,7 +46,7 @@ class AppListItem implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -127,7 +130,7 @@ class AppListItem implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -135,7 +138,7 @@ class AppListItem implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appId property value. The application or bundle identifier of the application
-     *  @param string|null $value Value to set for the appId property.
+     * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
@@ -143,7 +146,7 @@ class AppListItem implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appStoreUrl property value. The Store URL of the application
-     *  @param string|null $value Value to set for the appStoreUrl property.
+     * @param string|null $value Value to set for the appStoreUrl property.
     */
     public function setAppStoreUrl(?string $value): void {
         $this->getBackingStore()->set('appStoreUrl', $value);
@@ -151,7 +154,7 @@ class AppListItem implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -159,7 +162,7 @@ class AppListItem implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. The application name
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -167,7 +170,7 @@ class AppListItem implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -175,7 +178,7 @@ class AppListItem implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the publisher property value. The publisher of the application
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);

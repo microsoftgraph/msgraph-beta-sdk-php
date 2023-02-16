@@ -124,7 +124,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
 
     /**
      * Sets the checksum property value. The checksum property
-     *  @param string|null $value Value to set for the checksum property.
+     * @param string|null $value Value to set for the checksum property.
     */
     public function setChecksum(?string $value): void {
         $this->getBackingStore()->set('checksum', $value);
@@ -132,7 +132,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
 
     /**
      * Sets the dataUploadURI property value. The dataUploadURI property
-     *  @param string|null $value Value to set for the dataUploadURI property.
+     * @param string|null $value Value to set for the dataUploadURI property.
     */
     public function setDataUploadURI(?string $value): void {
         $this->getBackingStore()->set('dataUploadURI', $value);
@@ -140,7 +140,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
 
     /**
      * Sets the fields property value. The fields property
-     *  @param array<string>|null $value Value to set for the fields property.
+     * @param array<string>|null $value Value to set for the fields property.
     */
     public function setFields(?array $value): void {
         $this->getBackingStore()->set('fields', $value);
@@ -148,7 +148,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
 
     /**
      * Sets the fileName property value. The fileName property
-     *  @param string|null $value Value to set for the fileName property.
+     * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
         $this->getBackingStore()->set('fileName', $value);
@@ -156,7 +156,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
 
     /**
      * Sets the rowsPerBlock property value. The rowsPerBlock property
-     *  @param int|null $value Value to set for the rowsPerBlock property.
+     * @param int|null $value Value to set for the rowsPerBlock property.
     */
     public function setRowsPerBlock(?int $value): void {
         $this->getBackingStore()->set('rowsPerBlock', $value);
@@ -164,7 +164,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
 
     /**
      * Sets the salt property value. The salt property
-     *  @param string|null $value Value to set for the salt property.
+     * @param string|null $value Value to set for the salt property.
     */
     public function setSalt(?string $value): void {
         $this->getBackingStore()->set('salt', $value);
@@ -172,7 +172,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
 
     /**
      * Sets the uploadAgent property value. The uploadAgent property
-     *  @param ExactMatchUploadAgent|null $value Value to set for the uploadAgent property.
+     * @param ExactMatchUploadAgent|null $value Value to set for the uploadAgent property.
     */
     public function setUploadAgent(?ExactMatchUploadAgent $value): void {
         $this->getBackingStore()->set('uploadAgent', $value);
@@ -180,7 +180,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
 
     /**
      * Sets the uploadAgentId property value. The uploadAgentId property
-     *  @param string|null $value Value to set for the uploadAgentId property.
+     * @param string|null $value Value to set for the uploadAgentId property.
     */
     public function setUploadAgentId(?string $value): void {
         $this->getBackingStore()->set('uploadAgentId', $value);

@@ -55,7 +55,7 @@ class EdgeHomeButtonOpensCustomURL extends EdgeHomeButtonConfiguration implement
 
     /**
      * Sets the homeButtonCustomURL property value. The specific URL to load.
-     *  @param string|null $value Value to set for the homeButtonCustomURL property.
+     * @param string|null $value Value to set for the homeButtonCustomURL property.
     */
     public function setHomeButtonCustomURL(?string $value): void {
         $this->getBackingStore()->set('homeButtonCustomURL', $value);

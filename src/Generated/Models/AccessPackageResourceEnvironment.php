@@ -155,7 +155,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResources property value. Read-only. Required.
-     *  @param array<AccessPackageResource>|null $value Value to set for the accessPackageResources property.
+     * @param array<AccessPackageResource>|null $value Value to set for the accessPackageResources property.
     */
     public function setAccessPackageResources(?array $value): void {
         $this->getBackingStore()->set('accessPackageResources', $value);
@@ -163,7 +163,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the connectionInfo property value. Connection information of an environment used to connect to a resource.
-     *  @param ConnectionInfo|null $value Value to set for the connectionInfo property.
+     * @param ConnectionInfo|null $value Value to set for the connectionInfo property.
     */
     public function setConnectionInfo(?ConnectionInfo $value): void {
         $this->getBackingStore()->set('connectionInfo', $value);
@@ -171,7 +171,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The display name of the user that created this object.
-     *  @param string|null $value Value to set for the createdBy property.
+     * @param string|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?string $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -179,7 +179,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time that this object was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -187,7 +187,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of this object.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -195,7 +195,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of this object.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -203,7 +203,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the isDefaultEnvironment property value. Determines whether this is default environment or not. It is set to true for all static origin systems, such as Azure AD groups and Azure AD Applications.
-     *  @param bool|null $value Value to set for the isDefaultEnvironment property.
+     * @param bool|null $value Value to set for the isDefaultEnvironment property.
     */
     public function setIsDefaultEnvironment(?bool $value): void {
         $this->getBackingStore()->set('isDefaultEnvironment', $value);
@@ -211,7 +211,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the modifiedBy property value. The display name of the entity that last modified this object.
-     *  @param string|null $value Value to set for the modifiedBy property.
+     * @param string|null $value Value to set for the modifiedBy property.
     */
     public function setModifiedBy(?string $value): void {
         $this->getBackingStore()->set('modifiedBy', $value);
@@ -219,7 +219,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the modifiedDateTime property value. The date and time that this object was last modified. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the modifiedDateTime property.
+     * @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);
@@ -227,7 +227,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the originId property value. The unique identifier of this environment in the origin system.
-     *  @param string|null $value Value to set for the originId property.
+     * @param string|null $value Value to set for the originId property.
     */
     public function setOriginId(?string $value): void {
         $this->getBackingStore()->set('originId', $value);
@@ -235,7 +235,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
 
     /**
      * Sets the originSystem property value. The type of the resource in the origin system, that is, SharePointOnline. Requires $filter (eq).
-     *  @param string|null $value Value to set for the originSystem property.
+     * @param string|null $value Value to set for the originSystem property.
     */
     public function setOriginSystem(?string $value): void {
         $this->getBackingStore()->set('originSystem', $value);

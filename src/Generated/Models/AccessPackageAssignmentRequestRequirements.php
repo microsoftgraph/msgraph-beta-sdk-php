@@ -36,7 +36,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -180,7 +180,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -188,7 +188,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -196,7 +196,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the existingAnswers property value. Answers that have already been provided.
-     *  @param array<AccessPackageAnswer>|null $value Value to set for the existingAnswers property.
+     * @param array<AccessPackageAnswer>|null $value Value to set for the existingAnswers property.
     */
     public function setExistingAnswers(?array $value): void {
         $this->getBackingStore()->set('existingAnswers', $value);
@@ -204,7 +204,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the isApprovalRequired property value. Indicates whether a request must be approved by an approver.
-     *  @param bool|null $value Value to set for the isApprovalRequired property.
+     * @param bool|null $value Value to set for the isApprovalRequired property.
     */
     public function setIsApprovalRequired(?bool $value): void {
         $this->getBackingStore()->set('isApprovalRequired', $value);
@@ -212,7 +212,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the isApprovalRequiredForExtension property value. Indicates whether approval is required when a user tries to extend their access.
-     *  @param bool|null $value Value to set for the isApprovalRequiredForExtension property.
+     * @param bool|null $value Value to set for the isApprovalRequiredForExtension property.
     */
     public function setIsApprovalRequiredForExtension(?bool $value): void {
         $this->getBackingStore()->set('isApprovalRequiredForExtension', $value);
@@ -220,7 +220,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the isCustomAssignmentScheduleAllowed property value. Indicates whether the requestor is allowed to set a custom schedule.
-     *  @param bool|null $value Value to set for the isCustomAssignmentScheduleAllowed property.
+     * @param bool|null $value Value to set for the isCustomAssignmentScheduleAllowed property.
     */
     public function setIsCustomAssignmentScheduleAllowed(?bool $value): void {
         $this->getBackingStore()->set('isCustomAssignmentScheduleAllowed', $value);
@@ -228,7 +228,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the isRequestorJustificationRequired property value. Indicates whether a requestor must supply justification when submitting an assignment request.
-     *  @param bool|null $value Value to set for the isRequestorJustificationRequired property.
+     * @param bool|null $value Value to set for the isRequestorJustificationRequired property.
     */
     public function setIsRequestorJustificationRequired(?bool $value): void {
         $this->getBackingStore()->set('isRequestorJustificationRequired', $value);
@@ -236,7 +236,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -244,7 +244,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the policyDescription property value. The description of the policy that the user is trying to request access using.
-     *  @param string|null $value Value to set for the policyDescription property.
+     * @param string|null $value Value to set for the policyDescription property.
     */
     public function setPolicyDescription(?string $value): void {
         $this->getBackingStore()->set('policyDescription', $value);
@@ -252,7 +252,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the policyDisplayName property value. The display name of the policy that the user is trying to request access using.
-     *  @param string|null $value Value to set for the policyDisplayName property.
+     * @param string|null $value Value to set for the policyDisplayName property.
     */
     public function setPolicyDisplayName(?string $value): void {
         $this->getBackingStore()->set('policyDisplayName', $value);
@@ -260,7 +260,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the policyId property value. The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request.
-     *  @param string|null $value Value to set for the policyId property.
+     * @param string|null $value Value to set for the policyId property.
     */
     public function setPolicyId(?string $value): void {
         $this->getBackingStore()->set('policyId', $value);
@@ -268,7 +268,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the questions property value. Questions that are configured on the policy. The questions can be required or optional; callers can determine whether a question is required or optional based on the isRequired property on accessPackageQuestion.
-     *  @param array<AccessPackageQuestion>|null $value Value to set for the questions property.
+     * @param array<AccessPackageQuestion>|null $value Value to set for the questions property.
     */
     public function setQuestions(?array $value): void {
         $this->getBackingStore()->set('questions', $value);
@@ -276,7 +276,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
 
     /**
      * Sets the schedule property value. Schedule restrictions enforced, if any.
-     *  @param RequestSchedule|null $value Value to set for the schedule property.
+     * @param RequestSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?RequestSchedule $value): void {
         $this->getBackingStore()->set('schedule', $value);

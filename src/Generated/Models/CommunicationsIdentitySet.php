@@ -125,7 +125,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
 
     /**
      * Sets the applicationInstance property value. The application instance associated with this action.
-     *  @param Identity|null $value Value to set for the applicationInstance property.
+     * @param Identity|null $value Value to set for the applicationInstance property.
     */
     public function setApplicationInstance(?Identity $value): void {
         $this->getBackingStore()->set('applicationInstance', $value);
@@ -133,7 +133,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
 
     /**
      * Sets the assertedIdentity property value. An identity the participant would like to present itself as to the other participants in the call.
-     *  @param Identity|null $value Value to set for the assertedIdentity property.
+     * @param Identity|null $value Value to set for the assertedIdentity property.
     */
     public function setAssertedIdentity(?Identity $value): void {
         $this->getBackingStore()->set('assertedIdentity', $value);
@@ -141,7 +141,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
 
     /**
      * Sets the azureCommunicationServicesUser property value. The Azure Communication Services user associated with this action.
-     *  @param Identity|null $value Value to set for the azureCommunicationServicesUser property.
+     * @param Identity|null $value Value to set for the azureCommunicationServicesUser property.
     */
     public function setAzureCommunicationServicesUser(?Identity $value): void {
         $this->getBackingStore()->set('azureCommunicationServicesUser', $value);
@@ -149,7 +149,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
 
     /**
      * Sets the encrypted property value. The encrypted user associated with this action.
-     *  @param Identity|null $value Value to set for the encrypted property.
+     * @param Identity|null $value Value to set for the encrypted property.
     */
     public function setEncrypted(?Identity $value): void {
         $this->getBackingStore()->set('encrypted', $value);
@@ -157,7 +157,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
 
     /**
      * Sets the endpointType property value. Type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
-     *  @param EndpointType|null $value Value to set for the endpointType property.
+     * @param EndpointType|null $value Value to set for the endpointType property.
     */
     public function setEndpointType(?EndpointType $value): void {
         $this->getBackingStore()->set('endpointType', $value);
@@ -165,7 +165,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
 
     /**
      * Sets the guest property value. The guest user associated with this action.
-     *  @param Identity|null $value Value to set for the guest property.
+     * @param Identity|null $value Value to set for the guest property.
     */
     public function setGuest(?Identity $value): void {
         $this->getBackingStore()->set('guest', $value);
@@ -173,7 +173,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
 
     /**
      * Sets the onPremises property value. The Skype for Business On-Premises user associated with this action.
-     *  @param Identity|null $value Value to set for the onPremises property.
+     * @param Identity|null $value Value to set for the onPremises property.
     */
     public function setOnPremises(?Identity $value): void {
         $this->getBackingStore()->set('onPremises', $value);
@@ -181,7 +181,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
 
     /**
      * Sets the phone property value. Inherited from identitySet. The phone user associated with this action.
-     *  @param Identity|null $value Value to set for the phone property.
+     * @param Identity|null $value Value to set for the phone property.
     */
     public function setPhone(?Identity $value): void {
         $this->getBackingStore()->set('phone', $value);

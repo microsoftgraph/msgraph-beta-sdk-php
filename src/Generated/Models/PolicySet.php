@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for PolicySet.
+*/
 class PolicySet extends Entity implements Parsable 
 {
     /**
@@ -145,7 +148,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. Assignments of the PolicySet.
-     *  @param array<PolicySetAssignment>|null $value Value to set for the assignments property.
+     * @param array<PolicySetAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -153,7 +156,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Creation time of the PolicySet.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -161,7 +164,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the PolicySet.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -169,7 +172,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. DisplayName of the PolicySet.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -177,7 +180,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the errorCode property value. The errorCode property
-     *  @param ErrorCode|null $value Value to set for the errorCode property.
+     * @param ErrorCode|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?ErrorCode $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -185,7 +188,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the guidedDeploymentTags property value. Tags of the guided deployment
-     *  @param array<string>|null $value Value to set for the guidedDeploymentTags property.
+     * @param array<string>|null $value Value to set for the guidedDeploymentTags property.
     */
     public function setGuidedDeploymentTags(?array $value): void {
         $this->getBackingStore()->set('guidedDeploymentTags', $value);
@@ -193,7 +196,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the items property value. Items of the PolicySet with maximum count 100.
-     *  @param array<PolicySetItem>|null $value Value to set for the items property.
+     * @param array<PolicySetItem>|null $value Value to set for the items property.
     */
     public function setItems(?array $value): void {
         $this->getBackingStore()->set('items', $value);
@@ -201,7 +204,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified time of the PolicySet.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -209,7 +212,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTags property value. RoleScopeTags of the PolicySet
-     *  @param array<string>|null $value Value to set for the roleScopeTags property.
+     * @param array<string>|null $value Value to set for the roleScopeTags property.
     */
     public function setRoleScopeTags(?array $value): void {
         $this->getBackingStore()->set('roleScopeTags', $value);
@@ -217,7 +220,7 @@ class PolicySet extends Entity implements Parsable
 
     /**
      * Sets the status property value. The enum to specify the status of PolicySet.
-     *  @param PolicySetStatus|null $value Value to set for the status property.
+     * @param PolicySetStatus|null $value Value to set for the status property.
     */
     public function setStatus(?PolicySetStatus $value): void {
         $this->getBackingStore()->set('status', $value);

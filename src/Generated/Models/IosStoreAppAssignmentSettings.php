@@ -75,7 +75,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
 
     /**
      * Sets the isRemovable property value. Whether or not the app can be removed by the user.
-     *  @param bool|null $value Value to set for the isRemovable property.
+     * @param bool|null $value Value to set for the isRemovable property.
     */
     public function setIsRemovable(?bool $value): void {
         $this->getBackingStore()->set('isRemovable', $value);
@@ -83,7 +83,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
 
     /**
      * Sets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
-     *  @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
+     * @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
     */
     public function setUninstallOnDeviceRemoval(?bool $value): void {
         $this->getBackingStore()->set('uninstallOnDeviceRemoval', $value);
@@ -91,7 +91,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings implemen
 
     /**
      * Sets the vpnConfigurationId property value. The VPN Configuration Id to apply for this app.
-     *  @param string|null $value Value to set for the vpnConfigurationId property.
+     * @param string|null $value Value to set for the vpnConfigurationId property.
     */
     public function setVpnConfigurationId(?string $value): void {
         $this->getBackingStore()->set('vpnConfigurationId', $value);

@@ -76,7 +76,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
 
     /**
      * Sets the authenticationCertificateId property value. ID to the Authentication Certificate
-     *  @param string|null $value Value to set for the authenticationCertificateId property.
+     * @param string|null $value Value to set for the authenticationCertificateId property.
     */
     public function setAuthenticationCertificateId(?string $value): void {
         $this->getBackingStore()->set('authenticationCertificateId', $value);
@@ -84,7 +84,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
 
     /**
      * Sets the customXml property value. Custom XML commands that configures the VPN connection. (UTF8 byte encoding)
-     *  @param StreamInterface|null $value Value to set for the customXml property.
+     * @param StreamInterface|null $value Value to set for the customXml property.
     */
     public function setCustomXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('customXml', $value);
@@ -92,7 +92,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
 
     /**
      * Sets the customXmlFileName property value. Custom Xml file name.
-     *  @param string|null $value Value to set for the customXmlFileName property.
+     * @param string|null $value Value to set for the customXmlFileName property.
     */
     public function setCustomXmlFileName(?string $value): void {
         $this->getBackingStore()->set('customXmlFileName', $value);

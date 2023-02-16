@@ -85,7 +85,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
 
     /**
      * Sets the defaultLabelId property value. The defaultLabelId property
-     *  @param string|null $value Value to set for the defaultLabelId property.
+     * @param string|null $value Value to set for the defaultLabelId property.
     */
     public function setDefaultLabelId(?string $value): void {
         $this->getBackingStore()->set('defaultLabelId', $value);
@@ -93,7 +93,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
 
     /**
      * Sets the isDowngradeJustificationRequired property value. Exposes whether justification input is required on label downgrade.
-     *  @param bool|null $value Value to set for the isDowngradeJustificationRequired property.
+     * @param bool|null $value Value to set for the isDowngradeJustificationRequired property.
     */
     public function setIsDowngradeJustificationRequired(?bool $value): void {
         $this->getBackingStore()->set('isDowngradeJustificationRequired', $value);
@@ -101,7 +101,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
 
     /**
      * Sets the isMandatory property value. Exposes whether mandatory labeling is enabled.
-     *  @param bool|null $value Value to set for the isMandatory property.
+     * @param bool|null $value Value to set for the isMandatory property.
     */
     public function setIsMandatory(?bool $value): void {
         $this->getBackingStore()->set('isMandatory', $value);
@@ -109,7 +109,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
 
     /**
      * Sets the moreInfoUrl property value. Exposes the more information URL that can be configured by the administrator.
-     *  @param string|null $value Value to set for the moreInfoUrl property.
+     * @param string|null $value Value to set for the moreInfoUrl property.
     */
     public function setMoreInfoUrl(?string $value): void {
         $this->getBackingStore()->set('moreInfoUrl', $value);

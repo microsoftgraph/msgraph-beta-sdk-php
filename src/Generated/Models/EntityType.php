@@ -17,4 +17,5 @@ class EntityType extends Enum {
     public const ACRONYM = 'acronym';
     public const BOOKMARK = 'bookmark';
     public const CHAT_MESSAGE = 'chatMessage';
+    public const QNA = 'qna';
 }

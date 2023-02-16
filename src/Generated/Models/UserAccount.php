@@ -37,7 +37,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -141,7 +141,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -149,7 +149,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -157,7 +157,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -165,7 +165,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastSeenDateTime property value. The lastSeenDateTime property
-     *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
+     * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSeenDateTime', $value);
@@ -173,7 +173,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -181,7 +181,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the riskScore property value. The riskScore property
-     *  @param string|null $value Value to set for the riskScore property.
+     * @param string|null $value Value to set for the riskScore property.
     */
     public function setRiskScore(?string $value): void {
         $this->getBackingStore()->set('riskScore', $value);
@@ -189,7 +189,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the service property value. The service property
-     *  @param string|null $value Value to set for the service property.
+     * @param string|null $value Value to set for the service property.
     */
     public function setService(?string $value): void {
         $this->getBackingStore()->set('service', $value);
@@ -197,7 +197,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the signinName property value. The signinName property
-     *  @param string|null $value Value to set for the signinName property.
+     * @param string|null $value Value to set for the signinName property.
     */
     public function setSigninName(?string $value): void {
         $this->getBackingStore()->set('signinName', $value);
@@ -205,7 +205,7 @@ class UserAccount implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param AccountStatus|null $value Value to set for the status property.
+     * @param AccountStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AccountStatus $value): void {
         $this->getBackingStore()->set('status', $value);

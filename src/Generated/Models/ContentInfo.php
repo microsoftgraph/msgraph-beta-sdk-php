@@ -36,7 +36,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the format property value. The format property
-     *  @param ContentFormat|null $value Value to set for the format property.
+     * @param ContentFormat|null $value Value to set for the format property.
     */
     public function setFormat(?ContentFormat $value): void {
         $this->getBackingStore()->set('format', $value);
@@ -144,7 +144,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the identifier property value. Identifier used for Azure Information Protection Analytics.
-     *  @param string|null $value Value to set for the identifier property.
+     * @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value): void {
         $this->getBackingStore()->set('identifier', $value);
@@ -152,7 +152,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the metadata property value. Existing Microsoft Purview Information Protection metadata is passed as key/value pairs, where the key is the MSIP_Label_GUID_PropName.
-     *  @param array<KeyValuePair>|null $value Value to set for the metadata property.
+     * @param array<KeyValuePair>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);
@@ -160,7 +160,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class ContentInfo implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param ContentState|null $value Value to set for the state property.
+     * @param ContentState|null $value Value to set for the state property.
     */
     public function setState(?ContentState $value): void {
         $this->getBackingStore()->set('state', $value);

@@ -36,7 +36,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -160,7 +160,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,7 +168,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the attributeMappings property value. Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
-     *  @param array<AttributeMapping>|null $value Value to set for the attributeMappings property.
+     * @param array<AttributeMapping>|null $value Value to set for the attributeMappings property.
     */
     public function setAttributeMappings(?array $value): void {
         $this->getBackingStore()->set('attributeMappings', $value);
@@ -176,7 +176,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -184,7 +184,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the enabled property value. When true, this object mapping will be processed during synchronization. When false, this object mapping will be skipped.
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -192,7 +192,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the flowTypes property value. The flowTypes property
-     *  @param ObjectFlowTypes|null $value Value to set for the flowTypes property.
+     * @param ObjectFlowTypes|null $value Value to set for the flowTypes property.
     */
     public function setFlowTypes(?ObjectFlowTypes $value): void {
         $this->getBackingStore()->set('flowTypes', $value);
@@ -200,7 +200,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-     *  @param array<MetadataEntry>|null $value Value to set for the metadata property.
+     * @param array<MetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);
@@ -208,7 +208,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. Human-friendly name of the object mapping.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -216,7 +216,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -224,7 +224,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the scope property value. Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
-     *  @param Filter|null $value Value to set for the scope property.
+     * @param Filter|null $value Value to set for the scope property.
     */
     public function setScope(?Filter $value): void {
         $this->getBackingStore()->set('scope', $value);
@@ -232,7 +232,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sourceObjectName property value. Name of the object in the source directory. Must match the object name from the source directory definition.
-     *  @param string|null $value Value to set for the sourceObjectName property.
+     * @param string|null $value Value to set for the sourceObjectName property.
     */
     public function setSourceObjectName(?string $value): void {
         $this->getBackingStore()->set('sourceObjectName', $value);
@@ -240,7 +240,7 @@ class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the targetObjectName property value. Name of the object in target directory. Must match the object name from the target directory definition.
-     *  @param string|null $value Value to set for the targetObjectName property.
+     * @param string|null $value Value to set for the targetObjectName property.
     */
     public function setTargetObjectName(?string $value): void {
         $this->getBackingStore()->set('targetObjectName', $value);

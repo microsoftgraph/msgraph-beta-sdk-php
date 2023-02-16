@@ -76,7 +76,7 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
 
     /**
      * Sets the date property value. The date property
-     *  @param Date|null $value Value to set for the date property.
+     * @param Date|null $value Value to set for the date property.
     */
     public function setDate(?Date $value): void {
         $this->getBackingStore()->set('date', $value);
@@ -84,7 +84,7 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -92,7 +92,7 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param PersonAnnualEventType|null $value Value to set for the type property.
+     * @param PersonAnnualEventType|null $value Value to set for the type property.
     */
     public function setType(?PersonAnnualEventType $value): void {
         $this->getBackingStore()->set('type', $value);

@@ -36,7 +36,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -180,7 +180,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -188,7 +188,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -196,7 +196,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the comment property value. A comment was added to the item.
-     *  @param CommentAction|null $value Value to set for the comment property.
+     * @param CommentAction|null $value Value to set for the comment property.
     */
     public function setComment(?CommentAction $value): void {
         $this->getBackingStore()->set('comment', $value);
@@ -204,7 +204,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the create property value. An item was created.
-     *  @param CreateAction|null $value Value to set for the create property.
+     * @param CreateAction|null $value Value to set for the create property.
     */
     public function setCreate(?CreateAction $value): void {
         $this->getBackingStore()->set('create', $value);
@@ -212,7 +212,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the delete property value. An item was deleted.
-     *  @param DeleteAction|null $value Value to set for the delete property.
+     * @param DeleteAction|null $value Value to set for the delete property.
     */
     public function setDelete(?DeleteAction $value): void {
         $this->getBackingStore()->set('delete', $value);
@@ -220,7 +220,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the edit property value. An item was edited.
-     *  @param EditAction|null $value Value to set for the edit property.
+     * @param EditAction|null $value Value to set for the edit property.
     */
     public function setEdit(?EditAction $value): void {
         $this->getBackingStore()->set('edit', $value);
@@ -228,7 +228,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mention property value. A user was mentioned in the item.
-     *  @param MentionAction|null $value Value to set for the mention property.
+     * @param MentionAction|null $value Value to set for the mention property.
     */
     public function setMention(?MentionAction $value): void {
         $this->getBackingStore()->set('mention', $value);
@@ -236,7 +236,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the move property value. An item was moved.
-     *  @param MoveAction|null $value Value to set for the move property.
+     * @param MoveAction|null $value Value to set for the move property.
     */
     public function setMove(?MoveAction $value): void {
         $this->getBackingStore()->set('move', $value);
@@ -244,7 +244,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -252,7 +252,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the rename property value. An item was renamed.
-     *  @param RenameAction|null $value Value to set for the rename property.
+     * @param RenameAction|null $value Value to set for the rename property.
     */
     public function setRename(?RenameAction $value): void {
         $this->getBackingStore()->set('rename', $value);
@@ -260,7 +260,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the restore property value. An item was restored.
-     *  @param RestoreAction|null $value Value to set for the restore property.
+     * @param RestoreAction|null $value Value to set for the restore property.
     */
     public function setRestore(?RestoreAction $value): void {
         $this->getBackingStore()->set('restore', $value);
@@ -268,7 +268,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the share property value. An item was shared.
-     *  @param ShareAction|null $value Value to set for the share property.
+     * @param ShareAction|null $value Value to set for the share property.
     */
     public function setShare(?ShareAction $value): void {
         $this->getBackingStore()->set('share', $value);
@@ -276,7 +276,7 @@ class ItemActionSet implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the version property value. An item was versioned.
-     *  @param VersionAction|null $value Value to set for the version property.
+     * @param VersionAction|null $value Value to set for the version property.
     */
     public function setVersion(?VersionAction $value): void {
         $this->getBackingStore()->set('version', $value);

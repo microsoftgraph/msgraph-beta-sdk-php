@@ -54,7 +54,7 @@ class ActivateDeviceEsimActionResult extends DeviceActionResult implements Parsa
 
     /**
      * Sets the carrierUrl property value. Carrier Url to activate the device eSIM
-     *  @param string|null $value Value to set for the carrierUrl property.
+     * @param string|null $value Value to set for the carrierUrl property.
     */
     public function setCarrierUrl(?string $value): void {
         $this->getBackingStore()->set('carrierUrl', $value);

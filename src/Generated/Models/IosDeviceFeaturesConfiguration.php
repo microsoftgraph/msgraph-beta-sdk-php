@@ -195,7 +195,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the assetTagTemplate property value. Asset tag information for the device, displayed on the login window and lock screen.
-     *  @param string|null $value Value to set for the assetTagTemplate property.
+     * @param string|null $value Value to set for the assetTagTemplate property.
     */
     public function setAssetTagTemplate(?string $value): void {
         $this->getBackingStore()->set('assetTagTemplate', $value);
@@ -203,7 +203,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the contentFilterSettings property value. Gets or sets iOS Web Content Filter settings, supervised mode only
-     *  @param IosWebContentFilterBase|null $value Value to set for the contentFilterSettings property.
+     * @param IosWebContentFilterBase|null $value Value to set for the contentFilterSettings property.
     */
     public function setContentFilterSettings(?IosWebContentFilterBase $value): void {
         $this->getBackingStore()->set('contentFilterSettings', $value);
@@ -211,7 +211,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the homeScreenDockIcons property value. A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements.
-     *  @param array<IosHomeScreenItem>|null $value Value to set for the homeScreenDockIcons property.
+     * @param array<IosHomeScreenItem>|null $value Value to set for the homeScreenDockIcons property.
     */
     public function setHomeScreenDockIcons(?array $value): void {
         $this->getBackingStore()->set('homeScreenDockIcons', $value);
@@ -219,7 +219,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the homeScreenGridHeight property value. Gets or sets the number of rows to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridWidth must be configured as well.
-     *  @param int|null $value Value to set for the homeScreenGridHeight property.
+     * @param int|null $value Value to set for the homeScreenGridHeight property.
     */
     public function setHomeScreenGridHeight(?int $value): void {
         $this->getBackingStore()->set('homeScreenGridHeight', $value);
@@ -227,7 +227,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the homeScreenGridWidth property value. Gets or sets the number of columns to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridHeight must be configured as well.
-     *  @param int|null $value Value to set for the homeScreenGridWidth property.
+     * @param int|null $value Value to set for the homeScreenGridWidth property.
     */
     public function setHomeScreenGridWidth(?int $value): void {
         $this->getBackingStore()->set('homeScreenGridWidth', $value);
@@ -235,7 +235,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the homeScreenPages property value. A list of pages on the Home Screen. This collection can contain a maximum of 500 elements.
-     *  @param array<IosHomeScreenPage>|null $value Value to set for the homeScreenPages property.
+     * @param array<IosHomeScreenPage>|null $value Value to set for the homeScreenPages property.
     */
     public function setHomeScreenPages(?array $value): void {
         $this->getBackingStore()->set('homeScreenPages', $value);
@@ -243,7 +243,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the identityCertificateForClientAuthentication property value. Identity Certificate for the renewal of Kerberos ticket used in single sign-on settings.
-     *  @param IosCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
+     * @param IosCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
     */
     public function setIdentityCertificateForClientAuthentication(?IosCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificateForClientAuthentication', $value);
@@ -251,7 +251,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the iosSingleSignOnExtension property value. Gets or sets a single sign-on extension profile.
-     *  @param IosSingleSignOnExtension|null $value Value to set for the iosSingleSignOnExtension property.
+     * @param IosSingleSignOnExtension|null $value Value to set for the iosSingleSignOnExtension property.
     */
     public function setIosSingleSignOnExtension(?IosSingleSignOnExtension $value): void {
         $this->getBackingStore()->set('iosSingleSignOnExtension', $value);
@@ -259,7 +259,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the lockScreenFootnote property value. A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.
-     *  @param string|null $value Value to set for the lockScreenFootnote property.
+     * @param string|null $value Value to set for the lockScreenFootnote property.
     */
     public function setLockScreenFootnote(?string $value): void {
         $this->getBackingStore()->set('lockScreenFootnote', $value);
@@ -267,7 +267,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the notificationSettings property value. Notification settings for each bundle id. Applicable to devices in supervised mode only (iOS 9.3 and later). This collection can contain a maximum of 500 elements.
-     *  @param array<IosNotificationSettings>|null $value Value to set for the notificationSettings property.
+     * @param array<IosNotificationSettings>|null $value Value to set for the notificationSettings property.
     */
     public function setNotificationSettings(?array $value): void {
         $this->getBackingStore()->set('notificationSettings', $value);
@@ -275,7 +275,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the singleSignOnExtension property value. Gets or sets a single sign-on extension profile. Deprecated: use IOSSingleSignOnExtension instead.
-     *  @param SingleSignOnExtension|null $value Value to set for the singleSignOnExtension property.
+     * @param SingleSignOnExtension|null $value Value to set for the singleSignOnExtension property.
     */
     public function setSingleSignOnExtension(?SingleSignOnExtension $value): void {
         $this->getBackingStore()->set('singleSignOnExtension', $value);
@@ -283,7 +283,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the singleSignOnExtensionPkinitCertificate property value. PKINIT Certificate for the authentication with single sign-on extension settings.
-     *  @param IosCertificateProfileBase|null $value Value to set for the singleSignOnExtensionPkinitCertificate property.
+     * @param IosCertificateProfileBase|null $value Value to set for the singleSignOnExtensionPkinitCertificate property.
     */
     public function setSingleSignOnExtensionPkinitCertificate(?IosCertificateProfileBase $value): void {
         $this->getBackingStore()->set('singleSignOnExtensionPkinitCertificate', $value);
@@ -291,7 +291,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the singleSignOnSettings property value. The Kerberos login settings that enable apps on receiving devices to authenticate smoothly.
-     *  @param IosSingleSignOnSettings|null $value Value to set for the singleSignOnSettings property.
+     * @param IosSingleSignOnSettings|null $value Value to set for the singleSignOnSettings property.
     */
     public function setSingleSignOnSettings(?IosSingleSignOnSettings $value): void {
         $this->getBackingStore()->set('singleSignOnSettings', $value);
@@ -299,7 +299,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the wallpaperDisplayLocation property value. An enum type for wallpaper display location specifier.
-     *  @param IosWallpaperDisplayLocation|null $value Value to set for the wallpaperDisplayLocation property.
+     * @param IosWallpaperDisplayLocation|null $value Value to set for the wallpaperDisplayLocation property.
     */
     public function setWallpaperDisplayLocation(?IosWallpaperDisplayLocation $value): void {
         $this->getBackingStore()->set('wallpaperDisplayLocation', $value);
@@ -307,7 +307,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
 
     /**
      * Sets the wallpaperImage property value. A wallpaper image must be in either PNG or JPEG format. It requires a supervised device with iOS 8 or later version.
-     *  @param MimeContent|null $value Value to set for the wallpaperImage property.
+     * @param MimeContent|null $value Value to set for the wallpaperImage property.
     */
     public function setWallpaperImage(?MimeContent $value): void {
         $this->getBackingStore()->set('wallpaperImage', $value);

@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Contains properties for iOS Volume-Purchased Program (Vpp) Licensing Type.
+*/
 class VppLicensingType implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class VppLicensingType implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class VppLicensingType implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class VppLicensingType implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class VppLicensingType implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -144,7 +147,7 @@ class VppLicensingType implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportDeviceLicensing property value. Whether the program supports the device licensing type.
-     *  @param bool|null $value Value to set for the supportDeviceLicensing property.
+     * @param bool|null $value Value to set for the supportDeviceLicensing property.
     */
     public function setSupportDeviceLicensing(?bool $value): void {
         $this->getBackingStore()->set('supportDeviceLicensing', $value);
@@ -152,7 +155,7 @@ class VppLicensingType implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportsDeviceLicensing property value. Whether the program supports the device licensing type.
-     *  @param bool|null $value Value to set for the supportsDeviceLicensing property.
+     * @param bool|null $value Value to set for the supportsDeviceLicensing property.
     */
     public function setSupportsDeviceLicensing(?bool $value): void {
         $this->getBackingStore()->set('supportsDeviceLicensing', $value);
@@ -160,7 +163,7 @@ class VppLicensingType implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportsUserLicensing property value. Whether the program supports the user licensing type.
-     *  @param bool|null $value Value to set for the supportsUserLicensing property.
+     * @param bool|null $value Value to set for the supportsUserLicensing property.
     */
     public function setSupportsUserLicensing(?bool $value): void {
         $this->getBackingStore()->set('supportsUserLicensing', $value);
@@ -168,7 +171,7 @@ class VppLicensingType implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the supportUserLicensing property value. Whether the program supports the user licensing type.
-     *  @param bool|null $value Value to set for the supportUserLicensing property.
+     * @param bool|null $value Value to set for the supportUserLicensing property.
     */
     public function setSupportUserLicensing(?bool $value): void {
         $this->getBackingStore()->set('supportUserLicensing', $value);

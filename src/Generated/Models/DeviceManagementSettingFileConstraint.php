@@ -55,7 +55,7 @@ class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint i
 
     /**
      * Sets the supportedExtensions property value. Acceptable file extensions to upload for this setting
-     *  @param array<string>|null $value Value to set for the supportedExtensions property.
+     * @param array<string>|null $value Value to set for the supportedExtensions property.
     */
     public function setSupportedExtensions(?array $value): void {
         $this->getBackingStore()->set('supportedExtensions', $value);

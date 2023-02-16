@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
+/**
+ * Custom update time window
+*/
 class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +124,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -129,7 +132,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -137,7 +140,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the endDay property value. The endDay property
-     *  @param DayOfWeek|null $value Value to set for the endDay property.
+     * @param DayOfWeek|null $value Value to set for the endDay property.
     */
     public function setEndDay(?DayOfWeek $value): void {
         $this->getBackingStore()->set('endDay', $value);
@@ -145,7 +148,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the endTime property value. End time of the time window
-     *  @param Time|null $value Value to set for the endTime property.
+     * @param Time|null $value Value to set for the endTime property.
     */
     public function setEndTime(?Time $value): void {
         $this->getBackingStore()->set('endTime', $value);
@@ -153,7 +156,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -161,7 +164,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the startDay property value. The startDay property
-     *  @param DayOfWeek|null $value Value to set for the startDay property.
+     * @param DayOfWeek|null $value Value to set for the startDay property.
     */
     public function setStartDay(?DayOfWeek $value): void {
         $this->getBackingStore()->set('startDay', $value);
@@ -169,7 +172,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the startTime property value. Start time of the time window
-     *  @param Time|null $value Value to set for the startTime property.
+     * @param Time|null $value Value to set for the startTime property.
     */
     public function setStartTime(?Time $value): void {
         $this->getBackingStore()->set('startTime', $value);

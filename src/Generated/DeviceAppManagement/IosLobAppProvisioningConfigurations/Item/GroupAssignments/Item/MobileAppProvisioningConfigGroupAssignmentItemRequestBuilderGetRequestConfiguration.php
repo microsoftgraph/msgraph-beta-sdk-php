@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioni
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
@@ -21,4 +24,26 @@ class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConf
     */
     public ?MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters {
+        return new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -104,7 +104,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
 
     /**
      * Sets the description property value. Continuous access evaluation automatically blocks access to resources and applications in near real time when a user's access is removed or a client IP address changes. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -112,7 +112,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The value is always Continuous Access Evaluation. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -120,7 +120,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
 
     /**
      * Sets the groups property value. The collection of group identifiers in scope for evaluation. All groups are in scope when the collection is empty. Read-only.
-     *  @param array<string>|null $value Value to set for the groups property.
+     * @param array<string>|null $value Value to set for the groups property.
     */
     public function setGroups(?array $value): void {
         $this->getBackingStore()->set('groups', $value);
@@ -128,7 +128,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
 
     /**
      * Sets the isEnabled property value. true to indicate whether continuous access evaluation should be performed; otherwise false. Read-only.
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -136,7 +136,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
 
     /**
      * Sets the migrate property value. true to indicate that the continuous access evaluation policy settings should be or has been migrated to the conditional access policy.
-     *  @param bool|null $value Value to set for the migrate property.
+     * @param bool|null $value Value to set for the migrate property.
     */
     public function setMigrate(?bool $value): void {
         $this->getBackingStore()->set('migrate', $value);
@@ -144,7 +144,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
 
     /**
      * Sets the users property value. The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty. Read-only.
-     *  @param array<string>|null $value Value to set for the users property.
+     * @param array<string>|null $value Value to set for the users property.
     */
     public function setUsers(?array $value): void {
         $this->getBackingStore()->set('users', $value);

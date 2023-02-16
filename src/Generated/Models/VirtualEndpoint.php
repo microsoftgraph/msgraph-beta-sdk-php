@@ -138,7 +138,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharedUseServicePlans property value. The sharedUseServicePlans property
+     * Gets the sharedUseServicePlans property value. Cloud PC shared-use service plans.
      * @return array<CloudPcSharedUseServicePlan>|null
     */
     public function getSharedUseServicePlans(): ?array {
@@ -194,7 +194,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the auditEvents property value. Cloud PC audit event.
-     *  @param array<CloudPcAuditEvent>|null $value Value to set for the auditEvents property.
+     * @param array<CloudPcAuditEvent>|null $value Value to set for the auditEvents property.
     */
     public function setAuditEvents(?array $value): void {
         $this->getBackingStore()->set('auditEvents', $value);
@@ -202,7 +202,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the cloudPCs property value. Cloud managed virtual desktops.
-     *  @param array<CloudPC>|null $value Value to set for the cloudPCs property.
+     * @param array<CloudPC>|null $value Value to set for the cloudPCs property.
     */
     public function setCloudPCs(?array $value): void {
         $this->getBackingStore()->set('cloudPCs', $value);
@@ -210,7 +210,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the crossCloudGovernmentOrganizationMapping property value. Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
-     *  @param CloudPcCrossCloudGovernmentOrganizationMapping|null $value Value to set for the crossCloudGovernmentOrganizationMapping property.
+     * @param CloudPcCrossCloudGovernmentOrganizationMapping|null $value Value to set for the crossCloudGovernmentOrganizationMapping property.
     */
     public function setCrossCloudGovernmentOrganizationMapping(?CloudPcCrossCloudGovernmentOrganizationMapping $value): void {
         $this->getBackingStore()->set('crossCloudGovernmentOrganizationMapping', $value);
@@ -218,7 +218,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the deviceImages property value. The image resource on Cloud PC.
-     *  @param array<CloudPcDeviceImage>|null $value Value to set for the deviceImages property.
+     * @param array<CloudPcDeviceImage>|null $value Value to set for the deviceImages property.
     */
     public function setDeviceImages(?array $value): void {
         $this->getBackingStore()->set('deviceImages', $value);
@@ -226,7 +226,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the externalPartnerSettings property value. The external partner settings on a Cloud PC.
-     *  @param array<CloudPcExternalPartnerSetting>|null $value Value to set for the externalPartnerSettings property.
+     * @param array<CloudPcExternalPartnerSetting>|null $value Value to set for the externalPartnerSettings property.
     */
     public function setExternalPartnerSettings(?array $value): void {
         $this->getBackingStore()->set('externalPartnerSettings', $value);
@@ -234,7 +234,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the galleryImages property value. The gallery image resource on Cloud PC.
-     *  @param array<CloudPcGalleryImage>|null $value Value to set for the galleryImages property.
+     * @param array<CloudPcGalleryImage>|null $value Value to set for the galleryImages property.
     */
     public function setGalleryImages(?array $value): void {
         $this->getBackingStore()->set('galleryImages', $value);
@@ -242,7 +242,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the onPremisesConnections property value. A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs.
-     *  @param array<CloudPcOnPremisesConnection>|null $value Value to set for the onPremisesConnections property.
+     * @param array<CloudPcOnPremisesConnection>|null $value Value to set for the onPremisesConnections property.
     */
     public function setOnPremisesConnections(?array $value): void {
         $this->getBackingStore()->set('onPremisesConnections', $value);
@@ -250,7 +250,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the organizationSettings property value. The Cloud PC organization settings for a tenant.
-     *  @param CloudPcOrganizationSettings|null $value Value to set for the organizationSettings property.
+     * @param CloudPcOrganizationSettings|null $value Value to set for the organizationSettings property.
     */
     public function setOrganizationSettings(?CloudPcOrganizationSettings $value): void {
         $this->getBackingStore()->set('organizationSettings', $value);
@@ -258,7 +258,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the provisioningPolicies property value. Cloud PC provisioning policy.
-     *  @param array<CloudPcProvisioningPolicy>|null $value Value to set for the provisioningPolicies property.
+     * @param array<CloudPcProvisioningPolicy>|null $value Value to set for the provisioningPolicies property.
     */
     public function setProvisioningPolicies(?array $value): void {
         $this->getBackingStore()->set('provisioningPolicies', $value);
@@ -266,7 +266,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the reports property value. Cloud PC related reports.
-     *  @param CloudPcReports|null $value Value to set for the reports property.
+     * @param CloudPcReports|null $value Value to set for the reports property.
     */
     public function setReports(?CloudPcReports $value): void {
         $this->getBackingStore()->set('reports', $value);
@@ -274,15 +274,15 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the servicePlans property value. Cloud PC service plans.
-     *  @param array<CloudPcServicePlan>|null $value Value to set for the servicePlans property.
+     * @param array<CloudPcServicePlan>|null $value Value to set for the servicePlans property.
     */
     public function setServicePlans(?array $value): void {
         $this->getBackingStore()->set('servicePlans', $value);
     }
 
     /**
-     * Sets the sharedUseServicePlans property value. The sharedUseServicePlans property
-     *  @param array<CloudPcSharedUseServicePlan>|null $value Value to set for the sharedUseServicePlans property.
+     * Sets the sharedUseServicePlans property value. Cloud PC shared-use service plans.
+     * @param array<CloudPcSharedUseServicePlan>|null $value Value to set for the sharedUseServicePlans property.
     */
     public function setSharedUseServicePlans(?array $value): void {
         $this->getBackingStore()->set('sharedUseServicePlans', $value);
@@ -290,7 +290,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the snapshots property value. Cloud PC snapshots.
-     *  @param array<CloudPcSnapshot>|null $value Value to set for the snapshots property.
+     * @param array<CloudPcSnapshot>|null $value Value to set for the snapshots property.
     */
     public function setSnapshots(?array $value): void {
         $this->getBackingStore()->set('snapshots', $value);
@@ -298,7 +298,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the supportedRegions property value. Cloud PC supported regions.
-     *  @param array<CloudPcSupportedRegion>|null $value Value to set for the supportedRegions property.
+     * @param array<CloudPcSupportedRegion>|null $value Value to set for the supportedRegions property.
     */
     public function setSupportedRegions(?array $value): void {
         $this->getBackingStore()->set('supportedRegions', $value);
@@ -306,7 +306,7 @@ class VirtualEndpoint extends Entity implements Parsable
 
     /**
      * Sets the userSettings property value. Cloud PC user settings.
-     *  @param array<CloudPcUserSetting>|null $value Value to set for the userSettings property.
+     * @param array<CloudPcUserSetting>|null $value Value to set for the userSettings property.
     */
     public function setUserSettings(?array $value): void {
         $this->getBackingStore()->set('userSettings', $value);

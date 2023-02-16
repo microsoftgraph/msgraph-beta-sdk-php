@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceComplianceScript
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class RunSummaryRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
@@ -21,4 +24,26 @@ class RunSummaryRequestBuilderGetRequestConfiguration
     */
     public ?RunSummaryRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new runSummaryRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return RunSummaryRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): RunSummaryRequestBuilderGetQueryParameters {
+        return new RunSummaryRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new runSummaryRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param RunSummaryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?RunSummaryRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

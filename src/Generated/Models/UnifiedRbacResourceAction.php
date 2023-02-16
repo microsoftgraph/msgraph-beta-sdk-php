@@ -114,7 +114,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
 
     /**
      * Sets the actionVerb property value. HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.
-     *  @param string|null $value Value to set for the actionVerb property.
+     * @param string|null $value Value to set for the actionVerb property.
     */
     public function setActionVerb(?string $value): void {
         $this->getBackingStore()->set('actionVerb', $value);
@@ -122,7 +122,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
 
     /**
      * Sets the authenticationContextId property value. The authenticationContextId property
-     *  @param string|null $value Value to set for the authenticationContextId property.
+     * @param string|null $value Value to set for the authenticationContextId property.
     */
     public function setAuthenticationContextId(?string $value): void {
         $this->getBackingStore()->set('authenticationContextId', $value);
@@ -130,7 +130,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description for the action. Supports $filter (eq).
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -138,7 +138,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
 
     /**
      * Sets the isAuthenticationContextSettable property value. The isAuthenticationContextSettable property
-     *  @param bool|null $value Value to set for the isAuthenticationContextSettable property.
+     * @param bool|null $value Value to set for the isAuthenticationContextSettable property.
     */
     public function setIsAuthenticationContextSettable(?bool $value): void {
         $this->getBackingStore()->set('isAuthenticationContextSettable', $value);
@@ -146,7 +146,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
 
     /**
      * Sets the name property value. Name for the action within the resource namespace, such as microsoft.insights/programs/update. Can include slash character (/). Case insensitive. Required. Supports $filter (eq).
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -154,7 +154,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
 
     /**
      * Sets the resourceScope property value. The resourceScope property
-     *  @param UnifiedRbacResourceScope|null $value Value to set for the resourceScope property.
+     * @param UnifiedRbacResourceScope|null $value Value to set for the resourceScope property.
     */
     public function setResourceScope(?UnifiedRbacResourceScope $value): void {
         $this->getBackingStore()->set('resourceScope', $value);
@@ -162,7 +162,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
 
     /**
      * Sets the resourceScopeId property value. Not implemented.
-     *  @param string|null $value Value to set for the resourceScopeId property.
+     * @param string|null $value Value to set for the resourceScopeId property.
     */
     public function setResourceScopeId(?string $value): void {
         $this->getBackingStore()->set('resourceScopeId', $value);

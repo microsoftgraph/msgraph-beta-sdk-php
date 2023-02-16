@@ -95,7 +95,7 @@ class PersonWebsite extends ItemFacet implements Parsable
 
     /**
      * Sets the categories property value. Contains categories a user has associated with the website (for example, personal, recipes).
-     *  @param array<string>|null $value Value to set for the categories property.
+     * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -103,7 +103,7 @@ class PersonWebsite extends ItemFacet implements Parsable
 
     /**
      * Sets the description property value. Contains a description of the website.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -111,7 +111,7 @@ class PersonWebsite extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Contains a friendly name for the website.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -119,7 +119,7 @@ class PersonWebsite extends ItemFacet implements Parsable
 
     /**
      * Sets the thumbnailUrl property value. The thumbnailUrl property
-     *  @param string|null $value Value to set for the thumbnailUrl property.
+     * @param string|null $value Value to set for the thumbnailUrl property.
     */
     public function setThumbnailUrl(?string $value): void {
         $this->getBackingStore()->set('thumbnailUrl', $value);
@@ -127,7 +127,7 @@ class PersonWebsite extends ItemFacet implements Parsable
 
     /**
      * Sets the webUrl property value. Contains a link to the website itself.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

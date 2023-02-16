@@ -54,7 +54,7 @@ class Presentation extends Entity implements Parsable
 
     /**
      * Sets the comments property value. The comments property
-     *  @param array<DocumentComment>|null $value Value to set for the comments property.
+     * @param array<DocumentComment>|null $value Value to set for the comments property.
     */
     public function setComments(?array $value): void {
         $this->getBackingStore()->set('comments', $value);

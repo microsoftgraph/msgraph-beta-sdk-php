@@ -92,7 +92,7 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
 
     /**
      * Sets the columns property value. The columns property
-     *  @param array<ExactDataMatchStoreColumn>|null $value Value to set for the columns property.
+     * @param array<ExactDataMatchStoreColumn>|null $value Value to set for the columns property.
     */
     public function setColumns(?array $value): void {
         $this->getBackingStore()->set('columns', $value);
@@ -100,7 +100,7 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
 
     /**
      * Sets the dataLastUpdatedDateTime property value. The dataLastUpdatedDateTime property
-     *  @param DateTime|null $value Value to set for the dataLastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the dataLastUpdatedDateTime property.
     */
     public function setDataLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('dataLastUpdatedDateTime', $value);
@@ -108,7 +108,7 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -116,7 +116,7 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

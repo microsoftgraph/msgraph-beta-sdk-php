@@ -396,7 +396,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the activities property value. The list of recent activities that took place on this item.
-     *  @param array<ItemActivityOLD>|null $value Value to set for the activities property.
+     * @param array<ItemActivityOLD>|null $value Value to set for the activities property.
     */
     public function setActivities(?array $value): void {
         $this->getBackingStore()->set('activities', $value);
@@ -404,7 +404,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the analytics property value. Analytics about the view activities that took place on this item.
-     *  @param ItemAnalytics|null $value Value to set for the analytics property.
+     * @param ItemAnalytics|null $value Value to set for the analytics property.
     */
     public function setAnalytics(?ItemAnalytics $value): void {
         $this->getBackingStore()->set('analytics', $value);
@@ -412,7 +412,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the audio property value. Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.
-     *  @param Audio|null $value Value to set for the audio property.
+     * @param Audio|null $value Value to set for the audio property.
     */
     public function setAudio(?Audio $value): void {
         $this->getBackingStore()->set('audio', $value);
@@ -420,7 +420,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the bundle property value. Bundle metadata, if the item is a bundle. Read-only.
-     *  @param Bundle|null $value Value to set for the bundle property.
+     * @param Bundle|null $value Value to set for the bundle property.
     */
     public function setBundle(?Bundle $value): void {
         $this->getBackingStore()->set('bundle', $value);
@@ -428,7 +428,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the children property value. Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
-     *  @param array<DriveItem>|null $value Value to set for the children property.
+     * @param array<DriveItem>|null $value Value to set for the children property.
     */
     public function setChildren(?array $value): void {
         $this->getBackingStore()->set('children', $value);
@@ -436,7 +436,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the content property value. The content stream, if the item represents a file.
-     *  @param StreamInterface|null $value Value to set for the content property.
+     * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('content', $value);
@@ -444,7 +444,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the cTag property value. An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.
-     *  @param string|null $value Value to set for the cTag property.
+     * @param string|null $value Value to set for the cTag property.
     */
     public function setCTag(?string $value): void {
         $this->getBackingStore()->set('cTag', $value);
@@ -452,7 +452,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the deleted property value. Information about the deleted state of the item. Read-only.
-     *  @param Deleted|null $value Value to set for the deleted property.
+     * @param Deleted|null $value Value to set for the deleted property.
     */
     public function setDeleted(?Deleted $value): void {
         $this->getBackingStore()->set('deleted', $value);
@@ -460,7 +460,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the file property value. File metadata, if the item is a file. Read-only.
-     *  @param File|null $value Value to set for the file property.
+     * @param File|null $value Value to set for the file property.
     */
     public function setFile(?File $value): void {
         $this->getBackingStore()->set('file', $value);
@@ -468,7 +468,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the fileSystemInfo property value. File system information on client. Read-write.
-     *  @param FileSystemInfo|null $value Value to set for the fileSystemInfo property.
+     * @param FileSystemInfo|null $value Value to set for the fileSystemInfo property.
     */
     public function setFileSystemInfo(?FileSystemInfo $value): void {
         $this->getBackingStore()->set('fileSystemInfo', $value);
@@ -476,7 +476,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the folder property value. Folder metadata, if the item is a folder. Read-only.
-     *  @param Folder|null $value Value to set for the folder property.
+     * @param Folder|null $value Value to set for the folder property.
     */
     public function setFolder(?Folder $value): void {
         $this->getBackingStore()->set('folder', $value);
@@ -484,7 +484,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the image property value. Image metadata, if the item is an image. Read-only.
-     *  @param Image|null $value Value to set for the image property.
+     * @param Image|null $value Value to set for the image property.
     */
     public function setImage(?Image $value): void {
         $this->getBackingStore()->set('image', $value);
@@ -492,7 +492,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the listItem property value. For drives in SharePoint, the associated document library list item. Read-only. Nullable.
-     *  @param ListItem|null $value Value to set for the listItem property.
+     * @param ListItem|null $value Value to set for the listItem property.
     */
     public function setListItem(?ListItem $value): void {
         $this->getBackingStore()->set('listItem', $value);
@@ -500,7 +500,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the location property value. Location metadata, if the item has location data. Read-only.
-     *  @param GeoCoordinates|null $value Value to set for the location property.
+     * @param GeoCoordinates|null $value Value to set for the location property.
     */
     public function setLocation(?GeoCoordinates $value): void {
         $this->getBackingStore()->set('location', $value);
@@ -508,7 +508,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the malware property value. Malware metadata, if the item was detected to contain malware. Read-only.
-     *  @param Malware|null $value Value to set for the malware property.
+     * @param Malware|null $value Value to set for the malware property.
     */
     public function setMalware(?Malware $value): void {
         $this->getBackingStore()->set('malware', $value);
@@ -516,7 +516,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the media property value. Information about the media (audio or video) item. Read-write. Only on OneDrive for Business and SharePoint.
-     *  @param Media|null $value Value to set for the media property.
+     * @param Media|null $value Value to set for the media property.
     */
     public function setMedia(?Media $value): void {
         $this->getBackingStore()->set('media', $value);
@@ -524,7 +524,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
-     *  @param Package|null $value Value to set for the package property.
+     * @param Package|null $value Value to set for the package property.
     */
     public function setPackage(?Package $value): void {
         $this->getBackingStore()->set('package', $value);
@@ -532,7 +532,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
-     *  @param PendingOperations|null $value Value to set for the pendingOperations property.
+     * @param PendingOperations|null $value Value to set for the pendingOperations property.
     */
     public function setPendingOperations(?PendingOperations $value): void {
         $this->getBackingStore()->set('pendingOperations', $value);
@@ -540,7 +540,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the permissions property value. The set of permissions for the item. Read-only. Nullable.
-     *  @param array<Permission>|null $value Value to set for the permissions property.
+     * @param array<Permission>|null $value Value to set for the permissions property.
     */
     public function setPermissions(?array $value): void {
         $this->getBackingStore()->set('permissions', $value);
@@ -548,7 +548,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the photo property value. Photo metadata, if the item is a photo. Read-only.
-     *  @param Photo|null $value Value to set for the photo property.
+     * @param Photo|null $value Value to set for the photo property.
     */
     public function setPhoto(?Photo $value): void {
         $this->getBackingStore()->set('photo', $value);
@@ -556,7 +556,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the publication property value. Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only.
-     *  @param PublicationFacet|null $value Value to set for the publication property.
+     * @param PublicationFacet|null $value Value to set for the publication property.
     */
     public function setPublication(?PublicationFacet $value): void {
         $this->getBackingStore()->set('publication', $value);
@@ -564,7 +564,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the remoteItem property value. Remote item data, if the item is shared from a drive other than the one being accessed. Read-only.
-     *  @param RemoteItem|null $value Value to set for the remoteItem property.
+     * @param RemoteItem|null $value Value to set for the remoteItem property.
     */
     public function setRemoteItem(?RemoteItem $value): void {
         $this->getBackingStore()->set('remoteItem', $value);
@@ -572,7 +572,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the root property value. If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive.
-     *  @param Root|null $value Value to set for the root property.
+     * @param Root|null $value Value to set for the root property.
     */
     public function setRoot(?Root $value): void {
         $this->getBackingStore()->set('root', $value);
@@ -580,7 +580,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the searchResult property value. Search metadata, if the item is from a search result. Read-only.
-     *  @param SearchResult|null $value Value to set for the searchResult property.
+     * @param SearchResult|null $value Value to set for the searchResult property.
     */
     public function setSearchResult(?SearchResult $value): void {
         $this->getBackingStore()->set('searchResult', $value);
@@ -588,7 +588,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
-     *  @param Shared|null $value Value to set for the shared property.
+     * @param Shared|null $value Value to set for the shared property.
     */
     public function setShared(?Shared $value): void {
         $this->getBackingStore()->set('shared', $value);
@@ -596,7 +596,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
-     *  @param SharepointIds|null $value Value to set for the sharepointIds property.
+     * @param SharepointIds|null $value Value to set for the sharepointIds property.
     */
     public function setSharepointIds(?SharepointIds $value): void {
         $this->getBackingStore()->set('sharepointIds', $value);
@@ -604,7 +604,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the size property value. Size of the item in bytes. Read-only.
-     *  @param int|null $value Value to set for the size property.
+     * @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value): void {
         $this->getBackingStore()->set('size', $value);
@@ -612,7 +612,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the source property value. Information about the drive item source. Read-only. Only on OneDrive for Business and SharePoint.
-     *  @param DriveItemSource|null $value Value to set for the source property.
+     * @param DriveItemSource|null $value Value to set for the source property.
     */
     public function setSource(?DriveItemSource $value): void {
         $this->getBackingStore()->set('source', $value);
@@ -620,7 +620,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
-     *  @param SpecialFolder|null $value Value to set for the specialFolder property.
+     * @param SpecialFolder|null $value Value to set for the specialFolder property.
     */
     public function setSpecialFolder(?SpecialFolder $value): void {
         $this->getBackingStore()->set('specialFolder', $value);
@@ -628,7 +628,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the subscriptions property value. The set of subscriptions on the item. Only supported on the root of a drive.
-     *  @param array<Subscription>|null $value Value to set for the subscriptions property.
+     * @param array<Subscription>|null $value Value to set for the subscriptions property.
     */
     public function setSubscriptions(?array $value): void {
         $this->getBackingStore()->set('subscriptions', $value);
@@ -636,7 +636,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the thumbnails property value. Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
-     *  @param array<ThumbnailSet>|null $value Value to set for the thumbnails property.
+     * @param array<ThumbnailSet>|null $value Value to set for the thumbnails property.
     */
     public function setThumbnails(?array $value): void {
         $this->getBackingStore()->set('thumbnails', $value);
@@ -644,7 +644,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the versions property value. The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.
-     *  @param array<DriveItemVersion>|null $value Value to set for the versions property.
+     * @param array<DriveItemVersion>|null $value Value to set for the versions property.
     */
     public function setVersions(?array $value): void {
         $this->getBackingStore()->set('versions', $value);
@@ -652,7 +652,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the video property value. Video metadata, if the item is a video. Read-only.
-     *  @param Video|null $value Value to set for the video property.
+     * @param Video|null $value Value to set for the video property.
     */
     public function setVideo(?Video $value): void {
         $this->getBackingStore()->set('video', $value);
@@ -660,7 +660,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the webDavUrl property value. WebDAV compatible URL for the item.
-     *  @param string|null $value Value to set for the webDavUrl property.
+     * @param string|null $value Value to set for the webDavUrl property.
     */
     public function setWebDavUrl(?string $value): void {
         $this->getBackingStore()->set('webDavUrl', $value);
@@ -668,7 +668,7 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Sets the workbook property value. For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
-     *  @param Workbook|null $value Value to set for the workbook property.
+     * @param Workbook|null $value Value to set for the workbook property.
     */
     public function setWorkbook(?Workbook $value): void {
         $this->getBackingStore()->set('workbook', $value);

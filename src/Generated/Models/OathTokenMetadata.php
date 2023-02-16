@@ -36,7 +36,7 @@ class OathTokenMetadata implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class OathTokenMetadata implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class OathTokenMetadata implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class OathTokenMetadata implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the enabled property value. The enabled property
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -154,7 +154,7 @@ class OathTokenMetadata implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the manufacturer property value. The manufacturer property
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -162,7 +162,7 @@ class OathTokenMetadata implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the manufacturerProperties property value. The manufacturerProperties property
-     *  @param array<KeyValue>|null $value Value to set for the manufacturerProperties property.
+     * @param array<KeyValue>|null $value Value to set for the manufacturerProperties property.
     */
     public function setManufacturerProperties(?array $value): void {
         $this->getBackingStore()->set('manufacturerProperties', $value);
@@ -170,7 +170,7 @@ class OathTokenMetadata implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -178,7 +178,7 @@ class OathTokenMetadata implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the serialNumber property value. The serialNumber property
-     *  @param string|null $value Value to set for the serialNumber property.
+     * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
         $this->getBackingStore()->set('serialNumber', $value);
@@ -186,7 +186,7 @@ class OathTokenMetadata implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tokenType property value. The tokenType property
-     *  @param string|null $value Value to set for the tokenType property.
+     * @param string|null $value Value to set for the tokenType property.
     */
     public function setTokenType(?string $value): void {
         $this->getBackingStore()->set('tokenType', $value);

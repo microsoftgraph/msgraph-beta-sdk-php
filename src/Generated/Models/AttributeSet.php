@@ -64,7 +64,7 @@ class AttributeSet extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the attribute set. Can be up to 128 characters long and include Unicode characters. Can be changed later.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -72,7 +72,7 @@ class AttributeSet extends Entity implements Parsable
 
     /**
      * Sets the maxAttributesPerSet property value. Maximum number of custom security attributes that can be defined in this attribute set. Default value is null. If not specified, the administrator can add up to the maximum of 500 active attributes per tenant. Can be changed later.
-     *  @param int|null $value Value to set for the maxAttributesPerSet property.
+     * @param int|null $value Value to set for the maxAttributesPerSet property.
     */
     public function setMaxAttributesPerSet(?int $value): void {
         $this->getBackingStore()->set('maxAttributesPerSet', $value);

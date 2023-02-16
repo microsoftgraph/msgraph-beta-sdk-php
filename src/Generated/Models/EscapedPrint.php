@@ -36,7 +36,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -170,7 +170,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -178,7 +178,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -186,7 +186,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the connectors property value. The list of available print connectors.
-     *  @param array<PrintConnector>|null $value Value to set for the connectors property.
+     * @param array<PrintConnector>|null $value Value to set for the connectors property.
     */
     public function setConnectors(?array $value): void {
         $this->getBackingStore()->set('connectors', $value);
@@ -194,7 +194,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -202,7 +202,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the operations property value. The operations property
-     *  @param array<PrintOperation>|null $value Value to set for the operations property.
+     * @param array<PrintOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
@@ -210,7 +210,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printers property value. The list of printers registered in the tenant.
-     *  @param array<Printer>|null $value Value to set for the printers property.
+     * @param array<Printer>|null $value Value to set for the printers property.
     */
     public function setPrinters(?array $value): void {
         $this->getBackingStore()->set('printers', $value);
@@ -218,7 +218,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printerShares property value. The printerShares property
-     *  @param array<PrinterShare>|null $value Value to set for the printerShares property.
+     * @param array<PrinterShare>|null $value Value to set for the printerShares property.
     */
     public function setPrinterShares(?array $value): void {
         $this->getBackingStore()->set('printerShares', $value);
@@ -226,7 +226,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the reports property value. The reports property
-     *  @param ReportRoot|null $value Value to set for the reports property.
+     * @param ReportRoot|null $value Value to set for the reports property.
     */
     public function setReports(?ReportRoot $value): void {
         $this->getBackingStore()->set('reports', $value);
@@ -234,7 +234,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the services property value. The list of available Universal Print service endpoints.
-     *  @param array<PrintService>|null $value Value to set for the services property.
+     * @param array<PrintService>|null $value Value to set for the services property.
     */
     public function setServices(?array $value): void {
         $this->getBackingStore()->set('services', $value);
@@ -242,7 +242,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the settings property value. Tenant-wide settings for the Universal Print service.
-     *  @param PrintSettings|null $value Value to set for the settings property.
+     * @param PrintSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?PrintSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -250,7 +250,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the shares property value. The list of printer shares registered in the tenant.
-     *  @param array<PrinterShare>|null $value Value to set for the shares property.
+     * @param array<PrinterShare>|null $value Value to set for the shares property.
     */
     public function setShares(?array $value): void {
         $this->getBackingStore()->set('shares', $value);
@@ -258,7 +258,7 @@ class EscapedPrint implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the taskDefinitions property value. The taskDefinitions property
-     *  @param array<PrintTaskDefinition>|null $value Value to set for the taskDefinitions property.
+     * @param array<PrintTaskDefinition>|null $value Value to set for the taskDefinitions property.
     */
     public function setTaskDefinitions(?array $value): void {
         $this->getBackingStore()->set('taskDefinitions', $value);

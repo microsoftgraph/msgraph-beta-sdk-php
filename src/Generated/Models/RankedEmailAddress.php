@@ -36,7 +36,7 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the address property value. The email address.
-     *  @param string|null $value Value to set for the address property.
+     * @param string|null $value Value to set for the address property.
     */
     public function setAddress(?string $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -116,7 +116,7 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +124,7 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -132,7 +132,7 @@ class RankedEmailAddress implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the rank property value. The rank of the email address. A rank is used as a sort key, in relation to the other returned results. A higher rank value corresponds to a more relevant result. Relevance is determined by communication, collaboration, and business relationship signals.
-     *  @param float|null $value Value to set for the rank property.
+     * @param float|null $value Value to set for the rank property.
     */
     public function setRank(?float $value): void {
         $this->getBackingStore()->set('rank', $value);

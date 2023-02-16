@@ -63,7 +63,7 @@ class EncryptContent extends LabelActionBase implements Parsable
 
     /**
      * Sets the encryptWith property value. The encryptWith property
-     *  @param EncryptWith|null $value Value to set for the encryptWith property.
+     * @param EncryptWith|null $value Value to set for the encryptWith property.
     */
     public function setEncryptWith(?EncryptWith $value): void {
         $this->getBackingStore()->set('encryptWith', $value);

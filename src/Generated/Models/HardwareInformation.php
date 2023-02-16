@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Hardware information of a given device.
+*/
 class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -480,7 +483,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -488,7 +491,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -496,7 +499,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the batteryChargeCycles property value. The number of charge cycles the device’s current battery has gone through. Valid values 0 to 2147483647
-     *  @param int|null $value Value to set for the batteryChargeCycles property.
+     * @param int|null $value Value to set for the batteryChargeCycles property.
     */
     public function setBatteryChargeCycles(?int $value): void {
         $this->getBackingStore()->set('batteryChargeCycles', $value);
@@ -504,7 +507,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the batteryHealthPercentage property value. The device’s current battery’s health percentage. Valid values 0 to 100
-     *  @param int|null $value Value to set for the batteryHealthPercentage property.
+     * @param int|null $value Value to set for the batteryHealthPercentage property.
     */
     public function setBatteryHealthPercentage(?int $value): void {
         $this->getBackingStore()->set('batteryHealthPercentage', $value);
@@ -512,7 +515,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the batteryLevelPercentage property value. The battery level, between 0.0 and 100, or null if the battery level cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 5.0 and later, and is available only when Device Information access right is obtained. Valid values 0 to 100
-     *  @param float|null $value Value to set for the batteryLevelPercentage property.
+     * @param float|null $value Value to set for the batteryLevelPercentage property.
     */
     public function setBatteryLevelPercentage(?float $value): void {
         $this->getBackingStore()->set('batteryLevelPercentage', $value);
@@ -520,7 +523,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the batterySerialNumber property value. The serial number of the device’s current battery
-     *  @param string|null $value Value to set for the batterySerialNumber property.
+     * @param string|null $value Value to set for the batterySerialNumber property.
     */
     public function setBatterySerialNumber(?string $value): void {
         $this->getBackingStore()->set('batterySerialNumber', $value);
@@ -528,7 +531,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the cellularTechnology property value. Cellular technology of the device
-     *  @param string|null $value Value to set for the cellularTechnology property.
+     * @param string|null $value Value to set for the cellularTechnology property.
     */
     public function setCellularTechnology(?string $value): void {
         $this->getBackingStore()->set('cellularTechnology', $value);
@@ -536,7 +539,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceFullQualifiedDomainName property value. Returns the fully qualified domain name of the device (if any). If the device is not domain-joined, it returns an empty string.
-     *  @param string|null $value Value to set for the deviceFullQualifiedDomainName property.
+     * @param string|null $value Value to set for the deviceFullQualifiedDomainName property.
     */
     public function setDeviceFullQualifiedDomainName(?string $value): void {
         $this->getBackingStore()->set('deviceFullQualifiedDomainName', $value);
@@ -544,7 +547,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceGuardLocalSystemAuthorityCredentialGuardState property value. The deviceGuardLocalSystemAuthorityCredentialGuardState property
-     *  @param DeviceGuardLocalSystemAuthorityCredentialGuardState|null $value Value to set for the deviceGuardLocalSystemAuthorityCredentialGuardState property.
+     * @param DeviceGuardLocalSystemAuthorityCredentialGuardState|null $value Value to set for the deviceGuardLocalSystemAuthorityCredentialGuardState property.
     */
     public function setDeviceGuardLocalSystemAuthorityCredentialGuardState(?DeviceGuardLocalSystemAuthorityCredentialGuardState $value): void {
         $this->getBackingStore()->set('deviceGuardLocalSystemAuthorityCredentialGuardState', $value);
@@ -552,7 +555,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceGuardVirtualizationBasedSecurityHardwareRequirementState property value. The deviceGuardVirtualizationBasedSecurityHardwareRequirementState property
-     *  @param DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null $value Value to set for the deviceGuardVirtualizationBasedSecurityHardwareRequirementState property.
+     * @param DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null $value Value to set for the deviceGuardVirtualizationBasedSecurityHardwareRequirementState property.
     */
     public function setDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(?DeviceGuardVirtualizationBasedSecurityHardwareRequirementState $value): void {
         $this->getBackingStore()->set('deviceGuardVirtualizationBasedSecurityHardwareRequirementState', $value);
@@ -560,7 +563,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceGuardVirtualizationBasedSecurityState property value. The deviceGuardVirtualizationBasedSecurityState property
-     *  @param DeviceGuardVirtualizationBasedSecurityState|null $value Value to set for the deviceGuardVirtualizationBasedSecurityState property.
+     * @param DeviceGuardVirtualizationBasedSecurityState|null $value Value to set for the deviceGuardVirtualizationBasedSecurityState property.
     */
     public function setDeviceGuardVirtualizationBasedSecurityState(?DeviceGuardVirtualizationBasedSecurityState $value): void {
         $this->getBackingStore()->set('deviceGuardVirtualizationBasedSecurityState', $value);
@@ -568,7 +571,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceLicensingLastErrorCode property value. A standard error code indicating the last error, or 0 indicating no error (default). The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing. Valid values 0 to 2147483647
-     *  @param int|null $value Value to set for the deviceLicensingLastErrorCode property.
+     * @param int|null $value Value to set for the deviceLicensingLastErrorCode property.
     */
     public function setDeviceLicensingLastErrorCode(?int $value): void {
         $this->getBackingStore()->set('deviceLicensingLastErrorCode', $value);
@@ -576,7 +579,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceLicensingLastErrorDescription property value. Error text message as a descripition for deviceLicensingLastErrorCode. The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing.
-     *  @param string|null $value Value to set for the deviceLicensingLastErrorDescription property.
+     * @param string|null $value Value to set for the deviceLicensingLastErrorDescription property.
     */
     public function setDeviceLicensingLastErrorDescription(?string $value): void {
         $this->getBackingStore()->set('deviceLicensingLastErrorDescription', $value);
@@ -584,7 +587,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the deviceLicensingStatus property value. Indicates the device licensing status after Windows device based subscription has been enabled.
-     *  @param DeviceLicensingStatus|null $value Value to set for the deviceLicensingStatus property.
+     * @param DeviceLicensingStatus|null $value Value to set for the deviceLicensingStatus property.
     */
     public function setDeviceLicensingStatus(?DeviceLicensingStatus $value): void {
         $this->getBackingStore()->set('deviceLicensingStatus', $value);
@@ -592,7 +595,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the esimIdentifier property value. eSIM identifier
-     *  @param string|null $value Value to set for the esimIdentifier property.
+     * @param string|null $value Value to set for the esimIdentifier property.
     */
     public function setEsimIdentifier(?string $value): void {
         $this->getBackingStore()->set('esimIdentifier', $value);
@@ -600,7 +603,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the freeStorageSpace property value. Free storage space of the device.
-     *  @param int|null $value Value to set for the freeStorageSpace property.
+     * @param int|null $value Value to set for the freeStorageSpace property.
     */
     public function setFreeStorageSpace(?int $value): void {
         $this->getBackingStore()->set('freeStorageSpace', $value);
@@ -608,7 +611,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the imei property value. IMEI
-     *  @param string|null $value Value to set for the imei property.
+     * @param string|null $value Value to set for the imei property.
     */
     public function setImei(?string $value): void {
         $this->getBackingStore()->set('imei', $value);
@@ -616,7 +619,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ipAddressV4 property value. IPAddressV4
-     *  @param string|null $value Value to set for the ipAddressV4 property.
+     * @param string|null $value Value to set for the ipAddressV4 property.
     */
     public function setIpAddressV4(?string $value): void {
         $this->getBackingStore()->set('ipAddressV4', $value);
@@ -624,7 +627,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isEncrypted property value. Encryption status of the device
-     *  @param bool|null $value Value to set for the isEncrypted property.
+     * @param bool|null $value Value to set for the isEncrypted property.
     */
     public function setIsEncrypted(?bool $value): void {
         $this->getBackingStore()->set('isEncrypted', $value);
@@ -632,7 +635,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isSharedDevice property value. Shared iPad
-     *  @param bool|null $value Value to set for the isSharedDevice property.
+     * @param bool|null $value Value to set for the isSharedDevice property.
     */
     public function setIsSharedDevice(?bool $value): void {
         $this->getBackingStore()->set('isSharedDevice', $value);
@@ -640,7 +643,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isSupervised property value. Supervised mode of the device
-     *  @param bool|null $value Value to set for the isSupervised property.
+     * @param bool|null $value Value to set for the isSupervised property.
     */
     public function setIsSupervised(?bool $value): void {
         $this->getBackingStore()->set('isSupervised', $value);
@@ -648,7 +651,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the manufacturer property value. Manufacturer of the device
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -656,7 +659,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the meid property value. MEID
-     *  @param string|null $value Value to set for the meid property.
+     * @param string|null $value Value to set for the meid property.
     */
     public function setMeid(?string $value): void {
         $this->getBackingStore()->set('meid', $value);
@@ -664,7 +667,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the model property value. Model of the device
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -672,7 +675,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -680,7 +683,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the operatingSystemEdition property value. String that specifies the OS edition.
-     *  @param string|null $value Value to set for the operatingSystemEdition property.
+     * @param string|null $value Value to set for the operatingSystemEdition property.
     */
     public function setOperatingSystemEdition(?string $value): void {
         $this->getBackingStore()->set('operatingSystemEdition', $value);
@@ -688,7 +691,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the operatingSystemLanguage property value. Operating system language of the device
-     *  @param string|null $value Value to set for the operatingSystemLanguage property.
+     * @param string|null $value Value to set for the operatingSystemLanguage property.
     */
     public function setOperatingSystemLanguage(?string $value): void {
         $this->getBackingStore()->set('operatingSystemLanguage', $value);
@@ -696,7 +699,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the operatingSystemProductType property value. Int that specifies the Windows Operating System ProductType. More details here https://go.microsoft.com/fwlink/?linkid=2126950. Valid values 0 to 2147483647
-     *  @param int|null $value Value to set for the operatingSystemProductType property.
+     * @param int|null $value Value to set for the operatingSystemProductType property.
     */
     public function setOperatingSystemProductType(?int $value): void {
         $this->getBackingStore()->set('operatingSystemProductType', $value);
@@ -704,7 +707,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the osBuildNumber property value. Operating System Build Number on Android device
-     *  @param string|null $value Value to set for the osBuildNumber property.
+     * @param string|null $value Value to set for the osBuildNumber property.
     */
     public function setOsBuildNumber(?string $value): void {
         $this->getBackingStore()->set('osBuildNumber', $value);
@@ -712,7 +715,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the phoneNumber property value. Phone number of the device
-     *  @param string|null $value Value to set for the phoneNumber property.
+     * @param string|null $value Value to set for the phoneNumber property.
     */
     public function setPhoneNumber(?string $value): void {
         $this->getBackingStore()->set('phoneNumber', $value);
@@ -720,7 +723,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the productName property value. The product name, e.g. iPad8,12 etc. The update frequency of this property is weekly. Note this property is currently supported only on iOS/MacOS devices, and is available only when Device Information access right is obtained.
-     *  @param string|null $value Value to set for the productName property.
+     * @param string|null $value Value to set for the productName property.
     */
     public function setProductName(?string $value): void {
         $this->getBackingStore()->set('productName', $value);
@@ -728,7 +731,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the residentUsersCount property value. The number of users currently on this device, or null (default) if the value of this property cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 13.4 and later, and is available only when Device Information access right is obtained. Valid values 0 to 2147483647
-     *  @param int|null $value Value to set for the residentUsersCount property.
+     * @param int|null $value Value to set for the residentUsersCount property.
     */
     public function setResidentUsersCount(?int $value): void {
         $this->getBackingStore()->set('residentUsersCount', $value);
@@ -736,7 +739,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the serialNumber property value. Serial number.
-     *  @param string|null $value Value to set for the serialNumber property.
+     * @param string|null $value Value to set for the serialNumber property.
     */
     public function setSerialNumber(?string $value): void {
         $this->getBackingStore()->set('serialNumber', $value);
@@ -744,7 +747,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sharedDeviceCachedUsers property value. All users on the shared Apple device
-     *  @param array<SharedAppleDeviceUser>|null $value Value to set for the sharedDeviceCachedUsers property.
+     * @param array<SharedAppleDeviceUser>|null $value Value to set for the sharedDeviceCachedUsers property.
     */
     public function setSharedDeviceCachedUsers(?array $value): void {
         $this->getBackingStore()->set('sharedDeviceCachedUsers', $value);
@@ -752,7 +755,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the subnetAddress property value. SubnetAddress
-     *  @param string|null $value Value to set for the subnetAddress property.
+     * @param string|null $value Value to set for the subnetAddress property.
     */
     public function setSubnetAddress(?string $value): void {
         $this->getBackingStore()->set('subnetAddress', $value);
@@ -760,7 +763,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the subscriberCarrier property value. Subscriber carrier of the device
-     *  @param string|null $value Value to set for the subscriberCarrier property.
+     * @param string|null $value Value to set for the subscriberCarrier property.
     */
     public function setSubscriberCarrier(?string $value): void {
         $this->getBackingStore()->set('subscriberCarrier', $value);
@@ -768,7 +771,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the systemManagementBIOSVersion property value. BIOS version as reported by SMBIOS
-     *  @param string|null $value Value to set for the systemManagementBIOSVersion property.
+     * @param string|null $value Value to set for the systemManagementBIOSVersion property.
     */
     public function setSystemManagementBIOSVersion(?string $value): void {
         $this->getBackingStore()->set('systemManagementBIOSVersion', $value);
@@ -776,7 +779,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the totalStorageSpace property value. Total storage space of the device.
-     *  @param int|null $value Value to set for the totalStorageSpace property.
+     * @param int|null $value Value to set for the totalStorageSpace property.
     */
     public function setTotalStorageSpace(?int $value): void {
         $this->getBackingStore()->set('totalStorageSpace', $value);
@@ -784,7 +787,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tpmManufacturer property value. The identifying information that uniquely names the TPM manufacturer
-     *  @param string|null $value Value to set for the tpmManufacturer property.
+     * @param string|null $value Value to set for the tpmManufacturer property.
     */
     public function setTpmManufacturer(?string $value): void {
         $this->getBackingStore()->set('tpmManufacturer', $value);
@@ -792,7 +795,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tpmSpecificationVersion property value. String that specifies the specification version.
-     *  @param string|null $value Value to set for the tpmSpecificationVersion property.
+     * @param string|null $value Value to set for the tpmSpecificationVersion property.
     */
     public function setTpmSpecificationVersion(?string $value): void {
         $this->getBackingStore()->set('tpmSpecificationVersion', $value);
@@ -800,7 +803,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the tpmVersion property value. The version of the TPM, as specified by the manufacturer
-     *  @param string|null $value Value to set for the tpmVersion property.
+     * @param string|null $value Value to set for the tpmVersion property.
     */
     public function setTpmVersion(?string $value): void {
         $this->getBackingStore()->set('tpmVersion', $value);
@@ -808,7 +811,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the wifiMac property value. WiFi MAC address of the device
-     *  @param string|null $value Value to set for the wifiMac property.
+     * @param string|null $value Value to set for the wifiMac property.
     */
     public function setWifiMac(?string $value): void {
         $this->getBackingStore()->set('wifiMac', $value);
@@ -816,7 +819,7 @@ class HardwareInformation implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the wiredIPv4Addresses property value. A list of wired IPv4 addresses. The update frequency (the maximum delay for the change of property value to be synchronized from the device to the cloud storage) of this property is daily. Note this property is currently supported only on devices running on Windows.
-     *  @param array<string>|null $value Value to set for the wiredIPv4Addresses property.
+     * @param array<string>|null $value Value to set for the wiredIPv4Addresses property.
     */
     public function setWiredIPv4Addresses(?array $value): void {
         $this->getBackingStore()->set('wiredIPv4Addresses', $value);

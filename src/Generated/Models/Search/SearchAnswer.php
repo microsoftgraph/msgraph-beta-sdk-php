@@ -105,7 +105,7 @@ class SearchAnswer extends Entity implements Parsable
 
     /**
      * Sets the description property value. Search answer description shown on search results page.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -113,7 +113,7 @@ class SearchAnswer extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Search answer name displayed in search results.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -121,7 +121,7 @@ class SearchAnswer extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. Details of the user that created or last modified the search answer. Read-only.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -129,7 +129,7 @@ class SearchAnswer extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Timestamp of when the search answer is created or edited. Read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -137,7 +137,7 @@ class SearchAnswer extends Entity implements Parsable
 
     /**
      * Sets the webUrl property value. Search answer URL link. When users click this search answer in search results, they will go to this URL.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension implements Parsable 
 {
     /**
-     * Instantiates a new customAccessPackageWorkflowExtension and sets the default values.
+     * Instantiates a new CustomAccessPackageWorkflowExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -66,7 +66,7 @@ class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension implem
 
     /**
      * Sets the createdDateTime property value. Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -74,7 +74,7 @@ class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension implem
 
     /**
      * Sets the lastModifiedDateTime property value. Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);

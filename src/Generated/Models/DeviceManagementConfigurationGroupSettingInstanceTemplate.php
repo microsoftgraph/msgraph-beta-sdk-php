@@ -55,7 +55,7 @@ class DeviceManagementConfigurationGroupSettingInstanceTemplate extends DeviceMa
 
     /**
      * Sets the groupSettingValueTemplate property value. Group Setting Value Template
-     *  @param DeviceManagementConfigurationGroupSettingValueTemplate|null $value Value to set for the groupSettingValueTemplate property.
+     * @param DeviceManagementConfigurationGroupSettingValueTemplate|null $value Value to set for the groupSettingValueTemplate property.
     */
     public function setGroupSettingValueTemplate(?DeviceManagementConfigurationGroupSettingValueTemplate $value): void {
         $this->getBackingStore()->set('groupSettingValueTemplate', $value);

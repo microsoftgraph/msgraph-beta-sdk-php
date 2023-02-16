@@ -36,7 +36,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -150,7 +150,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -158,7 +158,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -166,7 +166,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the calendar property value. The calendar to use, e.g., Gregorian Calendar.Returned by default.
-     *  @param string|null $value Value to set for the calendar property.
+     * @param string|null $value Value to set for the calendar property.
     */
     public function setCalendar(?string $value): void {
         $this->getBackingStore()->set('calendar', $value);
@@ -174,7 +174,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the firstDayOfWeek property value. The first day of the week to use, e.g., Sunday.Returned by default.
-     *  @param string|null $value Value to set for the firstDayOfWeek property.
+     * @param string|null $value Value to set for the firstDayOfWeek property.
     */
     public function setFirstDayOfWeek(?string $value): void {
         $this->getBackingStore()->set('firstDayOfWeek', $value);
@@ -182,7 +182,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the longDateFormat property value. The long date time format to be used for displaying dates.Returned by default.
-     *  @param string|null $value Value to set for the longDateFormat property.
+     * @param string|null $value Value to set for the longDateFormat property.
     */
     public function setLongDateFormat(?string $value): void {
         $this->getBackingStore()->set('longDateFormat', $value);
@@ -190,7 +190,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the longTimeFormat property value. The long time format to be used for displaying time.Returned by default.
-     *  @param string|null $value Value to set for the longTimeFormat property.
+     * @param string|null $value Value to set for the longTimeFormat property.
     */
     public function setLongTimeFormat(?string $value): void {
         $this->getBackingStore()->set('longTimeFormat', $value);
@@ -198,7 +198,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -206,7 +206,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the shortDateFormat property value. The short date time format to be used for displaying dates.Returned by default.
-     *  @param string|null $value Value to set for the shortDateFormat property.
+     * @param string|null $value Value to set for the shortDateFormat property.
     */
     public function setShortDateFormat(?string $value): void {
         $this->getBackingStore()->set('shortDateFormat', $value);
@@ -214,7 +214,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the shortTimeFormat property value. The short time format to be used for displaying time.Returned by default.
-     *  @param string|null $value Value to set for the shortTimeFormat property.
+     * @param string|null $value Value to set for the shortTimeFormat property.
     */
     public function setShortTimeFormat(?string $value): void {
         $this->getBackingStore()->set('shortTimeFormat', $value);
@@ -222,7 +222,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the timeZone property value. The timezone to be used for displaying time.Returned by default.
-     *  @param string|null $value Value to set for the timeZone property.
+     * @param string|null $value Value to set for the timeZone property.
     */
     public function setTimeZone(?string $value): void {
         $this->getBackingStore()->set('timeZone', $value);

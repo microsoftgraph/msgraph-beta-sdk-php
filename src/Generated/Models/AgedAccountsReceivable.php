@@ -145,7 +145,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the agedAsOfDate property value. The agedAsOfDate property
-     *  @param Date|null $value Value to set for the agedAsOfDate property.
+     * @param Date|null $value Value to set for the agedAsOfDate property.
     */
     public function setAgedAsOfDate(?Date $value): void {
         $this->getBackingStore()->set('agedAsOfDate', $value);
@@ -153,7 +153,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the balanceDue property value. The balanceDue property
-     *  @param string|null $value Value to set for the balanceDue property.
+     * @param string|null $value Value to set for the balanceDue property.
     */
     public function setBalanceDue(?string $value): void {
         $this->getBackingStore()->set('balanceDue', $value);
@@ -161,7 +161,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the currencyCode property value. The currencyCode property
-     *  @param string|null $value Value to set for the currencyCode property.
+     * @param string|null $value Value to set for the currencyCode property.
     */
     public function setCurrencyCode(?string $value): void {
         $this->getBackingStore()->set('currencyCode', $value);
@@ -169,7 +169,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the currentAmount property value. The currentAmount property
-     *  @param string|null $value Value to set for the currentAmount property.
+     * @param string|null $value Value to set for the currentAmount property.
     */
     public function setCurrentAmount(?string $value): void {
         $this->getBackingStore()->set('currentAmount', $value);
@@ -177,7 +177,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the customerNumber property value. The customerNumber property
-     *  @param string|null $value Value to set for the customerNumber property.
+     * @param string|null $value Value to set for the customerNumber property.
     */
     public function setCustomerNumber(?string $value): void {
         $this->getBackingStore()->set('customerNumber', $value);
@@ -185,7 +185,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -193,7 +193,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the period1Amount property value. The period1Amount property
-     *  @param string|null $value Value to set for the period1Amount property.
+     * @param string|null $value Value to set for the period1Amount property.
     */
     public function setPeriod1Amount(?string $value): void {
         $this->getBackingStore()->set('period1Amount', $value);
@@ -201,7 +201,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the period2Amount property value. The period2Amount property
-     *  @param string|null $value Value to set for the period2Amount property.
+     * @param string|null $value Value to set for the period2Amount property.
     */
     public function setPeriod2Amount(?string $value): void {
         $this->getBackingStore()->set('period2Amount', $value);
@@ -209,7 +209,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the period3Amount property value. The period3Amount property
-     *  @param string|null $value Value to set for the period3Amount property.
+     * @param string|null $value Value to set for the period3Amount property.
     */
     public function setPeriod3Amount(?string $value): void {
         $this->getBackingStore()->set('period3Amount', $value);
@@ -217,7 +217,7 @@ class AgedAccountsReceivable extends Entity implements Parsable
 
     /**
      * Sets the periodLengthFilter property value. The periodLengthFilter property
-     *  @param string|null $value Value to set for the periodLengthFilter property.
+     * @param string|null $value Value to set for the periodLengthFilter property.
     */
     public function setPeriodLengthFilter(?string $value): void {
         $this->getBackingStore()->set('periodLengthFilter', $value);

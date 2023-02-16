@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsag
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the self-service password reset (SSPR) usage for a given tenant.
+*/
 class UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

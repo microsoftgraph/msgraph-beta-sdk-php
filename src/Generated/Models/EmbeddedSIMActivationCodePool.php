@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A pool represents a group of embedded SIM activation codes.
+*/
 class EmbeddedSIMActivationCodePool extends Entity implements Parsable 
 {
     /**
@@ -115,7 +118,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
 
     /**
      * Sets the activationCodeCount property value. The total count of activation codes which belong to this pool.
-     *  @param int|null $value Value to set for the activationCodeCount property.
+     * @param int|null $value Value to set for the activationCodeCount property.
     */
     public function setActivationCodeCount(?int $value): void {
         $this->getBackingStore()->set('activationCodeCount', $value);
@@ -123,7 +126,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
 
     /**
      * Sets the activationCodes property value. The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
-     *  @param array<EmbeddedSIMActivationCode>|null $value Value to set for the activationCodes property.
+     * @param array<EmbeddedSIMActivationCode>|null $value Value to set for the activationCodes property.
     */
     public function setActivationCodes(?array $value): void {
         $this->getBackingStore()->set('activationCodes', $value);
@@ -131,7 +134,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. Navigational property to a list of targets to which this pool is assigned.
-     *  @param array<EmbeddedSIMActivationCodePoolAssignment>|null $value Value to set for the assignments property.
+     * @param array<EmbeddedSIMActivationCodePoolAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -139,7 +142,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The time the embedded SIM activation code pool was created. Generated service side.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -147,7 +150,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
 
     /**
      * Sets the deviceStates property value. Navigational property to a list of device states for this pool.
-     *  @param array<EmbeddedSIMDeviceState>|null $value Value to set for the deviceStates property.
+     * @param array<EmbeddedSIMDeviceState>|null $value Value to set for the deviceStates property.
     */
     public function setDeviceStates(?array $value): void {
         $this->getBackingStore()->set('deviceStates', $value);
@@ -155,7 +158,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The admin defined name of the embedded SIM activation code pool.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -163,7 +166,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
 
     /**
      * Sets the modifiedDateTime property value. The time the embedded SIM activation code pool was last modified. Updated service side.
-     *  @param DateTime|null $value Value to set for the modifiedDateTime property.
+     * @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);

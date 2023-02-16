@@ -64,7 +64,7 @@ class EdiscoveryFile extends File implements Parsable
 
     /**
      * Sets the custodian property value. Custodians associated with the file.
-     *  @param EdiscoveryCustodian|null $value Value to set for the custodian property.
+     * @param EdiscoveryCustodian|null $value Value to set for the custodian property.
     */
     public function setCustodian(?EdiscoveryCustodian $value): void {
         $this->getBackingStore()->set('custodian', $value);
@@ -72,7 +72,7 @@ class EdiscoveryFile extends File implements Parsable
 
     /**
      * Sets the tags property value. Tags associated with the file.
-     *  @param array<EdiscoveryReviewTag>|null $value Value to set for the tags property.
+     * @param array<EdiscoveryReviewTag>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {
         $this->getBackingStore()->set('tags', $value);

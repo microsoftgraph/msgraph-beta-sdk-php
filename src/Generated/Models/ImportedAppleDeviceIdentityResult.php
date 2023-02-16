@@ -54,7 +54,7 @@ class ImportedAppleDeviceIdentityResult extends ImportedAppleDeviceIdentity impl
 
     /**
      * Sets the status property value. Status of imported device identity
-     *  @param bool|null $value Value to set for the status property.
+     * @param bool|null $value Value to set for the status property.
     */
     public function setStatus(?bool $value): void {
         $this->getBackingStore()->set('status', $value);

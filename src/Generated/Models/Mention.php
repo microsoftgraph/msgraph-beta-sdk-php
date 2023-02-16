@@ -125,7 +125,7 @@ class Mention extends Entity implements Parsable
 
     /**
      * Sets the application property value. The name of the application where the mention is created. Optional. Not used and defaulted as null for message.
-     *  @param string|null $value Value to set for the application property.
+     * @param string|null $value Value to set for the application property.
     */
     public function setApplication(?string $value): void {
         $this->getBackingStore()->set('application', $value);
@@ -133,7 +133,7 @@ class Mention extends Entity implements Parsable
 
     /**
      * Sets the clientReference property value. A unique identifier that represents a parent of the resource instance. Optional. Not used and defaulted as null for message.
-     *  @param string|null $value Value to set for the clientReference property.
+     * @param string|null $value Value to set for the clientReference property.
     */
     public function setClientReference(?string $value): void {
         $this->getBackingStore()->set('clientReference', $value);
@@ -141,7 +141,7 @@ class Mention extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The email information of the user who made the mention.
-     *  @param EmailAddress|null $value Value to set for the createdBy property.
+     * @param EmailAddress|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?EmailAddress $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -149,7 +149,7 @@ class Mention extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time that the mention is created on the client.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -157,7 +157,7 @@ class Mention extends Entity implements Parsable
 
     /**
      * Sets the deepLink property value. A deep web link to the context of the mention in the resource instance. Optional. Not used and defaulted as null for message.
-     *  @param string|null $value Value to set for the deepLink property.
+     * @param string|null $value Value to set for the deepLink property.
     */
     public function setDeepLink(?string $value): void {
         $this->getBackingStore()->set('deepLink', $value);
@@ -165,7 +165,7 @@ class Mention extends Entity implements Parsable
 
     /**
      * Sets the mentioned property value. The mentioned property
-     *  @param EmailAddress|null $value Value to set for the mentioned property.
+     * @param EmailAddress|null $value Value to set for the mentioned property.
     */
     public function setMentioned(?EmailAddress $value): void {
         $this->getBackingStore()->set('mentioned', $value);
@@ -173,7 +173,7 @@ class Mention extends Entity implements Parsable
 
     /**
      * Sets the mentionText property value. Optional. Not used and defaulted as null for message. To get the mentions in a message, see the bodyPreview property of the message instead.
-     *  @param string|null $value Value to set for the mentionText property.
+     * @param string|null $value Value to set for the mentionText property.
     */
     public function setMentionText(?string $value): void {
         $this->getBackingStore()->set('mentionText', $value);
@@ -181,7 +181,7 @@ class Mention extends Entity implements Parsable
 
     /**
      * Sets the serverCreatedDateTime property value. The date and time that the mention is created on the server. Optional. Not used and defaulted as null for message.
-     *  @param DateTime|null $value Value to set for the serverCreatedDateTime property.
+     * @param DateTime|null $value Value to set for the serverCreatedDateTime property.
     */
     public function setServerCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('serverCreatedDateTime', $value);

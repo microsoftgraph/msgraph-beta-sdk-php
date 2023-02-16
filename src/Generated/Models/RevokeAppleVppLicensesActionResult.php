@@ -64,7 +64,7 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult implements P
 
     /**
      * Sets the failedLicensesCount property value. Total number of Apple Vpp licenses that failed to revoke
-     *  @param int|null $value Value to set for the failedLicensesCount property.
+     * @param int|null $value Value to set for the failedLicensesCount property.
     */
     public function setFailedLicensesCount(?int $value): void {
         $this->getBackingStore()->set('failedLicensesCount', $value);
@@ -72,7 +72,7 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult implements P
 
     /**
      * Sets the totalLicensesCount property value. Total number of Apple Vpp licenses associated
-     *  @param int|null $value Value to set for the totalLicensesCount property.
+     * @param int|null $value Value to set for the totalLicensesCount property.
     */
     public function setTotalLicensesCount(?int $value): void {
         $this->getBackingStore()->set('totalLicensesCount', $value);

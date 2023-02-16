@@ -4,10 +4,13 @@ namespace Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\UrlThreats\It
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class UrlThreatSubmissionItemRequestBuilderDeleteRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
@@ -16,4 +19,14 @@ class UrlThreatSubmissionItemRequestBuilderDeleteRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * Instantiates a new UrlThreatSubmissionItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+    */
+    public function __construct(?array $headers = null, ?array $options = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+    }
+
 }

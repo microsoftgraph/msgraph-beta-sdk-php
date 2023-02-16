@@ -195,7 +195,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignmentPolicies property value. Read-only. Nullable. Supports $expand.
-     *  @param array<AccessPackageAssignmentPolicy>|null $value Value to set for the accessPackageAssignmentPolicies property.
+     * @param array<AccessPackageAssignmentPolicy>|null $value Value to set for the accessPackageAssignmentPolicies property.
     */
     public function setAccessPackageAssignmentPolicies(?array $value): void {
         $this->getBackingStore()->set('accessPackageAssignmentPolicies', $value);
@@ -203,7 +203,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the accessPackageCatalog property value. The accessPackageCatalog property
-     *  @param AccessPackageCatalog|null $value Value to set for the accessPackageCatalog property.
+     * @param AccessPackageCatalog|null $value Value to set for the accessPackageCatalog property.
     */
     public function setAccessPackageCatalog(?AccessPackageCatalog $value): void {
         $this->getBackingStore()->set('accessPackageCatalog', $value);
@@ -211,7 +211,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceRoleScopes property value. The accessPackageResourceRoleScopes property
-     *  @param array<AccessPackageResourceRoleScope>|null $value Value to set for the accessPackageResourceRoleScopes property.
+     * @param array<AccessPackageResourceRoleScope>|null $value Value to set for the accessPackageResourceRoleScopes property.
     */
     public function setAccessPackageResourceRoleScopes(?array $value): void {
         $this->getBackingStore()->set('accessPackageResourceRoleScopes', $value);
@@ -219,7 +219,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the accessPackagesIncompatibleWith property value. The access packages that are incompatible with this package. Read-only.
-     *  @param array<AccessPackage>|null $value Value to set for the accessPackagesIncompatibleWith property.
+     * @param array<AccessPackage>|null $value Value to set for the accessPackagesIncompatibleWith property.
     */
     public function setAccessPackagesIncompatibleWith(?array $value): void {
         $this->getBackingStore()->set('accessPackagesIncompatibleWith', $value);
@@ -227,7 +227,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the catalogId property value. Identifier of the access package catalog referencing this access package. Read-only.
-     *  @param string|null $value Value to set for the catalogId property.
+     * @param string|null $value Value to set for the catalogId property.
     */
     public function setCatalogId(?string $value): void {
         $this->getBackingStore()->set('catalogId', $value);
@@ -235,7 +235,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. The userPrincipalName of the user or identity of the subject who created this resource. Read-only.
-     *  @param string|null $value Value to set for the createdBy property.
+     * @param string|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?string $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -243,7 +243,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -251,7 +251,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the access package.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -259,7 +259,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the access package. Supports $filter (eq, contains).
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -267,7 +267,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the incompatibleAccessPackages property value. The  access packages whose assigned users are ineligible to be assigned this access package.
-     *  @param array<AccessPackage>|null $value Value to set for the incompatibleAccessPackages property.
+     * @param array<AccessPackage>|null $value Value to set for the incompatibleAccessPackages property.
     */
     public function setIncompatibleAccessPackages(?array $value): void {
         $this->getBackingStore()->set('incompatibleAccessPackages', $value);
@@ -275,7 +275,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the incompatibleGroups property value. The groups whose members are ineligible to be assigned this access package.
-     *  @param array<Group>|null $value Value to set for the incompatibleGroups property.
+     * @param array<Group>|null $value Value to set for the incompatibleGroups property.
     */
     public function setIncompatibleGroups(?array $value): void {
         $this->getBackingStore()->set('incompatibleGroups', $value);
@@ -283,7 +283,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the isHidden property value. Whether the access package is hidden from the requestor.
-     *  @param bool|null $value Value to set for the isHidden property.
+     * @param bool|null $value Value to set for the isHidden property.
     */
     public function setIsHidden(?bool $value): void {
         $this->getBackingStore()->set('isHidden', $value);
@@ -291,7 +291,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the isRoleScopesVisible property value. Indicates whether role scopes are visible.
-     *  @param bool|null $value Value to set for the isRoleScopesVisible property.
+     * @param bool|null $value Value to set for the isRoleScopesVisible property.
     */
     public function setIsRoleScopesVisible(?bool $value): void {
         $this->getBackingStore()->set('isRoleScopesVisible', $value);
@@ -299,7 +299,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the modifiedBy property value. The userPrincipalName of the user who last modified this resource. Read-only.
-     *  @param string|null $value Value to set for the modifiedBy property.
+     * @param string|null $value Value to set for the modifiedBy property.
     */
     public function setModifiedBy(?string $value): void {
         $this->getBackingStore()->set('modifiedBy', $value);
@@ -307,7 +307,7 @@ class AccessPackage extends Entity implements Parsable
 
     /**
      * Sets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the modifiedDateTime property.
+     * @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);

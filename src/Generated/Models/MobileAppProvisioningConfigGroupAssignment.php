@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains the properties used to assign an App provisioning configuration to a group.
+*/
 class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsable 
 {
     /**
@@ -54,7 +57,7 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
 
     /**
      * Sets the targetGroupId property value. The ID of the AAD group in which the app provisioning configuration is being targeted.
-     *  @param string|null $value Value to set for the targetGroupId property.
+     * @param string|null $value Value to set for the targetGroupId property.
     */
     public function setTargetGroupId(?string $value): void {
         $this->getBackingStore()->set('targetGroupId', $value);

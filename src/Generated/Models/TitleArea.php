@@ -36,7 +36,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -180,7 +180,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -188,7 +188,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the alternativeText property value. Alternative text on the title area.
-     *  @param string|null $value Value to set for the alternativeText property.
+     * @param string|null $value Value to set for the alternativeText property.
     */
     public function setAlternativeText(?string $value): void {
         $this->getBackingStore()->set('alternativeText', $value);
@@ -196,7 +196,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -204,7 +204,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the enableGradientEffect property value. Indicates whether the title area has a gradient effect enabled.
-     *  @param bool|null $value Value to set for the enableGradientEffect property.
+     * @param bool|null $value Value to set for the enableGradientEffect property.
     */
     public function setEnableGradientEffect(?bool $value): void {
         $this->getBackingStore()->set('enableGradientEffect', $value);
@@ -212,7 +212,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the imageWebUrl property value. URL of the image in the title area.
-     *  @param string|null $value Value to set for the imageWebUrl property.
+     * @param string|null $value Value to set for the imageWebUrl property.
     */
     public function setImageWebUrl(?string $value): void {
         $this->getBackingStore()->set('imageWebUrl', $value);
@@ -220,7 +220,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the layout property value. Enumeration value that indicates the layout of the title area. The possible values are: imageAndTitle, plain, colorBlock, overlap, unknownFutureValue.
-     *  @param TitleAreaLayoutType|null $value Value to set for the layout property.
+     * @param TitleAreaLayoutType|null $value Value to set for the layout property.
     */
     public function setLayout(?TitleAreaLayoutType $value): void {
         $this->getBackingStore()->set('layout', $value);
@@ -228,7 +228,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -236,7 +236,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the serverProcessedContent property value. Contains collections of data that can be processed by server side services like search index and link fixup.
-     *  @param ServerProcessedContent|null $value Value to set for the serverProcessedContent property.
+     * @param ServerProcessedContent|null $value Value to set for the serverProcessedContent property.
     */
     public function setServerProcessedContent(?ServerProcessedContent $value): void {
         $this->getBackingStore()->set('serverProcessedContent', $value);
@@ -244,7 +244,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the showAuthor property value. Indicates whether the author should be shown in title area.
-     *  @param bool|null $value Value to set for the showAuthor property.
+     * @param bool|null $value Value to set for the showAuthor property.
     */
     public function setShowAuthor(?bool $value): void {
         $this->getBackingStore()->set('showAuthor', $value);
@@ -252,7 +252,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the showPublishedDate property value. Indicates whether the published date should be shown in title area.
-     *  @param bool|null $value Value to set for the showPublishedDate property.
+     * @param bool|null $value Value to set for the showPublishedDate property.
     */
     public function setShowPublishedDate(?bool $value): void {
         $this->getBackingStore()->set('showPublishedDate', $value);
@@ -260,7 +260,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the showTextBlockAboveTitle property value. Indicates whether the text block above title should be shown in title area.
-     *  @param bool|null $value Value to set for the showTextBlockAboveTitle property.
+     * @param bool|null $value Value to set for the showTextBlockAboveTitle property.
     */
     public function setShowTextBlockAboveTitle(?bool $value): void {
         $this->getBackingStore()->set('showTextBlockAboveTitle', $value);
@@ -268,7 +268,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the textAboveTitle property value. The text above title line.
-     *  @param string|null $value Value to set for the textAboveTitle property.
+     * @param string|null $value Value to set for the textAboveTitle property.
     */
     public function setTextAboveTitle(?string $value): void {
         $this->getBackingStore()->set('textAboveTitle', $value);
@@ -276,7 +276,7 @@ class TitleArea implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the textAlignment property value. Enumeration value that indicates the text alignment of the title area. The possible values are: left, center, unknownFutureValue.
-     *  @param TitleAreaTextAlignmentType|null $value Value to set for the textAlignment property.
+     * @param TitleAreaTextAlignmentType|null $value Value to set for the textAlignment property.
     */
     public function setTextAlignment(?TitleAreaTextAlignmentType $value): void {
         $this->getBackingStore()->set('textAlignment', $value);

@@ -275,7 +275,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the address property value. The address property
-     *  @param PostalAddressType|null $value Value to set for the address property.
+     * @param PostalAddressType|null $value Value to set for the address property.
     */
     public function setAddress(?PostalAddressType $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -283,7 +283,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the blocked property value. The blocked property
-     *  @param string|null $value Value to set for the blocked property.
+     * @param string|null $value Value to set for the blocked property.
     */
     public function setBlocked(?string $value): void {
         $this->getBackingStore()->set('blocked', $value);
@@ -291,7 +291,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the currency property value. The currency property
-     *  @param Currency|null $value Value to set for the currency property.
+     * @param Currency|null $value Value to set for the currency property.
     */
     public function setCurrency(?Currency $value): void {
         $this->getBackingStore()->set('currency', $value);
@@ -299,7 +299,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the currencyCode property value. The currencyCode property
-     *  @param string|null $value Value to set for the currencyCode property.
+     * @param string|null $value Value to set for the currencyCode property.
     */
     public function setCurrencyCode(?string $value): void {
         $this->getBackingStore()->set('currencyCode', $value);
@@ -307,7 +307,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the currencyId property value. The currencyId property
-     *  @param string|null $value Value to set for the currencyId property.
+     * @param string|null $value Value to set for the currencyId property.
     */
     public function setCurrencyId(?string $value): void {
         $this->getBackingStore()->set('currencyId', $value);
@@ -315,7 +315,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -323,7 +323,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the email property value. The email property
-     *  @param string|null $value Value to set for the email property.
+     * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {
         $this->getBackingStore()->set('email', $value);
@@ -331,7 +331,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -339,7 +339,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the number property value. The number property
-     *  @param string|null $value Value to set for the number property.
+     * @param string|null $value Value to set for the number property.
     */
     public function setNumber(?string $value): void {
         $this->getBackingStore()->set('number', $value);
@@ -347,7 +347,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the paymentMethod property value. The paymentMethod property
-     *  @param PaymentMethod|null $value Value to set for the paymentMethod property.
+     * @param PaymentMethod|null $value Value to set for the paymentMethod property.
     */
     public function setPaymentMethod(?PaymentMethod $value): void {
         $this->getBackingStore()->set('paymentMethod', $value);
@@ -355,7 +355,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the paymentMethodId property value. The paymentMethodId property
-     *  @param string|null $value Value to set for the paymentMethodId property.
+     * @param string|null $value Value to set for the paymentMethodId property.
     */
     public function setPaymentMethodId(?string $value): void {
         $this->getBackingStore()->set('paymentMethodId', $value);
@@ -363,7 +363,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the paymentTerm property value. The paymentTerm property
-     *  @param PaymentTerm|null $value Value to set for the paymentTerm property.
+     * @param PaymentTerm|null $value Value to set for the paymentTerm property.
     */
     public function setPaymentTerm(?PaymentTerm $value): void {
         $this->getBackingStore()->set('paymentTerm', $value);
@@ -371,7 +371,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the paymentTermsId property value. The paymentTermsId property
-     *  @param string|null $value Value to set for the paymentTermsId property.
+     * @param string|null $value Value to set for the paymentTermsId property.
     */
     public function setPaymentTermsId(?string $value): void {
         $this->getBackingStore()->set('paymentTermsId', $value);
@@ -379,7 +379,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the phoneNumber property value. The phoneNumber property
-     *  @param string|null $value Value to set for the phoneNumber property.
+     * @param string|null $value Value to set for the phoneNumber property.
     */
     public function setPhoneNumber(?string $value): void {
         $this->getBackingStore()->set('phoneNumber', $value);
@@ -387,7 +387,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the picture property value. The picture property
-     *  @param array<Picture>|null $value Value to set for the picture property.
+     * @param array<Picture>|null $value Value to set for the picture property.
     */
     public function setPicture(?array $value): void {
         $this->getBackingStore()->set('picture', $value);
@@ -395,7 +395,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the shipmentMethod property value. The shipmentMethod property
-     *  @param ShipmentMethod|null $value Value to set for the shipmentMethod property.
+     * @param ShipmentMethod|null $value Value to set for the shipmentMethod property.
     */
     public function setShipmentMethod(?ShipmentMethod $value): void {
         $this->getBackingStore()->set('shipmentMethod', $value);
@@ -403,7 +403,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the shipmentMethodId property value. The shipmentMethodId property
-     *  @param string|null $value Value to set for the shipmentMethodId property.
+     * @param string|null $value Value to set for the shipmentMethodId property.
     */
     public function setShipmentMethodId(?string $value): void {
         $this->getBackingStore()->set('shipmentMethodId', $value);
@@ -411,7 +411,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the taxAreaDisplayName property value. The taxAreaDisplayName property
-     *  @param string|null $value Value to set for the taxAreaDisplayName property.
+     * @param string|null $value Value to set for the taxAreaDisplayName property.
     */
     public function setTaxAreaDisplayName(?string $value): void {
         $this->getBackingStore()->set('taxAreaDisplayName', $value);
@@ -419,7 +419,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the taxAreaId property value. The taxAreaId property
-     *  @param string|null $value Value to set for the taxAreaId property.
+     * @param string|null $value Value to set for the taxAreaId property.
     */
     public function setTaxAreaId(?string $value): void {
         $this->getBackingStore()->set('taxAreaId', $value);
@@ -427,7 +427,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the taxLiable property value. The taxLiable property
-     *  @param bool|null $value Value to set for the taxLiable property.
+     * @param bool|null $value Value to set for the taxLiable property.
     */
     public function setTaxLiable(?bool $value): void {
         $this->getBackingStore()->set('taxLiable', $value);
@@ -435,7 +435,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the taxRegistrationNumber property value. The taxRegistrationNumber property
-     *  @param string|null $value Value to set for the taxRegistrationNumber property.
+     * @param string|null $value Value to set for the taxRegistrationNumber property.
     */
     public function setTaxRegistrationNumber(?string $value): void {
         $this->getBackingStore()->set('taxRegistrationNumber', $value);
@@ -443,7 +443,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -451,7 +451,7 @@ class Customer extends Entity implements Parsable
 
     /**
      * Sets the website property value. The website property
-     *  @param string|null $value Value to set for the website property.
+     * @param string|null $value Value to set for the website property.
     */
     public function setWebsite(?string $value): void {
         $this->getBackingStore()->set('website', $value);

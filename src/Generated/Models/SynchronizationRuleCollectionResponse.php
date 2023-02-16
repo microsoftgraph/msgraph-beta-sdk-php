@@ -54,7 +54,7 @@ class SynchronizationRuleCollectionResponse extends BaseCollectionPaginationCoun
 
     /**
      * Sets the value property value. The value property
-     *  @param array<SynchronizationRule>|null $value Value to set for the value property.
+     * @param array<SynchronizationRule>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);

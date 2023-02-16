@@ -94,7 +94,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
 
     /**
      * Sets the displayName property value. The display name for the profile.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -102,7 +102,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
 
     /**
      * Sets the helpUrl property value. The URL that will be accessible to end users as they retrieve a derived credential using the Company Portal.
-     *  @param string|null $value Value to set for the helpUrl property.
+     * @param string|null $value Value to set for the helpUrl property.
     */
     public function setHelpUrl(?string $value): void {
         $this->getBackingStore()->set('helpUrl', $value);
@@ -110,7 +110,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
 
     /**
      * Sets the issuer property value. Supported values for the derived credential issuer.
-     *  @param DeviceManagementDerivedCredentialIssuer|null $value Value to set for the issuer property.
+     * @param DeviceManagementDerivedCredentialIssuer|null $value Value to set for the issuer property.
     */
     public function setIssuer(?DeviceManagementDerivedCredentialIssuer $value): void {
         $this->getBackingStore()->set('issuer', $value);
@@ -118,7 +118,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
 
     /**
      * Sets the notificationType property value. Supported values for the notification type to use.
-     *  @param DeviceManagementDerivedCredentialNotificationType|null $value Value to set for the notificationType property.
+     * @param DeviceManagementDerivedCredentialNotificationType|null $value Value to set for the notificationType property.
     */
     public function setNotificationType(?DeviceManagementDerivedCredentialNotificationType $value): void {
         $this->getBackingStore()->set('notificationType', $value);
@@ -126,7 +126,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
 
     /**
      * Sets the renewalThresholdPercentage property value. The nominal percentage of time before certificate renewal is initiated by the client.
-     *  @param int|null $value Value to set for the renewalThresholdPercentage property.
+     * @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
     public function setRenewalThresholdPercentage(?int $value): void {
         $this->getBackingStore()->set('renewalThresholdPercentage', $value);

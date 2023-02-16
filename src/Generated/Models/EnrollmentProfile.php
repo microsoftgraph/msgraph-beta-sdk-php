@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The enrollmentProfile resource represents a collection of configurations which must be provided pre-enrollment to enable enrolling certain devices whose identities have been pre-staged. Pre-staged device identities are assigned to this type of profile to apply the profile's configurations at enrollment of the corresponding device.
+*/
 class EnrollmentProfile extends Entity implements Parsable 
 {
     /**
@@ -114,7 +117,7 @@ class EnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the configurationEndpointUrl property value. Configuration endpoint url to use for Enrollment
-     *  @param string|null $value Value to set for the configurationEndpointUrl property.
+     * @param string|null $value Value to set for the configurationEndpointUrl property.
     */
     public function setConfigurationEndpointUrl(?string $value): void {
         $this->getBackingStore()->set('configurationEndpointUrl', $value);
@@ -122,7 +125,7 @@ class EnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the profile
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -130,7 +133,7 @@ class EnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the profile
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -138,7 +141,7 @@ class EnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the enableAuthenticationViaCompanyPortal property value. Indicates to authenticate with Apple Setup Assistant instead of Company Portal.
-     *  @param bool|null $value Value to set for the enableAuthenticationViaCompanyPortal property.
+     * @param bool|null $value Value to set for the enableAuthenticationViaCompanyPortal property.
     */
     public function setEnableAuthenticationViaCompanyPortal(?bool $value): void {
         $this->getBackingStore()->set('enableAuthenticationViaCompanyPortal', $value);
@@ -146,7 +149,7 @@ class EnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the requireCompanyPortalOnSetupAssistantEnrolledDevices property value. Indicates that Company Portal is required on setup assistant enrolled devices
-     *  @param bool|null $value Value to set for the requireCompanyPortalOnSetupAssistantEnrolledDevices property.
+     * @param bool|null $value Value to set for the requireCompanyPortalOnSetupAssistantEnrolledDevices property.
     */
     public function setRequireCompanyPortalOnSetupAssistantEnrolledDevices(?bool $value): void {
         $this->getBackingStore()->set('requireCompanyPortalOnSetupAssistantEnrolledDevices', $value);
@@ -154,7 +157,7 @@ class EnrollmentProfile extends Entity implements Parsable
 
     /**
      * Sets the requiresUserAuthentication property value. Indicates if the profile requires user authentication
-     *  @param bool|null $value Value to set for the requiresUserAuthentication property.
+     * @param bool|null $value Value to set for the requiresUserAuthentication property.
     */
     public function setRequiresUserAuthentication(?bool $value): void {
         $this->getBackingStore()->set('requiresUserAuthentication', $value);

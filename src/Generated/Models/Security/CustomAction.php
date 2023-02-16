@@ -65,7 +65,7 @@ class CustomAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the name property value. Name of the custom action.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -73,7 +73,7 @@ class CustomAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the properties property value. Properties, in key-value pair format, of the action.
-     *  @param array<KeyValuePair>|null $value Value to set for the properties property.
+     * @param array<KeyValuePair>|null $value Value to set for the properties property.
     */
     public function setProperties(?array $value): void {
         $this->getBackingStore()->set('properties', $value);

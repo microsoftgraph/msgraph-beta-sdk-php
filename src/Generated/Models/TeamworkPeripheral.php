@@ -74,7 +74,7 @@ class TeamworkPeripheral extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name for the peripheral.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -82,7 +82,7 @@ class TeamworkPeripheral extends Entity implements Parsable
 
     /**
      * Sets the productId property value. The product ID of the device. Each product from a vendor has its own ID.
-     *  @param string|null $value Value to set for the productId property.
+     * @param string|null $value Value to set for the productId property.
     */
     public function setProductId(?string $value): void {
         $this->getBackingStore()->set('productId', $value);
@@ -90,7 +90,7 @@ class TeamworkPeripheral extends Entity implements Parsable
 
     /**
      * Sets the vendorId property value. The unique identifier for the vendor of the device. Each vendor has a unique ID.
-     *  @param string|null $value Value to set for the vendorId property.
+     * @param string|null $value Value to set for the vendorId property.
     */
     public function setVendorId(?string $value): void {
         $this->getBackingStore()->set('vendorId', $value);

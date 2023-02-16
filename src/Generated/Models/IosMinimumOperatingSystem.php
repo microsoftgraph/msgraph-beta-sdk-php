@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Contains properties of the minimum operating system required for an iOS mobile app.
+*/
 class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -58,14 +61,15 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'v10_0' => fn(ParseNode $n) => $o->setV10_0($n->getBooleanValue()),
-            'v11_0' => fn(ParseNode $n) => $o->setV11_0($n->getBooleanValue()),
-            'v12_0' => fn(ParseNode $n) => $o->setV12_0($n->getBooleanValue()),
-            'v13_0' => fn(ParseNode $n) => $o->setV13_0($n->getBooleanValue()),
-            'v14_0' => fn(ParseNode $n) => $o->setV14_0($n->getBooleanValue()),
-            'v15_0' => fn(ParseNode $n) => $o->setV15_0($n->getBooleanValue()),
-            'v8_0' => fn(ParseNode $n) => $o->setV8_0($n->getBooleanValue()),
-            'v9_0' => fn(ParseNode $n) => $o->setV9_0($n->getBooleanValue()),
+            'v10_0' => fn(ParseNode $n) => $o->setV100($n->getBooleanValue()),
+            'v11_0' => fn(ParseNode $n) => $o->setV110($n->getBooleanValue()),
+            'v12_0' => fn(ParseNode $n) => $o->setV120($n->getBooleanValue()),
+            'v13_0' => fn(ParseNode $n) => $o->setV130($n->getBooleanValue()),
+            'v14_0' => fn(ParseNode $n) => $o->setV140($n->getBooleanValue()),
+            'v15_0' => fn(ParseNode $n) => $o->setV150($n->getBooleanValue()),
+            'v16_0' => fn(ParseNode $n) => $o->setV160($n->getBooleanValue()),
+            'v8_0' => fn(ParseNode $n) => $o->setV80($n->getBooleanValue()),
+            'v9_0' => fn(ParseNode $n) => $o->setV90($n->getBooleanValue()),
         ];
     }
 
@@ -78,66 +82,74 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the v10_0 property value. Version 10.0 or later.
+     * Gets the v10_0 property value. When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
-    public function getV10_0(): ?bool {
+    public function getV100(): ?bool {
         return $this->getBackingStore()->get('v10_0');
     }
 
     /**
-     * Gets the v11_0 property value. Version 11.0 or later.
+     * Gets the v11_0 property value. When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
-    public function getV11_0(): ?bool {
+    public function getV110(): ?bool {
         return $this->getBackingStore()->get('v11_0');
     }
 
     /**
-     * Gets the v12_0 property value. Version 12.0 or later.
+     * Gets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
-    public function getV12_0(): ?bool {
+    public function getV120(): ?bool {
         return $this->getBackingStore()->get('v12_0');
     }
 
     /**
-     * Gets the v13_0 property value. Version 13.0 or later.
+     * Gets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
-    public function getV13_0(): ?bool {
+    public function getV130(): ?bool {
         return $this->getBackingStore()->get('v13_0');
     }
 
     /**
-     * Gets the v14_0 property value. Version 14.0 or later.
+     * Gets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
-    public function getV14_0(): ?bool {
+    public function getV140(): ?bool {
         return $this->getBackingStore()->get('v14_0');
     }
 
     /**
-     * Gets the v15_0 property value. Version 15.0 or later.
+     * Gets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
-    public function getV15_0(): ?bool {
+    public function getV150(): ?bool {
         return $this->getBackingStore()->get('v15_0');
     }
 
     /**
-     * Gets the v8_0 property value. Version 8.0 or later.
+     * Gets the v16_0 property value. When TRUE, only Version 16.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
-    public function getV8_0(): ?bool {
+    public function getV160(): ?bool {
+        return $this->getBackingStore()->get('v16_0');
+    }
+
+    /**
+     * Gets the v8_0 property value. When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV80(): ?bool {
         return $this->getBackingStore()->get('v8_0');
     }
 
     /**
-     * Gets the v9_0 property value. Version 9.0 or later.
+     * Gets the v9_0 property value. When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
-    public function getV9_0(): ?bool {
+    public function getV90(): ?bool {
         return $this->getBackingStore()->get('v9_0');
     }
 
@@ -147,20 +159,21 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeBooleanValue('v10_0', $this->getV10_0());
-        $writer->writeBooleanValue('v11_0', $this->getV11_0());
-        $writer->writeBooleanValue('v12_0', $this->getV12_0());
-        $writer->writeBooleanValue('v13_0', $this->getV13_0());
-        $writer->writeBooleanValue('v14_0', $this->getV14_0());
-        $writer->writeBooleanValue('v15_0', $this->getV15_0());
-        $writer->writeBooleanValue('v8_0', $this->getV8_0());
-        $writer->writeBooleanValue('v9_0', $this->getV9_0());
+        $writer->writeBooleanValue('v10_0', $this->getV100());
+        $writer->writeBooleanValue('v11_0', $this->getV110());
+        $writer->writeBooleanValue('v12_0', $this->getV120());
+        $writer->writeBooleanValue('v13_0', $this->getV130());
+        $writer->writeBooleanValue('v14_0', $this->getV140());
+        $writer->writeBooleanValue('v15_0', $this->getV150());
+        $writer->writeBooleanValue('v16_0', $this->getV160());
+        $writer->writeBooleanValue('v8_0', $this->getV80());
+        $writer->writeBooleanValue('v9_0', $this->getV90());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,7 +181,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -176,73 +189,81 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the v10_0 property value. Version 10.0 or later.
-     *  @param bool|null $value Value to set for the v10_0 property.
+     * Sets the v10_0 property value. When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v10_0 property.
     */
-    public function setV10_0(?bool $value): void {
+    public function setV100(?bool $value): void {
         $this->getBackingStore()->set('v10_0', $value);
     }
 
     /**
-     * Sets the v11_0 property value. Version 11.0 or later.
-     *  @param bool|null $value Value to set for the v11_0 property.
+     * Sets the v11_0 property value. When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v11_0 property.
     */
-    public function setV11_0(?bool $value): void {
+    public function setV110(?bool $value): void {
         $this->getBackingStore()->set('v11_0', $value);
     }
 
     /**
-     * Sets the v12_0 property value. Version 12.0 or later.
-     *  @param bool|null $value Value to set for the v12_0 property.
+     * Sets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v12_0 property.
     */
-    public function setV12_0(?bool $value): void {
+    public function setV120(?bool $value): void {
         $this->getBackingStore()->set('v12_0', $value);
     }
 
     /**
-     * Sets the v13_0 property value. Version 13.0 or later.
-     *  @param bool|null $value Value to set for the v13_0 property.
+     * Sets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v13_0 property.
     */
-    public function setV13_0(?bool $value): void {
+    public function setV130(?bool $value): void {
         $this->getBackingStore()->set('v13_0', $value);
     }
 
     /**
-     * Sets the v14_0 property value. Version 14.0 or later.
-     *  @param bool|null $value Value to set for the v14_0 property.
+     * Sets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v14_0 property.
     */
-    public function setV14_0(?bool $value): void {
+    public function setV140(?bool $value): void {
         $this->getBackingStore()->set('v14_0', $value);
     }
 
     /**
-     * Sets the v15_0 property value. Version 15.0 or later.
-     *  @param bool|null $value Value to set for the v15_0 property.
+     * Sets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v15_0 property.
     */
-    public function setV15_0(?bool $value): void {
+    public function setV150(?bool $value): void {
         $this->getBackingStore()->set('v15_0', $value);
     }
 
     /**
-     * Sets the v8_0 property value. Version 8.0 or later.
-     *  @param bool|null $value Value to set for the v8_0 property.
+     * Sets the v16_0 property value. When TRUE, only Version 16.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v16_0 property.
     */
-    public function setV8_0(?bool $value): void {
+    public function setV160(?bool $value): void {
+        $this->getBackingStore()->set('v16_0', $value);
+    }
+
+    /**
+     * Sets the v8_0 property value. When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v8_0 property.
+    */
+    public function setV80(?bool $value): void {
         $this->getBackingStore()->set('v8_0', $value);
     }
 
     /**
-     * Sets the v9_0 property value. Version 9.0 or later.
-     *  @param bool|null $value Value to set for the v9_0 property.
+     * Sets the v9_0 property value. When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v9_0 property.
     */
-    public function setV9_0(?bool $value): void {
+    public function setV90(?bool $value): void {
         $this->getBackingStore()->set('v9_0', $value);
     }
 

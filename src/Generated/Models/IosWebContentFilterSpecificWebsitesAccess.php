@@ -65,7 +65,7 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase 
 
     /**
      * Sets the specificWebsitesOnly property value. URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
-     *  @param array<IosBookmark>|null $value Value to set for the specificWebsitesOnly property.
+     * @param array<IosBookmark>|null $value Value to set for the specificWebsitesOnly property.
     */
     public function setSpecificWebsitesOnly(?array $value): void {
         $this->getBackingStore()->set('specificWebsitesOnly', $value);
@@ -73,7 +73,7 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase 
 
     /**
      * Sets the websiteList property value. URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
-     *  @param array<IosBookmark>|null $value Value to set for the websiteList property.
+     * @param array<IosBookmark>|null $value Value to set for the websiteList property.
     */
     public function setWebsiteList(?array $value): void {
         $this->getBackingStore()->set('websiteList', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCusto
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The customer who has a delegated admin relationship with a Microsoft partner.
+*/
 class DelegatedAdminCustomerItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class DelegatedAdminCustomerItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new DelegatedAdminCustomerItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Describes the embedded SIM activation code deployment state in relation to a device.
+*/
 class EmbeddedSIMDeviceState extends Entity implements Parsable 
 {
     /**
@@ -125,7 +128,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The time the embedded SIM device status was created. Generated service side.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -133,7 +136,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
 
     /**
      * Sets the deviceName property value. Device name to which the subscription was provisioned e.g. DESKTOP-JOE
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -141,7 +144,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
 
     /**
      * Sets the lastSyncDateTime property value. The time the embedded SIM device last checked in. Updated service side.
-     *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
@@ -149,7 +152,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
 
     /**
      * Sets the modifiedDateTime property value. The time the embedded SIM device status was last modified. Updated service side.
-     *  @param DateTime|null $value Value to set for the modifiedDateTime property.
+     * @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);
@@ -157,7 +160,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
 
     /**
      * Sets the state property value. Describes the various states for an embedded SIM activation code.
-     *  @param EmbeddedSIMDeviceStateValue|null $value Value to set for the state property.
+     * @param EmbeddedSIMDeviceStateValue|null $value Value to set for the state property.
     */
     public function setState(?EmbeddedSIMDeviceStateValue $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -165,7 +168,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
 
     /**
      * Sets the stateDetails property value. String description of the provisioning state.
-     *  @param string|null $value Value to set for the stateDetails property.
+     * @param string|null $value Value to set for the stateDetails property.
     */
     public function setStateDetails(?string $value): void {
         $this->getBackingStore()->set('stateDetails', $value);
@@ -173,7 +176,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
 
     /**
      * Sets the universalIntegratedCircuitCardIdentifier property value. The Universal Integrated Circuit Card Identifier (UICCID) identifying the hardware onto which a profile is to be deployed.
-     *  @param string|null $value Value to set for the universalIntegratedCircuitCardIdentifier property.
+     * @param string|null $value Value to set for the universalIntegratedCircuitCardIdentifier property.
     */
     public function setUniversalIntegratedCircuitCardIdentifier(?string $value): void {
         $this->getBackingStore()->set('universalIntegratedCircuitCardIdentifier', $value);
@@ -181,7 +184,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
 
     /**
      * Sets the userName property value. Username which the subscription was provisioned to e.g. joe@contoso.com
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);

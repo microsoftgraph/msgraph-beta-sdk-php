@@ -38,7 +38,7 @@ class BusinessScenarioPlanner extends Entity implements Parsable
     }
 
     /**
-     * Gets the planConfiguration property value. The planConfiguration property
+     * Gets the planConfiguration property value. The configuration of Planner plans that will be created for the scenario.
      * @return PlannerPlanConfiguration|null
     */
     public function getPlanConfiguration(): ?PlannerPlanConfiguration {
@@ -46,7 +46,7 @@ class BusinessScenarioPlanner extends Entity implements Parsable
     }
 
     /**
-     * Gets the taskConfiguration property value. The taskConfiguration property
+     * Gets the taskConfiguration property value. The configuration of Planner tasks that will be created for the scenario.
      * @return PlannerTaskConfiguration|null
     */
     public function getTaskConfiguration(): ?PlannerTaskConfiguration {
@@ -54,7 +54,7 @@ class BusinessScenarioPlanner extends Entity implements Parsable
     }
 
     /**
-     * Gets the tasks property value. The tasks property
+     * Gets the tasks property value. The Planner tasks for the scenario.
      * @return array<BusinessScenarioTask>|null
     */
     public function getTasks(): ?array {
@@ -73,24 +73,24 @@ class BusinessScenarioPlanner extends Entity implements Parsable
     }
 
     /**
-     * Sets the planConfiguration property value. The planConfiguration property
-     *  @param PlannerPlanConfiguration|null $value Value to set for the planConfiguration property.
+     * Sets the planConfiguration property value. The configuration of Planner plans that will be created for the scenario.
+     * @param PlannerPlanConfiguration|null $value Value to set for the planConfiguration property.
     */
     public function setPlanConfiguration(?PlannerPlanConfiguration $value): void {
         $this->getBackingStore()->set('planConfiguration', $value);
     }
 
     /**
-     * Sets the taskConfiguration property value. The taskConfiguration property
-     *  @param PlannerTaskConfiguration|null $value Value to set for the taskConfiguration property.
+     * Sets the taskConfiguration property value. The configuration of Planner tasks that will be created for the scenario.
+     * @param PlannerTaskConfiguration|null $value Value to set for the taskConfiguration property.
     */
     public function setTaskConfiguration(?PlannerTaskConfiguration $value): void {
         $this->getBackingStore()->set('taskConfiguration', $value);
     }
 
     /**
-     * Sets the tasks property value. The tasks property
-     *  @param array<BusinessScenarioTask>|null $value Value to set for the tasks property.
+     * Sets the tasks property value. The Planner tasks for the scenario.
+     * @param array<BusinessScenarioTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);

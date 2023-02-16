@@ -36,7 +36,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Bac
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Bac
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Bac
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Bac
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -134,7 +134,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Bac
 
     /**
      * Sets the status property value. The status of the role assignment request. The value can be InProgress or Closed.
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -142,7 +142,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Bac
 
     /**
      * Sets the statusDetails property value. The details of the status of the role assignment request. It represents the evaluation results of different rules.
-     *  @param array<KeyValue>|null $value Value to set for the statusDetails property.
+     * @param array<KeyValue>|null $value Value to set for the statusDetails property.
     */
     public function setStatusDetails(?array $value): void {
         $this->getBackingStore()->set('statusDetails', $value);
@@ -150,7 +150,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Bac
 
     /**
      * Sets the subStatus property value. The sub status of the role assignment request. The values can be Accepted, PendingEvaluation, Granted, Denied, PendingProvisioning, Provisioned, PendingRevocation, Revoked, Canceled, Failed, PendingApprovalProvisioning, PendingApproval, FailedAsResourceIsLocked, PendingAdminDecision, AdminApproved, AdminDenied, TimedOut, and ProvisioningStarted.
-     *  @param string|null $value Value to set for the subStatus property.
+     * @param string|null $value Value to set for the subStatus property.
     */
     public function setSubStatus(?string $value): void {
         $this->getBackingStore()->set('subStatus', $value);

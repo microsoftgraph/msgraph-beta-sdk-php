@@ -10,4 +10,5 @@ class RemediationState extends Enum {
     public const SUCCESS = 'success';
     public const REMEDIATION_FAILED = 'remediationFailed';
     public const SCRIPT_ERROR = 'scriptError';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

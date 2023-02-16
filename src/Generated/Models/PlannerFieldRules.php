@@ -36,7 +36,7 @@ class PlannerFieldRules implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -51,7 +51,7 @@ class PlannerFieldRules implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the defaultRules property value. The defaultRules property
+     * Gets the defaultRules property value. The default rules that apply if no override matches to the current data.
      * @return array<string>|null
     */
     public function getDefaultRules(): ?array {
@@ -80,7 +80,7 @@ class PlannerFieldRules implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the overrides property value. The overrides property
+     * Gets the overrides property value. Overrides that specify different rules for specific data associated with the field.
      * @return array<PlannerRuleOverride>|null
     */
     public function getOverrides(): ?array {
@@ -100,7 +100,7 @@ class PlannerFieldRules implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,15 +108,15 @@ class PlannerFieldRules implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the defaultRules property value. The defaultRules property
-     *  @param array<string>|null $value Value to set for the defaultRules property.
+     * Sets the defaultRules property value. The default rules that apply if no override matches to the current data.
+     * @param array<string>|null $value Value to set for the defaultRules property.
     */
     public function setDefaultRules(?array $value): void {
         $this->getBackingStore()->set('defaultRules', $value);
@@ -124,15 +124,15 @@ class PlannerFieldRules implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the overrides property value. The overrides property
-     *  @param array<PlannerRuleOverride>|null $value Value to set for the overrides property.
+     * Sets the overrides property value. Overrides that specify different rules for specific data associated with the field.
+     * @param array<PlannerRuleOverride>|null $value Value to set for the overrides property.
     */
     public function setOverrides(?array $value): void {
         $this->getBackingStore()->set('overrides', $value);

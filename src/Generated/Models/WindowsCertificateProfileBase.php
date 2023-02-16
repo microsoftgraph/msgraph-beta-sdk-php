@@ -117,7 +117,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
-     *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
+     * @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodScale', $value);
@@ -125,7 +125,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the certificateValidityPeriodValue property value. Value for the Certificate Validity Period
-     *  @param int|null $value Value to set for the certificateValidityPeriodValue property.
+     * @param int|null $value Value to set for the certificateValidityPeriodValue property.
     */
     public function setCertificateValidityPeriodValue(?int $value): void {
         $this->getBackingStore()->set('certificateValidityPeriodValue', $value);
@@ -133,7 +133,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
-     *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
+     * @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
     public function setKeyStorageProvider(?KeyStorageProviderOption $value): void {
         $this->getBackingStore()->set('keyStorageProvider', $value);
@@ -141,7 +141,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the renewalThresholdPercentage property value. Certificate renewal threshold percentage. Valid values 1 to 99
-     *  @param int|null $value Value to set for the renewalThresholdPercentage property.
+     * @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
     public function setRenewalThresholdPercentage(?int $value): void {
         $this->getBackingStore()->set('renewalThresholdPercentage', $value);
@@ -149,7 +149,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-     *  @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
+     * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
     public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameType', $value);
@@ -157,7 +157,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
 
     /**
      * Sets the subjectNameFormat property value. Subject Name Format Options.
-     *  @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
+     * @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
     public function setSubjectNameFormat(?SubjectNameFormat $value): void {
         $this->getBackingStore()->set('subjectNameFormat', $value);

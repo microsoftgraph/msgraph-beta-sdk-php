@@ -75,7 +75,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
 
     /**
      * Sets the appId property value. The appId for the service principal entity being reviewed.
-     *  @param string|null $value Value to set for the appId property.
+     * @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value): void {
         $this->getBackingStore()->set('appId', $value);
@@ -83,7 +83,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
 
     /**
      * Sets the servicePrincipalDisplayName property value. The display name of the service principal whose access is being reviewed.
-     *  @param string|null $value Value to set for the servicePrincipalDisplayName property.
+     * @param string|null $value Value to set for the servicePrincipalDisplayName property.
     */
     public function setServicePrincipalDisplayName(?string $value): void {
         $this->getBackingStore()->set('servicePrincipalDisplayName', $value);
@@ -91,7 +91,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
 
     /**
      * Sets the servicePrincipalId property value. The servicePrincipalId property
-     *  @param string|null $value Value to set for the servicePrincipalId property.
+     * @param string|null $value Value to set for the servicePrincipalId property.
     */
     public function setServicePrincipalId(?string $value): void {
         $this->getBackingStore()->set('servicePrincipalId', $value);

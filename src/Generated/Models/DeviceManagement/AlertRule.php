@@ -125,7 +125,7 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
-     *  @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
+     * @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
     public function setAlertRuleTemplate(?AlertRuleTemplate $value): void {
         $this->getBackingStore()->set('alertRuleTemplate', $value);
@@ -133,7 +133,7 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the description property value. The rule description.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -141,7 +141,7 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the rule.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -149,7 +149,7 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the enabled property value. The status of the rule that indicates whether the rule is enabled or disabled. If true, the rule is enabled; otherwise, the rule is disabled.
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -157,7 +157,7 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the isSystemRule property value. Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only a few properties can be edited.
-     *  @param bool|null $value Value to set for the isSystemRule property.
+     * @param bool|null $value Value to set for the isSystemRule property.
     */
     public function setIsSystemRule(?bool $value): void {
         $this->getBackingStore()->set('isSystemRule', $value);
@@ -165,7 +165,7 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the notificationChannels property value. The notification channels of the rule selected by the user.
-     *  @param array<NotificationChannel>|null $value Value to set for the notificationChannels property.
+     * @param array<NotificationChannel>|null $value Value to set for the notificationChannels property.
     */
     public function setNotificationChannels(?array $value): void {
         $this->getBackingStore()->set('notificationChannels', $value);
@@ -173,7 +173,7 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the severity property value. The severity of the rule. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
-     *  @param RuleSeverityType|null $value Value to set for the severity property.
+     * @param RuleSeverityType|null $value Value to set for the severity property.
     */
     public function setSeverity(?RuleSeverityType $value): void {
         $this->getBackingStore()->set('severity', $value);
@@ -181,7 +181,7 @@ class AlertRule extends Entity implements Parsable
 
     /**
      * Sets the threshold property value. The conditions to send alerts. For example, send alert when provisioning has failed for greater than or equal to 6 Cloud PCs.
-     *  @param RuleThreshold|null $value Value to set for the threshold property.
+     * @param RuleThreshold|null $value Value to set for the threshold property.
     */
     public function setThreshold(?RuleThreshold $value): void {
         $this->getBackingStore()->set('threshold', $value);

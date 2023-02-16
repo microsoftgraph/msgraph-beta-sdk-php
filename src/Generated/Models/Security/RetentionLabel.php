@@ -207,7 +207,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the actionAfterRetentionPeriod property value. Specifies the action to take on a document with this label applied during the retention period. The possible values are: none, delete, startDispositionReview, unknownFutureValue.
-     *  @param ActionAfterRetentionPeriod|null $value Value to set for the actionAfterRetentionPeriod property.
+     * @param ActionAfterRetentionPeriod|null $value Value to set for the actionAfterRetentionPeriod property.
     */
     public function setActionAfterRetentionPeriod(?ActionAfterRetentionPeriod $value): void {
         $this->getBackingStore()->set('actionAfterRetentionPeriod', $value);
@@ -215,7 +215,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the behaviorDuringRetentionPeriod property value. Specifies how the behavior of a document with this label should be during the retention period. The possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue.
-     *  @param BehaviorDuringRetentionPeriod|null $value Value to set for the behaviorDuringRetentionPeriod property.
+     * @param BehaviorDuringRetentionPeriod|null $value Value to set for the behaviorDuringRetentionPeriod property.
     */
     public function setBehaviorDuringRetentionPeriod(?BehaviorDuringRetentionPeriod $value): void {
         $this->getBackingStore()->set('behaviorDuringRetentionPeriod', $value);
@@ -223,7 +223,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. Represents the user who created the retentionLabel.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -231,7 +231,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Represents the date and time in which the retentionLabel is created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -239,7 +239,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the defaultRecordBehavior property value. Specifies the locked or unlocked state of a record label when it is created.The possible values are: startLocked, startUnlocked, unknownFutureValue.
-     *  @param DefaultRecordBehavior|null $value Value to set for the defaultRecordBehavior property.
+     * @param DefaultRecordBehavior|null $value Value to set for the defaultRecordBehavior property.
     */
     public function setDefaultRecordBehavior(?DefaultRecordBehavior $value): void {
         $this->getBackingStore()->set('defaultRecordBehavior', $value);
@@ -247,7 +247,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the descriptionForAdmins property value. Provides label information for the admin. Optional.
-     *  @param string|null $value Value to set for the descriptionForAdmins property.
+     * @param string|null $value Value to set for the descriptionForAdmins property.
     */
     public function setDescriptionForAdmins(?string $value): void {
         $this->getBackingStore()->set('descriptionForAdmins', $value);
@@ -255,7 +255,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the descriptionForUsers property value. Provides the label information for the user. Optional.
-     *  @param string|null $value Value to set for the descriptionForUsers property.
+     * @param string|null $value Value to set for the descriptionForUsers property.
     */
     public function setDescriptionForUsers(?string $value): void {
         $this->getBackingStore()->set('descriptionForUsers', $value);
@@ -263,7 +263,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Unique string that defines a label name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -271,7 +271,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the dispositionReviewStages property value. Review stages during which reviewers are notified to determine whether a document must be deleted or retained.
-     *  @param array<DispositionReviewStage>|null $value Value to set for the dispositionReviewStages property.
+     * @param array<DispositionReviewStage>|null $value Value to set for the dispositionReviewStages property.
     */
     public function setDispositionReviewStages(?array $value): void {
         $this->getBackingStore()->set('dispositionReviewStages', $value);
@@ -279,7 +279,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the isInUse property value. Specifies whether the label is currently being used.
-     *  @param bool|null $value Value to set for the isInUse property.
+     * @param bool|null $value Value to set for the isInUse property.
     */
     public function setIsInUse(?bool $value): void {
         $this->getBackingStore()->set('isInUse', $value);
@@ -287,7 +287,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the labelToBeApplied property value. Specifies the replacement label to be applied automatically after the retention period of the current label ends.
-     *  @param string|null $value Value to set for the labelToBeApplied property.
+     * @param string|null $value Value to set for the labelToBeApplied property.
     */
     public function setLabelToBeApplied(?string $value): void {
         $this->getBackingStore()->set('labelToBeApplied', $value);
@@ -295,7 +295,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the retentionLabel.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -303,7 +303,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The latest date time when the retentionLabel was modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -311,7 +311,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the retentionDuration property value. Specifies the number of days to retain the content.
-     *  @param RetentionDuration|null $value Value to set for the retentionDuration property.
+     * @param RetentionDuration|null $value Value to set for the retentionDuration property.
     */
     public function setRetentionDuration(?RetentionDuration $value): void {
         $this->getBackingStore()->set('retentionDuration', $value);
@@ -319,7 +319,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the retentionEventType property value. The retentionEventType property
-     *  @param RetentionEventType|null $value Value to set for the retentionEventType property.
+     * @param RetentionEventType|null $value Value to set for the retentionEventType property.
     */
     public function setRetentionEventType(?RetentionEventType $value): void {
         $this->getBackingStore()->set('retentionEventType', $value);
@@ -327,7 +327,7 @@ class RetentionLabel extends Entity implements Parsable
 
     /**
      * Sets the retentionTrigger property value. Specifies whether the retention duration is calculated from the content creation date, labeled date, or last modification date. The possible values are: dateLabeled, dateCreated, dateModified, dateOfEvent, unknownFutureValue.
-     *  @param RetentionTrigger|null $value Value to set for the retentionTrigger property.
+     * @param RetentionTrigger|null $value Value to set for the retentionTrigger property.
     */
     public function setRetentionTrigger(?RetentionTrigger $value): void {
         $this->getBackingStore()->set('retentionTrigger', $value);

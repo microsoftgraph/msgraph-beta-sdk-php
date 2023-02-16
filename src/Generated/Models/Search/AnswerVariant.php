@@ -37,7 +37,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -131,7 +131,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -139,7 +139,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -147,7 +147,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. Answer variation description shown on search results page.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -155,7 +155,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. Answer variation name displayed in search results.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -163,7 +163,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the languageTag property value. The languageTag property
-     *  @param string|null $value Value to set for the languageTag property.
+     * @param string|null $value Value to set for the languageTag property.
     */
     public function setLanguageTag(?string $value): void {
         $this->getBackingStore()->set('languageTag', $value);
@@ -171,7 +171,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -179,7 +179,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the platform property value. The platform property
-     *  @param DevicePlatformType|null $value Value to set for the platform property.
+     * @param DevicePlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DevicePlatformType $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -187,7 +187,7 @@ class AnswerVariant implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the webUrl property value. Answer variation URL link. When users click this answer variation in search results, they will go to this URL.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

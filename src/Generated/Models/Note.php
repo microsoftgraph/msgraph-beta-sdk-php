@@ -125,7 +125,7 @@ class Note extends OutlookItem implements Parsable
 
     /**
      * Sets the attachments property value. The attachments property
-     *  @param array<Attachment>|null $value Value to set for the attachments property.
+     * @param array<Attachment>|null $value Value to set for the attachments property.
     */
     public function setAttachments(?array $value): void {
         $this->getBackingStore()->set('attachments', $value);
@@ -133,7 +133,7 @@ class Note extends OutlookItem implements Parsable
 
     /**
      * Sets the body property value. The body property
-     *  @param ItemBody|null $value Value to set for the body property.
+     * @param ItemBody|null $value Value to set for the body property.
     */
     public function setBody(?ItemBody $value): void {
         $this->getBackingStore()->set('body', $value);
@@ -141,7 +141,7 @@ class Note extends OutlookItem implements Parsable
 
     /**
      * Sets the extensions property value. The extensions property
-     *  @param array<Extension>|null $value Value to set for the extensions property.
+     * @param array<Extension>|null $value Value to set for the extensions property.
     */
     public function setExtensions(?array $value): void {
         $this->getBackingStore()->set('extensions', $value);
@@ -149,7 +149,7 @@ class Note extends OutlookItem implements Parsable
 
     /**
      * Sets the hasAttachments property value. The hasAttachments property
-     *  @param bool|null $value Value to set for the hasAttachments property.
+     * @param bool|null $value Value to set for the hasAttachments property.
     */
     public function setHasAttachments(?bool $value): void {
         $this->getBackingStore()->set('hasAttachments', $value);
@@ -157,7 +157,7 @@ class Note extends OutlookItem implements Parsable
 
     /**
      * Sets the isDeleted property value. The isDeleted property
-     *  @param bool|null $value Value to set for the isDeleted property.
+     * @param bool|null $value Value to set for the isDeleted property.
     */
     public function setIsDeleted(?bool $value): void {
         $this->getBackingStore()->set('isDeleted', $value);
@@ -165,7 +165,7 @@ class Note extends OutlookItem implements Parsable
 
     /**
      * Sets the multiValueExtendedProperties property value. The multiValueExtendedProperties property
-     *  @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
+     * @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
     */
     public function setMultiValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('multiValueExtendedProperties', $value);
@@ -173,7 +173,7 @@ class Note extends OutlookItem implements Parsable
 
     /**
      * Sets the singleValueExtendedProperties property value. The singleValueExtendedProperties property
-     *  @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
+     * @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
     public function setSingleValueExtendedProperties(?array $value): void {
         $this->getBackingStore()->set('singleValueExtendedProperties', $value);
@@ -181,7 +181,7 @@ class Note extends OutlookItem implements Parsable
 
     /**
      * Sets the subject property value. The subject property
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);

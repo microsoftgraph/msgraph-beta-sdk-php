@@ -94,7 +94,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
 
     /**
      * Sets the elevatedCount property value. The number of users that have the role assigned and the role is activated.
-     *  @param int|null $value Value to set for the elevatedCount property.
+     * @param int|null $value Value to set for the elevatedCount property.
     */
     public function setElevatedCount(?int $value): void {
         $this->getBackingStore()->set('elevatedCount', $value);
@@ -102,7 +102,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
 
     /**
      * Sets the managedCount property value. The number of users that have the role assigned but the role is deactivated.
-     *  @param int|null $value Value to set for the managedCount property.
+     * @param int|null $value Value to set for the managedCount property.
     */
     public function setManagedCount(?int $value): void {
         $this->getBackingStore()->set('managedCount', $value);
@@ -110,7 +110,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
 
     /**
      * Sets the mfaEnabled property value. true if the role activation requires MFA. false if the role activation doesn't require MFA.
-     *  @param bool|null $value Value to set for the mfaEnabled property.
+     * @param bool|null $value Value to set for the mfaEnabled property.
     */
     public function setMfaEnabled(?bool $value): void {
         $this->getBackingStore()->set('mfaEnabled', $value);
@@ -118,7 +118,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
 
     /**
      * Sets the status property value. Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
-     *  @param RoleSummaryStatus|null $value Value to set for the status property.
+     * @param RoleSummaryStatus|null $value Value to set for the status property.
     */
     public function setStatus(?RoleSummaryStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -126,7 +126,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
 
     /**
      * Sets the usersCount property value. The number of users that are assigned with the role.
-     *  @param int|null $value Value to set for the usersCount property.
+     * @param int|null $value Value to set for the usersCount property.
     */
     public function setUsersCount(?int $value): void {
         $this->getBackingStore()->set('usersCount', $value);

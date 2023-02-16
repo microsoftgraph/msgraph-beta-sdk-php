@@ -155,7 +155,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Indicates the creation date and time for the custom device scope.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -163,7 +163,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the deviceScopeName property value. The name of the user experience analytics device Scope configuration.
-     *  @param string|null $value Value to set for the deviceScopeName property.
+     * @param string|null $value Value to set for the deviceScopeName property.
     */
     public function setDeviceScopeName(?string $value): void {
         $this->getBackingStore()->set('deviceScopeName', $value);
@@ -171,7 +171,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the enabled property value. Indicates whether a device scope is enabled or disabled. When TRUE, the device scope is enabled. When FALSE, the device scope is disabled. Default value is FALSE.
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -179,7 +179,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the isBuiltIn property value. Indicates whether the device scope configuration is built-in or custom. When TRUE, the device scope configuration is built-in. When FALSE, the device scope configuration is custom. Default value is FALSE.
-     *  @param bool|null $value Value to set for the isBuiltIn property.
+     * @param bool|null $value Value to set for the isBuiltIn property.
     */
     public function setIsBuiltIn(?bool $value): void {
         $this->getBackingStore()->set('isBuiltIn', $value);
@@ -187,7 +187,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Indicates the last updated date and time for the custom device scope.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -195,7 +195,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the operator property value. Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals.
-     *  @param DeviceScopeOperator|null $value Value to set for the operator property.
+     * @param DeviceScopeOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?DeviceScopeOperator $value): void {
         $this->getBackingStore()->set('operator', $value);
@@ -203,7 +203,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the ownerId property value. The unique identifier of the person (admin) who created the device scope configuration.
-     *  @param string|null $value Value to set for the ownerId property.
+     * @param string|null $value Value to set for the ownerId property.
     */
     public function setOwnerId(?string $value): void {
         $this->getBackingStore()->set('ownerId', $value);
@@ -211,7 +211,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the parameter property value. Device scope configuration parameter. It will be expend in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag.
-     *  @param DeviceScopeParameter|null $value Value to set for the parameter property.
+     * @param DeviceScopeParameter|null $value Value to set for the parameter property.
     */
     public function setParameter(?DeviceScopeParameter $value): void {
         $this->getBackingStore()->set('parameter', $value);
@@ -219,7 +219,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the status property value. Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none.
-     *  @param DeviceScopeStatus|null $value Value to set for the status property.
+     * @param DeviceScopeStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceScopeStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -227,7 +227,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the value property value. The device scope configuration query clause value.
-     *  @param string|null $value Value to set for the value property.
+     * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);
@@ -235,7 +235,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
 
     /**
      * Sets the valueObjectId property value. The unique identifier for a user device scope tag Id used for the creation of device scope configuration.
-     *  @param string|null $value Value to set for the valueObjectId property.
+     * @param string|null $value Value to set for the valueObjectId property.
     */
     public function setValueObjectId(?string $value): void {
         $this->getBackingStore()->set('valueObjectId', $value);

@@ -55,7 +55,7 @@ class ProgramResource extends Identity implements Parsable
 
     /**
      * Sets the type property value. Type of the resource, indicating whether it is a group or an app.
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);

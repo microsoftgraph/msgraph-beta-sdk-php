@@ -55,7 +55,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstance extends Devic
 
     /**
      * Sets the choiceSettingCollectionValue property value. Choice setting collection value
-     *  @param array<DeviceManagementConfigurationChoiceSettingValue>|null $value Value to set for the choiceSettingCollectionValue property.
+     * @param array<DeviceManagementConfigurationChoiceSettingValue>|null $value Value to set for the choiceSettingCollectionValue property.
     */
     public function setChoiceSettingCollectionValue(?array $value): void {
         $this->getBackingStore()->set('choiceSettingCollectionValue', $value);

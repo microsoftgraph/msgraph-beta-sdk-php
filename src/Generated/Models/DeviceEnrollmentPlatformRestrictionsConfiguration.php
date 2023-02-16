@@ -125,7 +125,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
 
     /**
      * Sets the androidForWorkRestriction property value. Android for work restrictions based on platform, platform operating system version, and device ownership
-     *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the androidForWorkRestriction property.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the androidForWorkRestriction property.
     */
     public function setAndroidForWorkRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('androidForWorkRestriction', $value);
@@ -133,7 +133,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
 
     /**
      * Sets the androidRestriction property value. Android restrictions based on platform, platform operating system version, and device ownership
-     *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the androidRestriction property.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the androidRestriction property.
     */
     public function setAndroidRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('androidRestriction', $value);
@@ -141,7 +141,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
 
     /**
      * Sets the iosRestriction property value. Ios restrictions based on platform, platform operating system version, and device ownership
-     *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the iosRestriction property.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the iosRestriction property.
     */
     public function setIosRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('iosRestriction', $value);
@@ -149,7 +149,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
 
     /**
      * Sets the macOSRestriction property value. Mac restrictions based on platform, platform operating system version, and device ownership
-     *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the macOSRestriction property.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the macOSRestriction property.
     */
     public function setMacOSRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('macOSRestriction', $value);
@@ -157,7 +157,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
 
     /**
      * Sets the macRestriction property value. Mac restrictions based on platform, platform operating system version, and device ownership
-     *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the macRestriction property.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the macRestriction property.
     */
     public function setMacRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('macRestriction', $value);
@@ -165,7 +165,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
 
     /**
      * Sets the windowsHomeSkuRestriction property value. Windows Home Sku restrictions based on platform, platform operating system version, and device ownership
-     *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the windowsHomeSkuRestriction property.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the windowsHomeSkuRestriction property.
     */
     public function setWindowsHomeSkuRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('windowsHomeSkuRestriction', $value);
@@ -173,7 +173,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
 
     /**
      * Sets the windowsMobileRestriction property value. Windows mobile restrictions based on platform, platform operating system version, and device ownership
-     *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the windowsMobileRestriction property.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the windowsMobileRestriction property.
     */
     public function setWindowsMobileRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('windowsMobileRestriction', $value);
@@ -181,7 +181,7 @@ class DeviceEnrollmentPlatformRestrictionsConfiguration extends DeviceEnrollment
 
     /**
      * Sets the windowsRestriction property value. Windows restrictions based on platform, platform operating system version, and device ownership
-     *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the windowsRestriction property.
+     * @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the windowsRestriction property.
     */
     public function setWindowsRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
         $this->getBackingStore()->set('windowsRestriction', $value);

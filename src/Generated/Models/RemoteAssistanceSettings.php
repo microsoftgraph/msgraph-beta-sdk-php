@@ -74,7 +74,7 @@ class RemoteAssistanceSettings extends Entity implements Parsable
 
     /**
      * Sets the allowSessionsToUnenrolledDevices property value. Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.
-     *  @param bool|null $value Value to set for the allowSessionsToUnenrolledDevices property.
+     * @param bool|null $value Value to set for the allowSessionsToUnenrolledDevices property.
     */
     public function setAllowSessionsToUnenrolledDevices(?bool $value): void {
         $this->getBackingStore()->set('allowSessionsToUnenrolledDevices', $value);
@@ -82,7 +82,7 @@ class RemoteAssistanceSettings extends Entity implements Parsable
 
     /**
      * Sets the blockChat property value. Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
-     *  @param bool|null $value Value to set for the blockChat property.
+     * @param bool|null $value Value to set for the blockChat property.
     */
     public function setBlockChat(?bool $value): void {
         $this->getBackingStore()->set('blockChat', $value);
@@ -90,7 +90,7 @@ class RemoteAssistanceSettings extends Entity implements Parsable
 
     /**
      * Sets the remoteAssistanceState property value. State of remote assistance for the account
-     *  @param RemoteAssistanceState|null $value Value to set for the remoteAssistanceState property.
+     * @param RemoteAssistanceState|null $value Value to set for the remoteAssistanceState property.
     */
     public function setRemoteAssistanceState(?RemoteAssistanceState $value): void {
         $this->getBackingStore()->set('remoteAssistanceState', $value);

@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The history for the site modifications
+*/
 class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -151,7 +154,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -159,7 +162,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the allowRedirect property value. Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.
-     *  @param bool|null $value Value to set for the allowRedirect property.
+     * @param bool|null $value Value to set for the allowRedirect property.
     */
     public function setAllowRedirect(?bool $value): void {
         $this->getBackingStore()->set('allowRedirect', $value);
@@ -167,7 +170,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -175,7 +178,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the comment property value. The comment for the site.
-     *  @param string|null $value Value to set for the comment property.
+     * @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value): void {
         $this->getBackingStore()->set('comment', $value);
@@ -183,7 +186,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the compatibilityMode property value. Controls what compatibility setting is used for specific sites or domains. The possible values are: default, internetExplorer8Enterprise, internetExplorer7Enterprise, internetExplorer11, internetExplorer10, internetExplorer9, internetExplorer8, internetExplorer7, internetExplorer5, unknownFutureValue.
-     *  @param BrowserSiteCompatibilityMode|null $value Value to set for the compatibilityMode property.
+     * @param BrowserSiteCompatibilityMode|null $value Value to set for the compatibilityMode property.
     */
     public function setCompatibilityMode(?BrowserSiteCompatibilityMode $value): void {
         $this->getBackingStore()->set('compatibilityMode', $value);
@@ -191,7 +194,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the site.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -199,7 +202,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mergeType property value. The merge type of the site. The possible values are: noMerge, default, unknownFutureValue.
-     *  @param BrowserSiteMergeType|null $value Value to set for the mergeType property.
+     * @param BrowserSiteMergeType|null $value Value to set for the mergeType property.
     */
     public function setMergeType(?BrowserSiteMergeType $value): void {
         $this->getBackingStore()->set('mergeType', $value);
@@ -207,7 +210,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -215,7 +218,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the publishedDateTime property value. The date and time when the site was last published.
-     *  @param DateTime|null $value Value to set for the publishedDateTime property.
+     * @param DateTime|null $value Value to set for the publishedDateTime property.
     */
     public function setPublishedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('publishedDateTime', $value);
@@ -223,7 +226,7 @@ class BrowserSiteHistory implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the targetEnvironment property value. The target environment that the site should open in. The possible values are: internetExplorerMode, internetExplorer11, microsoftEdge, configurable, none, unknownFutureValue.Prior to June 15, 2022, the internetExplorer11 option would allow opening a site in the Internet Explorer 11 (IE11) desktop application. Following the retirement of IE11 on June 15, 2022, the internetExplorer11 option will no longer open an IE11 window and will instead behave the same as the internetExplorerMode option.
-     *  @param BrowserSiteTargetEnvironment|null $value Value to set for the targetEnvironment property.
+     * @param BrowserSiteTargetEnvironment|null $value Value to set for the targetEnvironment property.
     */
     public function setTargetEnvironment(?BrowserSiteTargetEnvironment $value): void {
         $this->getBackingStore()->set('targetEnvironment', $value);

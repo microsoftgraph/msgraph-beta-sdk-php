@@ -296,7 +296,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the antiMalwareVersion property value. The anti-malware version for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the antiMalwareVersion property.
+     * @param string|null $value Value to set for the antiMalwareVersion property.
     */
     public function setAntiMalwareVersion(?string $value): void {
         $this->getBackingStore()->set('antiMalwareVersion', $value);
@@ -304,7 +304,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the attentionRequired property value. A flag indicating whether attention is required for the managed device. Optional. Read-only.
-     *  @param bool|null $value Value to set for the attentionRequired property.
+     * @param bool|null $value Value to set for the attentionRequired property.
     */
     public function setAttentionRequired(?bool $value): void {
         $this->getBackingStore()->set('attentionRequired', $value);
@@ -312,7 +312,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the deviceDeleted property value. A flag indicating whether the managed device has been deleted. Optional. Read-only.
-     *  @param bool|null $value Value to set for the deviceDeleted property.
+     * @param bool|null $value Value to set for the deviceDeleted property.
     */
     public function setDeviceDeleted(?bool $value): void {
         $this->getBackingStore()->set('deviceDeleted', $value);
@@ -320,7 +320,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the devicePropertyRefreshDateTime property value. The date and time the device property has been refreshed. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the devicePropertyRefreshDateTime property.
+     * @param DateTime|null $value Value to set for the devicePropertyRefreshDateTime property.
     */
     public function setDevicePropertyRefreshDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('devicePropertyRefreshDateTime', $value);
@@ -328,7 +328,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the engineVersion property value. The anti-virus engine version for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the engineVersion property.
+     * @param string|null $value Value to set for the engineVersion property.
     */
     public function setEngineVersion(?string $value): void {
         $this->getBackingStore()->set('engineVersion', $value);
@@ -336,7 +336,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the fullScanOverdue property value. A flag indicating whether quick scan is overdue for the managed device. Optional. Read-only.
-     *  @param bool|null $value Value to set for the fullScanOverdue property.
+     * @param bool|null $value Value to set for the fullScanOverdue property.
     */
     public function setFullScanOverdue(?bool $value): void {
         $this->getBackingStore()->set('fullScanOverdue', $value);
@@ -344,7 +344,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the fullScanRequired property value. A flag indicating whether full scan is overdue for the managed device. Optional. Read-only.
-     *  @param bool|null $value Value to set for the fullScanRequired property.
+     * @param bool|null $value Value to set for the fullScanRequired property.
     */
     public function setFullScanRequired(?bool $value): void {
         $this->getBackingStore()->set('fullScanRequired', $value);
@@ -352,7 +352,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastFullScanDateTime property value. The date and time a full scan was completed. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastFullScanDateTime property.
+     * @param DateTime|null $value Value to set for the lastFullScanDateTime property.
     */
     public function setLastFullScanDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastFullScanDateTime', $value);
@@ -360,7 +360,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastFullScanSignatureVersion property value. The version anti-malware version used to perform the last full scan. Optional. Read-only.
-     *  @param string|null $value Value to set for the lastFullScanSignatureVersion property.
+     * @param string|null $value Value to set for the lastFullScanSignatureVersion property.
     */
     public function setLastFullScanSignatureVersion(?string $value): void {
         $this->getBackingStore()->set('lastFullScanSignatureVersion', $value);
@@ -368,7 +368,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastQuickScanDateTime property value. The date and time a quick scan was completed. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastQuickScanDateTime property.
+     * @param DateTime|null $value Value to set for the lastQuickScanDateTime property.
     */
     public function setLastQuickScanDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastQuickScanDateTime', $value);
@@ -376,7 +376,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastQuickScanSignatureVersion property value. The version anti-malware version used to perform the last full scan. Optional. Read-only.
-     *  @param string|null $value Value to set for the lastQuickScanSignatureVersion property.
+     * @param string|null $value Value to set for the lastQuickScanSignatureVersion property.
     */
     public function setLastQuickScanSignatureVersion(?string $value): void {
         $this->getBackingStore()->set('lastQuickScanSignatureVersion', $value);
@@ -384,7 +384,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);
@@ -392,7 +392,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the lastReportedDateTime property value. The date and time the protection state was last reported for the managed device. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
+     * @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
     public function setLastReportedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportedDateTime', $value);
@@ -400,7 +400,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the malwareProtectionEnabled property value. A flag indicating whether malware protection is enabled for the managed device. Optional. Read-only.
-     *  @param bool|null $value Value to set for the malwareProtectionEnabled property.
+     * @param bool|null $value Value to set for the malwareProtectionEnabled property.
     */
     public function setMalwareProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('malwareProtectionEnabled', $value);
@@ -408,7 +408,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceHealthState property value. The health state for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the managedDeviceHealthState property.
+     * @param string|null $value Value to set for the managedDeviceHealthState property.
     */
     public function setManagedDeviceHealthState(?string $value): void {
         $this->getBackingStore()->set('managedDeviceHealthState', $value);
@@ -416,7 +416,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceId property value. The unique identifier for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -424,7 +424,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceName property value. The display name for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the managedDeviceName property.
+     * @param string|null $value Value to set for the managedDeviceName property.
     */
     public function setManagedDeviceName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceName', $value);
@@ -432,7 +432,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the networkInspectionSystemEnabled property value. A flag indicating whether the network inspection system is enabled. Optional. Read-only.
-     *  @param bool|null $value Value to set for the networkInspectionSystemEnabled property.
+     * @param bool|null $value Value to set for the networkInspectionSystemEnabled property.
     */
     public function setNetworkInspectionSystemEnabled(?bool $value): void {
         $this->getBackingStore()->set('networkInspectionSystemEnabled', $value);
@@ -440,7 +440,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the quickScanOverdue property value. A flag indicating weather a quick scan is overdue. Optional. Read-only.
-     *  @param bool|null $value Value to set for the quickScanOverdue property.
+     * @param bool|null $value Value to set for the quickScanOverdue property.
     */
     public function setQuickScanOverdue(?bool $value): void {
         $this->getBackingStore()->set('quickScanOverdue', $value);
@@ -448,7 +448,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the realTimeProtectionEnabled property value. A flag indicating whether real time protection is enabled. Optional. Read-only.
-     *  @param bool|null $value Value to set for the realTimeProtectionEnabled property.
+     * @param bool|null $value Value to set for the realTimeProtectionEnabled property.
     */
     public function setRealTimeProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('realTimeProtectionEnabled', $value);
@@ -456,7 +456,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the rebootRequired property value. A flag indicating whether a reboot is required. Optional. Read-only.
-     *  @param bool|null $value Value to set for the rebootRequired property.
+     * @param bool|null $value Value to set for the rebootRequired property.
     */
     public function setRebootRequired(?bool $value): void {
         $this->getBackingStore()->set('rebootRequired', $value);
@@ -464,7 +464,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the signatureUpdateOverdue property value. A flag indicating whether an signature update is overdue. Optional. Read-only.
-     *  @param bool|null $value Value to set for the signatureUpdateOverdue property.
+     * @param bool|null $value Value to set for the signatureUpdateOverdue property.
     */
     public function setSignatureUpdateOverdue(?bool $value): void {
         $this->getBackingStore()->set('signatureUpdateOverdue', $value);
@@ -472,7 +472,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the signatureVersion property value. The signature version for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the signatureVersion property.
+     * @param string|null $value Value to set for the signatureVersion property.
     */
     public function setSignatureVersion(?string $value): void {
         $this->getBackingStore()->set('signatureVersion', $value);
@@ -480,7 +480,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantDisplayName property.
+     * @param string|null $value Value to set for the tenantDisplayName property.
     */
     public function setTenantDisplayName(?string $value): void {
         $this->getBackingStore()->set('tenantDisplayName', $value);
@@ -488,7 +488,7 @@ class WindowsProtectionState extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

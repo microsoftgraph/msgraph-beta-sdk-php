@@ -96,7 +96,7 @@ class EducationalActivity extends ItemFacet implements Parsable
 
     /**
      * Sets the completionMonthYear property value. The month and year the user graduated or completed the activity.
-     *  @param Date|null $value Value to set for the completionMonthYear property.
+     * @param Date|null $value Value to set for the completionMonthYear property.
     */
     public function setCompletionMonthYear(?Date $value): void {
         $this->getBackingStore()->set('completionMonthYear', $value);
@@ -104,7 +104,7 @@ class EducationalActivity extends ItemFacet implements Parsable
 
     /**
      * Sets the endMonthYear property value. The month and year the user completed the educational activity referenced.
-     *  @param Date|null $value Value to set for the endMonthYear property.
+     * @param Date|null $value Value to set for the endMonthYear property.
     */
     public function setEndMonthYear(?Date $value): void {
         $this->getBackingStore()->set('endMonthYear', $value);
@@ -112,7 +112,7 @@ class EducationalActivity extends ItemFacet implements Parsable
 
     /**
      * Sets the institution property value. The institution property
-     *  @param InstitutionData|null $value Value to set for the institution property.
+     * @param InstitutionData|null $value Value to set for the institution property.
     */
     public function setInstitution(?InstitutionData $value): void {
         $this->getBackingStore()->set('institution', $value);
@@ -120,7 +120,7 @@ class EducationalActivity extends ItemFacet implements Parsable
 
     /**
      * Sets the program property value. The program property
-     *  @param EducationalActivityDetail|null $value Value to set for the program property.
+     * @param EducationalActivityDetail|null $value Value to set for the program property.
     */
     public function setProgram(?EducationalActivityDetail $value): void {
         $this->getBackingStore()->set('program', $value);
@@ -128,7 +128,7 @@ class EducationalActivity extends ItemFacet implements Parsable
 
     /**
      * Sets the startMonthYear property value. The month and year the user commenced the activity referenced.
-     *  @param Date|null $value Value to set for the startMonthYear property.
+     * @param Date|null $value Value to set for the startMonthYear property.
     */
     public function setStartMonthYear(?Date $value): void {
         $this->getBackingStore()->set('startMonthYear', $value);

@@ -45,7 +45,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -171,7 +171,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the accessReviewTimeoutBehavior property value. The default decision to apply if the request is not reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
-     *  @param AccessReviewTimeoutBehavior|null $value Value to set for the accessReviewTimeoutBehavior property.
+     * @param AccessReviewTimeoutBehavior|null $value Value to set for the accessReviewTimeoutBehavior property.
     */
     public function setAccessReviewTimeoutBehavior(?AccessReviewTimeoutBehavior $value): void {
         $this->getBackingStore()->set('accessReviewTimeoutBehavior', $value);
@@ -179,7 +179,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -187,7 +187,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -195,7 +195,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the durationInDays property value. The number of days within which reviewers should provide input.
-     *  @param int|null $value Value to set for the durationInDays property.
+     * @param int|null $value Value to set for the durationInDays property.
     */
     public function setDurationInDays(?int $value): void {
         $this->getBackingStore()->set('durationInDays', $value);
@@ -203,7 +203,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the isAccessRecommendationEnabled property value. Specifies whether to display recommendations to the reviewer. The default value is true
-     *  @param bool|null $value Value to set for the isAccessRecommendationEnabled property.
+     * @param bool|null $value Value to set for the isAccessRecommendationEnabled property.
     */
     public function setIsAccessRecommendationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isAccessRecommendationEnabled', $value);
@@ -211,7 +211,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the isApprovalJustificationRequired property value. Specifies whether the reviewer must provide justification for the approval. The default value is true.
-     *  @param bool|null $value Value to set for the isApprovalJustificationRequired property.
+     * @param bool|null $value Value to set for the isApprovalJustificationRequired property.
     */
     public function setIsApprovalJustificationRequired(?bool $value): void {
         $this->getBackingStore()->set('isApprovalJustificationRequired', $value);
@@ -219,7 +219,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the isEnabled property value. If true, access reviews are required for assignments from this policy.
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -227,7 +227,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -235,7 +235,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the recurrenceType property value. The interval for recurrence, such as monthly or quarterly.
-     *  @param string|null $value Value to set for the recurrenceType property.
+     * @param string|null $value Value to set for the recurrenceType property.
     */
     public function setRecurrenceType(?string $value): void {
         $this->getBackingStore()->set('recurrenceType', $value);
@@ -243,7 +243,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the reviewers property value. If the reviewerType is Reviewers, this collection specifies the users who will be reviewers, either by ID or as members of a group, using a collection of singleUser and groupMembers.
-     *  @param array<UserSet>|null $value Value to set for the reviewers property.
+     * @param array<UserSet>|null $value Value to set for the reviewers property.
     */
     public function setReviewers(?array $value): void {
         $this->getBackingStore()->set('reviewers', $value);
@@ -251,7 +251,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the reviewerType property value. Who should be asked to do the review, either Self or Reviewers.
-     *  @param string|null $value Value to set for the reviewerType property.
+     * @param string|null $value Value to set for the reviewerType property.
     */
     public function setReviewerType(?string $value): void {
         $this->getBackingStore()->set('reviewerType', $value);
@@ -259,7 +259,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the startDateTime property value. When the first review should start.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);

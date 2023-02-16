@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\ExternalIdentitiesPolicy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties and relationships of the tenant-wide externalIdentitiesPolicy object that controls whether external users can leave an Azure AD tenant via self-service controls.
+*/
 class ExternalIdentitiesPolicyRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ExternalIdentitiesPolicyRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new externalIdentitiesPolicyRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }
