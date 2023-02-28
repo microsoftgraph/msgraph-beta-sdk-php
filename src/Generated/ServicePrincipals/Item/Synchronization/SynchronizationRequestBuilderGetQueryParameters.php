@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get synchronization from servicePrincipals
+*/
 class SynchronizationRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class SynchronizationRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new synchronizationRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

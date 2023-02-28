@@ -37,7 +37,7 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -101,7 +101,7 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -109,7 +109,7 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the assignmentMethod property value. The assignmentMethod property
-     *  @param SensitivityLabelAssignmentMethod|null $value Value to set for the assignmentMethod property.
+     * @param SensitivityLabelAssignmentMethod|null $value Value to set for the assignmentMethod property.
     */
     public function setAssignmentMethod(?SensitivityLabelAssignmentMethod $value): void {
         $this->getBackingStore()->set('assignmentMethod', $value);
@@ -117,7 +117,7 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -125,7 +125,7 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the justificationText property value. The justificationText property
-     *  @param string|null $value Value to set for the justificationText property.
+     * @param string|null $value Value to set for the justificationText property.
     */
     public function setJustificationText(?string $value): void {
         $this->getBackingStore()->set('justificationText', $value);
@@ -133,7 +133,7 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
 
     /**
      * Sets the sensitivityLabelId property value. The sensitivityLabelId property
-     *  @param string|null $value Value to set for the sensitivityLabelId property.
+     * @param string|null $value Value to set for the sensitivityLabelId property.
     */
     public function setSensitivityLabelId(?string $value): void {
         $this->getBackingStore()->set('sensitivityLabelId', $value);

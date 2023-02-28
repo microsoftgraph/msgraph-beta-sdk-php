@@ -55,7 +55,7 @@ class DeviceManagementConfigurationChoiceSettingInstanceTemplate extends DeviceM
 
     /**
      * Sets the choiceSettingValueTemplate property value. Choice Setting Value Template
-     *  @param DeviceManagementConfigurationChoiceSettingValueTemplate|null $value Value to set for the choiceSettingValueTemplate property.
+     * @param DeviceManagementConfigurationChoiceSettingValueTemplate|null $value Value to set for the choiceSettingValueTemplate property.
     */
     public function setChoiceSettingValueTemplate(?DeviceManagementConfigurationChoiceSettingValueTemplate $value): void {
         $this->getBackingStore()->set('choiceSettingValueTemplate', $value);

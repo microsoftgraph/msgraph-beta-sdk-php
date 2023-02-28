@@ -36,7 +36,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -150,7 +150,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -158,7 +158,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -166,7 +166,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the defaultValue property value. Default value to be used in case the source property was evaluated to null. Optional.
-     *  @param string|null $value Value to set for the defaultValue property.
+     * @param string|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?string $value): void {
         $this->getBackingStore()->set('defaultValue', $value);
@@ -174,7 +174,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the exportMissingReferences property value. For internal use only.
-     *  @param bool|null $value Value to set for the exportMissingReferences property.
+     * @param bool|null $value Value to set for the exportMissingReferences property.
     */
     public function setExportMissingReferences(?bool $value): void {
         $this->getBackingStore()->set('exportMissingReferences', $value);
@@ -182,7 +182,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the flowBehavior property value. The flowBehavior property
-     *  @param AttributeFlowBehavior|null $value Value to set for the flowBehavior property.
+     * @param AttributeFlowBehavior|null $value Value to set for the flowBehavior property.
     */
     public function setFlowBehavior(?AttributeFlowBehavior $value): void {
         $this->getBackingStore()->set('flowBehavior', $value);
@@ -190,7 +190,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the flowType property value. The flowType property
-     *  @param AttributeFlowType|null $value Value to set for the flowType property.
+     * @param AttributeFlowType|null $value Value to set for the flowType property.
     */
     public function setFlowType(?AttributeFlowType $value): void {
         $this->getBackingStore()->set('flowType', $value);
@@ -198,7 +198,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the matchingPriority property value. If higher than 0, this attribute will be used to perform an initial match of the objects between source and target directories. The synchronization engine will try to find the matching object using attribute with lowest value of matching priority first. If not found, the attribute with the next matching priority will be used, and so on a until match is found or no more matching attributes are left. Only attributes that are expected to have unique values, such as email, should be used as matching attributes.
-     *  @param int|null $value Value to set for the matchingPriority property.
+     * @param int|null $value Value to set for the matchingPriority property.
     */
     public function setMatchingPriority(?int $value): void {
         $this->getBackingStore()->set('matchingPriority', $value);
@@ -206,7 +206,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -214,7 +214,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the source property value. Defines how a value should be extracted (or transformed) from the source object.
-     *  @param AttributeMappingSource|null $value Value to set for the source property.
+     * @param AttributeMappingSource|null $value Value to set for the source property.
     */
     public function setSource(?AttributeMappingSource $value): void {
         $this->getBackingStore()->set('source', $value);
@@ -222,7 +222,7 @@ class AttributeMapping implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the targetAttributeName property value. Name of the attribute on the target object.
-     *  @param string|null $value Value to set for the targetAttributeName property.
+     * @param string|null $value Value to set for the targetAttributeName property.
     */
     public function setTargetAttributeName(?string $value): void {
         $this->getBackingStore()->set('targetAttributeName', $value);

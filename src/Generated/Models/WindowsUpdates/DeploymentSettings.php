@@ -31,19 +31,12 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
      * @return DeploymentSettings
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeploymentSettings {
-        $mappingValueNode = $parseNode->getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.windowsUpdates.windowsDeploymentSettings': return new WindowsDeploymentSettings();
-            }
-        }
         return new DeploymentSettings();
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -58,21 +51,39 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the contentApplicability property value. Settings for governing whether content is applicable to a device.
+     * @return ContentApplicabilitySettings|null
+    */
+    public function getContentApplicability(): ?ContentApplicabilitySettings {
+        return $this->getBackingStore()->get('contentApplicability');
+    }
+
+    /**
+     * Gets the expedite property value. Settings for governing whether updates should be expedited.
+     * @return ExpediteSettings|null
+    */
+    public function getExpedite(): ?ExpediteSettings {
+        return $this->getBackingStore()->get('expedite');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'contentApplicability' => fn(ParseNode $n) => $o->setContentApplicability($n->getObjectValue([ContentApplicabilitySettings::class, 'createFromDiscriminatorValue'])),
+            'expedite' => fn(ParseNode $n) => $o->setExpedite($n->getObjectValue([ExpediteSettings::class, 'createFromDiscriminatorValue'])),
             'monitoring' => fn(ParseNode $n) => $o->setMonitoring($n->getObjectValue([MonitoringSettings::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'rollout' => fn(ParseNode $n) => $o->setRollout($n->getObjectValue([RolloutSettings::class, 'createFromDiscriminatorValue'])),
-            'safeguard' => fn(ParseNode $n) => $o->setSafeguard($n->getObjectValue([SafeguardSettings::class, 'createFromDiscriminatorValue'])),
+            'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([ScheduleSettings::class, 'createFromDiscriminatorValue'])),
+            'userExperience' => fn(ParseNode $n) => $o->setUserExperience($n->getObjectValue([UserExperienceSettings::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
     /**
-     * Gets the monitoring property value. Settings governing conditions to monitor and automated actions to take.
+     * Gets the monitoring property value. Settings for governing conditions to monitor and automated actions to take.
      * @return MonitoringSettings|null
     */
     public function getMonitoring(): ?MonitoringSettings {
@@ -88,19 +99,19 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the rollout property value. Settings governing how the content is rolled out.
-     * @return RolloutSettings|null
+     * Gets the schedule property value. Settings for governing how and when the content is rolled out.
+     * @return ScheduleSettings|null
     */
-    public function getRollout(): ?RolloutSettings {
-        return $this->getBackingStore()->get('rollout');
+    public function getSchedule(): ?ScheduleSettings {
+        return $this->getBackingStore()->get('schedule');
     }
 
     /**
-     * Gets the safeguard property value. Settings governing safeguard holds on offering content.
-     * @return SafeguardSettings|null
+     * Gets the userExperience property value. Settings for governing end user update experience.
+     * @return UserExperienceSettings|null
     */
-    public function getSafeguard(): ?SafeguardSettings {
-        return $this->getBackingStore()->get('safeguard');
+    public function getUserExperience(): ?UserExperienceSettings {
+        return $this->getBackingStore()->get('userExperience');
     }
 
     /**
@@ -108,16 +119,18 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('contentApplicability', $this->getContentApplicability());
+        $writer->writeObjectValue('expedite', $this->getExpedite());
         $writer->writeObjectValue('monitoring', $this->getMonitoring());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeObjectValue('rollout', $this->getRollout());
-        $writer->writeObjectValue('safeguard', $this->getSafeguard());
+        $writer->writeObjectValue('schedule', $this->getSchedule());
+        $writer->writeObjectValue('userExperience', $this->getUserExperience());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -125,15 +138,31 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
-     * Sets the monitoring property value. Settings governing conditions to monitor and automated actions to take.
-     *  @param MonitoringSettings|null $value Value to set for the monitoring property.
+     * Sets the contentApplicability property value. Settings for governing whether content is applicable to a device.
+     * @param ContentApplicabilitySettings|null $value Value to set for the contentApplicability property.
+    */
+    public function setContentApplicability(?ContentApplicabilitySettings $value): void {
+        $this->getBackingStore()->set('contentApplicability', $value);
+    }
+
+    /**
+     * Sets the expedite property value. Settings for governing whether updates should be expedited.
+     * @param ExpediteSettings|null $value Value to set for the expedite property.
+    */
+    public function setExpedite(?ExpediteSettings $value): void {
+        $this->getBackingStore()->set('expedite', $value);
+    }
+
+    /**
+     * Sets the monitoring property value. Settings for governing conditions to monitor and automated actions to take.
+     * @param MonitoringSettings|null $value Value to set for the monitoring property.
     */
     public function setMonitoring(?MonitoringSettings $value): void {
         $this->getBackingStore()->set('monitoring', $value);
@@ -141,26 +170,26 @@ class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the rollout property value. Settings governing how the content is rolled out.
-     *  @param RolloutSettings|null $value Value to set for the rollout property.
+     * Sets the schedule property value. Settings for governing how and when the content is rolled out.
+     * @param ScheduleSettings|null $value Value to set for the schedule property.
     */
-    public function setRollout(?RolloutSettings $value): void {
-        $this->getBackingStore()->set('rollout', $value);
+    public function setSchedule(?ScheduleSettings $value): void {
+        $this->getBackingStore()->set('schedule', $value);
     }
 
     /**
-     * Sets the safeguard property value. Settings governing safeguard holds on offering content.
-     *  @param SafeguardSettings|null $value Value to set for the safeguard property.
+     * Sets the userExperience property value. Settings for governing end user update experience.
+     * @param UserExperienceSettings|null $value Value to set for the userExperience property.
     */
-    public function setSafeguard(?SafeguardSettings $value): void {
-        $this->getBackingStore()->set('safeguard', $value);
+    public function setUserExperience(?UserExperienceSettings $value): void {
+        $this->getBackingStore()->set('userExperience', $value);
     }
 
 }

@@ -37,7 +37,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -161,7 +161,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -169,7 +169,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -177,7 +177,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the bargeInAllowed property value. The bargeInAllowed property
-     *  @param bool|null $value Value to set for the bargeInAllowed property.
+     * @param bool|null $value Value to set for the bargeInAllowed property.
     */
     public function setBargeInAllowed(?bool $value): void {
         $this->getBackingStore()->set('bargeInAllowed', $value);
@@ -185,7 +185,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the clientContext property value. The clientContext property
-     *  @param string|null $value Value to set for the clientContext property.
+     * @param string|null $value Value to set for the clientContext property.
     */
     public function setClientContext(?string $value): void {
         $this->getBackingStore()->set('clientContext', $value);
@@ -193,7 +193,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the initialSilenceTimeoutInSeconds property value. The initialSilenceTimeoutInSeconds property
-     *  @param int|null $value Value to set for the initialSilenceTimeoutInSeconds property.
+     * @param int|null $value Value to set for the initialSilenceTimeoutInSeconds property.
     */
     public function setInitialSilenceTimeoutInSeconds(?int $value): void {
         $this->getBackingStore()->set('initialSilenceTimeoutInSeconds', $value);
@@ -201,7 +201,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the maxRecordDurationInSeconds property value. The maxRecordDurationInSeconds property
-     *  @param int|null $value Value to set for the maxRecordDurationInSeconds property.
+     * @param int|null $value Value to set for the maxRecordDurationInSeconds property.
     */
     public function setMaxRecordDurationInSeconds(?int $value): void {
         $this->getBackingStore()->set('maxRecordDurationInSeconds', $value);
@@ -209,7 +209,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the maxSilenceTimeoutInSeconds property value. The maxSilenceTimeoutInSeconds property
-     *  @param int|null $value Value to set for the maxSilenceTimeoutInSeconds property.
+     * @param int|null $value Value to set for the maxSilenceTimeoutInSeconds property.
     */
     public function setMaxSilenceTimeoutInSeconds(?int $value): void {
         $this->getBackingStore()->set('maxSilenceTimeoutInSeconds', $value);
@@ -217,7 +217,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the playBeep property value. The playBeep property
-     *  @param bool|null $value Value to set for the playBeep property.
+     * @param bool|null $value Value to set for the playBeep property.
     */
     public function setPlayBeep(?bool $value): void {
         $this->getBackingStore()->set('playBeep', $value);
@@ -225,7 +225,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the prompts property value. The prompts property
-     *  @param array<Prompt>|null $value Value to set for the prompts property.
+     * @param array<Prompt>|null $value Value to set for the prompts property.
     */
     public function setPrompts(?array $value): void {
         $this->getBackingStore()->set('prompts', $value);
@@ -233,7 +233,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the stopTones property value. The stopTones property
-     *  @param array<string>|null $value Value to set for the stopTones property.
+     * @param array<string>|null $value Value to set for the stopTones property.
     */
     public function setStopTones(?array $value): void {
         $this->getBackingStore()->set('stopTones', $value);
@@ -241,7 +241,7 @@ class RecordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the streamWhileRecording property value. The streamWhileRecording property
-     *  @param bool|null $value Value to set for the streamWhileRecording property.
+     * @param bool|null $value Value to set for the streamWhileRecording property.
     */
     public function setStreamWhileRecording(?bool $value): void {
         $this->getBackingStore()->set('streamWhileRecording', $value);

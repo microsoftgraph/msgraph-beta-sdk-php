@@ -64,7 +64,7 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
 
     /**
      * Sets the matchTolerance property value. The matchTolerance property
-     *  @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerance property.
+     * @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerance property.
     */
     public function setMatchTolerance(?MlClassificationMatchTolerance $value): void {
         $this->getBackingStore()->set('matchTolerance', $value);
@@ -72,7 +72,7 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
 
     /**
      * Sets the modelVersion property value. The modelVersion property
-     *  @param string|null $value Value to set for the modelVersion property.
+     * @param string|null $value Value to set for the modelVersion property.
     */
     public function setModelVersion(?string $value): void {
         $this->getBackingStore()->set('modelVersion', $value);

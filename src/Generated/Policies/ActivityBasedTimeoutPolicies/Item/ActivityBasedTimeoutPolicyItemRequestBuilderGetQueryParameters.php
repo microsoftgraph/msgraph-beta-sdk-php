@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\ActivityBasedTimeoutPolicies\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The policy that controls the idle time out for web sessions for applications.
+*/
 class ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

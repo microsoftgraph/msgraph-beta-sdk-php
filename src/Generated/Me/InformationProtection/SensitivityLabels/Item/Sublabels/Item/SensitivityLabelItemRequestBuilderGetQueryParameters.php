@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\InformationProtection\SensitivityLab
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get sublabels from me
+*/
 class SensitivityLabelItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class SensitivityLabelItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new SensitivityLabelItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

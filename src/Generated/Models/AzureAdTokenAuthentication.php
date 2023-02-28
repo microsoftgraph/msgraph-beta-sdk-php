@@ -55,7 +55,7 @@ class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfigurat
 
     /**
      * Sets the resourceId property value. The appID of the Azure AD application to use to authenticate a logic app with a custom access package workflow extension.
-     *  @param string|null $value Value to set for the resourceId property.
+     * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
         $this->getBackingStore()->set('resourceId', $value);

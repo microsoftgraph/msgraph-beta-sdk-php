@@ -145,7 +145,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the authenticationMethod property value. VPN Authentication Method.
-     *  @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?VpnAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -153,7 +153,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectionName property value. Connection name displayed to the user.
-     *  @param string|null $value Value to set for the connectionName property.
+     * @param string|null $value Value to set for the connectionName property.
     */
     public function setConnectionName(?string $value): void {
         $this->getBackingStore()->set('connectionName', $value);
@@ -161,7 +161,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectionType property value. Android VPN connection type.
-     *  @param AndroidVpnConnectionType|null $value Value to set for the connectionType property.
+     * @param AndroidVpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?AndroidVpnConnectionType $value): void {
         $this->getBackingStore()->set('connectionType', $value);
@@ -169,7 +169,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the customData property value. Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
-     *  @param array<KeyValue>|null $value Value to set for the customData property.
+     * @param array<KeyValue>|null $value Value to set for the customData property.
     */
     public function setCustomData(?array $value): void {
         $this->getBackingStore()->set('customData', $value);
@@ -177,7 +177,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the customKeyValueData property value. Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
-     *  @param array<KeyValuePair>|null $value Value to set for the customKeyValueData property.
+     * @param array<KeyValuePair>|null $value Value to set for the customKeyValueData property.
     */
     public function setCustomKeyValueData(?array $value): void {
         $this->getBackingStore()->set('customKeyValueData', $value);
@@ -185,7 +185,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the fingerprint property value. Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
-     *  @param string|null $value Value to set for the fingerprint property.
+     * @param string|null $value Value to set for the fingerprint property.
     */
     public function setFingerprint(?string $value): void {
         $this->getBackingStore()->set('fingerprint', $value);
@@ -193,7 +193,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
-     *  @param AndroidCertificateProfileBase|null $value Value to set for the identityCertificate property.
+     * @param AndroidCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
     public function setIdentityCertificate(?AndroidCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
@@ -201,7 +201,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the realm property value. Realm when connection type is set to Pulse Secure.
-     *  @param string|null $value Value to set for the realm property.
+     * @param string|null $value Value to set for the realm property.
     */
     public function setRealm(?string $value): void {
         $this->getBackingStore()->set('realm', $value);
@@ -209,7 +209,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the role property value. Role when connection type is set to Pulse Secure.
-     *  @param string|null $value Value to set for the role property.
+     * @param string|null $value Value to set for the role property.
     */
     public function setRole(?string $value): void {
         $this->getBackingStore()->set('role', $value);
@@ -217,7 +217,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the servers property value. List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-     *  @param array<VpnServer>|null $value Value to set for the servers property.
+     * @param array<VpnServer>|null $value Value to set for the servers property.
     */
     public function setServers(?array $value): void {
         $this->getBackingStore()->set('servers', $value);

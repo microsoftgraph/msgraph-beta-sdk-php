@@ -37,7 +37,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +127,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
 
     /**
      * Sets the endDateTime property value. The end time of the connection health check. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -135,7 +135,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
 
     /**
      * Sets the healthChecks property value. All checks that are done on the connection.
-     *  @param array<CloudPcOnPremisesConnectionHealthCheck>|null $value Value to set for the healthChecks property.
+     * @param array<CloudPcOnPremisesConnectionHealthCheck>|null $value Value to set for the healthChecks property.
     */
     public function setHealthChecks(?array $value): void {
         $this->getBackingStore()->set('healthChecks', $value);
@@ -143,7 +143,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -151,7 +151,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
 
     /**
      * Sets the startDateTime property value. The start time of the connection health check. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);

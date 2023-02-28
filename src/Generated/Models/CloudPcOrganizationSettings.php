@@ -25,7 +25,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the enableMEMAutoEnroll property value. Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
+     * Gets the enableMEMAutoEnroll property value. Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager (MEM). The default value is false.
      * @return bool|null
     */
     public function getEnableMEMAutoEnroll(): ?bool {
@@ -33,7 +33,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the enableSingleSignOn property value. The enableSingleSignOn property
+     * Gets the enableSingleSignOn property value. True if the provisioned Cloud PC can be accessed by single sign-on. False indicates that the provisioned Cloud PC doesn't support this feature. Default value is false. Windows 365 users can use single sign-on to authenticate to Azure Active Directory (Azure AD) with passwordless options (for example, FIDO keys) to access their Cloud PC. Optional.
      * @return bool|null
     */
     public function getEnableSingleSignOn(): ?bool {
@@ -93,16 +93,16 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the enableMEMAutoEnroll property value. Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
-     *  @param bool|null $value Value to set for the enableMEMAutoEnroll property.
+     * Sets the enableMEMAutoEnroll property value. Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager (MEM). The default value is false.
+     * @param bool|null $value Value to set for the enableMEMAutoEnroll property.
     */
     public function setEnableMEMAutoEnroll(?bool $value): void {
         $this->getBackingStore()->set('enableMEMAutoEnroll', $value);
     }
 
     /**
-     * Sets the enableSingleSignOn property value. The enableSingleSignOn property
-     *  @param bool|null $value Value to set for the enableSingleSignOn property.
+     * Sets the enableSingleSignOn property value. True if the provisioned Cloud PC can be accessed by single sign-on. False indicates that the provisioned Cloud PC doesn't support this feature. Default value is false. Windows 365 users can use single sign-on to authenticate to Azure Active Directory (Azure AD) with passwordless options (for example, FIDO keys) to access their Cloud PC. Optional.
+     * @param bool|null $value Value to set for the enableSingleSignOn property.
     */
     public function setEnableSingleSignOn(?bool $value): void {
         $this->getBackingStore()->set('enableSingleSignOn', $value);
@@ -110,7 +110,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
-     *  @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
+     * @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?CloudPcOperatingSystem $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -118,7 +118,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
 
     /**
      * Sets the userAccountType property value. The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue.
-     *  @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
+     * @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
     */
     public function setUserAccountType(?CloudPcUserAccountType $value): void {
         $this->getBackingStore()->set('userAccountType', $value);
@@ -126,7 +126,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
 
     /**
      * Sets the windowsSettings property value. Represents the Cloud PC organization settings for a tenant. A tenant has only one cloudPcOrganizationSettings object. The default language value en-US.
-     *  @param CloudPcWindowsSettings|null $value Value to set for the windowsSettings property.
+     * @param CloudPcWindowsSettings|null $value Value to set for the windowsSettings property.
     */
     public function setWindowsSettings(?CloudPcWindowsSettings $value): void {
         $this->getBackingStore()->set('windowsSettings', $value);

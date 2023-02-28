@@ -55,7 +55,7 @@ class DeviceManagementConfigurationGroupSettingCollectionInstance extends Device
 
     /**
      * Sets the groupSettingCollectionValue property value. A collection of GroupSetting values
-     *  @param array<DeviceManagementConfigurationGroupSettingValue>|null $value Value to set for the groupSettingCollectionValue property.
+     * @param array<DeviceManagementConfigurationGroupSettingValue>|null $value Value to set for the groupSettingCollectionValue property.
     */
     public function setGroupSettingCollectionValue(?array $value): void {
         $this->getBackingStore()->set('groupSettingCollectionValue', $value);

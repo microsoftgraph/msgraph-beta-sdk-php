@@ -185,7 +185,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the appsBlockInstallFromUnknownSources property value. Indicates whether or not the user is allowed to enable unknown sources setting. When set to true, user is not allowed to enable unknown sources settings.
-     *  @param bool|null $value Value to set for the appsBlockInstallFromUnknownSources property.
+     * @param bool|null $value Value to set for the appsBlockInstallFromUnknownSources property.
     */
     public function setAppsBlockInstallFromUnknownSources(?bool $value): void {
         $this->getBackingStore()->set('appsBlockInstallFromUnknownSources', $value);
@@ -193,7 +193,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the bluetoothBlockConfiguration property value. Indicates whether or not to block a user from configuring bluetooth.
-     *  @param bool|null $value Value to set for the bluetoothBlockConfiguration property.
+     * @param bool|null $value Value to set for the bluetoothBlockConfiguration property.
     */
     public function setBluetoothBlockConfiguration(?bool $value): void {
         $this->getBackingStore()->set('bluetoothBlockConfiguration', $value);
@@ -201,7 +201,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the bluetoothBlocked property value. Indicates whether or not to disable the use of bluetooth. When set to true, bluetooth cannot be enabled on the device.
-     *  @param bool|null $value Value to set for the bluetoothBlocked property.
+     * @param bool|null $value Value to set for the bluetoothBlocked property.
     */
     public function setBluetoothBlocked(?bool $value): void {
         $this->getBackingStore()->set('bluetoothBlocked', $value);
@@ -209,7 +209,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the cameraBlocked property value. Indicates whether or not to disable the use of the camera.
-     *  @param bool|null $value Value to set for the cameraBlocked property.
+     * @param bool|null $value Value to set for the cameraBlocked property.
     */
     public function setCameraBlocked(?bool $value): void {
         $this->getBackingStore()->set('cameraBlocked', $value);
@@ -217,7 +217,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the factoryResetBlocked property value. Indicates whether or not the factory reset option in settings is disabled.
-     *  @param bool|null $value Value to set for the factoryResetBlocked property.
+     * @param bool|null $value Value to set for the factoryResetBlocked property.
     */
     public function setFactoryResetBlocked(?bool $value): void {
         $this->getBackingStore()->set('factoryResetBlocked', $value);
@@ -225,7 +225,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the passwordMinimumLength property value. Indicates the minimum length of the password required on the device. Valid values 4 to 16
-     *  @param int|null $value Value to set for the passwordMinimumLength property.
+     * @param int|null $value Value to set for the passwordMinimumLength property.
     */
     public function setPasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLength', $value);
@@ -233,7 +233,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
-     *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
+     * @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
     */
     public function setPasswordMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
         $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeScreenTimeout', $value);
@@ -241,7 +241,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the passwordRequiredType property value. Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-     *  @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
@@ -249,7 +249,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the passwordSignInFailureCountBeforeFactoryReset property value. Indicates the number of times a user can enter an incorrect password before the device is wiped. Valid values 4 to 11
-     *  @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
+     * @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
     */
     public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value): void {
         $this->getBackingStore()->set('passwordSignInFailureCountBeforeFactoryReset', $value);
@@ -257,7 +257,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the screenCaptureBlocked property value. Indicates whether or not to disable the capability to take screenshots.
-     *  @param bool|null $value Value to set for the screenCaptureBlocked property.
+     * @param bool|null $value Value to set for the screenCaptureBlocked property.
     */
     public function setScreenCaptureBlocked(?bool $value): void {
         $this->getBackingStore()->set('screenCaptureBlocked', $value);
@@ -265,7 +265,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the securityAllowDebuggingFeatures property value. Indicates whether or not to block the user from enabling debugging features on the device.
-     *  @param bool|null $value Value to set for the securityAllowDebuggingFeatures property.
+     * @param bool|null $value Value to set for the securityAllowDebuggingFeatures property.
     */
     public function setSecurityAllowDebuggingFeatures(?bool $value): void {
         $this->getBackingStore()->set('securityAllowDebuggingFeatures', $value);
@@ -273,7 +273,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the storageBlockExternalMedia property value. Indicates whether or not to block external media.
-     *  @param bool|null $value Value to set for the storageBlockExternalMedia property.
+     * @param bool|null $value Value to set for the storageBlockExternalMedia property.
     */
     public function setStorageBlockExternalMedia(?bool $value): void {
         $this->getBackingStore()->set('storageBlockExternalMedia', $value);
@@ -281,7 +281,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the storageBlockUsbFileTransfer property value. Indicates whether or not to block USB file transfer.
-     *  @param bool|null $value Value to set for the storageBlockUsbFileTransfer property.
+     * @param bool|null $value Value to set for the storageBlockUsbFileTransfer property.
     */
     public function setStorageBlockUsbFileTransfer(?bool $value): void {
         $this->getBackingStore()->set('storageBlockUsbFileTransfer', $value);
@@ -289,7 +289,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
 
     /**
      * Sets the wifiBlockEditConfigurations property value. Indicates whether or not to block the user from editing the wifi connection settings.
-     *  @param bool|null $value Value to set for the wifiBlockEditConfigurations property.
+     * @param bool|null $value Value to set for the wifiBlockEditConfigurations property.
     */
     public function setWifiBlockEditConfigurations(?bool $value): void {
         $this->getBackingStore()->set('wifiBlockEditConfigurations', $value);

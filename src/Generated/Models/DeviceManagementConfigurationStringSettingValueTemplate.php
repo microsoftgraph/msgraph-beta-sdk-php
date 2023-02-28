@@ -55,7 +55,7 @@ class DeviceManagementConfigurationStringSettingValueTemplate extends DeviceMana
 
     /**
      * Sets the defaultValue property value. String Setting Value Default Template.
-     *  @param DeviceManagementConfigurationStringSettingValueDefaultTemplate|null $value Value to set for the defaultValue property.
+     * @param DeviceManagementConfigurationStringSettingValueDefaultTemplate|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?DeviceManagementConfigurationStringSettingValueDefaultTemplate $value): void {
         $this->getBackingStore()->set('defaultValue', $value);

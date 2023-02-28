@@ -43,7 +43,7 @@ class AccessPackageAnswer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -107,7 +107,7 @@ class AccessPackageAnswer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -115,7 +115,7 @@ class AccessPackageAnswer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the answeredQuestion property value. The question the answer is for. Required and Read-only.
-     *  @param AccessPackageQuestion|null $value Value to set for the answeredQuestion property.
+     * @param AccessPackageQuestion|null $value Value to set for the answeredQuestion property.
     */
     public function setAnsweredQuestion(?AccessPackageQuestion $value): void {
         $this->getBackingStore()->set('answeredQuestion', $value);
@@ -123,7 +123,7 @@ class AccessPackageAnswer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -131,7 +131,7 @@ class AccessPackageAnswer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayValue property value. The display value of the answer. Required.
-     *  @param string|null $value Value to set for the displayValue property.
+     * @param string|null $value Value to set for the displayValue property.
     */
     public function setDisplayValue(?string $value): void {
         $this->getBackingStore()->set('displayValue', $value);
@@ -139,7 +139,7 @@ class AccessPackageAnswer implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

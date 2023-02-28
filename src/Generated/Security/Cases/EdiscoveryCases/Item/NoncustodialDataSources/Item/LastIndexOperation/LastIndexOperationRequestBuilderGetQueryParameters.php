@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\Non
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Operation entity that represents the latest indexing for the non-custodial data source.
+*/
 class LastIndexOperationRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class LastIndexOperationRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new lastIndexOperationRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

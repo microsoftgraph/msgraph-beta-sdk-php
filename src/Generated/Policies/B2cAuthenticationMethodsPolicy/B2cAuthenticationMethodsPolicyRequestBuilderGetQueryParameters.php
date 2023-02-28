@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Policies\B2cAuthenticationMethodsPolicy
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read the properties of a b2cAuthenticationMethodsPolicy object.
+*/
 class B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class B2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new b2cAuthenticationMethodsPolicyRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

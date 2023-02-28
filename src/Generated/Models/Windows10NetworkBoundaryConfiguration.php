@@ -55,7 +55,7 @@ class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration implemen
 
     /**
      * Sets the windowsNetworkIsolationPolicy property value. Windows Network Isolation Policy
-     *  @param WindowsNetworkIsolationPolicy|null $value Value to set for the windowsNetworkIsolationPolicy property.
+     * @param WindowsNetworkIsolationPolicy|null $value Value to set for the windowsNetworkIsolationPolicy property.
     */
     public function setWindowsNetworkIsolationPolicy(?WindowsNetworkIsolationPolicy $value): void {
         $this->getBackingStore()->set('windowsNetworkIsolationPolicy', $value);

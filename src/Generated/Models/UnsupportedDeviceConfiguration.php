@@ -65,7 +65,7 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Sets the details property value. Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
-     *  @param array<UnsupportedDeviceConfigurationDetail>|null $value Value to set for the details property.
+     * @param array<UnsupportedDeviceConfigurationDetail>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value): void {
         $this->getBackingStore()->set('details', $value);
@@ -73,7 +73,7 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration implements Pars
 
     /**
      * Sets the originalEntityTypeName property value. The type of entity that would be returned otherwise.
-     *  @param string|null $value Value to set for the originalEntityTypeName property.
+     * @param string|null $value Value to set for the originalEntityTypeName property.
     */
     public function setOriginalEntityTypeName(?string $value): void {
         $this->getBackingStore()->set('originalEntityTypeName', $value);

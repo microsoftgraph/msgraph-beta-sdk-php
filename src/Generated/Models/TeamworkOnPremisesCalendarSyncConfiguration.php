@@ -36,7 +36,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
 
     /**
      * Sets the domain property value. The fully qualified domain name (FQDN) of the Skype for Business Server. Use the Exchange domain if the Skype for Business SIP domain is different from the Exchange domain of the user.
-     *  @param string|null $value Value to set for the domain property.
+     * @param string|null $value Value to set for the domain property.
     */
     public function setDomain(?string $value): void {
         $this->getBackingStore()->set('domain', $value);
@@ -134,7 +134,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
 
     /**
      * Sets the domainUserName property value. The domain and username of the console device, for example, Seattle/RanierConf.
-     *  @param string|null $value Value to set for the domainUserName property.
+     * @param string|null $value Value to set for the domainUserName property.
     */
     public function setDomainUserName(?string $value): void {
         $this->getBackingStore()->set('domainUserName', $value);
@@ -142,7 +142,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
 
     /**
      * Sets the smtpAddress property value. The Simple Mail Transfer Protocol (SMTP) address of the user account. This is only required if a different user principal name (UPN) is used to sign in to Exchange other than Microsoft Teams and Skype for Business. This is a common scenario in a hybrid environment where an on-premises Exchange server is used.
-     *  @param string|null $value Value to set for the smtpAddress property.
+     * @param string|null $value Value to set for the smtpAddress property.
     */
     public function setSmtpAddress(?string $value): void {
         $this->getBackingStore()->set('smtpAddress', $value);

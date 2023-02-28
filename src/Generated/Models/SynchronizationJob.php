@@ -94,7 +94,7 @@ class SynchronizationJob extends Entity implements Parsable
 
     /**
      * Sets the schedule property value. Schedule used to run the job. Read-only.
-     *  @param SynchronizationSchedule|null $value Value to set for the schedule property.
+     * @param SynchronizationSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?SynchronizationSchedule $value): void {
         $this->getBackingStore()->set('schedule', $value);
@@ -102,7 +102,7 @@ class SynchronizationJob extends Entity implements Parsable
 
     /**
      * Sets the schema property value. The synchronization schema configured for the job.
-     *  @param SynchronizationSchema|null $value Value to set for the schema property.
+     * @param SynchronizationSchema|null $value Value to set for the schema property.
     */
     public function setSchema(?SynchronizationSchema $value): void {
         $this->getBackingStore()->set('schema', $value);
@@ -110,7 +110,7 @@ class SynchronizationJob extends Entity implements Parsable
 
     /**
      * Sets the status property value. Status of the job, which includes when the job was last run, current job state, and errors.
-     *  @param SynchronizationStatus|null $value Value to set for the status property.
+     * @param SynchronizationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?SynchronizationStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -118,7 +118,7 @@ class SynchronizationJob extends Entity implements Parsable
 
     /**
      * Sets the synchronizationJobSettings property value. Settings associated with the job. Some settings are inherited from the template.
-     *  @param array<KeyValuePair>|null $value Value to set for the synchronizationJobSettings property.
+     * @param array<KeyValuePair>|null $value Value to set for the synchronizationJobSettings property.
     */
     public function setSynchronizationJobSettings(?array $value): void {
         $this->getBackingStore()->set('synchronizationJobSettings', $value);
@@ -126,7 +126,7 @@ class SynchronizationJob extends Entity implements Parsable
 
     /**
      * Sets the templateId property value. Identifier of the synchronization template this job is based on.
-     *  @param string|null $value Value to set for the templateId property.
+     * @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value): void {
         $this->getBackingStore()->set('templateId', $value);

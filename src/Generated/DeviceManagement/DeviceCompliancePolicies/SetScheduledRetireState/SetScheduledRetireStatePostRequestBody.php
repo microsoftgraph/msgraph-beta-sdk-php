@@ -37,7 +37,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -101,7 +101,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -109,7 +109,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -117,7 +117,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Sets the managedDeviceIds property value. The managedDeviceIds property
-     *  @param array<string>|null $value Value to set for the managedDeviceIds property.
+     * @param array<string>|null $value Value to set for the managedDeviceIds property.
     */
     public function setManagedDeviceIds(?array $value): void {
         $this->getBackingStore()->set('managedDeviceIds', $value);
@@ -125,7 +125,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Sets the scopedToAllDevices property value. The scopedToAllDevices property
-     *  @param bool|null $value Value to set for the scopedToAllDevices property.
+     * @param bool|null $value Value to set for the scopedToAllDevices property.
     */
     public function setScopedToAllDevices(?bool $value): void {
         $this->getBackingStore()->set('scopedToAllDevices', $value);
@@ -133,7 +133,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Ba
 
     /**
      * Sets the state property value. Cancel or confirm scheduled retire 
-     *  @param ScheduledRetireState|null $value Value to set for the state property.
+     * @param ScheduledRetireState|null $value Value to set for the state property.
     */
     public function setState(?ScheduledRetireState $value): void {
         $this->getBackingStore()->set('state', $value);

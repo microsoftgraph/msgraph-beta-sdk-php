@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\HealthOvervie
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of issues that happened on the service, with detailed information for each issue.
+*/
 class ServiceHealthIssueItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ServiceHealthIssueItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ServiceHealthIssueItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

@@ -36,7 +36,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -310,7 +310,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -318,7 +318,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -326,7 +326,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the colorMode property value. The default color mode to use when printing the document. Valid values are described in the following table.
-     *  @param PrintColorMode|null $value Value to set for the colorMode property.
+     * @param PrintColorMode|null $value Value to set for the colorMode property.
     */
     public function setColorMode(?PrintColorMode $value): void {
         $this->getBackingStore()->set('colorMode', $value);
@@ -334,7 +334,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the contentType property value. The default content (MIME) type to use when processing documents.
-     *  @param string|null $value Value to set for the contentType property.
+     * @param string|null $value Value to set for the contentType property.
     */
     public function setContentType(?string $value): void {
         $this->getBackingStore()->set('contentType', $value);
@@ -342,7 +342,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the copiesPerJob property value. The default number of copies printed per job.
-     *  @param int|null $value Value to set for the copiesPerJob property.
+     * @param int|null $value Value to set for the copiesPerJob property.
     */
     public function setCopiesPerJob(?int $value): void {
         $this->getBackingStore()->set('copiesPerJob', $value);
@@ -350,7 +350,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the documentMimeType property value. The documentMimeType property
-     *  @param string|null $value Value to set for the documentMimeType property.
+     * @param string|null $value Value to set for the documentMimeType property.
     */
     public function setDocumentMimeType(?string $value): void {
         $this->getBackingStore()->set('documentMimeType', $value);
@@ -358,7 +358,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the dpi property value. The default resolution in DPI to use when printing the job.
-     *  @param int|null $value Value to set for the dpi property.
+     * @param int|null $value Value to set for the dpi property.
     */
     public function setDpi(?int $value): void {
         $this->getBackingStore()->set('dpi', $value);
@@ -366,7 +366,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the duplexConfiguration property value. The duplexConfiguration property
-     *  @param PrintDuplexConfiguration|null $value Value to set for the duplexConfiguration property.
+     * @param PrintDuplexConfiguration|null $value Value to set for the duplexConfiguration property.
     */
     public function setDuplexConfiguration(?PrintDuplexConfiguration $value): void {
         $this->getBackingStore()->set('duplexConfiguration', $value);
@@ -374,7 +374,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the duplexMode property value. The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table.
-     *  @param PrintDuplexMode|null $value Value to set for the duplexMode property.
+     * @param PrintDuplexMode|null $value Value to set for the duplexMode property.
     */
     public function setDuplexMode(?PrintDuplexMode $value): void {
         $this->getBackingStore()->set('duplexMode', $value);
@@ -382,7 +382,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the finishings property value. The default set of finishings to apply to print jobs. Valid values are described in the following table.
-     *  @param array<PrintFinishing>|null $value Value to set for the finishings property.
+     * @param array<PrintFinishing>|null $value Value to set for the finishings property.
     */
     public function setFinishings(?array $value): void {
         $this->getBackingStore()->set('finishings', $value);
@@ -390,7 +390,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the fitPdfToPage property value. The default fitPdfToPage setting. True to fit each page of a PDF document to a physical sheet of media; false to let the printer decide how to lay out impressions.
-     *  @param bool|null $value Value to set for the fitPdfToPage property.
+     * @param bool|null $value Value to set for the fitPdfToPage property.
     */
     public function setFitPdfToPage(?bool $value): void {
         $this->getBackingStore()->set('fitPdfToPage', $value);
@@ -398,7 +398,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the inputBin property value. The default input bin that serves as the paper source.
-     *  @param string|null $value Value to set for the inputBin property.
+     * @param string|null $value Value to set for the inputBin property.
     */
     public function setInputBin(?string $value): void {
         $this->getBackingStore()->set('inputBin', $value);
@@ -406,7 +406,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mediaColor property value. The default media (such as paper) color to print the document on.
-     *  @param string|null $value Value to set for the mediaColor property.
+     * @param string|null $value Value to set for the mediaColor property.
     */
     public function setMediaColor(?string $value): void {
         $this->getBackingStore()->set('mediaColor', $value);
@@ -414,7 +414,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mediaSize property value. The default media size to use. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
-     *  @param string|null $value Value to set for the mediaSize property.
+     * @param string|null $value Value to set for the mediaSize property.
     */
     public function setMediaSize(?string $value): void {
         $this->getBackingStore()->set('mediaSize', $value);
@@ -422,7 +422,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mediaType property value. The default media (such as paper) type to print the document on.
-     *  @param string|null $value Value to set for the mediaType property.
+     * @param string|null $value Value to set for the mediaType property.
     */
     public function setMediaType(?string $value): void {
         $this->getBackingStore()->set('mediaType', $value);
@@ -430,7 +430,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the multipageLayout property value. The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
-     *  @param PrintMultipageLayout|null $value Value to set for the multipageLayout property.
+     * @param PrintMultipageLayout|null $value Value to set for the multipageLayout property.
     */
     public function setMultipageLayout(?PrintMultipageLayout $value): void {
         $this->getBackingStore()->set('multipageLayout', $value);
@@ -438,7 +438,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -446,7 +446,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the orientation property value. The default orientation to use when printing the document. Valid values are described in the following table.
-     *  @param PrintOrientation|null $value Value to set for the orientation property.
+     * @param PrintOrientation|null $value Value to set for the orientation property.
     */
     public function setOrientation(?PrintOrientation $value): void {
         $this->getBackingStore()->set('orientation', $value);
@@ -454,7 +454,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the outputBin property value. The default output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
-     *  @param string|null $value Value to set for the outputBin property.
+     * @param string|null $value Value to set for the outputBin property.
     */
     public function setOutputBin(?string $value): void {
         $this->getBackingStore()->set('outputBin', $value);
@@ -462,7 +462,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the pagesPerSheet property value. The default number of document pages to print on each sheet.
-     *  @param int|null $value Value to set for the pagesPerSheet property.
+     * @param int|null $value Value to set for the pagesPerSheet property.
     */
     public function setPagesPerSheet(?int $value): void {
         $this->getBackingStore()->set('pagesPerSheet', $value);
@@ -470,7 +470,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the pdfFitToPage property value. The pdfFitToPage property
-     *  @param bool|null $value Value to set for the pdfFitToPage property.
+     * @param bool|null $value Value to set for the pdfFitToPage property.
     */
     public function setPdfFitToPage(?bool $value): void {
         $this->getBackingStore()->set('pdfFitToPage', $value);
@@ -478,7 +478,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the presentationDirection property value. The presentationDirection property
-     *  @param PrintPresentationDirection|null $value Value to set for the presentationDirection property.
+     * @param PrintPresentationDirection|null $value Value to set for the presentationDirection property.
     */
     public function setPresentationDirection(?PrintPresentationDirection $value): void {
         $this->getBackingStore()->set('presentationDirection', $value);
@@ -486,7 +486,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printColorConfiguration property value. The printColorConfiguration property
-     *  @param PrintColorConfiguration|null $value Value to set for the printColorConfiguration property.
+     * @param PrintColorConfiguration|null $value Value to set for the printColorConfiguration property.
     */
     public function setPrintColorConfiguration(?PrintColorConfiguration $value): void {
         $this->getBackingStore()->set('printColorConfiguration', $value);
@@ -494,7 +494,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the printQuality property value. The printQuality property
-     *  @param PrintQuality|null $value Value to set for the printQuality property.
+     * @param PrintQuality|null $value Value to set for the printQuality property.
     */
     public function setPrintQuality(?PrintQuality $value): void {
         $this->getBackingStore()->set('printQuality', $value);
@@ -502,7 +502,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the quality property value. The default quality to use when printing the document. Valid values are described in the following table.
-     *  @param PrintQuality|null $value Value to set for the quality property.
+     * @param PrintQuality|null $value Value to set for the quality property.
     */
     public function setQuality(?PrintQuality $value): void {
         $this->getBackingStore()->set('quality', $value);
@@ -510,7 +510,7 @@ class PrinterDefaults implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the scaling property value. Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table.
-     *  @param PrintScaling|null $value Value to set for the scaling property.
+     * @param PrintScaling|null $value Value to set for the scaling property.
     */
     public function setScaling(?PrintScaling $value): void {
         $this->getBackingStore()->set('scaling', $value);

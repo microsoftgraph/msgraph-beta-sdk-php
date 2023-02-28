@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents a Chromebook tenant settings
+*/
 class ChromeOSOnboardingSettings extends Entity implements Parsable 
 {
     /**
@@ -85,7 +88,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
 
     /**
      * Sets the lastDirectorySyncDateTime property value. The ChromebookTenant's LastDirectorySyncDateTime
-     *  @param DateTime|null $value Value to set for the lastDirectorySyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastDirectorySyncDateTime property.
     */
     public function setLastDirectorySyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastDirectorySyncDateTime', $value);
@@ -93,7 +96,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The ChromebookTenant's LastModifiedDateTime
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -101,7 +104,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
 
     /**
      * Sets the onboardingStatus property value. The onboarding status of the tenant.
-     *  @param OnboardingStatus|null $value Value to set for the onboardingStatus property.
+     * @param OnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
     public function setOnboardingStatus(?OnboardingStatus $value): void {
         $this->getBackingStore()->set('onboardingStatus', $value);
@@ -109,7 +112,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
 
     /**
      * Sets the ownerUserPrincipalName property value. The ChromebookTenant's OwnerUserPrincipalName
-     *  @param string|null $value Value to set for the ownerUserPrincipalName property.
+     * @param string|null $value Value to set for the ownerUserPrincipalName property.
     */
     public function setOwnerUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('ownerUserPrincipalName', $value);

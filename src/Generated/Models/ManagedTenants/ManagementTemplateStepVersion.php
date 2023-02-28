@@ -156,7 +156,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the acceptedFor property value. The acceptedFor property
-     *  @param ManagementTemplateStep|null $value Value to set for the acceptedFor property.
+     * @param ManagementTemplateStep|null $value Value to set for the acceptedFor property.
     */
     public function setAcceptedFor(?ManagementTemplateStep $value): void {
         $this->getBackingStore()->set('acceptedFor', $value);
@@ -164,7 +164,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the contentMarkdown property value. The contentMarkdown property
-     *  @param string|null $value Value to set for the contentMarkdown property.
+     * @param string|null $value Value to set for the contentMarkdown property.
     */
     public function setContentMarkdown(?string $value): void {
         $this->getBackingStore()->set('contentMarkdown', $value);
@@ -172,7 +172,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
-     *  @param string|null $value Value to set for the createdByUserId property.
+     * @param string|null $value Value to set for the createdByUserId property.
     */
     public function setCreatedByUserId(?string $value): void {
         $this->getBackingStore()->set('createdByUserId', $value);
@@ -180,7 +180,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -188,7 +188,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the deployments property value. The deployments property
-     *  @param array<ManagementTemplateStepDeployment>|null $value Value to set for the deployments property.
+     * @param array<ManagementTemplateStepDeployment>|null $value Value to set for the deployments property.
     */
     public function setDeployments(?array $value): void {
         $this->getBackingStore()->set('deployments', $value);
@@ -196,7 +196,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
-     *  @param string|null $value Value to set for the lastActionByUserId property.
+     * @param string|null $value Value to set for the lastActionByUserId property.
     */
     public function setLastActionByUserId(?string $value): void {
         $this->getBackingStore()->set('lastActionByUserId', $value);
@@ -204,7 +204,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -212,7 +212,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -220,7 +220,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the templateStep property value. The templateStep property
-     *  @param ManagementTemplateStep|null $value Value to set for the templateStep property.
+     * @param ManagementTemplateStep|null $value Value to set for the templateStep property.
     */
     public function setTemplateStep(?ManagementTemplateStep $value): void {
         $this->getBackingStore()->set('templateStep', $value);
@@ -228,7 +228,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the version property value. The version property
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);
@@ -236,7 +236,7 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
 
     /**
      * Sets the versionInformation property value. The versionInformation property
-     *  @param string|null $value Value to set for the versionInformation property.
+     * @param string|null $value Value to set for the versionInformation property.
     */
     public function setVersionInformation(?string $value): void {
         $this->getBackingStore()->set('versionInformation', $value);

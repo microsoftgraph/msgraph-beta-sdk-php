@@ -54,7 +54,7 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. The assignment target for the provisioning policy. Currently, the only target supported for this policy is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
-     *  @param CloudPcManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param CloudPcManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?CloudPcManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

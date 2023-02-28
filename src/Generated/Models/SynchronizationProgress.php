@@ -37,7 +37,7 @@ class SynchronizationProgress implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -121,7 +121,7 @@ class SynchronizationProgress implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -129,7 +129,7 @@ class SynchronizationProgress implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -137,7 +137,7 @@ class SynchronizationProgress implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the completedUnits property value. The numerator of a progress ratio; the number of units of changes already processed.
-     *  @param int|null $value Value to set for the completedUnits property.
+     * @param int|null $value Value to set for the completedUnits property.
     */
     public function setCompletedUnits(?int $value): void {
         $this->getBackingStore()->set('completedUnits', $value);
@@ -145,7 +145,7 @@ class SynchronizationProgress implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -153,7 +153,7 @@ class SynchronizationProgress implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the progressObservationDateTime property value. The time of a progress observation as an offset in minutes from UTC.
-     *  @param DateTime|null $value Value to set for the progressObservationDateTime property.
+     * @param DateTime|null $value Value to set for the progressObservationDateTime property.
     */
     public function setProgressObservationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('progressObservationDateTime', $value);
@@ -161,7 +161,7 @@ class SynchronizationProgress implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the totalUnits property value. The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization.
-     *  @param int|null $value Value to set for the totalUnits property.
+     * @param int|null $value Value to set for the totalUnits property.
     */
     public function setTotalUnits(?int $value): void {
         $this->getBackingStore()->set('totalUnits', $value);
@@ -169,7 +169,7 @@ class SynchronizationProgress implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the units property value. An optional description of the units.
-     *  @param string|null $value Value to set for the units property.
+     * @param string|null $value Value to set for the units property.
     */
     public function setUnits(?string $value): void {
         $this->getBackingStore()->set('units', $value);

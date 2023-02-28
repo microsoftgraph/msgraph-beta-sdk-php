@@ -54,7 +54,7 @@ class AttributeMappingFunctionSchema extends Entity implements Parsable
 
     /**
      * Sets the parameters property value. Collection of function parameters.
-     *  @param array<AttributeMappingParameterSchema>|null $value Value to set for the parameters property.
+     * @param array<AttributeMappingParameterSchema>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value): void {
         $this->getBackingStore()->set('parameters', $value);

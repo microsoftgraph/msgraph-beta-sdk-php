@@ -37,6 +37,10 @@ use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetEmailAppUsageUserCoun
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetEmailAppUsageUserDetailWithDate\GetEmailAppUsageUserDetailWithDateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetEmailAppUsageUserDetailWithPeriod\GetEmailAppUsageUserDetailWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetEmailAppUsageVersionsUserCountsWithPeriod\GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetFormsUserActivityCountsWithPeriod\GetFormsUserActivityCountsWithPeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetFormsUserActivityUserCountsWithPeriod\GetFormsUserActivityUserCountsWithPeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetFormsUserActivityUserDetailWithDate\GetFormsUserActivityUserDetailWithDateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetFormsUserActivityUserDetailWithPeriod\GetFormsUserActivityUserDetailWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime\GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetM365AppPlatformUserCountsWithPeriod\GetM365AppPlatformUserCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetM365AppUserCountsWithPeriod\GetM365AppUserCountsWithPeriodRequestBuilder;
@@ -150,12 +154,14 @@ use Microsoft\Graph\Beta\Generated\Models\ReportRoot;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
+/**
+ * Provides operations to manage the reports property of the microsoft.graph.print entity.
+*/
 class ReportsRequestBuilder 
 {
     /**
@@ -212,6 +218,90 @@ class ReportsRequestBuilder
     */
     public function dailyPrintUsageSummariesByUser(): DailyPrintUsageSummariesByUserRequestBuilder {
         return new DailyPrintUsageSummariesByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the deviceConfigurationDeviceActivity method.
+    */
+    public function deviceConfigurationDeviceActivity(): DeviceConfigurationDeviceActivityRequestBuilder {
+        return new DeviceConfigurationDeviceActivityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the deviceConfigurationUserActivity method.
+    */
+    public function deviceConfigurationUserActivity(): DeviceConfigurationUserActivityRequestBuilder {
+        return new DeviceConfigurationUserActivityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAttackSimulationRepeatOffenders method.
+    */
+    public function getAttackSimulationRepeatOffenders(): GetAttackSimulationRepeatOffendersRequestBuilder {
+        return new GetAttackSimulationRepeatOffendersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAttackSimulationSimulationUserCoverage method.
+    */
+    public function getAttackSimulationSimulationUserCoverage(): GetAttackSimulationSimulationUserCoverageRequestBuilder {
+        return new GetAttackSimulationSimulationUserCoverageRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAttackSimulationTrainingUserCoverage method.
+    */
+    public function getAttackSimulationTrainingUserCoverage(): GetAttackSimulationTrainingUserCoverageRequestBuilder {
+        return new GetAttackSimulationTrainingUserCoverageRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getCredentialUserRegistrationCount method.
+    */
+    public function getCredentialUserRegistrationCount(): GetCredentialUserRegistrationCountRequestBuilder {
+        return new GetCredentialUserRegistrationCountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getOffice365ActivationCounts method.
+    */
+    public function getOffice365ActivationCounts(): GetOffice365ActivationCountsRequestBuilder {
+        return new GetOffice365ActivationCountsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getOffice365ActivationsUserCounts method.
+    */
+    public function getOffice365ActivationsUserCounts(): GetOffice365ActivationsUserCountsRequestBuilder {
+        return new GetOffice365ActivationsUserCountsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getOffice365ActivationsUserDetail method.
+    */
+    public function getOffice365ActivationsUserDetail(): GetOffice365ActivationsUserDetailRequestBuilder {
+        return new GetOffice365ActivationsUserDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the managedDeviceEnrollmentFailureDetails method.
+    */
+    public function managedDeviceEnrollmentFailureDetails(): ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
+        return new ManagedDeviceEnrollmentFailureDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the managedDeviceEnrollmentFailureTrends method.
+    */
+    public function managedDeviceEnrollmentFailureTrends(): ManagedDeviceEnrollmentFailureTrendsRequestBuilder {
+        return new ManagedDeviceEnrollmentFailureTrendsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the managedDeviceEnrollmentTopFailures method.
+    */
+    public function managedDeviceEnrollmentTopFailures(): ManagedDeviceEnrollmentTopFailuresRequestBuilder {
+        return new ManagedDeviceEnrollmentTopFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -284,13 +374,17 @@ class ReportsRequestBuilder
 
     /**
      * Instantiates a new ReportsRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/print/reports{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
@@ -362,79 +456,37 @@ class ReportsRequestBuilder
     /**
      * Delete navigation property reports for print
      * @param ReportsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ReportsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function delete(?ReportsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Provides operations to call the deviceConfigurationDeviceActivity method.
-     * @return DeviceConfigurationDeviceActivityRequestBuilder
-    */
-    public function deviceConfigurationDeviceActivity(): DeviceConfigurationDeviceActivityRequestBuilder {
-        return new DeviceConfigurationDeviceActivityRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the deviceConfigurationUserActivity method.
-     * @return DeviceConfigurationUserActivityRequestBuilder
-    */
-    public function deviceConfigurationUserActivity(): DeviceConfigurationUserActivityRequestBuilder {
-        return new DeviceConfigurationUserActivityRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
      * Get reports from print
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ReportRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ReportRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getAttackSimulationRepeatOffenders method.
-     * @return GetAttackSimulationRepeatOffendersRequestBuilder
-    */
-    public function getAttackSimulationRepeatOffenders(): GetAttackSimulationRepeatOffendersRequestBuilder {
-        return new GetAttackSimulationRepeatOffendersRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getAttackSimulationSimulationUserCoverage method.
-     * @return GetAttackSimulationSimulationUserCoverageRequestBuilder
-    */
-    public function getAttackSimulationSimulationUserCoverage(): GetAttackSimulationSimulationUserCoverageRequestBuilder {
-        return new GetAttackSimulationSimulationUserCoverageRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getAttackSimulationTrainingUserCoverage method.
-     * @return GetAttackSimulationTrainingUserCoverageRequestBuilder
-    */
-    public function getAttackSimulationTrainingUserCoverage(): GetAttackSimulationTrainingUserCoverageRequestBuilder {
-        return new GetAttackSimulationTrainingUserCoverageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -480,14 +532,6 @@ class ReportsRequestBuilder
     */
     public function getCredentialUsageSummaryWithPeriod(string $period): GetCredentialUsageSummaryWithPeriodRequestBuilder {
         return new GetCredentialUsageSummaryWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
-    }
-
-    /**
-     * Provides operations to call the getCredentialUserRegistrationCount method.
-     * @return GetCredentialUserRegistrationCountRequestBuilder
-    */
-    public function getCredentialUserRegistrationCount(): GetCredentialUserRegistrationCountRequestBuilder {
-        return new GetCredentialUserRegistrationCountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -572,6 +616,42 @@ class ReportsRequestBuilder
     }
 
     /**
+     * Provides operations to call the getFormsUserActivityCounts method.
+     * @param string $period Usage: period='{period}'
+     * @return GetFormsUserActivityCountsWithPeriodRequestBuilder
+    */
+    public function getFormsUserActivityCountsWithPeriod(string $period): GetFormsUserActivityCountsWithPeriodRequestBuilder {
+        return new GetFormsUserActivityCountsWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    }
+
+    /**
+     * Provides operations to call the getFormsUserActivityUserCounts method.
+     * @param string $period Usage: period='{period}'
+     * @return GetFormsUserActivityUserCountsWithPeriodRequestBuilder
+    */
+    public function getFormsUserActivityUserCountsWithPeriod(string $period): GetFormsUserActivityUserCountsWithPeriodRequestBuilder {
+        return new GetFormsUserActivityUserCountsWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    }
+
+    /**
+     * Provides operations to call the getFormsUserActivityUserDetail method.
+     * @param Date $date Usage: date={date}
+     * @return GetFormsUserActivityUserDetailWithDateRequestBuilder
+    */
+    public function getFormsUserActivityUserDetailWithDate(Date $date): GetFormsUserActivityUserDetailWithDateRequestBuilder {
+        return new GetFormsUserActivityUserDetailWithDateRequestBuilder($this->pathParameters, $this->requestAdapter, $date);
+    }
+
+    /**
+     * Provides operations to call the getFormsUserActivityUserDetail method.
+     * @param string $period Usage: period='{period}'
+     * @return GetFormsUserActivityUserDetailWithPeriodRequestBuilder
+    */
+    public function getFormsUserActivityUserDetailWithPeriod(string $period): GetFormsUserActivityUserDetailWithPeriodRequestBuilder {
+        return new GetFormsUserActivityUserDetailWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    }
+
+    /**
      * Provides operations to call the getGroupArchivedPrintJobs method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param string $groupId Usage: groupId='{groupId}'
@@ -652,30 +732,6 @@ class ReportsRequestBuilder
     */
     public function getMailboxUsageStorageWithPeriod(string $period): GetMailboxUsageStorageWithPeriodRequestBuilder {
         return new GetMailboxUsageStorageWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
-    }
-
-    /**
-     * Provides operations to call the getOffice365ActivationCounts method.
-     * @return GetOffice365ActivationCountsRequestBuilder
-    */
-    public function getOffice365ActivationCounts(): GetOffice365ActivationCountsRequestBuilder {
-        return new GetOffice365ActivationCountsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getOffice365ActivationsUserCounts method.
-     * @return GetOffice365ActivationsUserCountsRequestBuilder
-    */
-    public function getOffice365ActivationsUserCounts(): GetOffice365ActivationsUserCountsRequestBuilder {
-        return new GetOffice365ActivationsUserCountsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getOffice365ActivationsUserDetail method.
-     * @return GetOffice365ActivationsUserDetailRequestBuilder
-    */
-    public function getOffice365ActivationsUserDetail(): GetOffice365ActivationsUserDetailRequestBuilder {
-        return new GetOffice365ActivationsUserDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -1446,14 +1502,6 @@ class ReportsRequestBuilder
 
     /**
      * Provides operations to call the managedDeviceEnrollmentFailureDetails method.
-     * @return ManagedDeviceEnrollmentFailureDetailsRequestBuilder
-    */
-    public function managedDeviceEnrollmentFailureDetails(): ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
-        return new ManagedDeviceEnrollmentFailureDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the managedDeviceEnrollmentFailureDetails method.
      * @param string $filter Usage: filter='{filter}'
      * @param int $skip Usage: skip={skip}
      * @param string $skipToken Usage: skipToken='{skipToken}'
@@ -1462,22 +1510,6 @@ class ReportsRequestBuilder
     */
     public function managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken(string $filter, int $skip, string $skipToken, int $top): ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder {
         return new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder($this->pathParameters, $this->requestAdapter, $filter, $skip, $skipToken, $top);
-    }
-
-    /**
-     * Provides operations to call the managedDeviceEnrollmentFailureTrends method.
-     * @return ManagedDeviceEnrollmentFailureTrendsRequestBuilder
-    */
-    public function managedDeviceEnrollmentFailureTrends(): ManagedDeviceEnrollmentFailureTrendsRequestBuilder {
-        return new ManagedDeviceEnrollmentFailureTrendsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the managedDeviceEnrollmentTopFailures method.
-     * @return ManagedDeviceEnrollmentTopFailuresRequestBuilder
-    */
-    public function managedDeviceEnrollmentTopFailures(): ManagedDeviceEnrollmentTopFailuresRequestBuilder {
-        return new ManagedDeviceEnrollmentTopFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -1537,17 +1569,16 @@ class ReportsRequestBuilder
      * Update the navigation property reports in print
      * @param ReportRoot $body The request body
      * @param ReportsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(ReportRoot $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(ReportRoot $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ReportRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ReportRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -1565,7 +1596,7 @@ class ReportsRequestBuilder
         $requestInfo->httpMethod = HttpMethod::DELETE;
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
@@ -1584,10 +1615,10 @@ class ReportsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -1610,10 +1641,10 @@ class ReportsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

@@ -36,7 +36,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +156,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. A human-readable description of the printer's current processing state. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -164,7 +164,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the details property value. The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
-     *  @param array<PrinterProcessingStateDetail>|null $value Value to set for the details property.
+     * @param array<PrinterProcessingStateDetail>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value): void {
         $this->getBackingStore()->set('details', $value);
@@ -172,7 +172,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -180,7 +180,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the processingState property value. The processingState property
-     *  @param PrinterProcessingState|null $value Value to set for the processingState property.
+     * @param PrinterProcessingState|null $value Value to set for the processingState property.
     */
     public function setProcessingState(?PrinterProcessingState $value): void {
         $this->getBackingStore()->set('processingState', $value);
@@ -188,7 +188,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the processingStateDescription property value. The processingStateDescription property
-     *  @param string|null $value Value to set for the processingStateDescription property.
+     * @param string|null $value Value to set for the processingStateDescription property.
     */
     public function setProcessingStateDescription(?string $value): void {
         $this->getBackingStore()->set('processingStateDescription', $value);
@@ -196,7 +196,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the processingStateReasons property value. The processingStateReasons property
-     *  @param array<PrinterProcessingStateReason>|null $value Value to set for the processingStateReasons property.
+     * @param array<PrinterProcessingStateReason>|null $value Value to set for the processingStateReasons property.
     */
     public function setProcessingStateReasons(?array $value): void {
         $this->getBackingStore()->set('processingStateReasons', $value);
@@ -204,7 +204,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param PrinterProcessingState|null $value Value to set for the state property.
+     * @param PrinterProcessingState|null $value Value to set for the state property.
     */
     public function setState(?PrinterProcessingState $value): void {
         $this->getBackingStore()->set('state', $value);

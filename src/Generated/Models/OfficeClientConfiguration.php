@@ -133,7 +133,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments for the policy.
-     *  @param array<OfficeClientConfigurationAssignment>|null $value Value to set for the assignments property.
+     * @param array<OfficeClientConfigurationAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -141,7 +141,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Sets the checkinStatuses property value. List of office Client check-in status.
-     *  @param array<OfficeClientCheckinStatus>|null $value Value to set for the checkinStatuses property.
+     * @param array<OfficeClientCheckinStatus>|null $value Value to set for the checkinStatuses property.
     */
     public function setCheckinStatuses(?array $value): void {
         $this->getBackingStore()->set('checkinStatuses', $value);
@@ -149,7 +149,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Sets the description property value. Not yet documented
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -157,7 +157,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Admin provided description of the office client configuration policy.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -165,7 +165,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Sets the policyPayload property value. Policy settings JSON string in binary format, these values cannot be changed by the user.
-     *  @param StreamInterface|null $value Value to set for the policyPayload property.
+     * @param StreamInterface|null $value Value to set for the policyPayload property.
     */
     public function setPolicyPayload(?StreamInterface $value): void {
         $this->getBackingStore()->set('policyPayload', $value);
@@ -173,7 +173,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Sets the priority property value. Priority value should be unique value for each policy under a tenant and will be used for conflict resolution, lower values mean priority is high.
-     *  @param int|null $value Value to set for the priority property.
+     * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
@@ -181,7 +181,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Sets the userCheckinSummary property value. User check-in summary for the policy.
-     *  @param OfficeUserCheckinSummary|null $value Value to set for the userCheckinSummary property.
+     * @param OfficeUserCheckinSummary|null $value Value to set for the userCheckinSummary property.
     */
     public function setUserCheckinSummary(?OfficeUserCheckinSummary $value): void {
         $this->getBackingStore()->set('userCheckinSummary', $value);
@@ -189,7 +189,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Sets the userPreferencePayload property value. Preference settings JSON string in binary format, these values can be overridden by the user.
-     *  @param StreamInterface|null $value Value to set for the userPreferencePayload property.
+     * @param StreamInterface|null $value Value to set for the userPreferencePayload property.
     */
     public function setUserPreferencePayload(?StreamInterface $value): void {
         $this->getBackingStore()->set('userPreferencePayload', $value);

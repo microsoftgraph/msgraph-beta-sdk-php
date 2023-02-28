@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This entity contains the properties used to assign a windows feature update profile to a group.
+*/
 class WindowsFeatureUpdateProfileAssignment extends Entity implements Parsable 
 {
     /**
@@ -54,7 +57,7 @@ class WindowsFeatureUpdateProfileAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. The assignment target that the feature update profile is assigned to.
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

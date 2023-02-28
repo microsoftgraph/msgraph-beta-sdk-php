@@ -94,7 +94,7 @@ class ItemActivityOLD extends Entity implements Parsable
 
     /**
      * Sets the action property value. The action property
-     *  @param ItemActionSet|null $value Value to set for the action property.
+     * @param ItemActionSet|null $value Value to set for the action property.
     */
     public function setAction(?ItemActionSet $value): void {
         $this->getBackingStore()->set('action', $value);
@@ -102,7 +102,7 @@ class ItemActivityOLD extends Entity implements Parsable
 
     /**
      * Sets the actor property value. The actor property
-     *  @param IdentitySet|null $value Value to set for the actor property.
+     * @param IdentitySet|null $value Value to set for the actor property.
     */
     public function setActor(?IdentitySet $value): void {
         $this->getBackingStore()->set('actor', $value);
@@ -110,7 +110,7 @@ class ItemActivityOLD extends Entity implements Parsable
 
     /**
      * Sets the driveItem property value. The driveItem property
-     *  @param DriveItem|null $value Value to set for the driveItem property.
+     * @param DriveItem|null $value Value to set for the driveItem property.
     */
     public function setDriveItem(?DriveItem $value): void {
         $this->getBackingStore()->set('driveItem', $value);
@@ -118,7 +118,7 @@ class ItemActivityOLD extends Entity implements Parsable
 
     /**
      * Sets the listItem property value. The listItem property
-     *  @param ListItem|null $value Value to set for the listItem property.
+     * @param ListItem|null $value Value to set for the listItem property.
     */
     public function setListItem(?ListItem $value): void {
         $this->getBackingStore()->set('listItem', $value);
@@ -126,7 +126,7 @@ class ItemActivityOLD extends Entity implements Parsable
 
     /**
      * Sets the times property value. The times property
-     *  @param ItemActivityTimeSet|null $value Value to set for the times property.
+     * @param ItemActivityTimeSet|null $value Value to set for the times property.
     */
     public function setTimes(?ItemActivityTimeSet $value): void {
         $this->getBackingStore()->set('times', $value);

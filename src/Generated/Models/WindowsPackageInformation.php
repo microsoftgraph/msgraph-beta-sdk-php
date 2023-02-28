@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Contains properties for the package information for a Windows line of business app. Used as property within windowsPhone81AppXBundle object, which is also being deprecated. This complex type will be deprecated in February 2023.
+*/
 class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -150,7 +153,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -158,7 +161,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the applicableArchitecture property value. Contains properties for Windows architecture.
-     *  @param WindowsArchitecture|null $value Value to set for the applicableArchitecture property.
+     * @param WindowsArchitecture|null $value Value to set for the applicableArchitecture property.
     */
     public function setApplicableArchitecture(?WindowsArchitecture $value): void {
         $this->getBackingStore()->set('applicableArchitecture', $value);
@@ -166,7 +169,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -174,7 +177,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the displayName property value. The Display Name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -182,7 +185,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the identityName property value. The Identity Name.
-     *  @param string|null $value Value to set for the identityName property.
+     * @param string|null $value Value to set for the identityName property.
     */
     public function setIdentityName(?string $value): void {
         $this->getBackingStore()->set('identityName', $value);
@@ -190,7 +193,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the identityPublisher property value. The Identity Publisher.
-     *  @param string|null $value Value to set for the identityPublisher property.
+     * @param string|null $value Value to set for the identityPublisher property.
     */
     public function setIdentityPublisher(?string $value): void {
         $this->getBackingStore()->set('identityPublisher', $value);
@@ -198,7 +201,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the identityResourceIdentifier property value. The Identity Resource Identifier.
-     *  @param string|null $value Value to set for the identityResourceIdentifier property.
+     * @param string|null $value Value to set for the identityResourceIdentifier property.
     */
     public function setIdentityResourceIdentifier(?string $value): void {
         $this->getBackingStore()->set('identityResourceIdentifier', $value);
@@ -206,7 +209,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the identityVersion property value. The Identity Version.
-     *  @param string|null $value Value to set for the identityVersion property.
+     * @param string|null $value Value to set for the identityVersion property.
     */
     public function setIdentityVersion(?string $value): void {
         $this->getBackingStore()->set('identityVersion', $value);
@@ -214,7 +217,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
-     *  @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
+     * @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
@@ -222,7 +225,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

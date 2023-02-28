@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The collection of records of alert events.
+*/
 class AlertRecordItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AlertRecordItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new AlertRecordItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

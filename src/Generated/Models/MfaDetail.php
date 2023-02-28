@@ -36,7 +36,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the authDetail property value. Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is 'Yes'.
-     *  @param string|null $value Value to set for the authDetail property.
+     * @param string|null $value Value to set for the authDetail property.
     */
     public function setAuthDetail(?string $value): void {
         $this->getBackingStore()->set('authDetail', $value);
@@ -116,7 +116,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the authMethod property value. Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
-     *  @param string|null $value Value to set for the authMethod property.
+     * @param string|null $value Value to set for the authMethod property.
     */
     public function setAuthMethod(?string $value): void {
         $this->getBackingStore()->set('authMethod', $value);
@@ -124,7 +124,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -132,7 +132,7 @@ class MfaDetail implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

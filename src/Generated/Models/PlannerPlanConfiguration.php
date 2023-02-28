@@ -26,7 +26,7 @@ class PlannerPlanConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the buckets property value. The buckets property
+     * Gets the buckets property value. List the buckets that should be created in the plan.
      * @return array<PlannerPlanConfigurationBucketDefinition>|null
     */
     public function getBuckets(): ?array {
@@ -34,7 +34,7 @@ class PlannerPlanConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. The identity of the creator of the plan configuration.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -42,7 +42,7 @@ class PlannerPlanConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the plan configuration was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -50,7 +50,7 @@ class PlannerPlanConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the defaultLanguage property value. The defaultLanguage property
+     * Gets the defaultLanguage property value. The language code for the default language to be used for the names of the objects created for the plan.
      * @return string|null
     */
     public function getDefaultLanguage(): ?string {
@@ -75,7 +75,7 @@ class PlannerPlanConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The identity of the user who last modified the plan configuration.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -83,7 +83,7 @@ class PlannerPlanConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The date and time when the plan configuration was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -91,7 +91,7 @@ class PlannerPlanConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the localizations property value. The localizations property
+     * Gets the localizations property value. Localized names for the plan configuration.
      * @return array<PlannerPlanConfigurationLocalization>|null
     */
     public function getLocalizations(): ?array {
@@ -114,56 +114,56 @@ class PlannerPlanConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the buckets property value. The buckets property
-     *  @param array<PlannerPlanConfigurationBucketDefinition>|null $value Value to set for the buckets property.
+     * Sets the buckets property value. List the buckets that should be created in the plan.
+     * @param array<PlannerPlanConfigurationBucketDefinition>|null $value Value to set for the buckets property.
     */
     public function setBuckets(?array $value): void {
         $this->getBackingStore()->set('buckets', $value);
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * Sets the createdBy property value. The identity of the creator of the plan configuration.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * Sets the createdDateTime property value. The date and time when the plan configuration was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
-     * Sets the defaultLanguage property value. The defaultLanguage property
-     *  @param string|null $value Value to set for the defaultLanguage property.
+     * Sets the defaultLanguage property value. The language code for the default language to be used for the names of the objects created for the plan.
+     * @param string|null $value Value to set for the defaultLanguage property.
     */
     public function setDefaultLanguage(?string $value): void {
         $this->getBackingStore()->set('defaultLanguage', $value);
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * Sets the lastModifiedBy property value. The identity of the user who last modified the plan configuration.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * Sets the lastModifiedDateTime property value. The date and time when the plan configuration was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
-     * Sets the localizations property value. The localizations property
-     *  @param array<PlannerPlanConfigurationLocalization>|null $value Value to set for the localizations property.
+     * Sets the localizations property value. Localized names for the plan configuration.
+     * @param array<PlannerPlanConfigurationLocalization>|null $value Value to set for the localizations property.
     */
     public function setLocalizations(?array $value): void {
         $this->getBackingStore()->set('localizations', $value);

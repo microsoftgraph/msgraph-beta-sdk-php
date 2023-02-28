@@ -4,15 +4,18 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Ite
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class ManagedDeviceRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
     /**
-     * @var array<string, RequestOption>|null $options Request options
+     * @var array<RequestOption>|null $options Request options
     */
     public ?array $options = null;
     
@@ -21,4 +24,26 @@ class ManagedDeviceRequestBuilderGetRequestConfiguration
     */
     public ?ManagedDeviceRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new managedDeviceRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ManagedDeviceRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): ManagedDeviceRequestBuilderGetQueryParameters {
+        return new ManagedDeviceRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new managedDeviceRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ManagedDeviceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ManagedDeviceRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

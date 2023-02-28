@@ -65,7 +65,7 @@ class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidt
 
     /**
      * Sets the maximumDownloadBandwidthInKilobytesPerSecond property value. Specifies the maximum download bandwidth in KiloBytes/second that the device can use across all concurrent download activities using Delivery Optimization. Valid values 0 to 4294967295
-     *  @param int|null $value Value to set for the maximumDownloadBandwidthInKilobytesPerSecond property.
+     * @param int|null $value Value to set for the maximumDownloadBandwidthInKilobytesPerSecond property.
     */
     public function setMaximumDownloadBandwidthInKilobytesPerSecond(?int $value): void {
         $this->getBackingStore()->set('maximumDownloadBandwidthInKilobytesPerSecond', $value);
@@ -73,7 +73,7 @@ class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidt
 
     /**
      * Sets the maximumUploadBandwidthInKilobytesPerSecond property value. Specifies the maximum upload bandwidth in KiloBytes/second that a device will use across all concurrent upload activity using Delivery Optimization (0-4000000). Valid values 0 to 4000000
-     *  @param int|null $value Value to set for the maximumUploadBandwidthInKilobytesPerSecond property.
+     * @param int|null $value Value to set for the maximumUploadBandwidthInKilobytesPerSecond property.
     */
     public function setMaximumUploadBandwidthInKilobytesPerSecond(?int $value): void {
         $this->getBackingStore()->set('maximumUploadBandwidthInKilobytesPerSecond', $value);

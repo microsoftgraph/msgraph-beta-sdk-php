@@ -37,7 +37,7 @@ class RetentionEventStatus implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -101,7 +101,7 @@ class RetentionEventStatus implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -109,7 +109,7 @@ class RetentionEventStatus implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -117,7 +117,7 @@ class RetentionEventStatus implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the error property value. The error if the status is not successful.
-     *  @param PublicError|null $value Value to set for the error property.
+     * @param PublicError|null $value Value to set for the error property.
     */
     public function setError(?PublicError $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -125,7 +125,7 @@ class RetentionEventStatus implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -133,7 +133,7 @@ class RetentionEventStatus implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the status property value. The status of the distribution. The possible values are: pending, error, success, notAvaliable.
-     *  @param EventStatusType|null $value Value to set for the status property.
+     * @param EventStatusType|null $value Value to set for the status property.
     */
     public function setStatus(?EventStatusType $value): void {
         $this->getBackingStore()->set('status', $value);

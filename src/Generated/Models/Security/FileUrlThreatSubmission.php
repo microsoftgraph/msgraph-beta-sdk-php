@@ -55,7 +55,7 @@ class FileUrlThreatSubmission extends FileThreatSubmission implements Parsable
 
     /**
      * Sets the fileUrl property value. It specifies the URL of the file which needs to be submitted.
-     *  @param string|null $value Value to set for the fileUrl property.
+     * @param string|null $value Value to set for the fileUrl property.
     */
     public function setFileUrl(?string $value): void {
         $this->getBackingStore()->set('fileUrl', $value);

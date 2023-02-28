@@ -36,7 +36,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -144,7 +144,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the totalUserCount property value. Total number of users in the tenant.
-     *  @param int|null $value Value to set for the totalUserCount property.
+     * @param int|null $value Value to set for the totalUserCount property.
     */
     public function setTotalUserCount(?int $value): void {
         $this->getBackingStore()->set('totalUserCount', $value);
@@ -152,7 +152,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the userRegistrationMethodCounts property value. Number of users registered for each authentication method.
-     *  @param array<UserRegistrationMethodCount>|null $value Value to set for the userRegistrationMethodCounts property.
+     * @param array<UserRegistrationMethodCount>|null $value Value to set for the userRegistrationMethodCounts property.
     */
     public function setUserRegistrationMethodCounts(?array $value): void {
         $this->getBackingStore()->set('userRegistrationMethodCounts', $value);
@@ -160,7 +160,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the userRoles property value. User role type. Possible values are: all, privilegedAdmin, admin, user.
-     *  @param IncludedUserRoles|null $value Value to set for the userRoles property.
+     * @param IncludedUserRoles|null $value Value to set for the userRoles property.
     */
     public function setUserRoles(?IncludedUserRoles $value): void {
         $this->getBackingStore()->set('userRoles', $value);
@@ -168,7 +168,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the userTypes property value. User type. Possible values are: all, member, guest.
-     *  @param IncludedUserTypes|null $value Value to set for the userTypes property.
+     * @param IncludedUserTypes|null $value Value to set for the userTypes property.
     */
     public function setUserTypes(?IncludedUserTypes $value): void {
         $this->getBackingStore()->set('userTypes', $value);

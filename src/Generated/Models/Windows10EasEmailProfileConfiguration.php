@@ -135,7 +135,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
 
     /**
      * Sets the accountName property value. Account name.
-     *  @param string|null $value Value to set for the accountName property.
+     * @param string|null $value Value to set for the accountName property.
     */
     public function setAccountName(?string $value): void {
         $this->getBackingStore()->set('accountName', $value);
@@ -143,7 +143,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
 
     /**
      * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
-     *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
+     * @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
     public function setDurationOfEmailToSync(?EmailSyncDuration $value): void {
         $this->getBackingStore()->set('durationOfEmailToSync', $value);
@@ -151,7 +151,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
 
     /**
      * Sets the emailAddressSource property value. Possible values for username source or email source.
-     *  @param UserEmailSource|null $value Value to set for the emailAddressSource property.
+     * @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
     public function setEmailAddressSource(?UserEmailSource $value): void {
         $this->getBackingStore()->set('emailAddressSource', $value);
@@ -159,7 +159,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
 
     /**
      * Sets the emailSyncSchedule property value. Possible values for email sync schedule.
-     *  @param EmailSyncSchedule|null $value Value to set for the emailSyncSchedule property.
+     * @param EmailSyncSchedule|null $value Value to set for the emailSyncSchedule property.
     */
     public function setEmailSyncSchedule(?EmailSyncSchedule $value): void {
         $this->getBackingStore()->set('emailSyncSchedule', $value);
@@ -167,7 +167,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
 
     /**
      * Sets the hostName property value. Exchange location that (URL) that the native mail app connects to.
-     *  @param string|null $value Value to set for the hostName property.
+     * @param string|null $value Value to set for the hostName property.
     */
     public function setHostName(?string $value): void {
         $this->getBackingStore()->set('hostName', $value);
@@ -175,7 +175,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
 
     /**
      * Sets the requireSsl property value. Indicates whether or not to use SSL.
-     *  @param bool|null $value Value to set for the requireSsl property.
+     * @param bool|null $value Value to set for the requireSsl property.
     */
     public function setRequireSsl(?bool $value): void {
         $this->getBackingStore()->set('requireSsl', $value);
@@ -183,7 +183,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
 
     /**
      * Sets the syncCalendar property value. Whether or not to sync the calendar.
-     *  @param bool|null $value Value to set for the syncCalendar property.
+     * @param bool|null $value Value to set for the syncCalendar property.
     */
     public function setSyncCalendar(?bool $value): void {
         $this->getBackingStore()->set('syncCalendar', $value);
@@ -191,7 +191,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
 
     /**
      * Sets the syncContacts property value. Whether or not to sync contacts.
-     *  @param bool|null $value Value to set for the syncContacts property.
+     * @param bool|null $value Value to set for the syncContacts property.
     */
     public function setSyncContacts(?bool $value): void {
         $this->getBackingStore()->set('syncContacts', $value);
@@ -199,7 +199,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
 
     /**
      * Sets the syncTasks property value. Whether or not to sync tasks.
-     *  @param bool|null $value Value to set for the syncTasks property.
+     * @param bool|null $value Value to set for the syncTasks property.
     */
     public function setSyncTasks(?bool $value): void {
         $this->getBackingStore()->set('syncTasks', $value);

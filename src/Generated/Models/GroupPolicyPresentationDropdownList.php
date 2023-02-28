@@ -75,7 +75,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
 
     /**
      * Sets the defaultItem property value. Localized string value identifying the default choice of the list of items.
-     *  @param GroupPolicyPresentationDropdownListItem|null $value Value to set for the defaultItem property.
+     * @param GroupPolicyPresentationDropdownListItem|null $value Value to set for the defaultItem property.
     */
     public function setDefaultItem(?GroupPolicyPresentationDropdownListItem $value): void {
         $this->getBackingStore()->set('defaultItem', $value);
@@ -83,7 +83,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
 
     /**
      * Sets the items property value. Represents a set of localized display names and their associated values.
-     *  @param array<GroupPolicyPresentationDropdownListItem>|null $value Value to set for the items property.
+     * @param array<GroupPolicyPresentationDropdownListItem>|null $value Value to set for the items property.
     */
     public function setItems(?array $value): void {
         $this->getBackingStore()->set('items', $value);
@@ -91,7 +91,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
 
     /**
      * Sets the required property value. Requirement to enter a value in the parameter box. The default value is false.
-     *  @param bool|null $value Value to set for the required property.
+     * @param bool|null $value Value to set for the required property.
     */
     public function setRequired(?bool $value): void {
         $this->getBackingStore()->set('required', $value);

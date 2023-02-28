@@ -37,7 +37,7 @@ class CreateInstancePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class CreateInstancePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class CreateInstancePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -127,7 +127,7 @@ class CreateInstancePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -135,7 +135,7 @@ class CreateInstancePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -143,7 +143,7 @@ class CreateInstancePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the roleScopeTagIds property value. The roleScopeTagIds property
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -151,7 +151,7 @@ class CreateInstancePostRequestBody implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the settingsDelta property value. The settingsDelta property
-     *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the settingsDelta property.
+     * @param array<DeviceManagementSettingInstance>|null $value Value to set for the settingsDelta property.
     */
     public function setSettingsDelta(?array $value): void {
         $this->getBackingStore()->set('settingsDelta', $value);

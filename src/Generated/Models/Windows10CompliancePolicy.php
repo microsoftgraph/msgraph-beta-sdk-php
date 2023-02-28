@@ -365,7 +365,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the activeFirewallRequired property value. Require active firewall on Windows devices.
-     *  @param bool|null $value Value to set for the activeFirewallRequired property.
+     * @param bool|null $value Value to set for the activeFirewallRequired property.
     */
     public function setActiveFirewallRequired(?bool $value): void {
         $this->getBackingStore()->set('activeFirewallRequired', $value);
@@ -373,7 +373,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the antiSpywareRequired property value. Require any AntiSpyware solution registered with Windows Decurity Center to be on and monitoring (e.g. Symantec, Windows Defender).
-     *  @param bool|null $value Value to set for the antiSpywareRequired property.
+     * @param bool|null $value Value to set for the antiSpywareRequired property.
     */
     public function setAntiSpywareRequired(?bool $value): void {
         $this->getBackingStore()->set('antiSpywareRequired', $value);
@@ -381,7 +381,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the antivirusRequired property value. Require any Antivirus solution registered with Windows Decurity Center to be on and monitoring (e.g. Symantec, Windows Defender).
-     *  @param bool|null $value Value to set for the antivirusRequired property.
+     * @param bool|null $value Value to set for the antivirusRequired property.
     */
     public function setAntivirusRequired(?bool $value): void {
         $this->getBackingStore()->set('antivirusRequired', $value);
@@ -389,7 +389,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the bitLockerEnabled property value. Require devices to be reported healthy by Windows Device Health Attestation - bit locker is enabled
-     *  @param bool|null $value Value to set for the bitLockerEnabled property.
+     * @param bool|null $value Value to set for the bitLockerEnabled property.
     */
     public function setBitLockerEnabled(?bool $value): void {
         $this->getBackingStore()->set('bitLockerEnabled', $value);
@@ -397,7 +397,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the codeIntegrityEnabled property value. Require devices to be reported as healthy by Windows Device Health Attestation.
-     *  @param bool|null $value Value to set for the codeIntegrityEnabled property.
+     * @param bool|null $value Value to set for the codeIntegrityEnabled property.
     */
     public function setCodeIntegrityEnabled(?bool $value): void {
         $this->getBackingStore()->set('codeIntegrityEnabled', $value);
@@ -405,7 +405,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the configurationManagerComplianceRequired property value. Require to consider SCCM Compliance state into consideration for Intune Compliance State.
-     *  @param bool|null $value Value to set for the configurationManagerComplianceRequired property.
+     * @param bool|null $value Value to set for the configurationManagerComplianceRequired property.
     */
     public function setConfigurationManagerComplianceRequired(?bool $value): void {
         $this->getBackingStore()->set('configurationManagerComplianceRequired', $value);
@@ -413,7 +413,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the defenderEnabled property value. Require Windows Defender Antimalware on Windows devices.
-     *  @param bool|null $value Value to set for the defenderEnabled property.
+     * @param bool|null $value Value to set for the defenderEnabled property.
     */
     public function setDefenderEnabled(?bool $value): void {
         $this->getBackingStore()->set('defenderEnabled', $value);
@@ -421,7 +421,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the defenderVersion property value. Require Windows Defender Antimalware minimum version on Windows devices.
-     *  @param string|null $value Value to set for the defenderVersion property.
+     * @param string|null $value Value to set for the defenderVersion property.
     */
     public function setDefenderVersion(?string $value): void {
         $this->getBackingStore()->set('defenderVersion', $value);
@@ -429,7 +429,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the deviceCompliancePolicyScript property value. Not yet documented
-     *  @param DeviceCompliancePolicyScript|null $value Value to set for the deviceCompliancePolicyScript property.
+     * @param DeviceCompliancePolicyScript|null $value Value to set for the deviceCompliancePolicyScript property.
     */
     public function setDeviceCompliancePolicyScript(?DeviceCompliancePolicyScript $value): void {
         $this->getBackingStore()->set('deviceCompliancePolicyScript', $value);
@@ -437,7 +437,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection.
-     *  @param bool|null $value Value to set for the deviceThreatProtectionEnabled property.
+     * @param bool|null $value Value to set for the deviceThreatProtectionEnabled property.
     */
     public function setDeviceThreatProtectionEnabled(?bool $value): void {
         $this->getBackingStore()->set('deviceThreatProtectionEnabled', $value);
@@ -445,7 +445,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
-     *  @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
+     * @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
     */
     public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
         $this->getBackingStore()->set('deviceThreatProtectionRequiredSecurityLevel', $value);
@@ -453,7 +453,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the earlyLaunchAntiMalwareDriverEnabled property value. Require devices to be reported as healthy by Windows Device Health Attestation - early launch antimalware driver is enabled.
-     *  @param bool|null $value Value to set for the earlyLaunchAntiMalwareDriverEnabled property.
+     * @param bool|null $value Value to set for the earlyLaunchAntiMalwareDriverEnabled property.
     */
     public function setEarlyLaunchAntiMalwareDriverEnabled(?bool $value): void {
         $this->getBackingStore()->set('earlyLaunchAntiMalwareDriverEnabled', $value);
@@ -461,7 +461,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the mobileOsMaximumVersion property value. Maximum Windows Phone version.
-     *  @param string|null $value Value to set for the mobileOsMaximumVersion property.
+     * @param string|null $value Value to set for the mobileOsMaximumVersion property.
     */
     public function setMobileOsMaximumVersion(?string $value): void {
         $this->getBackingStore()->set('mobileOsMaximumVersion', $value);
@@ -469,7 +469,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the mobileOsMinimumVersion property value. Minimum Windows Phone version.
-     *  @param string|null $value Value to set for the mobileOsMinimumVersion property.
+     * @param string|null $value Value to set for the mobileOsMinimumVersion property.
     */
     public function setMobileOsMinimumVersion(?string $value): void {
         $this->getBackingStore()->set('mobileOsMinimumVersion', $value);
@@ -477,7 +477,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the osMaximumVersion property value. Maximum Windows 10 version.
-     *  @param string|null $value Value to set for the osMaximumVersion property.
+     * @param string|null $value Value to set for the osMaximumVersion property.
     */
     public function setOsMaximumVersion(?string $value): void {
         $this->getBackingStore()->set('osMaximumVersion', $value);
@@ -485,7 +485,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the osMinimumVersion property value. Minimum Windows 10 version.
-     *  @param string|null $value Value to set for the osMinimumVersion property.
+     * @param string|null $value Value to set for the osMinimumVersion property.
     */
     public function setOsMinimumVersion(?string $value): void {
         $this->getBackingStore()->set('osMinimumVersion', $value);
@@ -493,7 +493,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the passwordBlockSimple property value. Indicates whether or not to block simple password.
-     *  @param bool|null $value Value to set for the passwordBlockSimple property.
+     * @param bool|null $value Value to set for the passwordBlockSimple property.
     */
     public function setPasswordBlockSimple(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockSimple', $value);
@@ -501,7 +501,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the passwordExpirationDays property value. The password expiration in days.
-     *  @param int|null $value Value to set for the passwordExpirationDays property.
+     * @param int|null $value Value to set for the passwordExpirationDays property.
     */
     public function setPasswordExpirationDays(?int $value): void {
         $this->getBackingStore()->set('passwordExpirationDays', $value);
@@ -509,7 +509,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the passwordMinimumCharacterSetCount property value. The number of character sets required in the password.
-     *  @param int|null $value Value to set for the passwordMinimumCharacterSetCount property.
+     * @param int|null $value Value to set for the passwordMinimumCharacterSetCount property.
     */
     public function setPasswordMinimumCharacterSetCount(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumCharacterSetCount', $value);
@@ -517,7 +517,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the passwordMinimumLength property value. The minimum password length.
-     *  @param int|null $value Value to set for the passwordMinimumLength property.
+     * @param int|null $value Value to set for the passwordMinimumLength property.
     */
     public function setPasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLength', $value);
@@ -525,7 +525,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a password is required.
-     *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeLock property.
+     * @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeLock property.
     */
     public function setPasswordMinutesOfInactivityBeforeLock(?int $value): void {
         $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeLock', $value);
@@ -533,7 +533,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the passwordPreviousPasswordBlockCount property value. The number of previous passwords to prevent re-use of.
-     *  @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
+     * @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
     */
     public function setPasswordPreviousPasswordBlockCount(?int $value): void {
         $this->getBackingStore()->set('passwordPreviousPasswordBlockCount', $value);
@@ -541,7 +541,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the passwordRequired property value. Require a password to unlock Windows device.
-     *  @param bool|null $value Value to set for the passwordRequired property.
+     * @param bool|null $value Value to set for the passwordRequired property.
     */
     public function setPasswordRequired(?bool $value): void {
         $this->getBackingStore()->set('passwordRequired', $value);
@@ -549,7 +549,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the passwordRequiredToUnlockFromIdle property value. Require a password to unlock an idle device.
-     *  @param bool|null $value Value to set for the passwordRequiredToUnlockFromIdle property.
+     * @param bool|null $value Value to set for the passwordRequiredToUnlockFromIdle property.
     */
     public function setPasswordRequiredToUnlockFromIdle(?bool $value): void {
         $this->getBackingStore()->set('passwordRequiredToUnlockFromIdle', $value);
@@ -557,7 +557,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the passwordRequiredType property value. Possible values of required passwords.
-     *  @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?RequiredPasswordType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
@@ -565,7 +565,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the requireHealthyDeviceReport property value. Require devices to be reported as healthy by Windows Device Health Attestation.
-     *  @param bool|null $value Value to set for the requireHealthyDeviceReport property.
+     * @param bool|null $value Value to set for the requireHealthyDeviceReport property.
     */
     public function setRequireHealthyDeviceReport(?bool $value): void {
         $this->getBackingStore()->set('requireHealthyDeviceReport', $value);
@@ -573,7 +573,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the rtpEnabled property value. Require Windows Defender Antimalware Real-Time Protection on Windows devices.
-     *  @param bool|null $value Value to set for the rtpEnabled property.
+     * @param bool|null $value Value to set for the rtpEnabled property.
     */
     public function setRtpEnabled(?bool $value): void {
         $this->getBackingStore()->set('rtpEnabled', $value);
@@ -581,7 +581,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the secureBootEnabled property value. Require devices to be reported as healthy by Windows Device Health Attestation - secure boot is enabled.
-     *  @param bool|null $value Value to set for the secureBootEnabled property.
+     * @param bool|null $value Value to set for the secureBootEnabled property.
     */
     public function setSecureBootEnabled(?bool $value): void {
         $this->getBackingStore()->set('secureBootEnabled', $value);
@@ -589,7 +589,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the signatureOutOfDate property value. Require Windows Defender Antimalware Signature to be up to date on Windows devices.
-     *  @param bool|null $value Value to set for the signatureOutOfDate property.
+     * @param bool|null $value Value to set for the signatureOutOfDate property.
     */
     public function setSignatureOutOfDate(?bool $value): void {
         $this->getBackingStore()->set('signatureOutOfDate', $value);
@@ -597,7 +597,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the storageRequireEncryption property value. Require encryption on windows devices.
-     *  @param bool|null $value Value to set for the storageRequireEncryption property.
+     * @param bool|null $value Value to set for the storageRequireEncryption property.
     */
     public function setStorageRequireEncryption(?bool $value): void {
         $this->getBackingStore()->set('storageRequireEncryption', $value);
@@ -605,7 +605,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the tpmRequired property value. Require Trusted Platform Module(TPM) to be present.
-     *  @param bool|null $value Value to set for the tpmRequired property.
+     * @param bool|null $value Value to set for the tpmRequired property.
     */
     public function setTpmRequired(?bool $value): void {
         $this->getBackingStore()->set('tpmRequired', $value);
@@ -613,7 +613,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy implements Parsab
 
     /**
      * Sets the validOperatingSystemBuildRanges property value. The valid operating system build ranges on Windows devices. This collection can contain a maximum of 10000 elements.
-     *  @param array<OperatingSystemVersionRange>|null $value Value to set for the validOperatingSystemBuildRanges property.
+     * @param array<OperatingSystemVersionRange>|null $value Value to set for the validOperatingSystemBuildRanges property.
     */
     public function setValidOperatingSystemBuildRanges(?array $value): void {
         $this->getBackingStore()->set('validOperatingSystemBuildRanges', $value);

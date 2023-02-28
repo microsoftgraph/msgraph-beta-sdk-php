@@ -105,7 +105,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
 
     /**
      * Sets the connectionSettings property value. The connectionSettings property
-     *  @param EducationSynchronizationConnectionSettings|null $value Value to set for the connectionSettings property.
+     * @param EducationSynchronizationConnectionSettings|null $value Value to set for the connectionSettings property.
     */
     public function setConnectionSettings(?EducationSynchronizationConnectionSettings $value): void {
         $this->getBackingStore()->set('connectionSettings', $value);
@@ -113,7 +113,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
 
     /**
      * Sets the connectionUrl property value. The connectionUrl property
-     *  @param string|null $value Value to set for the connectionUrl property.
+     * @param string|null $value Value to set for the connectionUrl property.
     */
     public function setConnectionUrl(?string $value): void {
         $this->getBackingStore()->set('connectionUrl', $value);
@@ -121,7 +121,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
 
     /**
      * Sets the customizations property value. The customizations property
-     *  @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
+     * @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
     */
     public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
         $this->getBackingStore()->set('customizations', $value);
@@ -129,7 +129,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
 
     /**
      * Sets the providerName property value. The providerName property
-     *  @param string|null $value Value to set for the providerName property.
+     * @param string|null $value Value to set for the providerName property.
     */
     public function setProviderName(?string $value): void {
         $this->getBackingStore()->set('providerName', $value);
@@ -137,7 +137,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
 
     /**
      * Sets the schoolsIds property value. The schoolsIds property
-     *  @param array<string>|null $value Value to set for the schoolsIds property.
+     * @param array<string>|null $value Value to set for the schoolsIds property.
     */
     public function setSchoolsIds(?array $value): void {
         $this->getBackingStore()->set('schoolsIds', $value);
@@ -145,7 +145,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
 
     /**
      * Sets the termIds property value. The termIds property
-     *  @param array<string>|null $value Value to set for the termIds property.
+     * @param array<string>|null $value Value to set for the termIds property.
     */
     public function setTermIds(?array $value): void {
         $this->getBackingStore()->set('termIds', $value);

@@ -25,7 +25,7 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the shared-use service plan.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -46,7 +46,7 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalCount property value. The totalCount property
+     * Gets the totalCount property value. Total number of shared-use service plans purchased by the customer.
      * @return int|null
     */
     public function getTotalCount(): ?int {
@@ -54,7 +54,7 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Gets the usedCount property value. The usedCount property
+     * Gets the usedCount property value. The number of service plans that the account uses.
      * @return int|null
     */
     public function getUsedCount(): ?int {
@@ -73,24 +73,24 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * Sets the displayName property value. The display name of the shared-use service plan.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the totalCount property value. The totalCount property
-     *  @param int|null $value Value to set for the totalCount property.
+     * Sets the totalCount property value. Total number of shared-use service plans purchased by the customer.
+     * @param int|null $value Value to set for the totalCount property.
     */
     public function setTotalCount(?int $value): void {
         $this->getBackingStore()->set('totalCount', $value);
     }
 
     /**
-     * Sets the usedCount property value. The usedCount property
-     *  @param int|null $value Value to set for the usedCount property.
+     * Sets the usedCount property value. The number of service plans that the account uses.
+     * @param int|null $value Value to set for the usedCount property.
     */
     public function setUsedCount(?int $value): void {
         $this->getBackingStore()->set('usedCount', $value);

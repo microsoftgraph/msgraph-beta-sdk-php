@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that represents a collection of Microsoft Tunnel settings
+*/
 class MicrosoftTunnelConfiguration extends Entity implements Parsable 
 {
     /**
@@ -195,7 +198,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the advancedSettings property value. Additional settings that may be applied to the server
-     *  @param array<KeyValuePair>|null $value Value to set for the advancedSettings property.
+     * @param array<KeyValuePair>|null $value Value to set for the advancedSettings property.
     */
     public function setAdvancedSettings(?array $value): void {
         $this->getBackingStore()->set('advancedSettings', $value);
@@ -203,7 +206,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the defaultDomainSuffix property value. The Default Domain appendix that will be used by the clients
-     *  @param string|null $value Value to set for the defaultDomainSuffix property.
+     * @param string|null $value Value to set for the defaultDomainSuffix property.
     */
     public function setDefaultDomainSuffix(?string $value): void {
         $this->getBackingStore()->set('defaultDomainSuffix', $value);
@@ -211,7 +214,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the description property value. The configuration's description (optional)
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -219,7 +222,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the disableUdpConnections property value. When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to transfer data.
-     *  @param bool|null $value Value to set for the disableUdpConnections property.
+     * @param bool|null $value Value to set for the disableUdpConnections property.
     */
     public function setDisableUdpConnections(?bool $value): void {
         $this->getBackingStore()->set('disableUdpConnections', $value);
@@ -227,7 +230,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the server configuration. This property is required when a server is created.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -235,7 +238,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the dnsServers property value. The DNS servers that will be used by the clients
-     *  @param array<string>|null $value Value to set for the dnsServers property.
+     * @param array<string>|null $value Value to set for the dnsServers property.
     */
     public function setDnsServers(?array $value): void {
         $this->getBackingStore()->set('dnsServers', $value);
@@ -243,7 +246,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the lastUpdateDateTime property value. When the configuration was last updated
-     *  @param DateTime|null $value Value to set for the lastUpdateDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdateDateTime property.
     */
     public function setLastUpdateDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdateDateTime', $value);
@@ -251,7 +254,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the listenPort property value. The port that both TCP and UPD will listen over on the server
-     *  @param int|null $value Value to set for the listenPort property.
+     * @param int|null $value Value to set for the listenPort property.
     */
     public function setListenPort(?int $value): void {
         $this->getBackingStore()->set('listenPort', $value);
@@ -259,7 +262,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the network property value. The subnet that will be used to allocate virtual address for the clients
-     *  @param string|null $value Value to set for the network property.
+     * @param string|null $value Value to set for the network property.
     */
     public function setNetwork(?string $value): void {
         $this->getBackingStore()->set('network', $value);
@@ -267,7 +270,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -275,7 +278,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the routeExcludes property value. Subsets of the routes that will not be routed by the server
-     *  @param array<string>|null $value Value to set for the routeExcludes property.
+     * @param array<string>|null $value Value to set for the routeExcludes property.
     */
     public function setRouteExcludes(?array $value): void {
         $this->getBackingStore()->set('routeExcludes', $value);
@@ -283,7 +286,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the routeIncludes property value. The routes that will be routed by the server
-     *  @param array<string>|null $value Value to set for the routeIncludes property.
+     * @param array<string>|null $value Value to set for the routeIncludes property.
     */
     public function setRouteIncludes(?array $value): void {
         $this->getBackingStore()->set('routeIncludes', $value);
@@ -291,7 +294,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the routesExclude property value. Subsets of the routes that will not be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteExcludes'.
-     *  @param array<string>|null $value Value to set for the routesExclude property.
+     * @param array<string>|null $value Value to set for the routesExclude property.
     */
     public function setRoutesExclude(?array $value): void {
         $this->getBackingStore()->set('routesExclude', $value);
@@ -299,7 +302,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the routesInclude property value. The routes that will be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteIncludes'.
-     *  @param array<string>|null $value Value to set for the routesInclude property.
+     * @param array<string>|null $value Value to set for the routesInclude property.
     */
     public function setRoutesInclude(?array $value): void {
         $this->getBackingStore()->set('routesInclude', $value);
@@ -307,7 +310,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
 
     /**
      * Sets the splitDNS property value. The domains that will be resolved using the provided dns servers
-     *  @param array<string>|null $value Value to set for the splitDNS property.
+     * @param array<string>|null $value Value to set for the splitDNS property.
     */
     public function setSplitDNS(?array $value): void {
         $this->getBackingStore()->set('splitDNS', $value);

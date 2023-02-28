@@ -36,7 +36,7 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -80,7 +80,7 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the synchronizationPreventionType property value. The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage.
+     * Gets the synchronizationPreventionType property value. The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage, unknownFutureValue.
      * @return OnPremisesDirectorySynchronizationDeletionPreventionType|null
     */
     public function getSynchronizationPreventionType(): ?OnPremisesDirectorySynchronizationDeletionPreventionType {
@@ -100,7 +100,7 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
 
     /**
      * Sets the alertThreshold property value. Threshold value which triggers accidental deletion prevention. The threshold is either an absolute number of objects or a percentage number of objects.
-     *  @param int|null $value Value to set for the alertThreshold property.
+     * @param int|null $value Value to set for the alertThreshold property.
     */
     public function setAlertThreshold(?int $value): void {
         $this->getBackingStore()->set('alertThreshold', $value);
@@ -116,7 +116,7 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,15 +124,15 @@ class OnPremisesAccidentalDeletionPrevention implements AdditionalDataHolder, Ba
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the synchronizationPreventionType property value. The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage.
-     *  @param OnPremisesDirectorySynchronizationDeletionPreventionType|null $value Value to set for the synchronizationPreventionType property.
+     * Sets the synchronizationPreventionType property value. The status of the accidental deletion prevention feature. The possible values are: disabled, enabledForCount, enabledForPercentage, unknownFutureValue.
+     * @param OnPremisesDirectorySynchronizationDeletionPreventionType|null $value Value to set for the synchronizationPreventionType property.
     */
     public function setSynchronizationPreventionType(?OnPremisesDirectorySynchronizationDeletionPreventionType $value): void {
         $this->getBackingStore()->set('synchronizationPreventionType', $value);

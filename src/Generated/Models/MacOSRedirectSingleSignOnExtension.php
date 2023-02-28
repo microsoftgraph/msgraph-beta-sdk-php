@@ -85,7 +85,7 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension impl
 
     /**
      * Sets the configurations property value. Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
-     *  @param array<KeyTypedValuePair>|null $value Value to set for the configurations property.
+     * @param array<KeyTypedValuePair>|null $value Value to set for the configurations property.
     */
     public function setConfigurations(?array $value): void {
         $this->getBackingStore()->set('configurations', $value);
@@ -93,7 +93,7 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension impl
 
     /**
      * Sets the extensionIdentifier property value. Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
-     *  @param string|null $value Value to set for the extensionIdentifier property.
+     * @param string|null $value Value to set for the extensionIdentifier property.
     */
     public function setExtensionIdentifier(?string $value): void {
         $this->getBackingStore()->set('extensionIdentifier', $value);
@@ -101,7 +101,7 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension impl
 
     /**
      * Sets the teamIdentifier property value. Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
-     *  @param string|null $value Value to set for the teamIdentifier property.
+     * @param string|null $value Value to set for the teamIdentifier property.
     */
     public function setTeamIdentifier(?string $value): void {
         $this->getBackingStore()->set('teamIdentifier', $value);
@@ -109,7 +109,7 @@ class MacOSRedirectSingleSignOnExtension extends MacOSSingleSignOnExtension impl
 
     /**
      * Sets the urlPrefixes property value. One or more URL prefixes of identity providers on whose behalf the app extension performs single sign-on. URLs must begin with http:// or https://. All URL prefixes must be unique for all profiles.
-     *  @param array<string>|null $value Value to set for the urlPrefixes property.
+     * @param array<string>|null $value Value to set for the urlPrefixes property.
     */
     public function setUrlPrefixes(?array $value): void {
         $this->getBackingStore()->set('urlPrefixes', $value);

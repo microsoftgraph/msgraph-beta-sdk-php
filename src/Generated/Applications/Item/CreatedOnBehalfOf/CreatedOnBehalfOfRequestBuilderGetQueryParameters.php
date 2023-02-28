@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\CreatedOnBehalfOf;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Supports $filter (/$count eq 0, /$count ne 0). Read-only.
+*/
 class CreatedOnBehalfOfRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class CreatedOnBehalfOfRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new createdOnBehalfOfRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

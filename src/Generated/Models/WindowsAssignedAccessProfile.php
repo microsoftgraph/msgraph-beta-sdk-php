@@ -105,7 +105,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
 
     /**
      * Sets the appUserModelIds property value. These are the only Windows Store Apps that will be available to launch from the Start menu.
-     *  @param array<string>|null $value Value to set for the appUserModelIds property.
+     * @param array<string>|null $value Value to set for the appUserModelIds property.
     */
     public function setAppUserModelIds(?array $value): void {
         $this->getBackingStore()->set('appUserModelIds', $value);
@@ -113,7 +113,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
 
     /**
      * Sets the desktopAppPaths property value. These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
-     *  @param array<string>|null $value Value to set for the desktopAppPaths property.
+     * @param array<string>|null $value Value to set for the desktopAppPaths property.
     */
     public function setDesktopAppPaths(?array $value): void {
         $this->getBackingStore()->set('desktopAppPaths', $value);
@@ -121,7 +121,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
 
     /**
      * Sets the profileName property value. This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
-     *  @param string|null $value Value to set for the profileName property.
+     * @param string|null $value Value to set for the profileName property.
     */
     public function setProfileName(?string $value): void {
         $this->getBackingStore()->set('profileName', $value);
@@ -129,7 +129,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
 
     /**
      * Sets the showTaskBar property value. This setting allows the admin to specify whether the Task Bar is shown or not.
-     *  @param bool|null $value Value to set for the showTaskBar property.
+     * @param bool|null $value Value to set for the showTaskBar property.
     */
     public function setShowTaskBar(?bool $value): void {
         $this->getBackingStore()->set('showTaskBar', $value);
@@ -137,7 +137,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
 
     /**
      * Sets the startMenuLayoutXml property value. Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-     *  @param StreamInterface|null $value Value to set for the startMenuLayoutXml property.
+     * @param StreamInterface|null $value Value to set for the startMenuLayoutXml property.
     */
     public function setStartMenuLayoutXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('startMenuLayoutXml', $value);
@@ -145,7 +145,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
 
     /**
      * Sets the userAccounts property value. The user accounts that will be locked to this kiosk configuration.
-     *  @param array<string>|null $value Value to set for the userAccounts property.
+     * @param array<string>|null $value Value to set for the userAccounts property.
     */
     public function setUserAccounts(?array $value): void {
         $this->getBackingStore()->set('userAccounts', $value);

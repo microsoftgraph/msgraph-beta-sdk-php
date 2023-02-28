@@ -37,7 +37,7 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -101,7 +101,7 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -109,7 +109,7 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -117,7 +117,7 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the clientContext property value. The clientContext property
-     *  @param string|null $value Value to set for the clientContext property.
+     * @param string|null $value Value to set for the clientContext property.
     */
     public function setClientContext(?string $value): void {
         $this->getBackingStore()->set('clientContext', $value);
@@ -125,7 +125,7 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the loop property value. The loop property
-     *  @param bool|null $value Value to set for the loop property.
+     * @param bool|null $value Value to set for the loop property.
     */
     public function setLoop(?bool $value): void {
         $this->getBackingStore()->set('loop', $value);
@@ -133,7 +133,7 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the prompts property value. The prompts property
-     *  @param array<Prompt>|null $value Value to set for the prompts property.
+     * @param array<Prompt>|null $value Value to set for the prompts property.
     */
     public function setPrompts(?array $value): void {
         $this->getBackingStore()->set('prompts', $value);

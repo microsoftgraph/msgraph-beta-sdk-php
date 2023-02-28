@@ -74,7 +74,7 @@ class MessageRecipient extends Entity implements Parsable
 
     /**
      * Sets the deliveryStatus property value. The deliveryStatus property
-     *  @param MessageStatus|null $value Value to set for the deliveryStatus property.
+     * @param MessageStatus|null $value Value to set for the deliveryStatus property.
     */
     public function setDeliveryStatus(?MessageStatus $value): void {
         $this->getBackingStore()->set('deliveryStatus', $value);
@@ -82,7 +82,7 @@ class MessageRecipient extends Entity implements Parsable
 
     /**
      * Sets the events property value. The events property
-     *  @param array<MessageEvent>|null $value Value to set for the events property.
+     * @param array<MessageEvent>|null $value Value to set for the events property.
     */
     public function setEvents(?array $value): void {
         $this->getBackingStore()->set('events', $value);
@@ -90,7 +90,7 @@ class MessageRecipient extends Entity implements Parsable
 
     /**
      * Sets the recipientEmail property value. The recipientEmail property
-     *  @param string|null $value Value to set for the recipientEmail property.
+     * @param string|null $value Value to set for the recipientEmail property.
     */
     public function setRecipientEmail(?string $value): void {
         $this->getBackingStore()->set('recipientEmail', $value);

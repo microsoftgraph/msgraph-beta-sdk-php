@@ -125,7 +125,7 @@ class MessageTrace extends Entity implements Parsable
 
     /**
      * Sets the destinationIPAddress property value. The destinationIPAddress property
-     *  @param string|null $value Value to set for the destinationIPAddress property.
+     * @param string|null $value Value to set for the destinationIPAddress property.
     */
     public function setDestinationIPAddress(?string $value): void {
         $this->getBackingStore()->set('destinationIPAddress', $value);
@@ -133,7 +133,7 @@ class MessageTrace extends Entity implements Parsable
 
     /**
      * Sets the messageId property value. The messageId property
-     *  @param string|null $value Value to set for the messageId property.
+     * @param string|null $value Value to set for the messageId property.
     */
     public function setMessageId(?string $value): void {
         $this->getBackingStore()->set('messageId', $value);
@@ -141,7 +141,7 @@ class MessageTrace extends Entity implements Parsable
 
     /**
      * Sets the receivedDateTime property value. The receivedDateTime property
-     *  @param DateTime|null $value Value to set for the receivedDateTime property.
+     * @param DateTime|null $value Value to set for the receivedDateTime property.
     */
     public function setReceivedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('receivedDateTime', $value);
@@ -149,7 +149,7 @@ class MessageTrace extends Entity implements Parsable
 
     /**
      * Sets the recipients property value. The recipients property
-     *  @param array<MessageRecipient>|null $value Value to set for the recipients property.
+     * @param array<MessageRecipient>|null $value Value to set for the recipients property.
     */
     public function setRecipients(?array $value): void {
         $this->getBackingStore()->set('recipients', $value);
@@ -157,7 +157,7 @@ class MessageTrace extends Entity implements Parsable
 
     /**
      * Sets the senderEmail property value. The senderEmail property
-     *  @param string|null $value Value to set for the senderEmail property.
+     * @param string|null $value Value to set for the senderEmail property.
     */
     public function setSenderEmail(?string $value): void {
         $this->getBackingStore()->set('senderEmail', $value);
@@ -165,7 +165,7 @@ class MessageTrace extends Entity implements Parsable
 
     /**
      * Sets the size property value. The size property
-     *  @param int|null $value Value to set for the size property.
+     * @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value): void {
         $this->getBackingStore()->set('size', $value);
@@ -173,7 +173,7 @@ class MessageTrace extends Entity implements Parsable
 
     /**
      * Sets the sourceIPAddress property value. The sourceIPAddress property
-     *  @param string|null $value Value to set for the sourceIPAddress property.
+     * @param string|null $value Value to set for the sourceIPAddress property.
     */
     public function setSourceIPAddress(?string $value): void {
         $this->getBackingStore()->set('sourceIPAddress', $value);
@@ -181,7 +181,7 @@ class MessageTrace extends Entity implements Parsable
 
     /**
      * Sets the subject property value. The subject property
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);

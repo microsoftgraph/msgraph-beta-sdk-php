@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Company extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new company and sets the default values.
+     * Instantiates a new Company and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -434,7 +434,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the accounts property value. The accounts property
-     *  @param array<Account>|null $value Value to set for the accounts property.
+     * @param array<Account>|null $value Value to set for the accounts property.
     */
     public function setAccounts(?array $value): void {
         $this->getBackingStore()->set('accounts', $value);
@@ -442,7 +442,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the agedAccountsPayable property value. The agedAccountsPayable property
-     *  @param array<AgedAccountsPayable>|null $value Value to set for the agedAccountsPayable property.
+     * @param array<AgedAccountsPayable>|null $value Value to set for the agedAccountsPayable property.
     */
     public function setAgedAccountsPayable(?array $value): void {
         $this->getBackingStore()->set('agedAccountsPayable', $value);
@@ -450,7 +450,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the agedAccountsReceivable property value. The agedAccountsReceivable property
-     *  @param array<AgedAccountsReceivable>|null $value Value to set for the agedAccountsReceivable property.
+     * @param array<AgedAccountsReceivable>|null $value Value to set for the agedAccountsReceivable property.
     */
     public function setAgedAccountsReceivable(?array $value): void {
         $this->getBackingStore()->set('agedAccountsReceivable', $value);
@@ -458,7 +458,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the businessProfileId property value. The businessProfileId property
-     *  @param string|null $value Value to set for the businessProfileId property.
+     * @param string|null $value Value to set for the businessProfileId property.
     */
     public function setBusinessProfileId(?string $value): void {
         $this->getBackingStore()->set('businessProfileId', $value);
@@ -466,7 +466,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the companyInformation property value. The companyInformation property
-     *  @param array<CompanyInformation>|null $value Value to set for the companyInformation property.
+     * @param array<CompanyInformation>|null $value Value to set for the companyInformation property.
     */
     public function setCompanyInformation(?array $value): void {
         $this->getBackingStore()->set('companyInformation', $value);
@@ -474,7 +474,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the countriesRegions property value. The countriesRegions property
-     *  @param array<CountryRegion>|null $value Value to set for the countriesRegions property.
+     * @param array<CountryRegion>|null $value Value to set for the countriesRegions property.
     */
     public function setCountriesRegions(?array $value): void {
         $this->getBackingStore()->set('countriesRegions', $value);
@@ -482,7 +482,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the currencies property value. The currencies property
-     *  @param array<Currency>|null $value Value to set for the currencies property.
+     * @param array<Currency>|null $value Value to set for the currencies property.
     */
     public function setCurrencies(?array $value): void {
         $this->getBackingStore()->set('currencies', $value);
@@ -490,7 +490,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the customerPaymentJournals property value. The customerPaymentJournals property
-     *  @param array<CustomerPaymentJournal>|null $value Value to set for the customerPaymentJournals property.
+     * @param array<CustomerPaymentJournal>|null $value Value to set for the customerPaymentJournals property.
     */
     public function setCustomerPaymentJournals(?array $value): void {
         $this->getBackingStore()->set('customerPaymentJournals', $value);
@@ -498,7 +498,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the customerPayments property value. The customerPayments property
-     *  @param array<CustomerPayment>|null $value Value to set for the customerPayments property.
+     * @param array<CustomerPayment>|null $value Value to set for the customerPayments property.
     */
     public function setCustomerPayments(?array $value): void {
         $this->getBackingStore()->set('customerPayments', $value);
@@ -506,7 +506,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the customers property value. The customers property
-     *  @param array<Customer>|null $value Value to set for the customers property.
+     * @param array<Customer>|null $value Value to set for the customers property.
     */
     public function setCustomers(?array $value): void {
         $this->getBackingStore()->set('customers', $value);
@@ -514,7 +514,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the dimensions property value. The dimensions property
-     *  @param array<Dimension>|null $value Value to set for the dimensions property.
+     * @param array<Dimension>|null $value Value to set for the dimensions property.
     */
     public function setDimensions(?array $value): void {
         $this->getBackingStore()->set('dimensions', $value);
@@ -522,7 +522,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the dimensionValues property value. The dimensionValues property
-     *  @param array<DimensionValue>|null $value Value to set for the dimensionValues property.
+     * @param array<DimensionValue>|null $value Value to set for the dimensionValues property.
     */
     public function setDimensionValues(?array $value): void {
         $this->getBackingStore()->set('dimensionValues', $value);
@@ -530,7 +530,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -538,7 +538,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the employees property value. The employees property
-     *  @param array<Employee>|null $value Value to set for the employees property.
+     * @param array<Employee>|null $value Value to set for the employees property.
     */
     public function setEmployees(?array $value): void {
         $this->getBackingStore()->set('employees', $value);
@@ -546,7 +546,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the generalLedgerEntries property value. The generalLedgerEntries property
-     *  @param array<GeneralLedgerEntry>|null $value Value to set for the generalLedgerEntries property.
+     * @param array<GeneralLedgerEntry>|null $value Value to set for the generalLedgerEntries property.
     */
     public function setGeneralLedgerEntries(?array $value): void {
         $this->getBackingStore()->set('generalLedgerEntries', $value);
@@ -554,7 +554,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the itemCategories property value. The itemCategories property
-     *  @param array<ItemCategory>|null $value Value to set for the itemCategories property.
+     * @param array<ItemCategory>|null $value Value to set for the itemCategories property.
     */
     public function setItemCategories(?array $value): void {
         $this->getBackingStore()->set('itemCategories', $value);
@@ -562,7 +562,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the items property value. The items property
-     *  @param array<Item>|null $value Value to set for the items property.
+     * @param array<Item>|null $value Value to set for the items property.
     */
     public function setItems(?array $value): void {
         $this->getBackingStore()->set('items', $value);
@@ -570,7 +570,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the journalLines property value. The journalLines property
-     *  @param array<JournalLine>|null $value Value to set for the journalLines property.
+     * @param array<JournalLine>|null $value Value to set for the journalLines property.
     */
     public function setJournalLines(?array $value): void {
         $this->getBackingStore()->set('journalLines', $value);
@@ -578,7 +578,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the journals property value. The journals property
-     *  @param array<Journal>|null $value Value to set for the journals property.
+     * @param array<Journal>|null $value Value to set for the journals property.
     */
     public function setJournals(?array $value): void {
         $this->getBackingStore()->set('journals', $value);
@@ -586,7 +586,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -594,7 +594,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the paymentMethods property value. The paymentMethods property
-     *  @param array<PaymentMethod>|null $value Value to set for the paymentMethods property.
+     * @param array<PaymentMethod>|null $value Value to set for the paymentMethods property.
     */
     public function setPaymentMethods(?array $value): void {
         $this->getBackingStore()->set('paymentMethods', $value);
@@ -602,7 +602,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the paymentTerms property value. The paymentTerms property
-     *  @param array<PaymentTerm>|null $value Value to set for the paymentTerms property.
+     * @param array<PaymentTerm>|null $value Value to set for the paymentTerms property.
     */
     public function setPaymentTerms(?array $value): void {
         $this->getBackingStore()->set('paymentTerms', $value);
@@ -610,7 +610,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the picture property value. The picture property
-     *  @param array<Picture>|null $value Value to set for the picture property.
+     * @param array<Picture>|null $value Value to set for the picture property.
     */
     public function setPicture(?array $value): void {
         $this->getBackingStore()->set('picture', $value);
@@ -618,7 +618,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the purchaseInvoiceLines property value. The purchaseInvoiceLines property
-     *  @param array<PurchaseInvoiceLine>|null $value Value to set for the purchaseInvoiceLines property.
+     * @param array<PurchaseInvoiceLine>|null $value Value to set for the purchaseInvoiceLines property.
     */
     public function setPurchaseInvoiceLines(?array $value): void {
         $this->getBackingStore()->set('purchaseInvoiceLines', $value);
@@ -626,7 +626,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the purchaseInvoices property value. The purchaseInvoices property
-     *  @param array<PurchaseInvoice>|null $value Value to set for the purchaseInvoices property.
+     * @param array<PurchaseInvoice>|null $value Value to set for the purchaseInvoices property.
     */
     public function setPurchaseInvoices(?array $value): void {
         $this->getBackingStore()->set('purchaseInvoices', $value);
@@ -634,7 +634,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the salesCreditMemoLines property value. The salesCreditMemoLines property
-     *  @param array<SalesCreditMemoLine>|null $value Value to set for the salesCreditMemoLines property.
+     * @param array<SalesCreditMemoLine>|null $value Value to set for the salesCreditMemoLines property.
     */
     public function setSalesCreditMemoLines(?array $value): void {
         $this->getBackingStore()->set('salesCreditMemoLines', $value);
@@ -642,7 +642,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the salesCreditMemos property value. The salesCreditMemos property
-     *  @param array<SalesCreditMemo>|null $value Value to set for the salesCreditMemos property.
+     * @param array<SalesCreditMemo>|null $value Value to set for the salesCreditMemos property.
     */
     public function setSalesCreditMemos(?array $value): void {
         $this->getBackingStore()->set('salesCreditMemos', $value);
@@ -650,7 +650,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the salesInvoiceLines property value. The salesInvoiceLines property
-     *  @param array<SalesInvoiceLine>|null $value Value to set for the salesInvoiceLines property.
+     * @param array<SalesInvoiceLine>|null $value Value to set for the salesInvoiceLines property.
     */
     public function setSalesInvoiceLines(?array $value): void {
         $this->getBackingStore()->set('salesInvoiceLines', $value);
@@ -658,7 +658,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the salesInvoices property value. The salesInvoices property
-     *  @param array<SalesInvoice>|null $value Value to set for the salesInvoices property.
+     * @param array<SalesInvoice>|null $value Value to set for the salesInvoices property.
     */
     public function setSalesInvoices(?array $value): void {
         $this->getBackingStore()->set('salesInvoices', $value);
@@ -666,7 +666,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the salesOrderLines property value. The salesOrderLines property
-     *  @param array<SalesOrderLine>|null $value Value to set for the salesOrderLines property.
+     * @param array<SalesOrderLine>|null $value Value to set for the salesOrderLines property.
     */
     public function setSalesOrderLines(?array $value): void {
         $this->getBackingStore()->set('salesOrderLines', $value);
@@ -674,7 +674,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the salesOrders property value. The salesOrders property
-     *  @param array<SalesOrder>|null $value Value to set for the salesOrders property.
+     * @param array<SalesOrder>|null $value Value to set for the salesOrders property.
     */
     public function setSalesOrders(?array $value): void {
         $this->getBackingStore()->set('salesOrders', $value);
@@ -682,7 +682,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the salesQuoteLines property value. The salesQuoteLines property
-     *  @param array<SalesQuoteLine>|null $value Value to set for the salesQuoteLines property.
+     * @param array<SalesQuoteLine>|null $value Value to set for the salesQuoteLines property.
     */
     public function setSalesQuoteLines(?array $value): void {
         $this->getBackingStore()->set('salesQuoteLines', $value);
@@ -690,7 +690,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the salesQuotes property value. The salesQuotes property
-     *  @param array<SalesQuote>|null $value Value to set for the salesQuotes property.
+     * @param array<SalesQuote>|null $value Value to set for the salesQuotes property.
     */
     public function setSalesQuotes(?array $value): void {
         $this->getBackingStore()->set('salesQuotes', $value);
@@ -698,7 +698,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the shipmentMethods property value. The shipmentMethods property
-     *  @param array<ShipmentMethod>|null $value Value to set for the shipmentMethods property.
+     * @param array<ShipmentMethod>|null $value Value to set for the shipmentMethods property.
     */
     public function setShipmentMethods(?array $value): void {
         $this->getBackingStore()->set('shipmentMethods', $value);
@@ -706,7 +706,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the systemVersion property value. The systemVersion property
-     *  @param string|null $value Value to set for the systemVersion property.
+     * @param string|null $value Value to set for the systemVersion property.
     */
     public function setSystemVersion(?string $value): void {
         $this->getBackingStore()->set('systemVersion', $value);
@@ -714,7 +714,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the taxAreas property value. The taxAreas property
-     *  @param array<TaxArea>|null $value Value to set for the taxAreas property.
+     * @param array<TaxArea>|null $value Value to set for the taxAreas property.
     */
     public function setTaxAreas(?array $value): void {
         $this->getBackingStore()->set('taxAreas', $value);
@@ -722,7 +722,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the taxGroups property value. The taxGroups property
-     *  @param array<TaxGroup>|null $value Value to set for the taxGroups property.
+     * @param array<TaxGroup>|null $value Value to set for the taxGroups property.
     */
     public function setTaxGroups(?array $value): void {
         $this->getBackingStore()->set('taxGroups', $value);
@@ -730,7 +730,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the unitsOfMeasure property value. The unitsOfMeasure property
-     *  @param array<UnitOfMeasure>|null $value Value to set for the unitsOfMeasure property.
+     * @param array<UnitOfMeasure>|null $value Value to set for the unitsOfMeasure property.
     */
     public function setUnitsOfMeasure(?array $value): void {
         $this->getBackingStore()->set('unitsOfMeasure', $value);
@@ -738,7 +738,7 @@ class Company extends Entity implements Parsable
 
     /**
      * Sets the vendors property value. The vendors property
-     *  @param array<Vendor>|null $value Value to set for the vendors property.
+     * @param array<Vendor>|null $value Value to set for the vendors property.
     */
     public function setVendors(?array $value): void {
         $this->getBackingStore()->set('vendors', $value);

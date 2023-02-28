@@ -123,7 +123,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
+     * Gets the createdDateTime property value. Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -347,7 +347,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isAssignableToRole property value. Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true,  visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).
+     * Gets the isAssignableToRole property value. Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true,  visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsUsing this feature requires a Azure AD Premium P1 license. Returned by default. Supports $filter (eq, ne, not).
      * @return bool|null
     */
     public function getIsAssignableToRole(): ?bool {
@@ -826,7 +826,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the acceptedSenders property value. The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.
-     *  @param array<DirectoryObject>|null $value Value to set for the acceptedSenders property.
+     * @param array<DirectoryObject>|null $value Value to set for the acceptedSenders property.
     */
     public function setAcceptedSenders(?array $value): void {
         $this->getBackingStore()->set('acceptedSenders', $value);
@@ -834,7 +834,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the accessType property value. The accessType property
-     *  @param GroupAccessType|null $value Value to set for the accessType property.
+     * @param GroupAccessType|null $value Value to set for the accessType property.
     */
     public function setAccessType(?GroupAccessType $value): void {
         $this->getBackingStore()->set('accessType', $value);
@@ -842,7 +842,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the allowExternalSenders property value. Indicates if people external to the organization can send messages to the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-     *  @param bool|null $value Value to set for the allowExternalSenders property.
+     * @param bool|null $value Value to set for the allowExternalSenders property.
     */
     public function setAllowExternalSenders(?bool $value): void {
         $this->getBackingStore()->set('allowExternalSenders', $value);
@@ -850,7 +850,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the appRoleAssignments property value. Represents the app roles a group has been granted for an application. Supports $expand.
-     *  @param array<AppRoleAssignment>|null $value Value to set for the appRoleAssignments property.
+     * @param array<AppRoleAssignment>|null $value Value to set for the appRoleAssignments property.
     */
     public function setAppRoleAssignments(?array $value): void {
         $this->getBackingStore()->set('appRoleAssignments', $value);
@@ -858,7 +858,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.
-     *  @param array<AssignedLabel>|null $value Value to set for the assignedLabels property.
+     * @param array<AssignedLabel>|null $value Value to set for the assignedLabels property.
     */
     public function setAssignedLabels(?array $value): void {
         $this->getBackingStore()->set('assignedLabels', $value);
@@ -866,7 +866,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the assignedLicenses property value. The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.
-     *  @param array<AssignedLicense>|null $value Value to set for the assignedLicenses property.
+     * @param array<AssignedLicense>|null $value Value to set for the assignedLicenses property.
     */
     public function setAssignedLicenses(?array $value): void {
         $this->getBackingStore()->set('assignedLicenses', $value);
@@ -874,7 +874,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the autoSubscribeNewMembers property value. Indicates if new members added to the group will be auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; do not set it in the initial POST request that creates the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-     *  @param bool|null $value Value to set for the autoSubscribeNewMembers property.
+     * @param bool|null $value Value to set for the autoSubscribeNewMembers property.
     */
     public function setAutoSubscribeNewMembers(?bool $value): void {
         $this->getBackingStore()->set('autoSubscribeNewMembers', $value);
@@ -882,7 +882,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the calendar property value. The group's calendar. Read-only.
-     *  @param Calendar|null $value Value to set for the calendar property.
+     * @param Calendar|null $value Value to set for the calendar property.
     */
     public function setCalendar(?Calendar $value): void {
         $this->getBackingStore()->set('calendar', $value);
@@ -890,7 +890,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the calendarView property value. The calendar view for the calendar. Read-only.
-     *  @param array<Event>|null $value Value to set for the calendarView property.
+     * @param array<Event>|null $value Value to set for the calendarView property.
     */
     public function setCalendarView(?array $value): void {
         $this->getBackingStore()->set('calendarView', $value);
@@ -898,7 +898,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the classification property value. Describes a classification for the group (such as low, medium or high business impact). Valid values for this property are defined by creating a ClassificationList setting value, based on the template definition.Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith).
-     *  @param string|null $value Value to set for the classification property.
+     * @param string|null $value Value to set for the classification property.
     */
     public function setClassification(?string $value): void {
         $this->getBackingStore()->set('classification', $value);
@@ -906,7 +906,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the conversations property value. The group's conversations.
-     *  @param array<Conversation>|null $value Value to set for the conversations property.
+     * @param array<Conversation>|null $value Value to set for the conversations property.
     */
     public function setConversations(?array $value): void {
         $this->getBackingStore()->set('conversations', $value);
@@ -914,15 +914,15 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the createdByAppId property value. App ID of the app used to create the group. Can be null for some groups. Returned by default. Read-only. Supports $filter (eq, ne, not, in, startsWith).
-     *  @param string|null $value Value to set for the createdByAppId property.
+     * @param string|null $value Value to set for the createdByAppId property.
     */
     public function setCreatedByAppId(?string $value): void {
         $this->getBackingStore()->set('createdByAppId', $value);
     }
 
     /**
-     * Sets the createdDateTime property value. Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * Sets the createdDateTime property value. Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -930,7 +930,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the createdOnBehalfOf property value. The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
-     *  @param DirectoryObject|null $value Value to set for the createdOnBehalfOf property.
+     * @param DirectoryObject|null $value Value to set for the createdOnBehalfOf property.
     */
     public function setCreatedOnBehalfOf(?DirectoryObject $value): void {
         $this->getBackingStore()->set('createdOnBehalfOf', $value);
@@ -938,7 +938,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the description property value. An optional description for the group. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -946,7 +946,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -954,7 +954,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the drive property value. The group's default drive. Read-only.
-     *  @param Drive|null $value Value to set for the drive property.
+     * @param Drive|null $value Value to set for the drive property.
     */
     public function setDrive(?Drive $value): void {
         $this->getBackingStore()->set('drive', $value);
@@ -962,7 +962,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the drives property value. The group's drives. Read-only.
-     *  @param array<Drive>|null $value Value to set for the drives property.
+     * @param array<Drive>|null $value Value to set for the drives property.
     */
     public function setDrives(?array $value): void {
         $this->getBackingStore()->set('drives', $value);
@@ -970,7 +970,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the endpoints property value. Endpoints for the group. Read-only. Nullable.
-     *  @param array<Endpoint>|null $value Value to set for the endpoints property.
+     * @param array<Endpoint>|null $value Value to set for the endpoints property.
     */
     public function setEndpoints(?array $value): void {
         $this->getBackingStore()->set('endpoints', $value);
@@ -978,7 +978,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the events property value. The group's events.
-     *  @param array<Event>|null $value Value to set for the events property.
+     * @param array<Event>|null $value Value to set for the events property.
     */
     public function setEvents(?array $value): void {
         $this->getBackingStore()->set('events', $value);
@@ -986,7 +986,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the expirationDateTime property value. Timestamp of when the group is set to expire. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -994,7 +994,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the extensions property value. The collection of open extensions defined for the group. Read-only. Nullable.
-     *  @param array<Extension>|null $value Value to set for the extensions property.
+     * @param array<Extension>|null $value Value to set for the extensions property.
     */
     public function setExtensions(?array $value): void {
         $this->getBackingStore()->set('extensions', $value);
@@ -1002,7 +1002,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the groupLifecyclePolicies property value. The collection of lifecycle policies for this group. Read-only. Nullable.
-     *  @param array<GroupLifecyclePolicy>|null $value Value to set for the groupLifecyclePolicies property.
+     * @param array<GroupLifecyclePolicy>|null $value Value to set for the groupLifecyclePolicies property.
     */
     public function setGroupLifecyclePolicies(?array $value): void {
         $this->getBackingStore()->set('groupLifecyclePolicies', $value);
@@ -1010,7 +1010,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the groupTypes property value. Specifies the group type and its membership. If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static. Returned by default. Supports $filter (eq, not).
-     *  @param array<string>|null $value Value to set for the groupTypes property.
+     * @param array<string>|null $value Value to set for the groupTypes property.
     */
     public function setGroupTypes(?array $value): void {
         $this->getBackingStore()->set('groupTypes', $value);
@@ -1018,7 +1018,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the hasMembersWithLicenseErrors property value. Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true).  Supports $filter (eq).
-     *  @param bool|null $value Value to set for the hasMembersWithLicenseErrors property.
+     * @param bool|null $value Value to set for the hasMembersWithLicenseErrors property.
     */
     public function setHasMembersWithLicenseErrors(?bool $value): void {
         $this->getBackingStore()->set('hasMembersWithLicenseErrors', $value);
@@ -1026,7 +1026,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the hideFromAddressLists property value. true if the group is not displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups; false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-     *  @param bool|null $value Value to set for the hideFromAddressLists property.
+     * @param bool|null $value Value to set for the hideFromAddressLists property.
     */
     public function setHideFromAddressLists(?bool $value): void {
         $this->getBackingStore()->set('hideFromAddressLists', $value);
@@ -1034,7 +1034,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the hideFromOutlookClients property value. true if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web, false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-     *  @param bool|null $value Value to set for the hideFromOutlookClients property.
+     * @param bool|null $value Value to set for the hideFromOutlookClients property.
     */
     public function setHideFromOutlookClients(?bool $value): void {
         $this->getBackingStore()->set('hideFromOutlookClients', $value);
@@ -1042,7 +1042,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the infoCatalogs property value. Identifies the info segments assigned to the group. Returned by default. Supports $filter (eq, not, ge, le, startsWith).
-     *  @param array<string>|null $value Value to set for the infoCatalogs property.
+     * @param array<string>|null $value Value to set for the infoCatalogs property.
     */
     public function setInfoCatalogs(?array $value): void {
         $this->getBackingStore()->set('infoCatalogs', $value);
@@ -1050,15 +1050,15 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
-     *  @param bool|null $value Value to set for the isArchived property.
+     * @param bool|null $value Value to set for the isArchived property.
     */
     public function setIsArchived(?bool $value): void {
         $this->getBackingStore()->set('isArchived', $value);
     }
 
     /**
-     * Sets the isAssignableToRole property value. Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true,  visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).
-     *  @param bool|null $value Value to set for the isAssignableToRole property.
+     * Sets the isAssignableToRole property value. Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true,  visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsUsing this feature requires a Azure AD Premium P1 license. Returned by default. Supports $filter (eq, ne, not).
+     * @param bool|null $value Value to set for the isAssignableToRole property.
     */
     public function setIsAssignableToRole(?bool $value): void {
         $this->getBackingStore()->set('isAssignableToRole', $value);
@@ -1066,7 +1066,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the isFavorite property value. The isFavorite property
-     *  @param bool|null $value Value to set for the isFavorite property.
+     * @param bool|null $value Value to set for the isFavorite property.
     */
     public function setIsFavorite(?bool $value): void {
         $this->getBackingStore()->set('isFavorite', $value);
@@ -1074,7 +1074,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the isManagementRestricted property value. The isManagementRestricted property
-     *  @param bool|null $value Value to set for the isManagementRestricted property.
+     * @param bool|null $value Value to set for the isManagementRestricted property.
     */
     public function setIsManagementRestricted(?bool $value): void {
         $this->getBackingStore()->set('isManagementRestricted', $value);
@@ -1082,7 +1082,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the isSubscribedByMail property value. Indicates whether the signed-in user is subscribed to receive email conversations. Default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-     *  @param bool|null $value Value to set for the isSubscribedByMail property.
+     * @param bool|null $value Value to set for the isSubscribedByMail property.
     */
     public function setIsSubscribedByMail(?bool $value): void {
         $this->getBackingStore()->set('isSubscribedByMail', $value);
@@ -1090,7 +1090,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the licenseProcessingState property value. Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.
-     *  @param LicenseProcessingState|null $value Value to set for the licenseProcessingState property.
+     * @param LicenseProcessingState|null $value Value to set for the licenseProcessingState property.
     */
     public function setLicenseProcessingState(?LicenseProcessingState $value): void {
         $this->getBackingStore()->set('licenseProcessingState', $value);
@@ -1098,7 +1098,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the mail property value. The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-     *  @param string|null $value Value to set for the mail property.
+     * @param string|null $value Value to set for the mail property.
     */
     public function setMail(?string $value): void {
         $this->getBackingStore()->set('mail', $value);
@@ -1106,7 +1106,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the mailEnabled property value. Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values).
-     *  @param bool|null $value Value to set for the mailEnabled property.
+     * @param bool|null $value Value to set for the mailEnabled property.
     */
     public function setMailEnabled(?bool $value): void {
         $this->getBackingStore()->set('mailEnabled', $value);
@@ -1114,7 +1114,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the mailNickname property value. The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : <> , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).
-     *  @param string|null $value Value to set for the mailNickname property.
+     * @param string|null $value Value to set for the mailNickname property.
     */
     public function setMailNickname(?string $value): void {
         $this->getBackingStore()->set('mailNickname', $value);
@@ -1122,7 +1122,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the memberOf property value. Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
-     *  @param array<DirectoryObject>|null $value Value to set for the memberOf property.
+     * @param array<DirectoryObject>|null $value Value to set for the memberOf property.
     */
     public function setMemberOf(?array $value): void {
         $this->getBackingStore()->set('memberOf', $value);
@@ -1130,7 +1130,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the members property value. Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
-     *  @param array<DirectoryObject>|null $value Value to set for the members property.
+     * @param array<DirectoryObject>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);
@@ -1138,7 +1138,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the membershipRule property value. The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith).
-     *  @param string|null $value Value to set for the membershipRule property.
+     * @param string|null $value Value to set for the membershipRule property.
     */
     public function setMembershipRule(?string $value): void {
         $this->getBackingStore()->set('membershipRule', $value);
@@ -1146,7 +1146,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the membershipRuleProcessingState property value. Indicates whether the dynamic membership processing is on or paused. Possible values are On or Paused. Returned by default. Supports $filter (eq, ne, not, in).
-     *  @param string|null $value Value to set for the membershipRuleProcessingState property.
+     * @param string|null $value Value to set for the membershipRuleProcessingState property.
     */
     public function setMembershipRuleProcessingState(?string $value): void {
         $this->getBackingStore()->set('membershipRuleProcessingState', $value);
@@ -1154,7 +1154,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the membershipRuleProcessingStatus property value. Describes the processing status for rules-based dynamic groups. The property is null for non-rule based dynamic groups or if the dynamic group processing has been paused. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). Read-only.
-     *  @param MembershipRuleProcessingStatus|null $value Value to set for the membershipRuleProcessingStatus property.
+     * @param MembershipRuleProcessingStatus|null $value Value to set for the membershipRuleProcessingStatus property.
     */
     public function setMembershipRuleProcessingStatus(?MembershipRuleProcessingStatus $value): void {
         $this->getBackingStore()->set('membershipRuleProcessingStatus', $value);
@@ -1162,7 +1162,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the membersWithLicenseErrors property value. A list of group members with license errors from this group-based license assignment. Read-only.
-     *  @param array<DirectoryObject>|null $value Value to set for the membersWithLicenseErrors property.
+     * @param array<DirectoryObject>|null $value Value to set for the membersWithLicenseErrors property.
     */
     public function setMembersWithLicenseErrors(?array $value): void {
         $this->getBackingStore()->set('membersWithLicenseErrors', $value);
@@ -1170,7 +1170,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the onenote property value. The onenote property
-     *  @param Onenote|null $value Value to set for the onenote property.
+     * @param Onenote|null $value Value to set for the onenote property.
     */
     public function setOnenote(?Onenote $value): void {
         $this->getBackingStore()->set('onenote', $value);
@@ -1178,7 +1178,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesDomainName property value. Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
-     *  @param string|null $value Value to set for the onPremisesDomainName property.
+     * @param string|null $value Value to set for the onPremisesDomainName property.
     */
     public function setOnPremisesDomainName(?string $value): void {
         $this->getBackingStore()->set('onPremisesDomainName', $value);
@@ -1186,7 +1186,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesLastSyncDateTime property value. Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in).
-     *  @param DateTime|null $value Value to set for the onPremisesLastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the onPremisesLastSyncDateTime property.
     */
     public function setOnPremisesLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('onPremisesLastSyncDateTime', $value);
@@ -1194,7 +1194,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesNetBiosName property value. Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
-     *  @param string|null $value Value to set for the onPremisesNetBiosName property.
+     * @param string|null $value Value to set for the onPremisesNetBiosName property.
     */
     public function setOnPremisesNetBiosName(?string $value): void {
         $this->getBackingStore()->set('onPremisesNetBiosName', $value);
@@ -1202,7 +1202,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesProvisioningErrors property value. Errors when using Microsoft synchronization product during provisioning. Returned by default. Supports $filter (eq, not).
-     *  @param array<OnPremisesProvisioningError>|null $value Value to set for the onPremisesProvisioningErrors property.
+     * @param array<OnPremisesProvisioningError>|null $value Value to set for the onPremisesProvisioningErrors property.
     */
     public function setOnPremisesProvisioningErrors(?array $value): void {
         $this->getBackingStore()->set('onPremisesProvisioningErrors', $value);
@@ -1210,7 +1210,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesSamAccountName property value. Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith). Read-only.
-     *  @param string|null $value Value to set for the onPremisesSamAccountName property.
+     * @param string|null $value Value to set for the onPremisesSamAccountName property.
     */
     public function setOnPremisesSamAccountName(?string $value): void {
         $this->getBackingStore()->set('onPremisesSamAccountName', $value);
@@ -1218,7 +1218,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesSecurityIdentifier property value. Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Supports $filter (eq including on null values). Read-only.
-     *  @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
+     * @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
     */
     public function setOnPremisesSecurityIdentifier(?string $value): void {
         $this->getBackingStore()->set('onPremisesSecurityIdentifier', $value);
@@ -1226,7 +1226,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the onPremisesSyncEnabled property value. true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
-     *  @param bool|null $value Value to set for the onPremisesSyncEnabled property.
+     * @param bool|null $value Value to set for the onPremisesSyncEnabled property.
     */
     public function setOnPremisesSyncEnabled(?bool $value): void {
         $this->getBackingStore()->set('onPremisesSyncEnabled', $value);
@@ -1234,7 +1234,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the organizationId property value. The organizationId property
-     *  @param string|null $value Value to set for the organizationId property.
+     * @param string|null $value Value to set for the organizationId property.
     */
     public function setOrganizationId(?string $value): void {
         $this->getBackingStore()->set('organizationId', $value);
@@ -1242,7 +1242,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the owners property value. The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner.  Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1); Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
-     *  @param array<DirectoryObject>|null $value Value to set for the owners property.
+     * @param array<DirectoryObject>|null $value Value to set for the owners property.
     */
     public function setOwners(?array $value): void {
         $this->getBackingStore()->set('owners', $value);
@@ -1250,7 +1250,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the permissionGrants property value. The permissions that have been granted for a group to a specific application. Supports $expand.
-     *  @param array<ResourceSpecificPermissionGrant>|null $value Value to set for the permissionGrants property.
+     * @param array<ResourceSpecificPermissionGrant>|null $value Value to set for the permissionGrants property.
     */
     public function setPermissionGrants(?array $value): void {
         $this->getBackingStore()->set('permissionGrants', $value);
@@ -1258,7 +1258,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the photo property value. The group's profile photo.
-     *  @param ProfilePhoto|null $value Value to set for the photo property.
+     * @param ProfilePhoto|null $value Value to set for the photo property.
     */
     public function setPhoto(?ProfilePhoto $value): void {
         $this->getBackingStore()->set('photo', $value);
@@ -1266,7 +1266,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the photos property value. The profile photos owned by the group. Read-only. Nullable.
-     *  @param array<ProfilePhoto>|null $value Value to set for the photos property.
+     * @param array<ProfilePhoto>|null $value Value to set for the photos property.
     */
     public function setPhotos(?array $value): void {
         $this->getBackingStore()->set('photos', $value);
@@ -1274,7 +1274,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the planner property value. Selective Planner services available to the group. Read-only. Nullable.
-     *  @param PlannerGroup|null $value Value to set for the planner property.
+     * @param PlannerGroup|null $value Value to set for the planner property.
     */
     public function setPlanner(?PlannerGroup $value): void {
         $this->getBackingStore()->set('planner', $value);
@@ -1282,7 +1282,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the preferredDataLocation property value. The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling user must be assigned one of the following Azure AD roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo. Nullable. Returned by default.
-     *  @param string|null $value Value to set for the preferredDataLocation property.
+     * @param string|null $value Value to set for the preferredDataLocation property.
     */
     public function setPreferredDataLocation(?string $value): void {
         $this->getBackingStore()->set('preferredDataLocation', $value);
@@ -1290,7 +1290,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the preferredLanguage property value. The preferred language for a Microsoft 365 group. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
-     *  @param string|null $value Value to set for the preferredLanguage property.
+     * @param string|null $value Value to set for the preferredLanguage property.
     */
     public function setPreferredLanguage(?string $value): void {
         $this->getBackingStore()->set('preferredLanguage', $value);
@@ -1298,7 +1298,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the proxyAddresses property value. Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
-     *  @param array<string>|null $value Value to set for the proxyAddresses property.
+     * @param array<string>|null $value Value to set for the proxyAddresses property.
     */
     public function setProxyAddresses(?array $value): void {
         $this->getBackingStore()->set('proxyAddresses', $value);
@@ -1306,7 +1306,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the rejectedSenders property value. The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable
-     *  @param array<DirectoryObject>|null $value Value to set for the rejectedSenders property.
+     * @param array<DirectoryObject>|null $value Value to set for the rejectedSenders property.
     */
     public function setRejectedSenders(?array $value): void {
         $this->getBackingStore()->set('rejectedSenders', $value);
@@ -1314,7 +1314,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the renewedDateTime property value. Timestamp of when the group was last renewed. This cannot be modified directly and is only updated via the renew service action. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
-     *  @param DateTime|null $value Value to set for the renewedDateTime property.
+     * @param DateTime|null $value Value to set for the renewedDateTime property.
     */
     public function setRenewedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('renewedDateTime', $value);
@@ -1322,7 +1322,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the resourceBehaviorOptions property value. Specifies the group behaviors that can be set for a Microsoft 365 group during creation. This can be set only as part of creation (POST). Possible values are AllowOnlyMembersToPost, HideGroupInOutlook, SubscribeNewGroupMembers, WelcomeEmailDisabled. For more information, see Set Microsoft 365 group behaviors and provisioning options.
-     *  @param array<string>|null $value Value to set for the resourceBehaviorOptions property.
+     * @param array<string>|null $value Value to set for the resourceBehaviorOptions property.
     */
     public function setResourceBehaviorOptions(?array $value): void {
         $this->getBackingStore()->set('resourceBehaviorOptions', $value);
@@ -1330,7 +1330,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the resourceProvisioningOptions property value. Specifies the group resources that are provisioned as part of Microsoft 365 group creation, that are not normally part of default group creation. Possible value is Team. For more information, see Set Microsoft 365 group behaviors and provisioning options. Returned by default. Supports $filter (eq, not, startsWith.
-     *  @param array<string>|null $value Value to set for the resourceProvisioningOptions property.
+     * @param array<string>|null $value Value to set for the resourceProvisioningOptions property.
     */
     public function setResourceProvisioningOptions(?array $value): void {
         $this->getBackingStore()->set('resourceProvisioningOptions', $value);
@@ -1338,7 +1338,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the securityEnabled property value. Specifies whether the group is a security group. Required.Returned by default. Supports $filter (eq, ne, not, in).
-     *  @param bool|null $value Value to set for the securityEnabled property.
+     * @param bool|null $value Value to set for the securityEnabled property.
     */
     public function setSecurityEnabled(?bool $value): void {
         $this->getBackingStore()->set('securityEnabled', $value);
@@ -1346,7 +1346,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the securityIdentifier property value. Security identifier of the group, used in Windows scenarios. Returned by default.
-     *  @param string|null $value Value to set for the securityIdentifier property.
+     * @param string|null $value Value to set for the securityIdentifier property.
     */
     public function setSecurityIdentifier(?string $value): void {
         $this->getBackingStore()->set('securityIdentifier', $value);
@@ -1354,7 +1354,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the settings property value. Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
-     *  @param array<DirectorySetting>|null $value Value to set for the settings property.
+     * @param array<DirectorySetting>|null $value Value to set for the settings property.
     */
     public function setSettings(?array $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -1362,7 +1362,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the sites property value. The list of SharePoint sites in this group. Access the default site with /sites/root.
-     *  @param array<Site>|null $value Value to set for the sites property.
+     * @param array<Site>|null $value Value to set for the sites property.
     */
     public function setSites(?array $value): void {
         $this->getBackingStore()->set('sites', $value);
@@ -1370,7 +1370,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the team property value. The team associated with this group.
-     *  @param Team|null $value Value to set for the team property.
+     * @param Team|null $value Value to set for the team property.
     */
     public function setTeam(?Team $value): void {
         $this->getBackingStore()->set('team', $value);
@@ -1378,7 +1378,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the theme property value. Specifies a Microsoft 365 group's color theme. Possible values are Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default.
-     *  @param string|null $value Value to set for the theme property.
+     * @param string|null $value Value to set for the theme property.
     */
     public function setTheme(?string $value): void {
         $this->getBackingStore()->set('theme', $value);
@@ -1386,7 +1386,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the threads property value. The group's conversation threads. Nullable.
-     *  @param array<ConversationThread>|null $value Value to set for the threads property.
+     * @param array<ConversationThread>|null $value Value to set for the threads property.
     */
     public function setThreads(?array $value): void {
         $this->getBackingStore()->set('threads', $value);
@@ -1394,7 +1394,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the transitiveMemberOf property value. The groups that a group is a member of, either directly and through nested membership. Nullable.
-     *  @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
+     * @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
     public function setTransitiveMemberOf(?array $value): void {
         $this->getBackingStore()->set('transitiveMemberOf', $value);
@@ -1402,7 +1402,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the transitiveMembers property value. The direct and transitive members of a group. Nullable.
-     *  @param array<DirectoryObject>|null $value Value to set for the transitiveMembers property.
+     * @param array<DirectoryObject>|null $value Value to set for the transitiveMembers property.
     */
     public function setTransitiveMembers(?array $value): void {
         $this->getBackingStore()->set('transitiveMembers', $value);
@@ -1410,7 +1410,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the unseenConversationsCount property value. Count of conversations that have been delivered one or more new posts since the signed-in user's last visit to the group. This property is the same as unseenCount. Returned only on $select.
-     *  @param int|null $value Value to set for the unseenConversationsCount property.
+     * @param int|null $value Value to set for the unseenConversationsCount property.
     */
     public function setUnseenConversationsCount(?int $value): void {
         $this->getBackingStore()->set('unseenConversationsCount', $value);
@@ -1418,7 +1418,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the unseenCount property value. Count of conversations that have received new posts since the signed-in user last visited the group. This property is the same as unseenConversationsCount.Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
-     *  @param int|null $value Value to set for the unseenCount property.
+     * @param int|null $value Value to set for the unseenCount property.
     */
     public function setUnseenCount(?int $value): void {
         $this->getBackingStore()->set('unseenCount', $value);
@@ -1426,7 +1426,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the unseenMessagesCount property value. Count of new posts that have been delivered to the group's conversations since the signed-in user's last visit to the group. Returned only on $select.
-     *  @param int|null $value Value to set for the unseenMessagesCount property.
+     * @param int|null $value Value to set for the unseenMessagesCount property.
     */
     public function setUnseenMessagesCount(?int $value): void {
         $this->getBackingStore()->set('unseenMessagesCount', $value);
@@ -1434,7 +1434,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
-     *  @param string|null $value Value to set for the visibility property.
+     * @param string|null $value Value to set for the visibility property.
     */
     public function setVisibility(?string $value): void {
         $this->getBackingStore()->set('visibility', $value);
@@ -1442,7 +1442,7 @@ class Group extends DirectoryObject implements Parsable
 
     /**
      * Sets the writebackConfiguration property value. Specifies whether or not a group is configured to write back group object properties to on-premise Active Directory. These properties are used when group writeback is configured in the Azure AD Connect sync client.
-     *  @param GroupWritebackConfiguration|null $value Value to set for the writebackConfiguration property.
+     * @param GroupWritebackConfiguration|null $value Value to set for the writebackConfiguration property.
     */
     public function setWritebackConfiguration(?GroupWritebackConfiguration $value): void {
         $this->getBackingStore()->set('writebackConfiguration', $value);

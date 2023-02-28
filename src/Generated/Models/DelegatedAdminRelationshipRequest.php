@@ -85,7 +85,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
 
     /**
      * Sets the action property value. The action property
-     *  @param DelegatedAdminRelationshipRequestAction|null $value Value to set for the action property.
+     * @param DelegatedAdminRelationshipRequestAction|null $value Value to set for the action property.
     */
     public function setAction(?DelegatedAdminRelationshipRequestAction $value): void {
         $this->getBackingStore()->set('action', $value);
@@ -93,7 +93,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time in ISO 8601 format and in UTC time when the relationship request was created. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -101,7 +101,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time in ISO 8601 format and UTC time when this relationship request was last modified. Read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -109,7 +109,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.
-     *  @param DelegatedAdminRelationshipRequestStatus|null $value Value to set for the status property.
+     * @param DelegatedAdminRelationshipRequestStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DelegatedAdminRelationshipRequestStatus $value): void {
         $this->getBackingStore()->set('status', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPrem
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs.
+*/
 class CloudPcOnPremisesConnectionItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class CloudPcOnPremisesConnectionItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new CloudPcOnPremisesConnectionItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

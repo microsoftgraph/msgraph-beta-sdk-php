@@ -36,7 +36,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -144,7 +144,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the policyId property value. The unique identifier for the Private Link policy.
-     *  @param string|null $value Value to set for the policyId property.
+     * @param string|null $value Value to set for the policyId property.
     */
     public function setPolicyId(?string $value): void {
         $this->getBackingStore()->set('policyId', $value);
@@ -152,7 +152,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the policyName property value. The name of the Private Link policy in Azure AD.
-     *  @param string|null $value Value to set for the policyName property.
+     * @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {
         $this->getBackingStore()->set('policyName', $value);
@@ -160,7 +160,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the policyTenantId property value. The tenant identifier of the Azure AD tenant the Private Link policy belongs to.
-     *  @param string|null $value Value to set for the policyTenantId property.
+     * @param string|null $value Value to set for the policyTenantId property.
     */
     public function setPolicyTenantId(?string $value): void {
         $this->getBackingStore()->set('policyTenantId', $value);
@@ -168,7 +168,7 @@ class PrivateLinkDetails implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the resourceId property value. The Azure Resource Manager (ARM) path for the Private Link policy resource.
-     *  @param string|null $value Value to set for the resourceId property.
+     * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
         $this->getBackingStore()->set('resourceId', $value);

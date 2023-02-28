@@ -55,7 +55,7 @@ class WindowsPhone81AppXBundle extends WindowsPhone81AppX implements Parsable
 
     /**
      * Sets the appXPackageInformationList property value. The list of AppX Package Information.
-     *  @param array<WindowsPackageInformation>|null $value Value to set for the appXPackageInformationList property.
+     * @param array<WindowsPackageInformation>|null $value Value to set for the appXPackageInformationList property.
     */
     public function setAppXPackageInformationList(?array $value): void {
         $this->getBackingStore()->set('appXPackageInformationList', $value);

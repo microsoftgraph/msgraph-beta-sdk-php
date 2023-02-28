@@ -64,7 +64,7 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
 
     /**
      * Sets the name property value. Name of the resource namespace. Typically, the same name as the id property, such as microsoft.aad.b2c. Required. Supports $filter (eq, startsWith).
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -72,7 +72,7 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
 
     /**
      * Sets the resourceActions property value. Operations that an authorized principal are allowed to perform.
-     *  @param array<UnifiedRbacResourceAction>|null $value Value to set for the resourceActions property.
+     * @param array<UnifiedRbacResourceAction>|null $value Value to set for the resourceActions property.
     */
     public function setResourceActions(?array $value): void {
         $this->getBackingStore()->set('resourceActions', $value);

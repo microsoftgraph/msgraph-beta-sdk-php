@@ -135,7 +135,7 @@ class AccessReviewDecision extends Entity implements Parsable
 
     /**
      * Sets the accessRecommendation property value. The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.
-     *  @param string|null $value Value to set for the accessRecommendation property.
+     * @param string|null $value Value to set for the accessRecommendation property.
     */
     public function setAccessRecommendation(?string $value): void {
         $this->getBackingStore()->set('accessRecommendation', $value);
@@ -143,7 +143,7 @@ class AccessReviewDecision extends Entity implements Parsable
 
     /**
      * Sets the accessReviewId property value. The feature-generated id of the access review.
-     *  @param string|null $value Value to set for the accessReviewId property.
+     * @param string|null $value Value to set for the accessReviewId property.
     */
     public function setAccessReviewId(?string $value): void {
         $this->getBackingStore()->set('accessReviewId', $value);
@@ -151,7 +151,7 @@ class AccessReviewDecision extends Entity implements Parsable
 
     /**
      * Sets the appliedBy property value. When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty.
-     *  @param UserIdentity|null $value Value to set for the appliedBy property.
+     * @param UserIdentity|null $value Value to set for the appliedBy property.
     */
     public function setAppliedBy(?UserIdentity $value): void {
         $this->getBackingStore()->set('appliedBy', $value);
@@ -159,7 +159,7 @@ class AccessReviewDecision extends Entity implements Parsable
 
     /**
      * Sets the appliedDateTime property value. The date and time when the review decision was applied.
-     *  @param DateTime|null $value Value to set for the appliedDateTime property.
+     * @param DateTime|null $value Value to set for the appliedDateTime property.
     */
     public function setAppliedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('appliedDateTime', $value);
@@ -167,7 +167,7 @@ class AccessReviewDecision extends Entity implements Parsable
 
     /**
      * Sets the applyResult property value. The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported.
-     *  @param string|null $value Value to set for the applyResult property.
+     * @param string|null $value Value to set for the applyResult property.
     */
     public function setApplyResult(?string $value): void {
         $this->getBackingStore()->set('applyResult', $value);
@@ -175,7 +175,7 @@ class AccessReviewDecision extends Entity implements Parsable
 
     /**
      * Sets the justification property value. The reviewer's business justification, if supplied.
-     *  @param string|null $value Value to set for the justification property.
+     * @param string|null $value Value to set for the justification property.
     */
     public function setJustification(?string $value): void {
         $this->getBackingStore()->set('justification', $value);
@@ -183,7 +183,7 @@ class AccessReviewDecision extends Entity implements Parsable
 
     /**
      * Sets the reviewedBy property value. The identity of the reviewer. If the recommendation was used as the review, the userPrincipalName is empty.
-     *  @param UserIdentity|null $value Value to set for the reviewedBy property.
+     * @param UserIdentity|null $value Value to set for the reviewedBy property.
     */
     public function setReviewedBy(?UserIdentity $value): void {
         $this->getBackingStore()->set('reviewedBy', $value);
@@ -191,7 +191,7 @@ class AccessReviewDecision extends Entity implements Parsable
 
     /**
      * Sets the reviewedDateTime property value. The reviewedDateTime property
-     *  @param DateTime|null $value Value to set for the reviewedDateTime property.
+     * @param DateTime|null $value Value to set for the reviewedDateTime property.
     */
     public function setReviewedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('reviewedDateTime', $value);
@@ -199,7 +199,7 @@ class AccessReviewDecision extends Entity implements Parsable
 
     /**
      * Sets the reviewResult property value. The result of the review, one of NotReviewed, Deny, DontKnow or Approve.
-     *  @param string|null $value Value to set for the reviewResult property.
+     * @param string|null $value Value to set for the reviewResult property.
     */
     public function setReviewResult(?string $value): void {
         $this->getBackingStore()->set('reviewResult', $value);

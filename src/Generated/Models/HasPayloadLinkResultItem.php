@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * A class containing the result of HasPayloadLinks action.
+*/
 class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the error property value. Exception information indicates if check for this item was successful or not.Empty string for no error.
-     *  @param string|null $value Value to set for the error property.
+     * @param string|null $value Value to set for the error property.
     */
     public function setError(?string $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -144,7 +147,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the hasLink property value. Indicate whether a payload has any link or not.
-     *  @param bool|null $value Value to set for the hasLink property.
+     * @param bool|null $value Value to set for the hasLink property.
     */
     public function setHasLink(?bool $value): void {
         $this->getBackingStore()->set('hasLink', $value);
@@ -152,7 +155,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -160,7 +163,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the payloadId property value. Key of the Payload, In the format of Guid.
-     *  @param string|null $value Value to set for the payloadId property.
+     * @param string|null $value Value to set for the payloadId property.
     */
     public function setPayloadId(?string $value): void {
         $this->getBackingStore()->set('payloadId', $value);
@@ -168,7 +171,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the sources property value. The reason where the link comes from.
-     *  @param array<DeviceAndAppManagementAssignmentSource>|null $value Value to set for the sources property.
+     * @param array<DeviceAndAppManagementAssignmentSource>|null $value Value to set for the sources property.
     */
     public function setSources(?array $value): void {
         $this->getBackingStore()->set('sources', $value);

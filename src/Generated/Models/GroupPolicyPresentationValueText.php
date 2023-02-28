@@ -54,7 +54,7 @@ class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue impl
 
     /**
      * Sets the value property value. A string value for the associated presentation.
-     *  @param string|null $value Value to set for the value property.
+     * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);

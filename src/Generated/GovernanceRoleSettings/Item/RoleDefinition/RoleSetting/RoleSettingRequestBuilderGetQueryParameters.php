@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\GovernanceRoleSettings\Item\RoleDefinit
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The associated role setting for the role definition.
+*/
 class RoleSettingRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class RoleSettingRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new roleSettingRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

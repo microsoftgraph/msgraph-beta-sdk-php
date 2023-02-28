@@ -55,7 +55,7 @@ class AzureCommunicationServicesUserIdentity extends Identity implements Parsabl
 
     /**
      * Sets the azureCommunicationServicesResourceId property value. The Azure Communication Services resource ID associated with the user.
-     *  @param string|null $value Value to set for the azureCommunicationServicesResourceId property.
+     * @param string|null $value Value to set for the azureCommunicationServicesResourceId property.
     */
     public function setAzureCommunicationServicesResourceId(?string $value): void {
         $this->getBackingStore()->set('azureCommunicationServicesResourceId', $value);

@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Represent status details for device and payload and all associated applied filters.
+*/
 class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +133,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +141,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +149,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the deviceProperties property value. Device properties used for filter evaluation during device check-in time.
-     *  @param array<KeyValuePair>|null $value Value to set for the deviceProperties property.
+     * @param array<KeyValuePair>|null $value Value to set for the deviceProperties property.
     */
     public function setDeviceProperties(?array $value): void {
         $this->getBackingStore()->set('deviceProperties', $value);
@@ -154,7 +157,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the evalutionSummaries property value. Evaluation result summaries for each filter associated to device and payload
-     *  @param array<AssignmentFilterEvaluationSummary>|null $value Value to set for the evalutionSummaries property.
+     * @param array<AssignmentFilterEvaluationSummary>|null $value Value to set for the evalutionSummaries property.
     */
     public function setEvalutionSummaries(?array $value): void {
         $this->getBackingStore()->set('evalutionSummaries', $value);
@@ -162,7 +165,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the managedDeviceId property value. Unique identifier for the device object.
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -170,7 +173,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -178,7 +181,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the payloadId property value. Unique identifier for payload object.
-     *  @param string|null $value Value to set for the payloadId property.
+     * @param string|null $value Value to set for the payloadId property.
     */
     public function setPayloadId(?string $value): void {
         $this->getBackingStore()->set('payloadId', $value);
@@ -186,7 +189,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the userId property value. Unique identifier for UserId object. Can be null
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

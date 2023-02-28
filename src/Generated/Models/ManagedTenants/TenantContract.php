@@ -36,7 +36,7 @@ class TenantContract implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class TenantContract implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class TenantContract implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class TenantContract implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the contractType property value. The type of relationship that exists between the managing entity and tenant. Optional. Read-only.
-     *  @param int|null $value Value to set for the contractType property.
+     * @param int|null $value Value to set for the contractType property.
     */
     public function setContractType(?int $value): void {
         $this->getBackingStore()->set('contractType', $value);
@@ -134,7 +134,7 @@ class TenantContract implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the defaultDomainName property value. The default domain name for the tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the defaultDomainName property.
+     * @param string|null $value Value to set for the defaultDomainName property.
     */
     public function setDefaultDomainName(?string $value): void {
         $this->getBackingStore()->set('defaultDomainName', $value);
@@ -142,7 +142,7 @@ class TenantContract implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the displayName property value. The display name for the tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -150,7 +150,7 @@ class TenantContract implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

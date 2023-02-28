@@ -45,7 +45,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
 
     /**
      * Sets the accidentalDeletionPrevention property value. Contains the accidental deletion prevention configuration for a tenant.
-     *  @param OnPremisesAccidentalDeletionPrevention|null $value Value to set for the accidentalDeletionPrevention property.
+     * @param OnPremisesAccidentalDeletionPrevention|null $value Value to set for the accidentalDeletionPrevention property.
     */
     public function setAccidentalDeletionPrevention(?OnPremisesAccidentalDeletionPrevention $value): void {
         $this->getBackingStore()->set('accidentalDeletionPrevention', $value);
@@ -119,7 +119,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -127,7 +127,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -135,7 +135,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
 
     /**
      * Sets the customerRequestedSynchronizationInterval property value. Interval of time that the customer requested the sync client waits between sync cycles.
-     *  @param DateInterval|null $value Value to set for the customerRequestedSynchronizationInterval property.
+     * @param DateInterval|null $value Value to set for the customerRequestedSynchronizationInterval property.
     */
     public function setCustomerRequestedSynchronizationInterval(?DateInterval $value): void {
         $this->getBackingStore()->set('customerRequestedSynchronizationInterval', $value);
@@ -143,7 +143,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -151,7 +151,7 @@ class OnPremisesDirectorySynchronizationConfiguration implements AdditionalDataH
 
     /**
      * Sets the synchronizationInterval property value. Interval of time the sync client should honor between sync cycles
-     *  @param DateInterval|null $value Value to set for the synchronizationInterval property.
+     * @param DateInterval|null $value Value to set for the synchronizationInterval property.
     */
     public function setSynchronizationInterval(?DateInterval $value): void {
         $this->getBackingStore()->set('synchronizationInterval', $value);

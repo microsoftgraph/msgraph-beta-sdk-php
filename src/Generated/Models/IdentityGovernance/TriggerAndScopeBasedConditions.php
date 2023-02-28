@@ -66,7 +66,7 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
 
     /**
      * Sets the scope property value. Defines who the workflow runs for.
-     *  @param SubjectSet|null $value Value to set for the scope property.
+     * @param SubjectSet|null $value Value to set for the scope property.
     */
     public function setScope(?SubjectSet $value): void {
         $this->getBackingStore()->set('scope', $value);
@@ -74,7 +74,7 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
 
     /**
      * Sets the trigger property value. What triggers a workflow to run.
-     *  @param WorkflowExecutionTrigger|null $value Value to set for the trigger property.
+     * @param WorkflowExecutionTrigger|null $value Value to set for the trigger property.
     */
     public function setTrigger(?WorkflowExecutionTrigger $value): void {
         $this->getBackingStore()->set('trigger', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\External\Connections\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get connections from external
+*/
 class ExternalConnectionItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ExternalConnectionItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ExternalConnectionItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

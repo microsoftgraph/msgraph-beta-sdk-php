@@ -65,7 +65,7 @@ class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate extend
 
     /**
      * Sets the allowUnmanagedValues property value. Linked policy may append values which are not present in the template.
-     *  @param bool|null $value Value to set for the allowUnmanagedValues property.
+     * @param bool|null $value Value to set for the allowUnmanagedValues property.
     */
     public function setAllowUnmanagedValues(?bool $value): void {
         $this->getBackingStore()->set('allowUnmanagedValues', $value);
@@ -73,7 +73,7 @@ class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate extend
 
     /**
      * Sets the groupSettingCollectionValueTemplate property value. Group Setting Collection Value Template
-     *  @param array<DeviceManagementConfigurationGroupSettingValueTemplate>|null $value Value to set for the groupSettingCollectionValueTemplate property.
+     * @param array<DeviceManagementConfigurationGroupSettingValueTemplate>|null $value Value to set for the groupSettingCollectionValueTemplate property.
     */
     public function setGroupSettingCollectionValueTemplate(?array $value): void {
         $this->getBackingStore()->set('groupSettingCollectionValueTemplate', $value);

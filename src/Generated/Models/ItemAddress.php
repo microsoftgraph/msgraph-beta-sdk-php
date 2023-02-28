@@ -75,7 +75,7 @@ class ItemAddress extends ItemFacet implements Parsable
 
     /**
      * Sets the detail property value. The detail property
-     *  @param PhysicalAddress|null $value Value to set for the detail property.
+     * @param PhysicalAddress|null $value Value to set for the detail property.
     */
     public function setDetail(?PhysicalAddress $value): void {
         $this->getBackingStore()->set('detail', $value);
@@ -83,7 +83,7 @@ class ItemAddress extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Friendly name the user has assigned to this address.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -91,7 +91,7 @@ class ItemAddress extends ItemFacet implements Parsable
 
     /**
      * Sets the geoCoordinates property value. The geocoordinates of the address.
-     *  @param GeoCoordinates|null $value Value to set for the geoCoordinates property.
+     * @param GeoCoordinates|null $value Value to set for the geoCoordinates property.
     */
     public function setGeoCoordinates(?GeoCoordinates $value): void {
         $this->getBackingStore()->set('geoCoordinates', $value);

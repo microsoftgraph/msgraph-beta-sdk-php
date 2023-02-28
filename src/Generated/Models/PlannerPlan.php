@@ -96,6 +96,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
             'creationSource' => fn(ParseNode $n) => $o->setCreationSource($n->getObjectValue([PlannerPlanCreation::class, 'createFromDiscriminatorValue'])),
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([PlannerPlanDetails::class, 'createFromDiscriminatorValue'])),
             'owner' => fn(ParseNode $n) => $o->setOwner($n->getStringValue()),
+            'sharedWithContainers' => fn(ParseNode $n) => $o->setSharedWithContainers($n->getCollectionOfObjectValues([PlannerSharedWithContainer::class, 'createFromDiscriminatorValue'])),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
@@ -107,6 +108,14 @@ class PlannerPlan extends PlannerDelta implements Parsable
     */
     public function getOwner(): ?string {
         return $this->getBackingStore()->get('owner');
+    }
+
+    /**
+     * Gets the sharedWithContainers property value. The sharedWithContainers property
+     * @return array<PlannerSharedWithContainer>|null
+    */
+    public function getSharedWithContainers(): ?array {
+        return $this->getBackingStore()->get('sharedWithContainers');
     }
 
     /**
@@ -139,13 +148,14 @@ class PlannerPlan extends PlannerDelta implements Parsable
         $writer->writeObjectValue('creationSource', $this->getCreationSource());
         $writer->writeObjectValue('details', $this->getDetails());
         $writer->writeStringValue('owner', $this->getOwner());
+        $writer->writeCollectionOfObjectValues('sharedWithContainers', $this->getSharedWithContainers());
         $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
         $writer->writeStringValue('title', $this->getTitle());
     }
 
     /**
      * Sets the buckets property value. Collection of buckets in the plan. Read-only. Nullable.
-     *  @param array<PlannerBucket>|null $value Value to set for the buckets property.
+     * @param array<PlannerBucket>|null $value Value to set for the buckets property.
     */
     public function setBuckets(?array $value): void {
         $this->getBackingStore()->set('buckets', $value);
@@ -153,7 +163,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
 
     /**
      * Sets the container property value. Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it is set, this property can’t be updated. Required.
-     *  @param PlannerPlanContainer|null $value Value to set for the container property.
+     * @param PlannerPlanContainer|null $value Value to set for the container property.
     */
     public function setContainer(?PlannerPlanContainer $value): void {
         $this->getBackingStore()->set('container', $value);
@@ -161,7 +171,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
 
     /**
      * Sets the contexts property value. Read-only. Additional user experiences in which this plan is used, represented as plannerPlanContext entries.
-     *  @param PlannerPlanContextCollection|null $value Value to set for the contexts property.
+     * @param PlannerPlanContextCollection|null $value Value to set for the contexts property.
     */
     public function setContexts(?PlannerPlanContextCollection $value): void {
         $this->getBackingStore()->set('contexts', $value);
@@ -169,7 +179,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
 
     /**
      * Sets the createdBy property value. Read-only. The user who created the plan.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -177,7 +187,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
 
     /**
      * Sets the createdDateTime property value. Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -185,7 +195,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
 
     /**
      * Sets the creationSource property value. Contains information about the origin of the plan.
-     *  @param PlannerPlanCreation|null $value Value to set for the creationSource property.
+     * @param PlannerPlanCreation|null $value Value to set for the creationSource property.
     */
     public function setCreationSource(?PlannerPlanCreation $value): void {
         $this->getBackingStore()->set('creationSource', $value);
@@ -193,7 +203,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
 
     /**
      * Sets the details property value. Additional details about the plan. Read-only. Nullable.
-     *  @param PlannerPlanDetails|null $value Value to set for the details property.
+     * @param PlannerPlanDetails|null $value Value to set for the details property.
     */
     public function setDetails(?PlannerPlanDetails $value): void {
         $this->getBackingStore()->set('details', $value);
@@ -201,15 +211,23 @@ class PlannerPlan extends PlannerDelta implements Parsable
 
     /**
      * Sets the owner property value. The owner property
-     *  @param string|null $value Value to set for the owner property.
+     * @param string|null $value Value to set for the owner property.
     */
     public function setOwner(?string $value): void {
         $this->getBackingStore()->set('owner', $value);
     }
 
     /**
+     * Sets the sharedWithContainers property value. The sharedWithContainers property
+     * @param array<PlannerSharedWithContainer>|null $value Value to set for the sharedWithContainers property.
+    */
+    public function setSharedWithContainers(?array $value): void {
+        $this->getBackingStore()->set('sharedWithContainers', $value);
+    }
+
+    /**
      * Sets the tasks property value. Collection of tasks in the plan. Read-only. Nullable.
-     *  @param array<PlannerTask>|null $value Value to set for the tasks property.
+     * @param array<PlannerTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);
@@ -217,7 +235,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
 
     /**
      * Sets the title property value. Required. Title of the plan.
-     *  @param string|null $value Value to set for the title property.
+     * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
         $this->getBackingStore()->set('title', $value);

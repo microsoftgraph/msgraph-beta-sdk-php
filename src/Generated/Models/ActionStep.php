@@ -35,7 +35,7 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the actionUrl property value. The actionUrl property
+     * Gets the actionUrl property value. A link to the documentation or Azure portal page that is associated with the action step.
      * @return ActionUrl|null
     */
     public function getActionUrl(): ?ActionUrl {
@@ -44,7 +44,7 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -81,7 +81,7 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the stepNumber property value. The stepNumber property
+     * Gets the stepNumber property value. Indicates the position for this action in the order of the collection of actions to be taken.
      * @return int|null
     */
     public function getStepNumber(): ?int {
@@ -89,7 +89,7 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the text property value. The text property
+     * Gets the text property value. Friendly description of the action to take.
      * @return string|null
     */
     public function getText(): ?string {
@@ -109,8 +109,8 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the actionUrl property value. The actionUrl property
-     *  @param ActionUrl|null $value Value to set for the actionUrl property.
+     * Sets the actionUrl property value. A link to the documentation or Azure portal page that is associated with the action step.
+     * @param ActionUrl|null $value Value to set for the actionUrl property.
     */
     public function setActionUrl(?ActionUrl $value): void {
         $this->getBackingStore()->set('actionUrl', $value);
@@ -118,7 +118,7 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -126,7 +126,7 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -134,23 +134,23 @@ class ActionStep implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
-     * Sets the stepNumber property value. The stepNumber property
-     *  @param int|null $value Value to set for the stepNumber property.
+     * Sets the stepNumber property value. Indicates the position for this action in the order of the collection of actions to be taken.
+     * @param int|null $value Value to set for the stepNumber property.
     */
     public function setStepNumber(?int $value): void {
         $this->getBackingStore()->set('stepNumber', $value);
     }
 
     /**
-     * Sets the text property value. The text property
-     *  @param string|null $value Value to set for the text property.
+     * Sets the text property value. Friendly description of the action to take.
+     * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
         $this->getBackingStore()->set('text', $value);

@@ -54,7 +54,7 @@ class External extends Entity implements Parsable
 
     /**
      * Sets the connections property value. The connections property
-     *  @param array<ExternalConnection>|null $value Value to set for the connections property.
+     * @param array<ExternalConnection>|null $value Value to set for the connections property.
     */
     public function setConnections(?array $value): void {
         $this->getBackingStore()->set('connections', $value);

@@ -75,7 +75,7 @@ class ItemEmail extends ItemFacet implements Parsable
 
     /**
      * Sets the address property value. The email address itself.
-     *  @param string|null $value Value to set for the address property.
+     * @param string|null $value Value to set for the address property.
     */
     public function setAddress(?string $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -83,7 +83,7 @@ class ItemEmail extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. The name or label a user has associated with a particular email address.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -91,7 +91,7 @@ class ItemEmail extends ItemFacet implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param EmailType|null $value Value to set for the type property.
+     * @param EmailType|null $value Value to set for the type property.
     */
     public function setType(?EmailType $value): void {
         $this->getBackingStore()->set('type', $value);

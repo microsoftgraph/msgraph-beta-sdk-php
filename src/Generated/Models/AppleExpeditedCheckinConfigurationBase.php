@@ -62,7 +62,7 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
 
     /**
      * Sets the enableExpeditedCheckin property value. Gets or sets whether to enable expedited device check-ins.
-     *  @param bool|null $value Value to set for the enableExpeditedCheckin property.
+     * @param bool|null $value Value to set for the enableExpeditedCheckin property.
     */
     public function setEnableExpeditedCheckin(?bool $value): void {
         $this->getBackingStore()->set('enableExpeditedCheckin', $value);

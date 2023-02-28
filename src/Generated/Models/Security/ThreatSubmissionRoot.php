@@ -85,7 +85,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
 
     /**
      * Sets the emailThreats property value. The emailThreats property
-     *  @param array<EmailThreatSubmission>|null $value Value to set for the emailThreats property.
+     * @param array<EmailThreatSubmission>|null $value Value to set for the emailThreats property.
     */
     public function setEmailThreats(?array $value): void {
         $this->getBackingStore()->set('emailThreats', $value);
@@ -93,7 +93,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
 
     /**
      * Sets the emailThreatSubmissionPolicies property value. The emailThreatSubmissionPolicies property
-     *  @param array<EmailThreatSubmissionPolicy>|null $value Value to set for the emailThreatSubmissionPolicies property.
+     * @param array<EmailThreatSubmissionPolicy>|null $value Value to set for the emailThreatSubmissionPolicies property.
     */
     public function setEmailThreatSubmissionPolicies(?array $value): void {
         $this->getBackingStore()->set('emailThreatSubmissionPolicies', $value);
@@ -101,7 +101,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
 
     /**
      * Sets the fileThreats property value. The fileThreats property
-     *  @param array<FileThreatSubmission>|null $value Value to set for the fileThreats property.
+     * @param array<FileThreatSubmission>|null $value Value to set for the fileThreats property.
     */
     public function setFileThreats(?array $value): void {
         $this->getBackingStore()->set('fileThreats', $value);
@@ -109,7 +109,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
 
     /**
      * Sets the urlThreats property value. The urlThreats property
-     *  @param array<UrlThreatSubmission>|null $value Value to set for the urlThreats property.
+     * @param array<UrlThreatSubmission>|null $value Value to set for the urlThreats property.
     */
     public function setUrlThreats(?array $value): void {
         $this->getBackingStore()->set('urlThreats', $value);

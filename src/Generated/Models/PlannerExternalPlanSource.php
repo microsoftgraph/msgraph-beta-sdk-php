@@ -75,7 +75,7 @@ class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable
 
     /**
      * Sets the contextScenarioId property value. Nullable. An identifier for the scenario associated with this external source. This should be in reverse DNS format. For example, Contoso company owned application for customer support would have a value like 'com.constoso.customerSupport'.
-     *  @param string|null $value Value to set for the contextScenarioId property.
+     * @param string|null $value Value to set for the contextScenarioId property.
     */
     public function setContextScenarioId(?string $value): void {
         $this->getBackingStore()->set('contextScenarioId', $value);
@@ -83,7 +83,7 @@ class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable
 
     /**
      * Sets the externalContextId property value. Nullable. The id of the external entity's containing entity or context.
-     *  @param string|null $value Value to set for the externalContextId property.
+     * @param string|null $value Value to set for the externalContextId property.
     */
     public function setExternalContextId(?string $value): void {
         $this->getBackingStore()->set('externalContextId', $value);
@@ -91,7 +91,7 @@ class PlannerExternalPlanSource extends PlannerPlanCreation implements Parsable
 
     /**
      * Sets the externalObjectId property value. Nullable. The id of the entity that an external service associates with a plan.
-     *  @param string|null $value Value to set for the externalObjectId property.
+     * @param string|null $value Value to set for the externalObjectId property.
     */
     public function setExternalObjectId(?string $value): void {
         $this->getBackingStore()->set('externalObjectId', $value);

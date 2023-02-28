@@ -36,7 +36,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -160,7 +160,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -168,7 +168,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -176,7 +176,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the excludeGroups property value. Group IDs excluded from scope of policy.
-     *  @param array<string>|null $value Value to set for the excludeGroups property.
+     * @param array<string>|null $value Value to set for the excludeGroups property.
     */
     public function setExcludeGroups(?array $value): void {
         $this->getBackingStore()->set('excludeGroups', $value);
@@ -184,7 +184,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the excludeGuestsOrExternalUsers property value. Internal guests or external users excluded in the policy scope. Optionally populated.
-     *  @param ConditionalAccessGuestsOrExternalUsers|null $value Value to set for the excludeGuestsOrExternalUsers property.
+     * @param ConditionalAccessGuestsOrExternalUsers|null $value Value to set for the excludeGuestsOrExternalUsers property.
     */
     public function setExcludeGuestsOrExternalUsers(?ConditionalAccessGuestsOrExternalUsers $value): void {
         $this->getBackingStore()->set('excludeGuestsOrExternalUsers', $value);
@@ -192,7 +192,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the excludeRoles property value. Role IDs excluded from scope of policy.
-     *  @param array<string>|null $value Value to set for the excludeRoles property.
+     * @param array<string>|null $value Value to set for the excludeRoles property.
     */
     public function setExcludeRoles(?array $value): void {
         $this->getBackingStore()->set('excludeRoles', $value);
@@ -200,7 +200,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the excludeUsers property value. User IDs excluded from scope of policy and/or GuestsOrExternalUsers.
-     *  @param array<string>|null $value Value to set for the excludeUsers property.
+     * @param array<string>|null $value Value to set for the excludeUsers property.
     */
     public function setExcludeUsers(?array $value): void {
         $this->getBackingStore()->set('excludeUsers', $value);
@@ -208,7 +208,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the includeGroups property value. Group IDs in scope of policy unless explicitly excluded, or All.
-     *  @param array<string>|null $value Value to set for the includeGroups property.
+     * @param array<string>|null $value Value to set for the includeGroups property.
     */
     public function setIncludeGroups(?array $value): void {
         $this->getBackingStore()->set('includeGroups', $value);
@@ -216,7 +216,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the includeGuestsOrExternalUsers property value. Internal guests or external users included in the policy scope. Optionally populated.
-     *  @param ConditionalAccessGuestsOrExternalUsers|null $value Value to set for the includeGuestsOrExternalUsers property.
+     * @param ConditionalAccessGuestsOrExternalUsers|null $value Value to set for the includeGuestsOrExternalUsers property.
     */
     public function setIncludeGuestsOrExternalUsers(?ConditionalAccessGuestsOrExternalUsers $value): void {
         $this->getBackingStore()->set('includeGuestsOrExternalUsers', $value);
@@ -224,7 +224,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the includeRoles property value. Role IDs in scope of policy unless explicitly excluded, or All.
-     *  @param array<string>|null $value Value to set for the includeRoles property.
+     * @param array<string>|null $value Value to set for the includeRoles property.
     */
     public function setIncludeRoles(?array $value): void {
         $this->getBackingStore()->set('includeRoles', $value);
@@ -232,7 +232,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the includeUsers property value. User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.
-     *  @param array<string>|null $value Value to set for the includeUsers property.
+     * @param array<string>|null $value Value to set for the includeUsers property.
     */
     public function setIncludeUsers(?array $value): void {
         $this->getBackingStore()->set('includeUsers', $value);
@@ -240,7 +240,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

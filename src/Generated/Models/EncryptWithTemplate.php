@@ -65,7 +65,7 @@ class EncryptWithTemplate extends EncryptContent implements Parsable
 
     /**
      * Sets the availableForEncryption property value. The availableForEncryption property
-     *  @param bool|null $value Value to set for the availableForEncryption property.
+     * @param bool|null $value Value to set for the availableForEncryption property.
     */
     public function setAvailableForEncryption(?bool $value): void {
         $this->getBackingStore()->set('availableForEncryption', $value);
@@ -73,7 +73,7 @@ class EncryptWithTemplate extends EncryptContent implements Parsable
 
     /**
      * Sets the templateId property value. The templateId property
-     *  @param string|null $value Value to set for the templateId property.
+     * @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value): void {
         $this->getBackingStore()->set('templateId', $value);

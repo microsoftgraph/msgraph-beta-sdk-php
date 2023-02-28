@@ -41,7 +41,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -245,7 +245,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -253,7 +253,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -261,7 +261,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the d property value. RSA Key - private exponent. Field cannot be read back.
-     *  @param string|null $value Value to set for the d property.
+     * @param string|null $value Value to set for the d property.
     */
     public function setD(?string $value): void {
         $this->getBackingStore()->set('d', $value);
@@ -269,7 +269,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the dp property value. RSA Key - first exponent. Field cannot be read back.
-     *  @param string|null $value Value to set for the dp property.
+     * @param string|null $value Value to set for the dp property.
     */
     public function setDp(?string $value): void {
         $this->getBackingStore()->set('dp', $value);
@@ -277,7 +277,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the dq property value. RSA Key - second exponent. Field cannot be read back.
-     *  @param string|null $value Value to set for the dq property.
+     * @param string|null $value Value to set for the dq property.
     */
     public function setDq(?string $value): void {
         $this->getBackingStore()->set('dq', $value);
@@ -285,7 +285,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the e property value. RSA Key - public exponent
-     *  @param string|null $value Value to set for the e property.
+     * @param string|null $value Value to set for the e property.
     */
     public function setE(?string $value): void {
         $this->getBackingStore()->set('e', $value);
@@ -293,7 +293,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the exp property value. This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
-     *  @param int|null $value Value to set for the exp property.
+     * @param int|null $value Value to set for the exp property.
     */
     public function setExp(?int $value): void {
         $this->getBackingStore()->set('exp', $value);
@@ -301,7 +301,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the k property value. Symmetric Key for oct key type. Field cannot be read back.
-     *  @param string|null $value Value to set for the k property.
+     * @param string|null $value Value to set for the k property.
     */
     public function setK(?string $value): void {
         $this->getBackingStore()->set('k', $value);
@@ -309,7 +309,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the kid property value. The unique identifier for the key.
-     *  @param string|null $value Value to set for the kid property.
+     * @param string|null $value Value to set for the kid property.
     */
     public function setKid(?string $value): void {
         $this->getBackingStore()->set('kid', $value);
@@ -317,7 +317,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the kty property value. The kty (key type) parameter identifies the cryptographic algorithm family used with the key, The valid values are rsa, oct.
-     *  @param string|null $value Value to set for the kty property.
+     * @param string|null $value Value to set for the kty property.
     */
     public function setKty(?string $value): void {
         $this->getBackingStore()->set('kty', $value);
@@ -325,7 +325,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the n property value. RSA Key - modulus
-     *  @param string|null $value Value to set for the n property.
+     * @param string|null $value Value to set for the n property.
     */
     public function setN(?string $value): void {
         $this->getBackingStore()->set('n', $value);
@@ -333,7 +333,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the nbf property value. This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
-     *  @param int|null $value Value to set for the nbf property.
+     * @param int|null $value Value to set for the nbf property.
     */
     public function setNbf(?int $value): void {
         $this->getBackingStore()->set('nbf', $value);
@@ -341,7 +341,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -349,7 +349,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the p property value. RSA Key - first prime. Field cannot be read back.
-     *  @param string|null $value Value to set for the p property.
+     * @param string|null $value Value to set for the p property.
     */
     public function setP(?string $value): void {
         $this->getBackingStore()->set('p', $value);
@@ -357,7 +357,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the q property value. RSA Key - second prime. Field cannot be read back.
-     *  @param string|null $value Value to set for the q property.
+     * @param string|null $value Value to set for the q property.
     */
     public function setQ(?string $value): void {
         $this->getBackingStore()->set('q', $value);
@@ -365,7 +365,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the qi property value. RSA Key - Coefficient. Field cannot be read back.
-     *  @param string|null $value Value to set for the qi property.
+     * @param string|null $value Value to set for the qi property.
     */
     public function setQi(?string $value): void {
         $this->getBackingStore()->set('qi', $value);
@@ -373,7 +373,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the use property value. The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
-     *  @param string|null $value Value to set for the EscapedUse property.
+     * @param string|null $value Value to set for the EscapedUse property.
     */
     public function setUse(?string $value): void {
         $this->getBackingStore()->set('escapedUse', $value);
@@ -381,7 +381,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the x5c property value. The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates RFC 5280.
-     *  @param array<string>|null $value Value to set for the x5c property.
+     * @param array<string>|null $value Value to set for the x5c property.
     */
     public function setX5c(?array $value): void {
         $this->getBackingStore()->set('x5c', $value);
@@ -389,7 +389,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the x5t property value. The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of an X.509 certificate RFC 5280.
-     *  @param string|null $value Value to set for the x5t property.
+     * @param string|null $value Value to set for the x5t property.
     */
     public function setX5t(?string $value): void {
         $this->getBackingStore()->set('x5t', $value);

@@ -215,7 +215,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the baseUnitOfMeasureId property value. The baseUnitOfMeasureId property
-     *  @param string|null $value Value to set for the baseUnitOfMeasureId property.
+     * @param string|null $value Value to set for the baseUnitOfMeasureId property.
     */
     public function setBaseUnitOfMeasureId(?string $value): void {
         $this->getBackingStore()->set('baseUnitOfMeasureId', $value);
@@ -223,7 +223,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the blocked property value. The blocked property
-     *  @param bool|null $value Value to set for the blocked property.
+     * @param bool|null $value Value to set for the blocked property.
     */
     public function setBlocked(?bool $value): void {
         $this->getBackingStore()->set('blocked', $value);
@@ -231,7 +231,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The displayName property
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -239,7 +239,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the gtin property value. The gtin property
-     *  @param string|null $value Value to set for the gtin property.
+     * @param string|null $value Value to set for the gtin property.
     */
     public function setGtin(?string $value): void {
         $this->getBackingStore()->set('gtin', $value);
@@ -247,7 +247,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the inventory property value. The inventory property
-     *  @param string|null $value Value to set for the inventory property.
+     * @param string|null $value Value to set for the inventory property.
     */
     public function setInventory(?string $value): void {
         $this->getBackingStore()->set('inventory', $value);
@@ -255,7 +255,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the itemCategory property value. The itemCategory property
-     *  @param ItemCategory|null $value Value to set for the itemCategory property.
+     * @param ItemCategory|null $value Value to set for the itemCategory property.
     */
     public function setItemCategory(?ItemCategory $value): void {
         $this->getBackingStore()->set('itemCategory', $value);
@@ -263,7 +263,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the itemCategoryCode property value. The itemCategoryCode property
-     *  @param string|null $value Value to set for the itemCategoryCode property.
+     * @param string|null $value Value to set for the itemCategoryCode property.
     */
     public function setItemCategoryCode(?string $value): void {
         $this->getBackingStore()->set('itemCategoryCode', $value);
@@ -271,7 +271,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the itemCategoryId property value. The itemCategoryId property
-     *  @param string|null $value Value to set for the itemCategoryId property.
+     * @param string|null $value Value to set for the itemCategoryId property.
     */
     public function setItemCategoryId(?string $value): void {
         $this->getBackingStore()->set('itemCategoryId', $value);
@@ -279,7 +279,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -287,7 +287,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the number property value. The number property
-     *  @param string|null $value Value to set for the number property.
+     * @param string|null $value Value to set for the number property.
     */
     public function setNumber(?string $value): void {
         $this->getBackingStore()->set('number', $value);
@@ -295,7 +295,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the picture property value. The picture property
-     *  @param array<Picture>|null $value Value to set for the picture property.
+     * @param array<Picture>|null $value Value to set for the picture property.
     */
     public function setPicture(?array $value): void {
         $this->getBackingStore()->set('picture', $value);
@@ -303,7 +303,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the priceIncludesTax property value. The priceIncludesTax property
-     *  @param bool|null $value Value to set for the priceIncludesTax property.
+     * @param bool|null $value Value to set for the priceIncludesTax property.
     */
     public function setPriceIncludesTax(?bool $value): void {
         $this->getBackingStore()->set('priceIncludesTax', $value);
@@ -311,7 +311,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the taxGroupCode property value. The taxGroupCode property
-     *  @param string|null $value Value to set for the taxGroupCode property.
+     * @param string|null $value Value to set for the taxGroupCode property.
     */
     public function setTaxGroupCode(?string $value): void {
         $this->getBackingStore()->set('taxGroupCode', $value);
@@ -319,7 +319,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the taxGroupId property value. The taxGroupId property
-     *  @param string|null $value Value to set for the taxGroupId property.
+     * @param string|null $value Value to set for the taxGroupId property.
     */
     public function setTaxGroupId(?string $value): void {
         $this->getBackingStore()->set('taxGroupId', $value);
@@ -327,7 +327,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);
@@ -335,7 +335,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the unitCost property value. The unitCost property
-     *  @param string|null $value Value to set for the unitCost property.
+     * @param string|null $value Value to set for the unitCost property.
     */
     public function setUnitCost(?string $value): void {
         $this->getBackingStore()->set('unitCost', $value);
@@ -343,7 +343,7 @@ class Item extends Entity implements Parsable
 
     /**
      * Sets the unitPrice property value. The unitPrice property
-     *  @param string|null $value Value to set for the unitPrice property.
+     * @param string|null $value Value to set for the unitPrice property.
     */
     public function setUnitPrice(?string $value): void {
         $this->getBackingStore()->set('unitPrice', $value);

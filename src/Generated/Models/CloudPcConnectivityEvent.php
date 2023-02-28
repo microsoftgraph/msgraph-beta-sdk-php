@@ -37,7 +37,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -131,7 +131,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -139,7 +139,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -147,7 +147,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the eventDateTime property value. Indicates the date and time when this event was created. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the eventDateTime property.
+     * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('eventDateTime', $value);
@@ -155,7 +155,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the eventName property value. Name of the event.
-     *  @param string|null $value Value to set for the eventName property.
+     * @param string|null $value Value to set for the eventName property.
     */
     public function setEventName(?string $value): void {
         $this->getBackingStore()->set('eventName', $value);
@@ -163,7 +163,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the eventResult property value. The eventResult property
-     *  @param CloudPcConnectivityEventResult|null $value Value to set for the eventResult property.
+     * @param CloudPcConnectivityEventResult|null $value Value to set for the eventResult property.
     */
     public function setEventResult(?CloudPcConnectivityEventResult $value): void {
         $this->getBackingStore()->set('eventResult', $value);
@@ -171,7 +171,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the eventType property value. The eventType property
-     *  @param CloudPcConnectivityEventType|null $value Value to set for the eventType property.
+     * @param CloudPcConnectivityEventType|null $value Value to set for the eventType property.
     */
     public function setEventType(?CloudPcConnectivityEventType $value): void {
         $this->getBackingStore()->set('eventType', $value);
@@ -179,7 +179,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the message property value. Additional message for this event.
-     *  @param string|null $value Value to set for the message property.
+     * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
         $this->getBackingStore()->set('message', $value);
@@ -187,7 +187,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

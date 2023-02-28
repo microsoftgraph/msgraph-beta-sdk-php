@@ -55,7 +55,7 @@ class ExternalActivityResult extends ExternalActivity implements Parsable
 
     /**
      * Sets the error property value. Error information explaining failure to process external activity.
-     *  @param PublicError|null $value Value to set for the error property.
+     * @param PublicError|null $value Value to set for the error property.
     */
     public function setError(?PublicError $value): void {
         $this->getBackingStore()->set('error', $value);

@@ -64,7 +64,7 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
 
     /**
      * Sets the totalUserCount property value. Provides the total user count in the tenant.
-     *  @param int|null $value Value to set for the totalUserCount property.
+     * @param int|null $value Value to set for the totalUserCount property.
     */
     public function setTotalUserCount(?int $value): void {
         $this->getBackingStore()->set('totalUserCount', $value);
@@ -72,7 +72,7 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
 
     /**
      * Sets the userRegistrationCounts property value. A collection of registration count and status information for users in your tenant.
-     *  @param array<UserRegistrationCount>|null $value Value to set for the userRegistrationCounts property.
+     * @param array<UserRegistrationCount>|null $value Value to set for the userRegistrationCounts property.
     */
     public function setUserRegistrationCounts(?array $value): void {
         $this->getBackingStore()->set('userRegistrationCounts', $value);

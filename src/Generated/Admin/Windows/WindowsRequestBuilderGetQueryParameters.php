@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A container for all Windows administrator functionalities. Read-only.
+*/
 class WindowsRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class WindowsRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new windowsRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

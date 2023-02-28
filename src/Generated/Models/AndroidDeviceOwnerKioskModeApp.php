@@ -65,7 +65,7 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
 
     /**
      * Sets the className property value. Class name of application
-     *  @param string|null $value Value to set for the className property.
+     * @param string|null $value Value to set for the className property.
     */
     public function setClassName(?string $value): void {
         $this->getBackingStore()->set('className', $value);
@@ -73,7 +73,7 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
 
     /**
      * Sets the package property value. Package name of application
-     *  @param string|null $value Value to set for the package property.
+     * @param string|null $value Value to set for the package property.
     */
     public function setPackage(?string $value): void {
         $this->getBackingStore()->set('package', $value);

@@ -104,7 +104,7 @@ class TenantSetupInfo extends Entity implements Parsable
 
     /**
      * Sets the defaultRolesSettings property value. The defaultRolesSettings property
-     *  @param PrivilegedRoleSettings|null $value Value to set for the defaultRolesSettings property.
+     * @param PrivilegedRoleSettings|null $value Value to set for the defaultRolesSettings property.
     */
     public function setDefaultRolesSettings(?PrivilegedRoleSettings $value): void {
         $this->getBackingStore()->set('defaultRolesSettings', $value);
@@ -112,7 +112,7 @@ class TenantSetupInfo extends Entity implements Parsable
 
     /**
      * Sets the firstTimeSetup property value. The firstTimeSetup property
-     *  @param bool|null $value Value to set for the firstTimeSetup property.
+     * @param bool|null $value Value to set for the firstTimeSetup property.
     */
     public function setFirstTimeSetup(?bool $value): void {
         $this->getBackingStore()->set('firstTimeSetup', $value);
@@ -120,7 +120,7 @@ class TenantSetupInfo extends Entity implements Parsable
 
     /**
      * Sets the relevantRolesSettings property value. The relevantRolesSettings property
-     *  @param array<string>|null $value Value to set for the relevantRolesSettings property.
+     * @param array<string>|null $value Value to set for the relevantRolesSettings property.
     */
     public function setRelevantRolesSettings(?array $value): void {
         $this->getBackingStore()->set('relevantRolesSettings', $value);
@@ -128,7 +128,7 @@ class TenantSetupInfo extends Entity implements Parsable
 
     /**
      * Sets the setupStatus property value. The setupStatus property
-     *  @param SetupStatus|null $value Value to set for the setupStatus property.
+     * @param SetupStatus|null $value Value to set for the setupStatus property.
     */
     public function setSetupStatus(?SetupStatus $value): void {
         $this->getBackingStore()->set('setupStatus', $value);
@@ -136,7 +136,7 @@ class TenantSetupInfo extends Entity implements Parsable
 
     /**
      * Sets the skipSetup property value. The skipSetup property
-     *  @param bool|null $value Value to set for the skipSetup property.
+     * @param bool|null $value Value to set for the skipSetup property.
     */
     public function setSkipSetup(?bool $value): void {
         $this->getBackingStore()->set('skipSetup', $value);
@@ -144,7 +144,7 @@ class TenantSetupInfo extends Entity implements Parsable
 
     /**
      * Sets the userRolesActions property value. The userRolesActions property
-     *  @param string|null $value Value to set for the userRolesActions property.
+     * @param string|null $value Value to set for the userRolesActions property.
     */
     public function setUserRolesActions(?string $value): void {
         $this->getBackingStore()->set('userRolesActions', $value);

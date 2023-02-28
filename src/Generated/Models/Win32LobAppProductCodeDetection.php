@@ -75,7 +75,7 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
 
     /**
      * Sets the productCode property value. The product code of Win32 Line of Business (LoB) app.
-     *  @param string|null $value Value to set for the productCode property.
+     * @param string|null $value Value to set for the productCode property.
     */
     public function setProductCode(?string $value): void {
         $this->getBackingStore()->set('productCode', $value);
@@ -83,7 +83,7 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
 
     /**
      * Sets the productVersion property value. The product version of Win32 Line of Business (LoB) app.
-     *  @param string|null $value Value to set for the productVersion property.
+     * @param string|null $value Value to set for the productVersion property.
     */
     public function setProductVersion(?string $value): void {
         $this->getBackingStore()->set('productVersion', $value);
@@ -91,7 +91,7 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
 
     /**
      * Sets the productVersionOperator property value. Contains properties for detection operator.
-     *  @param Win32LobAppDetectionOperator|null $value Value to set for the productVersionOperator property.
+     * @param Win32LobAppDetectionOperator|null $value Value to set for the productVersionOperator property.
     */
     public function setProductVersionOperator(?Win32LobAppDetectionOperator $value): void {
         $this->getBackingStore()->set('productVersionOperator', $value);

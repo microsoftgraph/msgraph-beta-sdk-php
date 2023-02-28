@@ -56,7 +56,7 @@ class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule i
 
     /**
      * Sets the date property value. The date the script is scheduled to run. This collection can contain a maximum of 20 elements.
-     *  @param Date|null $value Value to set for the date property.
+     * @param Date|null $value Value to set for the date property.
     */
     public function setDate(?Date $value): void {
         $this->getBackingStore()->set('date', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\Migrata
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function compare
+*/
 class CompareWithTemplateIdRequestBuilderGetQueryParameters 
 {
     /**
@@ -36,4 +39,20 @@ class CompareWithTemplateIdRequestBuilderGetQueryParameters
     */
     public ?int $top = null;
     
+    /**
+     * Instantiates a new compareWithTemplateIdRequestBuilderGetQueryParameters and sets the default values.
+     * @param bool|null $count Include count of items
+     * @param string|null $filter Filter items by property values
+     * @param string|null $search Search items by search phrases
+     * @param int|null $skip Skip the first n items
+     * @param int|null $top Show only the first n items
+    */
+    public function __construct(?bool $count = null, ?string $filter = null, ?string $search = null, ?int $skip = null, ?int $top = null) {
+        $this->count = $count;
+        $this->filter = $filter;
+        $this->search = $search;
+        $this->skip = $skip;
+        $this->top = $top;
+    }
+
 }

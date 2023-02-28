@@ -64,7 +64,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
 
     /**
      * Sets the deployedDeviceCount property value. Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.
-     *  @param int|null $value Value to set for the deployedDeviceCount property.
+     * @param int|null $value Value to set for the deployedDeviceCount property.
     */
     public function setDeployedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('deployedDeviceCount', $value);
@@ -72,7 +72,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
 
     /**
      * Sets the failedDeviceCount property value. Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy.
-     *  @param int|null $value Value to set for the failedDeviceCount property.
+     * @param int|null $value Value to set for the failedDeviceCount property.
     */
     public function setFailedDeviceCount(?int $value): void {
         $this->getBackingStore()->set('failedDeviceCount', $value);

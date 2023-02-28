@@ -117,7 +117,7 @@ class TaskProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the completedDateTime property value. The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param DateTime|null $value Value to set for the completedDateTime property.
+     * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completedDateTime', $value);
@@ -125,7 +125,7 @@ class TaskProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date time when the taskProcessingResult was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -133,7 +133,7 @@ class TaskProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the failureReason property value. Describes why the taskProcessingResult has failed.
-     *  @param string|null $value Value to set for the failureReason property.
+     * @param string|null $value Value to set for the failureReason property.
     */
     public function setFailureReason(?string $value): void {
         $this->getBackingStore()->set('failureReason', $value);
@@ -141,7 +141,7 @@ class TaskProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the processingStatus property value. The processingStatus property
-     *  @param LifecycleWorkflowProcessingStatus|null $value Value to set for the processingStatus property.
+     * @param LifecycleWorkflowProcessingStatus|null $value Value to set for the processingStatus property.
     */
     public function setProcessingStatus(?LifecycleWorkflowProcessingStatus $value): void {
         $this->getBackingStore()->set('processingStatus', $value);
@@ -149,7 +149,7 @@ class TaskProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-     *  @param DateTime|null $value Value to set for the startedDateTime property.
+     * @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startedDateTime', $value);
@@ -157,7 +157,7 @@ class TaskProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the subject property value. The subject property
-     *  @param User|null $value Value to set for the subject property.
+     * @param User|null $value Value to set for the subject property.
     */
     public function setSubject(?User $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -165,7 +165,7 @@ class TaskProcessingResult extends Entity implements Parsable
 
     /**
      * Sets the task property value. The task property
-     *  @param Task|null $value Value to set for the task property.
+     * @param Task|null $value Value to set for the task property.
     */
     public function setTask(?Task $value): void {
         $this->getBackingStore()->set('task', $value);

@@ -36,7 +36,7 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the languageOverrides property value. Translation override behavior for languages, if any.Returned by default.
-     *  @param array<TranslationLanguageOverride>|null $value Value to set for the languageOverrides property.
+     * @param array<TranslationLanguageOverride>|null $value Value to set for the languageOverrides property.
     */
     public function setLanguageOverrides(?array $value): void {
         $this->getBackingStore()->set('languageOverrides', $value);
@@ -134,7 +134,7 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -142,7 +142,7 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the translationBehavior property value. The user's preferred translation behavior.Returned by default. Not nullable.
-     *  @param TranslationBehavior|null $value Value to set for the translationBehavior property.
+     * @param TranslationBehavior|null $value Value to set for the translationBehavior property.
     */
     public function setTranslationBehavior(?TranslationBehavior $value): void {
         $this->getBackingStore()->set('translationBehavior', $value);
@@ -150,7 +150,7 @@ class TranslationPreferences implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the untranslatedLanguages property value. The list of languages the user does not need translated. This is computed from the authoringLanguages collection in regionalAndLanguageSettings, and the languageOverrides collection in translationPreferences. The list specifies neutral culture values that include the language code without any country or region association. For example, it would specify 'fr' for the neutral French culture, but not 'fr-FR' for the French culture in France. Returned by default. Read only.
-     *  @param array<string>|null $value Value to set for the untranslatedLanguages property.
+     * @param array<string>|null $value Value to set for the untranslatedLanguages property.
     */
     public function setUntranslatedLanguages(?array $value): void {
         $this->getBackingStore()->set('untranslatedLanguages', $value);

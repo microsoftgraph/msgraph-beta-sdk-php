@@ -27,7 +27,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
     }
 
     /**
-     * Gets the calloutDateTime property value. The calloutDateTime property
+     * Gets the calloutDateTime property value. When the API transaction was initiated, the date and time information uses ISO 8601 format and is always in UTC time. Example: midnight on Jan 1, 2014, is reported as 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCalloutDateTime(): ?DateTime {
@@ -35,7 +35,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
     }
 
     /**
-     * Gets the customExtensionId property value. The customExtensionId property
+     * Gets the customExtensionId property value. Identifier of the custom extension that was called.
      * @return string|null
     */
     public function getCustomExtensionId(): ?string {
@@ -43,7 +43,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
     }
 
     /**
-     * Gets the errorCode property value. The errorCode property
+     * Gets the errorCode property value. Error code that was returned when the last API attempt failed.
      * @return int|null
     */
     public function getErrorCode(): ?int {
@@ -66,7 +66,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
     }
 
     /**
-     * Gets the httpStatus property value. The httpStatus property
+     * Gets the httpStatus property value. The HTTP status code that was returned by the target API endpoint after the last API attempt.
      * @return int|null
     */
     public function getHttpStatus(): ?int {
@@ -74,7 +74,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
     }
 
     /**
-     * Gets the numberOfAttempts property value. The numberOfAttempts property
+     * Gets the numberOfAttempts property value. The number of API calls to the customer's API.
      * @return int|null
     */
     public function getNumberOfAttempts(): ?int {
@@ -95,40 +95,40 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
     }
 
     /**
-     * Sets the calloutDateTime property value. The calloutDateTime property
-     *  @param DateTime|null $value Value to set for the calloutDateTime property.
+     * Sets the calloutDateTime property value. When the API transaction was initiated, the date and time information uses ISO 8601 format and is always in UTC time. Example: midnight on Jan 1, 2014, is reported as 2014-01-01T00:00:00Z.
+     * @param DateTime|null $value Value to set for the calloutDateTime property.
     */
     public function setCalloutDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('calloutDateTime', $value);
     }
 
     /**
-     * Sets the customExtensionId property value. The customExtensionId property
-     *  @param string|null $value Value to set for the customExtensionId property.
+     * Sets the customExtensionId property value. Identifier of the custom extension that was called.
+     * @param string|null $value Value to set for the customExtensionId property.
     */
     public function setCustomExtensionId(?string $value): void {
         $this->getBackingStore()->set('customExtensionId', $value);
     }
 
     /**
-     * Sets the errorCode property value. The errorCode property
-     *  @param int|null $value Value to set for the errorCode property.
+     * Sets the errorCode property value. Error code that was returned when the last API attempt failed.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
-     * Sets the httpStatus property value. The httpStatus property
-     *  @param int|null $value Value to set for the httpStatus property.
+     * Sets the httpStatus property value. The HTTP status code that was returned by the target API endpoint after the last API attempt.
+     * @param int|null $value Value to set for the httpStatus property.
     */
     public function setHttpStatus(?int $value): void {
         $this->getBackingStore()->set('httpStatus', $value);
     }
 
     /**
-     * Sets the numberOfAttempts property value. The numberOfAttempts property
-     *  @param int|null $value Value to set for the numberOfAttempts property.
+     * Sets the numberOfAttempts property value. The number of API calls to the customer's API.
+     * @param int|null $value Value to set for the numberOfAttempts property.
     */
     public function setNumberOfAttempts(?int $value): void {
         $this->getBackingStore()->set('numberOfAttempts', $value);

@@ -55,7 +55,7 @@ class DeviceHealthScriptBooleanParameter extends DeviceHealthScriptParameter imp
 
     /**
      * Sets the defaultValue property value. The default value of boolean param
-     *  @param bool|null $value Value to set for the defaultValue property.
+     * @param bool|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?bool $value): void {
         $this->getBackingStore()->set('defaultValue', $value);

@@ -135,7 +135,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the allowAllAppsAccess property value. AllowAllAppsAccess setting
-     *  @param bool|null $value Value to set for the allowAllAppsAccess property.
+     * @param bool|null $value Value to set for the allowAllAppsAccess property.
     */
     public function setAllowAllAppsAccess(?bool $value): void {
         $this->getBackingStore()->set('allowAllAppsAccess', $value);
@@ -143,7 +143,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     *  @param CertificateStore|null $value Value to set for the certificateStore property.
+     * @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value): void {
         $this->getBackingStore()->set('certificateStore', $value);
@@ -151,7 +151,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the certificateTemplateName property value. PKCS certificate template name.
-     *  @param string|null $value Value to set for the certificateTemplateName property.
+     * @param string|null $value Value to set for the certificateTemplateName property.
     */
     public function setCertificateTemplateName(?string $value): void {
         $this->getBackingStore()->set('certificateTemplateName', $value);
@@ -159,7 +159,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the certificationAuthority property value. PKCS certification authority FQDN.
-     *  @param string|null $value Value to set for the certificationAuthority property.
+     * @param string|null $value Value to set for the certificationAuthority property.
     */
     public function setCertificationAuthority(?string $value): void {
         $this->getBackingStore()->set('certificationAuthority', $value);
@@ -167,7 +167,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the certificationAuthorityName property value. PKCS certification authority Name.
-     *  @param string|null $value Value to set for the certificationAuthorityName property.
+     * @param string|null $value Value to set for the certificationAuthorityName property.
     */
     public function setCertificationAuthorityName(?string $value): void {
         $this->getBackingStore()->set('certificationAuthorityName', $value);
@@ -175,7 +175,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the customSubjectAlternativeNames property value. Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
-     *  @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
+     * @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
     */
     public function setCustomSubjectAlternativeNames(?array $value): void {
         $this->getBackingStore()->set('customSubjectAlternativeNames', $value);
@@ -183,7 +183,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-     *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
+     * @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
     public function setManagedDeviceCertificateStates(?array $value): void {
         $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
@@ -191,7 +191,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the subjectAlternativeNameFormatString property value. Format string that defines the subject alternative name.
-     *  @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
+     * @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
     */
     public function setSubjectAlternativeNameFormatString(?string $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameFormatString', $value);
@@ -199,7 +199,7 @@ class MacOSPkcsCertificateProfile extends MacOSCertificateProfileBase implements
 
     /**
      * Sets the subjectNameFormatString property value. Format string that defines the subject name. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-     *  @param string|null $value Value to set for the subjectNameFormatString property.
+     * @param string|null $value Value to set for the subjectNameFormatString property.
     */
     public function setSubjectNameFormatString(?string $value): void {
         $this->getBackingStore()->set('subjectNameFormatString', $value);

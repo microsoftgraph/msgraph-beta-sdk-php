@@ -64,7 +64,7 @@ class TeamsAppIcon extends Entity implements Parsable
 
     /**
      * Sets the hostedContent property value. The contents of the app icon if the icon is hosted within the Teams infrastructure.
-     *  @param TeamworkHostedContent|null $value Value to set for the hostedContent property.
+     * @param TeamworkHostedContent|null $value Value to set for the hostedContent property.
     */
     public function setHostedContent(?TeamworkHostedContent $value): void {
         $this->getBackingStore()->set('hostedContent', $value);
@@ -72,7 +72,7 @@ class TeamsAppIcon extends Entity implements Parsable
 
     /**
      * Sets the webUrl property value. The web URL that can be used for downloading the image.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

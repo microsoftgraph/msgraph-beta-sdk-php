@@ -65,7 +65,7 @@ class StandardWebPart extends WebPart implements Parsable
 
     /**
      * Sets the data property value. Data of the webPart.
-     *  @param WebPartData|null $value Value to set for the data property.
+     * @param WebPartData|null $value Value to set for the data property.
     */
     public function setData(?WebPartData $value): void {
         $this->getBackingStore()->set('data', $value);
@@ -73,7 +73,7 @@ class StandardWebPart extends WebPart implements Parsable
 
     /**
      * Sets the webPartType property value. A Guid which indicates the type of the webParts
-     *  @param string|null $value Value to set for the webPartType property.
+     * @param string|null $value Value to set for the webPartType property.
     */
     public function setWebPartType(?string $value): void {
         $this->getBackingStore()->set('webPartType', $value);

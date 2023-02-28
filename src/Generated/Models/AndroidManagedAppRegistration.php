@@ -55,7 +55,7 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration implements Pa
 
     /**
      * Sets the patchVersion property value. The patch version for the current android app registration
-     *  @param string|null $value Value to set for the patchVersion property.
+     * @param string|null $value Value to set for the patchVersion property.
     */
     public function setPatchVersion(?string $value): void {
         $this->getBackingStore()->set('patchVersion', $value);

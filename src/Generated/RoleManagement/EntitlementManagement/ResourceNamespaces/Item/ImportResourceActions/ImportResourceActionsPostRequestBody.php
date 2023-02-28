@@ -36,7 +36,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +116,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the format property value. The format property
-     *  @param string|null $value Value to set for the format property.
+     * @param string|null $value Value to set for the format property.
     */
     public function setFormat(?string $value): void {
         $this->getBackingStore()->set('format', $value);
@@ -124,7 +124,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the overwriteResourceNamespace property value. The overwriteResourceNamespace property
-     *  @param bool|null $value Value to set for the overwriteResourceNamespace property.
+     * @param bool|null $value Value to set for the overwriteResourceNamespace property.
     */
     public function setOverwriteResourceNamespace(?bool $value): void {
         $this->getBackingStore()->set('overwriteResourceNamespace', $value);
@@ -132,7 +132,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the value property value. The value property
-     *  @param string|null $value Value to set for the value property.
+     * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);

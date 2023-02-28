@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The Group Policy migration report.
+*/
 class GroupPolicyMigrationReport extends Entity implements Parsable 
 {
     /**
@@ -195,7 +198,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time at which the GroupPolicyMigrationReport was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -203,7 +206,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of Group Policy Object from the GPO Xml Content
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -211,7 +214,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyCreatedDateTime property value. The date and time at which the GroupPolicyMigrationReport was created.
-     *  @param DateTime|null $value Value to set for the groupPolicyCreatedDateTime property.
+     * @param DateTime|null $value Value to set for the groupPolicyCreatedDateTime property.
     */
     public function setGroupPolicyCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('groupPolicyCreatedDateTime', $value);
@@ -219,7 +222,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyLastModifiedDateTime property value. The date and time at which the GroupPolicyMigrationReport was last modified.
-     *  @param DateTime|null $value Value to set for the groupPolicyLastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the groupPolicyLastModifiedDateTime property.
     */
     public function setGroupPolicyLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('groupPolicyLastModifiedDateTime', $value);
@@ -227,7 +230,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyObjectId property value. The Group Policy Object GUID from GPO Xml content
-     *  @param string|null $value Value to set for the groupPolicyObjectId property.
+     * @param string|null $value Value to set for the groupPolicyObjectId property.
     */
     public function setGroupPolicyObjectId(?string $value): void {
         $this->getBackingStore()->set('groupPolicyObjectId', $value);
@@ -235,7 +238,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the groupPolicySettingMappings property value. A list of group policy settings to MDM/Intune mappings.
-     *  @param array<GroupPolicySettingMapping>|null $value Value to set for the groupPolicySettingMappings property.
+     * @param array<GroupPolicySettingMapping>|null $value Value to set for the groupPolicySettingMappings property.
     */
     public function setGroupPolicySettingMappings(?array $value): void {
         $this->getBackingStore()->set('groupPolicySettingMappings', $value);
@@ -243,7 +246,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time at which the GroupPolicyMigrationReport was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -251,7 +254,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the migrationReadiness property value. Indicates if the Group Policy Object file is covered and ready for Intune migration.
-     *  @param GroupPolicyMigrationReadiness|null $value Value to set for the migrationReadiness property.
+     * @param GroupPolicyMigrationReadiness|null $value Value to set for the migrationReadiness property.
     */
     public function setMigrationReadiness(?GroupPolicyMigrationReadiness $value): void {
         $this->getBackingStore()->set('migrationReadiness', $value);
@@ -259,7 +262,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the ouDistinguishedName property value. The distinguished name of the OU.
-     *  @param string|null $value Value to set for the ouDistinguishedName property.
+     * @param string|null $value Value to set for the ouDistinguishedName property.
     */
     public function setOuDistinguishedName(?string $value): void {
         $this->getBackingStore()->set('ouDistinguishedName', $value);
@@ -267,7 +270,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. The list of scope tags for the configuration.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -275,7 +278,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the supportedSettingsCount property value. The number of Group Policy Settings supported by Intune.
-     *  @param int|null $value Value to set for the supportedSettingsCount property.
+     * @param int|null $value Value to set for the supportedSettingsCount property.
     */
     public function setSupportedSettingsCount(?int $value): void {
         $this->getBackingStore()->set('supportedSettingsCount', $value);
@@ -283,7 +286,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the supportedSettingsPercent property value. The Percentage of Group Policy Settings supported by Intune.
-     *  @param int|null $value Value to set for the supportedSettingsPercent property.
+     * @param int|null $value Value to set for the supportedSettingsPercent property.
     */
     public function setSupportedSettingsPercent(?int $value): void {
         $this->getBackingStore()->set('supportedSettingsPercent', $value);
@@ -291,7 +294,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the targetedInActiveDirectory property value. The Targeted in AD property from GPO Xml Content
-     *  @param bool|null $value Value to set for the targetedInActiveDirectory property.
+     * @param bool|null $value Value to set for the targetedInActiveDirectory property.
     */
     public function setTargetedInActiveDirectory(?bool $value): void {
         $this->getBackingStore()->set('targetedInActiveDirectory', $value);
@@ -299,7 +302,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the totalSettingsCount property value. The total number of Group Policy Settings from GPO file.
-     *  @param int|null $value Value to set for the totalSettingsCount property.
+     * @param int|null $value Value to set for the totalSettingsCount property.
     */
     public function setTotalSettingsCount(?int $value): void {
         $this->getBackingStore()->set('totalSettingsCount', $value);
@@ -307,7 +310,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
 
     /**
      * Sets the unsupportedGroupPolicyExtensions property value. A list of unsupported group policy extensions inside the Group Policy Object.
-     *  @param array<UnsupportedGroupPolicyExtension>|null $value Value to set for the unsupportedGroupPolicyExtensions property.
+     * @param array<UnsupportedGroupPolicyExtension>|null $value Value to set for the unsupportedGroupPolicyExtensions property.
     */
     public function setUnsupportedGroupPolicyExtensions(?array $value): void {
         $this->getBackingStore()->set('unsupportedGroupPolicyExtensions', $value);

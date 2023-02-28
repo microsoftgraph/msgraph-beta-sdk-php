@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DelegatedAdminRelationship extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new delegatedAdminRelationship and sets the default values.
+     * Instantiates a new DelegatedAdminRelationship and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -166,7 +166,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the accessAssignments property value. The access assignments associated with the delegated admin relationship.
-     *  @param array<DelegatedAdminAccessAssignment>|null $value Value to set for the accessAssignments property.
+     * @param array<DelegatedAdminAccessAssignment>|null $value Value to set for the accessAssignments property.
     */
     public function setAccessAssignments(?array $value): void {
         $this->getBackingStore()->set('accessAssignments', $value);
@@ -174,7 +174,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the accessDetails property value. The accessDetails property
-     *  @param DelegatedAdminAccessDetails|null $value Value to set for the accessDetails property.
+     * @param DelegatedAdminAccessDetails|null $value Value to set for the accessDetails property.
     */
     public function setAccessDetails(?DelegatedAdminAccessDetails $value): void {
         $this->getBackingStore()->set('accessDetails', $value);
@@ -182,7 +182,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the activatedDateTime property value. The date and time in ISO 8601 format and in UTC time when the relationship became active. Read-only.
-     *  @param DateTime|null $value Value to set for the activatedDateTime property.
+     * @param DateTime|null $value Value to set for the activatedDateTime property.
     */
     public function setActivatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('activatedDateTime', $value);
@@ -190,7 +190,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time in ISO 8601 format and in UTC time when the relationship was created. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -198,7 +198,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the customer property value. The display name and unique identifier of the customer of the relationship. This is configured either by the partner at the time the relationship is created or by the system after the customer approves the relationship. Cannot be changed by the customer.
-     *  @param DelegatedAdminRelationshipCustomerParticipant|null $value Value to set for the customer property.
+     * @param DelegatedAdminRelationshipCustomerParticipant|null $value Value to set for the customer property.
     */
     public function setCustomer(?DelegatedAdminRelationshipCustomerParticipant $value): void {
         $this->getBackingStore()->set('customer', $value);
@@ -206,7 +206,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the relationship used for ease of identification. Must be unique across all delegated admin relationships of the partner. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -214,7 +214,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the duration property value. The duration of the relationship in ISO 8601 format. Must be a value between P1D and P2Y inclusive. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.
-     *  @param DateInterval|null $value Value to set for the duration property.
+     * @param DateInterval|null $value Value to set for the duration property.
     */
     public function setDuration(?DateInterval $value): void {
         $this->getBackingStore()->set('duration', $value);
@@ -222,7 +222,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the endDateTime property value. The date and time in ISO 8601 format and in UTC time when the status of relationship changes to either terminated or expired. Calculated as endDateTime = activatedDateTime + duration. Read-only.
-     *  @param DateTime|null $value Value to set for the endDateTime property.
+     * @param DateTime|null $value Value to set for the endDateTime property.
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
@@ -230,7 +230,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time in ISO 8601 format and in UTC time when the relationship was last modified. Read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -238,7 +238,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the operations property value. The long running operations associated with the delegated admin relationship.
-     *  @param array<DelegatedAdminRelationshipOperation>|null $value Value to set for the operations property.
+     * @param array<DelegatedAdminRelationshipOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
@@ -246,7 +246,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the requests property value. The requests associated with the delegated admin relationship.
-     *  @param array<DelegatedAdminRelationshipRequest>|null $value Value to set for the requests property.
+     * @param array<DelegatedAdminRelationshipRequest>|null $value Value to set for the requests property.
     */
     public function setRequests(?array $value): void {
         $this->getBackingStore()->set('requests', $value);
@@ -254,7 +254,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the relationship. Read Only. The possible values are: activating, active, approvalPending, approved, created, expired, expiring, terminated, terminating, terminationRequested, unknownFutureValue. Supports $orderBy.
-     *  @param DelegatedAdminRelationshipStatus|null $value Value to set for the status property.
+     * @param DelegatedAdminRelationshipStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DelegatedAdminRelationshipStatus $value): void {
         $this->getBackingStore()->set('status', $value);

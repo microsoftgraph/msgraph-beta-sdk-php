@@ -55,7 +55,7 @@ class WindowsKioskLocalGroup extends WindowsKioskUser implements Parsable
 
     /**
      * Sets the groupName property value. The name of the local group that will be locked to this kiosk configuration
-     *  @param string|null $value Value to set for the groupName property.
+     * @param string|null $value Value to set for the groupName property.
     */
     public function setGroupName(?string $value): void {
         $this->getBackingStore()->set('groupName', $value);

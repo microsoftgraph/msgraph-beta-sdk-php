@@ -285,7 +285,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the account property value. The account property
-     *  @param Account|null $value Value to set for the account property.
+     * @param Account|null $value Value to set for the account property.
     */
     public function setAccount(?Account $value): void {
         $this->getBackingStore()->set('account', $value);
@@ -293,7 +293,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the accountId property value. The accountId property
-     *  @param string|null $value Value to set for the accountId property.
+     * @param string|null $value Value to set for the accountId property.
     */
     public function setAccountId(?string $value): void {
         $this->getBackingStore()->set('accountId', $value);
@@ -301,7 +301,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the amountExcludingTax property value. The amountExcludingTax property
-     *  @param string|null $value Value to set for the amountExcludingTax property.
+     * @param string|null $value Value to set for the amountExcludingTax property.
     */
     public function setAmountExcludingTax(?string $value): void {
         $this->getBackingStore()->set('amountExcludingTax', $value);
@@ -309,7 +309,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the amountIncludingTax property value. The amountIncludingTax property
-     *  @param string|null $value Value to set for the amountIncludingTax property.
+     * @param string|null $value Value to set for the amountIncludingTax property.
     */
     public function setAmountIncludingTax(?string $value): void {
         $this->getBackingStore()->set('amountIncludingTax', $value);
@@ -317,7 +317,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -325,7 +325,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the discountAmount property value. The discountAmount property
-     *  @param string|null $value Value to set for the discountAmount property.
+     * @param string|null $value Value to set for the discountAmount property.
     */
     public function setDiscountAmount(?string $value): void {
         $this->getBackingStore()->set('discountAmount', $value);
@@ -333,7 +333,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the discountAppliedBeforeTax property value. The discountAppliedBeforeTax property
-     *  @param bool|null $value Value to set for the discountAppliedBeforeTax property.
+     * @param bool|null $value Value to set for the discountAppliedBeforeTax property.
     */
     public function setDiscountAppliedBeforeTax(?bool $value): void {
         $this->getBackingStore()->set('discountAppliedBeforeTax', $value);
@@ -341,7 +341,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the discountPercent property value. The discountPercent property
-     *  @param string|null $value Value to set for the discountPercent property.
+     * @param string|null $value Value to set for the discountPercent property.
     */
     public function setDiscountPercent(?string $value): void {
         $this->getBackingStore()->set('discountPercent', $value);
@@ -349,7 +349,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the documentId property value. The documentId property
-     *  @param string|null $value Value to set for the documentId property.
+     * @param string|null $value Value to set for the documentId property.
     */
     public function setDocumentId(?string $value): void {
         $this->getBackingStore()->set('documentId', $value);
@@ -357,7 +357,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the invoiceDiscountAllocation property value. The invoiceDiscountAllocation property
-     *  @param string|null $value Value to set for the invoiceDiscountAllocation property.
+     * @param string|null $value Value to set for the invoiceDiscountAllocation property.
     */
     public function setInvoiceDiscountAllocation(?string $value): void {
         $this->getBackingStore()->set('invoiceDiscountAllocation', $value);
@@ -365,7 +365,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the item property value. The item property
-     *  @param Item|null $value Value to set for the item property.
+     * @param Item|null $value Value to set for the item property.
     */
     public function setItem(?Item $value): void {
         $this->getBackingStore()->set('item', $value);
@@ -373,7 +373,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the itemId property value. The itemId property
-     *  @param string|null $value Value to set for the itemId property.
+     * @param string|null $value Value to set for the itemId property.
     */
     public function setItemId(?string $value): void {
         $this->getBackingStore()->set('itemId', $value);
@@ -381,7 +381,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the lineType property value. The lineType property
-     *  @param string|null $value Value to set for the lineType property.
+     * @param string|null $value Value to set for the lineType property.
     */
     public function setLineType(?string $value): void {
         $this->getBackingStore()->set('lineType', $value);
@@ -389,7 +389,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the netAmount property value. The netAmount property
-     *  @param string|null $value Value to set for the netAmount property.
+     * @param string|null $value Value to set for the netAmount property.
     */
     public function setNetAmount(?string $value): void {
         $this->getBackingStore()->set('netAmount', $value);
@@ -397,7 +397,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the netAmountIncludingTax property value. The netAmountIncludingTax property
-     *  @param string|null $value Value to set for the netAmountIncludingTax property.
+     * @param string|null $value Value to set for the netAmountIncludingTax property.
     */
     public function setNetAmountIncludingTax(?string $value): void {
         $this->getBackingStore()->set('netAmountIncludingTax', $value);
@@ -405,7 +405,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the netTaxAmount property value. The netTaxAmount property
-     *  @param string|null $value Value to set for the netTaxAmount property.
+     * @param string|null $value Value to set for the netTaxAmount property.
     */
     public function setNetTaxAmount(?string $value): void {
         $this->getBackingStore()->set('netTaxAmount', $value);
@@ -413,7 +413,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the quantity property value. The quantity property
-     *  @param string|null $value Value to set for the quantity property.
+     * @param string|null $value Value to set for the quantity property.
     */
     public function setQuantity(?string $value): void {
         $this->getBackingStore()->set('quantity', $value);
@@ -421,7 +421,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the sequence property value. The sequence property
-     *  @param int|null $value Value to set for the sequence property.
+     * @param int|null $value Value to set for the sequence property.
     */
     public function setSequence(?int $value): void {
         $this->getBackingStore()->set('sequence', $value);
@@ -429,7 +429,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the shipmentDate property value. The shipmentDate property
-     *  @param Date|null $value Value to set for the shipmentDate property.
+     * @param Date|null $value Value to set for the shipmentDate property.
     */
     public function setShipmentDate(?Date $value): void {
         $this->getBackingStore()->set('shipmentDate', $value);
@@ -437,7 +437,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the taxCode property value. The taxCode property
-     *  @param string|null $value Value to set for the taxCode property.
+     * @param string|null $value Value to set for the taxCode property.
     */
     public function setTaxCode(?string $value): void {
         $this->getBackingStore()->set('taxCode', $value);
@@ -445,7 +445,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the taxPercent property value. The taxPercent property
-     *  @param string|null $value Value to set for the taxPercent property.
+     * @param string|null $value Value to set for the taxPercent property.
     */
     public function setTaxPercent(?string $value): void {
         $this->getBackingStore()->set('taxPercent', $value);
@@ -453,7 +453,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the totalTaxAmount property value. The totalTaxAmount property
-     *  @param string|null $value Value to set for the totalTaxAmount property.
+     * @param string|null $value Value to set for the totalTaxAmount property.
     */
     public function setTotalTaxAmount(?string $value): void {
         $this->getBackingStore()->set('totalTaxAmount', $value);
@@ -461,7 +461,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the unitOfMeasureId property value. The unitOfMeasureId property
-     *  @param string|null $value Value to set for the unitOfMeasureId property.
+     * @param string|null $value Value to set for the unitOfMeasureId property.
     */
     public function setUnitOfMeasureId(?string $value): void {
         $this->getBackingStore()->set('unitOfMeasureId', $value);
@@ -469,7 +469,7 @@ class SalesInvoiceLine extends Entity implements Parsable
 
     /**
      * Sets the unitPrice property value. The unitPrice property
-     *  @param string|null $value Value to set for the unitPrice property.
+     * @param string|null $value Value to set for the unitPrice property.
     */
     public function setUnitPrice(?string $value): void {
         $this->getBackingStore()->set('unitPrice', $value);

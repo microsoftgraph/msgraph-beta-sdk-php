@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\MailFolders\Item\ChildFolders\Item\U
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get userConfigurations from me
+*/
 class UserConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class UserConfigurationItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new UserConfigurationItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $select = null) {
+        $this->select = $select;
+    }
+
 }

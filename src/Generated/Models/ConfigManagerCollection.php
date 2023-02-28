@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A ConfigManager defined collection of devices or users.
+*/
 class ConfigManagerCollection extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class ConfigManagerCollection extends Entity implements Parsable
 
     /**
      * Sets the collectionIdentifier property value. The collection identifier in SCCM.
-     *  @param string|null $value Value to set for the collectionIdentifier property.
+     * @param string|null $value Value to set for the collectionIdentifier property.
     */
     public function setCollectionIdentifier(?string $value): void {
         $this->getBackingStore()->set('collectionIdentifier', $value);
@@ -113,7 +116,7 @@ class ConfigManagerCollection extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The created date.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -121,7 +124,7 @@ class ConfigManagerCollection extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The DisplayName.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -129,7 +132,7 @@ class ConfigManagerCollection extends Entity implements Parsable
 
     /**
      * Sets the hierarchyIdentifier property value. The Hierarchy Identifier.
-     *  @param string|null $value Value to set for the hierarchyIdentifier property.
+     * @param string|null $value Value to set for the hierarchyIdentifier property.
     */
     public function setHierarchyIdentifier(?string $value): void {
         $this->getBackingStore()->set('hierarchyIdentifier', $value);
@@ -137,7 +140,7 @@ class ConfigManagerCollection extends Entity implements Parsable
 
     /**
      * Sets the hierarchyName property value. The HierarchyName.
-     *  @param string|null $value Value to set for the hierarchyName property.
+     * @param string|null $value Value to set for the hierarchyName property.
     */
     public function setHierarchyName(?string $value): void {
         $this->getBackingStore()->set('hierarchyName', $value);
@@ -145,7 +148,7 @@ class ConfigManagerCollection extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The last modified date.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);

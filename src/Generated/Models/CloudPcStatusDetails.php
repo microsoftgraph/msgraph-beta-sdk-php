@@ -36,7 +36,7 @@ class CloudPcStatusDetails implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class CloudPcStatusDetails implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class CloudPcStatusDetails implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalInformation property value. Any additional information about the Cloud PC status.
-     *  @param array<KeyValuePair>|null $value Value to set for the additionalInformation property.
+     * @param array<KeyValuePair>|null $value Value to set for the additionalInformation property.
     */
     public function setAdditionalInformation(?array $value): void {
         $this->getBackingStore()->set('additionalInformation', $value);
@@ -126,7 +126,7 @@ class CloudPcStatusDetails implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -134,7 +134,7 @@ class CloudPcStatusDetails implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the code property value. The code associated with the Cloud PC status.
-     *  @param string|null $value Value to set for the code property.
+     * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
         $this->getBackingStore()->set('code', $value);
@@ -142,7 +142,7 @@ class CloudPcStatusDetails implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the message property value. The status message.
-     *  @param string|null $value Value to set for the message property.
+     * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
         $this->getBackingStore()->set('message', $value);
@@ -150,7 +150,7 @@ class CloudPcStatusDetails implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

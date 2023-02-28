@@ -64,7 +64,7 @@ class PlannerRoster extends Entity implements Parsable
 
     /**
      * Sets the members property value. Retrieves the members of the plannerRoster.
-     *  @param array<PlannerRosterMember>|null $value Value to set for the members property.
+     * @param array<PlannerRosterMember>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);
@@ -72,7 +72,7 @@ class PlannerRoster extends Entity implements Parsable
 
     /**
      * Sets the plans property value. Retrieves the plans contained by the plannerRoster.
-     *  @param array<PlannerPlan>|null $value Value to set for the plans property.
+     * @param array<PlannerPlan>|null $value Value to set for the plans property.
     */
     public function setPlans(?array $value): void {
         $this->getBackingStore()->set('plans', $value);

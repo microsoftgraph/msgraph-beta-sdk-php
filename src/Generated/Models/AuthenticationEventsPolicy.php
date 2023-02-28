@@ -54,7 +54,7 @@ class AuthenticationEventsPolicy extends Entity implements Parsable
 
     /**
      * Sets the onSignupStart property value. A list of applicable actions to be taken on sign-up.
-     *  @param array<AuthenticationListener>|null $value Value to set for the onSignupStart property.
+     * @param array<AuthenticationListener>|null $value Value to set for the onSignupStart property.
     */
     public function setOnSignupStart(?array $value): void {
         $this->getBackingStore()->set('onSignupStart', $value);

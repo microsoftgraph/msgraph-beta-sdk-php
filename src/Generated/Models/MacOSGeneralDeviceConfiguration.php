@@ -635,7 +635,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the addingGameCenterFriendsBlocked property value. Yes prevents users from adding friends to Game Center. Available for devices running macOS versions 10.13 and later.
-     *  @param bool|null $value Value to set for the addingGameCenterFriendsBlocked property.
+     * @param bool|null $value Value to set for the addingGameCenterFriendsBlocked property.
     */
     public function setAddingGameCenterFriendsBlocked(?bool $value): void {
         $this->getBackingStore()->set('addingGameCenterFriendsBlocked', $value);
@@ -643,7 +643,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the airDropBlocked property value. Indicates whether or not to allow AirDrop.
-     *  @param bool|null $value Value to set for the airDropBlocked property.
+     * @param bool|null $value Value to set for the airDropBlocked property.
     */
     public function setAirDropBlocked(?bool $value): void {
         $this->getBackingStore()->set('airDropBlocked', $value);
@@ -651,7 +651,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the appleWatchBlockAutoUnlock property value. Indicates whether or to block users from unlocking their Mac with Apple Watch.
-     *  @param bool|null $value Value to set for the appleWatchBlockAutoUnlock property.
+     * @param bool|null $value Value to set for the appleWatchBlockAutoUnlock property.
     */
     public function setAppleWatchBlockAutoUnlock(?bool $value): void {
         $this->getBackingStore()->set('appleWatchBlockAutoUnlock', $value);
@@ -659,7 +659,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the cameraBlocked property value. Indicates whether or not to block the user from accessing the camera of the device.
-     *  @param bool|null $value Value to set for the cameraBlocked property.
+     * @param bool|null $value Value to set for the cameraBlocked property.
     */
     public function setCameraBlocked(?bool $value): void {
         $this->getBackingStore()->set('cameraBlocked', $value);
@@ -667,7 +667,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the classroomAppBlockRemoteScreenObservation property value. Indicates whether or not to allow remote screen observation by Classroom app. Requires MDM enrollment via Apple School Manager or Apple Business Manager.
-     *  @param bool|null $value Value to set for the classroomAppBlockRemoteScreenObservation property.
+     * @param bool|null $value Value to set for the classroomAppBlockRemoteScreenObservation property.
     */
     public function setClassroomAppBlockRemoteScreenObservation(?bool $value): void {
         $this->getBackingStore()->set('classroomAppBlockRemoteScreenObservation', $value);
@@ -675,7 +675,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the classroomAppForceUnpromptedScreenObservation property value. Indicates whether or not to automatically give permission to the teacher of a managed course on the Classroom app to view a student's screen without prompting. Requires MDM enrollment via Apple School Manager or Apple Business Manager.
-     *  @param bool|null $value Value to set for the classroomAppForceUnpromptedScreenObservation property.
+     * @param bool|null $value Value to set for the classroomAppForceUnpromptedScreenObservation property.
     */
     public function setClassroomAppForceUnpromptedScreenObservation(?bool $value): void {
         $this->getBackingStore()->set('classroomAppForceUnpromptedScreenObservation', $value);
@@ -683,7 +683,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the classroomForceAutomaticallyJoinClasses property value. Indicates whether or not to automatically give permission to the teacher's requests, without prompting the student. Requires MDM enrollment via Apple School Manager or Apple Business Manager.
-     *  @param bool|null $value Value to set for the classroomForceAutomaticallyJoinClasses property.
+     * @param bool|null $value Value to set for the classroomForceAutomaticallyJoinClasses property.
     */
     public function setClassroomForceAutomaticallyJoinClasses(?bool $value): void {
         $this->getBackingStore()->set('classroomForceAutomaticallyJoinClasses', $value);
@@ -691,7 +691,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the classroomForceRequestPermissionToLeaveClasses property value. Indicates whether a student enrolled in an unmanaged course via Classroom will be required to request permission from the teacher when attempting to leave the course. Requires MDM enrollment via Apple School Manager or Apple Business Manager.
-     *  @param bool|null $value Value to set for the classroomForceRequestPermissionToLeaveClasses property.
+     * @param bool|null $value Value to set for the classroomForceRequestPermissionToLeaveClasses property.
     */
     public function setClassroomForceRequestPermissionToLeaveClasses(?bool $value): void {
         $this->getBackingStore()->set('classroomForceRequestPermissionToLeaveClasses', $value);
@@ -699,7 +699,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the classroomForceUnpromptedAppAndDeviceLock property value. Indicates whether or not to allow the teacher to lock apps or the device without prompting the student. Requires MDM enrollment via Apple School Manager or Apple Business Manager.
-     *  @param bool|null $value Value to set for the classroomForceUnpromptedAppAndDeviceLock property.
+     * @param bool|null $value Value to set for the classroomForceUnpromptedAppAndDeviceLock property.
     */
     public function setClassroomForceUnpromptedAppAndDeviceLock(?bool $value): void {
         $this->getBackingStore()->set('classroomForceUnpromptedAppAndDeviceLock', $value);
@@ -707,7 +707,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the compliantAppListType property value. Possible values of the compliance app list.
-     *  @param AppListType|null $value Value to set for the compliantAppListType property.
+     * @param AppListType|null $value Value to set for the compliantAppListType property.
     */
     public function setCompliantAppListType(?AppListType $value): void {
         $this->getBackingStore()->set('compliantAppListType', $value);
@@ -715,7 +715,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the compliantAppsList property value. List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
-     *  @param array<AppListItem>|null $value Value to set for the compliantAppsList property.
+     * @param array<AppListItem>|null $value Value to set for the compliantAppsList property.
     */
     public function setCompliantAppsList(?array $value): void {
         $this->getBackingStore()->set('compliantAppsList', $value);
@@ -723,7 +723,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the contentCachingBlocked property value. Indicates whether or not to allow content caching.
-     *  @param bool|null $value Value to set for the contentCachingBlocked property.
+     * @param bool|null $value Value to set for the contentCachingBlocked property.
     */
     public function setContentCachingBlocked(?bool $value): void {
         $this->getBackingStore()->set('contentCachingBlocked', $value);
@@ -731,7 +731,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the definitionLookupBlocked property value. Indicates whether or not to block definition lookup.
-     *  @param bool|null $value Value to set for the definitionLookupBlocked property.
+     * @param bool|null $value Value to set for the definitionLookupBlocked property.
     */
     public function setDefinitionLookupBlocked(?bool $value): void {
         $this->getBackingStore()->set('definitionLookupBlocked', $value);
@@ -739,7 +739,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the emailInDomainSuffixes property value. An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
-     *  @param array<string>|null $value Value to set for the emailInDomainSuffixes property.
+     * @param array<string>|null $value Value to set for the emailInDomainSuffixes property.
     */
     public function setEmailInDomainSuffixes(?array $value): void {
         $this->getBackingStore()->set('emailInDomainSuffixes', $value);
@@ -747,7 +747,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the eraseContentAndSettingsBlocked property value. TRUE disables the reset option on supervised devices. FALSE enables the reset option on supervised devices. Available for devices running macOS versions 12.0 and later.
-     *  @param bool|null $value Value to set for the eraseContentAndSettingsBlocked property.
+     * @param bool|null $value Value to set for the eraseContentAndSettingsBlocked property.
     */
     public function setEraseContentAndSettingsBlocked(?bool $value): void {
         $this->getBackingStore()->set('eraseContentAndSettingsBlocked', $value);
@@ -755,7 +755,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the gameCenterBlocked property value. Yes disables Game Center, and the Game Center icon is removed from the Home screen. Available for devices running macOS versions 10.13 and later.
-     *  @param bool|null $value Value to set for the gameCenterBlocked property.
+     * @param bool|null $value Value to set for the gameCenterBlocked property.
     */
     public function setGameCenterBlocked(?bool $value): void {
         $this->getBackingStore()->set('gameCenterBlocked', $value);
@@ -763,7 +763,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudBlockActivityContinuation property value. Indicates whether or not to block the user from continuing work that they started on a MacOS device on another iOS or MacOS device (MacOS 10.15 or later).
-     *  @param bool|null $value Value to set for the iCloudBlockActivityContinuation property.
+     * @param bool|null $value Value to set for the iCloudBlockActivityContinuation property.
     */
     public function setICloudBlockActivityContinuation(?bool $value): void {
         $this->getBackingStore()->set('iCloudBlockActivityContinuation', $value);
@@ -771,7 +771,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudBlockAddressBook property value. Indicates whether or not to block iCloud from syncing contacts.
-     *  @param bool|null $value Value to set for the iCloudBlockAddressBook property.
+     * @param bool|null $value Value to set for the iCloudBlockAddressBook property.
     */
     public function setICloudBlockAddressBook(?bool $value): void {
         $this->getBackingStore()->set('iCloudBlockAddressBook', $value);
@@ -779,7 +779,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudBlockBookmarks property value. Indicates whether or not to block iCloud from syncing bookmarks.
-     *  @param bool|null $value Value to set for the iCloudBlockBookmarks property.
+     * @param bool|null $value Value to set for the iCloudBlockBookmarks property.
     */
     public function setICloudBlockBookmarks(?bool $value): void {
         $this->getBackingStore()->set('iCloudBlockBookmarks', $value);
@@ -787,7 +787,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudBlockCalendar property value. Indicates whether or not to block iCloud from syncing calendars.
-     *  @param bool|null $value Value to set for the iCloudBlockCalendar property.
+     * @param bool|null $value Value to set for the iCloudBlockCalendar property.
     */
     public function setICloudBlockCalendar(?bool $value): void {
         $this->getBackingStore()->set('iCloudBlockCalendar', $value);
@@ -795,7 +795,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudBlockDocumentSync property value. Indicates whether or not to block iCloud document sync.
-     *  @param bool|null $value Value to set for the iCloudBlockDocumentSync property.
+     * @param bool|null $value Value to set for the iCloudBlockDocumentSync property.
     */
     public function setICloudBlockDocumentSync(?bool $value): void {
         $this->getBackingStore()->set('iCloudBlockDocumentSync', $value);
@@ -803,7 +803,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudBlockMail property value. Indicates whether or not to block iCloud from syncing mail.
-     *  @param bool|null $value Value to set for the iCloudBlockMail property.
+     * @param bool|null $value Value to set for the iCloudBlockMail property.
     */
     public function setICloudBlockMail(?bool $value): void {
         $this->getBackingStore()->set('iCloudBlockMail', $value);
@@ -811,7 +811,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudBlockNotes property value. Indicates whether or not to block iCloud from syncing notes.
-     *  @param bool|null $value Value to set for the iCloudBlockNotes property.
+     * @param bool|null $value Value to set for the iCloudBlockNotes property.
     */
     public function setICloudBlockNotes(?bool $value): void {
         $this->getBackingStore()->set('iCloudBlockNotes', $value);
@@ -819,7 +819,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudBlockPhotoLibrary property value. Indicates whether or not to block iCloud Photo Library.
-     *  @param bool|null $value Value to set for the iCloudBlockPhotoLibrary property.
+     * @param bool|null $value Value to set for the iCloudBlockPhotoLibrary property.
     */
     public function setICloudBlockPhotoLibrary(?bool $value): void {
         $this->getBackingStore()->set('iCloudBlockPhotoLibrary', $value);
@@ -827,7 +827,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudBlockReminders property value. Indicates whether or not to block iCloud from syncing reminders.
-     *  @param bool|null $value Value to set for the iCloudBlockReminders property.
+     * @param bool|null $value Value to set for the iCloudBlockReminders property.
     */
     public function setICloudBlockReminders(?bool $value): void {
         $this->getBackingStore()->set('iCloudBlockReminders', $value);
@@ -835,7 +835,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudDesktopAndDocumentsBlocked property value. When TRUE the synchronization of cloud desktop and documents is blocked. When FALSE, synchronization of the cloud desktop and documents are allowed. Available for devices running macOS 10.12.4 and later.
-     *  @param bool|null $value Value to set for the iCloudDesktopAndDocumentsBlocked property.
+     * @param bool|null $value Value to set for the iCloudDesktopAndDocumentsBlocked property.
     */
     public function setICloudDesktopAndDocumentsBlocked(?bool $value): void {
         $this->getBackingStore()->set('iCloudDesktopAndDocumentsBlocked', $value);
@@ -843,7 +843,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iCloudPrivateRelayBlocked property value. iCloud private relay is an iCloud+ service that prevents networks and servers from monitoring a person's activity across the internet. By blocking iCloud private relay, Apple will not encrypt the traffic leaving the device. Available for devices running macOS 12 and later.
-     *  @param bool|null $value Value to set for the iCloudPrivateRelayBlocked property.
+     * @param bool|null $value Value to set for the iCloudPrivateRelayBlocked property.
     */
     public function setICloudPrivateRelayBlocked(?bool $value): void {
         $this->getBackingStore()->set('iCloudPrivateRelayBlocked', $value);
@@ -851,7 +851,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iTunesBlockFileSharing property value. Indicates whether or not to block files from being transferred using iTunes.
-     *  @param bool|null $value Value to set for the iTunesBlockFileSharing property.
+     * @param bool|null $value Value to set for the iTunesBlockFileSharing property.
     */
     public function setITunesBlockFileSharing(?bool $value): void {
         $this->getBackingStore()->set('iTunesBlockFileSharing', $value);
@@ -859,7 +859,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the iTunesBlockMusicService property value. Indicates whether or not to block Music service and revert Music app to classic mode.
-     *  @param bool|null $value Value to set for the iTunesBlockMusicService property.
+     * @param bool|null $value Value to set for the iTunesBlockMusicService property.
     */
     public function setITunesBlockMusicService(?bool $value): void {
         $this->getBackingStore()->set('iTunesBlockMusicService', $value);
@@ -867,7 +867,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the keyboardBlockDictation property value. Indicates whether or not to block the user from using dictation input.
-     *  @param bool|null $value Value to set for the keyboardBlockDictation property.
+     * @param bool|null $value Value to set for the keyboardBlockDictation property.
     */
     public function setKeyboardBlockDictation(?bool $value): void {
         $this->getBackingStore()->set('keyboardBlockDictation', $value);
@@ -875,7 +875,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the keychainBlockCloudSync property value. Indicates whether or not iCloud keychain synchronization is blocked (macOS 10.12 and later).
-     *  @param bool|null $value Value to set for the keychainBlockCloudSync property.
+     * @param bool|null $value Value to set for the keychainBlockCloudSync property.
     */
     public function setKeychainBlockCloudSync(?bool $value): void {
         $this->getBackingStore()->set('keychainBlockCloudSync', $value);
@@ -883,7 +883,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the multiplayerGamingBlocked property value. TRUE prevents multiplayer gaming when using Game Center. FALSE allows multiplayer gaming when using Game Center. Available for devices running macOS versions 10.13 and later.
-     *  @param bool|null $value Value to set for the multiplayerGamingBlocked property.
+     * @param bool|null $value Value to set for the multiplayerGamingBlocked property.
     */
     public function setMultiplayerGamingBlocked(?bool $value): void {
         $this->getBackingStore()->set('multiplayerGamingBlocked', $value);
@@ -891,7 +891,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordBlockAirDropSharing property value. Indicates whether or not to block sharing passwords with the AirDrop passwords feature.
-     *  @param bool|null $value Value to set for the passwordBlockAirDropSharing property.
+     * @param bool|null $value Value to set for the passwordBlockAirDropSharing property.
     */
     public function setPasswordBlockAirDropSharing(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockAirDropSharing', $value);
@@ -899,7 +899,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordBlockAutoFill property value. Indicates whether or not to block the AutoFill Passwords feature.
-     *  @param bool|null $value Value to set for the passwordBlockAutoFill property.
+     * @param bool|null $value Value to set for the passwordBlockAutoFill property.
     */
     public function setPasswordBlockAutoFill(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockAutoFill', $value);
@@ -907,7 +907,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordBlockFingerprintUnlock property value. Indicates whether or not to block fingerprint unlock.
-     *  @param bool|null $value Value to set for the passwordBlockFingerprintUnlock property.
+     * @param bool|null $value Value to set for the passwordBlockFingerprintUnlock property.
     */
     public function setPasswordBlockFingerprintUnlock(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockFingerprintUnlock', $value);
@@ -915,7 +915,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordBlockModification property value. Indicates whether or not to allow passcode modification.
-     *  @param bool|null $value Value to set for the passwordBlockModification property.
+     * @param bool|null $value Value to set for the passwordBlockModification property.
     */
     public function setPasswordBlockModification(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockModification', $value);
@@ -923,7 +923,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordBlockProximityRequests property value. Indicates whether or not to block requesting passwords from nearby devices.
-     *  @param bool|null $value Value to set for the passwordBlockProximityRequests property.
+     * @param bool|null $value Value to set for the passwordBlockProximityRequests property.
     */
     public function setPasswordBlockProximityRequests(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockProximityRequests', $value);
@@ -931,7 +931,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordBlockSimple property value. Block simple passwords.
-     *  @param bool|null $value Value to set for the passwordBlockSimple property.
+     * @param bool|null $value Value to set for the passwordBlockSimple property.
     */
     public function setPasswordBlockSimple(?bool $value): void {
         $this->getBackingStore()->set('passwordBlockSimple', $value);
@@ -939,7 +939,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordExpirationDays property value. Number of days before the password expires.
-     *  @param int|null $value Value to set for the passwordExpirationDays property.
+     * @param int|null $value Value to set for the passwordExpirationDays property.
     */
     public function setPasswordExpirationDays(?int $value): void {
         $this->getBackingStore()->set('passwordExpirationDays', $value);
@@ -947,7 +947,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordMaximumAttemptCount property value. The number of allowed failed attempts to enter the passcode at the device's lock screen. Valid values 2 to 11
-     *  @param int|null $value Value to set for the passwordMaximumAttemptCount property.
+     * @param int|null $value Value to set for the passwordMaximumAttemptCount property.
     */
     public function setPasswordMaximumAttemptCount(?int $value): void {
         $this->getBackingStore()->set('passwordMaximumAttemptCount', $value);
@@ -955,7 +955,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordMinimumCharacterSetCount property value. Number of character sets a password must contain. Valid values 0 to 4
-     *  @param int|null $value Value to set for the passwordMinimumCharacterSetCount property.
+     * @param int|null $value Value to set for the passwordMinimumCharacterSetCount property.
     */
     public function setPasswordMinimumCharacterSetCount(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumCharacterSetCount', $value);
@@ -963,7 +963,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordMinimumLength property value. Minimum length of passwords.
-     *  @param int|null $value Value to set for the passwordMinimumLength property.
+     * @param int|null $value Value to set for the passwordMinimumLength property.
     */
     public function setPasswordMinimumLength(?int $value): void {
         $this->getBackingStore()->set('passwordMinimumLength', $value);
@@ -971,7 +971,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity required before a password is required.
-     *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeLock property.
+     * @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeLock property.
     */
     public function setPasswordMinutesOfInactivityBeforeLock(?int $value): void {
         $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeLock', $value);
@@ -979,7 +979,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity required before the screen times out.
-     *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
+     * @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
     */
     public function setPasswordMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
         $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeScreenTimeout', $value);
@@ -987,7 +987,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordMinutesUntilFailedLoginReset property value. The number of minutes before the login is reset after the maximum number of unsuccessful login attempts is reached.
-     *  @param int|null $value Value to set for the passwordMinutesUntilFailedLoginReset property.
+     * @param int|null $value Value to set for the passwordMinutesUntilFailedLoginReset property.
     */
     public function setPasswordMinutesUntilFailedLoginReset(?int $value): void {
         $this->getBackingStore()->set('passwordMinutesUntilFailedLoginReset', $value);
@@ -995,7 +995,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block.
-     *  @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
+     * @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
     */
     public function setPasswordPreviousPasswordBlockCount(?int $value): void {
         $this->getBackingStore()->set('passwordPreviousPasswordBlockCount', $value);
@@ -1003,7 +1003,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordRequired property value. Whether or not to require a password.
-     *  @param bool|null $value Value to set for the passwordRequired property.
+     * @param bool|null $value Value to set for the passwordRequired property.
     */
     public function setPasswordRequired(?bool $value): void {
         $this->getBackingStore()->set('passwordRequired', $value);
@@ -1011,7 +1011,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the passwordRequiredType property value. Possible values of required passwords.
-     *  @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
+     * @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?RequiredPasswordType $value): void {
         $this->getBackingStore()->set('passwordRequiredType', $value);
@@ -1019,7 +1019,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the privacyAccessControls property value. List of privacy preference policy controls. This collection can contain a maximum of 10000 elements.
-     *  @param array<MacOSPrivacyAccessControlItem>|null $value Value to set for the privacyAccessControls property.
+     * @param array<MacOSPrivacyAccessControlItem>|null $value Value to set for the privacyAccessControls property.
     */
     public function setPrivacyAccessControls(?array $value): void {
         $this->getBackingStore()->set('privacyAccessControls', $value);
@@ -1027,7 +1027,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the safariBlockAutofill property value. Indicates whether or not to block the user from using Auto fill in Safari.
-     *  @param bool|null $value Value to set for the safariBlockAutofill property.
+     * @param bool|null $value Value to set for the safariBlockAutofill property.
     */
     public function setSafariBlockAutofill(?bool $value): void {
         $this->getBackingStore()->set('safariBlockAutofill', $value);
@@ -1035,7 +1035,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the screenCaptureBlocked property value. Indicates whether or not to block the user from taking Screenshots.
-     *  @param bool|null $value Value to set for the screenCaptureBlocked property.
+     * @param bool|null $value Value to set for the screenCaptureBlocked property.
     */
     public function setScreenCaptureBlocked(?bool $value): void {
         $this->getBackingStore()->set('screenCaptureBlocked', $value);
@@ -1043,7 +1043,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the softwareUpdateMajorOSDeferredInstallDelayInDays property value. Specify the number of days (1-90) to delay visibility of major OS software updates. Available for devices running macOS versions 11.3 and later. Valid values 0 to 90
-     *  @param int|null $value Value to set for the softwareUpdateMajorOSDeferredInstallDelayInDays property.
+     * @param int|null $value Value to set for the softwareUpdateMajorOSDeferredInstallDelayInDays property.
     */
     public function setSoftwareUpdateMajorOSDeferredInstallDelayInDays(?int $value): void {
         $this->getBackingStore()->set('softwareUpdateMajorOSDeferredInstallDelayInDays', $value);
@@ -1051,7 +1051,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the softwareUpdateMinorOSDeferredInstallDelayInDays property value. Specify the number of days (1-90) to delay visibility of minor OS software updates. Available for devices running macOS versions 11.3 and later. Valid values 0 to 90
-     *  @param int|null $value Value to set for the softwareUpdateMinorOSDeferredInstallDelayInDays property.
+     * @param int|null $value Value to set for the softwareUpdateMinorOSDeferredInstallDelayInDays property.
     */
     public function setSoftwareUpdateMinorOSDeferredInstallDelayInDays(?int $value): void {
         $this->getBackingStore()->set('softwareUpdateMinorOSDeferredInstallDelayInDays', $value);
@@ -1059,7 +1059,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the softwareUpdateNonOSDeferredInstallDelayInDays property value. Specify the number of days (1-90) to delay visibility of non-OS software updates. Available for devices running macOS versions 11.3 and later. Valid values 0 to 90
-     *  @param int|null $value Value to set for the softwareUpdateNonOSDeferredInstallDelayInDays property.
+     * @param int|null $value Value to set for the softwareUpdateNonOSDeferredInstallDelayInDays property.
     */
     public function setSoftwareUpdateNonOSDeferredInstallDelayInDays(?int $value): void {
         $this->getBackingStore()->set('softwareUpdateNonOSDeferredInstallDelayInDays', $value);
@@ -1067,7 +1067,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the softwareUpdatesEnforcedDelayInDays property value. Sets how many days a software update will be delyed for a supervised device. Valid values 0 to 90
-     *  @param int|null $value Value to set for the softwareUpdatesEnforcedDelayInDays property.
+     * @param int|null $value Value to set for the softwareUpdatesEnforcedDelayInDays property.
     */
     public function setSoftwareUpdatesEnforcedDelayInDays(?int $value): void {
         $this->getBackingStore()->set('softwareUpdatesEnforcedDelayInDays', $value);
@@ -1075,7 +1075,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the spotlightBlockInternetResults property value. Indicates whether or not to block Spotlight from returning any results from an Internet search.
-     *  @param bool|null $value Value to set for the spotlightBlockInternetResults property.
+     * @param bool|null $value Value to set for the spotlightBlockInternetResults property.
     */
     public function setSpotlightBlockInternetResults(?bool $value): void {
         $this->getBackingStore()->set('spotlightBlockInternetResults', $value);
@@ -1083,7 +1083,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the touchIdTimeoutInHours property value. Maximum hours after which the user must enter their password to unlock the device instead of using Touch ID. Available for devices running macOS 12 and later. Valid values 0 to 2147483647
-     *  @param int|null $value Value to set for the touchIdTimeoutInHours property.
+     * @param int|null $value Value to set for the touchIdTimeoutInHours property.
     */
     public function setTouchIdTimeoutInHours(?int $value): void {
         $this->getBackingStore()->set('touchIdTimeoutInHours', $value);
@@ -1091,7 +1091,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the updateDelayPolicy property value. Determines whether to delay OS and/or app updates for macOS. Possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility, unknownFutureValue, delayMajorOsUpdateVisibility.
-     *  @param MacOSSoftwareUpdateDelayPolicy|null $value Value to set for the updateDelayPolicy property.
+     * @param MacOSSoftwareUpdateDelayPolicy|null $value Value to set for the updateDelayPolicy property.
     */
     public function setUpdateDelayPolicy(?MacOSSoftwareUpdateDelayPolicy $value): void {
         $this->getBackingStore()->set('updateDelayPolicy', $value);
@@ -1099,7 +1099,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
 
     /**
      * Sets the wallpaperModificationBlocked property value. TRUE prevents the wallpaper from being changed. FALSE allows the wallpaper to be changed. Available for devices running macOS versions 10.13 and later.
-     *  @param bool|null $value Value to set for the wallpaperModificationBlocked property.
+     * @param bool|null $value Value to set for the wallpaperModificationBlocked property.
     */
     public function setWallpaperModificationBlocked(?bool $value): void {
         $this->getBackingStore()->set('wallpaperModificationBlocked', $value);

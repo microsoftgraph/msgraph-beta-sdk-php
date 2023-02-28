@@ -4,15 +4,18 @@ namespace Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\GetCloudPcConnectivity
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+*/
 class GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array<string, string>|null $headers Request headers
+     * @var array<string, array<string>|string>|null $headers Request headers
     */
     public ?array $headers = null;
     
     /**
-     * @var array<string, RequestOption>|null $options Request options
+     * @var array<RequestOption>|null $options Request options
     */
     public ?array $options = null;
     
@@ -21,4 +24,29 @@ class GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration
     */
     public ?GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new getCloudPcConnectivityHistoryRequestBuilderGetQueryParameters.
+     * @param bool|null $count Include count of items
+     * @param string|null $filter Filter items by property values
+     * @param string|null $search Search items by search phrases
+     * @param int|null $skip Skip the first n items
+     * @param int|null $top Show only the first n items
+     * @return GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?bool $count = null, ?string $filter = null, ?string $search = null, ?int $skip = null, ?int $top = null): GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters {
+        return new GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters($count, $filter, $search, $skip, $top);
+    }
+
+    /**
+     * Instantiates a new getCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

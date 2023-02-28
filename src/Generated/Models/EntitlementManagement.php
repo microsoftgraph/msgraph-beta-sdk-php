@@ -184,7 +184,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignmentApprovals property value. The accessPackageAssignmentApprovals property
-     *  @param array<Approval>|null $value Value to set for the accessPackageAssignmentApprovals property.
+     * @param array<Approval>|null $value Value to set for the accessPackageAssignmentApprovals property.
     */
     public function setAccessPackageAssignmentApprovals(?array $value): void {
         $this->getBackingStore()->set('accessPackageAssignmentApprovals', $value);
@@ -192,7 +192,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignmentPolicies property value. Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
-     *  @param array<AccessPackageAssignmentPolicy>|null $value Value to set for the accessPackageAssignmentPolicies property.
+     * @param array<AccessPackageAssignmentPolicy>|null $value Value to set for the accessPackageAssignmentPolicies property.
     */
     public function setAccessPackageAssignmentPolicies(?array $value): void {
         $this->getBackingStore()->set('accessPackageAssignmentPolicies', $value);
@@ -200,7 +200,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
-     *  @param array<AccessPackageAssignmentRequest>|null $value Value to set for the accessPackageAssignmentRequests property.
+     * @param array<AccessPackageAssignmentRequest>|null $value Value to set for the accessPackageAssignmentRequests property.
     */
     public function setAccessPackageAssignmentRequests(?array $value): void {
         $this->getBackingStore()->set('accessPackageAssignmentRequests', $value);
@@ -208,7 +208,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignmentResourceRoles property value. Represents the resource-specific role which a subject has been assigned through an access package assignment.
-     *  @param array<AccessPackageAssignmentResourceRole>|null $value Value to set for the accessPackageAssignmentResourceRoles property.
+     * @param array<AccessPackageAssignmentResourceRole>|null $value Value to set for the accessPackageAssignmentResourceRoles property.
     */
     public function setAccessPackageAssignmentResourceRoles(?array $value): void {
         $this->getBackingStore()->set('accessPackageAssignmentResourceRoles', $value);
@@ -216,7 +216,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignments property value. The assignment of an access package to a subject for a period of time.
-     *  @param array<AccessPackageAssignment>|null $value Value to set for the accessPackageAssignments property.
+     * @param array<AccessPackageAssignment>|null $value Value to set for the accessPackageAssignments property.
     */
     public function setAccessPackageAssignments(?array $value): void {
         $this->getBackingStore()->set('accessPackageAssignments', $value);
@@ -224,7 +224,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageCatalogs property value. A container of access packages.
-     *  @param array<AccessPackageCatalog>|null $value Value to set for the accessPackageCatalogs property.
+     * @param array<AccessPackageCatalog>|null $value Value to set for the accessPackageCatalogs property.
     */
     public function setAccessPackageCatalogs(?array $value): void {
         $this->getBackingStore()->set('accessPackageCatalogs', $value);
@@ -232,7 +232,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceEnvironments property value. A reference to the geolocation environment in which a resource is located.
-     *  @param array<AccessPackageResourceEnvironment>|null $value Value to set for the accessPackageResourceEnvironments property.
+     * @param array<AccessPackageResourceEnvironment>|null $value Value to set for the accessPackageResourceEnvironments property.
     */
     public function setAccessPackageResourceEnvironments(?array $value): void {
         $this->getBackingStore()->set('accessPackageResourceEnvironments', $value);
@@ -240,7 +240,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceRequests property value. Represents a request to add or remove a resource to or from a catalog respectively.
-     *  @param array<AccessPackageResourceRequest>|null $value Value to set for the accessPackageResourceRequests property.
+     * @param array<AccessPackageResourceRequest>|null $value Value to set for the accessPackageResourceRequests property.
     */
     public function setAccessPackageResourceRequests(?array $value): void {
         $this->getBackingStore()->set('accessPackageResourceRequests', $value);
@@ -248,7 +248,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResourceRoleScopes property value. A reference to both a scope within a resource, and a role in that resource for that scope.
-     *  @param array<AccessPackageResourceRoleScope>|null $value Value to set for the accessPackageResourceRoleScopes property.
+     * @param array<AccessPackageResourceRoleScope>|null $value Value to set for the accessPackageResourceRoleScopes property.
     */
     public function setAccessPackageResourceRoleScopes(?array $value): void {
         $this->getBackingStore()->set('accessPackageResourceRoleScopes', $value);
@@ -256,7 +256,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackageResources property value. A reference to a resource associated with an access package catalog.
-     *  @param array<AccessPackageResource>|null $value Value to set for the accessPackageResources property.
+     * @param array<AccessPackageResource>|null $value Value to set for the accessPackageResources property.
     */
     public function setAccessPackageResources(?array $value): void {
         $this->getBackingStore()->set('accessPackageResources', $value);
@@ -264,7 +264,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the accessPackages property value. Represents access package objects.
-     *  @param array<AccessPackage>|null $value Value to set for the accessPackages property.
+     * @param array<AccessPackage>|null $value Value to set for the accessPackages property.
     */
     public function setAccessPackages(?array $value): void {
         $this->getBackingStore()->set('accessPackages', $value);
@@ -272,7 +272,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the connectedOrganizations property value. Represents references to a directory or domain of another organization whose users can request access.
-     *  @param array<ConnectedOrganization>|null $value Value to set for the connectedOrganizations property.
+     * @param array<ConnectedOrganization>|null $value Value to set for the connectedOrganizations property.
     */
     public function setConnectedOrganizations(?array $value): void {
         $this->getBackingStore()->set('connectedOrganizations', $value);
@@ -280,7 +280,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the settings property value. Represents the settings that control the behavior of Azure AD entitlement management.
-     *  @param EntitlementManagementSettings|null $value Value to set for the settings property.
+     * @param EntitlementManagementSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?EntitlementManagementSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -288,7 +288,7 @@ class EntitlementManagement extends Entity implements Parsable
 
     /**
      * Sets the subjects property value. The subjects property
-     *  @param array<AccessPackageSubject>|null $value Value to set for the subjects property.
+     * @param array<AccessPackageSubject>|null $value Value to set for the subjects property.
     */
     public function setSubjects(?array $value): void {
         $this->getBackingStore()->set('subjects', $value);

@@ -46,7 +46,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -112,7 +112,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the addedPolicySetItems property value. The addedPolicySetItems property
-     *  @param array<PolicySetItem>|null $value Value to set for the addedPolicySetItems property.
+     * @param array<PolicySetItem>|null $value Value to set for the addedPolicySetItems property.
     */
     public function setAddedPolicySetItems(?array $value): void {
         $this->getBackingStore()->set('addedPolicySetItems', $value);
@@ -120,7 +120,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the assignments property value. The assignments property
-     *  @param array<PolicySetAssignment>|null $value Value to set for the assignments property.
+     * @param array<PolicySetAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -136,7 +136,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +144,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the deletedPolicySetItems property value. The deletedPolicySetItems property
-     *  @param array<string>|null $value Value to set for the deletedPolicySetItems property.
+     * @param array<string>|null $value Value to set for the deletedPolicySetItems property.
     */
     public function setDeletedPolicySetItems(?array $value): void {
         $this->getBackingStore()->set('deletedPolicySetItems', $value);
@@ -152,7 +152,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the updatedPolicySetItems property value. The updatedPolicySetItems property
-     *  @param array<PolicySetItem>|null $value Value to set for the updatedPolicySetItems property.
+     * @param array<PolicySetItem>|null $value Value to set for the updatedPolicySetItems property.
     */
     public function setUpdatedPolicySetItems(?array $value): void {
         $this->getBackingStore()->set('updatedPolicySetItems', $value);

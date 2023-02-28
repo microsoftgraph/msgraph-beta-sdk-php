@@ -155,7 +155,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the alwaysOn property value. Whether or not to enable always-on VPN connection.
-     *  @param bool|null $value Value to set for the alwaysOn property.
+     * @param bool|null $value Value to set for the alwaysOn property.
     */
     public function setAlwaysOn(?bool $value): void {
         $this->getBackingStore()->set('alwaysOn', $value);
@@ -163,7 +163,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the alwaysOnLockdown property value. If always-on VPN connection is enabled, whether or not to lock network traffic when that VPN is disconnected.
-     *  @param bool|null $value Value to set for the alwaysOnLockdown property.
+     * @param bool|null $value Value to set for the alwaysOnLockdown property.
     */
     public function setAlwaysOnLockdown(?bool $value): void {
         $this->getBackingStore()->set('alwaysOnLockdown', $value);
@@ -171,7 +171,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the connectionType property value. Android VPN connection type.
-     *  @param AndroidVpnConnectionType|null $value Value to set for the connectionType property.
+     * @param AndroidVpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?AndroidVpnConnectionType $value): void {
         $this->getBackingStore()->set('connectionType', $value);
@@ -179,7 +179,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the customData property value. Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
-     *  @param array<KeyValue>|null $value Value to set for the customData property.
+     * @param array<KeyValue>|null $value Value to set for the customData property.
     */
     public function setCustomData(?array $value): void {
         $this->getBackingStore()->set('customData', $value);
@@ -187,7 +187,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the customKeyValueData property value. Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
-     *  @param array<KeyValuePair>|null $value Value to set for the customKeyValueData property.
+     * @param array<KeyValuePair>|null $value Value to set for the customKeyValueData property.
     */
     public function setCustomKeyValueData(?array $value): void {
         $this->getBackingStore()->set('customKeyValueData', $value);
@@ -195,7 +195,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
-     *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
+     * @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
     public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
         $this->getBackingStore()->set('derivedCredentialSettings', $value);
@@ -203,7 +203,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
-     *  @param AndroidDeviceOwnerCertificateProfileBase|null $value Value to set for the identityCertificate property.
+     * @param AndroidDeviceOwnerCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
     public function setIdentityCertificate(?AndroidDeviceOwnerCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
@@ -211,7 +211,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the microsoftTunnelSiteId property value. Microsoft Tunnel site ID.
-     *  @param string|null $value Value to set for the microsoftTunnelSiteId property.
+     * @param string|null $value Value to set for the microsoftTunnelSiteId property.
     */
     public function setMicrosoftTunnelSiteId(?string $value): void {
         $this->getBackingStore()->set('microsoftTunnelSiteId', $value);
@@ -219,7 +219,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the proxyServer property value. Proxy server.
-     *  @param VpnProxyServer|null $value Value to set for the proxyServer property.
+     * @param VpnProxyServer|null $value Value to set for the proxyServer property.
     */
     public function setProxyServer(?VpnProxyServer $value): void {
         $this->getBackingStore()->set('proxyServer', $value);
@@ -227,7 +227,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the targetedMobileApps property value. Targeted mobile apps. This collection can contain a maximum of 500 elements.
-     *  @param array<AppListItem>|null $value Value to set for the targetedMobileApps property.
+     * @param array<AppListItem>|null $value Value to set for the targetedMobileApps property.
     */
     public function setTargetedMobileApps(?array $value): void {
         $this->getBackingStore()->set('targetedMobileApps', $value);
@@ -235,7 +235,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
 
     /**
      * Sets the targetedPackageIds property value. Targeted App package IDs.
-     *  @param array<string>|null $value Value to set for the targetedPackageIds property.
+     * @param array<string>|null $value Value to set for the targetedPackageIds property.
     */
     public function setTargetedPackageIds(?array $value): void {
         $this->getBackingStore()->set('targetedPackageIds', $value);

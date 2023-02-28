@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents wipe requests issued by tenant admin for Bring-Your-Own-Device(BYOD) Windows devices.
+*/
 class WindowsInformationProtectionWipeAction extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
 
     /**
      * Sets the lastCheckInDateTime property value. Last checkin time of the device that was targeted by this wipe action.
-     *  @param DateTime|null $value Value to set for the lastCheckInDateTime property.
+     * @param DateTime|null $value Value to set for the lastCheckInDateTime property.
     */
     public function setLastCheckInDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastCheckInDateTime', $value);
@@ -113,7 +116,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param ActionState|null $value Value to set for the status property.
+     * @param ActionState|null $value Value to set for the status property.
     */
     public function setStatus(?ActionState $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -121,7 +124,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
 
     /**
      * Sets the targetedDeviceMacAddress property value. Targeted device Mac address.
-     *  @param string|null $value Value to set for the targetedDeviceMacAddress property.
+     * @param string|null $value Value to set for the targetedDeviceMacAddress property.
     */
     public function setTargetedDeviceMacAddress(?string $value): void {
         $this->getBackingStore()->set('targetedDeviceMacAddress', $value);
@@ -129,7 +132,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
 
     /**
      * Sets the targetedDeviceName property value. Targeted device name.
-     *  @param string|null $value Value to set for the targetedDeviceName property.
+     * @param string|null $value Value to set for the targetedDeviceName property.
     */
     public function setTargetedDeviceName(?string $value): void {
         $this->getBackingStore()->set('targetedDeviceName', $value);
@@ -137,7 +140,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
 
     /**
      * Sets the targetedDeviceRegistrationId property value. The DeviceRegistrationId being targeted by this wipe action.
-     *  @param string|null $value Value to set for the targetedDeviceRegistrationId property.
+     * @param string|null $value Value to set for the targetedDeviceRegistrationId property.
     */
     public function setTargetedDeviceRegistrationId(?string $value): void {
         $this->getBackingStore()->set('targetedDeviceRegistrationId', $value);
@@ -145,7 +148,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
 
     /**
      * Sets the targetedUserId property value. The UserId being targeted by this wipe action.
-     *  @param string|null $value Value to set for the targetedUserId property.
+     * @param string|null $value Value to set for the targetedUserId property.
     */
     public function setTargetedUserId(?string $value): void {
         $this->getBackingStore()->set('targetedUserId', $value);

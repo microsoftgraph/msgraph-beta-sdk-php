@@ -37,7 +37,7 @@ class CreateMigrationReportPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -81,7 +81,7 @@ class CreateMigrationReportPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -89,7 +89,7 @@ class CreateMigrationReportPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -97,7 +97,7 @@ class CreateMigrationReportPostRequestBody implements AdditionalDataHolder, Back
 
     /**
      * Sets the groupPolicyObjectFile property value. The groupPolicyObjectFile property
-     *  @param GroupPolicyObjectFile|null $value Value to set for the groupPolicyObjectFile property.
+     * @param GroupPolicyObjectFile|null $value Value to set for the groupPolicyObjectFile property.
     */
     public function setGroupPolicyObjectFile(?GroupPolicyObjectFile $value): void {
         $this->getBackingStore()->set('groupPolicyObjectFile', $value);

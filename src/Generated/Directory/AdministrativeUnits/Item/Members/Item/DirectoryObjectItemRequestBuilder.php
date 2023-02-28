@@ -2,43 +2,60 @@
 
 namespace Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item;
 
-use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\Application\ApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\Device\DeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\Group\GroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\OrgContact\OrgContactRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\GraphApplication\GraphApplicationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\GraphDevice\GraphDeviceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\GraphOrgContact\GraphOrgContactRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\GraphUser\GraphUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\ServicePrincipal\ServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\Members\Item\User\UserRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 
+/**
+ * Builds and executes requests for operations under /directory/administrativeUnits/{administrativeUnit-id}/members/{directoryObject-id}
+*/
 class DirectoryObjectItemRequestBuilder 
 {
     /**
      * Casts the previous resource to application.
     */
-    public function application(): ApplicationRequestBuilder {
-        return new ApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function graphApplication(): GraphApplicationRequestBuilder {
+        return new GraphApplicationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Casts the previous resource to device.
     */
-    public function device(): DeviceRequestBuilder {
-        return new DeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function graphDevice(): GraphDeviceRequestBuilder {
+        return new GraphDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Casts the previous resource to group.
     */
-    public function group(): GroupRequestBuilder {
-        return new GroupRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function graphGroup(): GraphGroupRequestBuilder {
+        return new GraphGroupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Casts the previous resource to orgContact.
     */
-    public function orgContact(): OrgContactRequestBuilder {
-        return new OrgContactRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function graphOrgContact(): GraphOrgContactRequestBuilder {
+        return new GraphOrgContactRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to servicePrincipal.
+    */
+    public function graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
+        return new GraphServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to user.
+    */
+    public function graphUser(): GraphUserRequestBuilder {
+        return new GraphUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -59,33 +76,23 @@ class DirectoryObjectItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * Casts the previous resource to servicePrincipal.
-    */
-    public function servicePrincipal(): ServicePrincipalRequestBuilder {
-        return new ServicePrincipalRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
     
     /**
-     * Casts the previous resource to user.
-    */
-    public function user(): UserRequestBuilder {
-        return new UserRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/members/{directoryObject%2Did}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
 }

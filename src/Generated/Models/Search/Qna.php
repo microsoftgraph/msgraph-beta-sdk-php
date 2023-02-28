@@ -136,7 +136,7 @@ class Qna extends SearchAnswer implements Parsable
 
     /**
      * Sets the availabilityEndDateTime property value. Timestamp of when the qna will stop to appear as a search result. Set as null for always available.
-     *  @param DateTime|null $value Value to set for the availabilityEndDateTime property.
+     * @param DateTime|null $value Value to set for the availabilityEndDateTime property.
     */
     public function setAvailabilityEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('availabilityEndDateTime', $value);
@@ -144,7 +144,7 @@ class Qna extends SearchAnswer implements Parsable
 
     /**
      * Sets the availabilityStartDateTime property value. Timestamp of when the qna will start to appear as a search result. Set as null for always available.
-     *  @param DateTime|null $value Value to set for the availabilityStartDateTime property.
+     * @param DateTime|null $value Value to set for the availabilityStartDateTime property.
     */
     public function setAvailabilityStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('availabilityStartDateTime', $value);
@@ -152,7 +152,7 @@ class Qna extends SearchAnswer implements Parsable
 
     /**
      * Sets the groupIds property value. List of security groups able to view this qna.
-     *  @param array<string>|null $value Value to set for the groupIds property.
+     * @param array<string>|null $value Value to set for the groupIds property.
     */
     public function setGroupIds(?array $value): void {
         $this->getBackingStore()->set('groupIds', $value);
@@ -160,7 +160,7 @@ class Qna extends SearchAnswer implements Parsable
 
     /**
      * Sets the isSuggested property value. True if this qna was suggested to the admin by a user or was mined and suggested by Microsoft. Read-only.
-     *  @param bool|null $value Value to set for the isSuggested property.
+     * @param bool|null $value Value to set for the isSuggested property.
     */
     public function setIsSuggested(?bool $value): void {
         $this->getBackingStore()->set('isSuggested', $value);
@@ -168,7 +168,7 @@ class Qna extends SearchAnswer implements Parsable
 
     /**
      * Sets the keywords property value. Keywords that trigger this qna to appear in search results.
-     *  @param AnswerKeyword|null $value Value to set for the keywords property.
+     * @param AnswerKeyword|null $value Value to set for the keywords property.
     */
     public function setKeywords(?AnswerKeyword $value): void {
         $this->getBackingStore()->set('keywords', $value);
@@ -176,7 +176,7 @@ class Qna extends SearchAnswer implements Parsable
 
     /**
      * Sets the languageTags property value. A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. For the list of possible values, see supported language tags.
-     *  @param array<string>|null $value Value to set for the languageTags property.
+     * @param array<string>|null $value Value to set for the languageTags property.
     */
     public function setLanguageTags(?array $value): void {
         $this->getBackingStore()->set('languageTags', $value);
@@ -184,7 +184,7 @@ class Qna extends SearchAnswer implements Parsable
 
     /**
      * Sets the platforms property value. List of devices and operating systems able to view this qna. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
-     *  @param array<DevicePlatformType>|null $value Value to set for the platforms property.
+     * @param array<DevicePlatformType>|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?array $value): void {
         $this->getBackingStore()->set('platforms', $value);
@@ -192,7 +192,7 @@ class Qna extends SearchAnswer implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param AnswerState|null $value Value to set for the state property.
+     * @param AnswerState|null $value Value to set for the state property.
     */
     public function setState(?AnswerState $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -200,7 +200,7 @@ class Qna extends SearchAnswer implements Parsable
 
     /**
      * Sets the targetedVariations property value. Variations of a qna for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings will apply to all variations.
-     *  @param array<AnswerVariant>|null $value Value to set for the targetedVariations property.
+     * @param array<AnswerVariant>|null $value Value to set for the targetedVariations property.
     */
     public function setTargetedVariations(?array $value): void {
         $this->getBackingStore()->set('targetedVariations', $value);

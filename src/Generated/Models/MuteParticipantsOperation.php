@@ -54,7 +54,7 @@ class MuteParticipantsOperation extends CommsOperation implements Parsable
 
     /**
      * Sets the participants property value. The participants property
-     *  @param array<string>|null $value Value to set for the participants property.
+     * @param array<string>|null $value Value to set for the participants property.
     */
     public function setParticipants(?array $value): void {
         $this->getBackingStore()->set('participants', $value);

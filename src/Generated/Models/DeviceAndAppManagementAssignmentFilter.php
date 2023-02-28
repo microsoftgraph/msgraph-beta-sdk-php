@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for Assignment Filter.
+*/
 class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable 
 {
     /**
@@ -132,7 +135,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. Creation time of the Assignment Filter.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -140,7 +143,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the Assignment Filter.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -148,7 +151,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. DisplayName of the Assignment Filter.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -156,7 +159,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified time of the Assignment Filter.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -164,7 +167,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
 
     /**
      * Sets the payloads property value. Associated assignments for a specific filter
-     *  @param array<PayloadByFilter>|null $value Value to set for the payloads property.
+     * @param array<PayloadByFilter>|null $value Value to set for the payloads property.
     */
     public function setPayloads(?array $value): void {
         $this->getBackingStore()->set('payloads', $value);
@@ -172,7 +175,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
 
     /**
      * Sets the platform property value. Supported platform types.
-     *  @param DevicePlatformType|null $value Value to set for the platform property.
+     * @param DevicePlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DevicePlatformType $value): void {
         $this->getBackingStore()->set('platform', $value);
@@ -180,7 +183,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTags property value. RoleScopeTags of the Assignment Filter.
-     *  @param array<string>|null $value Value to set for the roleScopeTags property.
+     * @param array<string>|null $value Value to set for the roleScopeTags property.
     */
     public function setRoleScopeTags(?array $value): void {
         $this->getBackingStore()->set('roleScopeTags', $value);
@@ -188,7 +191,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
 
     /**
      * Sets the rule property value. Rule definition of the Assignment Filter.
-     *  @param string|null $value Value to set for the rule property.
+     * @param string|null $value Value to set for the rule property.
     */
     public function setRule(?string $value): void {
         $this->getBackingStore()->set('rule', $value);

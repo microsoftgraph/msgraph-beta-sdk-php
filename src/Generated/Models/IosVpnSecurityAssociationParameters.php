@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * VPN Security Association Parameters
+*/
 class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Sets the lifetimeInMinutes property value. Lifetime (minutes)
-     *  @param int|null $value Value to set for the lifetimeInMinutes property.
+     * @param int|null $value Value to set for the lifetimeInMinutes property.
     */
     public function setLifetimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('lifetimeInMinutes', $value);
@@ -144,7 +147,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -152,7 +155,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Sets the securityDiffieHellmanGroup property value. Diffie-Hellman Group
-     *  @param int|null $value Value to set for the securityDiffieHellmanGroup property.
+     * @param int|null $value Value to set for the securityDiffieHellmanGroup property.
     */
     public function setSecurityDiffieHellmanGroup(?int $value): void {
         $this->getBackingStore()->set('securityDiffieHellmanGroup', $value);
@@ -160,7 +163,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Sets the securityEncryptionAlgorithm property value. Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-     *  @param VpnEncryptionAlgorithmType|null $value Value to set for the securityEncryptionAlgorithm property.
+     * @param VpnEncryptionAlgorithmType|null $value Value to set for the securityEncryptionAlgorithm property.
     */
     public function setSecurityEncryptionAlgorithm(?VpnEncryptionAlgorithmType $value): void {
         $this->getBackingStore()->set('securityEncryptionAlgorithm', $value);
@@ -168,7 +171,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
 
     /**
      * Sets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
-     *  @param VpnIntegrityAlgorithmType|null $value Value to set for the securityIntegrityAlgorithm property.
+     * @param VpnIntegrityAlgorithmType|null $value Value to set for the securityIntegrityAlgorithm property.
     */
     public function setSecurityIntegrityAlgorithm(?VpnIntegrityAlgorithmType $value): void {
         $this->getBackingStore()->set('securityIntegrityAlgorithm', $value);

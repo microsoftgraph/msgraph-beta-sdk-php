@@ -83,7 +83,7 @@ class ExternalActivity extends Entity implements Parsable
 
     /**
      * Sets the performedBy property value. Represents an identity used to identify who is responsible for the activity.
-     *  @param Identity|null $value Value to set for the performedBy property.
+     * @param Identity|null $value Value to set for the performedBy property.
     */
     public function setPerformedBy(?Identity $value): void {
         $this->getBackingStore()->set('performedBy', $value);
@@ -91,7 +91,7 @@ class ExternalActivity extends Entity implements Parsable
 
     /**
      * Sets the startDateTime property value. When the particular activity occurred.
-     *  @param DateTime|null $value Value to set for the startDateTime property.
+     * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('startDateTime', $value);
@@ -99,7 +99,7 @@ class ExternalActivity extends Entity implements Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param ExternalActivityType|null $value Value to set for the type property.
+     * @param ExternalActivityType|null $value Value to set for the type property.
     */
     public function setType(?ExternalActivityType $value): void {
         $this->getBackingStore()->set('type', $value);

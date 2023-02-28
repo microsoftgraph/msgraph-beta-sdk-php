@@ -38,7 +38,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -132,7 +132,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -140,7 +140,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -148,7 +148,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the expirationDateTime property value. The expirationDateTime property
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -156,7 +156,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the password property value. The password property
-     *  @param string|null $value Value to set for the password property.
+     * @param string|null $value Value to set for the password property.
     */
     public function setPassword(?string $value): void {
         $this->getBackingStore()->set('password', $value);
@@ -164,7 +164,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the recipients property value. The recipients property
-     *  @param array<DriveRecipient>|null $value Value to set for the recipients property.
+     * @param array<DriveRecipient>|null $value Value to set for the recipients property.
     */
     public function setRecipients(?array $value): void {
         $this->getBackingStore()->set('recipients', $value);
@@ -172,7 +172,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the retainInheritedPermissions property value. The retainInheritedPermissions property
-     *  @param bool|null $value Value to set for the retainInheritedPermissions property.
+     * @param bool|null $value Value to set for the retainInheritedPermissions property.
     */
     public function setRetainInheritedPermissions(?bool $value): void {
         $this->getBackingStore()->set('retainInheritedPermissions', $value);
@@ -180,7 +180,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the scope property value. The scope property
-     *  @param string|null $value Value to set for the scope property.
+     * @param string|null $value Value to set for the scope property.
     */
     public function setScope(?string $value): void {
         $this->getBackingStore()->set('scope', $value);
@@ -188,7 +188,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the type property value. The type property
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);

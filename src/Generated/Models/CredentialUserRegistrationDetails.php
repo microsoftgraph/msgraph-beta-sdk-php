@@ -114,7 +114,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
 
     /**
      * Sets the authMethods property value. Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
-     *  @param array<RegistrationAuthMethod>|null $value Value to set for the authMethods property.
+     * @param array<RegistrationAuthMethod>|null $value Value to set for the authMethods property.
     */
     public function setAuthMethods(?array $value): void {
         $this->getBackingStore()->set('authMethods', $value);
@@ -122,7 +122,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
 
     /**
      * Sets the isCapable property value. Indicates whether the user is ready to perform self-service password reset or MFA.
-     *  @param bool|null $value Value to set for the isCapable property.
+     * @param bool|null $value Value to set for the isCapable property.
     */
     public function setIsCapable(?bool $value): void {
         $this->getBackingStore()->set('isCapable', $value);
@@ -130,7 +130,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
 
     /**
      * Sets the isEnabled property value. Indicates whether the user enabled to perform self-service password reset.
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -138,7 +138,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
 
     /**
      * Sets the isMfaRegistered property value. Indicates whether the user is registered for MFA.
-     *  @param bool|null $value Value to set for the isMfaRegistered property.
+     * @param bool|null $value Value to set for the isMfaRegistered property.
     */
     public function setIsMfaRegistered(?bool $value): void {
         $this->getBackingStore()->set('isMfaRegistered', $value);
@@ -146,7 +146,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
 
     /**
      * Sets the isRegistered property value. Indicates whether the user has registered any authentication methods for self-service password reset.
-     *  @param bool|null $value Value to set for the isRegistered property.
+     * @param bool|null $value Value to set for the isRegistered property.
     */
     public function setIsRegistered(?bool $value): void {
         $this->getBackingStore()->set('isRegistered', $value);
@@ -154,7 +154,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
 
     /**
      * Sets the userDisplayName property value. Provides the user name of the corresponding user.
-     *  @param string|null $value Value to set for the userDisplayName property.
+     * @param string|null $value Value to set for the userDisplayName property.
     */
     public function setUserDisplayName(?string $value): void {
         $this->getBackingStore()->set('userDisplayName', $value);
@@ -162,7 +162,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. Provides the user principal name of the corresponding user.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

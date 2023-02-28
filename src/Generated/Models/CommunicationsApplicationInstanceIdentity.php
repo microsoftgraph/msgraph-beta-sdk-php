@@ -65,7 +65,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
 
     /**
      * Sets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
-     *  @param bool|null $value Value to set for the hidden property.
+     * @param bool|null $value Value to set for the hidden property.
     */
     public function setHidden(?bool $value): void {
         $this->getBackingStore()->set('hidden', $value);
@@ -73,7 +73,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
 
     /**
      * Sets the tenantId property value. The application's tenant ID.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

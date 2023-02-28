@@ -36,7 +36,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the customizedLabel property value. Title/label override for customization.
-     *  @param string|null $value Value to set for the customizedLabel property.
+     * @param string|null $value Value to set for the customizedLabel property.
     */
     public function setCustomizedLabel(?string $value): void {
         $this->getBackingStore()->set('customizedLabel', $value);
@@ -144,7 +144,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the defaultLabel property value. Label that would be used if no customizedLabel is provided. Read only.
-     *  @param string|null $value Value to set for the defaultLabel property.
+     * @param string|null $value Value to set for the defaultLabel property.
     */
     public function setDefaultLabel(?string $value): void {
         $this->getBackingStore()->set('defaultLabel', $value);
@@ -152,7 +152,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the fieldId property value. Id used to identity the field type. This is an internal id and possible values are param_1, param_2, param_userName, param_password.
-     *  @param string|null $value Value to set for the fieldId property.
+     * @param string|null $value Value to set for the fieldId property.
     */
     public function setFieldId(?string $value): void {
         $this->getBackingStore()->set('fieldId', $value);
@@ -160,7 +160,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the type property value. Type of the credential. The values can be text, password.
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);

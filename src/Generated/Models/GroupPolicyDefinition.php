@@ -215,7 +215,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the category property value. The group policy category associated with the definition.
-     *  @param GroupPolicyCategory|null $value Value to set for the category property.
+     * @param GroupPolicyCategory|null $value Value to set for the category property.
     */
     public function setCategory(?GroupPolicyCategory $value): void {
         $this->getBackingStore()->set('category', $value);
@@ -223,7 +223,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the categoryPath property value. The localized full category path for the policy.
-     *  @param string|null $value Value to set for the categoryPath property.
+     * @param string|null $value Value to set for the categoryPath property.
     */
     public function setCategoryPath(?string $value): void {
         $this->getBackingStore()->set('categoryPath', $value);
@@ -231,7 +231,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the classType property value. Group Policy Definition Class Type.
-     *  @param GroupPolicyDefinitionClassType|null $value Value to set for the classType property.
+     * @param GroupPolicyDefinitionClassType|null $value Value to set for the classType property.
     */
     public function setClassType(?GroupPolicyDefinitionClassType $value): void {
         $this->getBackingStore()->set('classType', $value);
@@ -239,7 +239,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the definitionFile property value. The group policy file associated with the definition.
-     *  @param GroupPolicyDefinitionFile|null $value Value to set for the definitionFile property.
+     * @param GroupPolicyDefinitionFile|null $value Value to set for the definitionFile property.
     */
     public function setDefinitionFile(?GroupPolicyDefinitionFile $value): void {
         $this->getBackingStore()->set('definitionFile', $value);
@@ -247,7 +247,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The localized policy name.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -255,7 +255,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the explainText property value. The localized explanation or help text associated with the policy. The default value is empty.
-     *  @param string|null $value Value to set for the explainText property.
+     * @param string|null $value Value to set for the explainText property.
     */
     public function setExplainText(?string $value): void {
         $this->getBackingStore()->set('explainText', $value);
@@ -263,7 +263,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyCategoryId property value. The category id of the parent category
-     *  @param string|null $value Value to set for the groupPolicyCategoryId property.
+     * @param string|null $value Value to set for the groupPolicyCategoryId property.
     */
     public function setGroupPolicyCategoryId(?string $value): void {
         $this->getBackingStore()->set('groupPolicyCategoryId', $value);
@@ -271,7 +271,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the hasRelatedDefinitions property value. Signifies whether or not there are related definitions to this definition
-     *  @param bool|null $value Value to set for the hasRelatedDefinitions property.
+     * @param bool|null $value Value to set for the hasRelatedDefinitions property.
     */
     public function setHasRelatedDefinitions(?bool $value): void {
         $this->getBackingStore()->set('hasRelatedDefinitions', $value);
@@ -279,7 +279,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -287,7 +287,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the minDeviceCspVersion property value. Minimum required CSP version for device configuration in this definition
-     *  @param string|null $value Value to set for the minDeviceCspVersion property.
+     * @param string|null $value Value to set for the minDeviceCspVersion property.
     */
     public function setMinDeviceCspVersion(?string $value): void {
         $this->getBackingStore()->set('minDeviceCspVersion', $value);
@@ -295,7 +295,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the minUserCspVersion property value. Minimum required CSP version for user configuration in this definition
-     *  @param string|null $value Value to set for the minUserCspVersion property.
+     * @param string|null $value Value to set for the minUserCspVersion property.
     */
     public function setMinUserCspVersion(?string $value): void {
         $this->getBackingStore()->set('minUserCspVersion', $value);
@@ -303,7 +303,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the nextVersionDefinition property value. Definition of the next version of this definition
-     *  @param GroupPolicyDefinition|null $value Value to set for the nextVersionDefinition property.
+     * @param GroupPolicyDefinition|null $value Value to set for the nextVersionDefinition property.
     */
     public function setNextVersionDefinition(?GroupPolicyDefinition $value): void {
         $this->getBackingStore()->set('nextVersionDefinition', $value);
@@ -311,7 +311,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the policyType property value. Type of Group Policy File or Definition.
-     *  @param GroupPolicyType|null $value Value to set for the policyType property.
+     * @param GroupPolicyType|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?GroupPolicyType $value): void {
         $this->getBackingStore()->set('policyType', $value);
@@ -319,7 +319,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the presentations property value. The group policy presentations associated with the definition.
-     *  @param array<GroupPolicyPresentation>|null $value Value to set for the presentations property.
+     * @param array<GroupPolicyPresentation>|null $value Value to set for the presentations property.
     */
     public function setPresentations(?array $value): void {
         $this->getBackingStore()->set('presentations', $value);
@@ -327,7 +327,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the previousVersionDefinition property value. Definition of the previous version of this definition
-     *  @param GroupPolicyDefinition|null $value Value to set for the previousVersionDefinition property.
+     * @param GroupPolicyDefinition|null $value Value to set for the previousVersionDefinition property.
     */
     public function setPreviousVersionDefinition(?GroupPolicyDefinition $value): void {
         $this->getBackingStore()->set('previousVersionDefinition', $value);
@@ -335,7 +335,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the supportedOn property value. Localized string used to specify what operating system or application version is affected by the policy.
-     *  @param string|null $value Value to set for the supportedOn property.
+     * @param string|null $value Value to set for the supportedOn property.
     */
     public function setSupportedOn(?string $value): void {
         $this->getBackingStore()->set('supportedOn', $value);
@@ -343,7 +343,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
 
     /**
      * Sets the version property value. Setting definition version
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

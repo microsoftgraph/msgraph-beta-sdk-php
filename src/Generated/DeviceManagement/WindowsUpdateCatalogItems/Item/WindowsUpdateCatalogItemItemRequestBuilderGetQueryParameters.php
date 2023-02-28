@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsUpdateCatalogIt
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * A collection of windows update catalog items (fetaure updates item , quality updates item)
+*/
 class WindowsUpdateCatalogItemItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class WindowsUpdateCatalogItemItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new WindowsUpdateCatalogItemItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

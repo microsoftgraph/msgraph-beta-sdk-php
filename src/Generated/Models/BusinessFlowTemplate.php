@@ -54,7 +54,7 @@ class BusinessFlowTemplate extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the business flow template
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

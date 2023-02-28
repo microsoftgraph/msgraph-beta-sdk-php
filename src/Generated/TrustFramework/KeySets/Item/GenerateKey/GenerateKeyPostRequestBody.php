@@ -41,7 +41,7 @@ class GenerateKeyPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -115,7 +115,7 @@ class GenerateKeyPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -123,7 +123,7 @@ class GenerateKeyPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -131,7 +131,7 @@ class GenerateKeyPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the exp property value. The exp property
-     *  @param int|null $value Value to set for the exp property.
+     * @param int|null $value Value to set for the exp property.
     */
     public function setExp(?int $value): void {
         $this->getBackingStore()->set('exp', $value);
@@ -139,7 +139,7 @@ class GenerateKeyPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the kty property value. The kty property
-     *  @param string|null $value Value to set for the kty property.
+     * @param string|null $value Value to set for the kty property.
     */
     public function setKty(?string $value): void {
         $this->getBackingStore()->set('kty', $value);
@@ -147,7 +147,7 @@ class GenerateKeyPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the nbf property value. The nbf property
-     *  @param int|null $value Value to set for the nbf property.
+     * @param int|null $value Value to set for the nbf property.
     */
     public function setNbf(?int $value): void {
         $this->getBackingStore()->set('nbf', $value);
@@ -155,7 +155,7 @@ class GenerateKeyPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the use property value. The use property
-     *  @param string|null $value Value to set for the EscapedUse property.
+     * @param string|null $value Value to set for the EscapedUse property.
     */
     public function setUse(?string $value): void {
         $this->getBackingStore()->set('escapedUse', $value);

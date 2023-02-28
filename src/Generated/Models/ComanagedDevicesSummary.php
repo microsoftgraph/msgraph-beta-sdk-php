@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Summary data for co managed devices
+*/
 class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -161,7 +164,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -169,7 +172,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -177,7 +180,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the compliancePolicyCount property value. Number of devices with CompliancePolicy swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the compliancePolicyCount property.
+     * @param int|null $value Value to set for the compliancePolicyCount property.
     */
     public function setCompliancePolicyCount(?int $value): void {
         $this->getBackingStore()->set('compliancePolicyCount', $value);
@@ -185,7 +188,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the configurationSettingsCount property value. Number of devices with ConfigurationSettings swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the configurationSettingsCount property.
+     * @param int|null $value Value to set for the configurationSettingsCount property.
     */
     public function setConfigurationSettingsCount(?int $value): void {
         $this->getBackingStore()->set('configurationSettingsCount', $value);
@@ -193,7 +196,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the endpointProtectionCount property value. Number of devices with EndpointProtection swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the endpointProtectionCount property.
+     * @param int|null $value Value to set for the endpointProtectionCount property.
     */
     public function setEndpointProtectionCount(?int $value): void {
         $this->getBackingStore()->set('endpointProtectionCount', $value);
@@ -201,7 +204,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the inventoryCount property value. Number of devices with Inventory swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the inventoryCount property.
+     * @param int|null $value Value to set for the inventoryCount property.
     */
     public function setInventoryCount(?int $value): void {
         $this->getBackingStore()->set('inventoryCount', $value);
@@ -209,7 +212,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the modernAppsCount property value. Number of devices with ModernApps swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the modernAppsCount property.
+     * @param int|null $value Value to set for the modernAppsCount property.
     */
     public function setModernAppsCount(?int $value): void {
         $this->getBackingStore()->set('modernAppsCount', $value);
@@ -217,7 +220,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -225,7 +228,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the officeAppsCount property value. Number of devices with OfficeApps swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the officeAppsCount property.
+     * @param int|null $value Value to set for the officeAppsCount property.
     */
     public function setOfficeAppsCount(?int $value): void {
         $this->getBackingStore()->set('officeAppsCount', $value);
@@ -233,7 +236,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the resourceAccessCount property value. Number of devices with ResourceAccess swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the resourceAccessCount property.
+     * @param int|null $value Value to set for the resourceAccessCount property.
     */
     public function setResourceAccessCount(?int $value): void {
         $this->getBackingStore()->set('resourceAccessCount', $value);
@@ -241,7 +244,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the totalComanagedCount property value. Number of Co-Managed Devices. This property is read-only.
-     *  @param int|null $value Value to set for the totalComanagedCount property.
+     * @param int|null $value Value to set for the totalComanagedCount property.
     */
     public function setTotalComanagedCount(?int $value): void {
         $this->getBackingStore()->set('totalComanagedCount', $value);
@@ -249,7 +252,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, BackedModel, Pars
 
     /**
      * Sets the windowsUpdateForBusinessCount property value. Number of devices with WindowsUpdateForBusiness swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the windowsUpdateForBusinessCount property.
+     * @param int|null $value Value to set for the windowsUpdateForBusinessCount property.
     */
     public function setWindowsUpdateForBusinessCount(?int $value): void {
         $this->getBackingStore()->set('windowsUpdateForBusinessCount', $value);

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health os performance entity contains battery related information for all operating system versions in their organization.
+*/
 class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implements Parsable 
 {
     /**
@@ -104,7 +107,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
 
     /**
      * Sets the activeDevices property value. Number of active devices for that os version. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the activeDevices property.
+     * @param int|null $value Value to set for the activeDevices property.
     */
     public function setActiveDevices(?int $value): void {
         $this->getBackingStore()->set('activeDevices', $value);
@@ -112,7 +115,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
 
     /**
      * Sets the averageBatteryAgeInDays property value. The mean of the battery age for all devices running a particular operating system version in a tenant. Unit in days. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the averageBatteryAgeInDays property.
+     * @param int|null $value Value to set for the averageBatteryAgeInDays property.
     */
     public function setAverageBatteryAgeInDays(?int $value): void {
         $this->getBackingStore()->set('averageBatteryAgeInDays', $value);
@@ -120,7 +123,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
 
     /**
      * Sets the averageEstimatedRuntimeInMinutes property value. The mean of the estimated runtimes on full charge for all devices running a particular operating system version. Unit in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the averageEstimatedRuntimeInMinutes property.
+     * @param int|null $value Value to set for the averageEstimatedRuntimeInMinutes property.
     */
     public function setAverageEstimatedRuntimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('averageEstimatedRuntimeInMinutes', $value);
@@ -128,7 +131,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
 
     /**
      * Sets the averageMaxCapacityPercentage property value. The mean of the maximum capacity for all devices running a particular operating system version. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the averageMaxCapacityPercentage property.
+     * @param int|null $value Value to set for the averageMaxCapacityPercentage property.
     */
     public function setAverageMaxCapacityPercentage(?int $value): void {
         $this->getBackingStore()->set('averageMaxCapacityPercentage', $value);
@@ -136,7 +139,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
 
     /**
      * Sets the osBuildNumber property value. Build number of the operating system.
-     *  @param string|null $value Value to set for the osBuildNumber property.
+     * @param string|null $value Value to set for the osBuildNumber property.
     */
     public function setOsBuildNumber(?string $value): void {
         $this->getBackingStore()->set('osBuildNumber', $value);
@@ -144,7 +147,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
 
     /**
      * Sets the osVersion property value. Version of the operating system.
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);

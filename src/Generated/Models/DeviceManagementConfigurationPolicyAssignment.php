@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The DeviceManagementConfigurationPolicyAssignment entity assigns a specific DeviceManagementConfigurationPolicy to an AAD group.
+*/
 class DeviceManagementConfigurationPolicyAssignment extends Entity implements Parsable 
 {
     /**
@@ -74,7 +77,7 @@ class DeviceManagementConfigurationPolicyAssignment extends Entity implements Pa
 
     /**
      * Sets the source property value. Represents source of assignment.
-     *  @param DeviceAndAppManagementAssignmentSource|null $value Value to set for the source property.
+     * @param DeviceAndAppManagementAssignmentSource|null $value Value to set for the source property.
     */
     public function setSource(?DeviceAndAppManagementAssignmentSource $value): void {
         $this->getBackingStore()->set('source', $value);
@@ -82,7 +85,7 @@ class DeviceManagementConfigurationPolicyAssignment extends Entity implements Pa
 
     /**
      * Sets the sourceId property value. The identifier of the source of the assignment.
-     *  @param string|null $value Value to set for the sourceId property.
+     * @param string|null $value Value to set for the sourceId property.
     */
     public function setSourceId(?string $value): void {
         $this->getBackingStore()->set('sourceId', $value);
@@ -90,7 +93,7 @@ class DeviceManagementConfigurationPolicyAssignment extends Entity implements Pa
 
     /**
      * Sets the target property value. The assignment target for the DeviceManagementConfigurationPolicy.
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

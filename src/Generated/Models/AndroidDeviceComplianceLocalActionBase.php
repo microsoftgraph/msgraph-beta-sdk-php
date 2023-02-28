@@ -62,7 +62,7 @@ class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable
 
     /**
      * Sets the gracePeriodInMinutes property value. Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647
-     *  @param int|null $value Value to set for the gracePeriodInMinutes property.
+     * @param int|null $value Value to set for the gracePeriodInMinutes property.
     */
     public function setGracePeriodInMinutes(?int $value): void {
         $this->getBackingStore()->set('gracePeriodInMinutes', $value);

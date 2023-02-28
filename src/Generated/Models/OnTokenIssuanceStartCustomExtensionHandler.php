@@ -55,7 +55,7 @@ class OnTokenIssuanceStartCustomExtensionHandler extends OnTokenIssuanceStartHan
 
     /**
      * Sets the customExtension property value. The customExtension property
-     *  @param OnTokenIssuanceStartCustomExtension|null $value Value to set for the customExtension property.
+     * @param OnTokenIssuanceStartCustomExtension|null $value Value to set for the customExtension property.
     */
     public function setCustomExtension(?OnTokenIssuanceStartCustomExtension $value): void {
         $this->getBackingStore()->set('customExtension', $value);

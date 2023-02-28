@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Graph model for a reusable setting
+*/
 class DeviceManagementReusablePolicySetting extends Entity implements Parsable 
 {
     /**
@@ -131,7 +134,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. reusable setting creation date and time. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -139,7 +142,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
 
     /**
      * Sets the description property value. reusable setting description supplied by user.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -147,7 +150,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. reusable setting display name supplied by user.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -155,7 +158,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. date and time when reusable setting was last modified. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -163,7 +166,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
 
     /**
      * Sets the referencingConfigurationPolicies property value. configuration policies referencing the current reusable setting. This property is read-only.
-     *  @param array<DeviceManagementConfigurationPolicy>|null $value Value to set for the referencingConfigurationPolicies property.
+     * @param array<DeviceManagementConfigurationPolicy>|null $value Value to set for the referencingConfigurationPolicies property.
     */
     public function setReferencingConfigurationPolicies(?array $value): void {
         $this->getBackingStore()->set('referencingConfigurationPolicies', $value);
@@ -171,7 +174,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
 
     /**
      * Sets the referencingConfigurationPolicyCount property value. count of configuration policies referencing the current reusable setting. Valid values 0 to 2147483647. This property is read-only.
-     *  @param int|null $value Value to set for the referencingConfigurationPolicyCount property.
+     * @param int|null $value Value to set for the referencingConfigurationPolicyCount property.
     */
     public function setReferencingConfigurationPolicyCount(?int $value): void {
         $this->getBackingStore()->set('referencingConfigurationPolicyCount', $value);
@@ -179,7 +182,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
 
     /**
      * Sets the settingDefinitionId property value. setting definition id associated with this reusable setting.
-     *  @param string|null $value Value to set for the settingDefinitionId property.
+     * @param string|null $value Value to set for the settingDefinitionId property.
     */
     public function setSettingDefinitionId(?string $value): void {
         $this->getBackingStore()->set('settingDefinitionId', $value);
@@ -187,7 +190,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
 
     /**
      * Sets the settingInstance property value. reusable setting configuration instance
-     *  @param DeviceManagementConfigurationSettingInstance|null $value Value to set for the settingInstance property.
+     * @param DeviceManagementConfigurationSettingInstance|null $value Value to set for the settingInstance property.
     */
     public function setSettingInstance(?DeviceManagementConfigurationSettingInstance $value): void {
         $this->getBackingStore()->set('settingInstance', $value);
@@ -195,7 +198,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
 
     /**
      * Sets the version property value. version number for reusable setting. Valid values 0 to 2147483647. This property is read-only.
-     *  @param int|null $value Value to set for the version property.
+     * @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value): void {
         $this->getBackingStore()->set('version', $value);

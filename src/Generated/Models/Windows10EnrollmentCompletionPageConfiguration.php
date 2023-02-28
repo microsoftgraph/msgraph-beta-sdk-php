@@ -165,7 +165,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the allowDeviceResetOnInstallFailure property value. Allow or block device reset on installation failure
-     *  @param bool|null $value Value to set for the allowDeviceResetOnInstallFailure property.
+     * @param bool|null $value Value to set for the allowDeviceResetOnInstallFailure property.
     */
     public function setAllowDeviceResetOnInstallFailure(?bool $value): void {
         $this->getBackingStore()->set('allowDeviceResetOnInstallFailure', $value);
@@ -173,7 +173,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the allowDeviceUseOnInstallFailure property value. Allow the user to continue using the device on installation failure
-     *  @param bool|null $value Value to set for the allowDeviceUseOnInstallFailure property.
+     * @param bool|null $value Value to set for the allowDeviceUseOnInstallFailure property.
     */
     public function setAllowDeviceUseOnInstallFailure(?bool $value): void {
         $this->getBackingStore()->set('allowDeviceUseOnInstallFailure', $value);
@@ -181,7 +181,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the allowLogCollectionOnInstallFailure property value. Allow or block log collection on installation failure
-     *  @param bool|null $value Value to set for the allowLogCollectionOnInstallFailure property.
+     * @param bool|null $value Value to set for the allowLogCollectionOnInstallFailure property.
     */
     public function setAllowLogCollectionOnInstallFailure(?bool $value): void {
         $this->getBackingStore()->set('allowLogCollectionOnInstallFailure', $value);
@@ -189,7 +189,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the allowNonBlockingAppInstallation property value. Install all required apps as non blocking apps during white glove
-     *  @param bool|null $value Value to set for the allowNonBlockingAppInstallation property.
+     * @param bool|null $value Value to set for the allowNonBlockingAppInstallation property.
     */
     public function setAllowNonBlockingAppInstallation(?bool $value): void {
         $this->getBackingStore()->set('allowNonBlockingAppInstallation', $value);
@@ -197,7 +197,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the blockDeviceSetupRetryByUser property value. Allow the user to retry the setup on installation failure
-     *  @param bool|null $value Value to set for the blockDeviceSetupRetryByUser property.
+     * @param bool|null $value Value to set for the blockDeviceSetupRetryByUser property.
     */
     public function setBlockDeviceSetupRetryByUser(?bool $value): void {
         $this->getBackingStore()->set('blockDeviceSetupRetryByUser', $value);
@@ -205,7 +205,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the customErrorMessage property value. Set custom error message to show upon installation failure
-     *  @param string|null $value Value to set for the customErrorMessage property.
+     * @param string|null $value Value to set for the customErrorMessage property.
     */
     public function setCustomErrorMessage(?string $value): void {
         $this->getBackingStore()->set('customErrorMessage', $value);
@@ -213,7 +213,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the disableUserStatusTrackingAfterFirstUser property value. Only show installation progress for first user post enrollment
-     *  @param bool|null $value Value to set for the disableUserStatusTrackingAfterFirstUser property.
+     * @param bool|null $value Value to set for the disableUserStatusTrackingAfterFirstUser property.
     */
     public function setDisableUserStatusTrackingAfterFirstUser(?bool $value): void {
         $this->getBackingStore()->set('disableUserStatusTrackingAfterFirstUser', $value);
@@ -221,7 +221,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the installProgressTimeoutInMinutes property value. Set installation progress timeout in minutes
-     *  @param int|null $value Value to set for the installProgressTimeoutInMinutes property.
+     * @param int|null $value Value to set for the installProgressTimeoutInMinutes property.
     */
     public function setInstallProgressTimeoutInMinutes(?int $value): void {
         $this->getBackingStore()->set('installProgressTimeoutInMinutes', $value);
@@ -229,7 +229,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the installQualityUpdates property value. Allows quality updates installation during OOBE
-     *  @param bool|null $value Value to set for the installQualityUpdates property.
+     * @param bool|null $value Value to set for the installQualityUpdates property.
     */
     public function setInstallQualityUpdates(?bool $value): void {
         $this->getBackingStore()->set('installQualityUpdates', $value);
@@ -237,7 +237,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the selectedMobileAppIds property value. Selected applications to track the installation status
-     *  @param array<string>|null $value Value to set for the selectedMobileAppIds property.
+     * @param array<string>|null $value Value to set for the selectedMobileAppIds property.
     */
     public function setSelectedMobileAppIds(?array $value): void {
         $this->getBackingStore()->set('selectedMobileAppIds', $value);
@@ -245,7 +245,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the showInstallationProgress property value. Show or hide installation progress to user
-     *  @param bool|null $value Value to set for the showInstallationProgress property.
+     * @param bool|null $value Value to set for the showInstallationProgress property.
     */
     public function setShowInstallationProgress(?bool $value): void {
         $this->getBackingStore()->set('showInstallationProgress', $value);
@@ -253,7 +253,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
 
     /**
      * Sets the trackInstallProgressForAutopilotOnly property value. Only show installation progress for Autopilot enrollment scenarios
-     *  @param bool|null $value Value to set for the trackInstallProgressForAutopilotOnly property.
+     * @param bool|null $value Value to set for the trackInstallProgressForAutopilotOnly property.
     */
     public function setTrackInstallProgressForAutopilotOnly(?bool $value): void {
         $this->getBackingStore()->set('trackInstallProgressForAutopilotOnly', $value);

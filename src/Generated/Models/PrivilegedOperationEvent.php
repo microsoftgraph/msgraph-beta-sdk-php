@@ -185,7 +185,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the additionalInformation property value. Detailed human readable information for the event.
-     *  @param string|null $value Value to set for the additionalInformation property.
+     * @param string|null $value Value to set for the additionalInformation property.
     */
     public function setAdditionalInformation(?string $value): void {
         $this->getBackingStore()->set('additionalInformation', $value);
@@ -193,7 +193,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the creationDateTime property value. Indicates the time when the event is created.
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
+     * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('creationDateTime', $value);
@@ -201,7 +201,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the expirationDateTime property value. This is only used when the requestType is Activate, and it indicates the expiration time for the role activation.
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -209,7 +209,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the referenceKey property value. Incident/Request ticket number during role activation. The value is presented only if the ticket number is provided during role activation.
-     *  @param string|null $value Value to set for the referenceKey property.
+     * @param string|null $value Value to set for the referenceKey property.
     */
     public function setReferenceKey(?string $value): void {
         $this->getBackingStore()->set('referenceKey', $value);
@@ -217,7 +217,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the referenceSystem property value. Incident/Request ticketing system provided during tole activation. The value is presented only if the ticket system is provided during role activation.
-     *  @param string|null $value Value to set for the referenceSystem property.
+     * @param string|null $value Value to set for the referenceSystem property.
     */
     public function setReferenceSystem(?string $value): void {
         $this->getBackingStore()->set('referenceSystem', $value);
@@ -225,7 +225,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the requestorId property value. The user id of the requestor who initiates the operation.
-     *  @param string|null $value Value to set for the requestorId property.
+     * @param string|null $value Value to set for the requestorId property.
     */
     public function setRequestorId(?string $value): void {
         $this->getBackingStore()->set('requestorId', $value);
@@ -233,7 +233,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the requestorName property value. The user name of the requestor who initiates the operation.
-     *  @param string|null $value Value to set for the requestorName property.
+     * @param string|null $value Value to set for the requestorName property.
     */
     public function setRequestorName(?string $value): void {
         $this->getBackingStore()->set('requestorName', $value);
@@ -241,7 +241,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the requestType property value. The request operation type. The requestType value can be: Assign (role assignment), Activate (role activation), Unassign (remove role assignment), Deactivate (role deactivation), ScanAlertsNow (scan security alerts), DismissAlert (dismiss security alert), FixAlertItem (fix a security alert issue),  AccessReview_Review (review an Access Review), AccessReview_Create (create an Access Review) , AccessReview_Update (update an Access Review), AccessReview_Delete (delete an Access Review).
-     *  @param string|null $value Value to set for the requestType property.
+     * @param string|null $value Value to set for the requestType property.
     */
     public function setRequestType(?string $value): void {
         $this->getBackingStore()->set('requestType', $value);
@@ -249,7 +249,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the roleId property value. The id of the role that is associated with the operation.
-     *  @param string|null $value Value to set for the roleId property.
+     * @param string|null $value Value to set for the roleId property.
     */
     public function setRoleId(?string $value): void {
         $this->getBackingStore()->set('roleId', $value);
@@ -257,7 +257,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the roleName property value. The name of the role.
-     *  @param string|null $value Value to set for the roleName property.
+     * @param string|null $value Value to set for the roleName property.
     */
     public function setRoleName(?string $value): void {
         $this->getBackingStore()->set('roleName', $value);
@@ -265,7 +265,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The tenant (organization) id.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -273,7 +273,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the userId property value. The id of the user that is associated with the operation.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -281,7 +281,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the userMail property value. The user's email.
-     *  @param string|null $value Value to set for the userMail property.
+     * @param string|null $value Value to set for the userMail property.
     */
     public function setUserMail(?string $value): void {
         $this->getBackingStore()->set('userMail', $value);
@@ -289,7 +289,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
 
     /**
      * Sets the userName property value. The user's display name.
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);

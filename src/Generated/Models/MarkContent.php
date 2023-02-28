@@ -84,7 +84,7 @@ class MarkContent extends LabelActionBase implements Parsable
 
     /**
      * Sets the fontColor property value. The fontColor property
-     *  @param string|null $value Value to set for the fontColor property.
+     * @param string|null $value Value to set for the fontColor property.
     */
     public function setFontColor(?string $value): void {
         $this->getBackingStore()->set('fontColor', $value);
@@ -92,7 +92,7 @@ class MarkContent extends LabelActionBase implements Parsable
 
     /**
      * Sets the fontSize property value. The fontSize property
-     *  @param int|null $value Value to set for the fontSize property.
+     * @param int|null $value Value to set for the fontSize property.
     */
     public function setFontSize(?int $value): void {
         $this->getBackingStore()->set('fontSize', $value);
@@ -100,7 +100,7 @@ class MarkContent extends LabelActionBase implements Parsable
 
     /**
      * Sets the text property value. The text property
-     *  @param string|null $value Value to set for the text property.
+     * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
         $this->getBackingStore()->set('text', $value);

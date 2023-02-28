@@ -91,7 +91,7 @@ class IdentityProvider extends Entity implements Parsable
 
     /**
      * Sets the clientId property value. The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable.
-     *  @param string|null $value Value to set for the clientId property.
+     * @param string|null $value Value to set for the clientId property.
     */
     public function setClientId(?string $value): void {
         $this->getBackingStore()->set('clientId', $value);
@@ -99,7 +99,7 @@ class IdentityProvider extends Entity implements Parsable
 
     /**
      * Sets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return ****. This is a required field. Required. Not nullable.
-     *  @param string|null $value Value to set for the clientSecret property.
+     * @param string|null $value Value to set for the clientSecret property.
     */
     public function setClientSecret(?string $value): void {
         $this->getBackingStore()->set('clientSecret', $value);
@@ -107,7 +107,7 @@ class IdentityProvider extends Entity implements Parsable
 
     /**
      * Sets the name property value. The display name of the identity provider. Not nullable.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -115,7 +115,7 @@ class IdentityProvider extends Entity implements Parsable
 
     /**
      * Sets the type property value. The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable.
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);

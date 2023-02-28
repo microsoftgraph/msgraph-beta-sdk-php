@@ -36,7 +36,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the asn property value. The asn property
-     *  @param int|null $value Value to set for the asn property.
+     * @param int|null $value Value to set for the asn property.
     */
     public function setAsn(?int $value): void {
         $this->getBackingStore()->set('asn', $value);
@@ -156,7 +156,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +164,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the city property value. The city property
-     *  @param string|null $value Value to set for the city property.
+     * @param string|null $value Value to set for the city property.
     */
     public function setCity(?string $value): void {
         $this->getBackingStore()->set('city', $value);
@@ -172,7 +172,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the countryOrRegionCode property value. The countryOrRegionCode property
-     *  @param string|null $value Value to set for the countryOrRegionCode property.
+     * @param string|null $value Value to set for the countryOrRegionCode property.
     */
     public function setCountryOrRegionCode(?string $value): void {
         $this->getBackingStore()->set('countryOrRegionCode', $value);
@@ -180,7 +180,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -188,7 +188,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the organization property value. The organization property
-     *  @param string|null $value Value to set for the organization property.
+     * @param string|null $value Value to set for the organization property.
     */
     public function setOrganization(?string $value): void {
         $this->getBackingStore()->set('organization', $value);
@@ -196,7 +196,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param string|null $value Value to set for the state property.
+     * @param string|null $value Value to set for the state property.
     */
     public function setState(?string $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -204,7 +204,7 @@ class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the vendor property value. The vendor property
-     *  @param string|null $value Value to set for the vendor property.
+     * @param string|null $value Value to set for the vendor property.
     */
     public function setVendor(?string $value): void {
         $this->getBackingStore()->set('vendor', $value);

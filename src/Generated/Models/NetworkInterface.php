@@ -36,7 +36,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -146,7 +146,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -154,7 +154,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ipV4Address property value. Last IPv4 address associated with this NIC.
-     *  @param string|null $value Value to set for the ipV4Address property.
+     * @param string|null $value Value to set for the ipV4Address property.
     */
     public function setIpV4Address(?string $value): void {
         $this->getBackingStore()->set('ipV4Address', $value);
@@ -162,7 +162,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ipV6Address property value. Last Public (aka global) IPv6 address associated with this NIC.
-     *  @param string|null $value Value to set for the ipV6Address property.
+     * @param string|null $value Value to set for the ipV6Address property.
     */
     public function setIpV6Address(?string $value): void {
         $this->getBackingStore()->set('ipV6Address', $value);
@@ -170,7 +170,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the localIpV6Address property value. Last local (link-local or site-local) IPv6 address associated with this NIC.
-     *  @param string|null $value Value to set for the localIpV6Address property.
+     * @param string|null $value Value to set for the localIpV6Address property.
     */
     public function setLocalIpV6Address(?string $value): void {
         $this->getBackingStore()->set('localIpV6Address', $value);
@@ -178,7 +178,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the macAddress property value. MAC address of the NIC on this host.
-     *  @param string|null $value Value to set for the macAddress property.
+     * @param string|null $value Value to set for the macAddress property.
     */
     public function setMacAddress(?string $value): void {
         $this->getBackingStore()->set('macAddress', $value);
@@ -186,7 +186,7 @@ class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

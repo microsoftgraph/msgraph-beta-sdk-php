@@ -72,7 +72,6 @@ use Microsoft\Graph\Beta\Generated\DomainDnsRecords\DomainDnsRecordsRequestBuild
 use Microsoft\Graph\Beta\Generated\DomainDnsRecords\Item\DomainDnsRecordItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\DomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Domains\Item\DomainItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\EducationRequestBuilder;
@@ -193,8 +192,6 @@ use Microsoft\Graph\Beta\Generated\ThreatSubmission\ThreatSubmissionRequestBuild
 use Microsoft\Graph\Beta\Generated\TrustFramework\TrustFrameworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\UsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Workbooks\Item\DriveItemItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Workbooks\WorkbooksRequestBuilder;
 use Microsoft\Kiota\Abstractions\ApiClientBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactory;
@@ -204,6 +201,9 @@ use Microsoft\Kiota\Serialization\Json\JsonSerializationWriterFactory;
 use Microsoft\Kiota\Serialization\Text\TextParseNodeFactory;
 use Microsoft\Kiota\Serialization\Text\TextSerializationWriterFactory;
 
+/**
+ * The main entry point of the SDK, exposes the configuration and the fluent API.
+*/
 class BaseGraphClient 
 {
     /**
@@ -494,13 +494,6 @@ class BaseGraphClient
     }
     
     /**
-     * Provides operations to manage the drive singleton.
-    */
-    public function drive(): DriveRequestBuilder {
-        return new DriveRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the collection of drive entities.
     */
     public function drives(): DrivesRequestBuilder {
@@ -744,7 +737,7 @@ class BaseGraphClient
     }
     
     /**
-     * Provides operations to manage the collection of place entities.
+     * The places property
     */
     public function places(): PlacesRequestBuilder {
         return new PlacesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -1027,13 +1020,6 @@ class BaseGraphClient
     }
     
     /**
-     * Provides operations to manage the collection of driveItem entities.
-    */
-    public function workbooks(): WorkbooksRequestBuilder {
-        return new WorkbooksRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the collection of accessReviewDecision entities.
      * @param string $id Unique identifier of the item
      * @return AccessReviewDecisionItemRequestBuilder
@@ -1258,6 +1244,7 @@ class BaseGraphClient
         if (empty($this->requestAdapter->getBaseUrl())) {
             $this->requestAdapter->setBaseUrl('https://graph.microsoft.com/beta');
         }
+        $this->pathParameters['baseUrl'] = $this->requestAdapter->getBaseUrl();
         $this->requestAdapter->enableBackingStore($backingStore ?? BackingStoreFactorySingleton::getInstance());
     }
 
@@ -1886,17 +1873,6 @@ class BaseGraphClient
         $urlTplParams = $this->pathParameters;
         $urlTplParams['user%2Did'] = $id;
         return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the collection of driveItem entities.
-     * @param string $id Unique identifier of the item
-     * @return DriveItemItemRequestBuilder
-    */
-    public function workbooksById(string $id): DriveItemItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['driveItem%2Did'] = $id;
-        return new DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

@@ -44,7 +44,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -108,7 +108,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -116,7 +116,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -124,7 +124,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
 
     /**
      * Sets the clientId property value. Client ID used to connect to the provider.
-     *  @param string|null $value Value to set for the clientId property.
+     * @param string|null $value Value to set for the clientId property.
     */
     public function setClientId(?string $value): void {
         $this->getBackingStore()->set('clientId', $value);
@@ -132,7 +132,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
 
     /**
      * Sets the clientSecret property value. Client secret to authenticate the connection to the provider.
-     *  @param string|null $value Value to set for the clientSecret property.
+     * @param string|null $value Value to set for the clientSecret property.
     */
     public function setClientSecret(?string $value): void {
         $this->getBackingStore()->set('clientSecret', $value);
@@ -140,7 +140,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

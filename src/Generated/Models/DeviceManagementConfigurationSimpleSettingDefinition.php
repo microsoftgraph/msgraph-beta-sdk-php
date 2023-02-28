@@ -91,7 +91,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
     /**
      * Sets the defaultValue property value. Default setting value for this setting
-     *  @param DeviceManagementConfigurationSettingValue|null $value Value to set for the defaultValue property.
+     * @param DeviceManagementConfigurationSettingValue|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?DeviceManagementConfigurationSettingValue $value): void {
         $this->getBackingStore()->set('defaultValue', $value);
@@ -99,7 +99,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
     /**
      * Sets the dependedOnBy property value. list of child settings that depend on this setting
-     *  @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
+     * @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
     */
     public function setDependedOnBy(?array $value): void {
         $this->getBackingStore()->set('dependedOnBy', $value);
@@ -107,7 +107,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
     /**
      * Sets the dependentOn property value. list of parent settings this setting is dependent on
-     *  @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
+     * @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
     */
     public function setDependentOn(?array $value): void {
         $this->getBackingStore()->set('dependentOn', $value);
@@ -115,7 +115,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
     /**
      * Sets the valueDefinition property value. Definition of the value for this setting
-     *  @param DeviceManagementConfigurationSettingValueDefinition|null $value Value to set for the valueDefinition property.
+     * @param DeviceManagementConfigurationSettingValueDefinition|null $value Value to set for the valueDefinition property.
     */
     public function setValueDefinition(?DeviceManagementConfigurationSettingValueDefinition $value): void {
         $this->getBackingStore()->set('valueDefinition', $value);

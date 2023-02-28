@@ -37,7 +37,7 @@ class ValidateXmlPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -81,7 +81,7 @@ class ValidateXmlPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -89,7 +89,7 @@ class ValidateXmlPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -97,7 +97,7 @@ class ValidateXmlPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the officeConfigurationXml property value. The officeConfigurationXml property
-     *  @param StreamInterface|null $value Value to set for the officeConfigurationXml property.
+     * @param StreamInterface|null $value Value to set for the officeConfigurationXml property.
     */
     public function setOfficeConfigurationXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('officeConfigurationXml', $value);

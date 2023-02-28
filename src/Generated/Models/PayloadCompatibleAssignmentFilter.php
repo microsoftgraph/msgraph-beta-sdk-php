@@ -55,7 +55,7 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
 
     /**
      * Sets the payloadType property value. Represents the payload type AssignmentFilter is being assigned to.
-     *  @param AssignmentFilterPayloadType|null $value Value to set for the payloadType property.
+     * @param AssignmentFilterPayloadType|null $value Value to set for the payloadType property.
     */
     public function setPayloadType(?AssignmentFilterPayloadType $value): void {
         $this->getBackingStore()->set('payloadType', $value);

@@ -54,7 +54,7 @@ class ClassificationJobResponse extends JobResponseBase implements Parsable
 
     /**
      * Sets the result property value. The result property
-     *  @param DetectedSensitiveContentWrapper|null $value Value to set for the result property.
+     * @param DetectedSensitiveContentWrapper|null $value Value to set for the result property.
     */
     public function setResult(?DetectedSensitiveContentWrapper $value): void {
         $this->getBackingStore()->set('result', $value);

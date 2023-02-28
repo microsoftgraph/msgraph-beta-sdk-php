@@ -36,7 +36,7 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Ba
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Ba
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Ba
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Ba
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -134,7 +134,7 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Ba
 
     /**
      * Sets the ruleErrors property value. Errors in json for the script for rules.
-     *  @param array<DeviceComplianceScriptRuleError>|null $value Value to set for the ruleErrors property.
+     * @param array<DeviceComplianceScriptRuleError>|null $value Value to set for the ruleErrors property.
     */
     public function setRuleErrors(?array $value): void {
         $this->getBackingStore()->set('ruleErrors', $value);
@@ -142,7 +142,7 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Ba
 
     /**
      * Sets the rules property value. Parsed rules from json.
-     *  @param array<DeviceComplianceScriptRule>|null $value Value to set for the rules property.
+     * @param array<DeviceComplianceScriptRule>|null $value Value to set for the rules property.
     */
     public function setRules(?array $value): void {
         $this->getBackingStore()->set('rules', $value);
@@ -150,7 +150,7 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Ba
 
     /**
      * Sets the scriptErrors property value. Errors in json for the script.
-     *  @param array<DeviceComplianceScriptError>|null $value Value to set for the scriptErrors property.
+     * @param array<DeviceComplianceScriptError>|null $value Value to set for the scriptErrors property.
     */
     public function setScriptErrors(?array $value): void {
         $this->getBackingStore()->set('scriptErrors', $value);

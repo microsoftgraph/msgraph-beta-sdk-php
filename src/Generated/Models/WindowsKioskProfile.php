@@ -36,7 +36,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the appConfiguration property value. The app base class used to identify the application info for the kiosk configuration
-     *  @param WindowsKioskAppConfiguration|null $value Value to set for the appConfiguration property.
+     * @param WindowsKioskAppConfiguration|null $value Value to set for the appConfiguration property.
     */
     public function setAppConfiguration(?WindowsKioskAppConfiguration $value): void {
         $this->getBackingStore()->set('appConfiguration', $value);
@@ -136,7 +136,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +144,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -152,7 +152,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the profileId property value. Key of the entity.
-     *  @param string|null $value Value to set for the profileId property.
+     * @param string|null $value Value to set for the profileId property.
     */
     public function setProfileId(?string $value): void {
         $this->getBackingStore()->set('profileId', $value);
@@ -160,7 +160,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the profileName property value. This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
-     *  @param string|null $value Value to set for the profileName property.
+     * @param string|null $value Value to set for the profileName property.
     */
     public function setProfileName(?string $value): void {
         $this->getBackingStore()->set('profileName', $value);
@@ -168,7 +168,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the userAccountsConfiguration property value. The user accounts that will be locked to this kiosk configuration. This collection can contain a maximum of 100 elements.
-     *  @param array<WindowsKioskUser>|null $value Value to set for the userAccountsConfiguration property.
+     * @param array<WindowsKioskUser>|null $value Value to set for the userAccountsConfiguration property.
     */
     public function setUserAccountsConfiguration(?array $value): void {
         $this->getBackingStore()->set('userAccountsConfiguration', $value);

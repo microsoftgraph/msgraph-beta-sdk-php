@@ -36,7 +36,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the appVersion property value. The version of the client authentication app used during the authentication step.
-     *  @param string|null $value Value to set for the appVersion property.
+     * @param string|null $value Value to set for the appVersion property.
     */
     public function setAppVersion(?string $value): void {
         $this->getBackingStore()->set('appVersion', $value);
@@ -136,7 +136,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -144,7 +144,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the clientApp property value. The name of the client authentication app used during the authentication step.
-     *  @param string|null $value Value to set for the clientApp property.
+     * @param string|null $value Value to set for the clientApp property.
     */
     public function setClientApp(?string $value): void {
         $this->getBackingStore()->set('clientApp', $value);
@@ -152,7 +152,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the deviceId property value. ID of the device used during the authentication step.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -160,7 +160,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the operatingSystem property value. The operating system running on the device used for the authentication step.
-     *  @param string|null $value Value to set for the operatingSystem property.
+     * @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {
         $this->getBackingStore()->set('operatingSystem', $value);

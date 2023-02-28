@@ -84,7 +84,7 @@ class CredentialUsageSummary extends Entity implements Parsable
 
     /**
      * Sets the authMethod property value. The authMethod property
-     *  @param UsageAuthMethod|null $value Value to set for the authMethod property.
+     * @param UsageAuthMethod|null $value Value to set for the authMethod property.
     */
     public function setAuthMethod(?UsageAuthMethod $value): void {
         $this->getBackingStore()->set('authMethod', $value);
@@ -92,7 +92,7 @@ class CredentialUsageSummary extends Entity implements Parsable
 
     /**
      * Sets the failureActivityCount property value. Provides the count of failed resets or registration data.
-     *  @param int|null $value Value to set for the failureActivityCount property.
+     * @param int|null $value Value to set for the failureActivityCount property.
     */
     public function setFailureActivityCount(?int $value): void {
         $this->getBackingStore()->set('failureActivityCount', $value);
@@ -100,7 +100,7 @@ class CredentialUsageSummary extends Entity implements Parsable
 
     /**
      * Sets the feature property value. The feature property
-     *  @param FeatureType|null $value Value to set for the feature property.
+     * @param FeatureType|null $value Value to set for the feature property.
     */
     public function setFeature(?FeatureType $value): void {
         $this->getBackingStore()->set('feature', $value);
@@ -108,7 +108,7 @@ class CredentialUsageSummary extends Entity implements Parsable
 
     /**
      * Sets the successfulActivityCount property value. Provides the count of successful registrations or resets.
-     *  @param int|null $value Value to set for the successfulActivityCount property.
+     * @param int|null $value Value to set for the successfulActivityCount property.
     */
     public function setSuccessfulActivityCount(?int $value): void {
         $this->getBackingStore()->set('successfulActivityCount', $value);

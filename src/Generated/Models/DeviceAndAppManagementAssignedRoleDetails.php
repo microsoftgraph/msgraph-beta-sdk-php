@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The set of Role Definitions and Role Assignments assigned to a user.
+*/
 class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -98,7 +101,7 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -106,7 +109,7 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -114,7 +117,7 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -122,7 +125,7 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
 
     /**
      * Sets the roleAssignmentIds property value. Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only.
-     *  @param array<string>|null $value Value to set for the roleAssignmentIds property.
+     * @param array<string>|null $value Value to set for the roleAssignmentIds property.
     */
     public function setRoleAssignmentIds(?array $value): void {
         $this->getBackingStore()->set('roleAssignmentIds', $value);
@@ -130,7 +133,7 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
 
     /**
      * Sets the roleDefinitionIds property value. Role Definition IDs for the specifc Role Definitions assigned to a user. This property is read-only.
-     *  @param array<string>|null $value Value to set for the roleDefinitionIds property.
+     * @param array<string>|null $value Value to set for the roleDefinitionIds property.
     */
     public function setRoleDefinitionIds(?array $value): void {
         $this->getBackingStore()->set('roleDefinitionIds', $value);

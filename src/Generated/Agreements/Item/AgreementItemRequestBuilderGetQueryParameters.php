@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Agreements\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Get entity from agreements by key
+*/
 class AgreementItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class AgreementItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new AgreementItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $select = null) {
+        $this->select = $select;
+    }
+
 }

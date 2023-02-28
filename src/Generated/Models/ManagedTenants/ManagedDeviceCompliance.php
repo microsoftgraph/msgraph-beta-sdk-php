@@ -186,7 +186,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the complianceStatus property value. Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. Optional. Read-only.
-     *  @param string|null $value Value to set for the complianceStatus property.
+     * @param string|null $value Value to set for the complianceStatus property.
     */
     public function setComplianceStatus(?string $value): void {
         $this->getBackingStore()->set('complianceStatus', $value);
@@ -194,7 +194,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the deviceType property value. Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.  Optional. Read-only.
-     *  @param string|null $value Value to set for the deviceType property.
+     * @param string|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?string $value): void {
         $this->getBackingStore()->set('deviceType', $value);
@@ -202,7 +202,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the inGracePeriodUntilDateTime property value. The date and time when the grace period will expire. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the inGracePeriodUntilDateTime property.
+     * @param DateTime|null $value Value to set for the inGracePeriodUntilDateTime property.
     */
     public function setInGracePeriodUntilDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('inGracePeriodUntilDateTime', $value);
@@ -210,7 +210,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);
@@ -218,7 +218,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the lastSyncDateTime property value. The date and time that the device last completed a successful sync with Microsoft Endpoint Manager. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
@@ -226,7 +226,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceId property value. The identifier for the managed device in Microsoft Endpoint Manager. Optional. Read-only.
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -234,7 +234,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceName property value. The display name for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the managedDeviceName property.
+     * @param string|null $value Value to set for the managedDeviceName property.
     */
     public function setManagedDeviceName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceName', $value);
@@ -242,7 +242,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the manufacturer property value. The manufacture for the device. Optional. Read-only.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -250,7 +250,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the model property value. The model for the device. Optional. Read-only.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -258,7 +258,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the osDescription property value. The description of the operating system for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the osDescription property.
+     * @param string|null $value Value to set for the osDescription property.
     */
     public function setOsDescription(?string $value): void {
         $this->getBackingStore()->set('osDescription', $value);
@@ -266,7 +266,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the osVersion property value. The version of the operating system for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the osVersion property.
+     * @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -274,7 +274,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the ownerType property value. The type of owner for the managed device. Optional. Read-only.
-     *  @param string|null $value Value to set for the ownerType property.
+     * @param string|null $value Value to set for the ownerType property.
     */
     public function setOwnerType(?string $value): void {
         $this->getBackingStore()->set('ownerType', $value);
@@ -282,7 +282,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantDisplayName property.
+     * @param string|null $value Value to set for the tenantDisplayName property.
     */
     public function setTenantDisplayName(?string $value): void {
         $this->getBackingStore()->set('tenantDisplayName', $value);
@@ -290,7 +290,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

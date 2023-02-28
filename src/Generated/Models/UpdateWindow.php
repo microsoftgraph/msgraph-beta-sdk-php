@@ -37,7 +37,7 @@ class UpdateWindow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -101,7 +101,7 @@ class UpdateWindow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -109,7 +109,7 @@ class UpdateWindow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -117,7 +117,7 @@ class UpdateWindow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -125,7 +125,7 @@ class UpdateWindow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the updateWindowEndTime property value. End of a time window during which agents can receive updates
-     *  @param Time|null $value Value to set for the updateWindowEndTime property.
+     * @param Time|null $value Value to set for the updateWindowEndTime property.
     */
     public function setUpdateWindowEndTime(?Time $value): void {
         $this->getBackingStore()->set('updateWindowEndTime', $value);
@@ -133,7 +133,7 @@ class UpdateWindow implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the updateWindowStartTime property value. Start of a time window during which agents can receive updates
-     *  @param Time|null $value Value to set for the updateWindowStartTime property.
+     * @param Time|null $value Value to set for the updateWindowStartTime property.
     */
     public function setUpdateWindowStartTime(?Time $value): void {
         $this->getBackingStore()->set('updateWindowStartTime', $value);

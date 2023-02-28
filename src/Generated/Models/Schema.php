@@ -64,7 +64,7 @@ class Schema extends Entity implements Parsable
 
     /**
      * Sets the baseType property value. The baseType property
-     *  @param string|null $value Value to set for the baseType property.
+     * @param string|null $value Value to set for the baseType property.
     */
     public function setBaseType(?string $value): void {
         $this->getBackingStore()->set('baseType', $value);
@@ -72,7 +72,7 @@ class Schema extends Entity implements Parsable
 
     /**
      * Sets the properties property value. The properties property
-     *  @param array<Property>|null $value Value to set for the properties property.
+     * @param array<Property>|null $value Value to set for the properties property.
     */
     public function setProperties(?array $value): void {
         $this->getBackingStore()->set('properties', $value);

@@ -75,7 +75,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
 
     /**
      * Sets the supersededAppCount property value. The total number of apps directly or indirectly superseded by the child app.
-     *  @param int|null $value Value to set for the supersededAppCount property.
+     * @param int|null $value Value to set for the supersededAppCount property.
     */
     public function setSupersededAppCount(?int $value): void {
         $this->getBackingStore()->set('supersededAppCount', $value);
@@ -83,7 +83,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
 
     /**
      * Sets the supersedenceType property value. Indicates the supersedence type associated with a relationship between two mobile apps.
-     *  @param MobileAppSupersedenceType|null $value Value to set for the supersedenceType property.
+     * @param MobileAppSupersedenceType|null $value Value to set for the supersedenceType property.
     */
     public function setSupersedenceType(?MobileAppSupersedenceType $value): void {
         $this->getBackingStore()->set('supersedenceType', $value);
@@ -91,7 +91,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
 
     /**
      * Sets the supersedingAppCount property value. The total number of apps directly or indirectly superseding the parent app.
-     *  @param int|null $value Value to set for the supersedingAppCount property.
+     * @param int|null $value Value to set for the supersedingAppCount property.
     */
     public function setSupersedingAppCount(?int $value): void {
         $this->getBackingStore()->set('supersedingAppCount', $value);

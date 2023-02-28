@@ -64,7 +64,7 @@ class UserAnalytics extends Entity implements Parsable
 
     /**
      * Sets the activityStatistics property value. The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable.
-     *  @param array<ActivityStatistics>|null $value Value to set for the activityStatistics property.
+     * @param array<ActivityStatistics>|null $value Value to set for the activityStatistics property.
     */
     public function setActivityStatistics(?array $value): void {
         $this->getBackingStore()->set('activityStatistics', $value);
@@ -72,7 +72,7 @@ class UserAnalytics extends Entity implements Parsable
 
     /**
      * Sets the settings property value. The current settings for a user to use the analytics API.
-     *  @param Settings|null $value Value to set for the settings property.
+     * @param Settings|null $value Value to set for the settings property.
     */
     public function setSettings(?Settings $value): void {
         $this->getBackingStore()->set('settings', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+*/
 class SynchronizationJobItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class SynchronizationJobItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new SynchronizationJobItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

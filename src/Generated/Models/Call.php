@@ -344,7 +344,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the activeModalities property value. The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
-     *  @param array<Modality>|null $value Value to set for the activeModalities property.
+     * @param array<Modality>|null $value Value to set for the activeModalities property.
     */
     public function setActiveModalities(?array $value): void {
         $this->getBackingStore()->set('activeModalities', $value);
@@ -352,7 +352,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the answeredBy property value. The participant that answered the call. Read-only.
-     *  @param ParticipantInfo|null $value Value to set for the answeredBy property.
+     * @param ParticipantInfo|null $value Value to set for the answeredBy property.
     */
     public function setAnsweredBy(?ParticipantInfo $value): void {
         $this->getBackingStore()->set('answeredBy', $value);
@@ -360,7 +360,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the audioRoutingGroups property value. The audioRoutingGroups property
-     *  @param array<AudioRoutingGroup>|null $value Value to set for the audioRoutingGroups property.
+     * @param array<AudioRoutingGroup>|null $value Value to set for the audioRoutingGroups property.
     */
     public function setAudioRoutingGroups(?array $value): void {
         $this->getBackingStore()->set('audioRoutingGroups', $value);
@@ -368,7 +368,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the callbackUri property value. The callback URL on which callbacks will be delivered. Must be https.
-     *  @param string|null $value Value to set for the callbackUri property.
+     * @param string|null $value Value to set for the callbackUri property.
     */
     public function setCallbackUri(?string $value): void {
         $this->getBackingStore()->set('callbackUri', $value);
@@ -376,7 +376,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the callChainId property value. A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId.
-     *  @param string|null $value Value to set for the callChainId property.
+     * @param string|null $value Value to set for the callChainId property.
     */
     public function setCallChainId(?string $value): void {
         $this->getBackingStore()->set('callChainId', $value);
@@ -384,7 +384,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the callOptions property value. Contains the optional features for the call.
-     *  @param CallOptions|null $value Value to set for the callOptions property.
+     * @param CallOptions|null $value Value to set for the callOptions property.
     */
     public function setCallOptions(?CallOptions $value): void {
         $this->getBackingStore()->set('callOptions', $value);
@@ -392,7 +392,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the callRoutes property value. The routing information on how the call was retargeted. Read-only.
-     *  @param array<CallRoute>|null $value Value to set for the callRoutes property.
+     * @param array<CallRoute>|null $value Value to set for the callRoutes property.
     */
     public function setCallRoutes(?array $value): void {
         $this->getBackingStore()->set('callRoutes', $value);
@@ -400,7 +400,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the chatInfo property value. The chat information. Required information for meeting scenarios.
-     *  @param ChatInfo|null $value Value to set for the chatInfo property.
+     * @param ChatInfo|null $value Value to set for the chatInfo property.
     */
     public function setChatInfo(?ChatInfo $value): void {
         $this->getBackingStore()->set('chatInfo', $value);
@@ -408,7 +408,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the contentSharingSessions property value. The contentSharingSessions property
-     *  @param array<ContentSharingSession>|null $value Value to set for the contentSharingSessions property.
+     * @param array<ContentSharingSession>|null $value Value to set for the contentSharingSessions property.
     */
     public function setContentSharingSessions(?array $value): void {
         $this->getBackingStore()->set('contentSharingSessions', $value);
@@ -416,7 +416,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the direction property value. The direction of the call. The possible value are incoming or outgoing. Read-only.
-     *  @param CallDirection|null $value Value to set for the direction property.
+     * @param CallDirection|null $value Value to set for the direction property.
     */
     public function setDirection(?CallDirection $value): void {
         $this->getBackingStore()->set('direction', $value);
@@ -424,7 +424,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the incomingContext property value. The context associated with an incoming call. Read-only. Server generated.
-     *  @param IncomingContext|null $value Value to set for the incomingContext property.
+     * @param IncomingContext|null $value Value to set for the incomingContext property.
     */
     public function setIncomingContext(?IncomingContext $value): void {
         $this->getBackingStore()->set('incomingContext', $value);
@@ -432,7 +432,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
-     *  @param MediaConfig|null $value Value to set for the mediaConfig property.
+     * @param MediaConfig|null $value Value to set for the mediaConfig property.
     */
     public function setMediaConfig(?MediaConfig $value): void {
         $this->getBackingStore()->set('mediaConfig', $value);
@@ -440,7 +440,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the mediaState property value. Read-only. The call media state.
-     *  @param CallMediaState|null $value Value to set for the mediaState property.
+     * @param CallMediaState|null $value Value to set for the mediaState property.
     */
     public function setMediaState(?CallMediaState $value): void {
         $this->getBackingStore()->set('mediaState', $value);
@@ -448,7 +448,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the meetingCapability property value. Contains the capabilities of a meeting. Read-only.
-     *  @param MeetingCapability|null $value Value to set for the meetingCapability property.
+     * @param MeetingCapability|null $value Value to set for the meetingCapability property.
     */
     public function setMeetingCapability(?MeetingCapability $value): void {
         $this->getBackingStore()->set('meetingCapability', $value);
@@ -456,7 +456,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
-     *  @param MeetingInfo|null $value Value to set for the meetingInfo property.
+     * @param MeetingInfo|null $value Value to set for the meetingInfo property.
     */
     public function setMeetingInfo(?MeetingInfo $value): void {
         $this->getBackingStore()->set('meetingInfo', $value);
@@ -464,7 +464,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the myParticipantId property value. The myParticipantId property
-     *  @param string|null $value Value to set for the myParticipantId property.
+     * @param string|null $value Value to set for the myParticipantId property.
     */
     public function setMyParticipantId(?string $value): void {
         $this->getBackingStore()->set('myParticipantId', $value);
@@ -472,7 +472,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the operations property value. The operations property
-     *  @param array<CommsOperation>|null $value Value to set for the operations property.
+     * @param array<CommsOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
@@ -480,7 +480,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the participants property value. The participants property
-     *  @param array<Participant>|null $value Value to set for the participants property.
+     * @param array<Participant>|null $value Value to set for the participants property.
     */
     public function setParticipants(?array $value): void {
         $this->getBackingStore()->set('participants', $value);
@@ -488,7 +488,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the requestedModalities property value. The requestedModalities property
-     *  @param array<Modality>|null $value Value to set for the requestedModalities property.
+     * @param array<Modality>|null $value Value to set for the requestedModalities property.
     */
     public function setRequestedModalities(?array $value): void {
         $this->getBackingStore()->set('requestedModalities', $value);
@@ -496,7 +496,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the resultInfo property value. The resultInfo property
-     *  @param ResultInfo|null $value Value to set for the resultInfo property.
+     * @param ResultInfo|null $value Value to set for the resultInfo property.
     */
     public function setResultInfo(?ResultInfo $value): void {
         $this->getBackingStore()->set('resultInfo', $value);
@@ -504,7 +504,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the ringingTimeoutInSeconds property value. The ringingTimeoutInSeconds property
-     *  @param int|null $value Value to set for the ringingTimeoutInSeconds property.
+     * @param int|null $value Value to set for the ringingTimeoutInSeconds property.
     */
     public function setRingingTimeoutInSeconds(?int $value): void {
         $this->getBackingStore()->set('ringingTimeoutInSeconds', $value);
@@ -512,7 +512,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the routingPolicies property value. The routingPolicies property
-     *  @param array<RoutingPolicy>|null $value Value to set for the routingPolicies property.
+     * @param array<RoutingPolicy>|null $value Value to set for the routingPolicies property.
     */
     public function setRoutingPolicies(?array $value): void {
         $this->getBackingStore()->set('routingPolicies', $value);
@@ -520,7 +520,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the source property value. The source property
-     *  @param ParticipantInfo|null $value Value to set for the source property.
+     * @param ParticipantInfo|null $value Value to set for the source property.
     */
     public function setSource(?ParticipantInfo $value): void {
         $this->getBackingStore()->set('source', $value);
@@ -528,7 +528,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param CallState|null $value Value to set for the state property.
+     * @param CallState|null $value Value to set for the state property.
     */
     public function setState(?CallState $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -536,7 +536,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the subject property value. The subject property
-     *  @param string|null $value Value to set for the subject property.
+     * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -544,7 +544,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the targets property value. The targets property
-     *  @param array<InvitationParticipantInfo>|null $value Value to set for the targets property.
+     * @param array<InvitationParticipantInfo>|null $value Value to set for the targets property.
     */
     public function setTargets(?array $value): void {
         $this->getBackingStore()->set('targets', $value);
@@ -552,7 +552,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The tenantId property
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -560,7 +560,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the terminationReason property value. The terminationReason property
-     *  @param string|null $value Value to set for the terminationReason property.
+     * @param string|null $value Value to set for the terminationReason property.
     */
     public function setTerminationReason(?string $value): void {
         $this->getBackingStore()->set('terminationReason', $value);
@@ -568,7 +568,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the toneInfo property value. The toneInfo property
-     *  @param ToneInfo|null $value Value to set for the toneInfo property.
+     * @param ToneInfo|null $value Value to set for the toneInfo property.
     */
     public function setToneInfo(?ToneInfo $value): void {
         $this->getBackingStore()->set('toneInfo', $value);
@@ -576,7 +576,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the transcription property value. The transcription information for the call. Read-only.
-     *  @param CallTranscriptionInfo|null $value Value to set for the transcription property.
+     * @param CallTranscriptionInfo|null $value Value to set for the transcription property.
     */
     public function setTranscription(?CallTranscriptionInfo $value): void {
         $this->getBackingStore()->set('transcription', $value);

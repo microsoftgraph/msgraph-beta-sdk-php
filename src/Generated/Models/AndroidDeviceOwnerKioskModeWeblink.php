@@ -65,7 +65,7 @@ class AndroidDeviceOwnerKioskModeWeblink extends AndroidDeviceOwnerKioskModeFold
 
     /**
      * Sets the label property value. Display name for weblink
-     *  @param string|null $value Value to set for the label property.
+     * @param string|null $value Value to set for the label property.
     */
     public function setLabel(?string $value): void {
         $this->getBackingStore()->set('label', $value);
@@ -73,7 +73,7 @@ class AndroidDeviceOwnerKioskModeWeblink extends AndroidDeviceOwnerKioskModeFold
 
     /**
      * Sets the link property value. Link for weblink
-     *  @param string|null $value Value to set for the link property.
+     * @param string|null $value Value to set for the link property.
     */
     public function setLink(?string $value): void {
         $this->getBackingStore()->set('link', $value);

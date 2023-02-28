@@ -55,7 +55,7 @@ class DeviceManagementComplexSettingInstance extends DeviceManagementSettingInst
 
     /**
      * Sets the value property value. The values that make up the complex setting
-     *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the value property.
+     * @param array<DeviceManagementSettingInstance>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);

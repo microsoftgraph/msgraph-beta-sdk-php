@@ -124,7 +124,7 @@ class PlannerUser extends PlannerDelta implements Parsable
 
     /**
      * Sets the all property value. The all property
-     *  @param array<PlannerDelta>|null $value Value to set for the all property.
+     * @param array<PlannerDelta>|null $value Value to set for the all property.
     */
     public function setAll(?array $value): void {
         $this->getBackingStore()->set('all', $value);
@@ -132,7 +132,7 @@ class PlannerUser extends PlannerDelta implements Parsable
 
     /**
      * Sets the favoritePlanReferences property value. A collection that contains the references to the plans that the user has marked as favorites.
-     *  @param PlannerFavoritePlanReferenceCollection|null $value Value to set for the favoritePlanReferences property.
+     * @param PlannerFavoritePlanReferenceCollection|null $value Value to set for the favoritePlanReferences property.
     */
     public function setFavoritePlanReferences(?PlannerFavoritePlanReferenceCollection $value): void {
         $this->getBackingStore()->set('favoritePlanReferences', $value);
@@ -140,7 +140,7 @@ class PlannerUser extends PlannerDelta implements Parsable
 
     /**
      * Sets the favoritePlans property value. Read-only. Nullable. Returns the plannerPlans that the user marked as favorites.
-     *  @param array<PlannerPlan>|null $value Value to set for the favoritePlans property.
+     * @param array<PlannerPlan>|null $value Value to set for the favoritePlans property.
     */
     public function setFavoritePlans(?array $value): void {
         $this->getBackingStore()->set('favoritePlans', $value);
@@ -148,7 +148,7 @@ class PlannerUser extends PlannerDelta implements Parsable
 
     /**
      * Sets the plans property value. The plans property
-     *  @param array<PlannerPlan>|null $value Value to set for the plans property.
+     * @param array<PlannerPlan>|null $value Value to set for the plans property.
     */
     public function setPlans(?array $value): void {
         $this->getBackingStore()->set('plans', $value);
@@ -156,7 +156,7 @@ class PlannerUser extends PlannerDelta implements Parsable
 
     /**
      * Sets the recentPlanReferences property value. A collection that contains references to the plans that were viewed recently by the user in apps that support recent plans.
-     *  @param PlannerRecentPlanReferenceCollection|null $value Value to set for the recentPlanReferences property.
+     * @param PlannerRecentPlanReferenceCollection|null $value Value to set for the recentPlanReferences property.
     */
     public function setRecentPlanReferences(?PlannerRecentPlanReferenceCollection $value): void {
         $this->getBackingStore()->set('recentPlanReferences', $value);
@@ -164,7 +164,7 @@ class PlannerUser extends PlannerDelta implements Parsable
 
     /**
      * Sets the recentPlans property value. Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
-     *  @param array<PlannerPlan>|null $value Value to set for the recentPlans property.
+     * @param array<PlannerPlan>|null $value Value to set for the recentPlans property.
     */
     public function setRecentPlans(?array $value): void {
         $this->getBackingStore()->set('recentPlans', $value);
@@ -172,7 +172,7 @@ class PlannerUser extends PlannerDelta implements Parsable
 
     /**
      * Sets the rosterPlans property value. Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
-     *  @param array<PlannerPlan>|null $value Value to set for the rosterPlans property.
+     * @param array<PlannerPlan>|null $value Value to set for the rosterPlans property.
     */
     public function setRosterPlans(?array $value): void {
         $this->getBackingStore()->set('rosterPlans', $value);
@@ -180,7 +180,7 @@ class PlannerUser extends PlannerDelta implements Parsable
 
     /**
      * Sets the tasks property value. Read-only. Nullable. Returns the plannerTasks assigned to the user.
-     *  @param array<PlannerTask>|null $value Value to set for the tasks property.
+     * @param array<PlannerTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);

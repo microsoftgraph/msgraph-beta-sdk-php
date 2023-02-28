@@ -215,7 +215,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the backgroundDownloadFromHttpDelayInSeconds property value. Specifies number of seconds to delay an HTTP source in a background download that is allowed to use peer-to-peer. Valid values 0 to 4294967295
-     *  @param int|null $value Value to set for the backgroundDownloadFromHttpDelayInSeconds property.
+     * @param int|null $value Value to set for the backgroundDownloadFromHttpDelayInSeconds property.
     */
     public function setBackgroundDownloadFromHttpDelayInSeconds(?int $value): void {
         $this->getBackingStore()->set('backgroundDownloadFromHttpDelayInSeconds', $value);
@@ -223,7 +223,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the bandwidthMode property value. Specifies foreground and background bandwidth usage using percentages, absolutes, or hours.
-     *  @param DeliveryOptimizationBandwidth|null $value Value to set for the bandwidthMode property.
+     * @param DeliveryOptimizationBandwidth|null $value Value to set for the bandwidthMode property.
     */
     public function setBandwidthMode(?DeliveryOptimizationBandwidth $value): void {
         $this->getBackingStore()->set('bandwidthMode', $value);
@@ -231,7 +231,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds property value. Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a background download. Valid values 0 to 2592000.
-     *  @param int|null $value Value to set for the cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds property.
+     * @param int|null $value Value to set for the cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds property.
     */
     public function setCacheServerBackgroundDownloadFallbackToHttpDelayInSeconds(?int $value): void {
         $this->getBackingStore()->set('cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds', $value);
@@ -239,7 +239,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the cacheServerForegroundDownloadFallbackToHttpDelayInSeconds property value. Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a foreground download. Valid values 0 to 2592000.​
-     *  @param int|null $value Value to set for the cacheServerForegroundDownloadFallbackToHttpDelayInSeconds property.
+     * @param int|null $value Value to set for the cacheServerForegroundDownloadFallbackToHttpDelayInSeconds property.
     */
     public function setCacheServerForegroundDownloadFallbackToHttpDelayInSeconds(?int $value): void {
         $this->getBackingStore()->set('cacheServerForegroundDownloadFallbackToHttpDelayInSeconds', $value);
@@ -247,7 +247,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the cacheServerHostNames property value. Specifies cache servers host names.
-     *  @param array<string>|null $value Value to set for the cacheServerHostNames property.
+     * @param array<string>|null $value Value to set for the cacheServerHostNames property.
     */
     public function setCacheServerHostNames(?array $value): void {
         $this->getBackingStore()->set('cacheServerHostNames', $value);
@@ -255,7 +255,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the deliveryOptimizationMode property value. Delivery optimization mode for peer distribution
-     *  @param WindowsDeliveryOptimizationMode|null $value Value to set for the deliveryOptimizationMode property.
+     * @param WindowsDeliveryOptimizationMode|null $value Value to set for the deliveryOptimizationMode property.
     */
     public function setDeliveryOptimizationMode(?WindowsDeliveryOptimizationMode $value): void {
         $this->getBackingStore()->set('deliveryOptimizationMode', $value);
@@ -263,7 +263,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the foregroundDownloadFromHttpDelayInSeconds property value. Specifies number of seconds to delay an HTTP source in a foreground download that is allowed to use peer-to-peer (0-86400). Valid values 0 to 86400
-     *  @param int|null $value Value to set for the foregroundDownloadFromHttpDelayInSeconds property.
+     * @param int|null $value Value to set for the foregroundDownloadFromHttpDelayInSeconds property.
     */
     public function setForegroundDownloadFromHttpDelayInSeconds(?int $value): void {
         $this->getBackingStore()->set('foregroundDownloadFromHttpDelayInSeconds', $value);
@@ -271,7 +271,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the groupIdSource property value. Specifies to restrict peer selection to a specfic source.
-     *  @param DeliveryOptimizationGroupIdSource|null $value Value to set for the groupIdSource property.
+     * @param DeliveryOptimizationGroupIdSource|null $value Value to set for the groupIdSource property.
     */
     public function setGroupIdSource(?DeliveryOptimizationGroupIdSource $value): void {
         $this->getBackingStore()->set('groupIdSource', $value);
@@ -279,7 +279,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the maximumCacheAgeInDays property value. Specifies the maximum time in days that each file is held in the Delivery Optimization cache after downloading successfully (0-3650). Valid values 0 to 3650
-     *  @param int|null $value Value to set for the maximumCacheAgeInDays property.
+     * @param int|null $value Value to set for the maximumCacheAgeInDays property.
     */
     public function setMaximumCacheAgeInDays(?int $value): void {
         $this->getBackingStore()->set('maximumCacheAgeInDays', $value);
@@ -287,7 +287,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the maximumCacheSize property value. Specifies the maximum cache size that Delivery Optimization either as a percentage or in GB.
-     *  @param DeliveryOptimizationMaxCacheSize|null $value Value to set for the maximumCacheSize property.
+     * @param DeliveryOptimizationMaxCacheSize|null $value Value to set for the maximumCacheSize property.
     */
     public function setMaximumCacheSize(?DeliveryOptimizationMaxCacheSize $value): void {
         $this->getBackingStore()->set('maximumCacheSize', $value);
@@ -295,7 +295,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the minimumBatteryPercentageAllowedToUpload property value. Specifies the minimum battery percentage to allow the device to upload data (0-100). Valid values 0 to 100
-     *  @param int|null $value Value to set for the minimumBatteryPercentageAllowedToUpload property.
+     * @param int|null $value Value to set for the minimumBatteryPercentageAllowedToUpload property.
     */
     public function setMinimumBatteryPercentageAllowedToUpload(?int $value): void {
         $this->getBackingStore()->set('minimumBatteryPercentageAllowedToUpload', $value);
@@ -303,7 +303,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the minimumDiskSizeAllowedToPeerInGigabytes property value. Specifies the minimum disk size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
-     *  @param int|null $value Value to set for the minimumDiskSizeAllowedToPeerInGigabytes property.
+     * @param int|null $value Value to set for the minimumDiskSizeAllowedToPeerInGigabytes property.
     */
     public function setMinimumDiskSizeAllowedToPeerInGigabytes(?int $value): void {
         $this->getBackingStore()->set('minimumDiskSizeAllowedToPeerInGigabytes', $value);
@@ -311,7 +311,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the minimumFileSizeToCacheInMegabytes property value. Specifies the minimum content file size in MB enabled to use Peer Caching (1-100000). Valid values 1 to 100000
-     *  @param int|null $value Value to set for the minimumFileSizeToCacheInMegabytes property.
+     * @param int|null $value Value to set for the minimumFileSizeToCacheInMegabytes property.
     */
     public function setMinimumFileSizeToCacheInMegabytes(?int $value): void {
         $this->getBackingStore()->set('minimumFileSizeToCacheInMegabytes', $value);
@@ -319,7 +319,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the minimumRamAllowedToPeerInGigabytes property value. Specifies the minimum RAM size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
-     *  @param int|null $value Value to set for the minimumRamAllowedToPeerInGigabytes property.
+     * @param int|null $value Value to set for the minimumRamAllowedToPeerInGigabytes property.
     */
     public function setMinimumRamAllowedToPeerInGigabytes(?int $value): void {
         $this->getBackingStore()->set('minimumRamAllowedToPeerInGigabytes', $value);
@@ -327,7 +327,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the modifyCacheLocation property value. Specifies the drive that Delivery Optimization should use for its cache.
-     *  @param string|null $value Value to set for the modifyCacheLocation property.
+     * @param string|null $value Value to set for the modifyCacheLocation property.
     */
     public function setModifyCacheLocation(?string $value): void {
         $this->getBackingStore()->set('modifyCacheLocation', $value);
@@ -335,7 +335,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the restrictPeerSelectionBy property value. Values to restrict peer selection by.
-     *  @param DeliveryOptimizationRestrictPeerSelectionByOptions|null $value Value to set for the restrictPeerSelectionBy property.
+     * @param DeliveryOptimizationRestrictPeerSelectionByOptions|null $value Value to set for the restrictPeerSelectionBy property.
     */
     public function setRestrictPeerSelectionBy(?DeliveryOptimizationRestrictPeerSelectionByOptions $value): void {
         $this->getBackingStore()->set('restrictPeerSelectionBy', $value);
@@ -343,7 +343,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the vpnPeerCaching property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the vpnPeerCaching property.
+     * @param Enablement|null $value Value to set for the vpnPeerCaching property.
     */
     public function setVpnPeerCaching(?Enablement $value): void {
         $this->getBackingStore()->set('vpnPeerCaching', $value);

@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item\Request;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Read-only. The role assignment request for this approval object
+*/
 class RequestRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class RequestRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new requestRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

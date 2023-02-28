@@ -135,7 +135,7 @@ class WindowsUpdateState extends Entity implements Parsable
 
     /**
      * Sets the deviceDisplayName property value. Device display name.
-     *  @param string|null $value Value to set for the deviceDisplayName property.
+     * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
         $this->getBackingStore()->set('deviceDisplayName', $value);
@@ -143,7 +143,7 @@ class WindowsUpdateState extends Entity implements Parsable
 
     /**
      * Sets the deviceId property value. The id of the device.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -151,7 +151,7 @@ class WindowsUpdateState extends Entity implements Parsable
 
     /**
      * Sets the featureUpdateVersion property value. The current feature update version of the device.
-     *  @param string|null $value Value to set for the featureUpdateVersion property.
+     * @param string|null $value Value to set for the featureUpdateVersion property.
     */
     public function setFeatureUpdateVersion(?string $value): void {
         $this->getBackingStore()->set('featureUpdateVersion', $value);
@@ -159,7 +159,7 @@ class WindowsUpdateState extends Entity implements Parsable
 
     /**
      * Sets the lastScanDateTime property value. The date time that the Windows Update Agent did a successful scan.
-     *  @param DateTime|null $value Value to set for the lastScanDateTime property.
+     * @param DateTime|null $value Value to set for the lastScanDateTime property.
     */
     public function setLastScanDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastScanDateTime', $value);
@@ -167,7 +167,7 @@ class WindowsUpdateState extends Entity implements Parsable
 
     /**
      * Sets the lastSyncDateTime property value. Last date time that the device sync with with Microsoft Intune.
-     *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
+     * @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
     public function setLastSyncDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSyncDateTime', $value);
@@ -175,7 +175,7 @@ class WindowsUpdateState extends Entity implements Parsable
 
     /**
      * Sets the qualityUpdateVersion property value. The Quality Update Version of the device.
-     *  @param string|null $value Value to set for the qualityUpdateVersion property.
+     * @param string|null $value Value to set for the qualityUpdateVersion property.
     */
     public function setQualityUpdateVersion(?string $value): void {
         $this->getBackingStore()->set('qualityUpdateVersion', $value);
@@ -183,7 +183,7 @@ class WindowsUpdateState extends Entity implements Parsable
 
     /**
      * Sets the status property value. Windows update for business configuration device states
-     *  @param WindowsUpdateStatus|null $value Value to set for the status property.
+     * @param WindowsUpdateStatus|null $value Value to set for the status property.
     */
     public function setStatus(?WindowsUpdateStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -191,7 +191,7 @@ class WindowsUpdateState extends Entity implements Parsable
 
     /**
      * Sets the userId property value. The id of the user.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -199,7 +199,7 @@ class WindowsUpdateState extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. User principal name.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

@@ -55,7 +55,7 @@ class InvokeUserFlowListener extends AuthenticationListener implements Parsable
 
     /**
      * Sets the userFlow property value. The user flow that is invoked when this action executes.
-     *  @param B2xIdentityUserFlow|null $value Value to set for the userFlow property.
+     * @param B2xIdentityUserFlow|null $value Value to set for the userFlow property.
     */
     public function setUserFlow(?B2xIdentityUserFlow $value): void {
         $this->getBackingStore()->set('userFlow', $value);

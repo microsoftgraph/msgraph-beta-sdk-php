@@ -105,7 +105,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
 
     /**
      * Sets the check32BitOn64System property value. A value indicating whether this file or folder is for checking 32-bit app on 64-bit system
-     *  @param bool|null $value Value to set for the check32BitOn64System property.
+     * @param bool|null $value Value to set for the check32BitOn64System property.
     */
     public function setCheck32BitOn64System(?bool $value): void {
         $this->getBackingStore()->set('check32BitOn64System', $value);
@@ -113,7 +113,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
 
     /**
      * Sets the detectionType property value. Contains all supported file system detection type.
-     *  @param Win32LobAppFileSystemDetectionType|null $value Value to set for the detectionType property.
+     * @param Win32LobAppFileSystemDetectionType|null $value Value to set for the detectionType property.
     */
     public function setDetectionType(?Win32LobAppFileSystemDetectionType $value): void {
         $this->getBackingStore()->set('detectionType', $value);
@@ -121,7 +121,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
 
     /**
      * Sets the detectionValue property value. The file or folder detection value
-     *  @param string|null $value Value to set for the detectionValue property.
+     * @param string|null $value Value to set for the detectionValue property.
     */
     public function setDetectionValue(?string $value): void {
         $this->getBackingStore()->set('detectionValue', $value);
@@ -129,7 +129,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
 
     /**
      * Sets the fileOrFolderName property value. The file or folder name to detect Win32 Line of Business (LoB) app
-     *  @param string|null $value Value to set for the fileOrFolderName property.
+     * @param string|null $value Value to set for the fileOrFolderName property.
     */
     public function setFileOrFolderName(?string $value): void {
         $this->getBackingStore()->set('fileOrFolderName', $value);
@@ -137,7 +137,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
 
     /**
      * Sets the operator property value. Contains properties for detection operator.
-     *  @param Win32LobAppDetectionOperator|null $value Value to set for the operator property.
+     * @param Win32LobAppDetectionOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?Win32LobAppDetectionOperator $value): void {
         $this->getBackingStore()->set('operator', $value);
@@ -145,7 +145,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
 
     /**
      * Sets the path property value. The file or folder path to detect Win32 Line of Business (LoB) app
-     *  @param string|null $value Value to set for the path property.
+     * @param string|null $value Value to set for the path property.
     */
     public function setPath(?string $value): void {
         $this->getBackingStore()->set('path', $value);
