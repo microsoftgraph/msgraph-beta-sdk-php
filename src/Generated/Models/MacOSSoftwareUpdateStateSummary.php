@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * MacOS software update state summary for a device and user
+*/
 class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable 
 {
     /**
@@ -105,7 +108,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Human readable name of the software update
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -113,7 +116,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
 
     /**
      * Sets the lastUpdatedDateTime property value. Last date time the report for this device and product key was updated.
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -121,7 +124,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
 
     /**
      * Sets the productKey property value. Product key of the software update.
-     *  @param string|null $value Value to set for the productKey property.
+     * @param string|null $value Value to set for the productKey property.
     */
     public function setProductKey(?string $value): void {
         $this->getBackingStore()->set('productKey', $value);
@@ -129,7 +132,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
 
     /**
      * Sets the state property value. MacOS Software Update State
-     *  @param MacOSSoftwareUpdateState|null $value Value to set for the state property.
+     * @param MacOSSoftwareUpdateState|null $value Value to set for the state property.
     */
     public function setState(?MacOSSoftwareUpdateState $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -137,7 +140,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
 
     /**
      * Sets the updateCategory property value. MacOS Software Update Category
-     *  @param MacOSSoftwareUpdateCategory|null $value Value to set for the updateCategory property.
+     * @param MacOSSoftwareUpdateCategory|null $value Value to set for the updateCategory property.
     */
     public function setUpdateCategory(?MacOSSoftwareUpdateCategory $value): void {
         $this->getBackingStore()->set('updateCategory', $value);
@@ -145,7 +148,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
 
     /**
      * Sets the updateVersion property value. Version of the software update
-     *  @param string|null $value Value to set for the updateVersion property.
+     * @param string|null $value Value to set for the updateVersion property.
     */
     public function setUpdateVersion(?string $value): void {
         $this->getBackingStore()->set('updateVersion', $value);

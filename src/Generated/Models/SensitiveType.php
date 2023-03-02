@@ -134,7 +134,7 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the classificationMethod property value. The classificationMethod property
-     *  @param ClassificationMethod|null $value Value to set for the classificationMethod property.
+     * @param ClassificationMethod|null $value Value to set for the classificationMethod property.
     */
     public function setClassificationMethod(?ClassificationMethod $value): void {
         $this->getBackingStore()->set('classificationMethod', $value);
@@ -142,7 +142,7 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -150,7 +150,7 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -158,7 +158,7 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the publisherName property value. The publisherName property
-     *  @param string|null $value Value to set for the publisherName property.
+     * @param string|null $value Value to set for the publisherName property.
     */
     public function setPublisherName(?string $value): void {
         $this->getBackingStore()->set('publisherName', $value);
@@ -166,7 +166,7 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the rulePackageId property value. The rulePackageId property
-     *  @param string|null $value Value to set for the rulePackageId property.
+     * @param string|null $value Value to set for the rulePackageId property.
     */
     public function setRulePackageId(?string $value): void {
         $this->getBackingStore()->set('rulePackageId', $value);
@@ -174,7 +174,7 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the rulePackageType property value. The rulePackageType property
-     *  @param string|null $value Value to set for the rulePackageType property.
+     * @param string|null $value Value to set for the rulePackageType property.
     */
     public function setRulePackageType(?string $value): void {
         $this->getBackingStore()->set('rulePackageType', $value);
@@ -182,7 +182,7 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the scope property value. The scope property
-     *  @param SensitiveTypeScope|null $value Value to set for the scope property.
+     * @param SensitiveTypeScope|null $value Value to set for the scope property.
     */
     public function setScope(?SensitiveTypeScope $value): void {
         $this->getBackingStore()->set('scope', $value);
@@ -190,7 +190,7 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the sensitiveTypeSource property value. The sensitiveTypeSource property
-     *  @param SensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
+     * @param SensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
     */
     public function setSensitiveTypeSource(?SensitiveTypeSource $value): void {
         $this->getBackingStore()->set('sensitiveTypeSource', $value);
@@ -198,7 +198,7 @@ class SensitiveType extends Entity implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param string|null $value Value to set for the state property.
+     * @param string|null $value Value to set for the state property.
     */
     public function setState(?string $value): void {
         $this->getBackingStore()->set('state', $value);

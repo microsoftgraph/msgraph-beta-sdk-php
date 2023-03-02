@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleScheduleIn
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Invoke function roleScheduleInstances
+*/
 class RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilderGetQueryParameters 
 {
     /**
@@ -68,4 +71,32 @@ class RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdP
     */
     public ?int $top = null;
     
+    /**
+     * Instantiates a new roleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilderGetQueryParameters and sets the default values.
+     * @param string|null $appScopeId Usage: appScopeId='@appScopeId'
+     * @param bool|null $count Include count of items
+     * @param string|null $directoryScopeId Usage: directoryScopeId='@directoryScopeId'
+     * @param string|null $filter Filter items by property values
+     * @param array<string>|null $orderby Order items by property values
+     * @param string|null $principalId Usage: principalId='@principalId'
+     * @param string|null $roleDefinitionId Usage: roleDefinitionId='@roleDefinitionId'
+     * @param string|null $search Search items by search phrases
+     * @param array<string>|null $select Select properties to be returned
+     * @param int|null $skip Skip the first n items
+     * @param int|null $top Show only the first n items
+    */
+    public function __construct(?string $appScopeId = null, ?bool $count = null, ?string $directoryScopeId = null, ?string $filter = null, ?array $orderby = null, ?string $principalId = null, ?string $roleDefinitionId = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null) {
+        $this->appScopeId = $appScopeId;
+        $this->count = $count;
+        $this->directoryScopeId = $directoryScopeId;
+        $this->filter = $filter;
+        $this->orderby = $orderby;
+        $this->principalId = $principalId;
+        $this->roleDefinitionId = $roleDefinitionId;
+        $this->search = $search;
+        $this->select = $select;
+        $this->skip = $skip;
+        $this->top = $top;
+    }
+
 }

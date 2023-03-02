@@ -155,7 +155,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the displayName property value. Provides an ordered rendering of firstName and lastName depending on the locale of the user or their device.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -163,7 +163,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the first property value. First name of the user.
-     *  @param string|null $value Value to set for the first property.
+     * @param string|null $value Value to set for the first property.
     */
     public function setFirst(?string $value): void {
         $this->getBackingStore()->set('first', $value);
@@ -171,7 +171,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the initials property value. Initials of the user.
-     *  @param string|null $value Value to set for the initials property.
+     * @param string|null $value Value to set for the initials property.
     */
     public function setInitials(?string $value): void {
         $this->getBackingStore()->set('initials', $value);
@@ -179,7 +179,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the languageTag property value. Contains the name for the language (en-US, no-NB, en-AU) following IETF BCP47 format.
-     *  @param string|null $value Value to set for the languageTag property.
+     * @param string|null $value Value to set for the languageTag property.
     */
     public function setLanguageTag(?string $value): void {
         $this->getBackingStore()->set('languageTag', $value);
@@ -187,7 +187,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the last property value. Last name of the user.
-     *  @param string|null $value Value to set for the last property.
+     * @param string|null $value Value to set for the last property.
     */
     public function setLast(?string $value): void {
         $this->getBackingStore()->set('last', $value);
@@ -195,7 +195,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the maiden property value. Maiden name of the user.
-     *  @param string|null $value Value to set for the maiden property.
+     * @param string|null $value Value to set for the maiden property.
     */
     public function setMaiden(?string $value): void {
         $this->getBackingStore()->set('maiden', $value);
@@ -203,7 +203,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the middle property value. Middle name of the user.
-     *  @param string|null $value Value to set for the middle property.
+     * @param string|null $value Value to set for the middle property.
     */
     public function setMiddle(?string $value): void {
         $this->getBackingStore()->set('middle', $value);
@@ -211,7 +211,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the nickname property value. Nickname of the user.
-     *  @param string|null $value Value to set for the nickname property.
+     * @param string|null $value Value to set for the nickname property.
     */
     public function setNickname(?string $value): void {
         $this->getBackingStore()->set('nickname', $value);
@@ -219,7 +219,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the pronunciation property value. Guidance on how to pronounce the users name.
-     *  @param PersonNamePronounciation|null $value Value to set for the pronunciation property.
+     * @param PersonNamePronounciation|null $value Value to set for the pronunciation property.
     */
     public function setPronunciation(?PersonNamePronounciation $value): void {
         $this->getBackingStore()->set('pronunciation', $value);
@@ -227,7 +227,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the suffix property value. Designators used after the users name (eg: PhD.)
-     *  @param string|null $value Value to set for the suffix property.
+     * @param string|null $value Value to set for the suffix property.
     */
     public function setSuffix(?string $value): void {
         $this->getBackingStore()->set('suffix', $value);
@@ -235,7 +235,7 @@ class PersonName extends ItemFacet implements Parsable
 
     /**
      * Sets the title property value. Honorifics used to prefix a users name (eg: Dr, Sir, Madam, Mrs.)
-     *  @param string|null $value Value to set for the title property.
+     * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
         $this->getBackingStore()->set('title', $value);

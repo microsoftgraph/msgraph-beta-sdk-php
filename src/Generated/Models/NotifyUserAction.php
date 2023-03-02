@@ -50,18 +50,9 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'actionLastModifiedDateTime' => fn(ParseNode $n) => $o->setActionLastModifiedDateTime($n->getDateTimeValue()),
             'emailText' => fn(ParseNode $n) => $o->setEmailText($n->getStringValue()),
-            'overrideOption' => fn(ParseNode $n) => $o->setOverrideOption($n->getEnumValue(OverrideOption::class)),
             'policyTip' => fn(ParseNode $n) => $o->setPolicyTip($n->getStringValue()),
             'recipients' => fn(ParseNode $n) => $o->setRecipients($n->getCollectionOfPrimitiveValues()),
         ]);
-    }
-
-    /**
-     * Gets the overrideOption property value. The overrideOption property
-     * @return OverrideOption|null
-    */
-    public function getOverrideOption(): ?OverrideOption {
-        return $this->getBackingStore()->get('overrideOption');
     }
 
     /**
@@ -88,14 +79,13 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('actionLastModifiedDateTime', $this->getActionLastModifiedDateTime());
         $writer->writeStringValue('emailText', $this->getEmailText());
-        $writer->writeEnumValue('overrideOption', $this->getOverrideOption());
         $writer->writeStringValue('policyTip', $this->getPolicyTip());
         $writer->writeCollectionOfPrimitiveValues('recipients', $this->getRecipients());
     }
 
     /**
      * Sets the actionLastModifiedDateTime property value. The actionLastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the actionLastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the actionLastModifiedDateTime property.
     */
     public function setActionLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('actionLastModifiedDateTime', $value);
@@ -103,23 +93,15 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
 
     /**
      * Sets the emailText property value. The emailText property
-     *  @param string|null $value Value to set for the emailText property.
+     * @param string|null $value Value to set for the emailText property.
     */
     public function setEmailText(?string $value): void {
         $this->getBackingStore()->set('emailText', $value);
     }
 
     /**
-     * Sets the overrideOption property value. The overrideOption property
-     *  @param OverrideOption|null $value Value to set for the overrideOption property.
-    */
-    public function setOverrideOption(?OverrideOption $value): void {
-        $this->getBackingStore()->set('overrideOption', $value);
-    }
-
-    /**
      * Sets the policyTip property value. The policyTip property
-     *  @param string|null $value Value to set for the policyTip property.
+     * @param string|null $value Value to set for the policyTip property.
     */
     public function setPolicyTip(?string $value): void {
         $this->getBackingStore()->set('policyTip', $value);
@@ -127,7 +109,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
 
     /**
      * Sets the recipients property value. The recipients property
-     *  @param array<string>|null $value Value to set for the recipients property.
+     * @param array<string>|null $value Value to set for the recipients property.
     */
     public function setRecipients(?array $value): void {
         $this->getBackingStore()->set('recipients', $value);

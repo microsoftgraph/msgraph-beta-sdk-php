@@ -133,7 +133,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the dataStoreId property value. The dataStoreId property
-     *  @param string|null $value Value to set for the dataStoreId property.
+     * @param string|null $value Value to set for the dataStoreId property.
     */
     public function setDataStoreId(?string $value): void {
         $this->getBackingStore()->set('dataStoreId', $value);
@@ -141,7 +141,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the processingCompletionDateTime property value. The processingCompletionDateTime property
-     *  @param DateTime|null $value Value to set for the processingCompletionDateTime property.
+     * @param DateTime|null $value Value to set for the processingCompletionDateTime property.
     */
     public function setProcessingCompletionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('processingCompletionDateTime', $value);
@@ -149,7 +149,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the remainingBlockCount property value. The remainingBlockCount property
-     *  @param int|null $value Value to set for the remainingBlockCount property.
+     * @param int|null $value Value to set for the remainingBlockCount property.
     */
     public function setRemainingBlockCount(?int $value): void {
         $this->getBackingStore()->set('remainingBlockCount', $value);
@@ -157,7 +157,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the remainingJobCount property value. The remainingJobCount property
-     *  @param int|null $value Value to set for the remainingJobCount property.
+     * @param int|null $value Value to set for the remainingJobCount property.
     */
     public function setRemainingJobCount(?int $value): void {
         $this->getBackingStore()->set('remainingJobCount', $value);
@@ -165,7 +165,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param string|null $value Value to set for the state property.
+     * @param string|null $value Value to set for the state property.
     */
     public function setState(?string $value): void {
         $this->getBackingStore()->set('state', $value);
@@ -173,7 +173,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the totalBlockCount property value. The totalBlockCount property
-     *  @param int|null $value Value to set for the totalBlockCount property.
+     * @param int|null $value Value to set for the totalBlockCount property.
     */
     public function setTotalBlockCount(?int $value): void {
         $this->getBackingStore()->set('totalBlockCount', $value);
@@ -181,7 +181,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the totalJobCount property value. The totalJobCount property
-     *  @param int|null $value Value to set for the totalJobCount property.
+     * @param int|null $value Value to set for the totalJobCount property.
     */
     public function setTotalJobCount(?int $value): void {
         $this->getBackingStore()->set('totalJobCount', $value);
@@ -189,7 +189,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the uploadCompletionDateTime property value. The uploadCompletionDateTime property
-     *  @param DateTime|null $value Value to set for the uploadCompletionDateTime property.
+     * @param DateTime|null $value Value to set for the uploadCompletionDateTime property.
     */
     public function setUploadCompletionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('uploadCompletionDateTime', $value);

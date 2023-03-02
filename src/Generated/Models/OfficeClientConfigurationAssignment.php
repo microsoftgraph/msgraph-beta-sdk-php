@@ -54,7 +54,7 @@ class OfficeClientConfigurationAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. The target assignment defined by the admin.
-     *  @param OfficeConfigurationAssignmentTarget|null $value Value to set for the target property.
+     * @param OfficeConfigurationAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?OfficeConfigurationAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

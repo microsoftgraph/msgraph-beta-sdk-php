@@ -135,7 +135,7 @@ class DeviceConfigurationDeviceOverview extends Entity implements Parsable
 
     /**
      * Sets the configurationVersion property value. Version of the policy for that overview
-     *  @param int|null $value Value to set for the configurationVersion property.
+     * @param int|null $value Value to set for the configurationVersion property.
     */
     public function setConfigurationVersion(?int $value): void {
         $this->getBackingStore()->set('configurationVersion', $value);
@@ -143,7 +143,7 @@ class DeviceConfigurationDeviceOverview extends Entity implements Parsable
 
     /**
      * Sets the conflictCount property value. Number of devices in conflict
-     *  @param int|null $value Value to set for the conflictCount property.
+     * @param int|null $value Value to set for the conflictCount property.
     */
     public function setConflictCount(?int $value): void {
         $this->getBackingStore()->set('conflictCount', $value);
@@ -151,7 +151,7 @@ class DeviceConfigurationDeviceOverview extends Entity implements Parsable
 
     /**
      * Sets the errorCount property value. Number of error devices
-     *  @param int|null $value Value to set for the errorCount property.
+     * @param int|null $value Value to set for the errorCount property.
     */
     public function setErrorCount(?int $value): void {
         $this->getBackingStore()->set('errorCount', $value);
@@ -159,7 +159,7 @@ class DeviceConfigurationDeviceOverview extends Entity implements Parsable
 
     /**
      * Sets the failedCount property value. Number of failed devices
-     *  @param int|null $value Value to set for the failedCount property.
+     * @param int|null $value Value to set for the failedCount property.
     */
     public function setFailedCount(?int $value): void {
         $this->getBackingStore()->set('failedCount', $value);
@@ -167,7 +167,7 @@ class DeviceConfigurationDeviceOverview extends Entity implements Parsable
 
     /**
      * Sets the lastUpdateDateTime property value. Last update time
-     *  @param DateTime|null $value Value to set for the lastUpdateDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdateDateTime property.
     */
     public function setLastUpdateDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdateDateTime', $value);
@@ -175,7 +175,7 @@ class DeviceConfigurationDeviceOverview extends Entity implements Parsable
 
     /**
      * Sets the notApplicableCount property value. Number of not applicable devices
-     *  @param int|null $value Value to set for the notApplicableCount property.
+     * @param int|null $value Value to set for the notApplicableCount property.
     */
     public function setNotApplicableCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableCount', $value);
@@ -183,7 +183,7 @@ class DeviceConfigurationDeviceOverview extends Entity implements Parsable
 
     /**
      * Sets the notApplicablePlatformCount property value. Number of not applicable devices due to mismatch platform and policy
-     *  @param int|null $value Value to set for the notApplicablePlatformCount property.
+     * @param int|null $value Value to set for the notApplicablePlatformCount property.
     */
     public function setNotApplicablePlatformCount(?int $value): void {
         $this->getBackingStore()->set('notApplicablePlatformCount', $value);
@@ -191,7 +191,7 @@ class DeviceConfigurationDeviceOverview extends Entity implements Parsable
 
     /**
      * Sets the pendingCount property value. Number of pending devices
-     *  @param int|null $value Value to set for the pendingCount property.
+     * @param int|null $value Value to set for the pendingCount property.
     */
     public function setPendingCount(?int $value): void {
         $this->getBackingStore()->set('pendingCount', $value);
@@ -199,7 +199,7 @@ class DeviceConfigurationDeviceOverview extends Entity implements Parsable
 
     /**
      * Sets the successCount property value. Number of succeeded devices
-     *  @param int|null $value Value to set for the successCount property.
+     * @param int|null $value Value to set for the successCount property.
     */
     public function setSuccessCount(?int $value): void {
         $this->getBackingStore()->set('successCount', $value);

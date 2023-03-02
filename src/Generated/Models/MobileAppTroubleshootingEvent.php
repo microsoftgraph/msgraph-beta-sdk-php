@@ -94,7 +94,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
 
     /**
      * Sets the applicationId property value. Intune application identifier.
-     *  @param string|null $value Value to set for the applicationId property.
+     * @param string|null $value Value to set for the applicationId property.
     */
     public function setApplicationId(?string $value): void {
         $this->getBackingStore()->set('applicationId', $value);
@@ -102,7 +102,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
 
     /**
      * Sets the appLogCollectionRequests property value. The collection property of AppLogUploadRequest.
-     *  @param array<AppLogCollectionRequest>|null $value Value to set for the appLogCollectionRequests property.
+     * @param array<AppLogCollectionRequest>|null $value Value to set for the appLogCollectionRequests property.
     */
     public function setAppLogCollectionRequests(?array $value): void {
         $this->getBackingStore()->set('appLogCollectionRequests', $value);
@@ -110,7 +110,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
 
     /**
      * Sets the history property value. Intune Mobile Application Troubleshooting History Item
-     *  @param array<MobileAppTroubleshootingHistoryItem>|null $value Value to set for the history property.
+     * @param array<MobileAppTroubleshootingHistoryItem>|null $value Value to set for the history property.
     */
     public function setHistory(?array $value): void {
         $this->getBackingStore()->set('history', $value);
@@ -118,7 +118,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
 
     /**
      * Sets the managedDeviceIdentifier property value. Device identifier created or collected by Intune.
-     *  @param string|null $value Value to set for the managedDeviceIdentifier property.
+     * @param string|null $value Value to set for the managedDeviceIdentifier property.
     */
     public function setManagedDeviceIdentifier(?string $value): void {
         $this->getBackingStore()->set('managedDeviceIdentifier', $value);
@@ -126,7 +126,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
 
     /**
      * Sets the userId property value. Identifier for the user that tried to enroll the device.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

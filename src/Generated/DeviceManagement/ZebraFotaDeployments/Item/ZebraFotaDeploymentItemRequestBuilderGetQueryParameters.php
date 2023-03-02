@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaDeployments\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of ZebraFotaDeployments associated with account.
+*/
 class ZebraFotaDeploymentItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class ZebraFotaDeploymentItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new ZebraFotaDeploymentItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

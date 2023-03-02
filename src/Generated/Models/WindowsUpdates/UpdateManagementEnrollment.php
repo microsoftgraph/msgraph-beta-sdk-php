@@ -55,7 +55,7 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Par
 
     /**
      * Sets the updateCategory property value. The updateCategory property
-     *  @param UpdateCategory|null $value Value to set for the updateCategory property.
+     * @param UpdateCategory|null $value Value to set for the updateCategory property.
     */
     public function setUpdateCategory(?UpdateCategory $value): void {
         $this->getBackingStore()->set('updateCategory', $value);

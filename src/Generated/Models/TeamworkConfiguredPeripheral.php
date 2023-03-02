@@ -36,7 +36,7 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +100,7 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +108,7 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +116,7 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the isOptional property value. True if the current peripheral is optional. If set to false, this property is also used as part of the calculation of the health state for the device.
-     *  @param bool|null $value Value to set for the isOptional property.
+     * @param bool|null $value Value to set for the isOptional property.
     */
     public function setIsOptional(?bool $value): void {
         $this->getBackingStore()->set('isOptional', $value);
@@ -124,7 +124,7 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -132,7 +132,7 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the peripheral property value. The peripheral property
-     *  @param TeamworkPeripheral|null $value Value to set for the peripheral property.
+     * @param TeamworkPeripheral|null $value Value to set for the peripheral property.
     */
     public function setPeripheral(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('peripheral', $value);

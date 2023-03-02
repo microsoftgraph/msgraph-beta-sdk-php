@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics device startup history entity contains device boot performance history details.
+*/
 class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Parsable 
 {
     /**
@@ -205,7 +208,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the coreBootTimeInMs property value. The user experience analytics device core boot time in milliseconds.
-     *  @param int|null $value Value to set for the coreBootTimeInMs property.
+     * @param int|null $value Value to set for the coreBootTimeInMs property.
     */
     public function setCoreBootTimeInMs(?int $value): void {
         $this->getBackingStore()->set('coreBootTimeInMs', $value);
@@ -213,7 +216,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the coreLoginTimeInMs property value. The user experience analytics device core login time in milliseconds.
-     *  @param int|null $value Value to set for the coreLoginTimeInMs property.
+     * @param int|null $value Value to set for the coreLoginTimeInMs property.
     */
     public function setCoreLoginTimeInMs(?int $value): void {
         $this->getBackingStore()->set('coreLoginTimeInMs', $value);
@@ -221,7 +224,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the deviceId property value. The user experience analytics device id.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -229,7 +232,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the featureUpdateBootTimeInMs property value. The user experience analytics device feature update time in milliseconds.
-     *  @param int|null $value Value to set for the featureUpdateBootTimeInMs property.
+     * @param int|null $value Value to set for the featureUpdateBootTimeInMs property.
     */
     public function setFeatureUpdateBootTimeInMs(?int $value): void {
         $this->getBackingStore()->set('featureUpdateBootTimeInMs', $value);
@@ -237,7 +240,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the groupPolicyBootTimeInMs property value. The User experience analytics Device group policy boot time in milliseconds.
-     *  @param int|null $value Value to set for the groupPolicyBootTimeInMs property.
+     * @param int|null $value Value to set for the groupPolicyBootTimeInMs property.
     */
     public function setGroupPolicyBootTimeInMs(?int $value): void {
         $this->getBackingStore()->set('groupPolicyBootTimeInMs', $value);
@@ -245,7 +248,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the groupPolicyLoginTimeInMs property value. The User experience analytics Device group policy login time in milliseconds.
-     *  @param int|null $value Value to set for the groupPolicyLoginTimeInMs property.
+     * @param int|null $value Value to set for the groupPolicyLoginTimeInMs property.
     */
     public function setGroupPolicyLoginTimeInMs(?int $value): void {
         $this->getBackingStore()->set('groupPolicyLoginTimeInMs', $value);
@@ -253,7 +256,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the isFeatureUpdate property value. The user experience analytics device boot record is a feature update.
-     *  @param bool|null $value Value to set for the isFeatureUpdate property.
+     * @param bool|null $value Value to set for the isFeatureUpdate property.
     */
     public function setIsFeatureUpdate(?bool $value): void {
         $this->getBackingStore()->set('isFeatureUpdate', $value);
@@ -261,7 +264,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the isFirstLogin property value. The user experience analytics device first login.
-     *  @param bool|null $value Value to set for the isFirstLogin property.
+     * @param bool|null $value Value to set for the isFirstLogin property.
     */
     public function setIsFirstLogin(?bool $value): void {
         $this->getBackingStore()->set('isFirstLogin', $value);
@@ -269,7 +272,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the operatingSystemVersion property value. The user experience analytics device boot record's operating system version.
-     *  @param string|null $value Value to set for the operatingSystemVersion property.
+     * @param string|null $value Value to set for the operatingSystemVersion property.
     */
     public function setOperatingSystemVersion(?string $value): void {
         $this->getBackingStore()->set('operatingSystemVersion', $value);
@@ -277,7 +280,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the responsiveDesktopTimeInMs property value. The user experience analytics responsive desktop time in milliseconds.
-     *  @param int|null $value Value to set for the responsiveDesktopTimeInMs property.
+     * @param int|null $value Value to set for the responsiveDesktopTimeInMs property.
     */
     public function setResponsiveDesktopTimeInMs(?int $value): void {
         $this->getBackingStore()->set('responsiveDesktopTimeInMs', $value);
@@ -285,7 +288,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the restartCategory property value. Operating System restart category
-     *  @param UserExperienceAnalyticsOperatingSystemRestartCategory|null $value Value to set for the restartCategory property.
+     * @param UserExperienceAnalyticsOperatingSystemRestartCategory|null $value Value to set for the restartCategory property.
     */
     public function setRestartCategory(?UserExperienceAnalyticsOperatingSystemRestartCategory $value): void {
         $this->getBackingStore()->set('restartCategory', $value);
@@ -293,7 +296,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the restartFaultBucket property value. OS restart fault bucket. The fault bucket is used to find additional information about a system crash.
-     *  @param string|null $value Value to set for the restartFaultBucket property.
+     * @param string|null $value Value to set for the restartFaultBucket property.
     */
     public function setRestartFaultBucket(?string $value): void {
         $this->getBackingStore()->set('restartFaultBucket', $value);
@@ -301,7 +304,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the restartStopCode property value. OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason.
-     *  @param string|null $value Value to set for the restartStopCode property.
+     * @param string|null $value Value to set for the restartStopCode property.
     */
     public function setRestartStopCode(?string $value): void {
         $this->getBackingStore()->set('restartStopCode', $value);
@@ -309,7 +312,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the startTime property value. The user experience analytics device boot start time.
-     *  @param DateTime|null $value Value to set for the startTime property.
+     * @param DateTime|null $value Value to set for the startTime property.
     */
     public function setStartTime(?DateTime $value): void {
         $this->getBackingStore()->set('startTime', $value);
@@ -317,7 +320,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the totalBootTimeInMs property value. The user experience analytics device total boot time in milliseconds.
-     *  @param int|null $value Value to set for the totalBootTimeInMs property.
+     * @param int|null $value Value to set for the totalBootTimeInMs property.
     */
     public function setTotalBootTimeInMs(?int $value): void {
         $this->getBackingStore()->set('totalBootTimeInMs', $value);
@@ -325,7 +328,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
 
     /**
      * Sets the totalLoginTimeInMs property value. The user experience analytics device total login time in milliseconds.
-     *  @param int|null $value Value to set for the totalLoginTimeInMs property.
+     * @param int|null $value Value to set for the totalLoginTimeInMs property.
     */
     public function setTotalLoginTimeInMs(?int $value): void {
         $this->getBackingStore()->set('totalLoginTimeInMs', $value);

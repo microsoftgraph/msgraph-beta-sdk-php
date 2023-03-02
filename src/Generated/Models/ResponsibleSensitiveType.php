@@ -36,7 +36,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +156,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -164,7 +164,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the id property value. The id property
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -172,7 +172,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the name property value. The name property
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -180,7 +180,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -188,7 +188,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the publisherName property value. The publisherName property
-     *  @param string|null $value Value to set for the publisherName property.
+     * @param string|null $value Value to set for the publisherName property.
     */
     public function setPublisherName(?string $value): void {
         $this->getBackingStore()->set('publisherName', $value);
@@ -196,7 +196,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the rulePackageId property value. The rulePackageId property
-     *  @param string|null $value Value to set for the rulePackageId property.
+     * @param string|null $value Value to set for the rulePackageId property.
     */
     public function setRulePackageId(?string $value): void {
         $this->getBackingStore()->set('rulePackageId', $value);
@@ -204,7 +204,7 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the rulePackageType property value. The rulePackageType property
-     *  @param string|null $value Value to set for the rulePackageType property.
+     * @param string|null $value Value to set for the rulePackageType property.
     */
     public function setRulePackageType(?string $value): void {
         $this->getBackingStore()->set('rulePackageType', $value);

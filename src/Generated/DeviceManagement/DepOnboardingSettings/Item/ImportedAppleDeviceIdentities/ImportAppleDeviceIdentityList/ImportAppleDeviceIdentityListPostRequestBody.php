@@ -37,7 +37,7 @@ class ImportAppleDeviceIdentityListPostRequestBody implements AdditionalDataHold
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -91,7 +91,7 @@ class ImportAppleDeviceIdentityListPostRequestBody implements AdditionalDataHold
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -99,7 +99,7 @@ class ImportAppleDeviceIdentityListPostRequestBody implements AdditionalDataHold
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -107,7 +107,7 @@ class ImportAppleDeviceIdentityListPostRequestBody implements AdditionalDataHold
 
     /**
      * Sets the importedAppleDeviceIdentities property value. The importedAppleDeviceIdentities property
-     *  @param array<ImportedAppleDeviceIdentity>|null $value Value to set for the importedAppleDeviceIdentities property.
+     * @param array<ImportedAppleDeviceIdentity>|null $value Value to set for the importedAppleDeviceIdentities property.
     */
     public function setImportedAppleDeviceIdentities(?array $value): void {
         $this->getBackingStore()->set('importedAppleDeviceIdentities', $value);
@@ -115,7 +115,7 @@ class ImportAppleDeviceIdentityListPostRequestBody implements AdditionalDataHold
 
     /**
      * Sets the overwriteImportedDeviceIdentities property value. The overwriteImportedDeviceIdentities property
-     *  @param bool|null $value Value to set for the overwriteImportedDeviceIdentities property.
+     * @param bool|null $value Value to set for the overwriteImportedDeviceIdentities property.
     */
     public function setOverwriteImportedDeviceIdentities(?bool $value): void {
         $this->getBackingStore()->set('overwriteImportedDeviceIdentities', $value);

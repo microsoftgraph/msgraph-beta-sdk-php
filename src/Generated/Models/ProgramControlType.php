@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProgramControlType extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new programControlType and sets the default values.
+     * Instantiates a new ProgramControlType and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -64,7 +64,7 @@ class ProgramControlType extends Entity implements Parsable
 
     /**
      * Sets the controlTypeGroupId property value. The controlTypeGroupId property
-     *  @param string|null $value Value to set for the controlTypeGroupId property.
+     * @param string|null $value Value to set for the controlTypeGroupId property.
     */
     public function setControlTypeGroupId(?string $value): void {
         $this->getBackingStore()->set('controlTypeGroupId', $value);
@@ -72,7 +72,7 @@ class ProgramControlType extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the program control type
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

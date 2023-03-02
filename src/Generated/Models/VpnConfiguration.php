@@ -102,7 +102,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the authenticationMethod property value. VPN Authentication Method.
-     *  @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?VpnAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -110,7 +110,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the connectionName property value. Connection name displayed to the user.
-     *  @param string|null $value Value to set for the connectionName property.
+     * @param string|null $value Value to set for the connectionName property.
     */
     public function setConnectionName(?string $value): void {
         $this->getBackingStore()->set('connectionName', $value);
@@ -118,7 +118,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the realm property value. Realm when connection type is set to Pulse Secure.
-     *  @param string|null $value Value to set for the realm property.
+     * @param string|null $value Value to set for the realm property.
     */
     public function setRealm(?string $value): void {
         $this->getBackingStore()->set('realm', $value);
@@ -126,7 +126,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the role property value. Role when connection type is set to Pulse Secure.
-     *  @param string|null $value Value to set for the role property.
+     * @param string|null $value Value to set for the role property.
     */
     public function setRole(?string $value): void {
         $this->getBackingStore()->set('role', $value);
@@ -134,7 +134,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the servers property value. List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-     *  @param array<VpnServer>|null $value Value to set for the servers property.
+     * @param array<VpnServer>|null $value Value to set for the servers property.
     */
     public function setServers(?array $value): void {
         $this->getBackingStore()->set('servers', $value);

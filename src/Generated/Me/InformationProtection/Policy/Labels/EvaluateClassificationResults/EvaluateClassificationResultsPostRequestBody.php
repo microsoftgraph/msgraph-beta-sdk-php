@@ -38,7 +38,7 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -92,7 +92,7 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -100,7 +100,7 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -108,7 +108,7 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
 
     /**
      * Sets the classificationResults property value. The classificationResults property
-     *  @param array<ClassificationResult>|null $value Value to set for the classificationResults property.
+     * @param array<ClassificationResult>|null $value Value to set for the classificationResults property.
     */
     public function setClassificationResults(?array $value): void {
         $this->getBackingStore()->set('classificationResults', $value);
@@ -116,7 +116,7 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
 
     /**
      * Sets the contentInfo property value. The contentInfo property
-     *  @param ContentInfo|null $value Value to set for the contentInfo property.
+     * @param ContentInfo|null $value Value to set for the contentInfo property.
     */
     public function setContentInfo(?ContentInfo $value): void {
         $this->getBackingStore()->set('contentInfo', $value);

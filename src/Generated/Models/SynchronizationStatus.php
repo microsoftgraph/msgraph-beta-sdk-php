@@ -37,7 +37,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -201,7 +201,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -209,7 +209,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -217,7 +217,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the code property value. The code property
-     *  @param SynchronizationStatusCode|null $value Value to set for the code property.
+     * @param SynchronizationStatusCode|null $value Value to set for the code property.
     */
     public function setCode(?SynchronizationStatusCode $value): void {
         $this->getBackingStore()->set('code', $value);
@@ -225,7 +225,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the countSuccessiveCompleteFailures property value. Number of consecutive times this job failed.
-     *  @param int|null $value Value to set for the countSuccessiveCompleteFailures property.
+     * @param int|null $value Value to set for the countSuccessiveCompleteFailures property.
     */
     public function setCountSuccessiveCompleteFailures(?int $value): void {
         $this->getBackingStore()->set('countSuccessiveCompleteFailures', $value);
@@ -233,7 +233,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the escrowsPruned property value. true if the job's escrows (object-level errors) were pruned during initial synchronization. Escrows can be pruned if during the initial synchronization, you reach the threshold of errors that would normally put the job in quarantine. Instead of going into quarantine, the synchronization process clears the job's errors and continues until the initial synchronization is completed. When the initial synchronization is completed, the job will pause and wait for the customer to clean up the errors.
-     *  @param bool|null $value Value to set for the escrowsPruned property.
+     * @param bool|null $value Value to set for the escrowsPruned property.
     */
     public function setEscrowsPruned(?bool $value): void {
         $this->getBackingStore()->set('escrowsPruned', $value);
@@ -241,7 +241,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the lastExecution property value. Details of the last execution of the job.
-     *  @param SynchronizationTaskExecution|null $value Value to set for the lastExecution property.
+     * @param SynchronizationTaskExecution|null $value Value to set for the lastExecution property.
     */
     public function setLastExecution(?SynchronizationTaskExecution $value): void {
         $this->getBackingStore()->set('lastExecution', $value);
@@ -249,7 +249,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the lastSuccessfulExecution property value. Details of the last execution of this job, which didn't have any errors.
-     *  @param SynchronizationTaskExecution|null $value Value to set for the lastSuccessfulExecution property.
+     * @param SynchronizationTaskExecution|null $value Value to set for the lastSuccessfulExecution property.
     */
     public function setLastSuccessfulExecution(?SynchronizationTaskExecution $value): void {
         $this->getBackingStore()->set('lastSuccessfulExecution', $value);
@@ -257,7 +257,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the lastSuccessfulExecutionWithExports property value. Details of the last execution of the job, which exported objects into the target directory.
-     *  @param SynchronizationTaskExecution|null $value Value to set for the lastSuccessfulExecutionWithExports property.
+     * @param SynchronizationTaskExecution|null $value Value to set for the lastSuccessfulExecutionWithExports property.
     */
     public function setLastSuccessfulExecutionWithExports(?SynchronizationTaskExecution $value): void {
         $this->getBackingStore()->set('lastSuccessfulExecutionWithExports', $value);
@@ -265,7 +265,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -273,7 +273,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the progress property value. Details of the progress of a job toward completion.
-     *  @param array<SynchronizationProgress>|null $value Value to set for the progress property.
+     * @param array<SynchronizationProgress>|null $value Value to set for the progress property.
     */
     public function setProgress(?array $value): void {
         $this->getBackingStore()->set('progress', $value);
@@ -281,7 +281,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the quarantine property value. If job is in quarantine, quarantine details.
-     *  @param SynchronizationQuarantine|null $value Value to set for the quarantine property.
+     * @param SynchronizationQuarantine|null $value Value to set for the quarantine property.
     */
     public function setQuarantine(?SynchronizationQuarantine $value): void {
         $this->getBackingStore()->set('quarantine', $value);
@@ -289,7 +289,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the steadyStateFirstAchievedTime property value. The time when steady state (no more changes to the process) was first achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the steadyStateFirstAchievedTime property.
+     * @param DateTime|null $value Value to set for the steadyStateFirstAchievedTime property.
     */
     public function setSteadyStateFirstAchievedTime(?DateTime $value): void {
         $this->getBackingStore()->set('steadyStateFirstAchievedTime', $value);
@@ -297,7 +297,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the steadyStateLastAchievedTime property value. The time when steady state (no more changes to the process) was last achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     *  @param DateTime|null $value Value to set for the steadyStateLastAchievedTime property.
+     * @param DateTime|null $value Value to set for the steadyStateLastAchievedTime property.
     */
     public function setSteadyStateLastAchievedTime(?DateTime $value): void {
         $this->getBackingStore()->set('steadyStateLastAchievedTime', $value);
@@ -305,7 +305,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the synchronizedEntryCountByType property value. Count of synchronized objects, listed by object type.
-     *  @param array<StringKeyLongValuePair>|null $value Value to set for the synchronizedEntryCountByType property.
+     * @param array<StringKeyLongValuePair>|null $value Value to set for the synchronizedEntryCountByType property.
     */
     public function setSynchronizedEntryCountByType(?array $value): void {
         $this->getBackingStore()->set('synchronizedEntryCountByType', $value);
@@ -313,7 +313,7 @@ class SynchronizationStatus implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the troubleshootingUrl property value. In the event of an error, the URL with the troubleshooting steps for the issue.
-     *  @param string|null $value Value to set for the troubleshootingUrl property.
+     * @param string|null $value Value to set for the troubleshootingUrl property.
     */
     public function setTroubleshootingUrl(?string $value): void {
         $this->getBackingStore()->set('troubleshootingUrl', $value);

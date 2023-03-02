@@ -74,7 +74,7 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
 
     /**
      * Sets the time property value. At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.
-     *  @param Time|null $value Value to set for the time property.
+     * @param Time|null $value Value to set for the time property.
     */
     public function setTime(?Time $value): void {
         $this->getBackingStore()->set('time', $value);
@@ -82,7 +82,7 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
 
     /**
      * Sets the useUtc property value. Indicate if the time is Utc or client local time.
-     *  @param bool|null $value Value to set for the useUtc property.
+     * @param bool|null $value Value to set for the useUtc property.
     */
     public function setUseUtc(?bool $value): void {
         $this->getBackingStore()->set('useUtc', $value);

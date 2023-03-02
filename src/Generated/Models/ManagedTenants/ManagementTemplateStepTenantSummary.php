@@ -196,7 +196,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the assignedTenantsCount property value. The assignedTenantsCount property
-     *  @param int|null $value Value to set for the assignedTenantsCount property.
+     * @param int|null $value Value to set for the assignedTenantsCount property.
     */
     public function setAssignedTenantsCount(?int $value): void {
         $this->getBackingStore()->set('assignedTenantsCount', $value);
@@ -204,7 +204,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the compliantTenantsCount property value. The compliantTenantsCount property
-     *  @param int|null $value Value to set for the compliantTenantsCount property.
+     * @param int|null $value Value to set for the compliantTenantsCount property.
     */
     public function setCompliantTenantsCount(?int $value): void {
         $this->getBackingStore()->set('compliantTenantsCount', $value);
@@ -212,7 +212,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
-     *  @param string|null $value Value to set for the createdByUserId property.
+     * @param string|null $value Value to set for the createdByUserId property.
     */
     public function setCreatedByUserId(?string $value): void {
         $this->getBackingStore()->set('createdByUserId', $value);
@@ -220,7 +220,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -228,7 +228,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the dismissedTenantsCount property value. The dismissedTenantsCount property
-     *  @param int|null $value Value to set for the dismissedTenantsCount property.
+     * @param int|null $value Value to set for the dismissedTenantsCount property.
     */
     public function setDismissedTenantsCount(?int $value): void {
         $this->getBackingStore()->set('dismissedTenantsCount', $value);
@@ -236,7 +236,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the ineligibleTenantsCount property value. The ineligibleTenantsCount property
-     *  @param int|null $value Value to set for the ineligibleTenantsCount property.
+     * @param int|null $value Value to set for the ineligibleTenantsCount property.
     */
     public function setIneligibleTenantsCount(?int $value): void {
         $this->getBackingStore()->set('ineligibleTenantsCount', $value);
@@ -244,7 +244,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
-     *  @param string|null $value Value to set for the lastActionByUserId property.
+     * @param string|null $value Value to set for the lastActionByUserId property.
     */
     public function setLastActionByUserId(?string $value): void {
         $this->getBackingStore()->set('lastActionByUserId', $value);
@@ -252,7 +252,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -260,7 +260,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateCollectionDisplayName property value. The managementTemplateCollectionDisplayName property
-     *  @param string|null $value Value to set for the managementTemplateCollectionDisplayName property.
+     * @param string|null $value Value to set for the managementTemplateCollectionDisplayName property.
     */
     public function setManagementTemplateCollectionDisplayName(?string $value): void {
         $this->getBackingStore()->set('managementTemplateCollectionDisplayName', $value);
@@ -268,7 +268,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateCollectionId property value. The managementTemplateCollectionId property
-     *  @param string|null $value Value to set for the managementTemplateCollectionId property.
+     * @param string|null $value Value to set for the managementTemplateCollectionId property.
     */
     public function setManagementTemplateCollectionId(?string $value): void {
         $this->getBackingStore()->set('managementTemplateCollectionId', $value);
@@ -276,7 +276,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateDisplayName property value. The managementTemplateDisplayName property
-     *  @param string|null $value Value to set for the managementTemplateDisplayName property.
+     * @param string|null $value Value to set for the managementTemplateDisplayName property.
     */
     public function setManagementTemplateDisplayName(?string $value): void {
         $this->getBackingStore()->set('managementTemplateDisplayName', $value);
@@ -284,7 +284,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateId property value. The managementTemplateId property
-     *  @param string|null $value Value to set for the managementTemplateId property.
+     * @param string|null $value Value to set for the managementTemplateId property.
     */
     public function setManagementTemplateId(?string $value): void {
         $this->getBackingStore()->set('managementTemplateId', $value);
@@ -292,7 +292,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateStepDisplayName property value. The managementTemplateStepDisplayName property
-     *  @param string|null $value Value to set for the managementTemplateStepDisplayName property.
+     * @param string|null $value Value to set for the managementTemplateStepDisplayName property.
     */
     public function setManagementTemplateStepDisplayName(?string $value): void {
         $this->getBackingStore()->set('managementTemplateStepDisplayName', $value);
@@ -300,7 +300,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the managementTemplateStepId property value. The managementTemplateStepId property
-     *  @param string|null $value Value to set for the managementTemplateStepId property.
+     * @param string|null $value Value to set for the managementTemplateStepId property.
     */
     public function setManagementTemplateStepId(?string $value): void {
         $this->getBackingStore()->set('managementTemplateStepId', $value);
@@ -308,7 +308,7 @@ class ManagementTemplateStepTenantSummary extends Entity implements Parsable
 
     /**
      * Sets the notCompliantTenantsCount property value. The notCompliantTenantsCount property
-     *  @param int|null $value Value to set for the notCompliantTenantsCount property.
+     * @param int|null $value Value to set for the notCompliantTenantsCount property.
     */
     public function setNotCompliantTenantsCount(?int $value): void {
         $this->getBackingStore()->set('notCompliantTenantsCount', $value);

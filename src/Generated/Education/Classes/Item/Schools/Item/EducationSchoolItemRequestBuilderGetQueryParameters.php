@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Schools\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * All schools that this class is associated with. Nullable.
+*/
 class EducationSchoolItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class EducationSchoolItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new EducationSchoolItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

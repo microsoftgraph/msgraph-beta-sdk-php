@@ -146,7 +146,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the account property value. The account property
-     *  @param Account|null $value Value to set for the account property.
+     * @param Account|null $value Value to set for the account property.
     */
     public function setAccount(?Account $value): void {
         $this->getBackingStore()->set('account', $value);
@@ -154,7 +154,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the accountId property value. The accountId property
-     *  @param string|null $value Value to set for the accountId property.
+     * @param string|null $value Value to set for the accountId property.
     */
     public function setAccountId(?string $value): void {
         $this->getBackingStore()->set('accountId', $value);
@@ -162,7 +162,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the accountNumber property value. The accountNumber property
-     *  @param string|null $value Value to set for the accountNumber property.
+     * @param string|null $value Value to set for the accountNumber property.
     */
     public function setAccountNumber(?string $value): void {
         $this->getBackingStore()->set('accountNumber', $value);
@@ -170,7 +170,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the creditAmount property value. The creditAmount property
-     *  @param string|null $value Value to set for the creditAmount property.
+     * @param string|null $value Value to set for the creditAmount property.
     */
     public function setCreditAmount(?string $value): void {
         $this->getBackingStore()->set('creditAmount', $value);
@@ -178,7 +178,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the debitAmount property value. The debitAmount property
-     *  @param string|null $value Value to set for the debitAmount property.
+     * @param string|null $value Value to set for the debitAmount property.
     */
     public function setDebitAmount(?string $value): void {
         $this->getBackingStore()->set('debitAmount', $value);
@@ -186,7 +186,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description property
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -194,7 +194,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the documentNumber property value. The documentNumber property
-     *  @param string|null $value Value to set for the documentNumber property.
+     * @param string|null $value Value to set for the documentNumber property.
     */
     public function setDocumentNumber(?string $value): void {
         $this->getBackingStore()->set('documentNumber', $value);
@@ -202,7 +202,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the documentType property value. The documentType property
-     *  @param string|null $value Value to set for the documentType property.
+     * @param string|null $value Value to set for the documentType property.
     */
     public function setDocumentType(?string $value): void {
         $this->getBackingStore()->set('documentType', $value);
@@ -210,7 +210,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -218,7 +218,7 @@ class GeneralLedgerEntry extends Entity implements Parsable
 
     /**
      * Sets the postingDate property value. The postingDate property
-     *  @param Date|null $value Value to set for the postingDate property.
+     * @param Date|null $value Value to set for the postingDate property.
     */
     public function setPostingDate(?Date $value): void {
         $this->getBackingStore()->set('postingDate', $value);

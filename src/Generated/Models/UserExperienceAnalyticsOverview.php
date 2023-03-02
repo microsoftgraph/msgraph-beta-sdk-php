@@ -54,7 +54,7 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
 
     /**
      * Sets the insights property value. The user experience analytics insights.
-     *  @param array<UserExperienceAnalyticsInsight>|null $value Value to set for the insights property.
+     * @param array<UserExperienceAnalyticsInsight>|null $value Value to set for the insights property.
     */
     public function setInsights(?array $value): void {
         $this->getBackingStore()->set('insights', $value);

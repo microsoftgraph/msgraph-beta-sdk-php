@@ -74,7 +74,7 @@ class Program extends Entity implements Parsable
 
     /**
      * Sets the controls property value. Controls associated with the program.
-     *  @param array<ProgramControl>|null $value Value to set for the controls property.
+     * @param array<ProgramControl>|null $value Value to set for the controls property.
     */
     public function setControls(?array $value): void {
         $this->getBackingStore()->set('controls', $value);
@@ -82,7 +82,7 @@ class Program extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description of the program.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -90,7 +90,7 @@ class Program extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the program.  Required on create.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

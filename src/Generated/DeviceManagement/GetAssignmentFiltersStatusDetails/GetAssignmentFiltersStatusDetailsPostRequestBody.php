@@ -36,7 +36,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -130,7 +130,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -138,7 +138,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
 
     /**
      * Sets the assignmentFilterIds property value. The assignmentFilterIds property
-     *  @param array<string>|null $value Value to set for the assignmentFilterIds property.
+     * @param array<string>|null $value Value to set for the assignmentFilterIds property.
     */
     public function setAssignmentFilterIds(?array $value): void {
         $this->getBackingStore()->set('assignmentFilterIds', $value);
@@ -146,7 +146,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -154,7 +154,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
 
     /**
      * Sets the managedDeviceId property value. The managedDeviceId property
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -162,7 +162,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
 
     /**
      * Sets the payloadId property value. The payloadId property
-     *  @param string|null $value Value to set for the payloadId property.
+     * @param string|null $value Value to set for the payloadId property.
     */
     public function setPayloadId(?string $value): void {
         $this->getBackingStore()->set('payloadId', $value);
@@ -170,7 +170,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
 
     /**
      * Sets the skip property value. The skip property
-     *  @param int|null $value Value to set for the skip property.
+     * @param int|null $value Value to set for the skip property.
     */
     public function setSkip(?int $value): void {
         $this->getBackingStore()->set('skip', $value);
@@ -178,7 +178,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
 
     /**
      * Sets the top property value. The top property
-     *  @param int|null $value Value to set for the top property.
+     * @param int|null $value Value to set for the top property.
     */
     public function setTop(?int $value): void {
         $this->getBackingStore()->set('top', $value);
@@ -186,7 +186,7 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
 
     /**
      * Sets the userId property value. The userId property
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);

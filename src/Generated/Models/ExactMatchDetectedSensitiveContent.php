@@ -54,7 +54,7 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase im
 
     /**
      * Sets the matches property value. The matches property
-     *  @param array<SensitiveContentLocation>|null $value Value to set for the matches property.
+     * @param array<SensitiveContentLocation>|null $value Value to set for the matches property.
     */
     public function setMatches(?array $value): void {
         $this->getBackingStore()->set('matches', $value);

@@ -36,7 +36,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -190,7 +190,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -198,7 +198,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the authenticationStrength property value. The custom authentication strength enforced in a Conditional Access policy.
-     *  @param AuthenticationStrength|null $value Value to set for the authenticationStrength property.
+     * @param AuthenticationStrength|null $value Value to set for the authenticationStrength property.
     */
     public function setAuthenticationStrength(?AuthenticationStrength $value): void {
         $this->getBackingStore()->set('authenticationStrength', $value);
@@ -206,7 +206,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -214,7 +214,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the conditionsNotSatisfied property value. Refers to the conditional access policy conditions that are not satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
-     *  @param ConditionalAccessConditions|null $value Value to set for the conditionsNotSatisfied property.
+     * @param ConditionalAccessConditions|null $value Value to set for the conditionsNotSatisfied property.
     */
     public function setConditionsNotSatisfied(?ConditionalAccessConditions $value): void {
         $this->getBackingStore()->set('conditionsNotSatisfied', $value);
@@ -222,7 +222,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the conditionsSatisfied property value. Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk.
-     *  @param ConditionalAccessConditions|null $value Value to set for the conditionsSatisfied property.
+     * @param ConditionalAccessConditions|null $value Value to set for the conditionsSatisfied property.
     */
     public function setConditionsSatisfied(?ConditionalAccessConditions $value): void {
         $this->getBackingStore()->set('conditionsSatisfied', $value);
@@ -230,7 +230,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the displayName property value. Name of the conditional access policy.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -238,7 +238,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the enforcedGrantControls property value. Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
-     *  @param array<string>|null $value Value to set for the enforcedGrantControls property.
+     * @param array<string>|null $value Value to set for the enforcedGrantControls property.
     */
     public function setEnforcedGrantControls(?array $value): void {
         $this->getBackingStore()->set('enforcedGrantControls', $value);
@@ -246,7 +246,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the enforcedSessionControls property value. Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
-     *  @param array<string>|null $value Value to set for the enforcedSessionControls property.
+     * @param array<string>|null $value Value to set for the enforcedSessionControls property.
     */
     public function setEnforcedSessionControls(?array $value): void {
         $this->getBackingStore()->set('enforcedSessionControls', $value);
@@ -254,7 +254,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the excludeRulesSatisfied property value. List of key-value pairs containing each matched exclude condition in the conditional access policy. Example: [{'devicePlatform' : 'DevicePlatform'}] means the policy didn’t apply, because the DevicePlatform condition was a match.
-     *  @param array<ConditionalAccessRuleSatisfied>|null $value Value to set for the excludeRulesSatisfied property.
+     * @param array<ConditionalAccessRuleSatisfied>|null $value Value to set for the excludeRulesSatisfied property.
     */
     public function setExcludeRulesSatisfied(?array $value): void {
         $this->getBackingStore()->set('excludeRulesSatisfied', $value);
@@ -262,7 +262,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the id property value. Identifier of the conditional access policy.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -270,7 +270,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the includeRulesSatisfied property value. List of key-value pairs containing each matched include condition in the conditional access policy. Example: [{ 'application' : 'AllApps'}, {'users': 'Group'}], meaning Application condition was a match because AllApps are included and Users condition was a match because the user was part of the included Group rule.
-     *  @param array<ConditionalAccessRuleSatisfied>|null $value Value to set for the includeRulesSatisfied property.
+     * @param array<ConditionalAccessRuleSatisfied>|null $value Value to set for the includeRulesSatisfied property.
     */
     public function setIncludeRulesSatisfied(?array $value): void {
         $this->getBackingStore()->set('includeRulesSatisfied', $value);
@@ -278,7 +278,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -286,7 +286,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
-     *  @param AppliedConditionalAccessPolicyResult|null $value Value to set for the result property.
+     * @param AppliedConditionalAccessPolicyResult|null $value Value to set for the result property.
     */
     public function setResult(?AppliedConditionalAccessPolicyResult $value): void {
         $this->getBackingStore()->set('result', $value);
@@ -294,7 +294,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the sessionControlsNotSatisfied property value. Refers to the session controls that a sign-in activity did not satisfy. (Example: Application enforced Restrictions).
-     *  @param array<string>|null $value Value to set for the sessionControlsNotSatisfied property.
+     * @param array<string>|null $value Value to set for the sessionControlsNotSatisfied property.
     */
     public function setSessionControlsNotSatisfied(?array $value): void {
         $this->getBackingStore()->set('sessionControlsNotSatisfied', $value);

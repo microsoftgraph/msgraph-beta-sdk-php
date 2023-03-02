@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Users;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
+*/
 class UsersRequestBuilderGetQueryParameters 
 {
     /**
@@ -43,15 +46,29 @@ class UsersRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * @QueryParameter("%24skip")
-     * @var int|null $skip Skip the first n items
-    */
-    public ?int $skip = null;
-    
-    /**
      * @QueryParameter("%24top")
      * @var int|null $top Show only the first n items
     */
     public ?int $top = null;
     
+    /**
+     * Instantiates a new usersRequestBuilderGetQueryParameters and sets the default values.
+     * @param bool|null $count Include count of items
+     * @param array<string>|null $expand Expand related entities
+     * @param string|null $filter Filter items by property values
+     * @param array<string>|null $orderby Order items by property values
+     * @param string|null $search Search items by search phrases
+     * @param array<string>|null $select Select properties to be returned
+     * @param int|null $top Show only the first n items
+    */
+    public function __construct(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $top = null) {
+        $this->count = $count;
+        $this->expand = $expand;
+        $this->filter = $filter;
+        $this->orderby = $orderby;
+        $this->search = $search;
+        $this->select = $select;
+        $this->top = $top;
+    }
+
 }

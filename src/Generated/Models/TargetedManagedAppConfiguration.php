@@ -115,7 +115,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
 
     /**
      * Sets the appGroupType property value. Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
-     *  @param TargetedManagedAppGroupType|null $value Value to set for the appGroupType property.
+     * @param TargetedManagedAppGroupType|null $value Value to set for the appGroupType property.
     */
     public function setAppGroupType(?TargetedManagedAppGroupType $value): void {
         $this->getBackingStore()->set('appGroupType', $value);
@@ -123,7 +123,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
 
     /**
      * Sets the apps property value. List of apps to which the policy is deployed.
-     *  @param array<ManagedMobileApp>|null $value Value to set for the apps property.
+     * @param array<ManagedMobileApp>|null $value Value to set for the apps property.
     */
     public function setApps(?array $value): void {
         $this->getBackingStore()->set('apps', $value);
@@ -131,7 +131,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
 
     /**
      * Sets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
-     *  @param array<TargetedManagedAppPolicyAssignment>|null $value Value to set for the assignments property.
+     * @param array<TargetedManagedAppPolicyAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -139,7 +139,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
 
     /**
      * Sets the deployedAppCount property value. Count of apps to which the current policy is deployed.
-     *  @param int|null $value Value to set for the deployedAppCount property.
+     * @param int|null $value Value to set for the deployedAppCount property.
     */
     public function setDeployedAppCount(?int $value): void {
         $this->getBackingStore()->set('deployedAppCount', $value);
@@ -147,7 +147,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
 
     /**
      * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
-     *  @param ManagedAppPolicyDeploymentSummary|null $value Value to set for the deploymentSummary property.
+     * @param ManagedAppPolicyDeploymentSummary|null $value Value to set for the deploymentSummary property.
     */
     public function setDeploymentSummary(?ManagedAppPolicyDeploymentSummary $value): void {
         $this->getBackingStore()->set('deploymentSummary', $value);
@@ -155,7 +155,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
 
     /**
      * Sets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
-     *  @param bool|null $value Value to set for the isAssigned property.
+     * @param bool|null $value Value to set for the isAssigned property.
     */
     public function setIsAssigned(?bool $value): void {
         $this->getBackingStore()->set('isAssigned', $value);
@@ -163,7 +163,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
 
     /**
      * Sets the targetedAppManagementLevels property value. Management levels for apps
-     *  @param AppManagementLevel|null $value Value to set for the targetedAppManagementLevels property.
+     * @param AppManagementLevel|null $value Value to set for the targetedAppManagementLevels property.
     */
     public function setTargetedAppManagementLevels(?AppManagementLevel $value): void {
         $this->getBackingStore()->set('targetedAppManagementLevels', $value);

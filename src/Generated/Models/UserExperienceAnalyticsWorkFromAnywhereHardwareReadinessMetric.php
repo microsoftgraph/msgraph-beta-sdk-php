@@ -154,7 +154,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the osCheckFailedPercentage property value. The percentage of devices for which OS check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the osCheckFailedPercentage property.
+     * @param float|null $value Value to set for the osCheckFailedPercentage property.
     */
     public function setOsCheckFailedPercentage(?float $value): void {
         $this->getBackingStore()->set('osCheckFailedPercentage', $value);
@@ -162,7 +162,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the processor64BitCheckFailedPercentage property value. The percentage of devices for which processor hardware 64-bit architecture check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the processor64BitCheckFailedPercentage property.
+     * @param float|null $value Value to set for the processor64BitCheckFailedPercentage property.
     */
     public function setProcessor64BitCheckFailedPercentage(?float $value): void {
         $this->getBackingStore()->set('processor64BitCheckFailedPercentage', $value);
@@ -170,7 +170,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the processorCoreCountCheckFailedPercentage property value. The percentage of devices for which processor hardware core count check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the processorCoreCountCheckFailedPercentage property.
+     * @param float|null $value Value to set for the processorCoreCountCheckFailedPercentage property.
     */
     public function setProcessorCoreCountCheckFailedPercentage(?float $value): void {
         $this->getBackingStore()->set('processorCoreCountCheckFailedPercentage', $value);
@@ -178,7 +178,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the processorFamilyCheckFailedPercentage property value. The percentage of devices for which processor hardware family check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the processorFamilyCheckFailedPercentage property.
+     * @param float|null $value Value to set for the processorFamilyCheckFailedPercentage property.
     */
     public function setProcessorFamilyCheckFailedPercentage(?float $value): void {
         $this->getBackingStore()->set('processorFamilyCheckFailedPercentage', $value);
@@ -186,7 +186,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the processorSpeedCheckFailedPercentage property value. The percentage of devices for which processor hardware speed check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the processorSpeedCheckFailedPercentage property.
+     * @param float|null $value Value to set for the processorSpeedCheckFailedPercentage property.
     */
     public function setProcessorSpeedCheckFailedPercentage(?float $value): void {
         $this->getBackingStore()->set('processorSpeedCheckFailedPercentage', $value);
@@ -194,7 +194,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the ramCheckFailedPercentage property value. The percentage of devices for which RAM hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the ramCheckFailedPercentage property.
+     * @param float|null $value Value to set for the ramCheckFailedPercentage property.
     */
     public function setRamCheckFailedPercentage(?float $value): void {
         $this->getBackingStore()->set('ramCheckFailedPercentage', $value);
@@ -202,7 +202,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the secureBootCheckFailedPercentage property value. The percentage of devices for which secure boot hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the secureBootCheckFailedPercentage property.
+     * @param float|null $value Value to set for the secureBootCheckFailedPercentage property.
     */
     public function setSecureBootCheckFailedPercentage(?float $value): void {
         $this->getBackingStore()->set('secureBootCheckFailedPercentage', $value);
@@ -210,7 +210,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the storageCheckFailedPercentage property value. The percentage of devices for which storage hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the storageCheckFailedPercentage property.
+     * @param float|null $value Value to set for the storageCheckFailedPercentage property.
     */
     public function setStorageCheckFailedPercentage(?float $value): void {
         $this->getBackingStore()->set('storageCheckFailedPercentage', $value);
@@ -218,7 +218,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the totalDeviceCount property value. The count of total devices in an organization. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the totalDeviceCount property.
+     * @param int|null $value Value to set for the totalDeviceCount property.
     */
     public function setTotalDeviceCount(?int $value): void {
         $this->getBackingStore()->set('totalDeviceCount', $value);
@@ -226,7 +226,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the tpmCheckFailedPercentage property value. The percentage of devices for which Trusted Platform Module (TPM) hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     *  @param float|null $value Value to set for the tpmCheckFailedPercentage property.
+     * @param float|null $value Value to set for the tpmCheckFailedPercentage property.
     */
     public function setTpmCheckFailedPercentage(?float $value): void {
         $this->getBackingStore()->set('tpmCheckFailedPercentage', $value);
@@ -234,7 +234,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
 
     /**
      * Sets the upgradeEligibleDeviceCount property value. The count of devices in an organization eligible for windows upgrade. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the upgradeEligibleDeviceCount property.
+     * @param int|null $value Value to set for the upgradeEligibleDeviceCount property.
     */
     public function setUpgradeEligibleDeviceCount(?int $value): void {
         $this->getBackingStore()->set('upgradeEligibleDeviceCount', $value);

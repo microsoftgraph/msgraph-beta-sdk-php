@@ -21,6 +21,7 @@ use Microsoft\Graph\Beta\Generated\Models\CloudPCConnectivityIssue;
 use Microsoft\Graph\Beta\Generated\Models\ComanagementEligibleDevice;
 use Microsoft\Graph\Beta\Generated\Models\ComplianceManagementPartner;
 use Microsoft\Graph\Beta\Generated\Models\ConfigManagerCollection;
+use Microsoft\Graph\Beta\Generated\Models\ConnectorStatusDetails;
 use Microsoft\Graph\Beta\Generated\Models\DataProcessorServiceForWindowsFeaturesOnboarding;
 use Microsoft\Graph\Beta\Generated\Models\DataSharingConsent;
 use Microsoft\Graph\Beta\Generated\Models\DepOnboardingSetting;
@@ -102,6 +103,7 @@ use Microsoft\Graph\Beta\Generated\Models\ResourceOperation;
 use Microsoft\Graph\Beta\Generated\Models\RestrictedAppsViolation;
 use Microsoft\Graph\Beta\Generated\Models\RoleDefinition;
 use Microsoft\Graph\Beta\Generated\Models\RoleScopeTag;
+use Microsoft\Graph\Beta\Generated\Models\ServiceNowConnection;
 use Microsoft\Graph\Beta\Generated\Models\SoftwareUpdateStatusSummary;
 use Microsoft\Graph\Beta\Generated\Models\TelecomExpenseManagementPartner;
 use Microsoft\Graph\Beta\Generated\Models\TenantAttachRBAC;
@@ -134,6 +136,7 @@ use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceScores;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceStartupHistory;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceStartupProcess;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceStartupProcessPerformance;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceTimelineEvent;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceWithoutCloudIdentity;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsImpactingProcess;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsMetricHistory;
@@ -434,6 +437,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the connectorStatus property value. The list of connector status for the tenant.
+     * @return array<ConnectorStatusDetails>|null
+    */
+    public function getConnectorStatus(): ?array {
+        return $this->getBackingStore()->get('connectorStatus');
+    }
+
+    /**
      * Gets the dataProcessorServiceForWindowsFeaturesOnboarding property value. A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
      * @return DataProcessorServiceForWindowsFeaturesOnboarding|null
     */
@@ -703,6 +714,7 @@ class DeviceManagement extends Entity implements Parsable
             'configurationPolicies' => fn(ParseNode $n) => $o->setConfigurationPolicies($n->getCollectionOfObjectValues([DeviceManagementConfigurationPolicy::class, 'createFromDiscriminatorValue'])),
             'configurationPolicyTemplates' => fn(ParseNode $n) => $o->setConfigurationPolicyTemplates($n->getCollectionOfObjectValues([DeviceManagementConfigurationPolicyTemplate::class, 'createFromDiscriminatorValue'])),
             'configurationSettings' => fn(ParseNode $n) => $o->setConfigurationSettings($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingDefinition::class, 'createFromDiscriminatorValue'])),
+            'connectorStatus' => fn(ParseNode $n) => $o->setConnectorStatus($n->getCollectionOfObjectValues([ConnectorStatusDetails::class, 'createFromDiscriminatorValue'])),
             'dataProcessorServiceForWindowsFeaturesOnboarding' => fn(ParseNode $n) => $o->setDataProcessorServiceForWindowsFeaturesOnboarding($n->getObjectValue([DataProcessorServiceForWindowsFeaturesOnboarding::class, 'createFromDiscriminatorValue'])),
             'dataSharingConsents' => fn(ParseNode $n) => $o->setDataSharingConsents($n->getCollectionOfObjectValues([DataSharingConsent::class, 'createFromDiscriminatorValue'])),
             'depOnboardingSettings' => fn(ParseNode $n) => $o->setDepOnboardingSettings($n->getCollectionOfObjectValues([DepOnboardingSetting::class, 'createFromDiscriminatorValue'])),
@@ -775,6 +787,7 @@ class DeviceManagement extends Entity implements Parsable
             'roleAssignments' => fn(ParseNode $n) => $o->setRoleAssignments($n->getCollectionOfObjectValues([DeviceAndAppManagementRoleAssignment::class, 'createFromDiscriminatorValue'])),
             'roleDefinitions' => fn(ParseNode $n) => $o->setRoleDefinitions($n->getCollectionOfObjectValues([RoleDefinition::class, 'createFromDiscriminatorValue'])),
             'roleScopeTags' => fn(ParseNode $n) => $o->setRoleScopeTags($n->getCollectionOfObjectValues([RoleScopeTag::class, 'createFromDiscriminatorValue'])),
+            'serviceNowConnections' => fn(ParseNode $n) => $o->setServiceNowConnections($n->getCollectionOfObjectValues([ServiceNowConnection::class, 'createFromDiscriminatorValue'])),
             'settingDefinitions' => fn(ParseNode $n) => $o->setSettingDefinitions($n->getCollectionOfObjectValues([DeviceManagementSettingDefinition::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([DeviceManagementSettings::class, 'createFromDiscriminatorValue'])),
             'softwareUpdateStatusSummary' => fn(ParseNode $n) => $o->setSoftwareUpdateStatusSummary($n->getObjectValue([SoftwareUpdateStatusSummary::class, 'createFromDiscriminatorValue'])),
@@ -819,6 +832,7 @@ class DeviceManagement extends Entity implements Parsable
             'userExperienceAnalyticsDeviceStartupProcesses' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsDeviceStartupProcesses($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceStartupProcess::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsDeviceStartupProcessPerformance' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsDeviceStartupProcessPerformance($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceStartupProcessPerformance::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsDevicesWithoutCloudIdentity' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsDevicesWithoutCloudIdentity($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceWithoutCloudIdentity::class, 'createFromDiscriminatorValue'])),
+            'userExperienceAnalyticsDeviceTimelineEvent' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsDeviceTimelineEvent($n->getCollectionOfObjectValues([UserExperienceAnalyticsDeviceTimelineEvent::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsImpactingProcess' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsImpactingProcess($n->getCollectionOfObjectValues([UserExperienceAnalyticsImpactingProcess::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsMetricHistory' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsMetricHistory($n->getCollectionOfObjectValues([UserExperienceAnalyticsMetricHistory::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsModelScores' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsModelScores($n->getCollectionOfObjectValues([UserExperienceAnalyticsModelScores::class, 'createFromDiscriminatorValue'])),
@@ -1195,6 +1209,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the serviceNowConnections property value. A list of ServiceNowConnections
+     * @return array<ServiceNowConnection>|null
+    */
+    public function getServiceNowConnections(): ?array {
+        return $this->getBackingStore()->get('serviceNowConnections');
+    }
+
+    /**
      * Gets the settingDefinitions property value. The device management intent setting definitions
      * @return array<DeviceManagementSettingDefinition>|null
     */
@@ -1547,6 +1569,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the userExperienceAnalyticsDeviceTimelineEvent property value. The user experience analytics device events entity contains NRT device timeline event details.
+     * @return array<UserExperienceAnalyticsDeviceTimelineEvent>|null
+    */
+    public function getUserExperienceAnalyticsDeviceTimelineEvent(): ?array {
+        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceTimelineEvent');
+    }
+
+    /**
      * Gets the userExperienceAnalyticsImpactingProcess property value. User experience analytics impacting process
      * @return array<UserExperienceAnalyticsImpactingProcess>|null
     */
@@ -1807,6 +1837,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('configurationPolicies', $this->getConfigurationPolicies());
         $writer->writeCollectionOfObjectValues('configurationPolicyTemplates', $this->getConfigurationPolicyTemplates());
         $writer->writeCollectionOfObjectValues('configurationSettings', $this->getConfigurationSettings());
+        $writer->writeCollectionOfObjectValues('connectorStatus', $this->getConnectorStatus());
         $writer->writeObjectValue('dataProcessorServiceForWindowsFeaturesOnboarding', $this->getDataProcessorServiceForWindowsFeaturesOnboarding());
         $writer->writeCollectionOfObjectValues('dataSharingConsents', $this->getDataSharingConsents());
         $writer->writeCollectionOfObjectValues('depOnboardingSettings', $this->getDepOnboardingSettings());
@@ -1876,6 +1907,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('roleAssignments', $this->getRoleAssignments());
         $writer->writeCollectionOfObjectValues('roleDefinitions', $this->getRoleDefinitions());
         $writer->writeCollectionOfObjectValues('roleScopeTags', $this->getRoleScopeTags());
+        $writer->writeCollectionOfObjectValues('serviceNowConnections', $this->getServiceNowConnections());
         $writer->writeCollectionOfObjectValues('settingDefinitions', $this->getSettingDefinitions());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('softwareUpdateStatusSummary', $this->getSoftwareUpdateStatusSummary());
@@ -1919,6 +1951,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupProcesses', $this->getUserExperienceAnalyticsDeviceStartupProcesses());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupProcessPerformance', $this->getUserExperienceAnalyticsDeviceStartupProcessPerformance());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDevicesWithoutCloudIdentity', $this->getUserExperienceAnalyticsDevicesWithoutCloudIdentity());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceTimelineEvent', $this->getUserExperienceAnalyticsDeviceTimelineEvent());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsImpactingProcess', $this->getUserExperienceAnalyticsImpactingProcess());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsMetricHistory', $this->getUserExperienceAnalyticsMetricHistory());
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsModelScores', $this->getUserExperienceAnalyticsModelScores());
@@ -1951,7 +1984,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the accountMoveCompletionDateTime property value. The date & time when tenant data moved between scaleunits.
-     *  @param DateTime|null $value Value to set for the accountMoveCompletionDateTime property.
+     * @param DateTime|null $value Value to set for the accountMoveCompletionDateTime property.
     */
     public function setAccountMoveCompletionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('accountMoveCompletionDateTime', $value);
@@ -1959,7 +1992,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the adminConsent property value. Admin consent information.
-     *  @param AdminConsent|null $value Value to set for the adminConsent property.
+     * @param AdminConsent|null $value Value to set for the adminConsent property.
     */
     public function setAdminConsent(?AdminConsent $value): void {
         $this->getBackingStore()->set('adminConsent', $value);
@@ -1967,7 +2000,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the advancedThreatProtectionOnboardingStateSummary property value. The summary state of ATP onboarding state for this account.
-     *  @param AdvancedThreatProtectionOnboardingStateSummary|null $value Value to set for the advancedThreatProtectionOnboardingStateSummary property.
+     * @param AdvancedThreatProtectionOnboardingStateSummary|null $value Value to set for the advancedThreatProtectionOnboardingStateSummary property.
     */
     public function setAdvancedThreatProtectionOnboardingStateSummary(?AdvancedThreatProtectionOnboardingStateSummary $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionOnboardingStateSummary', $value);
@@ -1975,7 +2008,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the androidDeviceOwnerEnrollmentProfiles property value. Android device owner enrollment profile entities.
-     *  @param array<AndroidDeviceOwnerEnrollmentProfile>|null $value Value to set for the androidDeviceOwnerEnrollmentProfiles property.
+     * @param array<AndroidDeviceOwnerEnrollmentProfile>|null $value Value to set for the androidDeviceOwnerEnrollmentProfiles property.
     */
     public function setAndroidDeviceOwnerEnrollmentProfiles(?array $value): void {
         $this->getBackingStore()->set('androidDeviceOwnerEnrollmentProfiles', $value);
@@ -1983,7 +2016,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the androidForWorkAppConfigurationSchemas property value. Android for Work app configuration schema entities.
-     *  @param array<AndroidForWorkAppConfigurationSchema>|null $value Value to set for the androidForWorkAppConfigurationSchemas property.
+     * @param array<AndroidForWorkAppConfigurationSchema>|null $value Value to set for the androidForWorkAppConfigurationSchemas property.
     */
     public function setAndroidForWorkAppConfigurationSchemas(?array $value): void {
         $this->getBackingStore()->set('androidForWorkAppConfigurationSchemas', $value);
@@ -1991,7 +2024,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the androidForWorkEnrollmentProfiles property value. Android for Work enrollment profile entities.
-     *  @param array<AndroidForWorkEnrollmentProfile>|null $value Value to set for the androidForWorkEnrollmentProfiles property.
+     * @param array<AndroidForWorkEnrollmentProfile>|null $value Value to set for the androidForWorkEnrollmentProfiles property.
     */
     public function setAndroidForWorkEnrollmentProfiles(?array $value): void {
         $this->getBackingStore()->set('androidForWorkEnrollmentProfiles', $value);
@@ -1999,7 +2032,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the androidForWorkSettings property value. The singleton Android for Work settings entity.
-     *  @param AndroidForWorkSettings|null $value Value to set for the androidForWorkSettings property.
+     * @param AndroidForWorkSettings|null $value Value to set for the androidForWorkSettings property.
     */
     public function setAndroidForWorkSettings(?AndroidForWorkSettings $value): void {
         $this->getBackingStore()->set('androidForWorkSettings', $value);
@@ -2007,7 +2040,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the androidManagedStoreAccountEnterpriseSettings property value. The singleton Android managed store account enterprise settings entity.
-     *  @param AndroidManagedStoreAccountEnterpriseSettings|null $value Value to set for the androidManagedStoreAccountEnterpriseSettings property.
+     * @param AndroidManagedStoreAccountEnterpriseSettings|null $value Value to set for the androidManagedStoreAccountEnterpriseSettings property.
     */
     public function setAndroidManagedStoreAccountEnterpriseSettings(?AndroidManagedStoreAccountEnterpriseSettings $value): void {
         $this->getBackingStore()->set('androidManagedStoreAccountEnterpriseSettings', $value);
@@ -2015,7 +2048,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the androidManagedStoreAppConfigurationSchemas property value. Android Enterprise app configuration schema entities.
-     *  @param array<AndroidManagedStoreAppConfigurationSchema>|null $value Value to set for the androidManagedStoreAppConfigurationSchemas property.
+     * @param array<AndroidManagedStoreAppConfigurationSchema>|null $value Value to set for the androidManagedStoreAppConfigurationSchemas property.
     */
     public function setAndroidManagedStoreAppConfigurationSchemas(?array $value): void {
         $this->getBackingStore()->set('androidManagedStoreAppConfigurationSchemas', $value);
@@ -2023,7 +2056,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the applePushNotificationCertificate property value. Apple push notification certificate.
-     *  @param ApplePushNotificationCertificate|null $value Value to set for the applePushNotificationCertificate property.
+     * @param ApplePushNotificationCertificate|null $value Value to set for the applePushNotificationCertificate property.
     */
     public function setApplePushNotificationCertificate(?ApplePushNotificationCertificate $value): void {
         $this->getBackingStore()->set('applePushNotificationCertificate', $value);
@@ -2031,7 +2064,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the appleUserInitiatedEnrollmentProfiles property value. Apple user initiated enrollment profiles
-     *  @param array<AppleUserInitiatedEnrollmentProfile>|null $value Value to set for the appleUserInitiatedEnrollmentProfiles property.
+     * @param array<AppleUserInitiatedEnrollmentProfile>|null $value Value to set for the appleUserInitiatedEnrollmentProfiles property.
     */
     public function setAppleUserInitiatedEnrollmentProfiles(?array $value): void {
         $this->getBackingStore()->set('appleUserInitiatedEnrollmentProfiles', $value);
@@ -2039,7 +2072,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the assignmentFilters property value. The list of assignment filters
-     *  @param array<DeviceAndAppManagementAssignmentFilter>|null $value Value to set for the assignmentFilters property.
+     * @param array<DeviceAndAppManagementAssignmentFilter>|null $value Value to set for the assignmentFilters property.
     */
     public function setAssignmentFilters(?array $value): void {
         $this->getBackingStore()->set('assignmentFilters', $value);
@@ -2047,7 +2080,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the auditEvents property value. The Audit Events
-     *  @param array<AuditEvent>|null $value Value to set for the auditEvents property.
+     * @param array<AuditEvent>|null $value Value to set for the auditEvents property.
     */
     public function setAuditEvents(?array $value): void {
         $this->getBackingStore()->set('auditEvents', $value);
@@ -2055,7 +2088,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the autopilotEvents property value. The list of autopilot events for the tenant.
-     *  @param array<DeviceManagementAutopilotEvent>|null $value Value to set for the autopilotEvents property.
+     * @param array<DeviceManagementAutopilotEvent>|null $value Value to set for the autopilotEvents property.
     */
     public function setAutopilotEvents(?array $value): void {
         $this->getBackingStore()->set('autopilotEvents', $value);
@@ -2063,7 +2096,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the cartToClassAssociations property value. The Cart To Class Associations.
-     *  @param array<CartToClassAssociation>|null $value Value to set for the cartToClassAssociations property.
+     * @param array<CartToClassAssociation>|null $value Value to set for the cartToClassAssociations property.
     */
     public function setCartToClassAssociations(?array $value): void {
         $this->getBackingStore()->set('cartToClassAssociations', $value);
@@ -2071,7 +2104,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the categories property value. The available categories
-     *  @param array<DeviceManagementSettingCategory>|null $value Value to set for the categories property.
+     * @param array<DeviceManagementSettingCategory>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
         $this->getBackingStore()->set('categories', $value);
@@ -2079,7 +2112,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the certificateConnectorDetails property value. Collection of certificate connector details, each associated with a corresponding Intune Certificate Connector.
-     *  @param array<CertificateConnectorDetails>|null $value Value to set for the certificateConnectorDetails property.
+     * @param array<CertificateConnectorDetails>|null $value Value to set for the certificateConnectorDetails property.
     */
     public function setCertificateConnectorDetails(?array $value): void {
         $this->getBackingStore()->set('certificateConnectorDetails', $value);
@@ -2087,7 +2120,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the chromeOSOnboardingSettings property value. Collection of ChromeOSOnboardingSettings settings associated with account.
-     *  @param array<ChromeOSOnboardingSettings>|null $value Value to set for the chromeOSOnboardingSettings property.
+     * @param array<ChromeOSOnboardingSettings>|null $value Value to set for the chromeOSOnboardingSettings property.
     */
     public function setChromeOSOnboardingSettings(?array $value): void {
         $this->getBackingStore()->set('chromeOSOnboardingSettings', $value);
@@ -2095,7 +2128,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the cloudPCConnectivityIssues property value. The list of CloudPC Connectivity Issue.
-     *  @param array<CloudPCConnectivityIssue>|null $value Value to set for the cloudPCConnectivityIssues property.
+     * @param array<CloudPCConnectivityIssue>|null $value Value to set for the cloudPCConnectivityIssues property.
     */
     public function setCloudPCConnectivityIssues(?array $value): void {
         $this->getBackingStore()->set('cloudPCConnectivityIssues', $value);
@@ -2103,7 +2136,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the comanagedDevices property value. The list of co-managed devices report
-     *  @param array<ManagedDevice>|null $value Value to set for the comanagedDevices property.
+     * @param array<ManagedDevice>|null $value Value to set for the comanagedDevices property.
     */
     public function setComanagedDevices(?array $value): void {
         $this->getBackingStore()->set('comanagedDevices', $value);
@@ -2111,7 +2144,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the comanagementEligibleDevices property value. The list of co-management eligible devices report
-     *  @param array<ComanagementEligibleDevice>|null $value Value to set for the comanagementEligibleDevices property.
+     * @param array<ComanagementEligibleDevice>|null $value Value to set for the comanagementEligibleDevices property.
     */
     public function setComanagementEligibleDevices(?array $value): void {
         $this->getBackingStore()->set('comanagementEligibleDevices', $value);
@@ -2119,7 +2152,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the complianceCategories property value. List of all compliance categories
-     *  @param array<DeviceManagementConfigurationCategory>|null $value Value to set for the complianceCategories property.
+     * @param array<DeviceManagementConfigurationCategory>|null $value Value to set for the complianceCategories property.
     */
     public function setComplianceCategories(?array $value): void {
         $this->getBackingStore()->set('complianceCategories', $value);
@@ -2127,7 +2160,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the complianceManagementPartners property value. The list of Compliance Management Partners configured by the tenant.
-     *  @param array<ComplianceManagementPartner>|null $value Value to set for the complianceManagementPartners property.
+     * @param array<ComplianceManagementPartner>|null $value Value to set for the complianceManagementPartners property.
     */
     public function setComplianceManagementPartners(?array $value): void {
         $this->getBackingStore()->set('complianceManagementPartners', $value);
@@ -2135,7 +2168,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the compliancePolicies property value. List of all compliance policies
-     *  @param array<DeviceManagementCompliancePolicy>|null $value Value to set for the compliancePolicies property.
+     * @param array<DeviceManagementCompliancePolicy>|null $value Value to set for the compliancePolicies property.
     */
     public function setCompliancePolicies(?array $value): void {
         $this->getBackingStore()->set('compliancePolicies', $value);
@@ -2143,7 +2176,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the complianceSettings property value. List of all ComplianceSettings
-     *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the complianceSettings property.
+     * @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the complianceSettings property.
     */
     public function setComplianceSettings(?array $value): void {
         $this->getBackingStore()->set('complianceSettings', $value);
@@ -2151,7 +2184,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the conditionalAccessSettings property value. The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
-     *  @param OnPremisesConditionalAccessSettings|null $value Value to set for the conditionalAccessSettings property.
+     * @param OnPremisesConditionalAccessSettings|null $value Value to set for the conditionalAccessSettings property.
     */
     public function setConditionalAccessSettings(?OnPremisesConditionalAccessSettings $value): void {
         $this->getBackingStore()->set('conditionalAccessSettings', $value);
@@ -2159,7 +2192,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the configManagerCollections property value. A list of ConfigManagerCollection
-     *  @param array<ConfigManagerCollection>|null $value Value to set for the configManagerCollections property.
+     * @param array<ConfigManagerCollection>|null $value Value to set for the configManagerCollections property.
     */
     public function setConfigManagerCollections(?array $value): void {
         $this->getBackingStore()->set('configManagerCollections', $value);
@@ -2167,7 +2200,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the configurationCategories property value. List of all Configuration Categories
-     *  @param array<DeviceManagementConfigurationCategory>|null $value Value to set for the configurationCategories property.
+     * @param array<DeviceManagementConfigurationCategory>|null $value Value to set for the configurationCategories property.
     */
     public function setConfigurationCategories(?array $value): void {
         $this->getBackingStore()->set('configurationCategories', $value);
@@ -2175,7 +2208,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the configurationPolicies property value. List of all Configuration policies
-     *  @param array<DeviceManagementConfigurationPolicy>|null $value Value to set for the configurationPolicies property.
+     * @param array<DeviceManagementConfigurationPolicy>|null $value Value to set for the configurationPolicies property.
     */
     public function setConfigurationPolicies(?array $value): void {
         $this->getBackingStore()->set('configurationPolicies', $value);
@@ -2183,7 +2216,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the configurationPolicyTemplates property value. List of all templates
-     *  @param array<DeviceManagementConfigurationPolicyTemplate>|null $value Value to set for the configurationPolicyTemplates property.
+     * @param array<DeviceManagementConfigurationPolicyTemplate>|null $value Value to set for the configurationPolicyTemplates property.
     */
     public function setConfigurationPolicyTemplates(?array $value): void {
         $this->getBackingStore()->set('configurationPolicyTemplates', $value);
@@ -2191,15 +2224,23 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the configurationSettings property value. List of all ConfigurationSettings
-     *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the configurationSettings property.
+     * @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the configurationSettings property.
     */
     public function setConfigurationSettings(?array $value): void {
         $this->getBackingStore()->set('configurationSettings', $value);
     }
 
     /**
+     * Sets the connectorStatus property value. The list of connector status for the tenant.
+     * @param array<ConnectorStatusDetails>|null $value Value to set for the connectorStatus property.
+    */
+    public function setConnectorStatus(?array $value): void {
+        $this->getBackingStore()->set('connectorStatus', $value);
+    }
+
+    /**
      * Sets the dataProcessorServiceForWindowsFeaturesOnboarding property value. A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
-     *  @param DataProcessorServiceForWindowsFeaturesOnboarding|null $value Value to set for the dataProcessorServiceForWindowsFeaturesOnboarding property.
+     * @param DataProcessorServiceForWindowsFeaturesOnboarding|null $value Value to set for the dataProcessorServiceForWindowsFeaturesOnboarding property.
     */
     public function setDataProcessorServiceForWindowsFeaturesOnboarding(?DataProcessorServiceForWindowsFeaturesOnboarding $value): void {
         $this->getBackingStore()->set('dataProcessorServiceForWindowsFeaturesOnboarding', $value);
@@ -2207,7 +2248,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the dataSharingConsents property value. Data sharing consents.
-     *  @param array<DataSharingConsent>|null $value Value to set for the dataSharingConsents property.
+     * @param array<DataSharingConsent>|null $value Value to set for the dataSharingConsents property.
     */
     public function setDataSharingConsents(?array $value): void {
         $this->getBackingStore()->set('dataSharingConsents', $value);
@@ -2215,7 +2256,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the depOnboardingSettings property value. This collections of multiple DEP tokens per-tenant.
-     *  @param array<DepOnboardingSetting>|null $value Value to set for the depOnboardingSettings property.
+     * @param array<DepOnboardingSetting>|null $value Value to set for the depOnboardingSettings property.
     */
     public function setDepOnboardingSettings(?array $value): void {
         $this->getBackingStore()->set('depOnboardingSettings', $value);
@@ -2223,7 +2264,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the derivedCredentials property value. Collection of Derived credential settings associated with account.
-     *  @param array<DeviceManagementDerivedCredentialSettings>|null $value Value to set for the derivedCredentials property.
+     * @param array<DeviceManagementDerivedCredentialSettings>|null $value Value to set for the derivedCredentials property.
     */
     public function setDerivedCredentials(?array $value): void {
         $this->getBackingStore()->set('derivedCredentials', $value);
@@ -2231,7 +2272,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the detectedApps property value. The list of detected apps associated with a device.
-     *  @param array<DetectedApp>|null $value Value to set for the detectedApps property.
+     * @param array<DetectedApp>|null $value Value to set for the detectedApps property.
     */
     public function setDetectedApps(?array $value): void {
         $this->getBackingStore()->set('detectedApps', $value);
@@ -2239,7 +2280,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceCategories property value. The list of device categories with the tenant.
-     *  @param array<DeviceCategory>|null $value Value to set for the deviceCategories property.
+     * @param array<DeviceCategory>|null $value Value to set for the deviceCategories property.
     */
     public function setDeviceCategories(?array $value): void {
         $this->getBackingStore()->set('deviceCategories', $value);
@@ -2247,7 +2288,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceCompliancePolicies property value. The device compliance policies.
-     *  @param array<DeviceCompliancePolicy>|null $value Value to set for the deviceCompliancePolicies property.
+     * @param array<DeviceCompliancePolicy>|null $value Value to set for the deviceCompliancePolicies property.
     */
     public function setDeviceCompliancePolicies(?array $value): void {
         $this->getBackingStore()->set('deviceCompliancePolicies', $value);
@@ -2255,7 +2296,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceCompliancePolicyDeviceStateSummary property value. The device compliance state summary for this account.
-     *  @param DeviceCompliancePolicyDeviceStateSummary|null $value Value to set for the deviceCompliancePolicyDeviceStateSummary property.
+     * @param DeviceCompliancePolicyDeviceStateSummary|null $value Value to set for the deviceCompliancePolicyDeviceStateSummary property.
     */
     public function setDeviceCompliancePolicyDeviceStateSummary(?DeviceCompliancePolicyDeviceStateSummary $value): void {
         $this->getBackingStore()->set('deviceCompliancePolicyDeviceStateSummary', $value);
@@ -2263,7 +2304,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceCompliancePolicySettingStateSummaries property value. The summary states of compliance policy settings for this account.
-     *  @param array<DeviceCompliancePolicySettingStateSummary>|null $value Value to set for the deviceCompliancePolicySettingStateSummaries property.
+     * @param array<DeviceCompliancePolicySettingStateSummary>|null $value Value to set for the deviceCompliancePolicySettingStateSummaries property.
     */
     public function setDeviceCompliancePolicySettingStateSummaries(?array $value): void {
         $this->getBackingStore()->set('deviceCompliancePolicySettingStateSummaries', $value);
@@ -2271,7 +2312,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceComplianceReportSummarizationDateTime property value. The last requested time of device compliance reporting for this account. This property is read-only.
-     *  @param DateTime|null $value Value to set for the deviceComplianceReportSummarizationDateTime property.
+     * @param DateTime|null $value Value to set for the deviceComplianceReportSummarizationDateTime property.
     */
     public function setDeviceComplianceReportSummarizationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deviceComplianceReportSummarizationDateTime', $value);
@@ -2279,7 +2320,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceComplianceScripts property value. The list of device compliance scripts associated with the tenant.
-     *  @param array<DeviceComplianceScript>|null $value Value to set for the deviceComplianceScripts property.
+     * @param array<DeviceComplianceScript>|null $value Value to set for the deviceComplianceScripts property.
     */
     public function setDeviceComplianceScripts(?array $value): void {
         $this->getBackingStore()->set('deviceComplianceScripts', $value);
@@ -2287,7 +2328,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceConfigurationConflictSummary property value. Summary of policies in conflict state for this account.
-     *  @param array<DeviceConfigurationConflictSummary>|null $value Value to set for the deviceConfigurationConflictSummary property.
+     * @param array<DeviceConfigurationConflictSummary>|null $value Value to set for the deviceConfigurationConflictSummary property.
     */
     public function setDeviceConfigurationConflictSummary(?array $value): void {
         $this->getBackingStore()->set('deviceConfigurationConflictSummary', $value);
@@ -2295,7 +2336,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceConfigurationDeviceStateSummaries property value. The device configuration device state summary for this account.
-     *  @param DeviceConfigurationDeviceStateSummary|null $value Value to set for the deviceConfigurationDeviceStateSummaries property.
+     * @param DeviceConfigurationDeviceStateSummary|null $value Value to set for the deviceConfigurationDeviceStateSummaries property.
     */
     public function setDeviceConfigurationDeviceStateSummaries(?DeviceConfigurationDeviceStateSummary $value): void {
         $this->getBackingStore()->set('deviceConfigurationDeviceStateSummaries', $value);
@@ -2303,7 +2344,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceConfigurationRestrictedAppsViolations property value. Restricted apps violations for this account.
-     *  @param array<RestrictedAppsViolation>|null $value Value to set for the deviceConfigurationRestrictedAppsViolations property.
+     * @param array<RestrictedAppsViolation>|null $value Value to set for the deviceConfigurationRestrictedAppsViolations property.
     */
     public function setDeviceConfigurationRestrictedAppsViolations(?array $value): void {
         $this->getBackingStore()->set('deviceConfigurationRestrictedAppsViolations', $value);
@@ -2311,7 +2352,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceConfigurations property value. The device configurations.
-     *  @param array<DeviceConfiguration>|null $value Value to set for the deviceConfigurations property.
+     * @param array<DeviceConfiguration>|null $value Value to set for the deviceConfigurations property.
     */
     public function setDeviceConfigurations(?array $value): void {
         $this->getBackingStore()->set('deviceConfigurations', $value);
@@ -2319,7 +2360,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceConfigurationsAllManagedDeviceCertificateStates property value. Summary of all certificates for all devices.
-     *  @param array<ManagedAllDeviceCertificateState>|null $value Value to set for the deviceConfigurationsAllManagedDeviceCertificateStates property.
+     * @param array<ManagedAllDeviceCertificateState>|null $value Value to set for the deviceConfigurationsAllManagedDeviceCertificateStates property.
     */
     public function setDeviceConfigurationsAllManagedDeviceCertificateStates(?array $value): void {
         $this->getBackingStore()->set('deviceConfigurationsAllManagedDeviceCertificateStates', $value);
@@ -2327,7 +2368,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceConfigurationUserStateSummaries property value. The device configuration user state summary for this account.
-     *  @param DeviceConfigurationUserStateSummary|null $value Value to set for the deviceConfigurationUserStateSummaries property.
+     * @param DeviceConfigurationUserStateSummary|null $value Value to set for the deviceConfigurationUserStateSummaries property.
     */
     public function setDeviceConfigurationUserStateSummaries(?DeviceConfigurationUserStateSummary $value): void {
         $this->getBackingStore()->set('deviceConfigurationUserStateSummaries', $value);
@@ -2335,7 +2376,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceCustomAttributeShellScripts property value. The list of device custom attribute shell scripts associated with the tenant.
-     *  @param array<DeviceCustomAttributeShellScript>|null $value Value to set for the deviceCustomAttributeShellScripts property.
+     * @param array<DeviceCustomAttributeShellScript>|null $value Value to set for the deviceCustomAttributeShellScripts property.
     */
     public function setDeviceCustomAttributeShellScripts(?array $value): void {
         $this->getBackingStore()->set('deviceCustomAttributeShellScripts', $value);
@@ -2343,7 +2384,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceEnrollmentConfigurations property value. The list of device enrollment configurations
-     *  @param array<DeviceEnrollmentConfiguration>|null $value Value to set for the deviceEnrollmentConfigurations property.
+     * @param array<DeviceEnrollmentConfiguration>|null $value Value to set for the deviceEnrollmentConfigurations property.
     */
     public function setDeviceEnrollmentConfigurations(?array $value): void {
         $this->getBackingStore()->set('deviceEnrollmentConfigurations', $value);
@@ -2351,7 +2392,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceHealthScripts property value. The list of device health scripts associated with the tenant.
-     *  @param array<DeviceHealthScript>|null $value Value to set for the deviceHealthScripts property.
+     * @param array<DeviceHealthScript>|null $value Value to set for the deviceHealthScripts property.
     */
     public function setDeviceHealthScripts(?array $value): void {
         $this->getBackingStore()->set('deviceHealthScripts', $value);
@@ -2359,7 +2400,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceManagementPartners property value. The list of Device Management Partners configured by the tenant.
-     *  @param array<DeviceManagementPartner>|null $value Value to set for the deviceManagementPartners property.
+     * @param array<DeviceManagementPartner>|null $value Value to set for the deviceManagementPartners property.
     */
     public function setDeviceManagementPartners(?array $value): void {
         $this->getBackingStore()->set('deviceManagementPartners', $value);
@@ -2367,7 +2408,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceManagementScripts property value. The list of device management scripts associated with the tenant.
-     *  @param array<DeviceManagementScript>|null $value Value to set for the deviceManagementScripts property.
+     * @param array<DeviceManagementScript>|null $value Value to set for the deviceManagementScripts property.
     */
     public function setDeviceManagementScripts(?array $value): void {
         $this->getBackingStore()->set('deviceManagementScripts', $value);
@@ -2375,7 +2416,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceProtectionOverview property value. Device protection overview.
-     *  @param DeviceProtectionOverview|null $value Value to set for the deviceProtectionOverview property.
+     * @param DeviceProtectionOverview|null $value Value to set for the deviceProtectionOverview property.
     */
     public function setDeviceProtectionOverview(?DeviceProtectionOverview $value): void {
         $this->getBackingStore()->set('deviceProtectionOverview', $value);
@@ -2383,7 +2424,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the deviceShellScripts property value. The list of device shell scripts associated with the tenant.
-     *  @param array<DeviceShellScript>|null $value Value to set for the deviceShellScripts property.
+     * @param array<DeviceShellScript>|null $value Value to set for the deviceShellScripts property.
     */
     public function setDeviceShellScripts(?array $value): void {
         $this->getBackingStore()->set('deviceShellScripts', $value);
@@ -2391,7 +2432,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the domainJoinConnectors property value. A list of connector objects.
-     *  @param array<DeviceManagementDomainJoinConnector>|null $value Value to set for the domainJoinConnectors property.
+     * @param array<DeviceManagementDomainJoinConnector>|null $value Value to set for the domainJoinConnectors property.
     */
     public function setDomainJoinConnectors(?array $value): void {
         $this->getBackingStore()->set('domainJoinConnectors', $value);
@@ -2399,7 +2440,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the embeddedSIMActivationCodePools property value. The embedded SIM activation code pools created by this account.
-     *  @param array<EmbeddedSIMActivationCodePool>|null $value Value to set for the embeddedSIMActivationCodePools property.
+     * @param array<EmbeddedSIMActivationCodePool>|null $value Value to set for the embeddedSIMActivationCodePools property.
     */
     public function setEmbeddedSIMActivationCodePools(?array $value): void {
         $this->getBackingStore()->set('embeddedSIMActivationCodePools', $value);
@@ -2407,7 +2448,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the exchangeConnectors property value. The list of Exchange Connectors configured by the tenant.
-     *  @param array<DeviceManagementExchangeConnector>|null $value Value to set for the exchangeConnectors property.
+     * @param array<DeviceManagementExchangeConnector>|null $value Value to set for the exchangeConnectors property.
     */
     public function setExchangeConnectors(?array $value): void {
         $this->getBackingStore()->set('exchangeConnectors', $value);
@@ -2415,7 +2456,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the exchangeOnPremisesPolicies property value. The list of Exchange On Premisis policies configured by the tenant.
-     *  @param array<DeviceManagementExchangeOnPremisesPolicy>|null $value Value to set for the exchangeOnPremisesPolicies property.
+     * @param array<DeviceManagementExchangeOnPremisesPolicy>|null $value Value to set for the exchangeOnPremisesPolicies property.
     */
     public function setExchangeOnPremisesPolicies(?array $value): void {
         $this->getBackingStore()->set('exchangeOnPremisesPolicies', $value);
@@ -2423,7 +2464,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the exchangeOnPremisesPolicy property value. The policy which controls mobile device access to Exchange On Premises
-     *  @param DeviceManagementExchangeOnPremisesPolicy|null $value Value to set for the exchangeOnPremisesPolicy property.
+     * @param DeviceManagementExchangeOnPremisesPolicy|null $value Value to set for the exchangeOnPremisesPolicy property.
     */
     public function setExchangeOnPremisesPolicy(?DeviceManagementExchangeOnPremisesPolicy $value): void {
         $this->getBackingStore()->set('exchangeOnPremisesPolicy', $value);
@@ -2431,7 +2472,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyCategories property value. The available group policy categories for this account.
-     *  @param array<GroupPolicyCategory>|null $value Value to set for the groupPolicyCategories property.
+     * @param array<GroupPolicyCategory>|null $value Value to set for the groupPolicyCategories property.
     */
     public function setGroupPolicyCategories(?array $value): void {
         $this->getBackingStore()->set('groupPolicyCategories', $value);
@@ -2439,7 +2480,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyConfigurations property value. The group policy configurations created by this account.
-     *  @param array<GroupPolicyConfiguration>|null $value Value to set for the groupPolicyConfigurations property.
+     * @param array<GroupPolicyConfiguration>|null $value Value to set for the groupPolicyConfigurations property.
     */
     public function setGroupPolicyConfigurations(?array $value): void {
         $this->getBackingStore()->set('groupPolicyConfigurations', $value);
@@ -2447,7 +2488,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyDefinitionFiles property value. The available group policy definition files for this account.
-     *  @param array<GroupPolicyDefinitionFile>|null $value Value to set for the groupPolicyDefinitionFiles property.
+     * @param array<GroupPolicyDefinitionFile>|null $value Value to set for the groupPolicyDefinitionFiles property.
     */
     public function setGroupPolicyDefinitionFiles(?array $value): void {
         $this->getBackingStore()->set('groupPolicyDefinitionFiles', $value);
@@ -2455,7 +2496,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyDefinitions property value. The available group policy definitions for this account.
-     *  @param array<GroupPolicyDefinition>|null $value Value to set for the groupPolicyDefinitions property.
+     * @param array<GroupPolicyDefinition>|null $value Value to set for the groupPolicyDefinitions property.
     */
     public function setGroupPolicyDefinitions(?array $value): void {
         $this->getBackingStore()->set('groupPolicyDefinitions', $value);
@@ -2463,7 +2504,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyMigrationReports property value. A list of Group Policy migration reports.
-     *  @param array<GroupPolicyMigrationReport>|null $value Value to set for the groupPolicyMigrationReports property.
+     * @param array<GroupPolicyMigrationReport>|null $value Value to set for the groupPolicyMigrationReports property.
     */
     public function setGroupPolicyMigrationReports(?array $value): void {
         $this->getBackingStore()->set('groupPolicyMigrationReports', $value);
@@ -2471,7 +2512,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyObjectFiles property value. A list of Group Policy Object files uploaded.
-     *  @param array<GroupPolicyObjectFile>|null $value Value to set for the groupPolicyObjectFiles property.
+     * @param array<GroupPolicyObjectFile>|null $value Value to set for the groupPolicyObjectFiles property.
     */
     public function setGroupPolicyObjectFiles(?array $value): void {
         $this->getBackingStore()->set('groupPolicyObjectFiles', $value);
@@ -2479,7 +2520,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the groupPolicyUploadedDefinitionFiles property value. The available group policy uploaded definition files for this account.
-     *  @param array<GroupPolicyUploadedDefinitionFile>|null $value Value to set for the groupPolicyUploadedDefinitionFiles property.
+     * @param array<GroupPolicyUploadedDefinitionFile>|null $value Value to set for the groupPolicyUploadedDefinitionFiles property.
     */
     public function setGroupPolicyUploadedDefinitionFiles(?array $value): void {
         $this->getBackingStore()->set('groupPolicyUploadedDefinitionFiles', $value);
@@ -2487,7 +2528,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the importedDeviceIdentities property value. The imported device identities.
-     *  @param array<ImportedDeviceIdentity>|null $value Value to set for the importedDeviceIdentities property.
+     * @param array<ImportedDeviceIdentity>|null $value Value to set for the importedDeviceIdentities property.
     */
     public function setImportedDeviceIdentities(?array $value): void {
         $this->getBackingStore()->set('importedDeviceIdentities', $value);
@@ -2495,7 +2536,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the importedWindowsAutopilotDeviceIdentities property value. Collection of imported Windows autopilot devices.
-     *  @param array<ImportedWindowsAutopilotDeviceIdentity>|null $value Value to set for the importedWindowsAutopilotDeviceIdentities property.
+     * @param array<ImportedWindowsAutopilotDeviceIdentity>|null $value Value to set for the importedWindowsAutopilotDeviceIdentities property.
     */
     public function setImportedWindowsAutopilotDeviceIdentities(?array $value): void {
         $this->getBackingStore()->set('importedWindowsAutopilotDeviceIdentities', $value);
@@ -2503,7 +2544,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the intents property value. The device management intents
-     *  @param array<DeviceManagementIntent>|null $value Value to set for the intents property.
+     * @param array<DeviceManagementIntent>|null $value Value to set for the intents property.
     */
     public function setIntents(?array $value): void {
         $this->getBackingStore()->set('intents', $value);
@@ -2511,7 +2552,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the intuneAccountId property value. Intune Account ID for given tenant
-     *  @param string|null $value Value to set for the intuneAccountId property.
+     * @param string|null $value Value to set for the intuneAccountId property.
     */
     public function setIntuneAccountId(?string $value): void {
         $this->getBackingStore()->set('intuneAccountId', $value);
@@ -2519,7 +2560,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the intuneBrand property value. intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
-     *  @param IntuneBrand|null $value Value to set for the intuneBrand property.
+     * @param IntuneBrand|null $value Value to set for the intuneBrand property.
     */
     public function setIntuneBrand(?IntuneBrand $value): void {
         $this->getBackingStore()->set('intuneBrand', $value);
@@ -2527,7 +2568,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the intuneBrandingProfiles property value. Intune branding profiles targeted to AAD groups
-     *  @param array<IntuneBrandingProfile>|null $value Value to set for the intuneBrandingProfiles property.
+     * @param array<IntuneBrandingProfile>|null $value Value to set for the intuneBrandingProfiles property.
     */
     public function setIntuneBrandingProfiles(?array $value): void {
         $this->getBackingStore()->set('intuneBrandingProfiles', $value);
@@ -2535,7 +2576,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the iosUpdateStatuses property value. The IOS software update installation statuses for this account.
-     *  @param array<IosUpdateDeviceStatus>|null $value Value to set for the iosUpdateStatuses property.
+     * @param array<IosUpdateDeviceStatus>|null $value Value to set for the iosUpdateStatuses property.
     */
     public function setIosUpdateStatuses(?array $value): void {
         $this->getBackingStore()->set('iosUpdateStatuses', $value);
@@ -2543,7 +2584,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the lastReportAggregationDateTime property value. The last modified time of reporting for this account. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastReportAggregationDateTime property.
+     * @param DateTime|null $value Value to set for the lastReportAggregationDateTime property.
     */
     public function setLastReportAggregationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastReportAggregationDateTime', $value);
@@ -2551,7 +2592,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the legacyPcManangementEnabled property value. The property to enable Non-MDM managed legacy PC management for this account. This property is read-only.
-     *  @param bool|null $value Value to set for the legacyPcManangementEnabled property.
+     * @param bool|null $value Value to set for the legacyPcManangementEnabled property.
     */
     public function setLegacyPcManangementEnabled(?bool $value): void {
         $this->getBackingStore()->set('legacyPcManangementEnabled', $value);
@@ -2559,7 +2600,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the macOSSoftwareUpdateAccountSummaries property value. The MacOS software update account summaries for this account.
-     *  @param array<MacOSSoftwareUpdateAccountSummary>|null $value Value to set for the macOSSoftwareUpdateAccountSummaries property.
+     * @param array<MacOSSoftwareUpdateAccountSummary>|null $value Value to set for the macOSSoftwareUpdateAccountSummaries property.
     */
     public function setMacOSSoftwareUpdateAccountSummaries(?array $value): void {
         $this->getBackingStore()->set('macOSSoftwareUpdateAccountSummaries', $value);
@@ -2567,7 +2608,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceCleanupSettings property value. Device cleanup rule
-     *  @param ManagedDeviceCleanupSettings|null $value Value to set for the managedDeviceCleanupSettings property.
+     * @param ManagedDeviceCleanupSettings|null $value Value to set for the managedDeviceCleanupSettings property.
     */
     public function setManagedDeviceCleanupSettings(?ManagedDeviceCleanupSettings $value): void {
         $this->getBackingStore()->set('managedDeviceCleanupSettings', $value);
@@ -2575,7 +2616,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceEncryptionStates property value. Encryption report for devices in this account
-     *  @param array<ManagedDeviceEncryptionState>|null $value Value to set for the managedDeviceEncryptionStates property.
+     * @param array<ManagedDeviceEncryptionState>|null $value Value to set for the managedDeviceEncryptionStates property.
     */
     public function setManagedDeviceEncryptionStates(?array $value): void {
         $this->getBackingStore()->set('managedDeviceEncryptionStates', $value);
@@ -2583,7 +2624,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceOverview property value. Device overview
-     *  @param ManagedDeviceOverview|null $value Value to set for the managedDeviceOverview property.
+     * @param ManagedDeviceOverview|null $value Value to set for the managedDeviceOverview property.
     */
     public function setManagedDeviceOverview(?ManagedDeviceOverview $value): void {
         $this->getBackingStore()->set('managedDeviceOverview', $value);
@@ -2591,7 +2632,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the managedDevices property value. The list of managed devices.
-     *  @param array<ManagedDevice>|null $value Value to set for the managedDevices property.
+     * @param array<ManagedDevice>|null $value Value to set for the managedDevices property.
     */
     public function setManagedDevices(?array $value): void {
         $this->getBackingStore()->set('managedDevices', $value);
@@ -2599,7 +2640,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the maximumDepTokens property value. Maximum number of DEP tokens allowed per-tenant.
-     *  @param int|null $value Value to set for the maximumDepTokens property.
+     * @param int|null $value Value to set for the maximumDepTokens property.
     */
     public function setMaximumDepTokens(?int $value): void {
         $this->getBackingStore()->set('maximumDepTokens', $value);
@@ -2607,7 +2648,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the microsoftTunnelConfigurations property value. Collection of MicrosoftTunnelConfiguration settings associated with account.
-     *  @param array<MicrosoftTunnelConfiguration>|null $value Value to set for the microsoftTunnelConfigurations property.
+     * @param array<MicrosoftTunnelConfiguration>|null $value Value to set for the microsoftTunnelConfigurations property.
     */
     public function setMicrosoftTunnelConfigurations(?array $value): void {
         $this->getBackingStore()->set('microsoftTunnelConfigurations', $value);
@@ -2615,7 +2656,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the microsoftTunnelHealthThresholds property value. Collection of MicrosoftTunnelHealthThreshold settings associated with account.
-     *  @param array<MicrosoftTunnelHealthThreshold>|null $value Value to set for the microsoftTunnelHealthThresholds property.
+     * @param array<MicrosoftTunnelHealthThreshold>|null $value Value to set for the microsoftTunnelHealthThresholds property.
     */
     public function setMicrosoftTunnelHealthThresholds(?array $value): void {
         $this->getBackingStore()->set('microsoftTunnelHealthThresholds', $value);
@@ -2623,7 +2664,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the microsoftTunnelServerLogCollectionResponses property value. Collection of MicrosoftTunnelServerLogCollectionResponse settings associated with account.
-     *  @param array<MicrosoftTunnelServerLogCollectionResponse>|null $value Value to set for the microsoftTunnelServerLogCollectionResponses property.
+     * @param array<MicrosoftTunnelServerLogCollectionResponse>|null $value Value to set for the microsoftTunnelServerLogCollectionResponses property.
     */
     public function setMicrosoftTunnelServerLogCollectionResponses(?array $value): void {
         $this->getBackingStore()->set('microsoftTunnelServerLogCollectionResponses', $value);
@@ -2631,7 +2672,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the microsoftTunnelSites property value. Collection of MicrosoftTunnelSite settings associated with account.
-     *  @param array<MicrosoftTunnelSite>|null $value Value to set for the microsoftTunnelSites property.
+     * @param array<MicrosoftTunnelSite>|null $value Value to set for the microsoftTunnelSites property.
     */
     public function setMicrosoftTunnelSites(?array $value): void {
         $this->getBackingStore()->set('microsoftTunnelSites', $value);
@@ -2639,7 +2680,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the mobileAppTroubleshootingEvents property value. The collection property of MobileAppTroubleshootingEvent.
-     *  @param array<MobileAppTroubleshootingEvent>|null $value Value to set for the mobileAppTroubleshootingEvents property.
+     * @param array<MobileAppTroubleshootingEvent>|null $value Value to set for the mobileAppTroubleshootingEvents property.
     */
     public function setMobileAppTroubleshootingEvents(?array $value): void {
         $this->getBackingStore()->set('mobileAppTroubleshootingEvents', $value);
@@ -2647,7 +2688,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the mobileThreatDefenseConnectors property value. The list of Mobile threat Defense connectors configured by the tenant.
-     *  @param array<MobileThreatDefenseConnector>|null $value Value to set for the mobileThreatDefenseConnectors property.
+     * @param array<MobileThreatDefenseConnector>|null $value Value to set for the mobileThreatDefenseConnectors property.
     */
     public function setMobileThreatDefenseConnectors(?array $value): void {
         $this->getBackingStore()->set('mobileThreatDefenseConnectors', $value);
@@ -2655,7 +2696,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the monitoring property value. The monitoring property
-     *  @param Monitoring|null $value Value to set for the monitoring property.
+     * @param Monitoring|null $value Value to set for the monitoring property.
     */
     public function setMonitoring(?Monitoring $value): void {
         $this->getBackingStore()->set('monitoring', $value);
@@ -2663,7 +2704,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the ndesConnectors property value. The collection of Ndes connectors for this account.
-     *  @param array<NdesConnector>|null $value Value to set for the ndesConnectors property.
+     * @param array<NdesConnector>|null $value Value to set for the ndesConnectors property.
     */
     public function setNdesConnectors(?array $value): void {
         $this->getBackingStore()->set('ndesConnectors', $value);
@@ -2671,7 +2712,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the notificationMessageTemplates property value. The Notification Message Templates.
-     *  @param array<NotificationMessageTemplate>|null $value Value to set for the notificationMessageTemplates property.
+     * @param array<NotificationMessageTemplate>|null $value Value to set for the notificationMessageTemplates property.
     */
     public function setNotificationMessageTemplates(?array $value): void {
         $this->getBackingStore()->set('notificationMessageTemplates', $value);
@@ -2679,7 +2720,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the oemWarrantyInformationOnboarding property value. List of OEM Warranty Statuses
-     *  @param array<OemWarrantyInformationOnboarding>|null $value Value to set for the oemWarrantyInformationOnboarding property.
+     * @param array<OemWarrantyInformationOnboarding>|null $value Value to set for the oemWarrantyInformationOnboarding property.
     */
     public function setOemWarrantyInformationOnboarding(?array $value): void {
         $this->getBackingStore()->set('oemWarrantyInformationOnboarding', $value);
@@ -2687,7 +2728,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the remoteActionAudits property value. The list of device remote action audits with the tenant.
-     *  @param array<RemoteActionAudit>|null $value Value to set for the remoteActionAudits property.
+     * @param array<RemoteActionAudit>|null $value Value to set for the remoteActionAudits property.
     */
     public function setRemoteActionAudits(?array $value): void {
         $this->getBackingStore()->set('remoteActionAudits', $value);
@@ -2695,7 +2736,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the remoteAssistancePartners property value. The remote assist partners.
-     *  @param array<RemoteAssistancePartner>|null $value Value to set for the remoteAssistancePartners property.
+     * @param array<RemoteAssistancePartner>|null $value Value to set for the remoteAssistancePartners property.
     */
     public function setRemoteAssistancePartners(?array $value): void {
         $this->getBackingStore()->set('remoteAssistancePartners', $value);
@@ -2703,7 +2744,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the remoteAssistanceSettings property value. The remote assistance settings singleton
-     *  @param RemoteAssistanceSettings|null $value Value to set for the remoteAssistanceSettings property.
+     * @param RemoteAssistanceSettings|null $value Value to set for the remoteAssistanceSettings property.
     */
     public function setRemoteAssistanceSettings(?RemoteAssistanceSettings $value): void {
         $this->getBackingStore()->set('remoteAssistanceSettings', $value);
@@ -2711,7 +2752,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the reports property value. Reports singleton
-     *  @param DeviceManagementReports|null $value Value to set for the reports property.
+     * @param DeviceManagementReports|null $value Value to set for the reports property.
     */
     public function setReports(?DeviceManagementReports $value): void {
         $this->getBackingStore()->set('reports', $value);
@@ -2719,7 +2760,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the resourceAccessProfiles property value. Collection of resource access settings associated with account.
-     *  @param array<DeviceManagementResourceAccessProfileBase>|null $value Value to set for the resourceAccessProfiles property.
+     * @param array<DeviceManagementResourceAccessProfileBase>|null $value Value to set for the resourceAccessProfiles property.
     */
     public function setResourceAccessProfiles(?array $value): void {
         $this->getBackingStore()->set('resourceAccessProfiles', $value);
@@ -2727,7 +2768,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the resourceOperations property value. The Resource Operations.
-     *  @param array<ResourceOperation>|null $value Value to set for the resourceOperations property.
+     * @param array<ResourceOperation>|null $value Value to set for the resourceOperations property.
     */
     public function setResourceOperations(?array $value): void {
         $this->getBackingStore()->set('resourceOperations', $value);
@@ -2735,7 +2776,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the reusablePolicySettings property value. List of all reusable settings that can be referred in a policy
-     *  @param array<DeviceManagementReusablePolicySetting>|null $value Value to set for the reusablePolicySettings property.
+     * @param array<DeviceManagementReusablePolicySetting>|null $value Value to set for the reusablePolicySettings property.
     */
     public function setReusablePolicySettings(?array $value): void {
         $this->getBackingStore()->set('reusablePolicySettings', $value);
@@ -2743,7 +2784,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the reusableSettings property value. List of all reusable settings
-     *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the reusableSettings property.
+     * @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the reusableSettings property.
     */
     public function setReusableSettings(?array $value): void {
         $this->getBackingStore()->set('reusableSettings', $value);
@@ -2751,7 +2792,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the roleAssignments property value. The Role Assignments.
-     *  @param array<DeviceAndAppManagementRoleAssignment>|null $value Value to set for the roleAssignments property.
+     * @param array<DeviceAndAppManagementRoleAssignment>|null $value Value to set for the roleAssignments property.
     */
     public function setRoleAssignments(?array $value): void {
         $this->getBackingStore()->set('roleAssignments', $value);
@@ -2759,7 +2800,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the roleDefinitions property value. The Role Definitions.
-     *  @param array<RoleDefinition>|null $value Value to set for the roleDefinitions property.
+     * @param array<RoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
     public function setRoleDefinitions(?array $value): void {
         $this->getBackingStore()->set('roleDefinitions', $value);
@@ -2767,15 +2808,23 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTags property value. The Role Scope Tags.
-     *  @param array<RoleScopeTag>|null $value Value to set for the roleScopeTags property.
+     * @param array<RoleScopeTag>|null $value Value to set for the roleScopeTags property.
     */
     public function setRoleScopeTags(?array $value): void {
         $this->getBackingStore()->set('roleScopeTags', $value);
     }
 
     /**
+     * Sets the serviceNowConnections property value. A list of ServiceNowConnections
+     * @param array<ServiceNowConnection>|null $value Value to set for the serviceNowConnections property.
+    */
+    public function setServiceNowConnections(?array $value): void {
+        $this->getBackingStore()->set('serviceNowConnections', $value);
+    }
+
+    /**
      * Sets the settingDefinitions property value. The device management intent setting definitions
-     *  @param array<DeviceManagementSettingDefinition>|null $value Value to set for the settingDefinitions property.
+     * @param array<DeviceManagementSettingDefinition>|null $value Value to set for the settingDefinitions property.
     */
     public function setSettingDefinitions(?array $value): void {
         $this->getBackingStore()->set('settingDefinitions', $value);
@@ -2783,7 +2832,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the settings property value. Account level settings.
-     *  @param DeviceManagementSettings|null $value Value to set for the settings property.
+     * @param DeviceManagementSettings|null $value Value to set for the settings property.
     */
     public function setSettings(?DeviceManagementSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
@@ -2791,7 +2840,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the softwareUpdateStatusSummary property value. The software update status summary.
-     *  @param SoftwareUpdateStatusSummary|null $value Value to set for the softwareUpdateStatusSummary property.
+     * @param SoftwareUpdateStatusSummary|null $value Value to set for the softwareUpdateStatusSummary property.
     */
     public function setSoftwareUpdateStatusSummary(?SoftwareUpdateStatusSummary $value): void {
         $this->getBackingStore()->set('softwareUpdateStatusSummary', $value);
@@ -2799,7 +2848,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the subscriptions property value. Tenant mobile device management subscriptions.
-     *  @param DeviceManagementSubscriptions|null $value Value to set for the subscriptions property.
+     * @param DeviceManagementSubscriptions|null $value Value to set for the subscriptions property.
     */
     public function setSubscriptions(?DeviceManagementSubscriptions $value): void {
         $this->getBackingStore()->set('subscriptions', $value);
@@ -2807,7 +2856,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the subscriptionState property value. Tenant mobile device management subscription state.
-     *  @param DeviceManagementSubscriptionState|null $value Value to set for the subscriptionState property.
+     * @param DeviceManagementSubscriptionState|null $value Value to set for the subscriptionState property.
     */
     public function setSubscriptionState(?DeviceManagementSubscriptionState $value): void {
         $this->getBackingStore()->set('subscriptionState', $value);
@@ -2815,7 +2864,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the telecomExpenseManagementPartners property value. The telecom expense management partners.
-     *  @param array<TelecomExpenseManagementPartner>|null $value Value to set for the telecomExpenseManagementPartners property.
+     * @param array<TelecomExpenseManagementPartner>|null $value Value to set for the telecomExpenseManagementPartners property.
     */
     public function setTelecomExpenseManagementPartners(?array $value): void {
         $this->getBackingStore()->set('telecomExpenseManagementPartners', $value);
@@ -2823,7 +2872,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the templates property value. The available templates
-     *  @param array<DeviceManagementTemplate>|null $value Value to set for the templates property.
+     * @param array<DeviceManagementTemplate>|null $value Value to set for the templates property.
     */
     public function setTemplates(?array $value): void {
         $this->getBackingStore()->set('templates', $value);
@@ -2831,7 +2880,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the templateSettings property value. List of all TemplateSettings
-     *  @param array<DeviceManagementConfigurationSettingTemplate>|null $value Value to set for the templateSettings property.
+     * @param array<DeviceManagementConfigurationSettingTemplate>|null $value Value to set for the templateSettings property.
     */
     public function setTemplateSettings(?array $value): void {
         $this->getBackingStore()->set('templateSettings', $value);
@@ -2839,7 +2888,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the tenantAttachRBAC property value. TenantAttach RBAC Enablement
-     *  @param TenantAttachRBAC|null $value Value to set for the tenantAttachRBAC property.
+     * @param TenantAttachRBAC|null $value Value to set for the tenantAttachRBAC property.
     */
     public function setTenantAttachRBAC(?TenantAttachRBAC $value): void {
         $this->getBackingStore()->set('tenantAttachRBAC', $value);
@@ -2847,7 +2896,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the termsAndConditions property value. The terms and conditions associated with device management of the company.
-     *  @param array<TermsAndConditions>|null $value Value to set for the termsAndConditions property.
+     * @param array<TermsAndConditions>|null $value Value to set for the termsAndConditions property.
     */
     public function setTermsAndConditions(?array $value): void {
         $this->getBackingStore()->set('termsAndConditions', $value);
@@ -2855,7 +2904,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the troubleshootingEvents property value. The list of troubleshooting events for the tenant.
-     *  @param array<DeviceManagementTroubleshootingEvent>|null $value Value to set for the troubleshootingEvents property.
+     * @param array<DeviceManagementTroubleshootingEvent>|null $value Value to set for the troubleshootingEvents property.
     */
     public function setTroubleshootingEvents(?array $value): void {
         $this->getBackingStore()->set('troubleshootingEvents', $value);
@@ -2863,7 +2912,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the unlicensedAdminstratorsEnabled property value. When enabled, users assigned as administrators via Role Assignment Memberships do not require an assigned Intune license. Prior to this, only Intune licensed users were granted permissions with an Intune role unless they were assigned a role via Azure Active Directory. You are limited to 350 unlicensed direct members for each AAD security group in a role assignment, but you can assign multiple AAD security groups to a role if you need to support more than 350 unlicensed administrators. Licensed administrators are unaffected, do not have to be direct members, nor does the 350 member limit apply. This property is read-only.
-     *  @param bool|null $value Value to set for the unlicensedAdminstratorsEnabled property.
+     * @param bool|null $value Value to set for the unlicensedAdminstratorsEnabled property.
     */
     public function setUnlicensedAdminstratorsEnabled(?bool $value): void {
         $this->getBackingStore()->set('unlicensedAdminstratorsEnabled', $value);
@@ -2871,7 +2920,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAnomaly property value. The user experience analytics anomaly entity contains anomaly details.
-     *  @param array<UserExperienceAnalyticsAnomaly>|null $value Value to set for the userExperienceAnalyticsAnomaly property.
+     * @param array<UserExperienceAnalyticsAnomaly>|null $value Value to set for the userExperienceAnalyticsAnomaly property.
     */
     public function setUserExperienceAnalyticsAnomaly(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAnomaly', $value);
@@ -2879,7 +2928,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAnomalyDevice property value. The user experience analytics anomaly entity contains device details.
-     *  @param array<UserExperienceAnalyticsAnomalyDevice>|null $value Value to set for the userExperienceAnalyticsAnomalyDevice property.
+     * @param array<UserExperienceAnalyticsAnomalyDevice>|null $value Value to set for the userExperienceAnalyticsAnomalyDevice property.
     */
     public function setUserExperienceAnalyticsAnomalyDevice(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAnomalyDevice', $value);
@@ -2887,7 +2936,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAnomalySeverityOverview property value. The user experience analytics anomaly severity overview entity contains the count information for each severity of anomaly.
-     *  @param UserExperienceAnalyticsAnomalySeverityOverview|null $value Value to set for the userExperienceAnalyticsAnomalySeverityOverview property.
+     * @param UserExperienceAnalyticsAnomalySeverityOverview|null $value Value to set for the userExperienceAnalyticsAnomalySeverityOverview property.
     */
     public function setUserExperienceAnalyticsAnomalySeverityOverview(?UserExperienceAnalyticsAnomalySeverityOverview $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAnomalySeverityOverview', $value);
@@ -2895,7 +2944,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformance property value. User experience analytics appHealth Application Performance
-     *  @param array<UserExperienceAnalyticsAppHealthApplicationPerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformance property.
+     * @param array<UserExperienceAnalyticsAppHealthApplicationPerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformance property.
     */
     public function setUserExperienceAnalyticsAppHealthApplicationPerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformance', $value);
@@ -2903,7 +2952,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property value. User experience analytics appHealth Application Performance by App Version
-     *  @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property.
+     * @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property.
     */
     public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion', $value);
@@ -2911,7 +2960,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property value. User experience analytics appHealth Application Performance by App Version details
-     *  @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property.
+     * @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property.
     */
     public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails', $value);
@@ -2919,7 +2968,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property value. User experience analytics appHealth Application Performance by App Version Device Id
-     *  @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property.
+     * @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property.
     */
     public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId', $value);
@@ -2927,7 +2976,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property value. User experience analytics appHealth Application Performance by OS Version
-     *  @param array<UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property.
+     * @param array<UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property.
     */
     public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion', $value);
@@ -2935,7 +2984,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthDeviceModelPerformance property value. User experience analytics appHealth Model Performance
-     *  @param array<UserExperienceAnalyticsAppHealthDeviceModelPerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthDeviceModelPerformance property.
+     * @param array<UserExperienceAnalyticsAppHealthDeviceModelPerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthDeviceModelPerformance property.
     */
     public function setUserExperienceAnalyticsAppHealthDeviceModelPerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthDeviceModelPerformance', $value);
@@ -2943,7 +2992,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthDevicePerformance property value. User experience analytics appHealth Device Performance
-     *  @param array<UserExperienceAnalyticsAppHealthDevicePerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthDevicePerformance property.
+     * @param array<UserExperienceAnalyticsAppHealthDevicePerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthDevicePerformance property.
     */
     public function setUserExperienceAnalyticsAppHealthDevicePerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthDevicePerformance', $value);
@@ -2951,7 +3000,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthDevicePerformanceDetails property value. User experience analytics device performance details
-     *  @param array<UserExperienceAnalyticsAppHealthDevicePerformanceDetails>|null $value Value to set for the userExperienceAnalyticsAppHealthDevicePerformanceDetails property.
+     * @param array<UserExperienceAnalyticsAppHealthDevicePerformanceDetails>|null $value Value to set for the userExperienceAnalyticsAppHealthDevicePerformanceDetails property.
     */
     public function setUserExperienceAnalyticsAppHealthDevicePerformanceDetails(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthDevicePerformanceDetails', $value);
@@ -2959,7 +3008,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthOSVersionPerformance property value. User experience analytics appHealth OS version Performance
-     *  @param array<UserExperienceAnalyticsAppHealthOSVersionPerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthOSVersionPerformance property.
+     * @param array<UserExperienceAnalyticsAppHealthOSVersionPerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthOSVersionPerformance property.
     */
     public function setUserExperienceAnalyticsAppHealthOSVersionPerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthOSVersionPerformance', $value);
@@ -2967,7 +3016,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthOverview property value. User experience analytics appHealth overview
-     *  @param UserExperienceAnalyticsCategory|null $value Value to set for the userExperienceAnalyticsAppHealthOverview property.
+     * @param UserExperienceAnalyticsCategory|null $value Value to set for the userExperienceAnalyticsAppHealthOverview property.
     */
     public function setUserExperienceAnalyticsAppHealthOverview(?UserExperienceAnalyticsCategory $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthOverview', $value);
@@ -2975,7 +3024,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsBaselines property value. User experience analytics baselines
-     *  @param array<UserExperienceAnalyticsBaseline>|null $value Value to set for the userExperienceAnalyticsBaselines property.
+     * @param array<UserExperienceAnalyticsBaseline>|null $value Value to set for the userExperienceAnalyticsBaselines property.
     */
     public function setUserExperienceAnalyticsBaselines(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsBaselines', $value);
@@ -2983,7 +3032,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthAppImpact property value. User Experience Analytics Battery Health App Impact
-     *  @param array<UserExperienceAnalyticsBatteryHealthAppImpact>|null $value Value to set for the userExperienceAnalyticsBatteryHealthAppImpact property.
+     * @param array<UserExperienceAnalyticsBatteryHealthAppImpact>|null $value Value to set for the userExperienceAnalyticsBatteryHealthAppImpact property.
     */
     public function setUserExperienceAnalyticsBatteryHealthAppImpact(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthAppImpact', $value);
@@ -2991,7 +3040,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthCapacityDetails property value. User Experience Analytics Battery Health Capacity Details
-     *  @param UserExperienceAnalyticsBatteryHealthCapacityDetails|null $value Value to set for the userExperienceAnalyticsBatteryHealthCapacityDetails property.
+     * @param UserExperienceAnalyticsBatteryHealthCapacityDetails|null $value Value to set for the userExperienceAnalyticsBatteryHealthCapacityDetails property.
     */
     public function setUserExperienceAnalyticsBatteryHealthCapacityDetails(?UserExperienceAnalyticsBatteryHealthCapacityDetails $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthCapacityDetails', $value);
@@ -2999,7 +3048,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthDeviceAppImpact property value. User Experience Analytics Battery Health Device App Impact
-     *  @param array<UserExperienceAnalyticsBatteryHealthDeviceAppImpact>|null $value Value to set for the userExperienceAnalyticsBatteryHealthDeviceAppImpact property.
+     * @param array<UserExperienceAnalyticsBatteryHealthDeviceAppImpact>|null $value Value to set for the userExperienceAnalyticsBatteryHealthDeviceAppImpact property.
     */
     public function setUserExperienceAnalyticsBatteryHealthDeviceAppImpact(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthDeviceAppImpact', $value);
@@ -3007,7 +3056,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthDevicePerformance property value. User Experience Analytics Battery Health Device Performance
-     *  @param array<UserExperienceAnalyticsBatteryHealthDevicePerformance>|null $value Value to set for the userExperienceAnalyticsBatteryHealthDevicePerformance property.
+     * @param array<UserExperienceAnalyticsBatteryHealthDevicePerformance>|null $value Value to set for the userExperienceAnalyticsBatteryHealthDevicePerformance property.
     */
     public function setUserExperienceAnalyticsBatteryHealthDevicePerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthDevicePerformance', $value);
@@ -3015,7 +3064,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property value. User Experience Analytics Battery Health Device Runtime History
-     *  @param array<UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory>|null $value Value to set for the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property.
+     * @param array<UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory>|null $value Value to set for the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property.
     */
     public function setUserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory', $value);
@@ -3023,7 +3072,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthModelPerformance property value. User Experience Analytics Battery Health Model Performance
-     *  @param array<UserExperienceAnalyticsBatteryHealthModelPerformance>|null $value Value to set for the userExperienceAnalyticsBatteryHealthModelPerformance property.
+     * @param array<UserExperienceAnalyticsBatteryHealthModelPerformance>|null $value Value to set for the userExperienceAnalyticsBatteryHealthModelPerformance property.
     */
     public function setUserExperienceAnalyticsBatteryHealthModelPerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthModelPerformance', $value);
@@ -3031,7 +3080,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthOsPerformance property value. User Experience Analytics Battery Health Os Performance
-     *  @param array<UserExperienceAnalyticsBatteryHealthOsPerformance>|null $value Value to set for the userExperienceAnalyticsBatteryHealthOsPerformance property.
+     * @param array<UserExperienceAnalyticsBatteryHealthOsPerformance>|null $value Value to set for the userExperienceAnalyticsBatteryHealthOsPerformance property.
     */
     public function setUserExperienceAnalyticsBatteryHealthOsPerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthOsPerformance', $value);
@@ -3039,7 +3088,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthRuntimeDetails property value. User Experience Analytics Battery Health Runtime Details
-     *  @param UserExperienceAnalyticsBatteryHealthRuntimeDetails|null $value Value to set for the userExperienceAnalyticsBatteryHealthRuntimeDetails property.
+     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetails|null $value Value to set for the userExperienceAnalyticsBatteryHealthRuntimeDetails property.
     */
     public function setUserExperienceAnalyticsBatteryHealthRuntimeDetails(?UserExperienceAnalyticsBatteryHealthRuntimeDetails $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthRuntimeDetails', $value);
@@ -3047,7 +3096,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsCategories property value. User experience analytics categories
-     *  @param array<UserExperienceAnalyticsCategory>|null $value Value to set for the userExperienceAnalyticsCategories property.
+     * @param array<UserExperienceAnalyticsCategory>|null $value Value to set for the userExperienceAnalyticsCategories property.
     */
     public function setUserExperienceAnalyticsCategories(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsCategories', $value);
@@ -3055,7 +3104,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsDeviceMetricHistory property value. User experience analytics device metric history
-     *  @param array<UserExperienceAnalyticsMetricHistory>|null $value Value to set for the userExperienceAnalyticsDeviceMetricHistory property.
+     * @param array<UserExperienceAnalyticsMetricHistory>|null $value Value to set for the userExperienceAnalyticsDeviceMetricHistory property.
     */
     public function setUserExperienceAnalyticsDeviceMetricHistory(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDeviceMetricHistory', $value);
@@ -3063,7 +3112,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsDevicePerformance property value. User experience analytics device performance
-     *  @param array<UserExperienceAnalyticsDevicePerformance>|null $value Value to set for the userExperienceAnalyticsDevicePerformance property.
+     * @param array<UserExperienceAnalyticsDevicePerformance>|null $value Value to set for the userExperienceAnalyticsDevicePerformance property.
     */
     public function setUserExperienceAnalyticsDevicePerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDevicePerformance', $value);
@@ -3071,7 +3120,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsDeviceScope property value. The user experience analytics device scope entity endpoint to trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
-     *  @param UserExperienceAnalyticsDeviceScope|null $value Value to set for the userExperienceAnalyticsDeviceScope property.
+     * @param UserExperienceAnalyticsDeviceScope|null $value Value to set for the userExperienceAnalyticsDeviceScope property.
     */
     public function setUserExperienceAnalyticsDeviceScope(?UserExperienceAnalyticsDeviceScope $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDeviceScope', $value);
@@ -3079,7 +3128,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsDeviceScopes property value. The user experience analytics device scope entity contains device scope configuration use to apply filtering on the endpoint analytics reports.
-     *  @param array<UserExperienceAnalyticsDeviceScope>|null $value Value to set for the userExperienceAnalyticsDeviceScopes property.
+     * @param array<UserExperienceAnalyticsDeviceScope>|null $value Value to set for the userExperienceAnalyticsDeviceScopes property.
     */
     public function setUserExperienceAnalyticsDeviceScopes(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDeviceScopes', $value);
@@ -3087,7 +3136,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsDeviceScores property value. User experience analytics device scores
-     *  @param array<UserExperienceAnalyticsDeviceScores>|null $value Value to set for the userExperienceAnalyticsDeviceScores property.
+     * @param array<UserExperienceAnalyticsDeviceScores>|null $value Value to set for the userExperienceAnalyticsDeviceScores property.
     */
     public function setUserExperienceAnalyticsDeviceScores(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDeviceScores', $value);
@@ -3095,7 +3144,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsDeviceStartupHistory property value. User experience analytics device Startup History
-     *  @param array<UserExperienceAnalyticsDeviceStartupHistory>|null $value Value to set for the userExperienceAnalyticsDeviceStartupHistory property.
+     * @param array<UserExperienceAnalyticsDeviceStartupHistory>|null $value Value to set for the userExperienceAnalyticsDeviceStartupHistory property.
     */
     public function setUserExperienceAnalyticsDeviceStartupHistory(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDeviceStartupHistory', $value);
@@ -3103,7 +3152,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsDeviceStartupProcesses property value. User experience analytics device Startup Processes
-     *  @param array<UserExperienceAnalyticsDeviceStartupProcess>|null $value Value to set for the userExperienceAnalyticsDeviceStartupProcesses property.
+     * @param array<UserExperienceAnalyticsDeviceStartupProcess>|null $value Value to set for the userExperienceAnalyticsDeviceStartupProcesses property.
     */
     public function setUserExperienceAnalyticsDeviceStartupProcesses(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDeviceStartupProcesses', $value);
@@ -3111,7 +3160,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsDeviceStartupProcessPerformance property value. User experience analytics device Startup Process Performance
-     *  @param array<UserExperienceAnalyticsDeviceStartupProcessPerformance>|null $value Value to set for the userExperienceAnalyticsDeviceStartupProcessPerformance property.
+     * @param array<UserExperienceAnalyticsDeviceStartupProcessPerformance>|null $value Value to set for the userExperienceAnalyticsDeviceStartupProcessPerformance property.
     */
     public function setUserExperienceAnalyticsDeviceStartupProcessPerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDeviceStartupProcessPerformance', $value);
@@ -3119,15 +3168,23 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsDevicesWithoutCloudIdentity property value. User experience analytics devices without cloud identity.
-     *  @param array<UserExperienceAnalyticsDeviceWithoutCloudIdentity>|null $value Value to set for the userExperienceAnalyticsDevicesWithoutCloudIdentity property.
+     * @param array<UserExperienceAnalyticsDeviceWithoutCloudIdentity>|null $value Value to set for the userExperienceAnalyticsDevicesWithoutCloudIdentity property.
     */
     public function setUserExperienceAnalyticsDevicesWithoutCloudIdentity(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsDevicesWithoutCloudIdentity', $value);
     }
 
     /**
+     * Sets the userExperienceAnalyticsDeviceTimelineEvent property value. The user experience analytics device events entity contains NRT device timeline event details.
+     * @param array<UserExperienceAnalyticsDeviceTimelineEvent>|null $value Value to set for the userExperienceAnalyticsDeviceTimelineEvent property.
+    */
+    public function setUserExperienceAnalyticsDeviceTimelineEvent(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDeviceTimelineEvent', $value);
+    }
+
+    /**
      * Sets the userExperienceAnalyticsImpactingProcess property value. User experience analytics impacting process
-     *  @param array<UserExperienceAnalyticsImpactingProcess>|null $value Value to set for the userExperienceAnalyticsImpactingProcess property.
+     * @param array<UserExperienceAnalyticsImpactingProcess>|null $value Value to set for the userExperienceAnalyticsImpactingProcess property.
     */
     public function setUserExperienceAnalyticsImpactingProcess(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsImpactingProcess', $value);
@@ -3135,7 +3192,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsMetricHistory property value. User experience analytics metric history
-     *  @param array<UserExperienceAnalyticsMetricHistory>|null $value Value to set for the userExperienceAnalyticsMetricHistory property.
+     * @param array<UserExperienceAnalyticsMetricHistory>|null $value Value to set for the userExperienceAnalyticsMetricHistory property.
     */
     public function setUserExperienceAnalyticsMetricHistory(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsMetricHistory', $value);
@@ -3143,7 +3200,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsModelScores property value. User experience analytics model scores
-     *  @param array<UserExperienceAnalyticsModelScores>|null $value Value to set for the userExperienceAnalyticsModelScores property.
+     * @param array<UserExperienceAnalyticsModelScores>|null $value Value to set for the userExperienceAnalyticsModelScores property.
     */
     public function setUserExperienceAnalyticsModelScores(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsModelScores', $value);
@@ -3151,7 +3208,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsNotAutopilotReadyDevice property value. User experience analytics devices not Windows Autopilot ready.
-     *  @param array<UserExperienceAnalyticsNotAutopilotReadyDevice>|null $value Value to set for the userExperienceAnalyticsNotAutopilotReadyDevice property.
+     * @param array<UserExperienceAnalyticsNotAutopilotReadyDevice>|null $value Value to set for the userExperienceAnalyticsNotAutopilotReadyDevice property.
     */
     public function setUserExperienceAnalyticsNotAutopilotReadyDevice(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsNotAutopilotReadyDevice', $value);
@@ -3159,7 +3216,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsOverview property value. User experience analytics overview
-     *  @param UserExperienceAnalyticsOverview|null $value Value to set for the userExperienceAnalyticsOverview property.
+     * @param UserExperienceAnalyticsOverview|null $value Value to set for the userExperienceAnalyticsOverview property.
     */
     public function setUserExperienceAnalyticsOverview(?UserExperienceAnalyticsOverview $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsOverview', $value);
@@ -3167,7 +3224,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsRemoteConnection property value. User experience analytics remote connection
-     *  @param array<UserExperienceAnalyticsRemoteConnection>|null $value Value to set for the userExperienceAnalyticsRemoteConnection property.
+     * @param array<UserExperienceAnalyticsRemoteConnection>|null $value Value to set for the userExperienceAnalyticsRemoteConnection property.
     */
     public function setUserExperienceAnalyticsRemoteConnection(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsRemoteConnection', $value);
@@ -3175,7 +3232,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsResourcePerformance property value. User experience analytics resource performance
-     *  @param array<UserExperienceAnalyticsResourcePerformance>|null $value Value to set for the userExperienceAnalyticsResourcePerformance property.
+     * @param array<UserExperienceAnalyticsResourcePerformance>|null $value Value to set for the userExperienceAnalyticsResourcePerformance property.
     */
     public function setUserExperienceAnalyticsResourcePerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsResourcePerformance', $value);
@@ -3183,7 +3240,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsScoreHistory property value. User experience analytics device Startup Score History
-     *  @param array<UserExperienceAnalyticsScoreHistory>|null $value Value to set for the userExperienceAnalyticsScoreHistory property.
+     * @param array<UserExperienceAnalyticsScoreHistory>|null $value Value to set for the userExperienceAnalyticsScoreHistory property.
     */
     public function setUserExperienceAnalyticsScoreHistory(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsScoreHistory', $value);
@@ -3191,7 +3248,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsSettings property value. User experience analytics device settings
-     *  @param UserExperienceAnalyticsSettings|null $value Value to set for the userExperienceAnalyticsSettings property.
+     * @param UserExperienceAnalyticsSettings|null $value Value to set for the userExperienceAnalyticsSettings property.
     */
     public function setUserExperienceAnalyticsSettings(?UserExperienceAnalyticsSettings $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsSettings', $value);
@@ -3199,7 +3256,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property value. User experience analytics work from anywhere hardware readiness metrics.
-     *  @param UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric|null $value Value to set for the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property.
+     * @param UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric|null $value Value to set for the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property.
     */
     public function setUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(?UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric', $value);
@@ -3207,7 +3264,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsWorkFromAnywhereMetrics property value. User experience analytics work from anywhere metrics.
-     *  @param array<UserExperienceAnalyticsWorkFromAnywhereMetric>|null $value Value to set for the userExperienceAnalyticsWorkFromAnywhereMetrics property.
+     * @param array<UserExperienceAnalyticsWorkFromAnywhereMetric>|null $value Value to set for the userExperienceAnalyticsWorkFromAnywhereMetrics property.
     */
     public function setUserExperienceAnalyticsWorkFromAnywhereMetrics(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsWorkFromAnywhereMetrics', $value);
@@ -3215,7 +3272,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsWorkFromAnywhereModelPerformance property value. The user experience analytics work from anywhere model performance
-     *  @param array<UserExperienceAnalyticsWorkFromAnywhereModelPerformance>|null $value Value to set for the userExperienceAnalyticsWorkFromAnywhereModelPerformance property.
+     * @param array<UserExperienceAnalyticsWorkFromAnywhereModelPerformance>|null $value Value to set for the userExperienceAnalyticsWorkFromAnywhereModelPerformance property.
     */
     public function setUserExperienceAnalyticsWorkFromAnywhereModelPerformance(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsWorkFromAnywhereModelPerformance', $value);
@@ -3223,7 +3280,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userPfxCertificates property value. Collection of PFX certificates associated with a user.
-     *  @param array<UserPFXCertificate>|null $value Value to set for the userPfxCertificates property.
+     * @param array<UserPFXCertificate>|null $value Value to set for the userPfxCertificates property.
     */
     public function setUserPfxCertificates(?array $value): void {
         $this->getBackingStore()->set('userPfxCertificates', $value);
@@ -3231,7 +3288,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the virtualEndpoint property value. The virtualEndpoint property
-     *  @param VirtualEndpoint|null $value Value to set for the virtualEndpoint property.
+     * @param VirtualEndpoint|null $value Value to set for the virtualEndpoint property.
     */
     public function setVirtualEndpoint(?VirtualEndpoint $value): void {
         $this->getBackingStore()->set('virtualEndpoint', $value);
@@ -3239,7 +3296,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsAutopilotDeploymentProfiles property value. Windows auto pilot deployment profiles
-     *  @param array<WindowsAutopilotDeploymentProfile>|null $value Value to set for the windowsAutopilotDeploymentProfiles property.
+     * @param array<WindowsAutopilotDeploymentProfile>|null $value Value to set for the windowsAutopilotDeploymentProfiles property.
     */
     public function setWindowsAutopilotDeploymentProfiles(?array $value): void {
         $this->getBackingStore()->set('windowsAutopilotDeploymentProfiles', $value);
@@ -3247,7 +3304,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsAutopilotDeviceIdentities property value. The Windows autopilot device identities contained collection.
-     *  @param array<WindowsAutopilotDeviceIdentity>|null $value Value to set for the windowsAutopilotDeviceIdentities property.
+     * @param array<WindowsAutopilotDeviceIdentity>|null $value Value to set for the windowsAutopilotDeviceIdentities property.
     */
     public function setWindowsAutopilotDeviceIdentities(?array $value): void {
         $this->getBackingStore()->set('windowsAutopilotDeviceIdentities', $value);
@@ -3255,7 +3312,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsAutopilotSettings property value. The Windows autopilot account settings.
-     *  @param WindowsAutopilotSettings|null $value Value to set for the windowsAutopilotSettings property.
+     * @param WindowsAutopilotSettings|null $value Value to set for the windowsAutopilotSettings property.
     */
     public function setWindowsAutopilotSettings(?WindowsAutopilotSettings $value): void {
         $this->getBackingStore()->set('windowsAutopilotSettings', $value);
@@ -3263,7 +3320,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsDriverUpdateProfiles property value. A collection of windows driver update profiles
-     *  @param array<WindowsDriverUpdateProfile>|null $value Value to set for the windowsDriverUpdateProfiles property.
+     * @param array<WindowsDriverUpdateProfile>|null $value Value to set for the windowsDriverUpdateProfiles property.
     */
     public function setWindowsDriverUpdateProfiles(?array $value): void {
         $this->getBackingStore()->set('windowsDriverUpdateProfiles', $value);
@@ -3271,7 +3328,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsFeatureUpdateProfiles property value. A collection of windows feature update profiles
-     *  @param array<WindowsFeatureUpdateProfile>|null $value Value to set for the windowsFeatureUpdateProfiles property.
+     * @param array<WindowsFeatureUpdateProfile>|null $value Value to set for the windowsFeatureUpdateProfiles property.
     */
     public function setWindowsFeatureUpdateProfiles(?array $value): void {
         $this->getBackingStore()->set('windowsFeatureUpdateProfiles', $value);
@@ -3279,7 +3336,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsInformationProtectionAppLearningSummaries property value. The windows information protection app learning summaries.
-     *  @param array<WindowsInformationProtectionAppLearningSummary>|null $value Value to set for the windowsInformationProtectionAppLearningSummaries property.
+     * @param array<WindowsInformationProtectionAppLearningSummary>|null $value Value to set for the windowsInformationProtectionAppLearningSummaries property.
     */
     public function setWindowsInformationProtectionAppLearningSummaries(?array $value): void {
         $this->getBackingStore()->set('windowsInformationProtectionAppLearningSummaries', $value);
@@ -3287,7 +3344,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsInformationProtectionNetworkLearningSummaries property value. The windows information protection network learning summaries.
-     *  @param array<WindowsInformationProtectionNetworkLearningSummary>|null $value Value to set for the windowsInformationProtectionNetworkLearningSummaries property.
+     * @param array<WindowsInformationProtectionNetworkLearningSummary>|null $value Value to set for the windowsInformationProtectionNetworkLearningSummaries property.
     */
     public function setWindowsInformationProtectionNetworkLearningSummaries(?array $value): void {
         $this->getBackingStore()->set('windowsInformationProtectionNetworkLearningSummaries', $value);
@@ -3295,7 +3352,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsMalwareInformation property value. The list of affected malware in the tenant.
-     *  @param array<WindowsMalwareInformation>|null $value Value to set for the windowsMalwareInformation property.
+     * @param array<WindowsMalwareInformation>|null $value Value to set for the windowsMalwareInformation property.
     */
     public function setWindowsMalwareInformation(?array $value): void {
         $this->getBackingStore()->set('windowsMalwareInformation', $value);
@@ -3303,7 +3360,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsMalwareOverview property value. Malware overview for windows devices.
-     *  @param WindowsMalwareOverview|null $value Value to set for the windowsMalwareOverview property.
+     * @param WindowsMalwareOverview|null $value Value to set for the windowsMalwareOverview property.
     */
     public function setWindowsMalwareOverview(?WindowsMalwareOverview $value): void {
         $this->getBackingStore()->set('windowsMalwareOverview', $value);
@@ -3311,7 +3368,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsQualityUpdateProfiles property value. A collection of windows quality update profiles
-     *  @param array<WindowsQualityUpdateProfile>|null $value Value to set for the windowsQualityUpdateProfiles property.
+     * @param array<WindowsQualityUpdateProfile>|null $value Value to set for the windowsQualityUpdateProfiles property.
     */
     public function setWindowsQualityUpdateProfiles(?array $value): void {
         $this->getBackingStore()->set('windowsQualityUpdateProfiles', $value);
@@ -3319,7 +3376,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the windowsUpdateCatalogItems property value. A collection of windows update catalog items (fetaure updates item , quality updates item)
-     *  @param array<WindowsUpdateCatalogItem>|null $value Value to set for the windowsUpdateCatalogItems property.
+     * @param array<WindowsUpdateCatalogItem>|null $value Value to set for the windowsUpdateCatalogItems property.
     */
     public function setWindowsUpdateCatalogItems(?array $value): void {
         $this->getBackingStore()->set('windowsUpdateCatalogItems', $value);
@@ -3327,7 +3384,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the zebraFotaArtifacts property value. The Collection of ZebraFotaArtifacts.
-     *  @param array<ZebraFotaArtifact>|null $value Value to set for the zebraFotaArtifacts property.
+     * @param array<ZebraFotaArtifact>|null $value Value to set for the zebraFotaArtifacts property.
     */
     public function setZebraFotaArtifacts(?array $value): void {
         $this->getBackingStore()->set('zebraFotaArtifacts', $value);
@@ -3335,7 +3392,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the zebraFotaConnector property value. The singleton ZebraFotaConnector associated with account.
-     *  @param ZebraFotaConnector|null $value Value to set for the zebraFotaConnector property.
+     * @param ZebraFotaConnector|null $value Value to set for the zebraFotaConnector property.
     */
     public function setZebraFotaConnector(?ZebraFotaConnector $value): void {
         $this->getBackingStore()->set('zebraFotaConnector', $value);
@@ -3343,7 +3400,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the zebraFotaDeployments property value. Collection of ZebraFotaDeployments associated with account.
-     *  @param array<ZebraFotaDeployment>|null $value Value to set for the zebraFotaDeployments property.
+     * @param array<ZebraFotaDeployment>|null $value Value to set for the zebraFotaDeployments property.
     */
     public function setZebraFotaDeployments(?array $value): void {
         $this->getBackingStore()->set('zebraFotaDeployments', $value);

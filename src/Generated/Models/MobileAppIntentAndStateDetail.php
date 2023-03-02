@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Mobile App Intent and Install State for a given device.
+*/
 class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +143,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +151,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the applicationId property value. MobieApp identifier.
-     *  @param string|null $value Value to set for the applicationId property.
+     * @param string|null $value Value to set for the applicationId property.
     */
     public function setApplicationId(?string $value): void {
         $this->getBackingStore()->set('applicationId', $value);
@@ -156,7 +159,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +167,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the displayName property value. The admin provided or imported title of the app.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -172,7 +175,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the displayVersion property value. Human readable version of the application
-     *  @param string|null $value Value to set for the displayVersion property.
+     * @param string|null $value Value to set for the displayVersion property.
     */
     public function setDisplayVersion(?string $value): void {
         $this->getBackingStore()->set('displayVersion', $value);
@@ -180,7 +183,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the installState property value. A list of possible states for application status on an individual device. When devices contact the Intune service and find targeted application enforcement intent, the status of the enforcement is recorded and becomes accessible in the Graph API. Since the application status is identified during device interaction with the Intune service, status records do not immediately appear upon application group assignment; it is created only after the assignment is evaluated in the service and devices start receiving the policy during check-ins.
-     *  @param ResultantAppState|null $value Value to set for the installState property.
+     * @param ResultantAppState|null $value Value to set for the installState property.
     */
     public function setInstallState(?ResultantAppState $value): void {
         $this->getBackingStore()->set('installState', $value);
@@ -188,7 +191,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the mobileAppIntent property value. Indicates the status of the mobile app on the device.
-     *  @param MobileAppIntent|null $value Value to set for the mobileAppIntent property.
+     * @param MobileAppIntent|null $value Value to set for the mobileAppIntent property.
     */
     public function setMobileAppIntent(?MobileAppIntent $value): void {
         $this->getBackingStore()->set('mobileAppIntent', $value);
@@ -196,7 +199,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -204,7 +207,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, BackedModel
 
     /**
      * Sets the supportedDeviceTypes property value. The supported platforms for the app.
-     *  @param array<MobileAppSupportedDeviceType>|null $value Value to set for the supportedDeviceTypes property.
+     * @param array<MobileAppSupportedDeviceType>|null $value Value to set for the supportedDeviceTypes property.
     */
     public function setSupportedDeviceTypes(?array $value): void {
         $this->getBackingStore()->set('supportedDeviceTypes', $value);

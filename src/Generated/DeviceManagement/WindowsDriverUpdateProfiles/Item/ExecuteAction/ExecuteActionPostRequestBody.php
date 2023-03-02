@@ -46,7 +46,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -102,7 +102,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the actionName property value. An enum type to represent approval actions of single or list of drivers.
-     *  @param DriverApprovalAction|null $value Value to set for the actionName property.
+     * @param DriverApprovalAction|null $value Value to set for the actionName property.
     */
     public function setActionName(?DriverApprovalAction $value): void {
         $this->getBackingStore()->set('actionName', $value);
@@ -110,7 +110,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the deploymentDate property value. The deploymentDate property
-     *  @param DateTime|null $value Value to set for the deploymentDate property.
+     * @param DateTime|null $value Value to set for the deploymentDate property.
     */
     public function setDeploymentDate(?DateTime $value): void {
         $this->getBackingStore()->set('deploymentDate', $value);
@@ -134,7 +134,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the driverIds property value. The driverIds property
-     *  @param array<string>|null $value Value to set for the driverIds property.
+     * @param array<string>|null $value Value to set for the driverIds property.
     */
     public function setDriverIds(?array $value): void {
         $this->getBackingStore()->set('driverIds', $value);

@@ -55,7 +55,7 @@ class MacOSVpnConfiguration extends AppleVpnConfiguration implements Parsable
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
-     *  @param MacOSCertificateProfileBase|null $value Value to set for the identityCertificate property.
+     * @param MacOSCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
     public function setIdentityCertificate(?MacOSCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);

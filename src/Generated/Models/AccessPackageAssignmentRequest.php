@@ -185,7 +185,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
-     *  @param AccessPackage|null $value Value to set for the accessPackage property.
+     * @param AccessPackage|null $value Value to set for the accessPackage property.
     */
     public function setAccessPackage(?AccessPackage $value): void {
         $this->getBackingStore()->set('accessPackage', $value);
@@ -193,7 +193,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignment property value. For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.  Supports $expand.
-     *  @param AccessPackageAssignment|null $value Value to set for the accessPackageAssignment property.
+     * @param AccessPackageAssignment|null $value Value to set for the accessPackageAssignment property.
     */
     public function setAccessPackageAssignment(?AccessPackageAssignment $value): void {
         $this->getBackingStore()->set('accessPackageAssignment', $value);
@@ -201,7 +201,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the answers property value. Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
-     *  @param array<AccessPackageAnswer>|null $value Value to set for the answers property.
+     * @param array<AccessPackageAnswer>|null $value Value to set for the answers property.
     */
     public function setAnswers(?array $value): void {
         $this->getBackingStore()->set('answers', $value);
@@ -209,7 +209,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the completedDate property value. The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the completedDate property.
+     * @param DateTime|null $value Value to set for the completedDate property.
     */
     public function setCompletedDate(?DateTime $value): void {
         $this->getBackingStore()->set('completedDate', $value);
@@ -217,7 +217,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -225,7 +225,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the customExtensionHandlerInstances property value. A collection of custom workflow extension instances being run on an assignment request. Read-only.
-     *  @param array<CustomExtensionHandlerInstance>|null $value Value to set for the customExtensionHandlerInstances property.
+     * @param array<CustomExtensionHandlerInstance>|null $value Value to set for the customExtensionHandlerInstances property.
     */
     public function setCustomExtensionHandlerInstances(?array $value): void {
         $this->getBackingStore()->set('customExtensionHandlerInstances', $value);
@@ -233,7 +233,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the expirationDateTime property value. The expirationDateTime property
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -241,7 +241,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the isValidationOnly property value. True if the request is not to be processed for assignment.
-     *  @param bool|null $value Value to set for the isValidationOnly property.
+     * @param bool|null $value Value to set for the isValidationOnly property.
     */
     public function setIsValidationOnly(?bool $value): void {
         $this->getBackingStore()->set('isValidationOnly', $value);
@@ -249,7 +249,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the justification property value. The requestor's supplied justification.
-     *  @param string|null $value Value to set for the justification property.
+     * @param string|null $value Value to set for the justification property.
     */
     public function setJustification(?string $value): void {
         $this->getBackingStore()->set('justification', $value);
@@ -257,7 +257,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the requestor property value. The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.
-     *  @param AccessPackageSubject|null $value Value to set for the requestor property.
+     * @param AccessPackageSubject|null $value Value to set for the requestor property.
     */
     public function setRequestor(?AccessPackageSubject $value): void {
         $this->getBackingStore()->set('requestor', $value);
@@ -265,7 +265,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the requestState property value. One of PendingApproval, Canceled,  Denied, Delivering, Delivered, PartiallyDelivered, DeliveryFailed, Submitted or Scheduled. Read-only.
-     *  @param string|null $value Value to set for the requestState property.
+     * @param string|null $value Value to set for the requestState property.
     */
     public function setRequestState(?string $value): void {
         $this->getBackingStore()->set('requestState', $value);
@@ -273,7 +273,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the requestStatus property value. More information on the request processing status. Read-only.
-     *  @param string|null $value Value to set for the requestStatus property.
+     * @param string|null $value Value to set for the requestStatus property.
     */
     public function setRequestStatus(?string $value): void {
         $this->getBackingStore()->set('requestStatus', $value);
@@ -281,7 +281,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the requestType property value. One of UserAdd, UserExtend, UserUpdate, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd, UserUpdate or UserRemove. Read-only.
-     *  @param string|null $value Value to set for the requestType property.
+     * @param string|null $value Value to set for the requestType property.
     */
     public function setRequestType(?string $value): void {
         $this->getBackingStore()->set('requestType', $value);
@@ -289,7 +289,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the schedule property value. The range of dates that access is to be assigned to the requestor. Read-only.
-     *  @param RequestSchedule|null $value Value to set for the schedule property.
+     * @param RequestSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?RequestSchedule $value): void {
         $this->getBackingStore()->set('schedule', $value);

@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Report of remote actions initiated on the devices belonging to a certain tenant.
+*/
 class RemoteActionAudit extends Entity implements Parsable 
 {
     /**
@@ -135,7 +138,7 @@ class RemoteActionAudit extends Entity implements Parsable
 
     /**
      * Sets the action property value. Remote actions Intune supports.
-     *  @param RemoteAction|null $value Value to set for the action property.
+     * @param RemoteAction|null $value Value to set for the action property.
     */
     public function setAction(?RemoteAction $value): void {
         $this->getBackingStore()->set('action', $value);
@@ -143,7 +146,7 @@ class RemoteActionAudit extends Entity implements Parsable
 
     /**
      * Sets the actionState property value. The actionState property
-     *  @param ActionState|null $value Value to set for the actionState property.
+     * @param ActionState|null $value Value to set for the actionState property.
     */
     public function setActionState(?ActionState $value): void {
         $this->getBackingStore()->set('actionState', $value);
@@ -151,7 +154,7 @@ class RemoteActionAudit extends Entity implements Parsable
 
     /**
      * Sets the deviceDisplayName property value. Intune device name.
-     *  @param string|null $value Value to set for the deviceDisplayName property.
+     * @param string|null $value Value to set for the deviceDisplayName property.
     */
     public function setDeviceDisplayName(?string $value): void {
         $this->getBackingStore()->set('deviceDisplayName', $value);
@@ -159,7 +162,7 @@ class RemoteActionAudit extends Entity implements Parsable
 
     /**
      * Sets the deviceIMEI property value. IMEI of the device.
-     *  @param string|null $value Value to set for the deviceIMEI property.
+     * @param string|null $value Value to set for the deviceIMEI property.
     */
     public function setDeviceIMEI(?string $value): void {
         $this->getBackingStore()->set('deviceIMEI', $value);
@@ -167,7 +170,7 @@ class RemoteActionAudit extends Entity implements Parsable
 
     /**
      * Sets the deviceOwnerUserPrincipalName property value. Upn of the device owner.
-     *  @param string|null $value Value to set for the deviceOwnerUserPrincipalName property.
+     * @param string|null $value Value to set for the deviceOwnerUserPrincipalName property.
     */
     public function setDeviceOwnerUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('deviceOwnerUserPrincipalName', $value);
@@ -175,7 +178,7 @@ class RemoteActionAudit extends Entity implements Parsable
 
     /**
      * Sets the initiatedByUserPrincipalName property value. User who initiated the device action, format is UPN.
-     *  @param string|null $value Value to set for the initiatedByUserPrincipalName property.
+     * @param string|null $value Value to set for the initiatedByUserPrincipalName property.
     */
     public function setInitiatedByUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('initiatedByUserPrincipalName', $value);
@@ -183,7 +186,7 @@ class RemoteActionAudit extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceId property value. Action target.
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -191,7 +194,7 @@ class RemoteActionAudit extends Entity implements Parsable
 
     /**
      * Sets the requestDateTime property value. Time when the action was issued, given in UTC.
-     *  @param DateTime|null $value Value to set for the requestDateTime property.
+     * @param DateTime|null $value Value to set for the requestDateTime property.
     */
     public function setRequestDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('requestDateTime', $value);
@@ -199,7 +202,7 @@ class RemoteActionAudit extends Entity implements Parsable
 
     /**
      * Sets the userName property value. [deprecated] Please use InitiatedByUserPrincipalName instead.
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);

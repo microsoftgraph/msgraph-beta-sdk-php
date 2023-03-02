@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The base entity for the display presentation of any of the additional options in a group policy definition.
+*/
 class GroupPolicyPresentation extends Entity implements Parsable 
 {
     /**
@@ -91,7 +94,7 @@ class GroupPolicyPresentation extends Entity implements Parsable
 
     /**
      * Sets the definition property value. The group policy definition associated with the presentation.
-     *  @param GroupPolicyDefinition|null $value Value to set for the definition property.
+     * @param GroupPolicyDefinition|null $value Value to set for the definition property.
     */
     public function setDefinition(?GroupPolicyDefinition $value): void {
         $this->getBackingStore()->set('definition', $value);
@@ -99,7 +102,7 @@ class GroupPolicyPresentation extends Entity implements Parsable
 
     /**
      * Sets the label property value. Localized text label for any presentation entity. The default value is empty.
-     *  @param string|null $value Value to set for the label property.
+     * @param string|null $value Value to set for the label property.
     */
     public function setLabel(?string $value): void {
         $this->getBackingStore()->set('label', $value);
@@ -107,7 +110,7 @@ class GroupPolicyPresentation extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);

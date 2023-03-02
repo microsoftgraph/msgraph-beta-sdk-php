@@ -75,7 +75,7 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the desktopApplicationId property value. Define the DesktopApplicationID of the app
-     *  @param string|null $value Value to set for the desktopApplicationId property.
+     * @param string|null $value Value to set for the desktopApplicationId property.
     */
     public function setDesktopApplicationId(?string $value): void {
         $this->getBackingStore()->set('desktopApplicationId', $value);
@@ -83,7 +83,7 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the desktopApplicationLinkPath property value. Define the DesktopApplicationLinkPath of the app
-     *  @param string|null $value Value to set for the desktopApplicationLinkPath property.
+     * @param string|null $value Value to set for the desktopApplicationLinkPath property.
     */
     public function setDesktopApplicationLinkPath(?string $value): void {
         $this->getBackingStore()->set('desktopApplicationLinkPath', $value);
@@ -91,7 +91,7 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
 
     /**
      * Sets the path property value. Define the path of a desktop app
-     *  @param string|null $value Value to set for the path property.
+     * @param string|null $value Value to set for the path property.
     */
     public function setPath(?string $value): void {
         $this->getBackingStore()->set('path', $value);

@@ -76,7 +76,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the bundleId property value. Bundle id for targeting.
-     *  @param string|null $value Value to set for the bundleId property.
+     * @param string|null $value Value to set for the bundleId property.
     */
     public function setBundleId(?string $value): void {
         $this->getBackingStore()->set('bundleId', $value);
@@ -84,7 +84,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the configurationXml property value. Configuration xml. (UTF8 encoded byte array)
-     *  @param StreamInterface|null $value Value to set for the configurationXml property.
+     * @param StreamInterface|null $value Value to set for the configurationXml property.
     */
     public function setConfigurationXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('configurationXml', $value);
@@ -92,7 +92,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the fileName property value. Configuration file name (.plist
-     *  @param string|null $value Value to set for the fileName property.
+     * @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value): void {
         $this->getBackingStore()->set('fileName', $value);

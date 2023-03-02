@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Referred setting information about reusable setting
+*/
 class DeviceManagementConfigurationReferredSettingInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -90,7 +93,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -98,7 +101,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -106,7 +109,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -114,7 +117,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
 
     /**
      * Sets the settingDefinitionId property value. Setting definition id that is being referred to a setting. Applicable for reusable setting
-     *  @param string|null $value Value to set for the settingDefinitionId property.
+     * @param string|null $value Value to set for the settingDefinitionId property.
     */
     public function setSettingDefinitionId(?string $value): void {
         $this->getBackingStore()->set('settingDefinitionId', $value);

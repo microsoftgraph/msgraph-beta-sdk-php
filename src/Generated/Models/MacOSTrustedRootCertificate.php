@@ -66,7 +66,7 @@ class MacOSTrustedRootCertificate extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the certFileName property value. File name to display in UI.
-     *  @param string|null $value Value to set for the certFileName property.
+     * @param string|null $value Value to set for the certFileName property.
     */
     public function setCertFileName(?string $value): void {
         $this->getBackingStore()->set('certFileName', $value);
@@ -74,7 +74,7 @@ class MacOSTrustedRootCertificate extends DeviceConfiguration implements Parsabl
 
     /**
      * Sets the trustedRootCertificate property value. Trusted Root Certificate.
-     *  @param StreamInterface|null $value Value to set for the trustedRootCertificate property.
+     * @param StreamInterface|null $value Value to set for the trustedRootCertificate property.
     */
     public function setTrustedRootCertificate(?StreamInterface $value): void {
         $this->getBackingStore()->set('trustedRootCertificate', $value);

@@ -36,7 +36,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -82,7 +82,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the regionGroup property value. The regionGroup property
+     * Gets the regionGroup property value. The logical geographic group this region belongs to. Multiple regions can belong to one region group. A customer can select a regionGroup when provisioning a Cloud PC, and the Cloud PC will be put in one of the regions in the group based on resource status. For example, the Europe region group contains the Northern Europe and Western Europe regions. Possible values are: default, australia, canada, usCentral, usEast, usWest, france, germany, europeUnion, unitedKingdom, japan, asia, india, southAmerica, euap, usGovernment, usGovernmentDOD, unknownFutureValue, norway, switzerland, and southKorea. Read-only.
      * @return CloudPcRegionGroup|null
     */
     public function getRegionGroup(): ?CloudPcRegionGroup {
@@ -120,7 +120,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -144,15 +144,15 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the onPremisesConnectionId property value. The Azure network connection ID that matches the virtual network IT admins want the provisioning policy to use when they create Cloud PCs. You can use this property in both domain join types: Azure AD joined or Hybrid Azure AD joined. If you enter an onPremisesConnectionId, leave regionName as empty.
-     *  @param string|null $value Value to set for the onPremisesConnectionId property.
+     * @param string|null $value Value to set for the onPremisesConnectionId property.
     */
     public function setOnPremisesConnectionId(?string $value): void {
         $this->getBackingStore()->set('onPremisesConnectionId', $value);
     }
 
     /**
-     * Sets the regionGroup property value. The regionGroup property
-     *  @param CloudPcRegionGroup|null $value Value to set for the regionGroup property.
+     * Sets the regionGroup property value. The logical geographic group this region belongs to. Multiple regions can belong to one region group. A customer can select a regionGroup when provisioning a Cloud PC, and the Cloud PC will be put in one of the regions in the group based on resource status. For example, the Europe region group contains the Northern Europe and Western Europe regions. Possible values are: default, australia, canada, usCentral, usEast, usWest, france, germany, europeUnion, unitedKingdom, japan, asia, india, southAmerica, euap, usGovernment, usGovernmentDOD, unknownFutureValue, norway, switzerland, and southKorea. Read-only.
+     * @param CloudPcRegionGroup|null $value Value to set for the regionGroup property.
     */
     public function setRegionGroup(?CloudPcRegionGroup $value): void {
         $this->getBackingStore()->set('regionGroup', $value);
@@ -160,7 +160,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the regionName property value. The supported Azure region where the IT admin wants the provisioning policy to create Cloud PCs. The underlying virtual network will be created and managed by the Windows 365 service. This can only be entered if the IT admin chooses Azure AD joined as the domain join type. If you enter a regionName, leave onPremisesConnectionId as empty.
-     *  @param string|null $value Value to set for the regionName property.
+     * @param string|null $value Value to set for the regionName property.
     */
     public function setRegionName(?string $value): void {
         $this->getBackingStore()->set('regionName', $value);
@@ -168,7 +168,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the type property value. Specifies how the provisioned Cloud PC will be joined to Azure AD. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave regionName as empty. If you choose the azureADJoin type, provide a value for either onPremisesConnectionId or regionName. The possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
-     *  @param CloudPcDomainJoinType|null $value Value to set for the type property.
+     * @param CloudPcDomainJoinType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcDomainJoinType $value): void {
         $this->getBackingStore()->set('type', $value);

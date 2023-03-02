@@ -54,7 +54,7 @@ class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDe
 
     /**
      * Sets the propertyDefinitionIds property value. The definitions of each property of the complex setting
-     *  @param array<string>|null $value Value to set for the propertyDefinitionIds property.
+     * @param array<string>|null $value Value to set for the propertyDefinitionIds property.
     */
     public function setPropertyDefinitionIds(?array $value): void {
         $this->getBackingStore()->set('propertyDefinitionIds', $value);

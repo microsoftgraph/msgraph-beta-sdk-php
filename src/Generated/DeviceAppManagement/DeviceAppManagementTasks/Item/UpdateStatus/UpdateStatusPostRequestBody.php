@@ -37,7 +37,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -91,7 +91,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -99,7 +99,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -107,7 +107,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the note property value. The note property
-     *  @param string|null $value Value to set for the note property.
+     * @param string|null $value Value to set for the note property.
     */
     public function setNote(?string $value): void {
         $this->getBackingStore()->set('note', $value);
@@ -115,7 +115,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, BackedModel, 
 
     /**
      * Sets the status property value. Device app management task status.
-     *  @param DeviceAppManagementTaskStatus|null $value Value to set for the status property.
+     * @param DeviceAppManagementTaskStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceAppManagementTaskStatus $value): void {
         $this->getBackingStore()->set('status', $value);

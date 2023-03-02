@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Schema describing an Android for Work application's custom configurations.
+*/
 class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable 
 {
     /**
@@ -65,7 +68,7 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
 
     /**
      * Sets the exampleJson property value. UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
-     *  @param StreamInterface|null $value Value to set for the exampleJson property.
+     * @param StreamInterface|null $value Value to set for the exampleJson property.
     */
     public function setExampleJson(?StreamInterface $value): void {
         $this->getBackingStore()->set('exampleJson', $value);
@@ -73,7 +76,7 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
 
     /**
      * Sets the schemaItems property value. Collection of items each representing a named configuration option in the schema
-     *  @param array<AndroidForWorkAppConfigurationSchemaItem>|null $value Value to set for the schemaItems property.
+     * @param array<AndroidForWorkAppConfigurationSchemaItem>|null $value Value to set for the schemaItems property.
     */
     public function setSchemaItems(?array $value): void {
         $this->getBackingStore()->set('schemaItems', $value);

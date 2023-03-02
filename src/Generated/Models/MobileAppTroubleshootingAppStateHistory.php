@@ -74,7 +74,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
 
     /**
      * Sets the actionType property value. Defines the Action Types for an Intune Application.
-     *  @param MobileAppActionType|null $value Value to set for the actionType property.
+     * @param MobileAppActionType|null $value Value to set for the actionType property.
     */
     public function setActionType(?MobileAppActionType $value): void {
         $this->getBackingStore()->set('actionType', $value);
@@ -82,7 +82,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
 
     /**
      * Sets the errorCode property value. Error code for the failure, empty if no failure.
-     *  @param string|null $value Value to set for the errorCode property.
+     * @param string|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?string $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -90,7 +90,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
 
     /**
      * Sets the runState property value. Indicates the type of execution status of the device management script.
-     *  @param RunState|null $value Value to set for the runState property.
+     * @param RunState|null $value Value to set for the runState property.
     */
     public function setRunState(?RunState $value): void {
         $this->getBackingStore()->set('runState', $value);

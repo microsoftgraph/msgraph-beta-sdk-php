@@ -36,7 +36,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the manager property value. The manager property
-     *  @param SynchronizationJobSubject|null $value Value to set for the manager property.
+     * @param SynchronizationJobSubject|null $value Value to set for the manager property.
     */
     public function setManager(?SynchronizationJobSubject $value): void {
         $this->getBackingStore()->set('manager', $value);
@@ -134,7 +134,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the members property value. All group members that you would like to provision.
-     *  @param array<SynchronizationJobSubject>|null $value Value to set for the members property.
+     * @param array<SynchronizationJobSubject>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);
@@ -142,7 +142,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +150,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the owners property value. The owners property
-     *  @param array<SynchronizationJobSubject>|null $value Value to set for the owners property.
+     * @param array<SynchronizationJobSubject>|null $value Value to set for the owners property.
     */
     public function setOwners(?array $value): void {
         $this->getBackingStore()->set('owners', $value);

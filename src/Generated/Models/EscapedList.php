@@ -160,7 +160,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the activities property value. The recent activities that took place within this list.
-     *  @param array<ItemActivityOLD>|null $value Value to set for the activities property.
+     * @param array<ItemActivityOLD>|null $value Value to set for the activities property.
     */
     public function setActivities(?array $value): void {
         $this->getBackingStore()->set('activities', $value);
@@ -168,7 +168,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the columns property value. The columns property
-     *  @param array<ColumnDefinition>|null $value Value to set for the columns property.
+     * @param array<ColumnDefinition>|null $value Value to set for the columns property.
     */
     public function setColumns(?array $value): void {
         $this->getBackingStore()->set('columns', $value);
@@ -176,7 +176,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the contentTypes property value. The contentTypes property
-     *  @param array<ContentType>|null $value Value to set for the contentTypes property.
+     * @param array<ContentType>|null $value Value to set for the contentTypes property.
     */
     public function setContentTypes(?array $value): void {
         $this->getBackingStore()->set('contentTypes', $value);
@@ -184,7 +184,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the displayName property value. The displayable title of the list.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -192,7 +192,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the drive property value. Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
-     *  @param Drive|null $value Value to set for the drive property.
+     * @param Drive|null $value Value to set for the drive property.
     */
     public function setDrive(?Drive $value): void {
         $this->getBackingStore()->set('drive', $value);
@@ -200,7 +200,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the items property value. All items contained in the list.
-     *  @param array<ListItem>|null $value Value to set for the items property.
+     * @param array<ListItem>|null $value Value to set for the items property.
     */
     public function setItems(?array $value): void {
         $this->getBackingStore()->set('items', $value);
@@ -208,7 +208,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the list property value. Provides additional details about the list.
-     *  @param ListInfo|null $value Value to set for the EscapedList property.
+     * @param ListInfo|null $value Value to set for the EscapedList property.
     */
     public function setList(?ListInfo $value): void {
         $this->getBackingStore()->set('escapedList', $value);
@@ -216,7 +216,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the operations property value. The collection of long running operations for the list.
-     *  @param array<RichLongRunningOperation>|null $value Value to set for the operations property.
+     * @param array<RichLongRunningOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
@@ -224,7 +224,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the sharepointIds property value. The sharepointIds property
-     *  @param SharepointIds|null $value Value to set for the sharepointIds property.
+     * @param SharepointIds|null $value Value to set for the sharepointIds property.
     */
     public function setSharepointIds(?SharepointIds $value): void {
         $this->getBackingStore()->set('sharepointIds', $value);
@@ -232,7 +232,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the subscriptions property value. The set of subscriptions on the list.
-     *  @param array<Subscription>|null $value Value to set for the subscriptions property.
+     * @param array<Subscription>|null $value Value to set for the subscriptions property.
     */
     public function setSubscriptions(?array $value): void {
         $this->getBackingStore()->set('subscriptions', $value);
@@ -240,7 +240,7 @@ class EscapedList extends BaseItem implements Parsable
 
     /**
      * Sets the system property value. If present, indicates that this is a system-managed list. Read-only.
-     *  @param SystemFacet|null $value Value to set for the system property.
+     * @param SystemFacet|null $value Value to set for the system property.
     */
     public function setSystem(?SystemFacet $value): void {
         $this->getBackingStore()->set('system', $value);

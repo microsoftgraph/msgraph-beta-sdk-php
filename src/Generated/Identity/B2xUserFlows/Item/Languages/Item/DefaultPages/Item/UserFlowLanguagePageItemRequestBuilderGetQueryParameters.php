@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\Languages\It
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
+*/
 class UserFlowLanguagePageItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class UserFlowLanguagePageItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new UserFlowLanguagePageItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

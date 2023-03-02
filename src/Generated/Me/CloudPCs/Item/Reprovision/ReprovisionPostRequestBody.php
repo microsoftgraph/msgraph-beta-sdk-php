@@ -38,7 +38,7 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -92,7 +92,7 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -100,7 +100,7 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -108,7 +108,7 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the osVersion property value. The osVersion property
-     *  @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
+     * @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?CloudPcOperatingSystem $value): void {
         $this->getBackingStore()->set('osVersion', $value);
@@ -116,7 +116,7 @@ class ReprovisionPostRequestBody implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the userAccountType property value. The userAccountType property
-     *  @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
+     * @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
     */
     public function setUserAccountType(?CloudPcUserAccountType $value): void {
         $this->getBackingStore()->set('userAccountType', $value);

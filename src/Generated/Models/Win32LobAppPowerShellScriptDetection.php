@@ -75,7 +75,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
 
     /**
      * Sets the enforceSignatureCheck property value. A value indicating whether signature check is enforced
-     *  @param bool|null $value Value to set for the enforceSignatureCheck property.
+     * @param bool|null $value Value to set for the enforceSignatureCheck property.
     */
     public function setEnforceSignatureCheck(?bool $value): void {
         $this->getBackingStore()->set('enforceSignatureCheck', $value);
@@ -83,7 +83,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
 
     /**
      * Sets the runAs32Bit property value. A value indicating whether this script should run as 32-bit
-     *  @param bool|null $value Value to set for the runAs32Bit property.
+     * @param bool|null $value Value to set for the runAs32Bit property.
     */
     public function setRunAs32Bit(?bool $value): void {
         $this->getBackingStore()->set('runAs32Bit', $value);
@@ -91,7 +91,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
 
     /**
      * Sets the scriptContent property value. The base64 encoded script content to detect Win32 Line of Business (LoB) app
-     *  @param string|null $value Value to set for the scriptContent property.
+     * @param string|null $value Value to set for the scriptContent property.
     */
     public function setScriptContent(?string $value): void {
         $this->getBackingStore()->set('scriptContent', $value);

@@ -38,7 +38,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -122,7 +122,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -130,7 +130,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the attackSimDateTime property value. The date and time of the attack simulation.
-     *  @param DateTime|null $value Value to set for the attackSimDateTime property.
+     * @param DateTime|null $value Value to set for the attackSimDateTime property.
     */
     public function setAttackSimDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('attackSimDateTime', $value);
@@ -138,7 +138,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the attackSimDurationTime property value. The duration (in time) for the attack simulation.
-     *  @param DateInterval|null $value Value to set for the attackSimDurationTime property.
+     * @param DateInterval|null $value Value to set for the attackSimDurationTime property.
     */
     public function setAttackSimDurationTime(?DateInterval $value): void {
         $this->getBackingStore()->set('attackSimDurationTime', $value);
@@ -146,7 +146,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the attackSimId property value. The activity ID for the attack simulation.
-     *  @param string|null $value Value to set for the attackSimId property.
+     * @param string|null $value Value to set for the attackSimId property.
     */
     public function setAttackSimId(?string $value): void {
         $this->getBackingStore()->set('attackSimId', $value);
@@ -154,7 +154,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the attackSimUserId property value. The unique identifier for the user who got the attack simulation email.
-     *  @param string|null $value Value to set for the attackSimUserId property.
+     * @param string|null $value Value to set for the attackSimUserId property.
     */
     public function setAttackSimUserId(?string $value): void {
         $this->getBackingStore()->set('attackSimUserId', $value);
@@ -162,7 +162,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -170,7 +170,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsabl
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

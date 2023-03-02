@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics baseline entity contains baseline values against which to compare the user experience analytics scores.
+*/
 class UserExperienceAnalyticsBaseline extends Entity implements Parsable 
 {
     /**
@@ -145,7 +148,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the appHealthMetrics property value. The user experience analytics app health metrics.
-     *  @param UserExperienceAnalyticsCategory|null $value Value to set for the appHealthMetrics property.
+     * @param UserExperienceAnalyticsCategory|null $value Value to set for the appHealthMetrics property.
     */
     public function setAppHealthMetrics(?UserExperienceAnalyticsCategory $value): void {
         $this->getBackingStore()->set('appHealthMetrics', $value);
@@ -153,7 +156,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the batteryHealthMetrics property value. The user experience analytics battery health metrics.
-     *  @param UserExperienceAnalyticsCategory|null $value Value to set for the batteryHealthMetrics property.
+     * @param UserExperienceAnalyticsCategory|null $value Value to set for the batteryHealthMetrics property.
     */
     public function setBatteryHealthMetrics(?UserExperienceAnalyticsCategory $value): void {
         $this->getBackingStore()->set('batteryHealthMetrics', $value);
@@ -161,7 +164,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the bestPracticesMetrics property value. The user experience analytics best practices metrics.
-     *  @param UserExperienceAnalyticsCategory|null $value Value to set for the bestPracticesMetrics property.
+     * @param UserExperienceAnalyticsCategory|null $value Value to set for the bestPracticesMetrics property.
     */
     public function setBestPracticesMetrics(?UserExperienceAnalyticsCategory $value): void {
         $this->getBackingStore()->set('bestPracticesMetrics', $value);
@@ -169,7 +172,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date the custom baseline was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -177,7 +180,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the deviceBootPerformanceMetrics property value. The user experience analytics device boot performance metrics.
-     *  @param UserExperienceAnalyticsCategory|null $value Value to set for the deviceBootPerformanceMetrics property.
+     * @param UserExperienceAnalyticsCategory|null $value Value to set for the deviceBootPerformanceMetrics property.
     */
     public function setDeviceBootPerformanceMetrics(?UserExperienceAnalyticsCategory $value): void {
         $this->getBackingStore()->set('deviceBootPerformanceMetrics', $value);
@@ -185,7 +188,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the user experience analytics baseline.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -193,7 +196,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the isBuiltIn property value. Signifies if the current baseline is the commercial median baseline or a custom baseline.
-     *  @param bool|null $value Value to set for the isBuiltIn property.
+     * @param bool|null $value Value to set for the isBuiltIn property.
     */
     public function setIsBuiltIn(?bool $value): void {
         $this->getBackingStore()->set('isBuiltIn', $value);
@@ -201,7 +204,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the rebootAnalyticsMetrics property value. The user experience analytics reboot analytics metrics.
-     *  @param UserExperienceAnalyticsCategory|null $value Value to set for the rebootAnalyticsMetrics property.
+     * @param UserExperienceAnalyticsCategory|null $value Value to set for the rebootAnalyticsMetrics property.
     */
     public function setRebootAnalyticsMetrics(?UserExperienceAnalyticsCategory $value): void {
         $this->getBackingStore()->set('rebootAnalyticsMetrics', $value);
@@ -209,7 +212,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the resourcePerformanceMetrics property value. The user experience analytics resource performance metrics.
-     *  @param UserExperienceAnalyticsCategory|null $value Value to set for the resourcePerformanceMetrics property.
+     * @param UserExperienceAnalyticsCategory|null $value Value to set for the resourcePerformanceMetrics property.
     */
     public function setResourcePerformanceMetrics(?UserExperienceAnalyticsCategory $value): void {
         $this->getBackingStore()->set('resourcePerformanceMetrics', $value);
@@ -217,7 +220,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
 
     /**
      * Sets the workFromAnywhereMetrics property value. The user experience analytics work from anywhere metrics.
-     *  @param UserExperienceAnalyticsCategory|null $value Value to set for the workFromAnywhereMetrics property.
+     * @param UserExperienceAnalyticsCategory|null $value Value to set for the workFromAnywhereMetrics property.
     */
     public function setWorkFromAnywhereMetrics(?UserExperienceAnalyticsCategory $value): void {
         $this->getBackingStore()->set('workFromAnywhereMetrics', $value);

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The Zebra FOTA deployment entity that describes settings, deployment device groups required to create a FOTA deployment, and deployment status.
+*/
 class ZebraFotaDeployment extends Entity implements Parsable 
 {
     /**
@@ -94,7 +97,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
 
     /**
      * Sets the deploymentAssignments property value. Collection of Android FOTA Assignment
-     *  @param array<AndroidFotaDeploymentAssignment>|null $value Value to set for the deploymentAssignments property.
+     * @param array<AndroidFotaDeploymentAssignment>|null $value Value to set for the deploymentAssignments property.
     */
     public function setDeploymentAssignments(?array $value): void {
         $this->getBackingStore()->set('deploymentAssignments', $value);
@@ -102,7 +105,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
 
     /**
      * Sets the deploymentSettings property value. The Zebra FOTA deployment complex type that describes the settings required to create a FOTA deployment.
-     *  @param ZebraFotaDeploymentSettings|null $value Value to set for the deploymentSettings property.
+     * @param ZebraFotaDeploymentSettings|null $value Value to set for the deploymentSettings property.
     */
     public function setDeploymentSettings(?ZebraFotaDeploymentSettings $value): void {
         $this->getBackingStore()->set('deploymentSettings', $value);
@@ -110,7 +113,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
 
     /**
      * Sets the deploymentStatus property value. Represents the deployment status from Zebra. The status is a high level status of the deployment as opposed being a detailed status per device.
-     *  @param ZebraFotaDeploymentStatus|null $value Value to set for the deploymentStatus property.
+     * @param ZebraFotaDeploymentStatus|null $value Value to set for the deploymentStatus property.
     */
     public function setDeploymentStatus(?ZebraFotaDeploymentStatus $value): void {
         $this->getBackingStore()->set('deploymentStatus', $value);
@@ -118,7 +121,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
 
     /**
      * Sets the description property value. A human readable description of the deployment.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -126,7 +129,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. A human readable name of the deployment.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);

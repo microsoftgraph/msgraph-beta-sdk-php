@@ -52,7 +52,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -170,7 +170,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the abbreviation property value. Shortened name of the degree or program (example: PhD, MBA)
-     *  @param string|null $value Value to set for the abbreviation property.
+     * @param string|null $value Value to set for the abbreviation property.
     */
     public function setAbbreviation(?string $value): void {
         $this->getBackingStore()->set('abbreviation', $value);
@@ -178,7 +178,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the activities property value. Extracurricular activities undertaken alongside the program.
-     *  @param array<string>|null $value Value to set for the activities property.
+     * @param array<string>|null $value Value to set for the activities property.
     */
     public function setActivities(?array $value): void {
         $this->getBackingStore()->set('activities', $value);
@@ -186,7 +186,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -194,7 +194,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the awards property value. Any awards or honors associated with the program.
-     *  @param array<string>|null $value Value to set for the awards property.
+     * @param array<string>|null $value Value to set for the awards property.
     */
     public function setAwards(?array $value): void {
         $this->getBackingStore()->set('awards', $value);
@@ -202,7 +202,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -210,7 +210,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the description property value. Short description of the program provided by the user.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -218,7 +218,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the displayName property value. Long-form name of the program that the user has provided.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -226,7 +226,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the fieldsOfStudy property value. Majors and minors associated with the program. (if applicable)
-     *  @param array<string>|null $value Value to set for the fieldsOfStudy property.
+     * @param array<string>|null $value Value to set for the fieldsOfStudy property.
     */
     public function setFieldsOfStudy(?array $value): void {
         $this->getBackingStore()->set('fieldsOfStudy', $value);
@@ -234,7 +234,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the grade property value. The final grade, class, GPA or score.
-     *  @param string|null $value Value to set for the grade property.
+     * @param string|null $value Value to set for the grade property.
     */
     public function setGrade(?string $value): void {
         $this->getBackingStore()->set('grade', $value);
@@ -242,7 +242,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the notes property value. Additional notes the user has provided.
-     *  @param string|null $value Value to set for the notes property.
+     * @param string|null $value Value to set for the notes property.
     */
     public function setNotes(?string $value): void {
         $this->getBackingStore()->set('notes', $value);
@@ -250,7 +250,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -258,7 +258,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the webUrl property value. Link to the degree or program page.
-     *  @param string|null $value Value to set for the webUrl property.
+     * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {
         $this->getBackingStore()->set('webUrl', $value);

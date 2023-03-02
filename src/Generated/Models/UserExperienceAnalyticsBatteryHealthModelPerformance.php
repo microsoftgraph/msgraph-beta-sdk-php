@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health model performance entity contains battery related information for all unique device models in their organization.
+*/
 class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implements Parsable 
 {
     /**
@@ -114,7 +117,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
 
     /**
      * Sets the activeDevices property value. Number of active devices for that model. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the activeDevices property.
+     * @param int|null $value Value to set for the activeDevices property.
     */
     public function setActiveDevices(?int $value): void {
         $this->getBackingStore()->set('activeDevices', $value);
@@ -122,7 +125,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
 
     /**
      * Sets the averageBatteryAgeInDays property value. The mean of the battery age for all devices of a given model in a tenant. Unit in days. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the averageBatteryAgeInDays property.
+     * @param int|null $value Value to set for the averageBatteryAgeInDays property.
     */
     public function setAverageBatteryAgeInDays(?int $value): void {
         $this->getBackingStore()->set('averageBatteryAgeInDays', $value);
@@ -130,7 +133,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
 
     /**
      * Sets the averageEstimatedRuntimeInMinutes property value. The mean of the estimated runtimes on full charge for all devices of a given model. Unit in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the averageEstimatedRuntimeInMinutes property.
+     * @param int|null $value Value to set for the averageEstimatedRuntimeInMinutes property.
     */
     public function setAverageEstimatedRuntimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('averageEstimatedRuntimeInMinutes', $value);
@@ -138,7 +141,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
 
     /**
      * Sets the averageMaxCapacityPercentage property value. The mean of the maximum capacity for all devices of a given model. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the averageMaxCapacityPercentage property.
+     * @param int|null $value Value to set for the averageMaxCapacityPercentage property.
     */
     public function setAverageMaxCapacityPercentage(?int $value): void {
         $this->getBackingStore()->set('averageMaxCapacityPercentage', $value);
@@ -146,7 +149,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
 
     /**
      * Sets the manufacturer property value. Name of the device manufacturer.
-     *  @param string|null $value Value to set for the manufacturer property.
+     * @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value): void {
         $this->getBackingStore()->set('manufacturer', $value);
@@ -154,7 +157,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
 
     /**
      * Sets the model property value. The model name of the device.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
@@ -162,7 +165,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
 
     /**
      * Sets the modelBatteryHealthScore property value. A weighted average of a model’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the modelBatteryHealthScore property.
+     * @param int|null $value Value to set for the modelBatteryHealthScore property.
     */
     public function setModelBatteryHealthScore(?int $value): void {
         $this->getBackingStore()->set('modelBatteryHealthScore', $value);

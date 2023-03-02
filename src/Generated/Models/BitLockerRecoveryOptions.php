@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * BitLocker Recovery Options.
+*/
 class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -150,7 +153,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -158,7 +161,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -166,7 +169,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the blockDataRecoveryAgent property value. Indicates whether to block certificate-based data recovery agent.
-     *  @param bool|null $value Value to set for the blockDataRecoveryAgent property.
+     * @param bool|null $value Value to set for the blockDataRecoveryAgent property.
     */
     public function setBlockDataRecoveryAgent(?bool $value): void {
         $this->getBackingStore()->set('blockDataRecoveryAgent', $value);
@@ -174,7 +177,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the enableBitLockerAfterRecoveryInformationToStore property value. Indicates whether or not to enable BitLocker until recovery information is stored in AD DS.
-     *  @param bool|null $value Value to set for the enableBitLockerAfterRecoveryInformationToStore property.
+     * @param bool|null $value Value to set for the enableBitLockerAfterRecoveryInformationToStore property.
     */
     public function setEnableBitLockerAfterRecoveryInformationToStore(?bool $value): void {
         $this->getBackingStore()->set('enableBitLockerAfterRecoveryInformationToStore', $value);
@@ -182,7 +185,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the enableRecoveryInformationSaveToStore property value. Indicates whether or not to allow BitLocker recovery information to store in AD DS.
-     *  @param bool|null $value Value to set for the enableRecoveryInformationSaveToStore property.
+     * @param bool|null $value Value to set for the enableRecoveryInformationSaveToStore property.
     */
     public function setEnableRecoveryInformationSaveToStore(?bool $value): void {
         $this->getBackingStore()->set('enableRecoveryInformationSaveToStore', $value);
@@ -190,7 +193,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the hideRecoveryOptions property value. Indicates whether or not to allow showing recovery options in BitLocker Setup Wizard for fixed or system disk.
-     *  @param bool|null $value Value to set for the hideRecoveryOptions property.
+     * @param bool|null $value Value to set for the hideRecoveryOptions property.
     */
     public function setHideRecoveryOptions(?bool $value): void {
         $this->getBackingStore()->set('hideRecoveryOptions', $value);
@@ -198,7 +201,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -206,7 +209,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the recoveryInformationToStore property value. BitLockerRecoveryInformationType types
-     *  @param BitLockerRecoveryInformationType|null $value Value to set for the recoveryInformationToStore property.
+     * @param BitLockerRecoveryInformationType|null $value Value to set for the recoveryInformationToStore property.
     */
     public function setRecoveryInformationToStore(?BitLockerRecoveryInformationType $value): void {
         $this->getBackingStore()->set('recoveryInformationToStore', $value);
@@ -214,7 +217,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the recoveryKeyUsage property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the recoveryKeyUsage property.
+     * @param ConfigurationUsage|null $value Value to set for the recoveryKeyUsage property.
     */
     public function setRecoveryKeyUsage(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('recoveryKeyUsage', $value);
@@ -222,7 +225,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, BackedModel, Par
 
     /**
      * Sets the recoveryPasswordUsage property value. Possible values of the ConfigurationUsage list.
-     *  @param ConfigurationUsage|null $value Value to set for the recoveryPasswordUsage property.
+     * @param ConfigurationUsage|null $value Value to set for the recoveryPasswordUsage property.
     */
     public function setRecoveryPasswordUsage(?ConfigurationUsage $value): void {
         $this->getBackingStore()->set('recoveryPasswordUsage', $value);

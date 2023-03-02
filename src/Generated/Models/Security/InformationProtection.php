@@ -65,7 +65,7 @@ class InformationProtection extends Entity implements Parsable
 
     /**
      * Sets the labelPolicySettings property value. Read the Microsoft Purview Information Protection policy settings for the user or organization.
-     *  @param InformationProtectionPolicySetting|null $value Value to set for the labelPolicySettings property.
+     * @param InformationProtectionPolicySetting|null $value Value to set for the labelPolicySettings property.
     */
     public function setLabelPolicySettings(?InformationProtectionPolicySetting $value): void {
         $this->getBackingStore()->set('labelPolicySettings', $value);
@@ -73,7 +73,7 @@ class InformationProtection extends Entity implements Parsable
 
     /**
      * Sets the sensitivityLabels property value. Read the Microsoft Purview Information Protection labels for the user or organization.
-     *  @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
+     * @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
     */
     public function setSensitivityLabels(?array $value): void {
         $this->getBackingStore()->set('sensitivityLabels', $value);

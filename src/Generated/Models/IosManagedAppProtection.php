@@ -235,7 +235,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the allowedIosDeviceModels property value. Semicolon seperated list of device models allowed, as a string, for the managed app to work.
-     *  @param string|null $value Value to set for the allowedIosDeviceModels property.
+     * @param string|null $value Value to set for the allowedIosDeviceModels property.
     */
     public function setAllowedIosDeviceModels(?string $value): void {
         $this->getBackingStore()->set('allowedIosDeviceModels', $value);
@@ -243,7 +243,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the appActionIfIosDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
-     *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfIosDeviceModelNotAllowed property.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfIosDeviceModelNotAllowed property.
     */
     public function setAppActionIfIosDeviceModelNotAllowed(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfIosDeviceModelNotAllowed', $value);
@@ -251,7 +251,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the appDataEncryptionType property value. Represents the level to which app data is encrypted for managed apps
-     *  @param ManagedAppDataEncryptionType|null $value Value to set for the appDataEncryptionType property.
+     * @param ManagedAppDataEncryptionType|null $value Value to set for the appDataEncryptionType property.
     */
     public function setAppDataEncryptionType(?ManagedAppDataEncryptionType $value): void {
         $this->getBackingStore()->set('appDataEncryptionType', $value);
@@ -259,7 +259,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the apps property value. List of apps to which the policy is deployed.
-     *  @param array<ManagedMobileApp>|null $value Value to set for the apps property.
+     * @param array<ManagedMobileApp>|null $value Value to set for the apps property.
     */
     public function setApps(?array $value): void {
         $this->getBackingStore()->set('apps', $value);
@@ -267,7 +267,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
-     *  @param string|null $value Value to set for the customBrowserProtocol property.
+     * @param string|null $value Value to set for the customBrowserProtocol property.
     */
     public function setCustomBrowserProtocol(?string $value): void {
         $this->getBackingStore()->set('customBrowserProtocol', $value);
@@ -275,7 +275,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the customDialerAppProtocol property value. Protocol of a custom dialer app to click-to-open a phone number on iOS, for example, skype:.
-     *  @param string|null $value Value to set for the customDialerAppProtocol property.
+     * @param string|null $value Value to set for the customDialerAppProtocol property.
     */
     public function setCustomDialerAppProtocol(?string $value): void {
         $this->getBackingStore()->set('customDialerAppProtocol', $value);
@@ -283,7 +283,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the deployedAppCount property value. Count of apps to which the current policy is deployed.
-     *  @param int|null $value Value to set for the deployedAppCount property.
+     * @param int|null $value Value to set for the deployedAppCount property.
     */
     public function setDeployedAppCount(?int $value): void {
         $this->getBackingStore()->set('deployedAppCount', $value);
@@ -291,7 +291,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
-     *  @param ManagedAppPolicyDeploymentSummary|null $value Value to set for the deploymentSummary property.
+     * @param ManagedAppPolicyDeploymentSummary|null $value Value to set for the deploymentSummary property.
     */
     public function setDeploymentSummary(?ManagedAppPolicyDeploymentSummary $value): void {
         $this->getBackingStore()->set('deploymentSummary', $value);
@@ -299,7 +299,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the disableProtectionOfManagedOutboundOpenInData property value. Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps.
-     *  @param bool|null $value Value to set for the disableProtectionOfManagedOutboundOpenInData property.
+     * @param bool|null $value Value to set for the disableProtectionOfManagedOutboundOpenInData property.
     */
     public function setDisableProtectionOfManagedOutboundOpenInData(?bool $value): void {
         $this->getBackingStore()->set('disableProtectionOfManagedOutboundOpenInData', $value);
@@ -307,7 +307,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the exemptedAppProtocols property value. Apps in this list will be exempt from the policy and will be able to receive data from managed apps.
-     *  @param array<KeyValuePair>|null $value Value to set for the exemptedAppProtocols property.
+     * @param array<KeyValuePair>|null $value Value to set for the exemptedAppProtocols property.
     */
     public function setExemptedAppProtocols(?array $value): void {
         $this->getBackingStore()->set('exemptedAppProtocols', $value);
@@ -315,7 +315,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the exemptedUniversalLinks property value. A list of custom urls that are allowed to invocate an unmanaged app
-     *  @param array<string>|null $value Value to set for the exemptedUniversalLinks property.
+     * @param array<string>|null $value Value to set for the exemptedUniversalLinks property.
     */
     public function setExemptedUniversalLinks(?array $value): void {
         $this->getBackingStore()->set('exemptedUniversalLinks', $value);
@@ -323,7 +323,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the faceIdBlocked property value. Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.
-     *  @param bool|null $value Value to set for the faceIdBlocked property.
+     * @param bool|null $value Value to set for the faceIdBlocked property.
     */
     public function setFaceIdBlocked(?bool $value): void {
         $this->getBackingStore()->set('faceIdBlocked', $value);
@@ -331,7 +331,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the filterOpenInToOnlyManagedApps property value. Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False.
-     *  @param bool|null $value Value to set for the filterOpenInToOnlyManagedApps property.
+     * @param bool|null $value Value to set for the filterOpenInToOnlyManagedApps property.
     */
     public function setFilterOpenInToOnlyManagedApps(?bool $value): void {
         $this->getBackingStore()->set('filterOpenInToOnlyManagedApps', $value);
@@ -339,7 +339,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the managedUniversalLinks property value. A list of custom urls that are allowed to invocate a managed app
-     *  @param array<string>|null $value Value to set for the managedUniversalLinks property.
+     * @param array<string>|null $value Value to set for the managedUniversalLinks property.
     */
     public function setManagedUniversalLinks(?array $value): void {
         $this->getBackingStore()->set('managedUniversalLinks', $value);
@@ -347,7 +347,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the minimumRequiredSdkVersion property value. Versions less than the specified version will block the managed app from accessing company data.
-     *  @param string|null $value Value to set for the minimumRequiredSdkVersion property.
+     * @param string|null $value Value to set for the minimumRequiredSdkVersion property.
     */
     public function setMinimumRequiredSdkVersion(?string $value): void {
         $this->getBackingStore()->set('minimumRequiredSdkVersion', $value);
@@ -355,7 +355,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the minimumWarningSdkVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data.
-     *  @param string|null $value Value to set for the minimumWarningSdkVersion property.
+     * @param string|null $value Value to set for the minimumWarningSdkVersion property.
     */
     public function setMinimumWarningSdkVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWarningSdkVersion', $value);
@@ -363,7 +363,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the minimumWipeSdkVersion property value. Versions less than the specified version will block the managed app from accessing company data.
-     *  @param string|null $value Value to set for the minimumWipeSdkVersion property.
+     * @param string|null $value Value to set for the minimumWipeSdkVersion property.
     */
     public function setMinimumWipeSdkVersion(?string $value): void {
         $this->getBackingStore()->set('minimumWipeSdkVersion', $value);
@@ -371,7 +371,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the protectInboundDataFromUnknownSources property value. Protect incoming data from unknown source. This setting is only allowed to be True when AllowedInboundDataTransferSources is set to AllApps.
-     *  @param bool|null $value Value to set for the protectInboundDataFromUnknownSources property.
+     * @param bool|null $value Value to set for the protectInboundDataFromUnknownSources property.
     */
     public function setProtectInboundDataFromUnknownSources(?bool $value): void {
         $this->getBackingStore()->set('protectInboundDataFromUnknownSources', $value);
@@ -379,7 +379,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
 
     /**
      * Sets the thirdPartyKeyboardsBlocked property value. Defines if third party keyboards are allowed while accessing a managed app
-     *  @param bool|null $value Value to set for the thirdPartyKeyboardsBlocked property.
+     * @param bool|null $value Value to set for the thirdPartyKeyboardsBlocked property.
     */
     public function setThirdPartyKeyboardsBlocked(?bool $value): void {
         $this->getBackingStore()->set('thirdPartyKeyboardsBlocked', $value);

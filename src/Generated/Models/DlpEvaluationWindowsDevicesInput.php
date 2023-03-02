@@ -65,7 +65,7 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
 
     /**
      * Sets the contentProperties property value. The contentProperties property
-     *  @param ContentProperties|null $value Value to set for the contentProperties property.
+     * @param ContentProperties|null $value Value to set for the contentProperties property.
     */
     public function setContentProperties(?ContentProperties $value): void {
         $this->getBackingStore()->set('contentProperties', $value);
@@ -73,7 +73,7 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
 
     /**
      * Sets the sharedBy property value. The sharedBy property
-     *  @param string|null $value Value to set for the sharedBy property.
+     * @param string|null $value Value to set for the sharedBy property.
     */
     public function setSharedBy(?string $value): void {
         $this->getBackingStore()->set('sharedBy', $value);

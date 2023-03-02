@@ -64,7 +64,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
 
     /**
      * Sets the maximumCount property value. Maximum number of simple settings in the collection. Valid values 1 to 100
-     *  @param int|null $value Value to set for the maximumCount property.
+     * @param int|null $value Value to set for the maximumCount property.
     */
     public function setMaximumCount(?int $value): void {
         $this->getBackingStore()->set('maximumCount', $value);
@@ -72,7 +72,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
 
     /**
      * Sets the minimumCount property value. Minimum number of simple settings in the collection. Valid values 1 to 100
-     *  @param int|null $value Value to set for the minimumCount property.
+     * @param int|null $value Value to set for the minimumCount property.
     */
     public function setMinimumCount(?int $value): void {
         $this->getBackingStore()->set('minimumCount', $value);

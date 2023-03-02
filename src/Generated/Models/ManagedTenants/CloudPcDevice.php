@@ -166,7 +166,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the cloudPcStatus property value. The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
-     *  @param string|null $value Value to set for the cloudPcStatus property.
+     * @param string|null $value Value to set for the cloudPcStatus property.
     */
     public function setCloudPcStatus(?string $value): void {
         $this->getBackingStore()->set('cloudPcStatus', $value);
@@ -174,7 +174,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the deviceSpecification property value. The specification of the cloud PC device. Required. Read-only.
-     *  @param string|null $value Value to set for the deviceSpecification property.
+     * @param string|null $value Value to set for the deviceSpecification property.
     */
     public function setDeviceSpecification(?string $value): void {
         $this->getBackingStore()->set('deviceSpecification', $value);
@@ -182,7 +182,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name  of the cloud PC device. Required. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -190,7 +190,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only.
-     *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);
@@ -198,7 +198,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceId property value. The managed device identifier of the cloud PC device. Optional. Read-only.
-     *  @param string|null $value Value to set for the managedDeviceId property.
+     * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
         $this->getBackingStore()->set('managedDeviceId', $value);
@@ -206,7 +206,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the managedDeviceName property value. The managed device display name of the cloud PC device. Optional. Read-only.
-     *  @param string|null $value Value to set for the managedDeviceName property.
+     * @param string|null $value Value to set for the managedDeviceName property.
     */
     public function setManagedDeviceName(?string $value): void {
         $this->getBackingStore()->set('managedDeviceName', $value);
@@ -214,7 +214,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the provisioningPolicyId property value. The provisioning policy identifier for the cloud PC device. Required. Read-only.
-     *  @param string|null $value Value to set for the provisioningPolicyId property.
+     * @param string|null $value Value to set for the provisioningPolicyId property.
     */
     public function setProvisioningPolicyId(?string $value): void {
         $this->getBackingStore()->set('provisioningPolicyId', $value);
@@ -222,7 +222,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the servicePlanName property value. The service plan name of the cloud PC device. Required. Read-only.
-     *  @param string|null $value Value to set for the servicePlanName property.
+     * @param string|null $value Value to set for the servicePlanName property.
     */
     public function setServicePlanName(?string $value): void {
         $this->getBackingStore()->set('servicePlanName', $value);
@@ -230,7 +230,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the servicePlanType property value. The service plan type of the cloud PC device. Required. Read-only.
-     *  @param string|null $value Value to set for the servicePlanType property.
+     * @param string|null $value Value to set for the servicePlanType property.
     */
     public function setServicePlanType(?string $value): void {
         $this->getBackingStore()->set('servicePlanType', $value);
@@ -238,7 +238,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantDisplayName property.
+     * @param string|null $value Value to set for the tenantDisplayName property.
     */
     public function setTenantDisplayName(?string $value): void {
         $this->getBackingStore()->set('tenantDisplayName', $value);
@@ -246,7 +246,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -254,7 +254,7 @@ class CloudPcDevice extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

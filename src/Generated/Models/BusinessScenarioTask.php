@@ -25,7 +25,7 @@ class BusinessScenarioTask extends PlannerTask implements Parsable
     }
 
     /**
-     * Gets the businessScenarioProperties property value. The businessScenarioProperties property
+     * Gets the businessScenarioProperties property value. Scenario-specific properties of the task. externalObjectId and externalBucketId properties must be specified when creating a task.
      * @return BusinessScenarioProperties|null
     */
     public function getBusinessScenarioProperties(): ?BusinessScenarioProperties {
@@ -45,7 +45,7 @@ class BusinessScenarioTask extends PlannerTask implements Parsable
     }
 
     /**
-     * Gets the target property value. The target property
+     * Gets the target property value. Target of the task that specifies where the task should be placed. Must be specified when creating a task.
      * @return BusinessScenarioTaskTargetBase|null
     */
     public function getTarget(): ?BusinessScenarioTaskTargetBase {
@@ -63,16 +63,16 @@ class BusinessScenarioTask extends PlannerTask implements Parsable
     }
 
     /**
-     * Sets the businessScenarioProperties property value. The businessScenarioProperties property
-     *  @param BusinessScenarioProperties|null $value Value to set for the businessScenarioProperties property.
+     * Sets the businessScenarioProperties property value. Scenario-specific properties of the task. externalObjectId and externalBucketId properties must be specified when creating a task.
+     * @param BusinessScenarioProperties|null $value Value to set for the businessScenarioProperties property.
     */
     public function setBusinessScenarioProperties(?BusinessScenarioProperties $value): void {
         $this->getBackingStore()->set('businessScenarioProperties', $value);
     }
 
     /**
-     * Sets the target property value. The target property
-     *  @param BusinessScenarioTaskTargetBase|null $value Value to set for the target property.
+     * Sets the target property value. Target of the task that specifies where the task should be placed. Must be specified when creating a task.
+     * @param BusinessScenarioTaskTargetBase|null $value Value to set for the target property.
     */
     public function setTarget(?BusinessScenarioTaskTargetBase $value): void {
         $this->getBackingStore()->set('target', $value);

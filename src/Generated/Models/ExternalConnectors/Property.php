@@ -36,7 +36,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -170,7 +170,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -178,7 +178,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the aliases property value. A set of aliases or a friendly names for the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string might not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^. Optional.
-     *  @param array<string>|null $value Value to set for the aliases property.
+     * @param array<string>|null $value Value to set for the aliases property.
     */
     public function setAliases(?array $value): void {
         $this->getBackingStore()->set('aliases', $value);
@@ -186,7 +186,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -194,7 +194,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isExactMatchRequired property value. Specifies if the property will be matched exactly for queries. Exact matching can only be set to true for non-searchable properties of type string or stringCollection. Optional.
-     *  @param bool|null $value Value to set for the isExactMatchRequired property.
+     * @param bool|null $value Value to set for the isExactMatchRequired property.
     */
     public function setIsExactMatchRequired(?bool $value): void {
         $this->getBackingStore()->set('isExactMatchRequired', $value);
@@ -202,7 +202,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isQueryable property value. Specifies if the property is queryable. Queryable properties can be used in Keyword Query Language (KQL) queries. Optional.
-     *  @param bool|null $value Value to set for the isQueryable property.
+     * @param bool|null $value Value to set for the isQueryable property.
     */
     public function setIsQueryable(?bool $value): void {
         $this->getBackingStore()->set('isQueryable', $value);
@@ -210,7 +210,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isRefinable property value. Specifies if the property is refinable.  Refinable properties can be used to filter search results in the Search API and add a refiner control in the Microsoft Search user experience. Optional.
-     *  @param bool|null $value Value to set for the isRefinable property.
+     * @param bool|null $value Value to set for the isRefinable property.
     */
     public function setIsRefinable(?bool $value): void {
         $this->getBackingStore()->set('isRefinable', $value);
@@ -218,7 +218,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isRetrievable property value. Specifies if the property is retrievable. Retrievable properties are returned in the result set when items are returned by the search API. Retrievable properties are also available to add to the display template used to render search results. Optional.
-     *  @param bool|null $value Value to set for the isRetrievable property.
+     * @param bool|null $value Value to set for the isRetrievable property.
     */
     public function setIsRetrievable(?bool $value): void {
         $this->getBackingStore()->set('isRetrievable', $value);
@@ -226,7 +226,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isSearchable property value. Specifies if the property is searchable. Only properties of type string or stringCollection can be searchable. Non-searchable properties are not added to the search index. Optional.
-     *  @param bool|null $value Value to set for the isSearchable property.
+     * @param bool|null $value Value to set for the isSearchable property.
     */
     public function setIsSearchable(?bool $value): void {
         $this->getBackingStore()->set('isSearchable', $value);
@@ -234,7 +234,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the labels property value. Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (e.g. better relevance). Optional.The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, unknownFutureValue, iconUrl, containerName, containerUrl. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: iconUrl, containerName, containerUrl.
-     *  @param array<Label>|null $value Value to set for the labels property.
+     * @param array<Label>|null $value Value to set for the labels property.
     */
     public function setLabels(?array $value): void {
         $this->getBackingStore()->set('labels', $value);
@@ -242,7 +242,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, the property name may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^.  Required.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -250,7 +250,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -258,7 +258,7 @@ class Property implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param PropertyType|null $value Value to set for the type property.
+     * @param PropertyType|null $value Value to set for the type property.
     */
     public function setType(?PropertyType $value): void {
         $this->getBackingStore()->set('type', $value);

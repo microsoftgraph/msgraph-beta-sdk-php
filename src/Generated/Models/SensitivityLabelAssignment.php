@@ -36,7 +36,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the assignmentMethod property value. The assignmentMethod property
-     *  @param SensitivityLabelAssignmentMethod|null $value Value to set for the assignmentMethod property.
+     * @param SensitivityLabelAssignmentMethod|null $value Value to set for the assignmentMethod property.
     */
     public function setAssignmentMethod(?SensitivityLabelAssignmentMethod $value): void {
         $this->getBackingStore()->set('assignmentMethod', $value);
@@ -126,7 +126,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -134,7 +134,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -142,7 +142,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the sensitivityLabelId property value. The unique identifier for the sensitivity label assigned to the file.
-     *  @param string|null $value Value to set for the sensitivityLabelId property.
+     * @param string|null $value Value to set for the sensitivityLabelId property.
     */
     public function setSensitivityLabelId(?string $value): void {
         $this->getBackingStore()->set('sensitivityLabelId', $value);
@@ -150,7 +150,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the tenantId property value. The unique identifier for the tenant that hosts the file when this label is applied.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);

@@ -77,7 +77,7 @@ class SearchEntity extends Entity implements Parsable
 
     /**
      * Sets the acronyms property value. Administrative answer in Microsoft Search results to define common acronyms in a organization.
-     *  @param array<Acronym>|null $value Value to set for the acronyms property.
+     * @param array<Acronym>|null $value Value to set for the acronyms property.
     */
     public function setAcronyms(?array $value): void {
         $this->getBackingStore()->set('acronyms', $value);
@@ -85,7 +85,7 @@ class SearchEntity extends Entity implements Parsable
 
     /**
      * Sets the bookmarks property value. Administrative answer in Microsoft Search results for common search queries in an organization.
-     *  @param array<Bookmark>|null $value Value to set for the bookmarks property.
+     * @param array<Bookmark>|null $value Value to set for the bookmarks property.
     */
     public function setBookmarks(?array $value): void {
         $this->getBackingStore()->set('bookmarks', $value);
@@ -93,7 +93,7 @@ class SearchEntity extends Entity implements Parsable
 
     /**
      * Sets the qnas property value. Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
-     *  @param array<Qna>|null $value Value to set for the qnas property.
+     * @param array<Qna>|null $value Value to set for the qnas property.
     */
     public function setQnas(?array $value): void {
         $this->getBackingStore()->set('qnas', $value);

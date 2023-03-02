@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Enrollment status screen setting
+*/
 class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -150,7 +153,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -158,7 +161,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the allowDeviceUseBeforeProfileAndAppInstallComplete property value. Allow or block user to use device before profile and app installation complete
-     *  @param bool|null $value Value to set for the allowDeviceUseBeforeProfileAndAppInstallComplete property.
+     * @param bool|null $value Value to set for the allowDeviceUseBeforeProfileAndAppInstallComplete property.
     */
     public function setAllowDeviceUseBeforeProfileAndAppInstallComplete(?bool $value): void {
         $this->getBackingStore()->set('allowDeviceUseBeforeProfileAndAppInstallComplete', $value);
@@ -166,7 +169,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the allowDeviceUseOnInstallFailure property value. Allow the user to continue using the device on installation failure
-     *  @param bool|null $value Value to set for the allowDeviceUseOnInstallFailure property.
+     * @param bool|null $value Value to set for the allowDeviceUseOnInstallFailure property.
     */
     public function setAllowDeviceUseOnInstallFailure(?bool $value): void {
         $this->getBackingStore()->set('allowDeviceUseOnInstallFailure', $value);
@@ -174,7 +177,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the allowLogCollectionOnInstallFailure property value. Allow or block log collection on installation failure
-     *  @param bool|null $value Value to set for the allowLogCollectionOnInstallFailure property.
+     * @param bool|null $value Value to set for the allowLogCollectionOnInstallFailure property.
     */
     public function setAllowLogCollectionOnInstallFailure(?bool $value): void {
         $this->getBackingStore()->set('allowLogCollectionOnInstallFailure', $value);
@@ -182,7 +185,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -190,7 +193,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the blockDeviceSetupRetryByUser property value. Allow the user to retry the setup on installation failure
-     *  @param bool|null $value Value to set for the blockDeviceSetupRetryByUser property.
+     * @param bool|null $value Value to set for the blockDeviceSetupRetryByUser property.
     */
     public function setBlockDeviceSetupRetryByUser(?bool $value): void {
         $this->getBackingStore()->set('blockDeviceSetupRetryByUser', $value);
@@ -198,7 +201,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the customErrorMessage property value. Set custom error message to show upon installation failure
-     *  @param string|null $value Value to set for the customErrorMessage property.
+     * @param string|null $value Value to set for the customErrorMessage property.
     */
     public function setCustomErrorMessage(?string $value): void {
         $this->getBackingStore()->set('customErrorMessage', $value);
@@ -206,7 +209,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the hideInstallationProgress property value. Show or hide installation progress to user
-     *  @param bool|null $value Value to set for the hideInstallationProgress property.
+     * @param bool|null $value Value to set for the hideInstallationProgress property.
     */
     public function setHideInstallationProgress(?bool $value): void {
         $this->getBackingStore()->set('hideInstallationProgress', $value);
@@ -214,7 +217,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the installProgressTimeoutInMinutes property value. Set installation progress timeout in minutes
-     *  @param int|null $value Value to set for the installProgressTimeoutInMinutes property.
+     * @param int|null $value Value to set for the installProgressTimeoutInMinutes property.
     */
     public function setInstallProgressTimeoutInMinutes(?int $value): void {
         $this->getBackingStore()->set('installProgressTimeoutInMinutes', $value);
@@ -222,7 +225,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Bac
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

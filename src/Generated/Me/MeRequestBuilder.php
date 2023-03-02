@@ -144,11 +144,13 @@ use Microsoft\Graph\Beta\Generated\Models\User;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
-use Microsoft\Kiota\Abstractions\RequestOption;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
+/**
+ * Provides operations to manage the user singleton.
+*/
 class MeRequestBuilder 
 {
     /**
@@ -355,6 +357,13 @@ class MeRequestBuilder
     }
     
     /**
+     * Provides operations to call the exportDeviceAndAppManagementData method.
+    */
+    public function exportDeviceAndAppManagementData(): ExportDeviceAndAppManagementDataRequestBuilder {
+        return new ExportDeviceAndAppManagementDataRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the exportPersonalData method.
     */
     public function exportPersonalData(): ExportPersonalDataRequestBuilder {
@@ -376,6 +385,20 @@ class MeRequestBuilder
     }
     
     /**
+     * Provides operations to call the findRoomLists method.
+    */
+    public function findRoomLists(): FindRoomListsRequestBuilder {
+        return new FindRoomListsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the findRooms method.
+    */
+    public function findRooms(): FindRoomsRequestBuilder {
+        return new FindRoomsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the followedSites property of the microsoft.graph.user entity.
     */
     public function followedSites(): FollowedSitesRequestBuilder {
@@ -383,10 +406,52 @@ class MeRequestBuilder
     }
     
     /**
+     * Provides operations to call the getEffectiveDeviceEnrollmentConfigurations method.
+    */
+    public function getEffectiveDeviceEnrollmentConfigurations(): GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder {
+        return new GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getLoggedOnManagedDevices method.
+    */
+    public function getLoggedOnManagedDevices(): GetLoggedOnManagedDevicesRequestBuilder {
+        return new GetLoggedOnManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the getMailTips method.
     */
     public function getMailTips(): GetMailTipsRequestBuilder {
         return new GetMailTipsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getManagedAppDiagnosticStatuses method.
+    */
+    public function getManagedAppDiagnosticStatuses(): GetManagedAppDiagnosticStatusesRequestBuilder {
+        return new GetManagedAppDiagnosticStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getManagedAppPolicies method.
+    */
+    public function getManagedAppPolicies(): GetManagedAppPoliciesRequestBuilder {
+        return new GetManagedAppPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getManagedDevicesWithAppFailures method.
+    */
+    public function getManagedDevicesWithAppFailures(): GetManagedDevicesWithAppFailuresRequestBuilder {
+        return new GetManagedDevicesWithAppFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getManagedDevicesWithFailedOrPendingApps method.
+    */
+    public function getManagedDevicesWithFailedOrPendingApps(): GetManagedDevicesWithFailedOrPendingAppsRequestBuilder {
+        return new GetManagedDevicesWithFailedOrPendingAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -429,6 +494,13 @@ class MeRequestBuilder
     */
     public function invalidateAllRefreshTokens(): InvalidateAllRefreshTokensRequestBuilder {
         return new InvalidateAllRefreshTokensRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the isManagedAppUserBlocked method.
+    */
+    public function isManagedAppUserBlocked(): IsManagedAppUserBlockedRequestBuilder {
+        return new IsManagedAppUserBlockedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -891,13 +963,17 @@ class MeRequestBuilder
 
     /**
      * Instantiates a new MeRequestBuilder and sets the default values.
-     * @param array<string, mixed> $pathParameters Path parameters for the request
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
-    public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
         $this->urlTemplate = '{+baseurl}/me{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
-        $this->pathParameters = $pathParameters;
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
     }
 
     /**
@@ -1001,14 +1077,6 @@ class MeRequestBuilder
 
     /**
      * Provides operations to call the exportDeviceAndAppManagementData method.
-     * @return ExportDeviceAndAppManagementDataRequestBuilder
-    */
-    public function exportDeviceAndAppManagementData(): ExportDeviceAndAppManagementDataRequestBuilder {
-        return new ExportDeviceAndAppManagementDataRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the exportDeviceAndAppManagementData method.
      * @param int $skip Usage: skip={skip}
      * @param int $top Usage: top={top}
      * @return ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder
@@ -1026,22 +1094,6 @@ class MeRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['extension%2Did'] = $id;
         return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the findRoomLists method.
-     * @return FindRoomListsRequestBuilder
-    */
-    public function findRoomLists(): FindRoomListsRequestBuilder {
-        return new FindRoomListsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the findRooms method.
-     * @return FindRoomsRequestBuilder
-    */
-    public function findRooms(): FindRoomsRequestBuilder {
-        return new FindRoomsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -1067,76 +1119,20 @@ class MeRequestBuilder
     /**
      * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
      * @param MeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?MeRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function get(?MeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
-    }
-
-    /**
-     * Provides operations to call the getEffectiveDeviceEnrollmentConfigurations method.
-     * @return GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder
-    */
-    public function getEffectiveDeviceEnrollmentConfigurations(): GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder {
-        return new GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getLoggedOnManagedDevices method.
-     * @return GetLoggedOnManagedDevicesRequestBuilder
-    */
-    public function getLoggedOnManagedDevices(): GetLoggedOnManagedDevicesRequestBuilder {
-        return new GetLoggedOnManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getManagedAppDiagnosticStatuses method.
-     * @return GetManagedAppDiagnosticStatusesRequestBuilder
-    */
-    public function getManagedAppDiagnosticStatuses(): GetManagedAppDiagnosticStatusesRequestBuilder {
-        return new GetManagedAppDiagnosticStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getManagedAppPolicies method.
-     * @return GetManagedAppPoliciesRequestBuilder
-    */
-    public function getManagedAppPolicies(): GetManagedAppPoliciesRequestBuilder {
-        return new GetManagedAppPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getManagedDevicesWithAppFailures method.
-     * @return GetManagedDevicesWithAppFailuresRequestBuilder
-    */
-    public function getManagedDevicesWithAppFailures(): GetManagedDevicesWithAppFailuresRequestBuilder {
-        return new GetManagedDevicesWithAppFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the getManagedDevicesWithFailedOrPendingApps method.
-     * @return GetManagedDevicesWithFailedOrPendingAppsRequestBuilder
-    */
-    public function getManagedDevicesWithFailedOrPendingApps(): GetManagedDevicesWithFailedOrPendingAppsRequestBuilder {
-        return new GetManagedDevicesWithFailedOrPendingAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to call the isManagedAppUserBlocked method.
-     * @return IsManagedAppUserBlockedRequestBuilder
-    */
-    public function isManagedAppUserBlocked(): IsManagedAppUserBlockedRequestBuilder {
-        return new IsManagedAppUserBlockedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -1297,17 +1293,17 @@ class MeRequestBuilder
      * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
      * @param User $body The request body
      * @param MeRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(User $body, ?MeRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+    public function patch(User $body, ?MeRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -1388,10 +1384,10 @@ class MeRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->queryParameters !== null) {
                 $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
@@ -1414,10 +1410,10 @@ class MeRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        $requestInfo->addHeader('Accept', "application/json");
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+                $requestInfo->addHeaders($requestConfiguration->headers);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

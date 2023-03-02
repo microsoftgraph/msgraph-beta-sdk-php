@@ -27,6 +27,7 @@ class CatalogEntry extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.driverUpdateCatalogEntry': return new DriverUpdateCatalogEntry();
                 case '#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry': return new FeatureUpdateCatalogEntry();
                 case '#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry': return new QualityUpdateCatalogEntry();
                 case '#microsoft.graph.windowsUpdates.softwareUpdateCatalogEntry': return new SoftwareUpdateCatalogEntry();
@@ -36,7 +37,7 @@ class CatalogEntry extends Entity implements Parsable
     }
 
     /**
-     * Gets the deployableUntilDateTime property value. The date on which the content is no longer available to deploy using the service. Read-only.
+     * Gets the deployableUntilDateTime property value. The date on which the content is no longer available to deploy using the service. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getDeployableUntilDateTime(): ?DateTime {
@@ -65,7 +66,7 @@ class CatalogEntry extends Entity implements Parsable
     }
 
     /**
-     * Gets the releaseDateTime property value. The release date for the content. Read-only.
+     * Gets the releaseDateTime property value. The release date for the content. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getReleaseDateTime(): ?DateTime {
@@ -84,8 +85,8 @@ class CatalogEntry extends Entity implements Parsable
     }
 
     /**
-     * Sets the deployableUntilDateTime property value. The date on which the content is no longer available to deploy using the service. Read-only.
-     *  @param DateTime|null $value Value to set for the deployableUntilDateTime property.
+     * Sets the deployableUntilDateTime property value. The date on which the content is no longer available to deploy using the service. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param DateTime|null $value Value to set for the deployableUntilDateTime property.
     */
     public function setDeployableUntilDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deployableUntilDateTime', $value);
@@ -93,15 +94,15 @@ class CatalogEntry extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name of the content. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the releaseDateTime property value. The release date for the content. Read-only.
-     *  @param DateTime|null $value Value to set for the releaseDateTime property.
+     * Sets the releaseDateTime property value. The release date for the content. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param DateTime|null $value Value to set for the releaseDateTime property.
     */
     public function setReleaseDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('releaseDateTime', $value);

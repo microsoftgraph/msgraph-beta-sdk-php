@@ -65,7 +65,7 @@ class AndroidForWorkImportedPFXCertificateProfile extends AndroidCertificateProf
 
     /**
      * Sets the intendedPurpose property value. PFX Import Options.
-     *  @param IntendedPurpose|null $value Value to set for the intendedPurpose property.
+     * @param IntendedPurpose|null $value Value to set for the intendedPurpose property.
     */
     public function setIntendedPurpose(?IntendedPurpose $value): void {
         $this->getBackingStore()->set('intendedPurpose', $value);
@@ -73,7 +73,7 @@ class AndroidForWorkImportedPFXCertificateProfile extends AndroidCertificateProf
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-     *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
+     * @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
     public function setManagedDeviceCertificateStates(?array $value): void {
         $this->getBackingStore()->set('managedDeviceCertificateStates', $value);

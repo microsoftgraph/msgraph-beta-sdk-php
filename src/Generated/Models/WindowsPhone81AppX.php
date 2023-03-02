@@ -132,7 +132,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the applicableArchitectures property value. Contains properties for Windows architecture.
-     *  @param WindowsArchitecture|null $value Value to set for the applicableArchitectures property.
+     * @param WindowsArchitecture|null $value Value to set for the applicableArchitectures property.
     */
     public function setApplicableArchitectures(?WindowsArchitecture $value): void {
         $this->getBackingStore()->set('applicableArchitectures', $value);
@@ -140,7 +140,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the identityName property value. The Identity Name.
-     *  @param string|null $value Value to set for the identityName property.
+     * @param string|null $value Value to set for the identityName property.
     */
     public function setIdentityName(?string $value): void {
         $this->getBackingStore()->set('identityName', $value);
@@ -148,7 +148,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the identityPublisherHash property value. The Identity Publisher Hash.
-     *  @param string|null $value Value to set for the identityPublisherHash property.
+     * @param string|null $value Value to set for the identityPublisherHash property.
     */
     public function setIdentityPublisherHash(?string $value): void {
         $this->getBackingStore()->set('identityPublisherHash', $value);
@@ -156,7 +156,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the identityResourceIdentifier property value. The Identity Resource Identifier.
-     *  @param string|null $value Value to set for the identityResourceIdentifier property.
+     * @param string|null $value Value to set for the identityResourceIdentifier property.
     */
     public function setIdentityResourceIdentifier(?string $value): void {
         $this->getBackingStore()->set('identityResourceIdentifier', $value);
@@ -164,7 +164,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the identityVersion property value. The identity version.
-     *  @param string|null $value Value to set for the identityVersion property.
+     * @param string|null $value Value to set for the identityVersion property.
     */
     public function setIdentityVersion(?string $value): void {
         $this->getBackingStore()->set('identityVersion', $value);
@@ -172,7 +172,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. The minimum operating system required for a Windows mobile app.
-     *  @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
+     * @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
     public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value): void {
         $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
@@ -180,7 +180,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the phoneProductIdentifier property value. The Phone Product Identifier.
-     *  @param string|null $value Value to set for the phoneProductIdentifier property.
+     * @param string|null $value Value to set for the phoneProductIdentifier property.
     */
     public function setPhoneProductIdentifier(?string $value): void {
         $this->getBackingStore()->set('phoneProductIdentifier', $value);
@@ -188,7 +188,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
 
     /**
      * Sets the phonePublisherId property value. The Phone Publisher Id.
-     *  @param string|null $value Value to set for the phonePublisherId property.
+     * @param string|null $value Value to set for the phonePublisherId property.
     */
     public function setPhonePublisherId(?string $value): void {
         $this->getBackingStore()->set('phonePublisherId', $value);

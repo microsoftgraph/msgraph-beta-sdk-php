@@ -55,7 +55,7 @@ class TextWebPart extends WebPart implements Parsable
 
     /**
      * Sets the innerHtml property value. The HTML string in text web part.
-     *  @param string|null $value Value to set for the innerHtml property.
+     * @param string|null $value Value to set for the innerHtml property.
     */
     public function setInnerHtml(?string $value): void {
         $this->getBackingStore()->set('innerHtml', $value);

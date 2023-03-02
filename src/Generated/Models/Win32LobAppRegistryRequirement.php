@@ -85,7 +85,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
 
     /**
      * Sets the check32BitOn64System property value. A value indicating whether this registry path is for checking 32-bit app on 64-bit system
-     *  @param bool|null $value Value to set for the check32BitOn64System property.
+     * @param bool|null $value Value to set for the check32BitOn64System property.
     */
     public function setCheck32BitOn64System(?bool $value): void {
         $this->getBackingStore()->set('check32BitOn64System', $value);
@@ -93,7 +93,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
 
     /**
      * Sets the detectionType property value. Contains all supported registry data detection type.
-     *  @param Win32LobAppRegistryDetectionType|null $value Value to set for the detectionType property.
+     * @param Win32LobAppRegistryDetectionType|null $value Value to set for the detectionType property.
     */
     public function setDetectionType(?Win32LobAppRegistryDetectionType $value): void {
         $this->getBackingStore()->set('detectionType', $value);
@@ -101,7 +101,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
 
     /**
      * Sets the keyPath property value. The registry key path to detect Win32 Line of Business (LoB) app
-     *  @param string|null $value Value to set for the keyPath property.
+     * @param string|null $value Value to set for the keyPath property.
     */
     public function setKeyPath(?string $value): void {
         $this->getBackingStore()->set('keyPath', $value);
@@ -109,7 +109,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
 
     /**
      * Sets the valueName property value. The registry value name
-     *  @param string|null $value Value to set for the valueName property.
+     * @param string|null $value Value to set for the valueName property.
     */
     public function setValueName(?string $value): void {
         $this->getBackingStore()->set('valueName', $value);

@@ -65,7 +65,7 @@ class AuditUserIdentity extends UserIdentity implements Parsable
 
     /**
      * Sets the homeTenantId property value. For user sign ins, the identifier of the tenant that the user is a member of.
-     *  @param string|null $value Value to set for the homeTenantId property.
+     * @param string|null $value Value to set for the homeTenantId property.
     */
     public function setHomeTenantId(?string $value): void {
         $this->getBackingStore()->set('homeTenantId', $value);
@@ -73,7 +73,7 @@ class AuditUserIdentity extends UserIdentity implements Parsable
 
     /**
      * Sets the homeTenantName property value. For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Azure AD to show the tenant content.
-     *  @param string|null $value Value to set for the homeTenantName property.
+     * @param string|null $value Value to set for the homeTenantName property.
     */
     public function setHomeTenantName(?string $value): void {
         $this->getBackingStore()->set('homeTenantName', $value);

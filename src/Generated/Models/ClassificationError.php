@@ -54,7 +54,7 @@ class ClassificationError extends ClassifcationErrorBase implements Parsable
 
     /**
      * Sets the details property value. The details property
-     *  @param array<ClassifcationErrorBase>|null $value Value to set for the details property.
+     * @param array<ClassifcationErrorBase>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value): void {
         $this->getBackingStore()->set('details', $value);

@@ -55,7 +55,7 @@ class DeviceManagementConfigurationSimpleSettingInstance extends DeviceManagemen
 
     /**
      * Sets the simpleSettingValue property value. The simpleSettingValue property
-     *  @param DeviceManagementConfigurationSimpleSettingValue|null $value Value to set for the simpleSettingValue property.
+     * @param DeviceManagementConfigurationSimpleSettingValue|null $value Value to set for the simpleSettingValue property.
     */
     public function setSimpleSettingValue(?DeviceManagementConfigurationSimpleSettingValue $value): void {
         $this->getBackingStore()->set('simpleSettingValue', $value);

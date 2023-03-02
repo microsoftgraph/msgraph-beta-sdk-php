@@ -59,14 +59,6 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     }
 
     /**
-     * Gets the creationDateTime property value. The creationDateTime property
-     * @return DateTime|null
-    */
-    public function getCreationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('creationDateTime');
-    }
-
-    /**
      * Gets the displayName property value. The display name of the key as given by the user.
      * @return string|null
     */
@@ -85,7 +77,6 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
             'attestationCertificates' => fn(ParseNode $n) => $o->setAttestationCertificates($n->getCollectionOfPrimitiveValues()),
             'attestationLevel' => fn(ParseNode $n) => $o->setAttestationLevel($n->getEnumValue(AttestationLevel::class)),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
         ]);
@@ -109,14 +100,13 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
         $writer->writeCollectionOfPrimitiveValues('attestationCertificates', $this->getAttestationCertificates());
         $writer->writeEnumValue('attestationLevel', $this->getAttestationLevel());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
-        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('model', $this->getModel());
     }
 
     /**
      * Sets the aaGuid property value. Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator.
-     *  @param string|null $value Value to set for the aaGuid property.
+     * @param string|null $value Value to set for the aaGuid property.
     */
     public function setAaGuid(?string $value): void {
         $this->getBackingStore()->set('aaGuid', $value);
@@ -124,7 +114,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
 
     /**
      * Sets the attestationCertificates property value. The attestation certificate(s) attached to this security key.
-     *  @param array<string>|null $value Value to set for the attestationCertificates property.
+     * @param array<string>|null $value Value to set for the attestationCertificates property.
     */
     public function setAttestationCertificates(?array $value): void {
         $this->getBackingStore()->set('attestationCertificates', $value);
@@ -132,7 +122,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
 
     /**
      * Sets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
-     *  @param AttestationLevel|null $value Value to set for the attestationLevel property.
+     * @param AttestationLevel|null $value Value to set for the attestationLevel property.
     */
     public function setAttestationLevel(?AttestationLevel $value): void {
         $this->getBackingStore()->set('attestationLevel', $value);
@@ -140,23 +130,15 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
 
     /**
      * Sets the createdDateTime property value. The timestamp when this key was registered to the user.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
-     * Sets the creationDateTime property value. The creationDateTime property
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
-    */
-    public function setCreationDateTime(?DateTime $value): void {
-        $this->getBackingStore()->set('creationDateTime', $value);
-    }
-
-    /**
      * Sets the displayName property value. The display name of the key as given by the user.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -164,7 +146,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
 
     /**
      * Sets the model property value. The manufacturer-assigned model of the FIDO2 security key.
-     *  @param string|null $value Value to set for the model property.
+     * @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);

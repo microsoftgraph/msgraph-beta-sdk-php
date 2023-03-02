@@ -46,7 +46,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -162,7 +162,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the actionId property value. The unique identifier for the workload action. Required. Read-only.
-     *  @param string|null $value Value to set for the actionId property.
+     * @param string|null $value Value to set for the actionId property.
     */
     public function setActionId(?string $value): void {
         $this->getBackingStore()->set('actionId', $value);
@@ -170,7 +170,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -178,7 +178,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -186,7 +186,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the deployedPolicyId property value. The identifier of any policy that was created by applying the workload action. Optional. Read-only.
-     *  @param string|null $value Value to set for the deployedPolicyId property.
+     * @param string|null $value Value to set for the deployedPolicyId property.
     */
     public function setDeployedPolicyId(?string $value): void {
         $this->getBackingStore()->set('deployedPolicyId', $value);
@@ -194,7 +194,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the error property value. The detailed information for exceptions that occur when deploying the workload action. Optional. Required.
-     *  @param GenericError|null $value Value to set for the error property.
+     * @param GenericError|null $value Value to set for the error property.
     */
     public function setError(?GenericError $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -202,7 +202,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the excludeGroups property value. The excludeGroups property
-     *  @param array<string>|null $value Value to set for the excludeGroups property.
+     * @param array<string>|null $value Value to set for the excludeGroups property.
     */
     public function setExcludeGroups(?array $value): void {
         $this->getBackingStore()->set('excludeGroups', $value);
@@ -210,7 +210,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the includeAllUsers property value. The includeAllUsers property
-     *  @param bool|null $value Value to set for the includeAllUsers property.
+     * @param bool|null $value Value to set for the includeAllUsers property.
     */
     public function setIncludeAllUsers(?bool $value): void {
         $this->getBackingStore()->set('includeAllUsers', $value);
@@ -218,7 +218,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the includeGroups property value. The includeGroups property
-     *  @param array<string>|null $value Value to set for the includeGroups property.
+     * @param array<string>|null $value Value to set for the includeGroups property.
     */
     public function setIncludeGroups(?array $value): void {
         $this->getBackingStore()->set('includeGroups', $value);
@@ -226,7 +226,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the lastDeploymentDateTime property value. The date and time the workload action was last deployed. Optional.
-     *  @param DateTime|null $value Value to set for the lastDeploymentDateTime property.
+     * @param DateTime|null $value Value to set for the lastDeploymentDateTime property.
     */
     public function setLastDeploymentDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastDeploymentDateTime', $value);
@@ -234,7 +234,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -242,7 +242,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the status property value. The status property
-     *  @param WorkloadActionStatus|null $value Value to set for the status property.
+     * @param WorkloadActionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?WorkloadActionStatus $value): void {
         $this->getBackingStore()->set('status', $value);

@@ -36,10 +36,18 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the automaticUserConsentSettings property value. Determines the partner-specific configuration for automatic user consent settings. Unless specifically configured, the inboundAllowed and outboundAllowed properties will be null and inherit from the default settings, which is always false.
+     * @return InboundOutboundPolicyConfiguration|null
+    */
+    public function getAutomaticUserConsentSettings(): ?InboundOutboundPolicyConfiguration {
+        return $this->getBackingStore()->get('automaticUserConsentSettings');
     }
 
     /**
@@ -89,16 +97,26 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'automaticUserConsentSettings' => fn(ParseNode $n) => $o->setAutomaticUserConsentSettings($n->getObjectValue([InboundOutboundPolicyConfiguration::class, 'createFromDiscriminatorValue'])),
             'b2bCollaborationInbound' => fn(ParseNode $n) => $o->setB2bCollaborationInbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bCollaborationOutbound' => fn(ParseNode $n) => $o->setB2bCollaborationOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bDirectConnectInbound' => fn(ParseNode $n) => $o->setB2bDirectConnectInbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bDirectConnectOutbound' => fn(ParseNode $n) => $o->setB2bDirectConnectOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
+            'identitySynchronization' => fn(ParseNode $n) => $o->setIdentitySynchronization($n->getObjectValue([CrossTenantIdentitySyncPolicyPartner::class, 'createFromDiscriminatorValue'])),
             'inboundTrust' => fn(ParseNode $n) => $o->setInboundTrust($n->getObjectValue([CrossTenantAccessPolicyInboundTrust::class, 'createFromDiscriminatorValue'])),
             'isServiceProvider' => fn(ParseNode $n) => $o->setIsServiceProvider($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'tenantRestrictions' => fn(ParseNode $n) => $o->setTenantRestrictions($n->getObjectValue([CrossTenantAccessPolicyTenantRestrictions::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the identitySynchronization property value. Defines the cross-tenant policy for synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multi-tenant organization by automating creating, updating, and deleting users from one tenant to another.
+     * @return CrossTenantIdentitySyncPolicyPartner|null
+    */
+    public function getIdentitySynchronization(): ?CrossTenantIdentitySyncPolicyPartner {
+        return $this->getBackingStore()->get('identitySynchronization');
     }
 
     /**
@@ -146,10 +164,12 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('automaticUserConsentSettings', $this->getAutomaticUserConsentSettings());
         $writer->writeObjectValue('b2bCollaborationInbound', $this->getB2bCollaborationInbound());
         $writer->writeObjectValue('b2bCollaborationOutbound', $this->getB2bCollaborationOutbound());
         $writer->writeObjectValue('b2bDirectConnectInbound', $this->getB2bDirectConnectInbound());
         $writer->writeObjectValue('b2bDirectConnectOutbound', $this->getB2bDirectConnectOutbound());
+        $writer->writeObjectValue('identitySynchronization', $this->getIdentitySynchronization());
         $writer->writeObjectValue('inboundTrust', $this->getInboundTrust());
         $writer->writeBooleanValue('isServiceProvider', $this->getIsServiceProvider());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -160,15 +180,23 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
+     * Sets the automaticUserConsentSettings property value. Determines the partner-specific configuration for automatic user consent settings. Unless specifically configured, the inboundAllowed and outboundAllowed properties will be null and inherit from the default settings, which is always false.
+     * @param InboundOutboundPolicyConfiguration|null $value Value to set for the automaticUserConsentSettings property.
+    */
+    public function setAutomaticUserConsentSettings(?InboundOutboundPolicyConfiguration $value): void {
+        $this->getBackingStore()->set('automaticUserConsentSettings', $value);
+    }
+
+    /**
      * Sets the b2bCollaborationInbound property value. Defines your partner-specific configuration for users from other organizations accessing your resources via Azure AD B2B collaboration.
-     *  @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bCollaborationInbound property.
+     * @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bCollaborationInbound property.
     */
     public function setB2bCollaborationInbound(?CrossTenantAccessPolicyB2BSetting $value): void {
         $this->getBackingStore()->set('b2bCollaborationInbound', $value);
@@ -176,7 +204,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Sets the b2bCollaborationOutbound property value. Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Azure AD B2B collaboration.
-     *  @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bCollaborationOutbound property.
+     * @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bCollaborationOutbound property.
     */
     public function setB2bCollaborationOutbound(?CrossTenantAccessPolicyB2BSetting $value): void {
         $this->getBackingStore()->set('b2bCollaborationOutbound', $value);
@@ -184,7 +212,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Sets the b2bDirectConnectInbound property value. Defines your partner-specific configuration for users from other organizations accessing your resources via Azure B2B direct connect.
-     *  @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bDirectConnectInbound property.
+     * @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bDirectConnectInbound property.
     */
     public function setB2bDirectConnectInbound(?CrossTenantAccessPolicyB2BSetting $value): void {
         $this->getBackingStore()->set('b2bDirectConnectInbound', $value);
@@ -192,7 +220,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Sets the b2bDirectConnectOutbound property value. Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Azure AD B2B direct connect.
-     *  @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bDirectConnectOutbound property.
+     * @param CrossTenantAccessPolicyB2BSetting|null $value Value to set for the b2bDirectConnectOutbound property.
     */
     public function setB2bDirectConnectOutbound(?CrossTenantAccessPolicyB2BSetting $value): void {
         $this->getBackingStore()->set('b2bDirectConnectOutbound', $value);
@@ -200,15 +228,23 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
     }
 
     /**
+     * Sets the identitySynchronization property value. Defines the cross-tenant policy for synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multi-tenant organization by automating creating, updating, and deleting users from one tenant to another.
+     * @param CrossTenantIdentitySyncPolicyPartner|null $value Value to set for the identitySynchronization property.
+    */
+    public function setIdentitySynchronization(?CrossTenantIdentitySyncPolicyPartner $value): void {
+        $this->getBackingStore()->set('identitySynchronization', $value);
+    }
+
+    /**
      * Sets the inboundTrust property value. Determines the partner-specific configuration for trusting other Conditional Access claims from external Azure AD organizations.
-     *  @param CrossTenantAccessPolicyInboundTrust|null $value Value to set for the inboundTrust property.
+     * @param CrossTenantAccessPolicyInboundTrust|null $value Value to set for the inboundTrust property.
     */
     public function setInboundTrust(?CrossTenantAccessPolicyInboundTrust $value): void {
         $this->getBackingStore()->set('inboundTrust', $value);
@@ -216,7 +252,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Sets the isServiceProvider property value. Identifies whether the partner-specific configuration is a Cloud Service Provider for your organization.
-     *  @param bool|null $value Value to set for the isServiceProvider property.
+     * @param bool|null $value Value to set for the isServiceProvider property.
     */
     public function setIsServiceProvider(?bool $value): void {
         $this->getBackingStore()->set('isServiceProvider', $value);
@@ -224,7 +260,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -232,7 +268,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Sets the tenantId property value. The tenant identifier for the partner Azure AD organization. Read-only. Key.
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -240,7 +276,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
 
     /**
      * Sets the tenantRestrictions property value. The tenantRestrictions property
-     *  @param CrossTenantAccessPolicyTenantRestrictions|null $value Value to set for the tenantRestrictions property.
+     * @param CrossTenantAccessPolicyTenantRestrictions|null $value Value to set for the tenantRestrictions property.
     */
     public function setTenantRestrictions(?CrossTenantAccessPolicyTenantRestrictions $value): void {
         $this->getBackingStore()->set('tenantRestrictions', $value);

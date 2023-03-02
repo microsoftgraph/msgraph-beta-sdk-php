@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics application performance entity contains app performance by app version details.
+*/
 class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends Entity implements Parsable 
 {
     /**
@@ -124,7 +127,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
 
     /**
      * Sets the appCrashCount property value. The number of crashes for the app. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the appCrashCount property.
+     * @param int|null $value Value to set for the appCrashCount property.
     */
     public function setAppCrashCount(?int $value): void {
         $this->getBackingStore()->set('appCrashCount', $value);
@@ -132,7 +135,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
 
     /**
      * Sets the appDisplayName property value. The friendly name of the application.
-     *  @param string|null $value Value to set for the appDisplayName property.
+     * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
         $this->getBackingStore()->set('appDisplayName', $value);
@@ -140,7 +143,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
 
     /**
      * Sets the appName property value. The name of the application.
-     *  @param string|null $value Value to set for the appName property.
+     * @param string|null $value Value to set for the appName property.
     */
     public function setAppName(?string $value): void {
         $this->getBackingStore()->set('appName', $value);
@@ -148,7 +151,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
 
     /**
      * Sets the appPublisher property value. The publisher of the application.
-     *  @param string|null $value Value to set for the appPublisher property.
+     * @param string|null $value Value to set for the appPublisher property.
     */
     public function setAppPublisher(?string $value): void {
         $this->getBackingStore()->set('appPublisher', $value);
@@ -156,7 +159,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
 
     /**
      * Sets the appVersion property value. The version of the application.
-     *  @param string|null $value Value to set for the appVersion property.
+     * @param string|null $value Value to set for the appVersion property.
     */
     public function setAppVersion(?string $value): void {
         $this->getBackingStore()->set('appVersion', $value);
@@ -164,7 +167,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
 
     /**
      * Sets the deviceCountWithCrashes property value. The total number of devices that have reported one or more application crashes for this application and version. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the deviceCountWithCrashes property.
+     * @param int|null $value Value to set for the deviceCountWithCrashes property.
     */
     public function setDeviceCountWithCrashes(?int $value): void {
         $this->getBackingStore()->set('deviceCountWithCrashes', $value);
@@ -172,7 +175,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
 
     /**
      * Sets the isLatestUsedVersion property value. Is the version of application the latest version for that app that is in use.
-     *  @param bool|null $value Value to set for the isLatestUsedVersion property.
+     * @param bool|null $value Value to set for the isLatestUsedVersion property.
     */
     public function setIsLatestUsedVersion(?bool $value): void {
         $this->getBackingStore()->set('isLatestUsedVersion', $value);
@@ -180,7 +183,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
 
     /**
      * Sets the isMostUsedVersion property value. Is the version of application the most used version for that app.
-     *  @param bool|null $value Value to set for the isMostUsedVersion property.
+     * @param bool|null $value Value to set for the isMostUsedVersion property.
     */
     public function setIsMostUsedVersion(?bool $value): void {
         $this->getBackingStore()->set('isMostUsedVersion', $value);

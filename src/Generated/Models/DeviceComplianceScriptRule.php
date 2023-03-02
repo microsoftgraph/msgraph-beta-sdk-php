@@ -36,7 +36,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -156,7 +156,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the dataType property value. Data types for rules.
-     *  @param DataType|null $value Value to set for the dataType property.
+     * @param DataType|null $value Value to set for the dataType property.
     */
     public function setDataType(?DataType $value): void {
         $this->getBackingStore()->set('dataType', $value);
@@ -164,7 +164,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the deviceComplianceScriptRuleDataType property value. Data types for rules.
-     *  @param DeviceComplianceScriptRuleDataType|null $value Value to set for the deviceComplianceScriptRuleDataType property.
+     * @param DeviceComplianceScriptRuleDataType|null $value Value to set for the deviceComplianceScriptRuleDataType property.
     */
     public function setDeviceComplianceScriptRuleDataType(?DeviceComplianceScriptRuleDataType $value): void {
         $this->getBackingStore()->set('deviceComplianceScriptRuleDataType', $value);
@@ -172,7 +172,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the deviceComplianceScriptRulOperator property value. Operator for rules.
-     *  @param DeviceComplianceScriptRulOperator|null $value Value to set for the deviceComplianceScriptRulOperator property.
+     * @param DeviceComplianceScriptRulOperator|null $value Value to set for the deviceComplianceScriptRulOperator property.
     */
     public function setDeviceComplianceScriptRulOperator(?DeviceComplianceScriptRulOperator $value): void {
         $this->getBackingStore()->set('deviceComplianceScriptRulOperator', $value);
@@ -180,7 +180,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -188,7 +188,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the operand property value. Operand specified in the rule.
-     *  @param string|null $value Value to set for the operand property.
+     * @param string|null $value Value to set for the operand property.
     */
     public function setOperand(?string $value): void {
         $this->getBackingStore()->set('operand', $value);
@@ -196,7 +196,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the operator property value. Operator for rules.
-     *  @param Operator|null $value Value to set for the operator property.
+     * @param Operator|null $value Value to set for the operator property.
     */
     public function setOperator(?Operator $value): void {
         $this->getBackingStore()->set('operator', $value);
@@ -204,7 +204,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, P
 
     /**
      * Sets the settingName property value. Setting name specified in the rule.
-     *  @param string|null $value Value to set for the settingName property.
+     * @param string|null $value Value to set for the settingName property.
     */
     public function setSettingName(?string $value): void {
         $this->getBackingStore()->set('settingName', $value);

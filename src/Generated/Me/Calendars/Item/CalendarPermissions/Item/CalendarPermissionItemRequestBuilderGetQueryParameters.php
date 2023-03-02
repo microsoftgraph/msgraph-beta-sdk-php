@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Calendars\Item\CalendarPermissions\I
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * The permissions of the users with whom the calendar is shared.
+*/
 class CalendarPermissionItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -12,4 +15,12 @@ class CalendarPermissionItemRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new CalendarPermissionItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $select = null) {
+        $this->select = $select;
+    }
+
 }

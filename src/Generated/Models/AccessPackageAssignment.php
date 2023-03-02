@@ -185,7 +185,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the accessPackage property value. Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
-     *  @param AccessPackage|null $value Value to set for the accessPackage property.
+     * @param AccessPackage|null $value Value to set for the accessPackage property.
     */
     public function setAccessPackage(?AccessPackage $value): void {
         $this->getBackingStore()->set('accessPackage', $value);
@@ -193,7 +193,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignmentPolicy property value. Read-only. Nullable. Supports $filter (eq) on the id property
-     *  @param AccessPackageAssignmentPolicy|null $value Value to set for the accessPackageAssignmentPolicy property.
+     * @param AccessPackageAssignmentPolicy|null $value Value to set for the accessPackageAssignmentPolicy property.
     */
     public function setAccessPackageAssignmentPolicy(?AccessPackageAssignmentPolicy $value): void {
         $this->getBackingStore()->set('accessPackageAssignmentPolicy', $value);
@@ -201,7 +201,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignmentRequests property value. The accessPackageAssignmentRequests property
-     *  @param array<AccessPackageAssignmentRequest>|null $value Value to set for the accessPackageAssignmentRequests property.
+     * @param array<AccessPackageAssignmentRequest>|null $value Value to set for the accessPackageAssignmentRequests property.
     */
     public function setAccessPackageAssignmentRequests(?array $value): void {
         $this->getBackingStore()->set('accessPackageAssignmentRequests', $value);
@@ -209,7 +209,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the accessPackageAssignmentResourceRoles property value. The resource roles delivered to the target user for this assignment. Read-only. Nullable.
-     *  @param array<AccessPackageAssignmentResourceRole>|null $value Value to set for the accessPackageAssignmentResourceRoles property.
+     * @param array<AccessPackageAssignmentResourceRole>|null $value Value to set for the accessPackageAssignmentResourceRoles property.
     */
     public function setAccessPackageAssignmentResourceRoles(?array $value): void {
         $this->getBackingStore()->set('accessPackageAssignmentResourceRoles', $value);
@@ -217,7 +217,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the accessPackageId property value. The identifier of the access package. Read-only.
-     *  @param string|null $value Value to set for the accessPackageId property.
+     * @param string|null $value Value to set for the accessPackageId property.
     */
     public function setAccessPackageId(?string $value): void {
         $this->getBackingStore()->set('accessPackageId', $value);
@@ -225,7 +225,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the assignmentPolicyId property value. The identifier of the access package assignment policy. Read-only.
-     *  @param string|null $value Value to set for the assignmentPolicyId property.
+     * @param string|null $value Value to set for the assignmentPolicyId property.
     */
     public function setAssignmentPolicyId(?string $value): void {
         $this->getBackingStore()->set('assignmentPolicyId', $value);
@@ -233,7 +233,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the assignmentState property value. The state of the access package assignment. Possible values are Delivering, Delivered, or Expired. Read-only. Supports $filter (eq).
-     *  @param string|null $value Value to set for the assignmentState property.
+     * @param string|null $value Value to set for the assignmentState property.
     */
     public function setAssignmentState(?string $value): void {
         $this->getBackingStore()->set('assignmentState', $value);
@@ -241,7 +241,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the assignmentStatus property value. More information about the assignment lifecycle.  Possible values include Delivering, Delivered, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered.  Read-only.
-     *  @param string|null $value Value to set for the assignmentStatus property.
+     * @param string|null $value Value to set for the assignmentStatus property.
     */
     public function setAssignmentStatus(?string $value): void {
         $this->getBackingStore()->set('assignmentStatus', $value);
@@ -249,7 +249,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the catalogId property value. The identifier of the catalog containing the access package. Read-only.
-     *  @param string|null $value Value to set for the catalogId property.
+     * @param string|null $value Value to set for the catalogId property.
     */
     public function setCatalogId(?string $value): void {
         $this->getBackingStore()->set('catalogId', $value);
@@ -257,7 +257,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the expiredDateTime property.
+     * @param DateTime|null $value Value to set for the expiredDateTime property.
     */
     public function setExpiredDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expiredDateTime', $value);
@@ -265,7 +265,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the isExtended property value. Indicates whether the access package assignment is extended. Read-only.
-     *  @param bool|null $value Value to set for the isExtended property.
+     * @param bool|null $value Value to set for the isExtended property.
     */
     public function setIsExtended(?bool $value): void {
         $this->getBackingStore()->set('isExtended', $value);
@@ -273,7 +273,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the schedule property value. When the access assignment is to be in place. Read-only.
-     *  @param RequestSchedule|null $value Value to set for the schedule property.
+     * @param RequestSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?RequestSchedule $value): void {
         $this->getBackingStore()->set('schedule', $value);
@@ -281,7 +281,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the target property value. The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
-     *  @param AccessPackageSubject|null $value Value to set for the target property.
+     * @param AccessPackageSubject|null $value Value to set for the target property.
     */
     public function setTarget(?AccessPackageSubject $value): void {
         $this->getBackingStore()->set('target', $value);
@@ -289,7 +289,7 @@ class AccessPackageAssignment extends Entity implements Parsable
 
     /**
      * Sets the targetId property value. The ID of the subject with the assignment. Read-only.
-     *  @param string|null $value Value to set for the targetId property.
+     * @param string|null $value Value to set for the targetId property.
     */
     public function setTargetId(?string $value): void {
         $this->getBackingStore()->set('targetId', $value);

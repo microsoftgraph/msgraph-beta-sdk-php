@@ -45,7 +45,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -181,7 +181,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the actionName property value. The actionName property
-     *  @param ManagedDeviceRemoteAction|null $value Value to set for the actionName property.
+     * @param ManagedDeviceRemoteAction|null $value Value to set for the actionName property.
     */
     public function setActionName(?ManagedDeviceRemoteAction $value): void {
         $this->getBackingStore()->set('actionName', $value);
@@ -189,7 +189,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -197,7 +197,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -205,7 +205,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the carrierUrl property value. The carrierUrl property
-     *  @param string|null $value Value to set for the carrierUrl property.
+     * @param string|null $value Value to set for the carrierUrl property.
     */
     public function setCarrierUrl(?string $value): void {
         $this->getBackingStore()->set('carrierUrl', $value);
@@ -213,7 +213,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the deprovisionReason property value. The deprovisionReason property
-     *  @param string|null $value Value to set for the deprovisionReason property.
+     * @param string|null $value Value to set for the deprovisionReason property.
     */
     public function setDeprovisionReason(?string $value): void {
         $this->getBackingStore()->set('deprovisionReason', $value);
@@ -221,7 +221,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the deviceIds property value. The deviceIds property
-     *  @param array<string>|null $value Value to set for the deviceIds property.
+     * @param array<string>|null $value Value to set for the deviceIds property.
     */
     public function setDeviceIds(?array $value): void {
         $this->getBackingStore()->set('deviceIds', $value);
@@ -229,7 +229,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the deviceName property value. The deviceName property
-     *  @param string|null $value Value to set for the deviceName property.
+     * @param string|null $value Value to set for the deviceName property.
     */
     public function setDeviceName(?string $value): void {
         $this->getBackingStore()->set('deviceName', $value);
@@ -237,7 +237,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the keepEnrollmentData property value. The keepEnrollmentData property
-     *  @param bool|null $value Value to set for the keepEnrollmentData property.
+     * @param bool|null $value Value to set for the keepEnrollmentData property.
     */
     public function setKeepEnrollmentData(?bool $value): void {
         $this->getBackingStore()->set('keepEnrollmentData', $value);
@@ -245,7 +245,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the keepUserData property value. The keepUserData property
-     *  @param bool|null $value Value to set for the keepUserData property.
+     * @param bool|null $value Value to set for the keepUserData property.
     */
     public function setKeepUserData(?bool $value): void {
         $this->getBackingStore()->set('keepUserData', $value);
@@ -253,7 +253,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the notificationBody property value. The notificationBody property
-     *  @param string|null $value Value to set for the notificationBody property.
+     * @param string|null $value Value to set for the notificationBody property.
     */
     public function setNotificationBody(?string $value): void {
         $this->getBackingStore()->set('notificationBody', $value);
@@ -261,7 +261,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the notificationTitle property value. The notificationTitle property
-     *  @param string|null $value Value to set for the notificationTitle property.
+     * @param string|null $value Value to set for the notificationTitle property.
     */
     public function setNotificationTitle(?string $value): void {
         $this->getBackingStore()->set('notificationTitle', $value);
@@ -269,7 +269,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the organizationalUnitPath property value. The organizationalUnitPath property
-     *  @param string|null $value Value to set for the organizationalUnitPath property.
+     * @param string|null $value Value to set for the organizationalUnitPath property.
     */
     public function setOrganizationalUnitPath(?string $value): void {
         $this->getBackingStore()->set('organizationalUnitPath', $value);
@@ -277,7 +277,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the persistEsimDataPlan property value. The persistEsimDataPlan property
-     *  @param bool|null $value Value to set for the persistEsimDataPlan property.
+     * @param bool|null $value Value to set for the persistEsimDataPlan property.
     */
     public function setPersistEsimDataPlan(?bool $value): void {
         $this->getBackingStore()->set('persistEsimDataPlan', $value);

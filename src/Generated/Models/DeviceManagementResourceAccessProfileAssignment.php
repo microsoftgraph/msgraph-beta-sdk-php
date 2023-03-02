@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity that describes tenant level settings for derived credentials
+*/
 class DeviceManagementResourceAccessProfileAssignment extends Entity implements Parsable 
 {
     /**
@@ -74,7 +77,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
 
     /**
      * Sets the intent property value. The administrator intent for the assignment of the profile.
-     *  @param DeviceManagementResourceAccessProfileIntent|null $value Value to set for the intent property.
+     * @param DeviceManagementResourceAccessProfileIntent|null $value Value to set for the intent property.
     */
     public function setIntent(?DeviceManagementResourceAccessProfileIntent $value): void {
         $this->getBackingStore()->set('intent', $value);
@@ -82,7 +85,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
 
     /**
      * Sets the sourceId property value. The identifier of the source of the assignment.
-     *  @param string|null $value Value to set for the sourceId property.
+     * @param string|null $value Value to set for the sourceId property.
     */
     public function setSourceId(?string $value): void {
         $this->getBackingStore()->set('sourceId', $value);
@@ -90,7 +93,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
 
     /**
      * Sets the target property value. Base type for assignment targets.
-     *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
+     * @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
     public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);

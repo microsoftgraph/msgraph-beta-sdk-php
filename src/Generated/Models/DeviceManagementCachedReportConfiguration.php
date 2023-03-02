@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity representing the configuration of a cached report
+*/
 class DeviceManagementCachedReportConfiguration extends Entity implements Parsable 
 {
     /**
@@ -125,7 +128,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
 
     /**
      * Sets the expirationDateTime property value. Time that the cached report expires
-     *  @param DateTime|null $value Value to set for the expirationDateTime property.
+     * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('expirationDateTime', $value);
@@ -133,7 +136,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
 
     /**
      * Sets the filter property value. Filters applied on report creation.
-     *  @param string|null $value Value to set for the filter property.
+     * @param string|null $value Value to set for the filter property.
     */
     public function setFilter(?string $value): void {
         $this->getBackingStore()->set('filter', $value);
@@ -141,7 +144,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
 
     /**
      * Sets the lastRefreshDateTime property value. Time that the cached report was last refreshed
-     *  @param DateTime|null $value Value to set for the lastRefreshDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshDateTime property.
     */
     public function setLastRefreshDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshDateTime', $value);
@@ -149,7 +152,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
 
     /**
      * Sets the metadata property value. Caller-managed metadata associated with the report
-     *  @param string|null $value Value to set for the metadata property.
+     * @param string|null $value Value to set for the metadata property.
     */
     public function setMetadata(?string $value): void {
         $this->getBackingStore()->set('metadata', $value);
@@ -157,7 +160,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
 
     /**
      * Sets the orderBy property value. Ordering of columns in the report
-     *  @param array<string>|null $value Value to set for the orderBy property.
+     * @param array<string>|null $value Value to set for the orderBy property.
     */
     public function setOrderBy(?array $value): void {
         $this->getBackingStore()->set('orderBy', $value);
@@ -165,7 +168,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
 
     /**
      * Sets the reportName property value. Name of the report
-     *  @param string|null $value Value to set for the reportName property.
+     * @param string|null $value Value to set for the reportName property.
     */
     public function setReportName(?string $value): void {
         $this->getBackingStore()->set('reportName', $value);
@@ -173,7 +176,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
 
     /**
      * Sets the select property value. Columns selected from the report
-     *  @param array<string>|null $value Value to set for the select property.
+     * @param array<string>|null $value Value to set for the select property.
     */
     public function setSelect(?array $value): void {
         $this->getBackingStore()->set('select', $value);
@@ -181,7 +184,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
 
     /**
      * Sets the status property value. Possible statuses associated with a generated report
-     *  @param DeviceManagementReportStatus|null $value Value to set for the status property.
+     * @param DeviceManagementReportStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceManagementReportStatus $value): void {
         $this->getBackingStore()->set('status', $value);

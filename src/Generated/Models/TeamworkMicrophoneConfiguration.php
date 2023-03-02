@@ -36,7 +36,7 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +110,7 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +118,7 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +126,7 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the defaultMicrophone property value. The defaultMicrophone property
-     *  @param TeamworkPeripheral|null $value Value to set for the defaultMicrophone property.
+     * @param TeamworkPeripheral|null $value Value to set for the defaultMicrophone property.
     */
     public function setDefaultMicrophone(?TeamworkPeripheral $value): void {
         $this->getBackingStore()->set('defaultMicrophone', $value);
@@ -134,7 +134,7 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the isMicrophoneOptional property value. True if the configured microphone is optional. False if the microphone is not optional and the health state of the device should be computed.
-     *  @param bool|null $value Value to set for the isMicrophoneOptional property.
+     * @param bool|null $value Value to set for the isMicrophoneOptional property.
     */
     public function setIsMicrophoneOptional(?bool $value): void {
         $this->getBackingStore()->set('isMicrophoneOptional', $value);
@@ -142,7 +142,7 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the microphones property value. The microphones property
-     *  @param array<TeamworkPeripheral>|null $value Value to set for the microphones property.
+     * @param array<TeamworkPeripheral>|null $value Value to set for the microphones property.
     */
     public function setMicrophones(?array $value): void {
         $this->getBackingStore()->set('microphones', $value);
@@ -150,7 +150,7 @@ class TeamworkMicrophoneConfiguration implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

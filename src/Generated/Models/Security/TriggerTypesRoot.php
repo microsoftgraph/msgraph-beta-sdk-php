@@ -55,7 +55,7 @@ class TriggerTypesRoot extends Entity implements Parsable
 
     /**
      * Sets the retentionEventTypes property value. The retentionEventTypes property
-     *  @param array<RetentionEventType>|null $value Value to set for the retentionEventTypes property.
+     * @param array<RetentionEventType>|null $value Value to set for the retentionEventTypes property.
     */
     public function setRetentionEventTypes(?array $value): void {
         $this->getBackingStore()->set('retentionEventTypes', $value);

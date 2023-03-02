@@ -65,7 +65,7 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the matchingRows property value. The matchingRows property
-     *  @param array<LookupResultRow>|null $value Value to set for the matchingRows property.
+     * @param array<LookupResultRow>|null $value Value to set for the matchingRows property.
     */
     public function setMatchingRows(?array $value): void {
         $this->getBackingStore()->set('matchingRows', $value);
@@ -73,7 +73,7 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
 
     /**
      * Sets the state property value. The state property
-     *  @param string|null $value Value to set for the state property.
+     * @param string|null $value Value to set for the state property.
     */
     public function setState(?string $value): void {
         $this->getBackingStore()->set('state', $value);

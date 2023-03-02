@@ -37,7 +37,7 @@ class InformationProtectionContentLabel implements AdditionalDataHolder, BackedM
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class InformationProtectionContentLabel implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class InformationProtectionContentLabel implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the assignmentMethod property value. The assignmentMethod property
-     *  @param AssignmentMethod|null $value Value to set for the assignmentMethod property.
+     * @param AssignmentMethod|null $value Value to set for the assignmentMethod property.
     */
     public function setAssignmentMethod(?AssignmentMethod $value): void {
         $this->getBackingStore()->set('assignmentMethod', $value);
@@ -127,7 +127,7 @@ class InformationProtectionContentLabel implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -135,7 +135,7 @@ class InformationProtectionContentLabel implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the creationDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the creationDateTime property.
+     * @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('creationDateTime', $value);
@@ -143,7 +143,7 @@ class InformationProtectionContentLabel implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the label property value. Details on the label that is currently applied to the file.
-     *  @param LabelDetails|null $value Value to set for the label property.
+     * @param LabelDetails|null $value Value to set for the label property.
     */
     public function setLabel(?LabelDetails $value): void {
         $this->getBackingStore()->set('label', $value);
@@ -151,7 +151,7 @@ class InformationProtectionContentLabel implements AdditionalDataHolder, BackedM
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

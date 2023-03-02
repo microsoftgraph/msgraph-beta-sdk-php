@@ -54,7 +54,7 @@ class DeviceManagementComplianceScheduledActionForRuleCollectionResponse extends
 
     /**
      * Sets the value property value. The value property
-     *  @param array<DeviceManagementComplianceScheduledActionForRule>|null $value Value to set for the value property.
+     * @param array<DeviceManagementComplianceScheduledActionForRule>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);

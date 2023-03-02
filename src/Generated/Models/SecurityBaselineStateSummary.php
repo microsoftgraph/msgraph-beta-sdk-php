@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The security baseline compliance state summary for the security baseline of the account.
+*/
 class SecurityBaselineStateSummary extends Entity implements Parsable 
 {
     /**
@@ -111,7 +114,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
 
     /**
      * Sets the conflictCount property value. Number of conflict devices
-     *  @param int|null $value Value to set for the conflictCount property.
+     * @param int|null $value Value to set for the conflictCount property.
     */
     public function setConflictCount(?int $value): void {
         $this->getBackingStore()->set('conflictCount', $value);
@@ -119,7 +122,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
 
     /**
      * Sets the errorCount property value. Number of error devices
-     *  @param int|null $value Value to set for the errorCount property.
+     * @param int|null $value Value to set for the errorCount property.
     */
     public function setErrorCount(?int $value): void {
         $this->getBackingStore()->set('errorCount', $value);
@@ -127,7 +130,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
 
     /**
      * Sets the notApplicableCount property value. Number of not applicable devices
-     *  @param int|null $value Value to set for the notApplicableCount property.
+     * @param int|null $value Value to set for the notApplicableCount property.
     */
     public function setNotApplicableCount(?int $value): void {
         $this->getBackingStore()->set('notApplicableCount', $value);
@@ -135,7 +138,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
 
     /**
      * Sets the notSecureCount property value. Number of not secure devices
-     *  @param int|null $value Value to set for the notSecureCount property.
+     * @param int|null $value Value to set for the notSecureCount property.
     */
     public function setNotSecureCount(?int $value): void {
         $this->getBackingStore()->set('notSecureCount', $value);
@@ -143,7 +146,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
 
     /**
      * Sets the secureCount property value. Number of secure devices
-     *  @param int|null $value Value to set for the secureCount property.
+     * @param int|null $value Value to set for the secureCount property.
     */
     public function setSecureCount(?int $value): void {
         $this->getBackingStore()->set('secureCount', $value);
@@ -151,7 +154,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
 
     /**
      * Sets the unknownCount property value. Number of unknown devices
-     *  @param int|null $value Value to set for the unknownCount property.
+     * @param int|null $value Value to set for the unknownCount property.
     */
     public function setUnknownCount(?int $value): void {
         $this->getBackingStore()->set('unknownCount', $value);

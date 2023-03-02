@@ -135,7 +135,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
 
     /**
      * Sets the authenticationMethod property value. Indicates the Authentication Method the client (device) needs to use when the EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
-     *  @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
+     * @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
         $this->getBackingStore()->set('authenticationMethod', $value);
@@ -143,7 +143,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
-     *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
+     * @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
     public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
         $this->getBackingStore()->set('derivedCredentialSettings', $value);
@@ -151,7 +151,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
 
     /**
      * Sets the eapType property value. Extensible Authentication Protocol (EAP) Configuration Types.
-     *  @param AndroidEapType|null $value Value to set for the eapType property.
+     * @param AndroidEapType|null $value Value to set for the eapType property.
     */
     public function setEapType(?AndroidEapType $value): void {
         $this->getBackingStore()->set('eapType', $value);
@@ -159,7 +159,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
 
     /**
      * Sets the identityCertificateForClientAuthentication property value. Identity Certificate for client authentication when EAP Type is configured to EAP-TLS, EAP-TTLS (with Certificate Authentication), or PEAP (with Certificate Authentication). This is the certificate presented by client to the Wi-Fi endpoint. The authentication server sitting behind the Wi-Fi endpoint must accept this certificate to successfully establish a Wi-Fi connection.
-     *  @param AndroidDeviceOwnerCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
+     * @param AndroidDeviceOwnerCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
     */
     public function setIdentityCertificateForClientAuthentication(?AndroidDeviceOwnerCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificateForClientAuthentication', $value);
@@ -167,7 +167,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
 
     /**
      * Sets the innerAuthenticationProtocolForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-     *  @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEapTtls property.
+     * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEapTtls property.
     */
     public function setInnerAuthenticationProtocolForEapTtls(?NonEapAuthenticationMethodForEapTtlsType $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForEapTtls', $value);
@@ -175,7 +175,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
 
     /**
      * Sets the innerAuthenticationProtocolForPeap property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is PEAP and Authenticationmethod is Username and Password. Possible values are: none, microsoftChapVersionTwo.
-     *  @param NonEapAuthenticationMethodForPeap|null $value Value to set for the innerAuthenticationProtocolForPeap property.
+     * @param NonEapAuthenticationMethodForPeap|null $value Value to set for the innerAuthenticationProtocolForPeap property.
     */
     public function setInnerAuthenticationProtocolForPeap(?NonEapAuthenticationMethodForPeap $value): void {
         $this->getBackingStore()->set('innerAuthenticationProtocolForPeap', $value);
@@ -183,7 +183,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
 
     /**
      * Sets the outerIdentityPrivacyTemporaryValue property value. Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS or PEAP. The String provided here is used to mask the username of individual users when they attempt to connect to Wi-Fi network.
-     *  @param string|null $value Value to set for the outerIdentityPrivacyTemporaryValue property.
+     * @param string|null $value Value to set for the outerIdentityPrivacyTemporaryValue property.
     */
     public function setOuterIdentityPrivacyTemporaryValue(?string $value): void {
         $this->getBackingStore()->set('outerIdentityPrivacyTemporaryValue', $value);
@@ -191,7 +191,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
 
     /**
      * Sets the rootCertificateForServerValidation property value. Trusted Root Certificate for Server Validation when EAP Type is configured to EAP-TLS, EAP-TTLS or PEAP. This is the certificate presented by the Wi-Fi endpoint when the device attempts to connect to Wi-Fi endpoint. The device (or user) must accept this certificate to continue the connection attempt.
-     *  @param AndroidDeviceOwnerTrustedRootCertificate|null $value Value to set for the rootCertificateForServerValidation property.
+     * @param AndroidDeviceOwnerTrustedRootCertificate|null $value Value to set for the rootCertificateForServerValidation property.
     */
     public function setRootCertificateForServerValidation(?AndroidDeviceOwnerTrustedRootCertificate $value): void {
         $this->getBackingStore()->set('rootCertificateForServerValidation', $value);
@@ -199,7 +199,7 @@ class AndroidDeviceOwnerEnterpriseWiFiConfiguration extends AndroidDeviceOwnerWi
 
     /**
      * Sets the trustedServerCertificateNames property value. Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users' devices when they connect to this Wi-Fi network.
-     *  @param array<string>|null $value Value to set for the trustedServerCertificateNames property.
+     * @param array<string>|null $value Value to set for the trustedServerCertificateNames property.
     */
     public function setTrustedServerCertificateNames(?array $value): void {
         $this->getBackingStore()->set('trustedServerCertificateNames', $value);

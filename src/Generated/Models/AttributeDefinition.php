@@ -36,7 +36,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -200,7 +200,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -208,7 +208,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the anchor property value. true if the attribute should be used as the anchor for the object. Anchor attributes must have a unique value identifying an object, and must be immutable. Default is false. One, and only one, of the object's attributes must be designated as the anchor to support synchronization.
-     *  @param bool|null $value Value to set for the anchor property.
+     * @param bool|null $value Value to set for the anchor property.
     */
     public function setAnchor(?bool $value): void {
         $this->getBackingStore()->set('anchor', $value);
@@ -216,7 +216,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the apiExpressions property value. The apiExpressions property
-     *  @param array<StringKeyStringValuePair>|null $value Value to set for the apiExpressions property.
+     * @param array<StringKeyStringValuePair>|null $value Value to set for the apiExpressions property.
     */
     public function setApiExpressions(?array $value): void {
         $this->getBackingStore()->set('apiExpressions', $value);
@@ -224,7 +224,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -232,7 +232,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the caseExact property value. true if value of this attribute should be treated as case-sensitive. This setting affects how the synchronization engine detects changes for the attribute.
-     *  @param bool|null $value Value to set for the caseExact property.
+     * @param bool|null $value Value to set for the caseExact property.
     */
     public function setCaseExact(?bool $value): void {
         $this->getBackingStore()->set('caseExact', $value);
@@ -240,7 +240,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the defaultValue property value. The defaultValue property
-     *  @param string|null $value Value to set for the defaultValue property.
+     * @param string|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?string $value): void {
         $this->getBackingStore()->set('defaultValue', $value);
@@ -248,7 +248,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the flowNullValues property value. 'true' to allow null values for attributes.
-     *  @param bool|null $value Value to set for the flowNullValues property.
+     * @param bool|null $value Value to set for the flowNullValues property.
     */
     public function setFlowNullValues(?bool $value): void {
         $this->getBackingStore()->set('flowNullValues', $value);
@@ -256,7 +256,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-     *  @param array<MetadataEntry>|null $value Value to set for the metadata property.
+     * @param array<MetadataEntry>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value): void {
         $this->getBackingStore()->set('metadata', $value);
@@ -264,7 +264,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the multivalued property value. true if an attribute can have multiple values. Default is false.
-     *  @param bool|null $value Value to set for the multivalued property.
+     * @param bool|null $value Value to set for the multivalued property.
     */
     public function setMultivalued(?bool $value): void {
         $this->getBackingStore()->set('multivalued', $value);
@@ -272,7 +272,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the mutability property value. The mutability property
-     *  @param Mutability|null $value Value to set for the mutability property.
+     * @param Mutability|null $value Value to set for the mutability property.
     */
     public function setMutability(?Mutability $value): void {
         $this->getBackingStore()->set('mutability', $value);
@@ -280,7 +280,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the name property value. Name of the attribute. Must be unique within the object definition. Not nullable.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -288,7 +288,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -296,7 +296,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the referencedObjects property value. For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object).
-     *  @param array<ReferencedObject>|null $value Value to set for the referencedObjects property.
+     * @param array<ReferencedObject>|null $value Value to set for the referencedObjects property.
     */
     public function setReferencedObjects(?array $value): void {
         $this->getBackingStore()->set('referencedObjects', $value);
@@ -304,7 +304,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the required property value. true if attribute is required. Object can not be created if any of the required attributes are missing. If during synchronization, the required attribute has no value, the default value will be used. If default the value was not set, synchronization will record an error.
-     *  @param bool|null $value Value to set for the required property.
+     * @param bool|null $value Value to set for the required property.
     */
     public function setRequired(?bool $value): void {
         $this->getBackingStore()->set('required', $value);
@@ -312,7 +312,7 @@ class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the type property value. The type property
-     *  @param AttributeType|null $value Value to set for the type property.
+     * @param AttributeType|null $value Value to set for the type property.
     */
     public function setType(?AttributeType $value): void {
         $this->getBackingStore()->set('type', $value);

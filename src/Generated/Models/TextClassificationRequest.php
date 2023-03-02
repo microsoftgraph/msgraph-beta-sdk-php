@@ -94,7 +94,7 @@ class TextClassificationRequest extends Entity implements Parsable
 
     /**
      * Sets the fileExtension property value. The fileExtension property
-     *  @param string|null $value Value to set for the fileExtension property.
+     * @param string|null $value Value to set for the fileExtension property.
     */
     public function setFileExtension(?string $value): void {
         $this->getBackingStore()->set('fileExtension', $value);
@@ -102,7 +102,7 @@ class TextClassificationRequest extends Entity implements Parsable
 
     /**
      * Sets the matchTolerancesToInclude property value. The matchTolerancesToInclude property
-     *  @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerancesToInclude property.
+     * @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerancesToInclude property.
     */
     public function setMatchTolerancesToInclude(?MlClassificationMatchTolerance $value): void {
         $this->getBackingStore()->set('matchTolerancesToInclude', $value);
@@ -110,7 +110,7 @@ class TextClassificationRequest extends Entity implements Parsable
 
     /**
      * Sets the scopesToRun property value. The scopesToRun property
-     *  @param SensitiveTypeScope|null $value Value to set for the scopesToRun property.
+     * @param SensitiveTypeScope|null $value Value to set for the scopesToRun property.
     */
     public function setScopesToRun(?SensitiveTypeScope $value): void {
         $this->getBackingStore()->set('scopesToRun', $value);
@@ -118,7 +118,7 @@ class TextClassificationRequest extends Entity implements Parsable
 
     /**
      * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
-     *  @param array<string>|null $value Value to set for the sensitiveTypeIds property.
+     * @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
     public function setSensitiveTypeIds(?array $value): void {
         $this->getBackingStore()->set('sensitiveTypeIds', $value);
@@ -126,7 +126,7 @@ class TextClassificationRequest extends Entity implements Parsable
 
     /**
      * Sets the text property value. The text property
-     *  @param string|null $value Value to set for the text property.
+     * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
         $this->getBackingStore()->set('text', $value);

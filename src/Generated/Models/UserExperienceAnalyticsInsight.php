@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The user experience analytics insight is the recomendation to improve the user experience analytics score.
+*/
 class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +123,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +131,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +139,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the insightId property value. The unique identifier of the user experience analytics insight.
-     *  @param string|null $value Value to set for the insightId property.
+     * @param string|null $value Value to set for the insightId property.
     */
     public function setInsightId(?string $value): void {
         $this->getBackingStore()->set('insightId', $value);
@@ -144,7 +147,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -152,7 +155,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the severity property value. The severity property
-     *  @param UserExperienceAnalyticsInsightSeverity|null $value Value to set for the severity property.
+     * @param UserExperienceAnalyticsInsightSeverity|null $value Value to set for the severity property.
     */
     public function setSeverity(?UserExperienceAnalyticsInsightSeverity $value): void {
         $this->getBackingStore()->set('severity', $value);
@@ -160,7 +163,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the userExperienceAnalyticsMetricId property value. The unique identifier of the user experience analytics insight.
-     *  @param string|null $value Value to set for the userExperienceAnalyticsMetricId property.
+     * @param string|null $value Value to set for the userExperienceAnalyticsMetricId property.
     */
     public function setUserExperienceAnalyticsMetricId(?string $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsMetricId', $value);
@@ -168,7 +171,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, BackedMode
 
     /**
      * Sets the values property value. The value of the user experience analytics insight.
-     *  @param array<UserExperienceAnalyticsInsightValue>|null $value Value to set for the values property.
+     * @param array<UserExperienceAnalyticsInsightValue>|null $value Value to set for the values property.
     */
     public function setValues(?array $value): void {
         $this->getBackingStore()->set('values', $value);

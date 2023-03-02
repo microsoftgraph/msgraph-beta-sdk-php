@@ -64,7 +64,7 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
 
     /**
      * Sets the passcode property value. Passcode to reset to Android device. This property is read-only.
-     *  @param string|null $value Value to set for the passcode property.
+     * @param string|null $value Value to set for the passcode property.
     */
     public function setPasscode(?string $value): void {
         $this->getBackingStore()->set('passcode', $value);
@@ -72,7 +72,7 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
 
     /**
      * Sets the passcodeSignInFailureCountBeforeWipe property value. Number of sign in failures before wiping device, the value can be 4-11. Valid values 4 to 11
-     *  @param int|null $value Value to set for the passcodeSignInFailureCountBeforeWipe property.
+     * @param int|null $value Value to set for the passcodeSignInFailureCountBeforeWipe property.
     */
     public function setPasscodeSignInFailureCountBeforeWipe(?int $value): void {
         $this->getBackingStore()->set('passcodeSignInFailureCountBeforeWipe', $value);

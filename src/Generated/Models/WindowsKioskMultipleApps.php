@@ -96,7 +96,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
 
     /**
      * Sets the allowAccessToDownloadsFolder property value. This setting allows access to Downloads folder in file explorer.
-     *  @param bool|null $value Value to set for the allowAccessToDownloadsFolder property.
+     * @param bool|null $value Value to set for the allowAccessToDownloadsFolder property.
     */
     public function setAllowAccessToDownloadsFolder(?bool $value): void {
         $this->getBackingStore()->set('allowAccessToDownloadsFolder', $value);
@@ -104,7 +104,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
 
     /**
      * Sets the apps property value. These are the only Windows Store Apps that will be available to launch from the Start menu. This collection can contain a maximum of 128 elements.
-     *  @param array<WindowsKioskAppBase>|null $value Value to set for the apps property.
+     * @param array<WindowsKioskAppBase>|null $value Value to set for the apps property.
     */
     public function setApps(?array $value): void {
         $this->getBackingStore()->set('apps', $value);
@@ -112,7 +112,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
 
     /**
      * Sets the disallowDesktopApps property value. This setting indicates that desktop apps are allowed. Default to true.
-     *  @param bool|null $value Value to set for the disallowDesktopApps property.
+     * @param bool|null $value Value to set for the disallowDesktopApps property.
     */
     public function setDisallowDesktopApps(?bool $value): void {
         $this->getBackingStore()->set('disallowDesktopApps', $value);
@@ -120,7 +120,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
 
     /**
      * Sets the showTaskBar property value. This setting allows the admin to specify whether the Task Bar is shown or not.
-     *  @param bool|null $value Value to set for the showTaskBar property.
+     * @param bool|null $value Value to set for the showTaskBar property.
     */
     public function setShowTaskBar(?bool $value): void {
         $this->getBackingStore()->set('showTaskBar', $value);
@@ -128,7 +128,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
 
     /**
      * Sets the startMenuLayoutXml property value. Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-     *  @param StreamInterface|null $value Value to set for the startMenuLayoutXml property.
+     * @param StreamInterface|null $value Value to set for the startMenuLayoutXml property.
     */
     public function setStartMenuLayoutXml(?StreamInterface $value): void {
         $this->getBackingStore()->set('startMenuLayoutXml', $value);

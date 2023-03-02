@@ -56,7 +56,7 @@ class CustomTaskExtensionCallbackData extends CustomExtensionData implements Par
 
     /**
      * Sets the operationStatus property value. Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
-     *  @param CustomTaskExtensionOperationStatus|null $value Value to set for the operationStatus property.
+     * @param CustomTaskExtensionOperationStatus|null $value Value to set for the operationStatus property.
     */
     public function setOperationStatus(?CustomTaskExtensionOperationStatus $value): void {
         $this->getBackingStore()->set('operationStatus', $value);

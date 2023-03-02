@@ -175,7 +175,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the activityGroupNames property value. The activityGroupNames property
-     *  @param array<string>|null $value Value to set for the activityGroupNames property.
+     * @param array<string>|null $value Value to set for the activityGroupNames property.
     */
     public function setActivityGroupNames(?array $value): void {
         $this->getBackingStore()->set('activityGroupNames', $value);
@@ -183,7 +183,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the address property value. The address property
-     *  @param string|null $value Value to set for the address property.
+     * @param string|null $value Value to set for the address property.
     */
     public function setAddress(?string $value): void {
         $this->getBackingStore()->set('address', $value);
@@ -191,7 +191,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
-     *  @param string|null $value Value to set for the azureSubscriptionId property.
+     * @param string|null $value Value to set for the azureSubscriptionId property.
     */
     public function setAzureSubscriptionId(?string $value): void {
         $this->getBackingStore()->set('azureSubscriptionId', $value);
@@ -199,7 +199,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
-     *  @param string|null $value Value to set for the azureTenantId property.
+     * @param string|null $value Value to set for the azureTenantId property.
     */
     public function setAzureTenantId(?string $value): void {
         $this->getBackingStore()->set('azureTenantId', $value);
@@ -207,7 +207,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the countHits property value. The countHits property
-     *  @param int|null $value Value to set for the countHits property.
+     * @param int|null $value Value to set for the countHits property.
     */
     public function setCountHits(?int $value): void {
         $this->getBackingStore()->set('countHits', $value);
@@ -215,7 +215,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the countHosts property value. The countHosts property
-     *  @param int|null $value Value to set for the countHosts property.
+     * @param int|null $value Value to set for the countHosts property.
     */
     public function setCountHosts(?int $value): void {
         $this->getBackingStore()->set('countHosts', $value);
@@ -223,7 +223,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the firstSeenDateTime property value. The firstSeenDateTime property
-     *  @param DateTime|null $value Value to set for the firstSeenDateTime property.
+     * @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('firstSeenDateTime', $value);
@@ -231,7 +231,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the ipCategories property value. The ipCategories property
-     *  @param array<IpCategory>|null $value Value to set for the ipCategories property.
+     * @param array<IpCategory>|null $value Value to set for the ipCategories property.
     */
     public function setIpCategories(?array $value): void {
         $this->getBackingStore()->set('ipCategories', $value);
@@ -239,7 +239,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the ipReferenceData property value. The ipReferenceData property
-     *  @param array<IpReferenceData>|null $value Value to set for the ipReferenceData property.
+     * @param array<IpReferenceData>|null $value Value to set for the ipReferenceData property.
     */
     public function setIpReferenceData(?array $value): void {
         $this->getBackingStore()->set('ipReferenceData', $value);
@@ -247,7 +247,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the lastSeenDateTime property value. The lastSeenDateTime property
-     *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
+     * @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
     public function setLastSeenDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastSeenDateTime', $value);
@@ -255,7 +255,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the riskScore property value. The riskScore property
-     *  @param string|null $value Value to set for the riskScore property.
+     * @param string|null $value Value to set for the riskScore property.
     */
     public function setRiskScore(?string $value): void {
         $this->getBackingStore()->set('riskScore', $value);
@@ -263,7 +263,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the tags property value. The tags property
-     *  @param array<string>|null $value Value to set for the tags property.
+     * @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {
         $this->getBackingStore()->set('tags', $value);
@@ -271,7 +271,7 @@ class IpSecurityProfile extends Entity implements Parsable
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
-     *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
+     * @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
     public function setVendorInformation(?SecurityVendorInformation $value): void {
         $this->getBackingStore()->set('vendorInformation', $value);

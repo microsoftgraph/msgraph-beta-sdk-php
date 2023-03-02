@@ -28,4 +28,14 @@ class ConditionalAccessRule extends Enum {
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
     public const DEVICE_FILTER_INCLUDE_RULE_NOT_MATCHED = 'deviceFilterIncludeRuleNotMatched';
     public const ALL_DEVICE_STATES = 'allDeviceStates';
+    public const ANONYMIZED_I_P_ADDRESS = 'anonymizedIPAddress';
+    public const UNFAMILIAR_FEATURES = 'unfamiliarFeatures';
+    public const NATION_STATE_I_P_ADDRESS = 'nationStateIPAddress';
+    public const REAL_TIME_THREAT_INTELLIGENCE = 'realTimeThreatIntelligence';
+    public const INTERNAL_GUEST = 'internalGuest';
+    public const B2B_COLLABORATION_GUEST = 'b2bCollaborationGuest';
+    public const B2B_COLLABORATION_MEMBER = 'b2bCollaborationMember';
+    public const B2B_DIRECT_CONNECT_USER = 'b2bDirectConnectUser';
+    public const OTHER_EXTERNAL_USER = 'otherExternalUser';
+    public const SERVICE_PROVIDER = 'serviceProvider';
 }

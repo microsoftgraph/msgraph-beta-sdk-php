@@ -104,7 +104,7 @@ class UserSettings extends Entity implements Parsable
 
     /**
      * Sets the contactMergeSuggestions property value. The user's settings for the visibility of merge suggestion for the duplicate contacts in the user's contact list.
-     *  @param ContactMergeSuggestions|null $value Value to set for the contactMergeSuggestions property.
+     * @param ContactMergeSuggestions|null $value Value to set for the contactMergeSuggestions property.
     */
     public function setContactMergeSuggestions(?ContactMergeSuggestions $value): void {
         $this->getBackingStore()->set('contactMergeSuggestions', $value);
@@ -112,7 +112,7 @@ class UserSettings extends Entity implements Parsable
 
     /**
      * Sets the contributionToContentDiscoveryAsOrganizationDisabled property value. Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
-     *  @param bool|null $value Value to set for the contributionToContentDiscoveryAsOrganizationDisabled property.
+     * @param bool|null $value Value to set for the contributionToContentDiscoveryAsOrganizationDisabled property.
     */
     public function setContributionToContentDiscoveryAsOrganizationDisabled(?bool $value): void {
         $this->getBackingStore()->set('contributionToContentDiscoveryAsOrganizationDisabled', $value);
@@ -120,7 +120,7 @@ class UserSettings extends Entity implements Parsable
 
     /**
      * Sets the contributionToContentDiscoveryDisabled property value. When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
-     *  @param bool|null $value Value to set for the contributionToContentDiscoveryDisabled property.
+     * @param bool|null $value Value to set for the contributionToContentDiscoveryDisabled property.
     */
     public function setContributionToContentDiscoveryDisabled(?bool $value): void {
         $this->getBackingStore()->set('contributionToContentDiscoveryDisabled', $value);
@@ -128,7 +128,7 @@ class UserSettings extends Entity implements Parsable
 
     /**
      * Sets the itemInsights property value. The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
-     *  @param UserInsightsSettings|null $value Value to set for the itemInsights property.
+     * @param UserInsightsSettings|null $value Value to set for the itemInsights property.
     */
     public function setItemInsights(?UserInsightsSettings $value): void {
         $this->getBackingStore()->set('itemInsights', $value);
@@ -136,7 +136,7 @@ class UserSettings extends Entity implements Parsable
 
     /**
      * Sets the regionalAndLanguageSettings property value. The user's preferences for languages, regional locale and date/time formatting.
-     *  @param RegionalAndLanguageSettings|null $value Value to set for the regionalAndLanguageSettings property.
+     * @param RegionalAndLanguageSettings|null $value Value to set for the regionalAndLanguageSettings property.
     */
     public function setRegionalAndLanguageSettings(?RegionalAndLanguageSettings $value): void {
         $this->getBackingStore()->set('regionalAndLanguageSettings', $value);
@@ -144,7 +144,7 @@ class UserSettings extends Entity implements Parsable
 
     /**
      * Sets the shiftPreferences property value. The shift preferences for the user.
-     *  @param ShiftPreferences|null $value Value to set for the shiftPreferences property.
+     * @param ShiftPreferences|null $value Value to set for the shiftPreferences property.
     */
     public function setShiftPreferences(?ShiftPreferences $value): void {
         $this->getBackingStore()->set('shiftPreferences', $value);

@@ -165,7 +165,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the cameraConfiguration property value. The camera configuration. Applicable only for Microsoft Teams Rooms-enabled devices.
-     *  @param TeamworkCameraConfiguration|null $value Value to set for the cameraConfiguration property.
+     * @param TeamworkCameraConfiguration|null $value Value to set for the cameraConfiguration property.
     */
     public function setCameraConfiguration(?TeamworkCameraConfiguration $value): void {
         $this->getBackingStore()->set('cameraConfiguration', $value);
@@ -173,7 +173,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the createdBy property value. Identity of the user who created the device configuration document.
-     *  @param IdentitySet|null $value Value to set for the createdBy property.
+     * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('createdBy', $value);
@@ -181,7 +181,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The UTC date and time when the device configuration document was created.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -189,7 +189,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the displayConfiguration property value. The display configuration.
-     *  @param TeamworkDisplayConfiguration|null $value Value to set for the displayConfiguration property.
+     * @param TeamworkDisplayConfiguration|null $value Value to set for the displayConfiguration property.
     */
     public function setDisplayConfiguration(?TeamworkDisplayConfiguration $value): void {
         $this->getBackingStore()->set('displayConfiguration', $value);
@@ -197,7 +197,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the hardwareConfiguration property value. The hardware configuration. Applicable only for Teams Rooms-enabled devices.
-     *  @param TeamworkHardwareConfiguration|null $value Value to set for the hardwareConfiguration property.
+     * @param TeamworkHardwareConfiguration|null $value Value to set for the hardwareConfiguration property.
     */
     public function setHardwareConfiguration(?TeamworkHardwareConfiguration $value): void {
         $this->getBackingStore()->set('hardwareConfiguration', $value);
@@ -205,7 +205,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedBy property value. Identity of the user who last modified the device configuration.
-     *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
         $this->getBackingStore()->set('lastModifiedBy', $value);
@@ -213,7 +213,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The UTC date and time when the device configuration was last modified.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -221,7 +221,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the microphoneConfiguration property value. The microphone configuration. Applicable only for Teams Rooms-enabled devices.
-     *  @param TeamworkMicrophoneConfiguration|null $value Value to set for the microphoneConfiguration property.
+     * @param TeamworkMicrophoneConfiguration|null $value Value to set for the microphoneConfiguration property.
     */
     public function setMicrophoneConfiguration(?TeamworkMicrophoneConfiguration $value): void {
         $this->getBackingStore()->set('microphoneConfiguration', $value);
@@ -229,7 +229,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the softwareVersions property value. Information related to software versions for the device, such as firmware, operating system, Teams client, and admin agent.
-     *  @param TeamworkDeviceSoftwareVersions|null $value Value to set for the softwareVersions property.
+     * @param TeamworkDeviceSoftwareVersions|null $value Value to set for the softwareVersions property.
     */
     public function setSoftwareVersions(?TeamworkDeviceSoftwareVersions $value): void {
         $this->getBackingStore()->set('softwareVersions', $value);
@@ -237,7 +237,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the speakerConfiguration property value. The speaker configuration. Applicable only for Teams Rooms-enabled devices.
-     *  @param TeamworkSpeakerConfiguration|null $value Value to set for the speakerConfiguration property.
+     * @param TeamworkSpeakerConfiguration|null $value Value to set for the speakerConfiguration property.
     */
     public function setSpeakerConfiguration(?TeamworkSpeakerConfiguration $value): void {
         $this->getBackingStore()->set('speakerConfiguration', $value);
@@ -245,7 +245,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the systemConfiguration property value. The system configuration. Not applicable for Teams Rooms-enabled devices.
-     *  @param TeamworkSystemConfiguration|null $value Value to set for the systemConfiguration property.
+     * @param TeamworkSystemConfiguration|null $value Value to set for the systemConfiguration property.
     */
     public function setSystemConfiguration(?TeamworkSystemConfiguration $value): void {
         $this->getBackingStore()->set('systemConfiguration', $value);
@@ -253,7 +253,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
 
     /**
      * Sets the teamsClientConfiguration property value. The Teams client configuration. Applicable only for Teams Rooms-enabled devices.
-     *  @param TeamworkTeamsClientConfiguration|null $value Value to set for the teamsClientConfiguration property.
+     * @param TeamworkTeamsClientConfiguration|null $value Value to set for the teamsClientConfiguration property.
     */
     public function setTeamsClientConfiguration(?TeamworkTeamsClientConfiguration $value): void {
         $this->getBackingStore()->set('teamsClientConfiguration', $value);

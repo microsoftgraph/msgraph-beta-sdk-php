@@ -335,7 +335,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the appearanceScreenDisabled property value. Indicates if Apperance screen is disabled
-     *  @param bool|null $value Value to set for the appearanceScreenDisabled property.
+     * @param bool|null $value Value to set for the appearanceScreenDisabled property.
     */
     public function setAppearanceScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('appearanceScreenDisabled', $value);
@@ -343,7 +343,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the awaitDeviceConfiguredConfirmation property value. Indicates if the device will need to wait for configured confirmation
-     *  @param bool|null $value Value to set for the awaitDeviceConfiguredConfirmation property.
+     * @param bool|null $value Value to set for the awaitDeviceConfiguredConfirmation property.
     */
     public function setAwaitDeviceConfiguredConfirmation(?bool $value): void {
         $this->getBackingStore()->set('awaitDeviceConfiguredConfirmation', $value);
@@ -351,7 +351,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the carrierActivationUrl property value. Carrier URL for activating device eSIM.
-     *  @param string|null $value Value to set for the carrierActivationUrl property.
+     * @param string|null $value Value to set for the carrierActivationUrl property.
     */
     public function setCarrierActivationUrl(?string $value): void {
         $this->getBackingStore()->set('carrierActivationUrl', $value);
@@ -359,7 +359,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the companyPortalVppTokenId property value. If set, indicates which Vpp token should be used to deploy the Company Portal w/ device licensing. 'enableAuthenticationViaCompanyPortal' must be set in order for this property to be set.
-     *  @param string|null $value Value to set for the companyPortalVppTokenId property.
+     * @param string|null $value Value to set for the companyPortalVppTokenId property.
     */
     public function setCompanyPortalVppTokenId(?string $value): void {
         $this->getBackingStore()->set('companyPortalVppTokenId', $value);
@@ -367,7 +367,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the deviceToDeviceMigrationDisabled property value. Indicates if Device To Device Migration is disabled
-     *  @param bool|null $value Value to set for the deviceToDeviceMigrationDisabled property.
+     * @param bool|null $value Value to set for the deviceToDeviceMigrationDisabled property.
     */
     public function setDeviceToDeviceMigrationDisabled(?bool $value): void {
         $this->getBackingStore()->set('deviceToDeviceMigrationDisabled', $value);
@@ -375,7 +375,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the enableSharedIPad property value. This indicates whether the device is to be enrolled in a mode which enables multi user scenarios. Only applicable in shared iPads.
-     *  @param bool|null $value Value to set for the enableSharedIPad property.
+     * @param bool|null $value Value to set for the enableSharedIPad property.
     */
     public function setEnableSharedIPad(?bool $value): void {
         $this->getBackingStore()->set('enableSharedIPad', $value);
@@ -383,7 +383,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the enableSingleAppEnrollmentMode property value. Tells the device to enable single app mode and apply app-lock during enrollment. Default is false. 'enableAuthenticationViaCompanyPortal' and 'companyPortalVppTokenId' must be set for this property to be set.
-     *  @param bool|null $value Value to set for the enableSingleAppEnrollmentMode property.
+     * @param bool|null $value Value to set for the enableSingleAppEnrollmentMode property.
     */
     public function setEnableSingleAppEnrollmentMode(?bool $value): void {
         $this->getBackingStore()->set('enableSingleAppEnrollmentMode', $value);
@@ -391,7 +391,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the expressLanguageScreenDisabled property value. Indicates if Express Language screen is disabled
-     *  @param bool|null $value Value to set for the expressLanguageScreenDisabled property.
+     * @param bool|null $value Value to set for the expressLanguageScreenDisabled property.
     */
     public function setExpressLanguageScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('expressLanguageScreenDisabled', $value);
@@ -399,7 +399,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the forceTemporarySession property value. Indicates if temporary sessions is enabled
-     *  @param bool|null $value Value to set for the forceTemporarySession property.
+     * @param bool|null $value Value to set for the forceTemporarySession property.
     */
     public function setForceTemporarySession(?bool $value): void {
         $this->getBackingStore()->set('forceTemporarySession', $value);
@@ -407,7 +407,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the homeButtonScreenDisabled property value. Indicates if home button sensitivity screen is disabled
-     *  @param bool|null $value Value to set for the homeButtonScreenDisabled property.
+     * @param bool|null $value Value to set for the homeButtonScreenDisabled property.
     */
     public function setHomeButtonScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('homeButtonScreenDisabled', $value);
@@ -415,7 +415,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the iMessageAndFaceTimeScreenDisabled property value. Indicates if iMessage and FaceTime screen is disabled
-     *  @param bool|null $value Value to set for the iMessageAndFaceTimeScreenDisabled property.
+     * @param bool|null $value Value to set for the iMessageAndFaceTimeScreenDisabled property.
     */
     public function setIMessageAndFaceTimeScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('iMessageAndFaceTimeScreenDisabled', $value);
@@ -423,7 +423,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the iTunesPairingMode property value. The iTunesPairingMode property
-     *  @param ITunesPairingMode|null $value Value to set for the iTunesPairingMode property.
+     * @param ITunesPairingMode|null $value Value to set for the iTunesPairingMode property.
     */
     public function setITunesPairingMode(?ITunesPairingMode $value): void {
         $this->getBackingStore()->set('iTunesPairingMode', $value);
@@ -431,7 +431,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the managementCertificates property value. Management certificates for Apple Configurator
-     *  @param array<ManagementCertificateWithThumbprint>|null $value Value to set for the managementCertificates property.
+     * @param array<ManagementCertificateWithThumbprint>|null $value Value to set for the managementCertificates property.
     */
     public function setManagementCertificates(?array $value): void {
         $this->getBackingStore()->set('managementCertificates', $value);
@@ -439,7 +439,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the onBoardingScreenDisabled property value. Indicates if onboarding setup screen is disabled
-     *  @param bool|null $value Value to set for the onBoardingScreenDisabled property.
+     * @param bool|null $value Value to set for the onBoardingScreenDisabled property.
     */
     public function setOnBoardingScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('onBoardingScreenDisabled', $value);
@@ -447,7 +447,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the passCodeDisabled property value. Indicates if Passcode setup pane is disabled
-     *  @param bool|null $value Value to set for the passCodeDisabled property.
+     * @param bool|null $value Value to set for the passCodeDisabled property.
     */
     public function setPassCodeDisabled(?bool $value): void {
         $this->getBackingStore()->set('passCodeDisabled', $value);
@@ -455,7 +455,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the passcodeLockGracePeriodInSeconds property value. Indicates timeout before locked screen requires the user to enter the device passocde to unlock it
-     *  @param int|null $value Value to set for the passcodeLockGracePeriodInSeconds property.
+     * @param int|null $value Value to set for the passcodeLockGracePeriodInSeconds property.
     */
     public function setPasscodeLockGracePeriodInSeconds(?int $value): void {
         $this->getBackingStore()->set('passcodeLockGracePeriodInSeconds', $value);
@@ -463,7 +463,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the preferredLanguageScreenDisabled property value. Indicates if Preferred language screen is disabled
-     *  @param bool|null $value Value to set for the preferredLanguageScreenDisabled property.
+     * @param bool|null $value Value to set for the preferredLanguageScreenDisabled property.
     */
     public function setPreferredLanguageScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('preferredLanguageScreenDisabled', $value);
@@ -471,7 +471,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the restoreCompletedScreenDisabled property value. Indicates if Weclome screen is disabled
-     *  @param bool|null $value Value to set for the restoreCompletedScreenDisabled property.
+     * @param bool|null $value Value to set for the restoreCompletedScreenDisabled property.
     */
     public function setRestoreCompletedScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('restoreCompletedScreenDisabled', $value);
@@ -479,7 +479,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the restoreFromAndroidDisabled property value. Indicates if Restore from Android is disabled
-     *  @param bool|null $value Value to set for the restoreFromAndroidDisabled property.
+     * @param bool|null $value Value to set for the restoreFromAndroidDisabled property.
     */
     public function setRestoreFromAndroidDisabled(?bool $value): void {
         $this->getBackingStore()->set('restoreFromAndroidDisabled', $value);
@@ -487,7 +487,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the sharedIPadMaximumUserCount property value. This specifies the maximum number of users that can use a shared iPad. Only applicable in shared iPad mode.
-     *  @param int|null $value Value to set for the sharedIPadMaximumUserCount property.
+     * @param int|null $value Value to set for the sharedIPadMaximumUserCount property.
     */
     public function setSharedIPadMaximumUserCount(?int $value): void {
         $this->getBackingStore()->set('sharedIPadMaximumUserCount', $value);
@@ -495,7 +495,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the simSetupScreenDisabled property value. Indicates if the SIMSetup screen is disabled
-     *  @param bool|null $value Value to set for the simSetupScreenDisabled property.
+     * @param bool|null $value Value to set for the simSetupScreenDisabled property.
     */
     public function setSimSetupScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('simSetupScreenDisabled', $value);
@@ -503,7 +503,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the softwareUpdateScreenDisabled property value. Indicates if the mandatory sofware update screen is disabled
-     *  @param bool|null $value Value to set for the softwareUpdateScreenDisabled property.
+     * @param bool|null $value Value to set for the softwareUpdateScreenDisabled property.
     */
     public function setSoftwareUpdateScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('softwareUpdateScreenDisabled', $value);
@@ -511,7 +511,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the temporarySessionTimeoutInSeconds property value. Indicates timeout of temporary session
-     *  @param int|null $value Value to set for the temporarySessionTimeoutInSeconds property.
+     * @param int|null $value Value to set for the temporarySessionTimeoutInSeconds property.
     */
     public function setTemporarySessionTimeoutInSeconds(?int $value): void {
         $this->getBackingStore()->set('temporarySessionTimeoutInSeconds', $value);
@@ -519,7 +519,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the updateCompleteScreenDisabled property value. Indicates if Weclome screen is disabled
-     *  @param bool|null $value Value to set for the updateCompleteScreenDisabled property.
+     * @param bool|null $value Value to set for the updateCompleteScreenDisabled property.
     */
     public function setUpdateCompleteScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('updateCompleteScreenDisabled', $value);
@@ -527,7 +527,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the userlessSharedAadModeEnabled property value. Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://learn.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
-     *  @param bool|null $value Value to set for the userlessSharedAadModeEnabled property.
+     * @param bool|null $value Value to set for the userlessSharedAadModeEnabled property.
     */
     public function setUserlessSharedAadModeEnabled(?bool $value): void {
         $this->getBackingStore()->set('userlessSharedAadModeEnabled', $value);
@@ -535,7 +535,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the userSessionTimeoutInSeconds property value. Indicates timeout of temporary session
-     *  @param int|null $value Value to set for the userSessionTimeoutInSeconds property.
+     * @param int|null $value Value to set for the userSessionTimeoutInSeconds property.
     */
     public function setUserSessionTimeoutInSeconds(?int $value): void {
         $this->getBackingStore()->set('userSessionTimeoutInSeconds', $value);
@@ -543,7 +543,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the watchMigrationScreenDisabled property value. Indicates if the watch migration screen is disabled
-     *  @param bool|null $value Value to set for the watchMigrationScreenDisabled property.
+     * @param bool|null $value Value to set for the watchMigrationScreenDisabled property.
     */
     public function setWatchMigrationScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('watchMigrationScreenDisabled', $value);
@@ -551,7 +551,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the welcomeScreenDisabled property value. Indicates if Weclome screen is disabled
-     *  @param bool|null $value Value to set for the welcomeScreenDisabled property.
+     * @param bool|null $value Value to set for the welcomeScreenDisabled property.
     */
     public function setWelcomeScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('welcomeScreenDisabled', $value);
@@ -559,7 +559,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
 
     /**
      * Sets the zoomDisabled property value. Indicates if zoom setup pane is disabled
-     *  @param bool|null $value Value to set for the zoomDisabled property.
+     * @param bool|null $value Value to set for the zoomDisabled property.
     */
     public function setZoomDisabled(?bool $value): void {
         $this->getBackingStore()->set('zoomDisabled', $value);

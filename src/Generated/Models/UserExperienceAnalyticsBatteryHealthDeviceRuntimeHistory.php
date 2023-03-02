@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The user experience analytics battery health runtime history entity contains the trend of runtime of a device over a period of 30 days
+*/
 class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity implements Parsable 
 {
     /**
@@ -74,7 +77,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
 
     /**
      * Sets the deviceId property value. The unique identifier of the device, Intune DeviceID or SCCM device id.
-     *  @param string|null $value Value to set for the deviceId property.
+     * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
         $this->getBackingStore()->set('deviceId', $value);
@@ -82,7 +85,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
 
     /**
      * Sets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the estimatedRuntimeInMinutes property.
+     * @param int|null $value Value to set for the estimatedRuntimeInMinutes property.
     */
     public function setEstimatedRuntimeInMinutes(?int $value): void {
         $this->getBackingStore()->set('estimatedRuntimeInMinutes', $value);
@@ -90,7 +93,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
 
     /**
      * Sets the runtimeDateTime property value. The datetime for the instance of runtime history.
-     *  @param string|null $value Value to set for the runtimeDateTime property.
+     * @param string|null $value Value to set for the runtimeDateTime property.
     */
     public function setRuntimeDateTime(?string $value): void {
         $this->getBackingStore()->set('runtimeDateTime', $value);

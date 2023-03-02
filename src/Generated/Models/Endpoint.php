@@ -95,7 +95,7 @@ class Endpoint extends DirectoryObject implements Parsable
 
     /**
      * Sets the capability property value. Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.) Not nullable. Read-only.
-     *  @param string|null $value Value to set for the capability property.
+     * @param string|null $value Value to set for the capability property.
     */
     public function setCapability(?string $value): void {
         $this->getBackingStore()->set('capability', $value);
@@ -103,7 +103,7 @@ class Endpoint extends DirectoryObject implements Parsable
 
     /**
      * Sets the providerId property value. Application id of the publishing underlying service. Not nullable. Read-only.
-     *  @param string|null $value Value to set for the providerId property.
+     * @param string|null $value Value to set for the providerId property.
     */
     public function setProviderId(?string $value): void {
         $this->getBackingStore()->set('providerId', $value);
@@ -111,7 +111,7 @@ class Endpoint extends DirectoryObject implements Parsable
 
     /**
      * Sets the providerName property value. Name of the publishing underlying service. Read-only.
-     *  @param string|null $value Value to set for the providerName property.
+     * @param string|null $value Value to set for the providerName property.
     */
     public function setProviderName(?string $value): void {
         $this->getBackingStore()->set('providerName', $value);
@@ -119,7 +119,7 @@ class Endpoint extends DirectoryObject implements Parsable
 
     /**
      * Sets the providerResourceId property value. For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.
-     *  @param string|null $value Value to set for the providerResourceId property.
+     * @param string|null $value Value to set for the providerResourceId property.
     */
     public function setProviderResourceId(?string $value): void {
         $this->getBackingStore()->set('providerResourceId', $value);
@@ -127,7 +127,7 @@ class Endpoint extends DirectoryObject implements Parsable
 
     /**
      * Sets the uri property value. URL of the published resource. Not nullable. Read-only.
-     *  @param string|null $value Value to set for the uri property.
+     * @param string|null $value Value to set for the uri property.
     */
     public function setUri(?string $value): void {
         $this->getBackingStore()->set('uri', $value);

@@ -55,7 +55,7 @@ class BusinessFlowSettings extends AccessReviewSettings implements Parsable
 
     /**
      * Sets the durationInDays property value. The durationInDays property
-     *  @param int|null $value Value to set for the durationInDays property.
+     * @param int|null $value Value to set for the durationInDays property.
     */
     public function setDurationInDays(?int $value): void {
         $this->getBackingStore()->set('durationInDays', $value);

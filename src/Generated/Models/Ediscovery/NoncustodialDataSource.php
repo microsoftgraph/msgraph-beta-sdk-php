@@ -65,7 +65,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
 
     /**
      * Sets the applyHoldToSource property value. Indicates if hold is applied to non-custodial data source (such as mailbox or site).
-     *  @param bool|null $value Value to set for the applyHoldToSource property.
+     * @param bool|null $value Value to set for the applyHoldToSource property.
     */
     public function setApplyHoldToSource(?bool $value): void {
         $this->getBackingStore()->set('applyHoldToSource', $value);
@@ -73,7 +73,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
 
     /**
      * Sets the dataSource property value. User source or SharePoint site data source as non-custodial data source.
-     *  @param DataSource|null $value Value to set for the dataSource property.
+     * @param DataSource|null $value Value to set for the dataSource property.
     */
     public function setDataSource(?DataSource $value): void {
         $this->getBackingStore()->set('dataSource', $value);

@@ -36,7 +36,7 @@ class BusinessScenarioPlanReference extends Entity implements Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. The title property of the plannerPlan.
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -53,8 +53,8 @@ class BusinessScenarioPlanReference extends Entity implements Parsable
     }
 
     /**
-     * Sets the title property value. The title property
-     *  @param string|null $value Value to set for the title property.
+     * Sets the title property value. The title property of the plannerPlan.
+     * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
         $this->getBackingStore()->set('title', $value);

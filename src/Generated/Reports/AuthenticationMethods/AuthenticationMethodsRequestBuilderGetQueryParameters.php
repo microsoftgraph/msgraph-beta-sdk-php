@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Container for navigation properties for Azure AD authentication methods resources.
+*/
 class AuthenticationMethodsRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class AuthenticationMethodsRequestBuilderGetQueryParameters
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new authenticationMethodsRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

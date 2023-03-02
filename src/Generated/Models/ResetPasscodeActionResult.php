@@ -64,7 +64,7 @@ class ResetPasscodeActionResult extends DeviceActionResult implements Parsable
 
     /**
      * Sets the errorCode property value. RotateBitLockerKeys action error code. Valid values 0 to 2147483647
-     *  @param int|null $value Value to set for the errorCode property.
+     * @param int|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?int $value): void {
         $this->getBackingStore()->set('errorCode', $value);
@@ -72,7 +72,7 @@ class ResetPasscodeActionResult extends DeviceActionResult implements Parsable
 
     /**
      * Sets the passcode property value. Newly generated passcode for the device
-     *  @param string|null $value Value to set for the passcode property.
+     * @param string|null $value Value to set for the passcode property.
     */
     public function setPasscode(?string $value): void {
         $this->getBackingStore()->set('passcode', $value);

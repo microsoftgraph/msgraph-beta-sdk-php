@@ -135,7 +135,7 @@ class ProgramControl extends Entity implements Parsable
 
     /**
      * Sets the controlId property value. The controlId of the control, in particular the identifier of an access review. Required on create.
-     *  @param string|null $value Value to set for the controlId property.
+     * @param string|null $value Value to set for the controlId property.
     */
     public function setControlId(?string $value): void {
         $this->getBackingStore()->set('controlId', $value);
@@ -143,7 +143,7 @@ class ProgramControl extends Entity implements Parsable
 
     /**
      * Sets the controlTypeId property value. The programControlType identifies the type of program control - for example, a control linking to guest access reviews. Required on create.
-     *  @param string|null $value Value to set for the controlTypeId property.
+     * @param string|null $value Value to set for the controlTypeId property.
     */
     public function setControlTypeId(?string $value): void {
         $this->getBackingStore()->set('controlTypeId', $value);
@@ -151,7 +151,7 @@ class ProgramControl extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The creation date and time of the program control.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -159,7 +159,7 @@ class ProgramControl extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The name of the control.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -167,7 +167,7 @@ class ProgramControl extends Entity implements Parsable
 
     /**
      * Sets the owner property value. The user who created the program control.
-     *  @param UserIdentity|null $value Value to set for the owner property.
+     * @param UserIdentity|null $value Value to set for the owner property.
     */
     public function setOwner(?UserIdentity $value): void {
         $this->getBackingStore()->set('owner', $value);
@@ -175,7 +175,7 @@ class ProgramControl extends Entity implements Parsable
 
     /**
      * Sets the program property value. The program this control is part of.
-     *  @param Program|null $value Value to set for the program property.
+     * @param Program|null $value Value to set for the program property.
     */
     public function setProgram(?Program $value): void {
         $this->getBackingStore()->set('program', $value);
@@ -183,7 +183,7 @@ class ProgramControl extends Entity implements Parsable
 
     /**
      * Sets the programId property value. The programId of the program this control is a part of. Required on create.
-     *  @param string|null $value Value to set for the programId property.
+     * @param string|null $value Value to set for the programId property.
     */
     public function setProgramId(?string $value): void {
         $this->getBackingStore()->set('programId', $value);
@@ -191,7 +191,7 @@ class ProgramControl extends Entity implements Parsable
 
     /**
      * Sets the resource property value. The resource, a group or an app, targeted by this program control's access review.
-     *  @param ProgramResource|null $value Value to set for the resource property.
+     * @param ProgramResource|null $value Value to set for the resource property.
     */
     public function setResource(?ProgramResource $value): void {
         $this->getBackingStore()->set('resource', $value);
@@ -199,7 +199,7 @@ class ProgramControl extends Entity implements Parsable
 
     /**
      * Sets the status property value. The life cycle status of the control.
-     *  @param string|null $value Value to set for the status property.
+     * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {
         $this->getBackingStore()->set('status', $value);

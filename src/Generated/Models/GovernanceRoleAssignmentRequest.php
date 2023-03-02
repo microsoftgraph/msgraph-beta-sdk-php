@@ -175,7 +175,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the assignmentState property value. Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users).
-     *  @param string|null $value Value to set for the assignmentState property.
+     * @param string|null $value Value to set for the assignmentState property.
     */
     public function setAssignmentState(?string $value): void {
         $this->getBackingStore()->set('assignmentState', $value);
@@ -183,7 +183,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the linkedEligibleRoleAssignmentId property value. If this is a request for role activation, it represents the id of the eligible assignment being referred; Otherwise, the value is null.
-     *  @param string|null $value Value to set for the linkedEligibleRoleAssignmentId property.
+     * @param string|null $value Value to set for the linkedEligibleRoleAssignmentId property.
     */
     public function setLinkedEligibleRoleAssignmentId(?string $value): void {
         $this->getBackingStore()->set('linkedEligibleRoleAssignmentId', $value);
@@ -191,7 +191,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the reason property value. A message provided by users and administrators when create the request about why it is needed.
-     *  @param string|null $value Value to set for the reason property.
+     * @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value): void {
         $this->getBackingStore()->set('reason', $value);
@@ -199,7 +199,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the requestedDateTime property value. Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the requestedDateTime property.
+     * @param DateTime|null $value Value to set for the requestedDateTime property.
     */
     public function setRequestedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('requestedDateTime', $value);
@@ -207,7 +207,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the resource property value. Read-only. The resource that the request aims to.
-     *  @param GovernanceResource|null $value Value to set for the resource property.
+     * @param GovernanceResource|null $value Value to set for the resource property.
     */
     public function setResource(?GovernanceResource $value): void {
         $this->getBackingStore()->set('resource', $value);
@@ -215,7 +215,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the resourceId property value. Required. The unique identifier of the Azure resource that is associated with the role assignment request. Azure resources can include subscriptions, resource groups, virtual machines, and SQL databases.
-     *  @param string|null $value Value to set for the resourceId property.
+     * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
         $this->getBackingStore()->set('resourceId', $value);
@@ -223,7 +223,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the roleDefinition property value. Read-only. The role definition that the request aims to.
-     *  @param GovernanceRoleDefinition|null $value Value to set for the roleDefinition property.
+     * @param GovernanceRoleDefinition|null $value Value to set for the roleDefinition property.
     */
     public function setRoleDefinition(?GovernanceRoleDefinition $value): void {
         $this->getBackingStore()->set('roleDefinition', $value);
@@ -231,7 +231,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the roleDefinitionId property value. Required. The identifier of the Azure role definition that the role assignment request is associated with.
-     *  @param string|null $value Value to set for the roleDefinitionId property.
+     * @param string|null $value Value to set for the roleDefinitionId property.
     */
     public function setRoleDefinitionId(?string $value): void {
         $this->getBackingStore()->set('roleDefinitionId', $value);
@@ -239,7 +239,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the schedule property value. The schedule object of the role assignment request.
-     *  @param GovernanceSchedule|null $value Value to set for the schedule property.
+     * @param GovernanceSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?GovernanceSchedule $value): void {
         $this->getBackingStore()->set('schedule', $value);
@@ -247,7 +247,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status of the role assignment request.
-     *  @param GovernanceRoleAssignmentRequestStatus|null $value Value to set for the status property.
+     * @param GovernanceRoleAssignmentRequestStatus|null $value Value to set for the status property.
     */
     public function setStatus(?GovernanceRoleAssignmentRequestStatus $value): void {
         $this->getBackingStore()->set('status', $value);
@@ -255,7 +255,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the subject property value. Read-only. The user/group principal.
-     *  @param GovernanceSubject|null $value Value to set for the subject property.
+     * @param GovernanceSubject|null $value Value to set for the subject property.
     */
     public function setSubject(?GovernanceSubject $value): void {
         $this->getBackingStore()->set('subject', $value);
@@ -263,7 +263,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the subjectId property value. Required. The unique identifier of the principal or subject that the role assignment request is associated with. Principals can be users, groups, or service principals.
-     *  @param string|null $value Value to set for the subjectId property.
+     * @param string|null $value Value to set for the subjectId property.
     */
     public function setSubjectId(?string $value): void {
         $this->getBackingStore()->set('subjectId', $value);
@@ -271,7 +271,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
 
     /**
      * Sets the type property value. Required. Representing the type of the operation on the role assignment. The possible values are: AdminAdd , UserAdd , AdminUpdate , AdminRemove , UserRemove , UserExtend , AdminExtend , UserRenew , AdminRenew.
-     *  @param string|null $value Value to set for the type property.
+     * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);

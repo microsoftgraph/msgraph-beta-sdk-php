@@ -155,7 +155,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the adminEligibleSettings property value. The rule settings that are evaluated when an administrator tries to add an eligible role assignment.
-     *  @param array<GovernanceRuleSetting>|null $value Value to set for the adminEligibleSettings property.
+     * @param array<GovernanceRuleSetting>|null $value Value to set for the adminEligibleSettings property.
     */
     public function setAdminEligibleSettings(?array $value): void {
         $this->getBackingStore()->set('adminEligibleSettings', $value);
@@ -163,7 +163,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the adminMemberSettings property value. The rule settings that are evaluated when an administrator tries to add a direct member role assignment.
-     *  @param array<GovernanceRuleSetting>|null $value Value to set for the adminMemberSettings property.
+     * @param array<GovernanceRuleSetting>|null $value Value to set for the adminMemberSettings property.
     */
     public function setAdminMemberSettings(?array $value): void {
         $this->getBackingStore()->set('adminMemberSettings', $value);
@@ -171,7 +171,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the isDefault property value. Read-only. Indicate if the roleSetting is a default roleSetting
-     *  @param bool|null $value Value to set for the isDefault property.
+     * @param bool|null $value Value to set for the isDefault property.
     */
     public function setIsDefault(?bool $value): void {
         $this->getBackingStore()->set('isDefault', $value);
@@ -179,7 +179,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the lastUpdatedBy property value. Read-only. The display name of the administrator who last updated the roleSetting.
-     *  @param string|null $value Value to set for the lastUpdatedBy property.
+     * @param string|null $value Value to set for the lastUpdatedBy property.
     */
     public function setLastUpdatedBy(?string $value): void {
         $this->getBackingStore()->set('lastUpdatedBy', $value);
@@ -187,7 +187,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the lastUpdatedDateTime property value. Read-only. The time when the role setting was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -195,7 +195,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the resource property value. Read-only. The associated resource for this role setting.
-     *  @param GovernanceResource|null $value Value to set for the resource property.
+     * @param GovernanceResource|null $value Value to set for the resource property.
     */
     public function setResource(?GovernanceResource $value): void {
         $this->getBackingStore()->set('resource', $value);
@@ -203,7 +203,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the resourceId property value. Required. The id of the resource that the role setting is associated with.
-     *  @param string|null $value Value to set for the resourceId property.
+     * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {
         $this->getBackingStore()->set('resourceId', $value);
@@ -211,7 +211,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the roleDefinition property value. Read-only. The role definition that is enforced with this role setting.
-     *  @param GovernanceRoleDefinition|null $value Value to set for the roleDefinition property.
+     * @param GovernanceRoleDefinition|null $value Value to set for the roleDefinition property.
     */
     public function setRoleDefinition(?GovernanceRoleDefinition $value): void {
         $this->getBackingStore()->set('roleDefinition', $value);
@@ -219,7 +219,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the roleDefinitionId property value. Required. The id of the role definition that the role setting is associated with.
-     *  @param string|null $value Value to set for the roleDefinitionId property.
+     * @param string|null $value Value to set for the roleDefinitionId property.
     */
     public function setRoleDefinitionId(?string $value): void {
         $this->getBackingStore()->set('roleDefinitionId', $value);
@@ -227,7 +227,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the userEligibleSettings property value. The rule settings that are evaluated when a user tries to add an eligible role assignment. The setting is not supported for now.
-     *  @param array<GovernanceRuleSetting>|null $value Value to set for the userEligibleSettings property.
+     * @param array<GovernanceRuleSetting>|null $value Value to set for the userEligibleSettings property.
     */
     public function setUserEligibleSettings(?array $value): void {
         $this->getBackingStore()->set('userEligibleSettings', $value);
@@ -235,7 +235,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
 
     /**
      * Sets the userMemberSettings property value. The rule settings that are evaluated when a user tries to activate his role assignment.
-     *  @param array<GovernanceRuleSetting>|null $value Value to set for the userMemberSettings property.
+     * @param array<GovernanceRuleSetting>|null $value Value to set for the userMemberSettings property.
     */
     public function setUserMemberSettings(?array $value): void {
         $this->getBackingStore()->set('userMemberSettings', $value);

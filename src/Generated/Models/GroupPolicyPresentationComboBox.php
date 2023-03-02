@@ -85,7 +85,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
 
     /**
      * Sets the defaultValue property value. Localized default string displayed in the combo box. The default value is empty.
-     *  @param string|null $value Value to set for the defaultValue property.
+     * @param string|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?string $value): void {
         $this->getBackingStore()->set('defaultValue', $value);
@@ -93,7 +93,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
 
     /**
      * Sets the maxLength property value. An unsigned integer that specifies the maximum number of text characters for the parameter. The default value is 1023.
-     *  @param int|null $value Value to set for the maxLength property.
+     * @param int|null $value Value to set for the maxLength property.
     */
     public function setMaxLength(?int $value): void {
         $this->getBackingStore()->set('maxLength', $value);
@@ -101,7 +101,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
 
     /**
      * Sets the required property value. Specifies whether a value must be specified for the parameter. The default value is false.
-     *  @param bool|null $value Value to set for the required property.
+     * @param bool|null $value Value to set for the required property.
     */
     public function setRequired(?bool $value): void {
         $this->getBackingStore()->set('required', $value);
@@ -109,7 +109,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
 
     /**
      * Sets the suggestions property value. Localized strings listed in the drop-down list of the combo box. The default value is empty.
-     *  @param array<string>|null $value Value to set for the suggestions property.
+     * @param array<string>|null $value Value to set for the suggestions property.
     */
     public function setSuggestions(?array $value): void {
         $this->getBackingStore()->set('suggestions', $value);

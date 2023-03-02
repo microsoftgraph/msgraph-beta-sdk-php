@@ -36,7 +36,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -170,7 +170,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -178,7 +178,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -186,7 +186,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -194,7 +194,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the permanentFail property value. The permanentFail property
-     *  @param int|null $value Value to set for the permanentFail property.
+     * @param int|null $value Value to set for the permanentFail property.
     */
     public function setPermanentFail(?int $value): void {
         $this->getBackingStore()->set('permanentFail', $value);
@@ -202,7 +202,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the permanentSuccess property value. The permanentSuccess property
-     *  @param int|null $value Value to set for the permanentSuccess property.
+     * @param int|null $value Value to set for the permanentSuccess property.
     */
     public function setPermanentSuccess(?int $value): void {
         $this->getBackingStore()->set('permanentSuccess', $value);
@@ -210,7 +210,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the removeFail property value. The removeFail property
-     *  @param int|null $value Value to set for the removeFail property.
+     * @param int|null $value Value to set for the removeFail property.
     */
     public function setRemoveFail(?int $value): void {
         $this->getBackingStore()->set('removeFail', $value);
@@ -218,7 +218,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the removeSuccess property value. The removeSuccess property
-     *  @param int|null $value Value to set for the removeSuccess property.
+     * @param int|null $value Value to set for the removeSuccess property.
     */
     public function setRemoveSuccess(?int $value): void {
         $this->getBackingStore()->set('removeSuccess', $value);
@@ -226,7 +226,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the roleId property value. The roleId property
-     *  @param string|null $value Value to set for the roleId property.
+     * @param string|null $value Value to set for the roleId property.
     */
     public function setRoleId(?string $value): void {
         $this->getBackingStore()->set('roleId', $value);
@@ -234,7 +234,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the roleName property value. The roleName property
-     *  @param string|null $value Value to set for the roleName property.
+     * @param string|null $value Value to set for the roleName property.
     */
     public function setRoleName(?string $value): void {
         $this->getBackingStore()->set('roleName', $value);
@@ -242,7 +242,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the temporaryFail property value. The temporaryFail property
-     *  @param int|null $value Value to set for the temporaryFail property.
+     * @param int|null $value Value to set for the temporaryFail property.
     */
     public function setTemporaryFail(?int $value): void {
         $this->getBackingStore()->set('temporaryFail', $value);
@@ -250,7 +250,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the temporarySuccess property value. The temporarySuccess property
-     *  @param int|null $value Value to set for the temporarySuccess property.
+     * @param int|null $value Value to set for the temporarySuccess property.
     */
     public function setTemporarySuccess(?int $value): void {
         $this->getBackingStore()->set('temporarySuccess', $value);
@@ -258,7 +258,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the unknownFail property value. The unknownFail property
-     *  @param int|null $value Value to set for the unknownFail property.
+     * @param int|null $value Value to set for the unknownFail property.
     */
     public function setUnknownFail(?int $value): void {
         $this->getBackingStore()->set('unknownFail', $value);

@@ -74,7 +74,7 @@ class Synchronization extends Entity implements Parsable
 
     /**
      * Sets the jobs property value. Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
-     *  @param array<SynchronizationJob>|null $value Value to set for the jobs property.
+     * @param array<SynchronizationJob>|null $value Value to set for the jobs property.
     */
     public function setJobs(?array $value): void {
         $this->getBackingStore()->set('jobs', $value);
@@ -82,7 +82,7 @@ class Synchronization extends Entity implements Parsable
 
     /**
      * Sets the secrets property value. Represents a collection of credentials to access provisioned cloud applications.
-     *  @param array<SynchronizationSecretKeyStringValuePair>|null $value Value to set for the secrets property.
+     * @param array<SynchronizationSecretKeyStringValuePair>|null $value Value to set for the secrets property.
     */
     public function setSecrets(?array $value): void {
         $this->getBackingStore()->set('secrets', $value);
@@ -90,7 +90,7 @@ class Synchronization extends Entity implements Parsable
 
     /**
      * Sets the templates property value. Pre-configured synchronization settings for a particular application.
-     *  @param array<SynchronizationTemplate>|null $value Value to set for the templates property.
+     * @param array<SynchronizationTemplate>|null $value Value to set for the templates property.
     */
     public function setTemplates(?array $value): void {
         $this->getBackingStore()->set('templates', $value);

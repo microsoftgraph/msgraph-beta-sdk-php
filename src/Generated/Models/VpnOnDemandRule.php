@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * VPN On-Demand Rule definition.
+*/
 class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -44,7 +47,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -170,7 +173,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the action property value. VPN On-Demand Rule Connection Action.
-     *  @param VpnOnDemandRuleConnectionAction|null $value Value to set for the action property.
+     * @param VpnOnDemandRuleConnectionAction|null $value Value to set for the action property.
     */
     public function setAction(?VpnOnDemandRuleConnectionAction $value): void {
         $this->getBackingStore()->set('action', $value);
@@ -178,7 +181,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -186,7 +189,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -194,7 +197,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the dnsSearchDomains property value. DNS Search Domains.
-     *  @param array<string>|null $value Value to set for the dnsSearchDomains property.
+     * @param array<string>|null $value Value to set for the dnsSearchDomains property.
     */
     public function setDnsSearchDomains(?array $value): void {
         $this->getBackingStore()->set('dnsSearchDomains', $value);
@@ -202,7 +205,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the dnsServerAddressMatch property value. DNS Search Server Address.
-     *  @param array<string>|null $value Value to set for the dnsServerAddressMatch property.
+     * @param array<string>|null $value Value to set for the dnsServerAddressMatch property.
     */
     public function setDnsServerAddressMatch(?array $value): void {
         $this->getBackingStore()->set('dnsServerAddressMatch', $value);
@@ -210,7 +213,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the domainAction property value. VPN On-Demand Rule Connection Domain Action.
-     *  @param VpnOnDemandRuleConnectionDomainAction|null $value Value to set for the domainAction property.
+     * @param VpnOnDemandRuleConnectionDomainAction|null $value Value to set for the domainAction property.
     */
     public function setDomainAction(?VpnOnDemandRuleConnectionDomainAction $value): void {
         $this->getBackingStore()->set('domainAction', $value);
@@ -218,7 +221,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the domains property value. Domains (Only applicable when Action is evaluate connection).
-     *  @param array<string>|null $value Value to set for the domains property.
+     * @param array<string>|null $value Value to set for the domains property.
     */
     public function setDomains(?array $value): void {
         $this->getBackingStore()->set('domains', $value);
@@ -226,7 +229,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the interfaceTypeMatch property value. VPN On-Demand Rule Connection network interface type.
-     *  @param VpnOnDemandRuleInterfaceTypeMatch|null $value Value to set for the interfaceTypeMatch property.
+     * @param VpnOnDemandRuleInterfaceTypeMatch|null $value Value to set for the interfaceTypeMatch property.
     */
     public function setInterfaceTypeMatch(?VpnOnDemandRuleInterfaceTypeMatch $value): void {
         $this->getBackingStore()->set('interfaceTypeMatch', $value);
@@ -234,7 +237,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -242,7 +245,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the probeRequiredUrl property value. Probe Required Url (Only applicable when Action is evaluate connection and DomainAction is connect if needed).
-     *  @param string|null $value Value to set for the probeRequiredUrl property.
+     * @param string|null $value Value to set for the probeRequiredUrl property.
     */
     public function setProbeRequiredUrl(?string $value): void {
         $this->getBackingStore()->set('probeRequiredUrl', $value);
@@ -250,7 +253,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the probeUrl property value. A URL to probe. If this URL is successfully fetched (returning a 200 HTTP status code) without redirection, this rule matches.
-     *  @param string|null $value Value to set for the probeUrl property.
+     * @param string|null $value Value to set for the probeUrl property.
     */
     public function setProbeUrl(?string $value): void {
         $this->getBackingStore()->set('probeUrl', $value);
@@ -258,7 +261,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the ssids property value. Network Service Set Identifiers (SSIDs).
-     *  @param array<string>|null $value Value to set for the ssids property.
+     * @param array<string>|null $value Value to set for the ssids property.
     */
     public function setSsids(?array $value): void {
         $this->getBackingStore()->set('ssids', $value);

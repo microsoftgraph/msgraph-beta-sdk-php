@@ -131,7 +131,7 @@ class RoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the Role definition.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -139,7 +139,7 @@ class RoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display Name of the Role definition.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -147,7 +147,7 @@ class RoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the isBuiltIn property value. Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
-     *  @param bool|null $value Value to set for the isBuiltIn property.
+     * @param bool|null $value Value to set for the isBuiltIn property.
     */
     public function setIsBuiltIn(?bool $value): void {
         $this->getBackingStore()->set('isBuiltIn', $value);
@@ -155,7 +155,7 @@ class RoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the isBuiltInRoleDefinition property value. Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
-     *  @param bool|null $value Value to set for the isBuiltInRoleDefinition property.
+     * @param bool|null $value Value to set for the isBuiltInRoleDefinition property.
     */
     public function setIsBuiltInRoleDefinition(?bool $value): void {
         $this->getBackingStore()->set('isBuiltInRoleDefinition', $value);
@@ -163,7 +163,7 @@ class RoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the permissions property value. List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.
-     *  @param array<RolePermission>|null $value Value to set for the permissions property.
+     * @param array<RolePermission>|null $value Value to set for the permissions property.
     */
     public function setPermissions(?array $value): void {
         $this->getBackingStore()->set('permissions', $value);
@@ -171,7 +171,7 @@ class RoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the roleAssignments property value. List of Role assignments for this role definition.
-     *  @param array<RoleAssignment>|null $value Value to set for the roleAssignments property.
+     * @param array<RoleAssignment>|null $value Value to set for the roleAssignments property.
     */
     public function setRoleAssignments(?array $value): void {
         $this->getBackingStore()->set('roleAssignments', $value);
@@ -179,7 +179,7 @@ class RoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the rolePermissions property value. List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.
-     *  @param array<RolePermission>|null $value Value to set for the rolePermissions property.
+     * @param array<RolePermission>|null $value Value to set for the rolePermissions property.
     */
     public function setRolePermissions(?array $value): void {
         $this->getBackingStore()->set('rolePermissions', $value);
@@ -187,7 +187,7 @@ class RoleDefinition extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);

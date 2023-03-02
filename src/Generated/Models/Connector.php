@@ -84,7 +84,7 @@ class Connector extends Entity implements Parsable
 
     /**
      * Sets the externalIp property value. The external IP address as detected by the the connector server. Read-only.
-     *  @param string|null $value Value to set for the externalIp property.
+     * @param string|null $value Value to set for the externalIp property.
     */
     public function setExternalIp(?string $value): void {
         $this->getBackingStore()->set('externalIp', $value);
@@ -92,7 +92,7 @@ class Connector extends Entity implements Parsable
 
     /**
      * Sets the machineName property value. The machine name the connector is installed and running on.
-     *  @param string|null $value Value to set for the machineName property.
+     * @param string|null $value Value to set for the machineName property.
     */
     public function setMachineName(?string $value): void {
         $this->getBackingStore()->set('machineName', $value);
@@ -100,7 +100,7 @@ class Connector extends Entity implements Parsable
 
     /**
      * Sets the memberOf property value. The connectorGroup that the connector is a member of. Read-only.
-     *  @param array<ConnectorGroup>|null $value Value to set for the memberOf property.
+     * @param array<ConnectorGroup>|null $value Value to set for the memberOf property.
     */
     public function setMemberOf(?array $value): void {
         $this->getBackingStore()->set('memberOf', $value);
@@ -108,7 +108,7 @@ class Connector extends Entity implements Parsable
 
     /**
      * Sets the status property value. The status property
-     *  @param ConnectorStatus|null $value Value to set for the status property.
+     * @param ConnectorStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ConnectorStatus $value): void {
         $this->getBackingStore()->set('status', $value);

@@ -36,7 +36,7 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -120,7 +120,7 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -128,7 +128,7 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -136,7 +136,7 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the columnId property value. Indicates the identifier of the column where the web part is located.
-     *  @param float|null $value Value to set for the columnId property.
+     * @param float|null $value Value to set for the columnId property.
     */
     public function setColumnId(?float $value): void {
         $this->getBackingStore()->set('columnId', $value);
@@ -144,7 +144,7 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the horizontalSectionId property value. Indicates the horizontal section where the web part is located.
-     *  @param float|null $value Value to set for the horizontalSectionId property.
+     * @param float|null $value Value to set for the horizontalSectionId property.
     */
     public function setHorizontalSectionId(?float $value): void {
         $this->getBackingStore()->set('horizontalSectionId', $value);
@@ -152,7 +152,7 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the isInVerticalSection property value. Indicates whether the web part is located in the vertical section.
-     *  @param bool|null $value Value to set for the isInVerticalSection property.
+     * @param bool|null $value Value to set for the isInVerticalSection property.
     */
     public function setIsInVerticalSection(?bool $value): void {
         $this->getBackingStore()->set('isInVerticalSection', $value);
@@ -160,7 +160,7 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -168,7 +168,7 @@ class WebPartPosition implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the webPartIndex property value. Index of the current web part. Represents the order of the web part in this column or section.
-     *  @param float|null $value Value to set for the webPartIndex property.
+     * @param float|null $value Value to set for the webPartIndex property.
     */
     public function setWebPartIndex(?float $value): void {
         $this->getBackingStore()->set('webPartIndex', $value);

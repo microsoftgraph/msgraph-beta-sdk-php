@@ -145,7 +145,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the color property value. The color that the UI should display for the label, if configured.
-     *  @param string|null $value Value to set for the color property.
+     * @param string|null $value Value to set for the color property.
     */
     public function setColor(?string $value): void {
         $this->getBackingStore()->set('color', $value);
@@ -153,7 +153,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the contentFormats property value. Returns the supported content formats for the label.
-     *  @param array<string>|null $value Value to set for the contentFormats property.
+     * @param array<string>|null $value Value to set for the contentFormats property.
     */
     public function setContentFormats(?array $value): void {
         $this->getBackingStore()->set('contentFormats', $value);
@@ -161,7 +161,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the description property value. The admin-defined description for the label.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -169,7 +169,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the hasProtection property value. Indicates whether the label has protection actions configured.
-     *  @param bool|null $value Value to set for the hasProtection property.
+     * @param bool|null $value Value to set for the hasProtection property.
     */
     public function setHasProtection(?bool $value): void {
         $this->getBackingStore()->set('hasProtection', $value);
@@ -177,7 +177,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the isActive property value. Indicates whether the label is active or not. Active labels should be hidden or disabled in the UI.
-     *  @param bool|null $value Value to set for the isActive property.
+     * @param bool|null $value Value to set for the isActive property.
     */
     public function setIsActive(?bool $value): void {
         $this->getBackingStore()->set('isActive', $value);
@@ -185,7 +185,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the isAppliable property value. Indicates whether the label can be applied to content. False if the label is a parent with child labels.
-     *  @param bool|null $value Value to set for the isAppliable property.
+     * @param bool|null $value Value to set for the isAppliable property.
     */
     public function setIsAppliable(?bool $value): void {
         $this->getBackingStore()->set('isAppliable', $value);
@@ -193,7 +193,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the name property value. The plaintext name of the label.
-     *  @param string|null $value Value to set for the name property.
+     * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
         $this->getBackingStore()->set('name', $value);
@@ -201,7 +201,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the parent property value. The parent label associated with a child label. Null if the label has no parent.
-     *  @param SensitivityLabel|null $value Value to set for the parent property.
+     * @param SensitivityLabel|null $value Value to set for the parent property.
     */
     public function setParent(?SensitivityLabel $value): void {
         $this->getBackingStore()->set('parent', $value);
@@ -209,7 +209,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the sensitivity property value. The sensitivity value of the label, where lower is less sensitive.
-     *  @param int|null $value Value to set for the sensitivity property.
+     * @param int|null $value Value to set for the sensitivity property.
     */
     public function setSensitivity(?int $value): void {
         $this->getBackingStore()->set('sensitivity', $value);
@@ -217,7 +217,7 @@ class SensitivityLabel extends Entity implements Parsable
 
     /**
      * Sets the tooltip property value. The tooltip that should be displayed for the label in a UI.
-     *  @param string|null $value Value to set for the tooltip property.
+     * @param string|null $value Value to set for the tooltip property.
     */
     public function setTooltip(?string $value): void {
         $this->getBackingStore()->set('tooltip', $value);

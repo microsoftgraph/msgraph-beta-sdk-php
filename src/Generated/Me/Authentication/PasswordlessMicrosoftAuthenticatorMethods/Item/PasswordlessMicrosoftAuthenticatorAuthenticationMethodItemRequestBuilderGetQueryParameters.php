@@ -4,6 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\Me\Authentication\PasswordlessMicrosoft
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
+/**
+ * Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication.
+*/
 class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters 
 {
     /**
@@ -18,4 +21,14 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGe
     */
     public ?array $select = null;
     
+    /**
+     * Instantiates a new PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
 }

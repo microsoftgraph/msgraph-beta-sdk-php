@@ -3,9 +3,9 @@
 namespace Microsoft\Graph\Beta\Generated\Models\TenantAdmin;
 
 use Microsoft\Graph\Beta\Generated\Models\AdminReportSettings;
+use Microsoft\Graph\Beta\Generated\Models\AdminWindows;
 use Microsoft\Graph\Beta\Generated\Models\Edge;
 use Microsoft\Graph\Beta\Generated\Models\ServiceAnnouncement;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Windows;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -40,7 +40,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -74,7 +74,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
             'reportSettings' => fn(ParseNode $n) => $o->setReportSettings($n->getObjectValue([AdminReportSettings::class, 'createFromDiscriminatorValue'])),
             'serviceAnnouncement' => fn(ParseNode $n) => $o->setServiceAnnouncement($n->getObjectValue([ServiceAnnouncement::class, 'createFromDiscriminatorValue'])),
             'sharepoint' => fn(ParseNode $n) => $o->setSharepoint($n->getObjectValue([Sharepoint::class, 'createFromDiscriminatorValue'])),
-            'windows' => fn(ParseNode $n) => $o->setWindows($n->getObjectValue([Windows::class, 'createFromDiscriminatorValue'])),
+            'windows' => fn(ParseNode $n) => $o->setWindows($n->getObjectValue([AdminWindows::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -111,10 +111,10 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the windows property value. A container for all Windows Update for Business deployment service functionality. Read-only.
-     * @return Windows|null
+     * Gets the windows property value. A container for all Windows administrator functionalities. Read-only.
+     * @return AdminWindows|null
     */
-    public function getWindows(): ?Windows {
+    public function getWindows(): ?AdminWindows {
         return $this->getBackingStore()->get('windows');
     }
 
@@ -134,7 +134,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -142,7 +142,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -150,7 +150,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the edge property value. A container for Microsoft Edge resources. Read-only.
-     *  @param Edge|null $value Value to set for the edge property.
+     * @param Edge|null $value Value to set for the edge property.
     */
     public function setEdge(?Edge $value): void {
         $this->getBackingStore()->set('edge', $value);
@@ -158,7 +158,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -166,7 +166,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the reportSettings property value. A container for administrative resources to manage reports.
-     *  @param AdminReportSettings|null $value Value to set for the reportSettings property.
+     * @param AdminReportSettings|null $value Value to set for the reportSettings property.
     */
     public function setReportSettings(?AdminReportSettings $value): void {
         $this->getBackingStore()->set('reportSettings', $value);
@@ -174,7 +174,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the serviceAnnouncement property value. A container for service communications resources. Read-only.
-     *  @param ServiceAnnouncement|null $value Value to set for the serviceAnnouncement property.
+     * @param ServiceAnnouncement|null $value Value to set for the serviceAnnouncement property.
     */
     public function setServiceAnnouncement(?ServiceAnnouncement $value): void {
         $this->getBackingStore()->set('serviceAnnouncement', $value);
@@ -182,17 +182,17 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the sharepoint property value. A container for administrative resources to manage tenant-level settings for SharePoint and OneDrive.
-     *  @param Sharepoint|null $value Value to set for the sharepoint property.
+     * @param Sharepoint|null $value Value to set for the sharepoint property.
     */
     public function setSharepoint(?Sharepoint $value): void {
         $this->getBackingStore()->set('sharepoint', $value);
     }
 
     /**
-     * Sets the windows property value. A container for all Windows Update for Business deployment service functionality. Read-only.
-     *  @param Windows|null $value Value to set for the windows property.
+     * Sets the windows property value. A container for all Windows administrator functionalities. Read-only.
+     * @param AdminWindows|null $value Value to set for the windows property.
     */
-    public function setWindows(?Windows $value): void {
+    public function setWindows(?AdminWindows $value): void {
         $this->getBackingStore()->set('windows', $value);
     }
 

@@ -25,7 +25,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedHeaders property value. The allowedHeaders property
+     * Gets the allowedHeaders property value. The request headers that the origin domain may specify on the CORS request. The wildcard character * indicates that any header beginning with the specified prefix is allowed.
      * @return array<string>|null
     */
     public function getAllowedHeaders(): ?array {
@@ -33,7 +33,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedMethods property value. The allowedMethods property
+     * Gets the allowedMethods property value. The HTTP request methods that the origin domain may use for a CORS request.
      * @return array<string>|null
     */
     public function getAllowedMethods(): ?array {
@@ -41,7 +41,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedOrigins property value. The allowedOrigins property
+     * Gets the allowedOrigins property value. The origin domains that are permitted to make a request against the service via CORS. The origin domain is the domain from which the request originates. The origin must be an exact case-sensitive match with the origin that the user agent sends to the service.
      * @return array<string>|null
     */
     public function getAllowedOrigins(): ?array {
@@ -64,7 +64,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
     }
 
     /**
-     * Gets the maxAgeInSeconds property value. The maxAgeInSeconds property
+     * Gets the maxAgeInSeconds property value. The maximum amount of time that a browser should cache the response to the preflight OPTIONS request.
      * @return int|null
     */
     public function getMaxAgeInSeconds(): ?int {
@@ -72,7 +72,7 @@ class CorsConfiguration_v2 extends Entity implements Parsable
     }
 
     /**
-     * Gets the resource property value. The resource property
+     * Gets the resource property value. Resource within the application segment for which CORS permissions are granted. / grants permission for the whole app segment.
      * @return string|null
     */
     public function getResource(): ?string {
@@ -93,40 +93,40 @@ class CorsConfiguration_v2 extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowedHeaders property value. The allowedHeaders property
-     *  @param array<string>|null $value Value to set for the allowedHeaders property.
+     * Sets the allowedHeaders property value. The request headers that the origin domain may specify on the CORS request. The wildcard character * indicates that any header beginning with the specified prefix is allowed.
+     * @param array<string>|null $value Value to set for the allowedHeaders property.
     */
     public function setAllowedHeaders(?array $value): void {
         $this->getBackingStore()->set('allowedHeaders', $value);
     }
 
     /**
-     * Sets the allowedMethods property value. The allowedMethods property
-     *  @param array<string>|null $value Value to set for the allowedMethods property.
+     * Sets the allowedMethods property value. The HTTP request methods that the origin domain may use for a CORS request.
+     * @param array<string>|null $value Value to set for the allowedMethods property.
     */
     public function setAllowedMethods(?array $value): void {
         $this->getBackingStore()->set('allowedMethods', $value);
     }
 
     /**
-     * Sets the allowedOrigins property value. The allowedOrigins property
-     *  @param array<string>|null $value Value to set for the allowedOrigins property.
+     * Sets the allowedOrigins property value. The origin domains that are permitted to make a request against the service via CORS. The origin domain is the domain from which the request originates. The origin must be an exact case-sensitive match with the origin that the user agent sends to the service.
+     * @param array<string>|null $value Value to set for the allowedOrigins property.
     */
     public function setAllowedOrigins(?array $value): void {
         $this->getBackingStore()->set('allowedOrigins', $value);
     }
 
     /**
-     * Sets the maxAgeInSeconds property value. The maxAgeInSeconds property
-     *  @param int|null $value Value to set for the maxAgeInSeconds property.
+     * Sets the maxAgeInSeconds property value. The maximum amount of time that a browser should cache the response to the preflight OPTIONS request.
+     * @param int|null $value Value to set for the maxAgeInSeconds property.
     */
     public function setMaxAgeInSeconds(?int $value): void {
         $this->getBackingStore()->set('maxAgeInSeconds', $value);
     }
 
     /**
-     * Sets the resource property value. The resource property
-     *  @param string|null $value Value to set for the resource property.
+     * Sets the resource property value. Resource within the application segment for which CORS permissions are granted. / grants permission for the whole app segment.
+     * @param string|null $value Value to set for the resource property.
     */
     public function setResource(?string $value): void {
         $this->getBackingStore()->set('resource', $value);

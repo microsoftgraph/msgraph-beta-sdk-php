@@ -55,7 +55,7 @@ class DeviceManagementConfigurationSimpleSettingInstanceTemplate extends DeviceM
 
     /**
      * Sets the simpleSettingValueTemplate property value. Simple Setting Value Template
-     *  @param DeviceManagementConfigurationSimpleSettingValueTemplate|null $value Value to set for the simpleSettingValueTemplate property.
+     * @param DeviceManagementConfigurationSimpleSettingValueTemplate|null $value Value to set for the simpleSettingValueTemplate property.
     */
     public function setSimpleSettingValueTemplate(?DeviceManagementConfigurationSimpleSettingValueTemplate $value): void {
         $this->getBackingStore()->set('simpleSettingValueTemplate', $value);

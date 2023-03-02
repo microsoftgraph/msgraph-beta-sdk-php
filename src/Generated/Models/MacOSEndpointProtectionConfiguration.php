@@ -286,7 +286,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the advancedThreatProtectionAutomaticSampleSubmission property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the advancedThreatProtectionAutomaticSampleSubmission property.
+     * @param Enablement|null $value Value to set for the advancedThreatProtectionAutomaticSampleSubmission property.
     */
     public function setAdvancedThreatProtectionAutomaticSampleSubmission(?Enablement $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionAutomaticSampleSubmission', $value);
@@ -294,7 +294,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the advancedThreatProtectionCloudDelivered property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the advancedThreatProtectionCloudDelivered property.
+     * @param Enablement|null $value Value to set for the advancedThreatProtectionCloudDelivered property.
     */
     public function setAdvancedThreatProtectionCloudDelivered(?Enablement $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionCloudDelivered', $value);
@@ -302,7 +302,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the advancedThreatProtectionDiagnosticDataCollection property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the advancedThreatProtectionDiagnosticDataCollection property.
+     * @param Enablement|null $value Value to set for the advancedThreatProtectionDiagnosticDataCollection property.
     */
     public function setAdvancedThreatProtectionDiagnosticDataCollection(?Enablement $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionDiagnosticDataCollection', $value);
@@ -310,7 +310,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the advancedThreatProtectionExcludedExtensions property value. A list of file extensions to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
-     *  @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedExtensions property.
+     * @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedExtensions property.
     */
     public function setAdvancedThreatProtectionExcludedExtensions(?array $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionExcludedExtensions', $value);
@@ -318,7 +318,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the advancedThreatProtectionExcludedFiles property value. A list of paths to files to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
-     *  @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedFiles property.
+     * @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedFiles property.
     */
     public function setAdvancedThreatProtectionExcludedFiles(?array $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionExcludedFiles', $value);
@@ -326,7 +326,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the advancedThreatProtectionExcludedFolders property value. A list of paths to folders to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
-     *  @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedFolders property.
+     * @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedFolders property.
     */
     public function setAdvancedThreatProtectionExcludedFolders(?array $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionExcludedFolders', $value);
@@ -334,7 +334,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the advancedThreatProtectionExcludedProcesses property value. A list of process names to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
-     *  @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedProcesses property.
+     * @param array<string>|null $value Value to set for the advancedThreatProtectionExcludedProcesses property.
     */
     public function setAdvancedThreatProtectionExcludedProcesses(?array $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionExcludedProcesses', $value);
@@ -342,7 +342,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the advancedThreatProtectionRealTime property value. Possible values of a property
-     *  @param Enablement|null $value Value to set for the advancedThreatProtectionRealTime property.
+     * @param Enablement|null $value Value to set for the advancedThreatProtectionRealTime property.
     */
     public function setAdvancedThreatProtectionRealTime(?Enablement $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionRealTime', $value);
@@ -350,7 +350,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultAllowDeferralUntilSignOut property value. Optional. If set to true, the user can defer the enabling of FileVault until they sign out.
-     *  @param bool|null $value Value to set for the fileVaultAllowDeferralUntilSignOut property.
+     * @param bool|null $value Value to set for the fileVaultAllowDeferralUntilSignOut property.
     */
     public function setFileVaultAllowDeferralUntilSignOut(?bool $value): void {
         $this->getBackingStore()->set('fileVaultAllowDeferralUntilSignOut', $value);
@@ -358,7 +358,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultDisablePromptAtSignOut property value. Optional. When using the Defer option, if set to true, the user is not prompted to enable FileVault at sign-out.
-     *  @param bool|null $value Value to set for the fileVaultDisablePromptAtSignOut property.
+     * @param bool|null $value Value to set for the fileVaultDisablePromptAtSignOut property.
     */
     public function setFileVaultDisablePromptAtSignOut(?bool $value): void {
         $this->getBackingStore()->set('fileVaultDisablePromptAtSignOut', $value);
@@ -366,7 +366,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultEnabled property value. Whether FileVault should be enabled or not.
-     *  @param bool|null $value Value to set for the fileVaultEnabled property.
+     * @param bool|null $value Value to set for the fileVaultEnabled property.
     */
     public function setFileVaultEnabled(?bool $value): void {
         $this->getBackingStore()->set('fileVaultEnabled', $value);
@@ -374,7 +374,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultHidePersonalRecoveryKey property value. Optional. A hidden personal recovery key does not appear on the user's screen during FileVault encryption, reducing the risk of it ending up in the wrong hands.
-     *  @param bool|null $value Value to set for the fileVaultHidePersonalRecoveryKey property.
+     * @param bool|null $value Value to set for the fileVaultHidePersonalRecoveryKey property.
     */
     public function setFileVaultHidePersonalRecoveryKey(?bool $value): void {
         $this->getBackingStore()->set('fileVaultHidePersonalRecoveryKey', $value);
@@ -382,7 +382,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultInstitutionalRecoveryKeyCertificate property value. Required if selected recovery key type(s) include InstitutionalRecoveryKey. The DER Encoded certificate file used to set an institutional recovery key.
-     *  @param StreamInterface|null $value Value to set for the fileVaultInstitutionalRecoveryKeyCertificate property.
+     * @param StreamInterface|null $value Value to set for the fileVaultInstitutionalRecoveryKeyCertificate property.
     */
     public function setFileVaultInstitutionalRecoveryKeyCertificate(?StreamInterface $value): void {
         $this->getBackingStore()->set('fileVaultInstitutionalRecoveryKeyCertificate', $value);
@@ -390,7 +390,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultInstitutionalRecoveryKeyCertificateFileName property value. File name of the institutional recovery key certificate to display in UI. (.der).
-     *  @param string|null $value Value to set for the fileVaultInstitutionalRecoveryKeyCertificateFileName property.
+     * @param string|null $value Value to set for the fileVaultInstitutionalRecoveryKeyCertificateFileName property.
     */
     public function setFileVaultInstitutionalRecoveryKeyCertificateFileName(?string $value): void {
         $this->getBackingStore()->set('fileVaultInstitutionalRecoveryKeyCertificateFileName', $value);
@@ -398,7 +398,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultNumberOfTimesUserCanIgnore property value. Optional. When using the Defer option, this is the maximum number of times the user can ignore prompts to enable FileVault before FileVault will be required for the user to sign in. If set to -1, it will always prompt to enable FileVault until FileVault is enabled, though it will allow the user to bypass enabling FileVault. Setting this to 0 will disable the feature.
-     *  @param int|null $value Value to set for the fileVaultNumberOfTimesUserCanIgnore property.
+     * @param int|null $value Value to set for the fileVaultNumberOfTimesUserCanIgnore property.
     */
     public function setFileVaultNumberOfTimesUserCanIgnore(?int $value): void {
         $this->getBackingStore()->set('fileVaultNumberOfTimesUserCanIgnore', $value);
@@ -406,7 +406,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultPersonalRecoveryKeyHelpMessage property value. Required if selected recovery key type(s) include PersonalRecoveryKey. A short message displayed to the user that explains how they can retrieve their personal recovery key.
-     *  @param string|null $value Value to set for the fileVaultPersonalRecoveryKeyHelpMessage property.
+     * @param string|null $value Value to set for the fileVaultPersonalRecoveryKeyHelpMessage property.
     */
     public function setFileVaultPersonalRecoveryKeyHelpMessage(?string $value): void {
         $this->getBackingStore()->set('fileVaultPersonalRecoveryKeyHelpMessage', $value);
@@ -414,7 +414,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultPersonalRecoveryKeyRotationInMonths property value. Optional. If selected recovery key type(s) include PersonalRecoveryKey, the frequency to rotate that key, in months.
-     *  @param int|null $value Value to set for the fileVaultPersonalRecoveryKeyRotationInMonths property.
+     * @param int|null $value Value to set for the fileVaultPersonalRecoveryKeyRotationInMonths property.
     */
     public function setFileVaultPersonalRecoveryKeyRotationInMonths(?int $value): void {
         $this->getBackingStore()->set('fileVaultPersonalRecoveryKeyRotationInMonths', $value);
@@ -422,7 +422,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the fileVaultSelectedRecoveryKeyTypes property value. Recovery key types for macOS FileVault
-     *  @param MacOSFileVaultRecoveryKeyTypes|null $value Value to set for the fileVaultSelectedRecoveryKeyTypes property.
+     * @param MacOSFileVaultRecoveryKeyTypes|null $value Value to set for the fileVaultSelectedRecoveryKeyTypes property.
     */
     public function setFileVaultSelectedRecoveryKeyTypes(?MacOSFileVaultRecoveryKeyTypes $value): void {
         $this->getBackingStore()->set('fileVaultSelectedRecoveryKeyTypes', $value);
@@ -430,7 +430,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the firewallApplications property value. List of applications with firewall settings. Firewall settings for applications not on this list are determined by the user. This collection can contain a maximum of 500 elements.
-     *  @param array<MacOSFirewallApplication>|null $value Value to set for the firewallApplications property.
+     * @param array<MacOSFirewallApplication>|null $value Value to set for the firewallApplications property.
     */
     public function setFirewallApplications(?array $value): void {
         $this->getBackingStore()->set('firewallApplications', $value);
@@ -438,7 +438,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the firewallBlockAllIncoming property value. Corresponds to the 'Block all incoming connections' option.
-     *  @param bool|null $value Value to set for the firewallBlockAllIncoming property.
+     * @param bool|null $value Value to set for the firewallBlockAllIncoming property.
     */
     public function setFirewallBlockAllIncoming(?bool $value): void {
         $this->getBackingStore()->set('firewallBlockAllIncoming', $value);
@@ -446,7 +446,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the firewallEnabled property value. Whether the firewall should be enabled or not.
-     *  @param bool|null $value Value to set for the firewallEnabled property.
+     * @param bool|null $value Value to set for the firewallEnabled property.
     */
     public function setFirewallEnabled(?bool $value): void {
         $this->getBackingStore()->set('firewallEnabled', $value);
@@ -454,7 +454,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the firewallEnableStealthMode property value. Corresponds to 'Enable stealth mode.'
-     *  @param bool|null $value Value to set for the firewallEnableStealthMode property.
+     * @param bool|null $value Value to set for the firewallEnableStealthMode property.
     */
     public function setFirewallEnableStealthMode(?bool $value): void {
         $this->getBackingStore()->set('firewallEnableStealthMode', $value);
@@ -462,7 +462,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the gatekeeperAllowedAppSource property value. App source options for macOS Gatekeeper.
-     *  @param MacOSGatekeeperAppSources|null $value Value to set for the gatekeeperAllowedAppSource property.
+     * @param MacOSGatekeeperAppSources|null $value Value to set for the gatekeeperAllowedAppSource property.
     */
     public function setGatekeeperAllowedAppSource(?MacOSGatekeeperAppSources $value): void {
         $this->getBackingStore()->set('gatekeeperAllowedAppSource', $value);
@@ -470,7 +470,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Sets the gatekeeperBlockOverride property value. If set to true, the user override for Gatekeeper will be disabled.
-     *  @param bool|null $value Value to set for the gatekeeperBlockOverride property.
+     * @param bool|null $value Value to set for the gatekeeperBlockOverride property.
     */
     public function setGatekeeperBlockOverride(?bool $value): void {
         $this->getBackingStore()->set('gatekeeperBlockOverride', $value);

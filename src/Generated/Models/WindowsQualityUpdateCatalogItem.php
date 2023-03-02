@@ -75,7 +75,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
 
     /**
      * Sets the classification property value. Windows quality update classification
-     *  @param WindowsQualityUpdateClassification|null $value Value to set for the classification property.
+     * @param WindowsQualityUpdateClassification|null $value Value to set for the classification property.
     */
     public function setClassification(?WindowsQualityUpdateClassification $value): void {
         $this->getBackingStore()->set('classification', $value);
@@ -83,7 +83,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
 
     /**
      * Sets the isExpeditable property value. Flag indicating if update qualifies for expedite
-     *  @param bool|null $value Value to set for the isExpeditable property.
+     * @param bool|null $value Value to set for the isExpeditable property.
     */
     public function setIsExpeditable(?bool $value): void {
         $this->getBackingStore()->set('isExpeditable', $value);
@@ -91,7 +91,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
 
     /**
      * Sets the kbArticleId property value. Knowledge base article id
-     *  @param string|null $value Value to set for the kbArticleId property.
+     * @param string|null $value Value to set for the kbArticleId property.
     */
     public function setKbArticleId(?string $value): void {
         $this->getBackingStore()->set('kbArticleId', $value);

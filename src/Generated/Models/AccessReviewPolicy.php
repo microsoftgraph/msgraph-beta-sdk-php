@@ -74,7 +74,7 @@ class AccessReviewPolicy extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description for this policy. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -82,7 +82,7 @@ class AccessReviewPolicy extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Display name for this policy. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -90,7 +90,7 @@ class AccessReviewPolicy extends Entity implements Parsable
 
     /**
      * Sets the isGroupOwnerManagementEnabled property value. If true, group owners can create and manage access reviews on groups they own.
-     *  @param bool|null $value Value to set for the isGroupOwnerManagementEnabled property.
+     * @param bool|null $value Value to set for the isGroupOwnerManagementEnabled property.
     */
     public function setIsGroupOwnerManagementEnabled(?bool $value): void {
         $this->getBackingStore()->set('isGroupOwnerManagementEnabled', $value);

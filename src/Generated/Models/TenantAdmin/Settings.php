@@ -335,7 +335,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the allowedDomainGuidsForSyncApp property value. Collection of trusted domain GUIDs for the OneDrive sync app.
-     *  @param array<string>|null $value Value to set for the allowedDomainGuidsForSyncApp property.
+     * @param array<string>|null $value Value to set for the allowedDomainGuidsForSyncApp property.
     */
     public function setAllowedDomainGuidsForSyncApp(?array $value): void {
         $this->getBackingStore()->set('allowedDomainGuidsForSyncApp', $value);
@@ -343,7 +343,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the availableManagedPathsForSiteCreation property value. Collection of managed paths available for site creation. Read-only.
-     *  @param array<string>|null $value Value to set for the availableManagedPathsForSiteCreation property.
+     * @param array<string>|null $value Value to set for the availableManagedPathsForSiteCreation property.
     */
     public function setAvailableManagedPathsForSiteCreation(?array $value): void {
         $this->getBackingStore()->set('availableManagedPathsForSiteCreation', $value);
@@ -351,7 +351,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the deletedUserPersonalSiteRetentionPeriodInDays property value. The number of days for preserving a deleted user's OneDrive.
-     *  @param int|null $value Value to set for the deletedUserPersonalSiteRetentionPeriodInDays property.
+     * @param int|null $value Value to set for the deletedUserPersonalSiteRetentionPeriodInDays property.
     */
     public function setDeletedUserPersonalSiteRetentionPeriodInDays(?int $value): void {
         $this->getBackingStore()->set('deletedUserPersonalSiteRetentionPeriodInDays', $value);
@@ -359,7 +359,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the excludedFileExtensionsForSyncApp property value. Collection of file extensions not uploaded by the OneDrive sync app.
-     *  @param array<string>|null $value Value to set for the excludedFileExtensionsForSyncApp property.
+     * @param array<string>|null $value Value to set for the excludedFileExtensionsForSyncApp property.
     */
     public function setExcludedFileExtensionsForSyncApp(?array $value): void {
         $this->getBackingStore()->set('excludedFileExtensionsForSyncApp', $value);
@@ -367,7 +367,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the idleSessionSignOut property value. Specifies the idle session sign-out policies for the tenant.
-     *  @param IdleSessionSignOut|null $value Value to set for the idleSessionSignOut property.
+     * @param IdleSessionSignOut|null $value Value to set for the idleSessionSignOut property.
     */
     public function setIdleSessionSignOut(?IdleSessionSignOut $value): void {
         $this->getBackingStore()->set('idleSessionSignOut', $value);
@@ -375,7 +375,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the imageTaggingOption property value. Specifies the image tagging option for the tenant. Possible values are: disabled, basic, enhanced.
-     *  @param ImageTaggingChoice|null $value Value to set for the imageTaggingOption property.
+     * @param ImageTaggingChoice|null $value Value to set for the imageTaggingOption property.
     */
     public function setImageTaggingOption(?ImageTaggingChoice $value): void {
         $this->getBackingStore()->set('imageTaggingOption', $value);
@@ -383,7 +383,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isCommentingOnSitePagesEnabled property value. Indicates whether comments are allowed on modern site pages in SharePoint.
-     *  @param bool|null $value Value to set for the isCommentingOnSitePagesEnabled property.
+     * @param bool|null $value Value to set for the isCommentingOnSitePagesEnabled property.
     */
     public function setIsCommentingOnSitePagesEnabled(?bool $value): void {
         $this->getBackingStore()->set('isCommentingOnSitePagesEnabled', $value);
@@ -391,7 +391,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isFileActivityNotificationEnabled property value. Indicates whether push notifications are enabled for OneDrive events.
-     *  @param bool|null $value Value to set for the isFileActivityNotificationEnabled property.
+     * @param bool|null $value Value to set for the isFileActivityNotificationEnabled property.
     */
     public function setIsFileActivityNotificationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isFileActivityNotificationEnabled', $value);
@@ -399,7 +399,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isLegacyAuthProtocolsEnabled property value. Indicates whether legacy authentication protocols are enabled for the tenant.
-     *  @param bool|null $value Value to set for the isLegacyAuthProtocolsEnabled property.
+     * @param bool|null $value Value to set for the isLegacyAuthProtocolsEnabled property.
     */
     public function setIsLegacyAuthProtocolsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isLegacyAuthProtocolsEnabled', $value);
@@ -407,7 +407,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isLoopEnabled property value. Indicates whetherif Fluid Framework is allowed on SharePoint sites.
-     *  @param bool|null $value Value to set for the isLoopEnabled property.
+     * @param bool|null $value Value to set for the isLoopEnabled property.
     */
     public function setIsLoopEnabled(?bool $value): void {
         $this->getBackingStore()->set('isLoopEnabled', $value);
@@ -415,7 +415,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isMacSyncAppEnabled property value. Indicates whether files can be synced using the OneDrive sync app for Mac.
-     *  @param bool|null $value Value to set for the isMacSyncAppEnabled property.
+     * @param bool|null $value Value to set for the isMacSyncAppEnabled property.
     */
     public function setIsMacSyncAppEnabled(?bool $value): void {
         $this->getBackingStore()->set('isMacSyncAppEnabled', $value);
@@ -423,7 +423,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isRequireAcceptingUserToMatchInvitedUserEnabled property value. Indicates whether guests must sign in using the same account to which sharing invitations are sent.
-     *  @param bool|null $value Value to set for the isRequireAcceptingUserToMatchInvitedUserEnabled property.
+     * @param bool|null $value Value to set for the isRequireAcceptingUserToMatchInvitedUserEnabled property.
     */
     public function setIsRequireAcceptingUserToMatchInvitedUserEnabled(?bool $value): void {
         $this->getBackingStore()->set('isRequireAcceptingUserToMatchInvitedUserEnabled', $value);
@@ -431,7 +431,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isResharingByExternalUsersEnabled property value. Indicates whether guests are allowed to reshare files, folders, and sites they don't own.
-     *  @param bool|null $value Value to set for the isResharingByExternalUsersEnabled property.
+     * @param bool|null $value Value to set for the isResharingByExternalUsersEnabled property.
     */
     public function setIsResharingByExternalUsersEnabled(?bool $value): void {
         $this->getBackingStore()->set('isResharingByExternalUsersEnabled', $value);
@@ -439,7 +439,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isSharePointMobileNotificationEnabled property value. Indicates whether mobile push notifications are enabled for SharePoint.
-     *  @param bool|null $value Value to set for the isSharePointMobileNotificationEnabled property.
+     * @param bool|null $value Value to set for the isSharePointMobileNotificationEnabled property.
     */
     public function setIsSharePointMobileNotificationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isSharePointMobileNotificationEnabled', $value);
@@ -447,7 +447,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isSharePointNewsfeedEnabled property value. Indicates whether the newsfeed is allowed on the modern site pages in SharePoint.
-     *  @param bool|null $value Value to set for the isSharePointNewsfeedEnabled property.
+     * @param bool|null $value Value to set for the isSharePointNewsfeedEnabled property.
     */
     public function setIsSharePointNewsfeedEnabled(?bool $value): void {
         $this->getBackingStore()->set('isSharePointNewsfeedEnabled', $value);
@@ -455,7 +455,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isSiteCreationEnabled property value. Indicates whether users are allowed to create sites.
-     *  @param bool|null $value Value to set for the isSiteCreationEnabled property.
+     * @param bool|null $value Value to set for the isSiteCreationEnabled property.
     */
     public function setIsSiteCreationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isSiteCreationEnabled', $value);
@@ -463,7 +463,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isSiteCreationUIEnabled property value. Indicates whether the UI commands for creating sites are shown.
-     *  @param bool|null $value Value to set for the isSiteCreationUIEnabled property.
+     * @param bool|null $value Value to set for the isSiteCreationUIEnabled property.
     */
     public function setIsSiteCreationUIEnabled(?bool $value): void {
         $this->getBackingStore()->set('isSiteCreationUIEnabled', $value);
@@ -471,7 +471,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isSitePagesCreationEnabled property value. Indicates whether creating new modern pages is allowed on SharePoint sites.
-     *  @param bool|null $value Value to set for the isSitePagesCreationEnabled property.
+     * @param bool|null $value Value to set for the isSitePagesCreationEnabled property.
     */
     public function setIsSitePagesCreationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isSitePagesCreationEnabled', $value);
@@ -479,7 +479,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isSitesStorageLimitAutomatic property value. Indicates whether site storage space is automatically managed or if specific storage limits are set per site.
-     *  @param bool|null $value Value to set for the isSitesStorageLimitAutomatic property.
+     * @param bool|null $value Value to set for the isSitesStorageLimitAutomatic property.
     */
     public function setIsSitesStorageLimitAutomatic(?bool $value): void {
         $this->getBackingStore()->set('isSitesStorageLimitAutomatic', $value);
@@ -487,7 +487,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isSyncButtonHiddenOnPersonalSite property value. Indicates whether the sync button in OneDrive is hidden.
-     *  @param bool|null $value Value to set for the isSyncButtonHiddenOnPersonalSite property.
+     * @param bool|null $value Value to set for the isSyncButtonHiddenOnPersonalSite property.
     */
     public function setIsSyncButtonHiddenOnPersonalSite(?bool $value): void {
         $this->getBackingStore()->set('isSyncButtonHiddenOnPersonalSite', $value);
@@ -495,7 +495,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the isUnmanagedSyncAppForTenantRestricted property value. Indicates whether users are allowed to sync files only on PCs joined to specific domains.
-     *  @param bool|null $value Value to set for the isUnmanagedSyncAppForTenantRestricted property.
+     * @param bool|null $value Value to set for the isUnmanagedSyncAppForTenantRestricted property.
     */
     public function setIsUnmanagedSyncAppForTenantRestricted(?bool $value): void {
         $this->getBackingStore()->set('isUnmanagedSyncAppForTenantRestricted', $value);
@@ -503,7 +503,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the personalSiteDefaultStorageLimitInMB property value. The default OneDrive storage limit for all new and existing users who are assigned a qualifying license. Measured in megabytes (MB).
-     *  @param int|null $value Value to set for the personalSiteDefaultStorageLimitInMB property.
+     * @param int|null $value Value to set for the personalSiteDefaultStorageLimitInMB property.
     */
     public function setPersonalSiteDefaultStorageLimitInMB(?int $value): void {
         $this->getBackingStore()->set('personalSiteDefaultStorageLimitInMB', $value);
@@ -511,7 +511,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the sharingAllowedDomainList property value. Collection of email domains that are allowed for sharing outside the organization.
-     *  @param array<string>|null $value Value to set for the sharingAllowedDomainList property.
+     * @param array<string>|null $value Value to set for the sharingAllowedDomainList property.
     */
     public function setSharingAllowedDomainList(?array $value): void {
         $this->getBackingStore()->set('sharingAllowedDomainList', $value);
@@ -519,7 +519,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the sharingBlockedDomainList property value. Collection of email domains that are blocked for sharing outside the organization.
-     *  @param array<string>|null $value Value to set for the sharingBlockedDomainList property.
+     * @param array<string>|null $value Value to set for the sharingBlockedDomainList property.
     */
     public function setSharingBlockedDomainList(?array $value): void {
         $this->getBackingStore()->set('sharingBlockedDomainList', $value);
@@ -527,7 +527,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the sharingCapability property value. Sharing capability for the tenant. Possible values are: disabled, externalUserSharingOnly, externalUserAndGuestSharing, existingExternalUserSharingOnly.
-     *  @param SharingCapabilities|null $value Value to set for the sharingCapability property.
+     * @param SharingCapabilities|null $value Value to set for the sharingCapability property.
     */
     public function setSharingCapability(?SharingCapabilities $value): void {
         $this->getBackingStore()->set('sharingCapability', $value);
@@ -535,7 +535,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the sharingDomainRestrictionMode property value. Specifies the external sharing mode for domains. Possible values are: none, allowList, blockList.
-     *  @param SharingDomainRestrictionMode|null $value Value to set for the sharingDomainRestrictionMode property.
+     * @param SharingDomainRestrictionMode|null $value Value to set for the sharingDomainRestrictionMode property.
     */
     public function setSharingDomainRestrictionMode(?SharingDomainRestrictionMode $value): void {
         $this->getBackingStore()->set('sharingDomainRestrictionMode', $value);
@@ -543,7 +543,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the siteCreationDefaultManagedPath property value. The value of the team site managed path. This is the path under which new team sites will be created.
-     *  @param string|null $value Value to set for the siteCreationDefaultManagedPath property.
+     * @param string|null $value Value to set for the siteCreationDefaultManagedPath property.
     */
     public function setSiteCreationDefaultManagedPath(?string $value): void {
         $this->getBackingStore()->set('siteCreationDefaultManagedPath', $value);
@@ -551,7 +551,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the siteCreationDefaultStorageLimitInMB property value. The default storage quota for a new site upon creation. Measured in megabytes (MB).
-     *  @param int|null $value Value to set for the siteCreationDefaultStorageLimitInMB property.
+     * @param int|null $value Value to set for the siteCreationDefaultStorageLimitInMB property.
     */
     public function setSiteCreationDefaultStorageLimitInMB(?int $value): void {
         $this->getBackingStore()->set('siteCreationDefaultStorageLimitInMB', $value);
@@ -559,7 +559,7 @@ class Settings extends Entity implements Parsable
 
     /**
      * Sets the tenantDefaultTimezone property value. The default timezone of a tenant for newly created sites. For a list of possible values, see SPRegionalSettings.TimeZones property.
-     *  @param string|null $value Value to set for the tenantDefaultTimezone property.
+     * @param string|null $value Value to set for the tenantDefaultTimezone property.
     */
     public function setTenantDefaultTimezone(?string $value): void {
         $this->getBackingStore()->set('tenantDefaultTimezone', $value);

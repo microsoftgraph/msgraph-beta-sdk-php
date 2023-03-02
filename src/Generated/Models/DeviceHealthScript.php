@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Intune will provide customer the ability to run their Powershell Health scripts (remediation + detection) on the enrolled windows 10 Azure Active Directory joined devices.
+*/
 class DeviceHealthScript extends Entity implements Parsable 
 {
     /**
@@ -234,7 +237,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the assignments property value. The list of group assignments for the device health script
-     *  @param array<DeviceHealthScriptAssignment>|null $value Value to set for the assignments property.
+     * @param array<DeviceHealthScriptAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
@@ -242,7 +245,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The timestamp of when the device health script was created. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -250,7 +253,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the description property value. Description of the device health script
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -258,7 +261,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the detectionScriptContent property value. The entire content of the detection powershell script
-     *  @param StreamInterface|null $value Value to set for the detectionScriptContent property.
+     * @param StreamInterface|null $value Value to set for the detectionScriptContent property.
     */
     public function setDetectionScriptContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('detectionScriptContent', $value);
@@ -266,7 +269,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the detectionScriptParameters property value. List of ComplexType DetectionScriptParameters objects.
-     *  @param array<DeviceHealthScriptParameter>|null $value Value to set for the detectionScriptParameters property.
+     * @param array<DeviceHealthScriptParameter>|null $value Value to set for the detectionScriptParameters property.
     */
     public function setDetectionScriptParameters(?array $value): void {
         $this->getBackingStore()->set('detectionScriptParameters', $value);
@@ -274,7 +277,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the deviceRunStates property value. List of run states for the device health script across all devices
-     *  @param array<DeviceHealthScriptDeviceState>|null $value Value to set for the deviceRunStates property.
+     * @param array<DeviceHealthScriptDeviceState>|null $value Value to set for the deviceRunStates property.
     */
     public function setDeviceRunStates(?array $value): void {
         $this->getBackingStore()->set('deviceRunStates', $value);
@@ -282,7 +285,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. Name of the device health script
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -290,7 +293,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the enforceSignatureCheck property value. Indicate whether the script signature needs be checked
-     *  @param bool|null $value Value to set for the enforceSignatureCheck property.
+     * @param bool|null $value Value to set for the enforceSignatureCheck property.
     */
     public function setEnforceSignatureCheck(?bool $value): void {
         $this->getBackingStore()->set('enforceSignatureCheck', $value);
@@ -298,7 +301,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the highestAvailableVersion property value. Highest available version for a Microsoft Proprietary script
-     *  @param string|null $value Value to set for the highestAvailableVersion property.
+     * @param string|null $value Value to set for the highestAvailableVersion property.
     */
     public function setHighestAvailableVersion(?string $value): void {
         $this->getBackingStore()->set('highestAvailableVersion', $value);
@@ -306,7 +309,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the isGlobalScript property value. Determines if this is Microsoft Proprietary Script. Proprietary scripts are read-only
-     *  @param bool|null $value Value to set for the isGlobalScript property.
+     * @param bool|null $value Value to set for the isGlobalScript property.
     */
     public function setIsGlobalScript(?bool $value): void {
         $this->getBackingStore()->set('isGlobalScript', $value);
@@ -314,7 +317,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The timestamp of when the device health script was modified. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
@@ -322,7 +325,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the publisher property value. Name of the device health script publisher
-     *  @param string|null $value Value to set for the publisher property.
+     * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
@@ -330,7 +333,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the remediationScriptContent property value. The entire content of the remediation powershell script
-     *  @param StreamInterface|null $value Value to set for the remediationScriptContent property.
+     * @param StreamInterface|null $value Value to set for the remediationScriptContent property.
     */
     public function setRemediationScriptContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('remediationScriptContent', $value);
@@ -338,7 +341,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the remediationScriptParameters property value. List of ComplexType RemediationScriptParameters objects.
-     *  @param array<DeviceHealthScriptParameter>|null $value Value to set for the remediationScriptParameters property.
+     * @param array<DeviceHealthScriptParameter>|null $value Value to set for the remediationScriptParameters property.
     */
     public function setRemediationScriptParameters(?array $value): void {
         $this->getBackingStore()->set('remediationScriptParameters', $value);
@@ -346,7 +349,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tag IDs for the device health script
-     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+     * @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
@@ -354,7 +357,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the runAs32Bit property value. Indicate whether PowerShell script(s) should run as 32-bit
-     *  @param bool|null $value Value to set for the runAs32Bit property.
+     * @param bool|null $value Value to set for the runAs32Bit property.
     */
     public function setRunAs32Bit(?bool $value): void {
         $this->getBackingStore()->set('runAs32Bit', $value);
@@ -362,7 +365,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the runAsAccount property value. Indicates the type of execution context the app runs in.
-     *  @param RunAsAccountType|null $value Value to set for the runAsAccount property.
+     * @param RunAsAccountType|null $value Value to set for the runAsAccount property.
     */
     public function setRunAsAccount(?RunAsAccountType $value): void {
         $this->getBackingStore()->set('runAsAccount', $value);
@@ -370,7 +373,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the runSummary property value. High level run summary for device health script.
-     *  @param DeviceHealthScriptRunSummary|null $value Value to set for the runSummary property.
+     * @param DeviceHealthScriptRunSummary|null $value Value to set for the runSummary property.
     */
     public function setRunSummary(?DeviceHealthScriptRunSummary $value): void {
         $this->getBackingStore()->set('runSummary', $value);
@@ -378,7 +381,7 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Sets the version property value. Version of the device health script
-     *  @param string|null $value Value to set for the version property.
+     * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {
         $this->getBackingStore()->set('version', $value);

@@ -37,7 +37,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Backed
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -111,7 +111,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Backed
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -119,7 +119,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Backed
 
     /**
      * Sets the applicationIdentifier property value. The applicationIdentifier property
-     *  @param string|null $value Value to set for the applicationIdentifier property.
+     * @param string|null $value Value to set for the applicationIdentifier property.
     */
     public function setApplicationIdentifier(?string $value): void {
         $this->getBackingStore()->set('applicationIdentifier', $value);
@@ -127,7 +127,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Backed
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -135,7 +135,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Backed
 
     /**
      * Sets the credentials property value. The credentials property
-     *  @param array<SynchronizationSecretKeyStringValuePair>|null $value Value to set for the credentials property.
+     * @param array<SynchronizationSecretKeyStringValuePair>|null $value Value to set for the credentials property.
     */
     public function setCredentials(?array $value): void {
         $this->getBackingStore()->set('credentials', $value);
@@ -143,7 +143,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Backed
 
     /**
      * Sets the templateId property value. The templateId property
-     *  @param string|null $value Value to set for the templateId property.
+     * @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value): void {
         $this->getBackingStore()->set('templateId', $value);
@@ -151,7 +151,7 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Backed
 
     /**
      * Sets the useSavedCredentials property value. The useSavedCredentials property
-     *  @param bool|null $value Value to set for the useSavedCredentials property.
+     * @param bool|null $value Value to set for the useSavedCredentials property.
     */
     public function setUseSavedCredentials(?bool $value): void {
         $this->getBackingStore()->set('useSavedCredentials', $value);

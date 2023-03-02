@@ -36,7 +36,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -140,7 +140,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -148,7 +148,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the audiences property value. Audience information of the web part. By using this property, specific content will be prioritized to specific audiences.
-     *  @param array<string>|null $value Value to set for the audiences property.
+     * @param array<string>|null $value Value to set for the audiences property.
     */
     public function setAudiences(?array $value): void {
         $this->getBackingStore()->set('audiences', $value);
@@ -156,7 +156,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -164,7 +164,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the dataVersion property value. Data version of the web part. The value is defined by the web part developer. Different dataVersions usually refers to a different property structure.
-     *  @param string|null $value Value to set for the dataVersion property.
+     * @param string|null $value Value to set for the dataVersion property.
     */
     public function setDataVersion(?string $value): void {
         $this->getBackingStore()->set('dataVersion', $value);
@@ -172,7 +172,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the description property value. Description of the web part.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -180,7 +180,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -188,7 +188,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the properties property value. Properties bag of the web part.
-     *  @param Json|null $value Value to set for the properties property.
+     * @param Json|null $value Value to set for the properties property.
     */
     public function setProperties(?Json $value): void {
         $this->getBackingStore()->set('properties', $value);
@@ -196,7 +196,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the serverProcessedContent property value. Contains collections of data that can be processed by server side services like search index and link fixup.
-     *  @param ServerProcessedContent|null $value Value to set for the serverProcessedContent property.
+     * @param ServerProcessedContent|null $value Value to set for the serverProcessedContent property.
     */
     public function setServerProcessedContent(?ServerProcessedContent $value): void {
         $this->getBackingStore()->set('serverProcessedContent', $value);
@@ -204,7 +204,7 @@ class WebPartData implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the title property value. Title of the web part.
-     *  @param string|null $value Value to set for the title property.
+     * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {
         $this->getBackingStore()->set('title', $value);

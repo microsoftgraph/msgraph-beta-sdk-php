@@ -38,6 +38,7 @@ class ConditionalAccessSessionControl implements AdditionalDataHolder, BackedMod
                 case '#microsoft.graph.applicationEnforcedRestrictionsSessionControl': return new ApplicationEnforcedRestrictionsSessionControl();
                 case '#microsoft.graph.cloudAppSecuritySessionControl': return new CloudAppSecuritySessionControl();
                 case '#microsoft.graph.persistentBrowserSessionControl': return new PersistentBrowserSessionControl();
+                case '#microsoft.graph.secureSignInSessionControl': return new SecureSignInSessionControl();
                 case '#microsoft.graph.signInFrequencySessionControl': return new SignInFrequencySessionControl();
             }
         }
@@ -46,7 +47,7 @@ class ConditionalAccessSessionControl implements AdditionalDataHolder, BackedMod
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -100,7 +101,7 @@ class ConditionalAccessSessionControl implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -108,7 +109,7 @@ class ConditionalAccessSessionControl implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -116,7 +117,7 @@ class ConditionalAccessSessionControl implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the isEnabled property value. Specifies whether the session control is enabled.
-     *  @param bool|null $value Value to set for the isEnabled property.
+     * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isEnabled', $value);
@@ -124,7 +125,7 @@ class ConditionalAccessSessionControl implements AdditionalDataHolder, BackedMod
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);

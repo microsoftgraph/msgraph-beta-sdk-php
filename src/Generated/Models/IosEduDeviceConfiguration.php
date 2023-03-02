@@ -75,7 +75,7 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the deviceCertificateSettings property value. The Trusted Root and PFX certificates for Device
-     *  @param IosEduCertificateSettings|null $value Value to set for the deviceCertificateSettings property.
+     * @param IosEduCertificateSettings|null $value Value to set for the deviceCertificateSettings property.
     */
     public function setDeviceCertificateSettings(?IosEduCertificateSettings $value): void {
         $this->getBackingStore()->set('deviceCertificateSettings', $value);
@@ -83,7 +83,7 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the studentCertificateSettings property value. The Trusted Root and PFX certificates for Student
-     *  @param IosEduCertificateSettings|null $value Value to set for the studentCertificateSettings property.
+     * @param IosEduCertificateSettings|null $value Value to set for the studentCertificateSettings property.
     */
     public function setStudentCertificateSettings(?IosEduCertificateSettings $value): void {
         $this->getBackingStore()->set('studentCertificateSettings', $value);
@@ -91,7 +91,7 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Sets the teacherCertificateSettings property value. Trusted Root and PFX certificates for iOS EDU.
-     *  @param IosEduCertificateSettings|null $value Value to set for the teacherCertificateSettings property.
+     * @param IosEduCertificateSettings|null $value Value to set for the teacherCertificateSettings property.
     */
     public function setTeacherCertificateSettings(?IosEduCertificateSettings $value): void {
         $this->getBackingStore()->set('teacherCertificateSettings', $value);

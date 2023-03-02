@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * MacOS Volume Purchase Program license assignment. This class does not support Create, Delete, or Update.
+*/
 class MacOsVppAppAssignedLicense extends Entity implements Parsable 
 {
     /**
@@ -84,7 +87,7 @@ class MacOsVppAppAssignedLicense extends Entity implements Parsable
 
     /**
      * Sets the userEmailAddress property value. The user email address.
-     *  @param string|null $value Value to set for the userEmailAddress property.
+     * @param string|null $value Value to set for the userEmailAddress property.
     */
     public function setUserEmailAddress(?string $value): void {
         $this->getBackingStore()->set('userEmailAddress', $value);
@@ -92,7 +95,7 @@ class MacOsVppAppAssignedLicense extends Entity implements Parsable
 
     /**
      * Sets the userId property value. The user ID.
-     *  @param string|null $value Value to set for the userId property.
+     * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {
         $this->getBackingStore()->set('userId', $value);
@@ -100,7 +103,7 @@ class MacOsVppAppAssignedLicense extends Entity implements Parsable
 
     /**
      * Sets the userName property value. The user name.
-     *  @param string|null $value Value to set for the userName property.
+     * @param string|null $value Value to set for the userName property.
     */
     public function setUserName(?string $value): void {
         $this->getBackingStore()->set('userName', $value);
@@ -108,7 +111,7 @@ class MacOsVppAppAssignedLicense extends Entity implements Parsable
 
     /**
      * Sets the userPrincipalName property value. The user principal name.
-     *  @param string|null $value Value to set for the userPrincipalName property.
+     * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {
         $this->getBackingStore()->set('userPrincipalName', $value);

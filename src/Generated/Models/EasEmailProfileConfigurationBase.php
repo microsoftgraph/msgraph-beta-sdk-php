@@ -94,7 +94,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
 
     /**
      * Sets the customDomainName property value. Custom domain name value used while generating an email profile before installing on the device.
-     *  @param string|null $value Value to set for the customDomainName property.
+     * @param string|null $value Value to set for the customDomainName property.
     */
     public function setCustomDomainName(?string $value): void {
         $this->getBackingStore()->set('customDomainName', $value);
@@ -102,7 +102,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
 
     /**
      * Sets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
-     *  @param DomainNameSource|null $value Value to set for the userDomainNameSource property.
+     * @param DomainNameSource|null $value Value to set for the userDomainNameSource property.
     */
     public function setUserDomainNameSource(?DomainNameSource $value): void {
         $this->getBackingStore()->set('userDomainNameSource', $value);
@@ -110,7 +110,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
 
     /**
      * Sets the usernameAADSource property value. Name of the AAD field, that will be used to retrieve UserName for email profile. Possible values are: userPrincipalName, primarySmtpAddress, samAccountName.
-     *  @param UsernameSource|null $value Value to set for the usernameAADSource property.
+     * @param UsernameSource|null $value Value to set for the usernameAADSource property.
     */
     public function setUsernameAADSource(?UsernameSource $value): void {
         $this->getBackingStore()->set('usernameAADSource', $value);
@@ -118,7 +118,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
 
     /**
      * Sets the usernameSource property value. Possible values for username source or email source.
-     *  @param UserEmailSource|null $value Value to set for the usernameSource property.
+     * @param UserEmailSource|null $value Value to set for the usernameSource property.
     */
     public function setUsernameSource(?UserEmailSource $value): void {
         $this->getBackingStore()->set('usernameSource', $value);

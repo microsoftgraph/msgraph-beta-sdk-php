@@ -135,7 +135,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
 
     /**
      * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
-     *  @param CertificateStore|null $value Value to set for the certificateStore property.
+     * @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value): void {
         $this->getBackingStore()->set('certificateStore', $value);
@@ -143,7 +143,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
 
     /**
      * Sets the customSubjectAlternativeNames property value. Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
-     *  @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
+     * @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
     */
     public function setCustomSubjectAlternativeNames(?array $value): void {
         $this->getBackingStore()->set('customSubjectAlternativeNames', $value);
@@ -151,7 +151,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
 
     /**
      * Sets the hashAlgorithm property value. Hash Algorithm Options.
-     *  @param HashAlgorithms|null $value Value to set for the hashAlgorithm property.
+     * @param HashAlgorithms|null $value Value to set for the hashAlgorithm property.
     */
     public function setHashAlgorithm(?HashAlgorithms $value): void {
         $this->getBackingStore()->set('hashAlgorithm', $value);
@@ -159,7 +159,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
 
     /**
      * Sets the keySize property value. Key Size Options.
-     *  @param KeySize|null $value Value to set for the keySize property.
+     * @param KeySize|null $value Value to set for the keySize property.
     */
     public function setKeySize(?KeySize $value): void {
         $this->getBackingStore()->set('keySize', $value);
@@ -167,7 +167,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
 
     /**
      * Sets the keyUsage property value. Key Usage Options.
-     *  @param KeyUsages|null $value Value to set for the keyUsage property.
+     * @param KeyUsages|null $value Value to set for the keyUsage property.
     */
     public function setKeyUsage(?KeyUsages $value): void {
         $this->getBackingStore()->set('keyUsage', $value);
@@ -175,7 +175,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-     *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
+     * @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
     public function setManagedDeviceCertificateStates(?array $value): void {
         $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
@@ -183,7 +183,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
 
     /**
      * Sets the scepServerUrls property value. SCEP Server Url(s)
-     *  @param array<string>|null $value Value to set for the scepServerUrls property.
+     * @param array<string>|null $value Value to set for the scepServerUrls property.
     */
     public function setScepServerUrls(?array $value): void {
         $this->getBackingStore()->set('scepServerUrls', $value);
@@ -191,7 +191,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
 
     /**
      * Sets the subjectAlternativeNameFormatString property value. Custom String that defines the AAD Attribute.
-     *  @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
+     * @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
     */
     public function setSubjectAlternativeNameFormatString(?string $value): void {
         $this->getBackingStore()->set('subjectAlternativeNameFormatString', $value);
@@ -199,7 +199,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
 
     /**
      * Sets the subjectNameFormatString property value. Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-     *  @param string|null $value Value to set for the subjectNameFormatString property.
+     * @param string|null $value Value to set for the subjectNameFormatString property.
     */
     public function setSubjectNameFormatString(?string $value): void {
         $this->getBackingStore()->set('subjectNameFormatString', $value);

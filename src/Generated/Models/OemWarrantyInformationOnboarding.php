@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Warranty status entity for a given OEM
+*/
 class OemWarrantyInformationOnboarding extends Entity implements Parsable 
 {
     /**
@@ -71,7 +74,7 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
 
     /**
      * Sets the available property value. Specifies whether warranty API is available. This property is read-only.
-     *  @param bool|null $value Value to set for the available property.
+     * @param bool|null $value Value to set for the available property.
     */
     public function setAvailable(?bool $value): void {
         $this->getBackingStore()->set('available', $value);
@@ -79,7 +82,7 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
 
     /**
      * Sets the enabled property value. Specifies whether warranty query is enabled for given OEM. This property is read-only.
-     *  @param bool|null $value Value to set for the enabled property.
+     * @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value): void {
         $this->getBackingStore()->set('enabled', $value);
@@ -87,7 +90,7 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
 
     /**
      * Sets the oemName property value. OEM name. This property is read-only.
-     *  @param string|null $value Value to set for the oemName property.
+     * @param string|null $value Value to set for the oemName property.
     */
     public function setOemName(?string $value): void {
         $this->getBackingStore()->set('oemName', $value);

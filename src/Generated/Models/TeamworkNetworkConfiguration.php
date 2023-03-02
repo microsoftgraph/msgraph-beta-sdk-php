@@ -36,7 +36,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -170,7 +170,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -178,7 +178,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -186,7 +186,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the defaultGateway property value. The default gateway is the path used to pass information when the destination is unknown to the device.
-     *  @param string|null $value Value to set for the defaultGateway property.
+     * @param string|null $value Value to set for the defaultGateway property.
     */
     public function setDefaultGateway(?string $value): void {
         $this->getBackingStore()->set('defaultGateway', $value);
@@ -194,7 +194,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the domainName property value. The network domain of the device, for example, contoso.com.
-     *  @param string|null $value Value to set for the domainName property.
+     * @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value): void {
         $this->getBackingStore()->set('domainName', $value);
@@ -202,7 +202,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the hostName property value. The device name on a network.
-     *  @param string|null $value Value to set for the hostName property.
+     * @param string|null $value Value to set for the hostName property.
     */
     public function setHostName(?string $value): void {
         $this->getBackingStore()->set('hostName', $value);
@@ -210,7 +210,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the ipAddress property value. The IP address is a numerical label that uniquely identifies every device connected to the internet.
-     *  @param string|null $value Value to set for the ipAddress property.
+     * @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value): void {
         $this->getBackingStore()->set('ipAddress', $value);
@@ -218,7 +218,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the isDhcpEnabled property value. True if DHCP is enabled.
-     *  @param bool|null $value Value to set for the isDhcpEnabled property.
+     * @param bool|null $value Value to set for the isDhcpEnabled property.
     */
     public function setIsDhcpEnabled(?bool $value): void {
         $this->getBackingStore()->set('isDhcpEnabled', $value);
@@ -226,7 +226,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the isPCPortEnabled property value. True if the PC port is enabled.
-     *  @param bool|null $value Value to set for the isPCPortEnabled property.
+     * @param bool|null $value Value to set for the isPCPortEnabled property.
     */
     public function setIsPCPortEnabled(?bool $value): void {
         $this->getBackingStore()->set('isPCPortEnabled', $value);
@@ -234,7 +234,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -242,7 +242,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the primaryDns property value. A primary DNS is the first point of contact for a device that translates the hostname into an IP address.
-     *  @param string|null $value Value to set for the primaryDns property.
+     * @param string|null $value Value to set for the primaryDns property.
     */
     public function setPrimaryDns(?string $value): void {
         $this->getBackingStore()->set('primaryDns', $value);
@@ -250,7 +250,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the secondaryDns property value. A secondary DNS is used when the primary DNS is not available.
-     *  @param string|null $value Value to set for the secondaryDns property.
+     * @param string|null $value Value to set for the secondaryDns property.
     */
     public function setSecondaryDns(?string $value): void {
         $this->getBackingStore()->set('secondaryDns', $value);
@@ -258,7 +258,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, BackedModel,
 
     /**
      * Sets the subnetMask property value. A subnet mask is a number that distinguishes the network address and the host address within an IP address.
-     *  @param string|null $value Value to set for the subnetMask property.
+     * @param string|null $value Value to set for the subnetMask property.
     */
     public function setSubnetMask(?string $value): void {
         $this->getBackingStore()->set('subnetMask', $value);

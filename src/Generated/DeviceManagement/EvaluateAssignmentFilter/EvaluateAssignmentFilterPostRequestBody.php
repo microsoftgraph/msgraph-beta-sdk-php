@@ -37,7 +37,7 @@ class EvaluateAssignmentFilterPostRequestBody implements AdditionalDataHolder, B
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -81,7 +81,7 @@ class EvaluateAssignmentFilterPostRequestBody implements AdditionalDataHolder, B
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -89,7 +89,7 @@ class EvaluateAssignmentFilterPostRequestBody implements AdditionalDataHolder, B
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -97,7 +97,7 @@ class EvaluateAssignmentFilterPostRequestBody implements AdditionalDataHolder, B
 
     /**
      * Sets the data property value. The data property
-     *  @param AssignmentFilterEvaluateRequest|null $value Value to set for the data property.
+     * @param AssignmentFilterEvaluateRequest|null $value Value to set for the data property.
     */
     public function setData(?AssignmentFilterEvaluateRequest $value): void {
         $this->getBackingStore()->set('data', $value);

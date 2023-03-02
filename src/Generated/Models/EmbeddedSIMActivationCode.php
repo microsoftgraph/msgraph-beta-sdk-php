@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * The embedded SIM activation code as provided by the mobile operator.
+*/
 class EmbeddedSIMActivationCode implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
@@ -36,7 +39,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -110,7 +113,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -118,7 +121,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -126,7 +129,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the integratedCircuitCardIdentifier property value. The Integrated Circuit Card Identifier (ICCID) for this embedded SIM activation code as provided by the mobile operator.
-     *  @param string|null $value Value to set for the integratedCircuitCardIdentifier property.
+     * @param string|null $value Value to set for the integratedCircuitCardIdentifier property.
     */
     public function setIntegratedCircuitCardIdentifier(?string $value): void {
         $this->getBackingStore()->set('integratedCircuitCardIdentifier', $value);
@@ -134,7 +137,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the matchingIdentifier property value. The MatchingIdentifier (MatchingID) as specified in the GSMA Association SGP.22 RSP Technical Specification section 4.1.
-     *  @param string|null $value Value to set for the matchingIdentifier property.
+     * @param string|null $value Value to set for the matchingIdentifier property.
     */
     public function setMatchingIdentifier(?string $value): void {
         $this->getBackingStore()->set('matchingIdentifier', $value);
@@ -142,7 +145,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -150,7 +153,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, BackedModel, Pa
 
     /**
      * Sets the smdpPlusServerAddress property value. The fully qualified domain name of the SM-DP+ server as specified in the GSM Association SPG .22 RSP Technical Specification.
-     *  @param string|null $value Value to set for the smdpPlusServerAddress property.
+     * @param string|null $value Value to set for the smdpPlusServerAddress property.
     */
     public function setSmdpPlusServerAddress(?string $value): void {
         $this->getBackingStore()->set('smdpPlusServerAddress', $value);

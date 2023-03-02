@@ -65,7 +65,7 @@ class FileClassificationRequest extends Entity implements Parsable
 
     /**
      * Sets the file property value. The file property
-     *  @param StreamInterface|null $value Value to set for the file property.
+     * @param StreamInterface|null $value Value to set for the file property.
     */
     public function setFile(?StreamInterface $value): void {
         $this->getBackingStore()->set('file', $value);
@@ -73,7 +73,7 @@ class FileClassificationRequest extends Entity implements Parsable
 
     /**
      * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
-     *  @param array<string>|null $value Value to set for the sensitiveTypeIds property.
+     * @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
     public function setSensitiveTypeIds(?array $value): void {
         $this->getBackingStore()->set('sensitiveTypeIds', $value);

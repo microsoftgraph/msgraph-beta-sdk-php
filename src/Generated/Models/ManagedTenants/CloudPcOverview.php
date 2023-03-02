@@ -246,7 +246,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastRefreshedDateTime', $value);
@@ -254,7 +254,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcConnectionStatusFailed property value. The number of cloud PC connections that have a status of failed. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcConnectionStatusFailed property.
+     * @param int|null $value Value to set for the numberOfCloudPcConnectionStatusFailed property.
     */
     public function setNumberOfCloudPcConnectionStatusFailed(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcConnectionStatusFailed', $value);
@@ -262,7 +262,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcConnectionStatusPassed property value. The number of cloud PC connections that have a status of passed. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcConnectionStatusPassed property.
+     * @param int|null $value Value to set for the numberOfCloudPcConnectionStatusPassed property.
     */
     public function setNumberOfCloudPcConnectionStatusPassed(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcConnectionStatusPassed', $value);
@@ -270,7 +270,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcConnectionStatusPending property value. The number of cloud PC connections that have a status of pending. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcConnectionStatusPending property.
+     * @param int|null $value Value to set for the numberOfCloudPcConnectionStatusPending property.
     */
     public function setNumberOfCloudPcConnectionStatusPending(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcConnectionStatusPending', $value);
@@ -278,7 +278,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcConnectionStatusRunning property value. The number of cloud PC connections that have a status of running. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcConnectionStatusRunning property.
+     * @param int|null $value Value to set for the numberOfCloudPcConnectionStatusRunning property.
     */
     public function setNumberOfCloudPcConnectionStatusRunning(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcConnectionStatusRunning', $value);
@@ -286,7 +286,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcConnectionStatusUnkownFutureValue property value. The number of cloud PC connections that have a status of unknownFutureValue. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcConnectionStatusUnkownFutureValue property.
+     * @param int|null $value Value to set for the numberOfCloudPcConnectionStatusUnkownFutureValue property.
     */
     public function setNumberOfCloudPcConnectionStatusUnkownFutureValue(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcConnectionStatusUnkownFutureValue', $value);
@@ -294,7 +294,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcStatusDeprovisioning property value. The number of cloud PCs that have a status of deprovisioning. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcStatusDeprovisioning property.
+     * @param int|null $value Value to set for the numberOfCloudPcStatusDeprovisioning property.
     */
     public function setNumberOfCloudPcStatusDeprovisioning(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcStatusDeprovisioning', $value);
@@ -302,7 +302,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcStatusFailed property value. The number of cloud PCs that have a status of failed. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcStatusFailed property.
+     * @param int|null $value Value to set for the numberOfCloudPcStatusFailed property.
     */
     public function setNumberOfCloudPcStatusFailed(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcStatusFailed', $value);
@@ -310,7 +310,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcStatusInGracePeriod property value. The number of cloud PCs that have a status of inGracePeriod. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcStatusInGracePeriod property.
+     * @param int|null $value Value to set for the numberOfCloudPcStatusInGracePeriod property.
     */
     public function setNumberOfCloudPcStatusInGracePeriod(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcStatusInGracePeriod', $value);
@@ -318,7 +318,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcStatusNotProvisioned property value. The number of cloud PCs that have a status of notProvisioned. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcStatusNotProvisioned property.
+     * @param int|null $value Value to set for the numberOfCloudPcStatusNotProvisioned property.
     */
     public function setNumberOfCloudPcStatusNotProvisioned(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcStatusNotProvisioned', $value);
@@ -326,7 +326,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcStatusProvisioned property value. The number of cloud PCs that have a status of provisioned. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcStatusProvisioned property.
+     * @param int|null $value Value to set for the numberOfCloudPcStatusProvisioned property.
     */
     public function setNumberOfCloudPcStatusProvisioned(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcStatusProvisioned', $value);
@@ -334,7 +334,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcStatusProvisioning property value. The number of cloud PCs that have a status of provisioning. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcStatusProvisioning property.
+     * @param int|null $value Value to set for the numberOfCloudPcStatusProvisioning property.
     */
     public function setNumberOfCloudPcStatusProvisioning(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcStatusProvisioning', $value);
@@ -342,7 +342,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcStatusUnknown property value. The number of cloud PCs that have a status of unknown. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcStatusUnknown property.
+     * @param int|null $value Value to set for the numberOfCloudPcStatusUnknown property.
     */
     public function setNumberOfCloudPcStatusUnknown(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcStatusUnknown', $value);
@@ -350,7 +350,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the numberOfCloudPcStatusUpgrading property value. The number of cloud PCs that have a status of upgrading. Optional. Read-only.
-     *  @param int|null $value Value to set for the numberOfCloudPcStatusUpgrading property.
+     * @param int|null $value Value to set for the numberOfCloudPcStatusUpgrading property.
     */
     public function setNumberOfCloudPcStatusUpgrading(?int $value): void {
         $this->getBackingStore()->set('numberOfCloudPcStatusUpgrading', $value);
@@ -358,7 +358,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Optional. Read-only.
-     *  @param string|null $value Value to set for the tenantDisplayName property.
+     * @param string|null $value Value to set for the tenantDisplayName property.
     */
     public function setTenantDisplayName(?string $value): void {
         $this->getBackingStore()->set('tenantDisplayName', $value);
@@ -366,7 +366,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the tenantId property value. The tenantId property
-     *  @param string|null $value Value to set for the tenantId property.
+     * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
@@ -374,7 +374,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the totalBusinessLicenses property value. The total number of cloud PC devices that have the Business SKU. Optional. Read-only.
-     *  @param int|null $value Value to set for the totalBusinessLicenses property.
+     * @param int|null $value Value to set for the totalBusinessLicenses property.
     */
     public function setTotalBusinessLicenses(?int $value): void {
         $this->getBackingStore()->set('totalBusinessLicenses', $value);
@@ -382,7 +382,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the totalCloudPcConnectionStatus property value. The total number of cloud PC connection statuses for the given managed tenant. Optional. Read-only.
-     *  @param int|null $value Value to set for the totalCloudPcConnectionStatus property.
+     * @param int|null $value Value to set for the totalCloudPcConnectionStatus property.
     */
     public function setTotalCloudPcConnectionStatus(?int $value): void {
         $this->getBackingStore()->set('totalCloudPcConnectionStatus', $value);
@@ -390,7 +390,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the totalCloudPcStatus property value. The total number of cloud PC statues for the given managed tenant. Optional. Read-only.
-     *  @param int|null $value Value to set for the totalCloudPcStatus property.
+     * @param int|null $value Value to set for the totalCloudPcStatus property.
     */
     public function setTotalCloudPcStatus(?int $value): void {
         $this->getBackingStore()->set('totalCloudPcStatus', $value);
@@ -398,7 +398,7 @@ class CloudPcOverview extends Entity implements Parsable
 
     /**
      * Sets the totalEnterpriseLicenses property value. The total number of cloud PC devices that have the Enterprise SKU. Optional. Read-only.
-     *  @param int|null $value Value to set for the totalEnterpriseLicenses property.
+     * @param int|null $value Value to set for the totalEnterpriseLicenses property.
     */
     public function setTotalEnterpriseLicenses(?int $value): void {
         $this->getBackingStore()->set('totalEnterpriseLicenses', $value);

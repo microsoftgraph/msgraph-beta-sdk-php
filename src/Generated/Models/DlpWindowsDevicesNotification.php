@@ -65,7 +65,7 @@ class DlpWindowsDevicesNotification extends DlpNotification implements Parsable
 
     /**
      * Sets the contentName property value. The contentName property
-     *  @param string|null $value Value to set for the contentName property.
+     * @param string|null $value Value to set for the contentName property.
     */
     public function setContentName(?string $value): void {
         $this->getBackingStore()->set('contentName', $value);
@@ -73,7 +73,7 @@ class DlpWindowsDevicesNotification extends DlpNotification implements Parsable
 
     /**
      * Sets the lastModfiedBy property value. The lastModfiedBy property
-     *  @param string|null $value Value to set for the lastModfiedBy property.
+     * @param string|null $value Value to set for the lastModfiedBy property.
     */
     public function setLastModfiedBy(?string $value): void {
         $this->getBackingStore()->set('lastModfiedBy', $value);

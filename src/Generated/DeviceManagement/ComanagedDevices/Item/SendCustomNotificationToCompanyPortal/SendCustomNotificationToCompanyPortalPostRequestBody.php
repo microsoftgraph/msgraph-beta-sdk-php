@@ -36,7 +36,7 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -90,7 +90,7 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -98,7 +98,7 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -106,7 +106,7 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
 
     /**
      * Sets the notificationBody property value. The notificationBody property
-     *  @param string|null $value Value to set for the notificationBody property.
+     * @param string|null $value Value to set for the notificationBody property.
     */
     public function setNotificationBody(?string $value): void {
         $this->getBackingStore()->set('notificationBody', $value);
@@ -114,7 +114,7 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
 
     /**
      * Sets the notificationTitle property value. The notificationTitle property
-     *  @param string|null $value Value to set for the notificationTitle property.
+     * @param string|null $value Value to set for the notificationTitle property.
     */
     public function setNotificationTitle(?string $value): void {
         $this->getBackingStore()->set('notificationTitle', $value);

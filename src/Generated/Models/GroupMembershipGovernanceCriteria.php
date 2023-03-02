@@ -55,7 +55,7 @@ class GroupMembershipGovernanceCriteria extends GovernanceCriteria implements Pa
 
     /**
      * Sets the groupId property value. The groupId property
-     *  @param string|null $value Value to set for the groupId property.
+     * @param string|null $value Value to set for the groupId property.
     */
     public function setGroupId(?string $value): void {
         $this->getBackingStore()->set('groupId', $value);

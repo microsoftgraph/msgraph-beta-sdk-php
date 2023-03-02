@@ -126,7 +126,7 @@ class TenantTag extends Entity implements Parsable
 
     /**
      * Sets the createdByUserId property value. The identifier for the account that created the tenant tag. Required. Read-only.
-     *  @param string|null $value Value to set for the createdByUserId property.
+     * @param string|null $value Value to set for the createdByUserId property.
     */
     public function setCreatedByUserId(?string $value): void {
         $this->getBackingStore()->set('createdByUserId', $value);
@@ -134,7 +134,7 @@ class TenantTag extends Entity implements Parsable
 
     /**
      * Sets the createdDateTime property value. The date and time when the tenant tag was created. Required. Read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
+     * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
@@ -142,7 +142,7 @@ class TenantTag extends Entity implements Parsable
 
     /**
      * Sets the deletedDateTime property value. The date and time when the tenant tag was deleted. Required. Read-only.
-     *  @param DateTime|null $value Value to set for the deletedDateTime property.
+     * @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('deletedDateTime', $value);
@@ -150,7 +150,7 @@ class TenantTag extends Entity implements Parsable
 
     /**
      * Sets the description property value. The description for the tenant tag. Optional. Read-only.
-     *  @param string|null $value Value to set for the description property.
+     * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
@@ -158,7 +158,7 @@ class TenantTag extends Entity implements Parsable
 
     /**
      * Sets the displayName property value. The display name for the tenant tag. Required. Read-only.
-     *  @param string|null $value Value to set for the displayName property.
+     * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
@@ -166,7 +166,7 @@ class TenantTag extends Entity implements Parsable
 
     /**
      * Sets the lastActionByUserId property value. The identifier for the account that lasted on the tenant tag. Optional. Read-only.
-     *  @param string|null $value Value to set for the lastActionByUserId property.
+     * @param string|null $value Value to set for the lastActionByUserId property.
     */
     public function setLastActionByUserId(?string $value): void {
         $this->getBackingStore()->set('lastActionByUserId', $value);
@@ -174,7 +174,7 @@ class TenantTag extends Entity implements Parsable
 
     /**
      * Sets the lastActionDateTime property value. The date and time the last action was performed against the tenant tag. Optional. Read-only.
-     *  @param DateTime|null $value Value to set for the lastActionDateTime property.
+     * @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
     public function setLastActionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastActionDateTime', $value);
@@ -182,7 +182,7 @@ class TenantTag extends Entity implements Parsable
 
     /**
      * Sets the tenants property value. The collection of managed tenants associated with the tenant tag. Optional.
-     *  @param array<TenantInfo>|null $value Value to set for the tenants property.
+     * @param array<TenantInfo>|null $value Value to set for the tenants property.
     */
     public function setTenants(?array $value): void {
         $this->getBackingStore()->set('tenants', $value);

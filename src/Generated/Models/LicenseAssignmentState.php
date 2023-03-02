@@ -37,7 +37,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -141,7 +141,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -149,7 +149,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the assignedByGroup property value. Indicates whether the license is directly-assigned or inherited from a group. If directly-assigned, this field is null; if inherited through a group membership, this field contains the ID of the group. Read-Only.
-     *  @param string|null $value Value to set for the assignedByGroup property.
+     * @param string|null $value Value to set for the assignedByGroup property.
     */
     public function setAssignedByGroup(?string $value): void {
         $this->getBackingStore()->set('assignedByGroup', $value);
@@ -157,7 +157,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -165,7 +165,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the disabledPlans property value. The service plans that are disabled in this assignment. Read-Only.
-     *  @param array<string>|null $value Value to set for the disabledPlans property.
+     * @param array<string>|null $value Value to set for the disabledPlans property.
     */
     public function setDisabledPlans(?array $value): void {
         $this->getBackingStore()->set('disabledPlans', $value);
@@ -173,7 +173,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the error property value. License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here.
-     *  @param string|null $value Value to set for the error property.
+     * @param string|null $value Value to set for the error property.
     */
     public function setError(?string $value): void {
         $this->getBackingStore()->set('error', $value);
@@ -181,7 +181,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the lastUpdatedDateTime property value. The timestamp when the state of the license assignment was last updated.
-     *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
+     * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUpdatedDateTime', $value);
@@ -189,7 +189,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -197,7 +197,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the skuId property value. The unique identifier for the SKU. Read-Only.
-     *  @param string|null $value Value to set for the skuId property.
+     * @param string|null $value Value to set for the skuId property.
     */
     public function setSkuId(?string $value): void {
         $this->getBackingStore()->set('skuId', $value);
@@ -205,7 +205,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the state property value. Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error.
-     *  @param string|null $value Value to set for the state property.
+     * @param string|null $value Value to set for the state property.
     */
     public function setState(?string $value): void {
         $this->getBackingStore()->set('state', $value);

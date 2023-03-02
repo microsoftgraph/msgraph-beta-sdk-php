@@ -31,9 +31,27 @@ class AttackSimulationRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([AttackSimulationOperation::class, 'createFromDiscriminatorValue'])),
+            'payloads' => fn(ParseNode $n) => $o->setPayloads($n->getCollectionOfObjectValues([Payload::class, 'createFromDiscriminatorValue'])),
             'simulationAutomations' => fn(ParseNode $n) => $o->setSimulationAutomations($n->getCollectionOfObjectValues([SimulationAutomation::class, 'createFromDiscriminatorValue'])),
             'simulations' => fn(ParseNode $n) => $o->setSimulations($n->getCollectionOfObjectValues([Simulation::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the operations property value. Represents an attack simulation training operation.
+     * @return array<AttackSimulationOperation>|null
+    */
+    public function getOperations(): ?array {
+        return $this->getBackingStore()->get('operations');
+    }
+
+    /**
+     * Gets the payloads property value. Represents an attack simulation training campaign payload in a tenant.
+     * @return array<Payload>|null
+    */
+    public function getPayloads(): ?array {
+        return $this->getBackingStore()->get('payloads');
     }
 
     /**
@@ -58,13 +76,31 @@ class AttackSimulationRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
+        $writer->writeCollectionOfObjectValues('payloads', $this->getPayloads());
         $writer->writeCollectionOfObjectValues('simulationAutomations', $this->getSimulationAutomations());
         $writer->writeCollectionOfObjectValues('simulations', $this->getSimulations());
     }
 
     /**
+     * Sets the operations property value. Represents an attack simulation training operation.
+     * @param array<AttackSimulationOperation>|null $value Value to set for the operations property.
+    */
+    public function setOperations(?array $value): void {
+        $this->getBackingStore()->set('operations', $value);
+    }
+
+    /**
+     * Sets the payloads property value. Represents an attack simulation training campaign payload in a tenant.
+     * @param array<Payload>|null $value Value to set for the payloads property.
+    */
+    public function setPayloads(?array $value): void {
+        $this->getBackingStore()->set('payloads', $value);
+    }
+
+    /**
      * Sets the simulationAutomations property value. Represents simulation automation created to run on a tenant.
-     *  @param array<SimulationAutomation>|null $value Value to set for the simulationAutomations property.
+     * @param array<SimulationAutomation>|null $value Value to set for the simulationAutomations property.
     */
     public function setSimulationAutomations(?array $value): void {
         $this->getBackingStore()->set('simulationAutomations', $value);
@@ -72,7 +108,7 @@ class AttackSimulationRoot extends Entity implements Parsable
 
     /**
      * Sets the simulations property value. Represents an attack simulation training campaign in a tenant.
-     *  @param array<Simulation>|null $value Value to set for the simulations property.
+     * @param array<Simulation>|null $value Value to set for the simulations property.
     */
     public function setSimulations(?array $value): void {
         $this->getBackingStore()->set('simulations', $value);

@@ -105,7 +105,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the fontColor property value. Color of the font to use for the watermark.
-     *  @param string|null $value Value to set for the fontColor property.
+     * @param string|null $value Value to set for the fontColor property.
     */
     public function setFontColor(?string $value): void {
         $this->getBackingStore()->set('fontColor', $value);
@@ -113,7 +113,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the fontName property value. Name of the font to use for the watermark.
-     *  @param string|null $value Value to set for the fontName property.
+     * @param string|null $value Value to set for the fontName property.
     */
     public function setFontName(?string $value): void {
         $this->getBackingStore()->set('fontName', $value);
@@ -121,7 +121,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the fontSize property value. Font size to use for the watermark.
-     *  @param int|null $value Value to set for the fontSize property.
+     * @param int|null $value Value to set for the fontSize property.
     */
     public function setFontSize(?int $value): void {
         $this->getBackingStore()->set('fontSize', $value);
@@ -129,7 +129,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the layout property value. The layout property
-     *  @param WatermarkLayout|null $value Value to set for the layout property.
+     * @param WatermarkLayout|null $value Value to set for the layout property.
     */
     public function setLayout(?WatermarkLayout $value): void {
         $this->getBackingStore()->set('layout', $value);
@@ -137,7 +137,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the text property value. The contents of the watermark itself.
-     *  @param string|null $value Value to set for the text property.
+     * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
         $this->getBackingStore()->set('text', $value);
@@ -145,7 +145,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
 
     /**
      * Sets the uiElementName property value. The name of the UI element where the watermark should be placed.
-     *  @param string|null $value Value to set for the uiElementName property.
+     * @param string|null $value Value to set for the uiElementName property.
     */
     public function setUiElementName(?string $value): void {
         $this->getBackingStore()->set('uiElementName', $value);

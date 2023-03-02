@@ -65,7 +65,7 @@ class ItemIdResolver extends UrlToItemResolverBase implements Parsable
 
     /**
      * Sets the itemId property value. Pattern that specifies how to form the ID of the external item that the URL represents. The named groups from the regular expression in urlPattern within the urlMatchInfo can be referenced by inserting the group name inside curly brackets.
-     *  @param string|null $value Value to set for the itemId property.
+     * @param string|null $value Value to set for the itemId property.
     */
     public function setItemId(?string $value): void {
         $this->getBackingStore()->set('itemId', $value);
@@ -73,7 +73,7 @@ class ItemIdResolver extends UrlToItemResolverBase implements Parsable
 
     /**
      * Sets the urlMatchInfo property value. Configurations to match and resolve URL.
-     *  @param UrlMatchInfo|null $value Value to set for the urlMatchInfo property.
+     * @param UrlMatchInfo|null $value Value to set for the urlMatchInfo property.
     */
     public function setUrlMatchInfo(?UrlMatchInfo $value): void {
         $this->getBackingStore()->set('urlMatchInfo', $value);

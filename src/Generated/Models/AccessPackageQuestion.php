@@ -44,7 +44,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
@@ -138,7 +138,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
@@ -146,7 +146,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the backingStore property value. Stores model information.
-     *  @param BackingStore $value Value to set for the BackingStore property.
+     * @param BackingStore $value Value to set for the BackingStore property.
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
@@ -154,7 +154,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the id property value. ID of the question.
-     *  @param string|null $value Value to set for the id property.
+     * @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value): void {
         $this->getBackingStore()->set('id', $value);
@@ -162,7 +162,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the isAnswerEditable property value. Specifies whether the requestor is allowed to edit answers to questions.
-     *  @param bool|null $value Value to set for the isAnswerEditable property.
+     * @param bool|null $value Value to set for the isAnswerEditable property.
     */
     public function setIsAnswerEditable(?bool $value): void {
         $this->getBackingStore()->set('isAnswerEditable', $value);
@@ -170,7 +170,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the isRequired property value. Whether the requestor is required to supply an answer or not.
-     *  @param bool|null $value Value to set for the isRequired property.
+     * @param bool|null $value Value to set for the isRequired property.
     */
     public function setIsRequired(?bool $value): void {
         $this->getBackingStore()->set('isRequired', $value);
@@ -178,7 +178,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the @odata.type property value. The OdataType property
-     *  @param string|null $value Value to set for the OdataType property.
+     * @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
@@ -186,7 +186,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the sequence property value. Relative position of this question when displaying a list of questions to the requestor.
-     *  @param int|null $value Value to set for the sequence property.
+     * @param int|null $value Value to set for the sequence property.
     */
     public function setSequence(?int $value): void {
         $this->getBackingStore()->set('sequence', $value);
@@ -194,7 +194,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsab
 
     /**
      * Sets the text property value. The text of the question to show to the requestor.
-     *  @param AccessPackageLocalizedContent|null $value Value to set for the text property.
+     * @param AccessPackageLocalizedContent|null $value Value to set for the text property.
     */
     public function setText(?AccessPackageLocalizedContent $value): void {
         $this->getBackingStore()->set('text', $value);
