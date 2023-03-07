@@ -38,4 +38,5 @@ class ConditionalAccessRule extends Enum {
     public const B2B_DIRECT_CONNECT_USER = 'b2bDirectConnectUser';
     public const OTHER_EXTERNAL_USER = 'otherExternalUser';
     public const SERVICE_PROVIDER = 'serviceProvider';
+    public const MICROSOFT_ADMIN_PORTALS = 'microsoftAdminPortals';
 }

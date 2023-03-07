@@ -44,6 +44,7 @@ class OrganizationSettings extends Entity implements Parsable
             'microsoftApplicationDataAccess' => fn(ParseNode $n) => $o->setMicrosoftApplicationDataAccess($n->getObjectValue([MicrosoftApplicationDataAccessSettings::class, 'createFromDiscriminatorValue'])),
             'peopleInsights' => fn(ParseNode $n) => $o->setPeopleInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
             'profileCardProperties' => fn(ParseNode $n) => $o->setProfileCardProperties($n->getCollectionOfObjectValues([ProfileCardProperty::class, 'createFromDiscriminatorValue'])),
+            'pronouns' => fn(ParseNode $n) => $o->setPronouns($n->getObjectValue([PronounsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -80,6 +81,14 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the pronouns property value. Represents administrator settings that manage the support of pronouns in an organization.
+     * @return PronounsSettings|null
+    */
+    public function getPronouns(): ?PronounsSettings {
+        return $this->getBackingStore()->get('pronouns');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -90,6 +99,7 @@ class OrganizationSettings extends Entity implements Parsable
         $writer->writeObjectValue('microsoftApplicationDataAccess', $this->getMicrosoftApplicationDataAccess());
         $writer->writeObjectValue('peopleInsights', $this->getPeopleInsights());
         $writer->writeCollectionOfObjectValues('profileCardProperties', $this->getProfileCardProperties());
+        $writer->writeObjectValue('pronouns', $this->getPronouns());
     }
 
     /**
@@ -130,6 +140,14 @@ class OrganizationSettings extends Entity implements Parsable
     */
     public function setProfileCardProperties(?array $value): void {
         $this->getBackingStore()->set('profileCardProperties', $value);
+    }
+
+    /**
+     * Sets the pronouns property value. Represents administrator settings that manage the support of pronouns in an organization.
+     * @param PronounsSettings|null $value Value to set for the pronouns property.
+    */
+    public function setPronouns(?PronounsSettings $value): void {
+        $this->getBackingStore()->set('pronouns', $value);
     }
 
 }

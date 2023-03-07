@@ -292,7 +292,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Gets the templateDefinition property value. The templateDefinition property
+     * Gets the templateDefinition property value. Generic representation of a team template definition for a team with a specific structure and configuration.
      * @return TeamTemplateDefinition|null
     */
     public function getTemplateDefinition(): ?TeamTemplateDefinition {
@@ -588,7 +588,7 @@ class Team extends Entity implements Parsable
     }
 
     /**
-     * Sets the templateDefinition property value. The templateDefinition property
+     * Sets the templateDefinition property value. Generic representation of a team template definition for a team with a specific structure and configuration.
      * @param TeamTemplateDefinition|null $value Value to set for the templateDefinition property.
     */
     public function setTemplateDefinition(?TeamTemplateDefinition $value): void {

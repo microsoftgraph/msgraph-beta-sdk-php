@@ -77,7 +77,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the teamsChannelMessages property value. The teamsChannelMessages property
+     * Gets the teamsChannelMessages property value. The number of channel messages in Teams team.
      * @return int|null
     */
     public function getTeamsChannelMessages(): ?int {
@@ -85,7 +85,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     }
 
     /**
-     * Gets the teamsMeetingsOrganized property value. The teamsMeetingsOrganized property
+     * Gets the teamsMeetingsOrganized property value. The number of meetings organized in Teams team.
      * @return int|null
     */
     public function getTeamsMeetingsOrganized(): ?int {
@@ -166,7 +166,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the teamsChannelMessages property value. The teamsChannelMessages property
+     * Sets the teamsChannelMessages property value. The number of channel messages in Teams team.
      * @param int|null $value Value to set for the teamsChannelMessages property.
     */
     public function setTeamsChannelMessages(?int $value): void {
@@ -174,7 +174,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     }
 
     /**
-     * Sets the teamsMeetingsOrganized property value. The teamsMeetingsOrganized property
+     * Sets the teamsMeetingsOrganized property value. The number of meetings organized in Teams team.
      * @param int|null $value Value to set for the teamsMeetingsOrganized property.
     */
     public function setTeamsMeetingsOrganized(?int $value): void {

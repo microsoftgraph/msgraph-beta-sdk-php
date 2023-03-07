@@ -51,10 +51,10 @@ class RiskDetectionsRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a **riskDetection** object.
+     * Retrieve the properties of a collection of **riskDetection** objects.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?RiskDetectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -89,7 +89,7 @@ class RiskDetectionsRequestBuilder
     }
 
     /**
-     * Retrieve the properties of a **riskDetection** object.
+     * Retrieve the properties of a collection of **riskDetection** objects.
      * @param RiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

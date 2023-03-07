@@ -34,6 +34,30 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     }
 
     /**
+     * Gets the adminAccountFullName property value. Indicates what the full name for the admin account is
+     * @return string|null
+    */
+    public function getAdminAccountFullName(): ?string {
+        return $this->getBackingStore()->get('adminAccountFullName');
+    }
+
+    /**
+     * Gets the adminAccountPassword property value. Indicates what the password for the admin account is
+     * @return string|null
+    */
+    public function getAdminAccountPassword(): ?string {
+        return $this->getBackingStore()->get('adminAccountPassword');
+    }
+
+    /**
+     * Gets the adminAccountUserName property value. Indicates what the user name for the admin account is
+     * @return string|null
+    */
+    public function getAdminAccountUserName(): ?string {
+        return $this->getBackingStore()->get('adminAccountUserName');
+    }
+
+    /**
      * Gets the autoUnlockWithWatchDisabled property value. Indicates if UnlockWithWatch screen is disabled
      * @return bool|null
     */
@@ -73,17 +97,22 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'accessibilityScreenDisabled' => fn(ParseNode $n) => $o->setAccessibilityScreenDisabled($n->getBooleanValue()),
+            'adminAccountFullName' => fn(ParseNode $n) => $o->setAdminAccountFullName($n->getStringValue()),
+            'adminAccountPassword' => fn(ParseNode $n) => $o->setAdminAccountPassword($n->getStringValue()),
+            'adminAccountUserName' => fn(ParseNode $n) => $o->setAdminAccountUserName($n->getStringValue()),
             'autoUnlockWithWatchDisabled' => fn(ParseNode $n) => $o->setAutoUnlockWithWatchDisabled($n->getBooleanValue()),
             'chooseYourLockScreenDisabled' => fn(ParseNode $n) => $o->setChooseYourLockScreenDisabled($n->getBooleanValue()),
             'dontAutoPopulatePrimaryAccountInfo' => fn(ParseNode $n) => $o->setDontAutoPopulatePrimaryAccountInfo($n->getBooleanValue()),
             'enableRestrictEditing' => fn(ParseNode $n) => $o->setEnableRestrictEditing($n->getBooleanValue()),
             'fileVaultDisabled' => fn(ParseNode $n) => $o->setFileVaultDisabled($n->getBooleanValue()),
+            'hideAdminAccount' => fn(ParseNode $n) => $o->setHideAdminAccount($n->getBooleanValue()),
             'iCloudDiagnosticsDisabled' => fn(ParseNode $n) => $o->setICloudDiagnosticsDisabled($n->getBooleanValue()),
             'iCloudStorageDisabled' => fn(ParseNode $n) => $o->setICloudStorageDisabled($n->getBooleanValue()),
             'passCodeDisabled' => fn(ParseNode $n) => $o->setPassCodeDisabled($n->getBooleanValue()),
             'primaryAccountFullName' => fn(ParseNode $n) => $o->setPrimaryAccountFullName($n->getStringValue()),
             'primaryAccountUserName' => fn(ParseNode $n) => $o->setPrimaryAccountUserName($n->getStringValue()),
             'registrationDisabled' => fn(ParseNode $n) => $o->setRegistrationDisabled($n->getBooleanValue()),
+            'requestRequiresNetworkTether' => fn(ParseNode $n) => $o->setRequestRequiresNetworkTether($n->getBooleanValue()),
             'setPrimarySetupAccountAsRegularUser' => fn(ParseNode $n) => $o->setSetPrimarySetupAccountAsRegularUser($n->getBooleanValue()),
             'skipPrimarySetupAccountCreation' => fn(ParseNode $n) => $o->setSkipPrimarySetupAccountCreation($n->getBooleanValue()),
             'zoomDisabled' => fn(ParseNode $n) => $o->setZoomDisabled($n->getBooleanValue()),
@@ -96,6 +125,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function getFileVaultDisabled(): ?bool {
         return $this->getBackingStore()->get('fileVaultDisabled');
+    }
+
+    /**
+     * Gets the hideAdminAccount property value. Indicates whether the admin account should be hidded or not
+     * @return bool|null
+    */
+    public function getHideAdminAccount(): ?bool {
+        return $this->getBackingStore()->get('hideAdminAccount');
     }
 
     /**
@@ -147,6 +184,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     }
 
     /**
+     * Gets the requestRequiresNetworkTether property value. Indicates if the device is network-tethered to run the command
+     * @return bool|null
+    */
+    public function getRequestRequiresNetworkTether(): ?bool {
+        return $this->getBackingStore()->get('requestRequiresNetworkTether');
+    }
+
+    /**
      * Gets the setPrimarySetupAccountAsRegularUser property value. Indicates whether Setup Assistant will set the account as a regular user
      * @return bool|null
     */
@@ -177,17 +222,22 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('accessibilityScreenDisabled', $this->getAccessibilityScreenDisabled());
+        $writer->writeStringValue('adminAccountFullName', $this->getAdminAccountFullName());
+        $writer->writeStringValue('adminAccountPassword', $this->getAdminAccountPassword());
+        $writer->writeStringValue('adminAccountUserName', $this->getAdminAccountUserName());
         $writer->writeBooleanValue('autoUnlockWithWatchDisabled', $this->getAutoUnlockWithWatchDisabled());
         $writer->writeBooleanValue('chooseYourLockScreenDisabled', $this->getChooseYourLockScreenDisabled());
         $writer->writeBooleanValue('dontAutoPopulatePrimaryAccountInfo', $this->getDontAutoPopulatePrimaryAccountInfo());
         $writer->writeBooleanValue('enableRestrictEditing', $this->getEnableRestrictEditing());
         $writer->writeBooleanValue('fileVaultDisabled', $this->getFileVaultDisabled());
+        $writer->writeBooleanValue('hideAdminAccount', $this->getHideAdminAccount());
         $writer->writeBooleanValue('iCloudDiagnosticsDisabled', $this->getICloudDiagnosticsDisabled());
         $writer->writeBooleanValue('iCloudStorageDisabled', $this->getICloudStorageDisabled());
         $writer->writeBooleanValue('passCodeDisabled', $this->getPassCodeDisabled());
         $writer->writeStringValue('primaryAccountFullName', $this->getPrimaryAccountFullName());
         $writer->writeStringValue('primaryAccountUserName', $this->getPrimaryAccountUserName());
         $writer->writeBooleanValue('registrationDisabled', $this->getRegistrationDisabled());
+        $writer->writeBooleanValue('requestRequiresNetworkTether', $this->getRequestRequiresNetworkTether());
         $writer->writeBooleanValue('setPrimarySetupAccountAsRegularUser', $this->getSetPrimarySetupAccountAsRegularUser());
         $writer->writeBooleanValue('skipPrimarySetupAccountCreation', $this->getSkipPrimarySetupAccountCreation());
         $writer->writeBooleanValue('zoomDisabled', $this->getZoomDisabled());
@@ -199,6 +249,30 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function setAccessibilityScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('accessibilityScreenDisabled', $value);
+    }
+
+    /**
+     * Sets the adminAccountFullName property value. Indicates what the full name for the admin account is
+     * @param string|null $value Value to set for the adminAccountFullName property.
+    */
+    public function setAdminAccountFullName(?string $value): void {
+        $this->getBackingStore()->set('adminAccountFullName', $value);
+    }
+
+    /**
+     * Sets the adminAccountPassword property value. Indicates what the password for the admin account is
+     * @param string|null $value Value to set for the adminAccountPassword property.
+    */
+    public function setAdminAccountPassword(?string $value): void {
+        $this->getBackingStore()->set('adminAccountPassword', $value);
+    }
+
+    /**
+     * Sets the adminAccountUserName property value. Indicates what the user name for the admin account is
+     * @param string|null $value Value to set for the adminAccountUserName property.
+    */
+    public function setAdminAccountUserName(?string $value): void {
+        $this->getBackingStore()->set('adminAccountUserName', $value);
     }
 
     /**
@@ -239,6 +313,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function setFileVaultDisabled(?bool $value): void {
         $this->getBackingStore()->set('fileVaultDisabled', $value);
+    }
+
+    /**
+     * Sets the hideAdminAccount property value. Indicates whether the admin account should be hidded or not
+     * @param bool|null $value Value to set for the hideAdminAccount property.
+    */
+    public function setHideAdminAccount(?bool $value): void {
+        $this->getBackingStore()->set('hideAdminAccount', $value);
     }
 
     /**
@@ -287,6 +369,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function setRegistrationDisabled(?bool $value): void {
         $this->getBackingStore()->set('registrationDisabled', $value);
+    }
+
+    /**
+     * Sets the requestRequiresNetworkTether property value. Indicates if the device is network-tethered to run the command
+     * @param bool|null $value Value to set for the requestRequiresNetworkTether property.
+    */
+    public function setRequestRequiresNetworkTether(?bool $value): void {
+        $this->getBackingStore()->set('requestRequiresNetworkTether', $value);
     }
 
     /**

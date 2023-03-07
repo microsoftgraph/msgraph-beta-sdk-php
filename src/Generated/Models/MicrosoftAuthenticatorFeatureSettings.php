@@ -51,6 +51,14 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
     }
 
     /**
+     * Gets the companionAppAllowedState property value. The companionAppAllowedState property
+     * @return AuthenticationMethodFeatureConfiguration|null
+    */
+    public function getCompanionAppAllowedState(): ?AuthenticationMethodFeatureConfiguration {
+        return $this->getBackingStore()->get('companionAppAllowedState');
+    }
+
+    /**
      * Gets the displayAppInformationRequiredState property value. Determines whether the user's Authenticator app will show them the client app they are signing into.
      * @return AuthenticationMethodFeatureConfiguration|null
     */
@@ -73,6 +81,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'companionAppAllowedState' => fn(ParseNode $n) => $o->setCompanionAppAllowedState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
             'displayAppInformationRequiredState' => fn(ParseNode $n) => $o->setDisplayAppInformationRequiredState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
             'displayLocationInformationRequiredState' => fn(ParseNode $n) => $o->setDisplayLocationInformationRequiredState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
             'numberMatchingRequiredState' => fn(ParseNode $n) => $o->setNumberMatchingRequiredState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
@@ -101,6 +110,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('companionAppAllowedState', $this->getCompanionAppAllowedState());
         $writer->writeObjectValue('displayAppInformationRequiredState', $this->getDisplayAppInformationRequiredState());
         $writer->writeObjectValue('displayLocationInformationRequiredState', $this->getDisplayLocationInformationRequiredState());
         $writer->writeObjectValue('numberMatchingRequiredState', $this->getNumberMatchingRequiredState());
@@ -122,6 +132,14 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the companionAppAllowedState property value. The companionAppAllowedState property
+     * @param AuthenticationMethodFeatureConfiguration|null $value Value to set for the companionAppAllowedState property.
+    */
+    public function setCompanionAppAllowedState(?AuthenticationMethodFeatureConfiguration $value): void {
+        $this->getBackingStore()->set('companionAppAllowedState', $value);
     }
 
     /**

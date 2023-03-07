@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class CustomerPayment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new customerPayment and sets the default values.
+     * Instantiates a new CustomerPayment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

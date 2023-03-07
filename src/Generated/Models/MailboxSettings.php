@@ -43,7 +43,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
+     * Gets the archiveFolder property value. Folder ID of an archive folder for the user. Read-only.
      * @return string|null
     */
     public function getArchiveFolder(): ?string {
@@ -136,7 +136,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the userPurpose property value. The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+     * Gets the userPurpose property value. The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.
      * @return UserPurpose|null
     */
     public function getUserPurpose(): ?UserPurpose {
@@ -187,7 +187,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
+     * Sets the archiveFolder property value. Folder ID of an archive folder for the user. Read-only.
      * @param string|null $value Value to set for the archiveFolder property.
     */
     public function setArchiveFolder(?string $value): void {
@@ -259,7 +259,7 @@ class MailboxSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the userPurpose property value. The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+     * Sets the userPurpose property value. The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.
      * @param UserPurpose|null $value Value to set for the userPurpose property.
     */
     public function setUserPurpose(?UserPurpose $value): void {

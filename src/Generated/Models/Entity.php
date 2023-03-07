@@ -1209,6 +1209,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.programControl': return new ProgramControl();
                 case '#microsoft.graph.programControlType': return new ProgramControlType();
                 case '#microsoft.graph.projectParticipation': return new ProjectParticipation();
+                case '#microsoft.graph.pronounsSettings': return new PronounsSettings();
                 case '#microsoft.graph.providerTenantSetting': return new ProviderTenantSetting();
                 case '#microsoft.graph.provisioningObjectSummary': return new ProvisioningObjectSummary();
                 case '#microsoft.graph.publishedResource': return new PublishedResource();

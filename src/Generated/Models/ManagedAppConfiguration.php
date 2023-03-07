@@ -48,7 +48,16 @@ class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'customSettings' => fn(ParseNode $n) => $o->setCustomSettings($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getCollectionOfObjectValues([DeviceManagementConfigurationSetting::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the settings property value. List of settings contained in this App Configuration policy
+     * @return array<DeviceManagementConfigurationSetting>|null
+    */
+    public function getSettings(): ?array {
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -58,6 +67,7 @@ class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('customSettings', $this->getCustomSettings());
+        $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
     }
 
     /**
@@ -66,6 +76,14 @@ class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable
     */
     public function setCustomSettings(?array $value): void {
         $this->getBackingStore()->set('customSettings', $value);
+    }
+
+    /**
+     * Sets the settings property value. List of settings contained in this App Configuration policy
+     * @param array<DeviceManagementConfigurationSetting>|null $value Value to set for the settings property.
+    */
+    public function setSettings(?array $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
 }
