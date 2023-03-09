@@ -67,7 +67,8 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
             'receivedDateTimeUTC' => fn(ParseNode $n) => $o->setReceivedDateTimeUTC($n->getDateTimeValue()),
             'requestedDateTimeUTC' => fn(ParseNode $n) => $o->setRequestedDateTimeUTC($n->getDateTimeValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getFloatValue()),
-            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
+            'sizeInKB' => fn(ParseNode $n) => $o->setSizeInKB($n->getFloatValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AppLogUploadState::class)),
         ]);
     }
 
@@ -112,10 +113,18 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the log collection request
-     * @return string|null
+     * Gets the sizeInKB property value. The size of the logs in KB. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @return float|null
     */
-    public function getStatus(): ?string {
+    public function getSizeInKB(): ?float {
+        return $this->getBackingStore()->get('sizeInKB');
+    }
+
+    /**
+     * Gets the status property value. AppLogUploadStatus
+     * @return AppLogUploadState|null
+    */
+    public function getStatus(): ?AppLogUploadState {
         return $this->getBackingStore()->get('status');
     }
 
@@ -133,7 +142,8 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
         $writer->writeDateTimeValue('receivedDateTimeUTC', $this->getReceivedDateTimeUTC());
         $writer->writeDateTimeValue('requestedDateTimeUTC', $this->getRequestedDateTimeUTC());
         $writer->writeFloatValue('size', $this->getSize());
-        $writer->writeStringValue('status', $this->getStatus());
+        $writer->writeFloatValue('sizeInKB', $this->getSizeInKB());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
@@ -201,10 +211,18 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the log collection request
-     * @param string|null $value Value to set for the status property.
+     * Sets the sizeInKB property value. The size of the logs in KB. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+     * @param float|null $value Value to set for the sizeInKB property.
     */
-    public function setStatus(?string $value): void {
+    public function setSizeInKB(?float $value): void {
+        $this->getBackingStore()->set('sizeInKB', $value);
+    }
+
+    /**
+     * Sets the status property value. AppLogUploadStatus
+     * @param AppLogUploadState|null $value Value to set for the status property.
+    */
+    public function setStatus(?AppLogUploadState $value): void {
         $this->getBackingStore()->set('status', $value);
     }
 

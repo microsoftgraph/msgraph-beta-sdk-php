@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\MicrosoftApplicati
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\PeopleInsights\PeopleInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardProperties\Item\ProfileCardPropertyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ProfileCardProperties\ProfileCardPropertiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\Pronouns\PronounsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -63,6 +64,13 @@ class SettingsRequestBuilder
     */
     public function profileCardProperties(): ProfileCardPropertiesRequestBuilder {
         return new ProfileCardPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the pronouns property of the microsoft.graph.organizationSettings entity.
+    */
+    public function pronouns(): PronounsRequestBuilder {
+        return new PronounsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -40,7 +40,6 @@ class LearningProvider extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'learningContents' => fn(ParseNode $n) => $o->setLearningContents($n->getCollectionOfObjectValues([LearningContent::class, 'createFromDiscriminatorValue'])),
             'loginWebUrl' => fn(ParseNode $n) => $o->setLoginWebUrl($n->getStringValue()),
             'longLogoWebUrlForDarkTheme' => fn(ParseNode $n) => $o->setLongLogoWebUrlForDarkTheme($n->getStringValue()),
@@ -48,14 +47,6 @@ class LearningProvider extends Entity implements Parsable
             'squareLogoWebUrlForDarkTheme' => fn(ParseNode $n) => $o->setSquareLogoWebUrlForDarkTheme($n->getStringValue()),
             'squareLogoWebUrlForLightTheme' => fn(ParseNode $n) => $o->setSquareLogoWebUrlForLightTheme($n->getStringValue()),
         ]);
-    }
-
-    /**
-     * Gets the isEnabled property value. The state of the provider. Optional.
-     * @return bool|null
-    */
-    public function getIsEnabled(): ?bool {
-        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -113,7 +104,6 @@ class LearningProvider extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeCollectionOfObjectValues('learningContents', $this->getLearningContents());
         $writer->writeStringValue('loginWebUrl', $this->getLoginWebUrl());
         $writer->writeStringValue('longLogoWebUrlForDarkTheme', $this->getLongLogoWebUrlForDarkTheme());
@@ -128,14 +118,6 @@ class LearningProvider extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
-    }
-
-    /**
-     * Sets the isEnabled property value. The state of the provider. Optional.
-     * @param bool|null $value Value to set for the isEnabled property.
-    */
-    public function setIsEnabled(?bool $value): void {
-        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**

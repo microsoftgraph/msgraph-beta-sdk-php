@@ -50,7 +50,7 @@ class TemplateDefinitionRequestBuilder
     }
 
     /**
-     * Get templateDefinition from teams
+     * Generic representation of a team template definition for a team with a specific structure and configuration.
      * @param TemplateDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -68,7 +68,7 @@ class TemplateDefinitionRequestBuilder
     }
 
     /**
-     * Get templateDefinition from teams
+     * Generic representation of a team template definition for a team with a specific structure and configuration.
      * @param TemplateDefinitionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

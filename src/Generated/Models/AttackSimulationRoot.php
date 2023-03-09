@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttackSimulationRoot extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new attackSimulationRoot and sets the default values.
+     * Instantiates a new AttackSimulationRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();

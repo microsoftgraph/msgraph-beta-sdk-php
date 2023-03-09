@@ -35,14 +35,6 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Gets the creationDateTime property value. The creationDateTime property
-     * @return DateTime|null
-    */
-    public function getCreationDateTime(): ?DateTime {
-        return $this->getBackingStore()->get('creationDateTime');
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -50,7 +42,6 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
             'password' => fn(ParseNode $n) => $o->setPassword($n->getStringValue()),
         ]);
     }
@@ -70,7 +61,6 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
-        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
         $writer->writeStringValue('password', $this->getPassword());
     }
 
@@ -80,14 +70,6 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
-    }
-
-    /**
-     * Sets the creationDateTime property value. The creationDateTime property
-     * @param DateTime|null $value Value to set for the creationDateTime property.
-    */
-    public function setCreationDateTime(?DateTime $value): void {
-        $this->getBackingStore()->set('creationDateTime', $value);
     }
 
     /**

@@ -68,8 +68,6 @@ class ComplianceManagementPartner extends Entity implements Parsable
             'macOsEnrollmentAssignments' => fn(ParseNode $n) => $o->setMacOsEnrollmentAssignments($n->getCollectionOfObjectValues([ComplianceManagementPartnerAssignment::class, 'createFromDiscriminatorValue'])),
             'macOsOnboarded' => fn(ParseNode $n) => $o->setMacOsOnboarded($n->getBooleanValue()),
             'partnerState' => fn(ParseNode $n) => $o->setPartnerState($n->getEnumValue(DeviceManagementPartnerTenantState::class)),
-            'windowsEnrollmentAssignments' => fn(ParseNode $n) => $o->setWindowsEnrollmentAssignments($n->getCollectionOfObjectValues([ComplianceManagementPartnerAssignment::class, 'createFromDiscriminatorValue'])),
-            'windowsOnboarded' => fn(ParseNode $n) => $o->setWindowsOnboarded($n->getBooleanValue()),
         ]);
     }
 
@@ -122,22 +120,6 @@ class ComplianceManagementPartner extends Entity implements Parsable
     }
 
     /**
-     * Gets the windowsEnrollmentAssignments property value. User groups which enroll Windows devices through partner.
-     * @return array<ComplianceManagementPartnerAssignment>|null
-    */
-    public function getWindowsEnrollmentAssignments(): ?array {
-        return $this->getBackingStore()->get('windowsEnrollmentAssignments');
-    }
-
-    /**
-     * Gets the windowsOnboarded property value. Partner onboarded for Windows devices.
-     * @return bool|null
-    */
-    public function getWindowsOnboarded(): ?bool {
-        return $this->getBackingStore()->get('windowsOnboarded');
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -152,8 +134,6 @@ class ComplianceManagementPartner extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('macOsEnrollmentAssignments', $this->getMacOsEnrollmentAssignments());
         $writer->writeBooleanValue('macOsOnboarded', $this->getMacOsOnboarded());
         $writer->writeEnumValue('partnerState', $this->getPartnerState());
-        $writer->writeCollectionOfObjectValues('windowsEnrollmentAssignments', $this->getWindowsEnrollmentAssignments());
-        $writer->writeBooleanValue('windowsOnboarded', $this->getWindowsOnboarded());
     }
 
     /**
@@ -226,22 +206,6 @@ class ComplianceManagementPartner extends Entity implements Parsable
     */
     public function setPartnerState(?DeviceManagementPartnerTenantState $value): void {
         $this->getBackingStore()->set('partnerState', $value);
-    }
-
-    /**
-     * Sets the windowsEnrollmentAssignments property value. User groups which enroll Windows devices through partner.
-     * @param array<ComplianceManagementPartnerAssignment>|null $value Value to set for the windowsEnrollmentAssignments property.
-    */
-    public function setWindowsEnrollmentAssignments(?array $value): void {
-        $this->getBackingStore()->set('windowsEnrollmentAssignments', $value);
-    }
-
-    /**
-     * Sets the windowsOnboarded property value. Partner onboarded for Windows devices.
-     * @param bool|null $value Value to set for the windowsOnboarded property.
-    */
-    public function setWindowsOnboarded(?bool $value): void {
-        $this->getBackingStore()->set('windowsOnboarded', $value);
     }
 
 }

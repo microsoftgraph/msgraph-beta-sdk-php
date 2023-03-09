@@ -18,4 +18,5 @@ class DeviceManagementConfigurationTemplateFamily extends Enum {
     public const APP_QUIET_TIME = 'appQuietTime';
     public const BASELINE = 'baseline';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const DEVICE_CONFIGURATION_SCRIPTS = 'deviceConfigurationScripts';
 }

@@ -184,7 +184,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
-     * Gets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
+     * Gets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See hhttps://learn.microsoft.com/mem/intune/enrollment/device-enrollment for additional information.
      * @return bool|null
     */
     public function getSupervisedModeEnabled(): ?bool {
@@ -372,7 +372,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
-     * Sets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
+     * Sets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See hhttps://learn.microsoft.com/mem/intune/enrollment/device-enrollment for additional information.
      * @param bool|null $value Value to set for the supervisedModeEnabled property.
     */
     public function setSupervisedModeEnabled(?bool $value): void {

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PublishedResource extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new publishedResource and sets the default values.
+     * Instantiates a new PublishedResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

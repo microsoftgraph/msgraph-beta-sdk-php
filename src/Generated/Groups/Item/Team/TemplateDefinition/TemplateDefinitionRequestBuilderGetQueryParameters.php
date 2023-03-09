@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\TemplateDefinition;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get templateDefinition from groups
+ * Generic representation of a team template definition for a team with a specific structure and configuration.
 */
 class TemplateDefinitionRequestBuilderGetQueryParameters 
 {

@@ -72,6 +72,7 @@ class JobResponseBase extends Entity implements Parsable
             'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 
@@ -108,6 +109,14 @@ class JobResponseBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the userId property value. The userId property
+     * @return string|null
+    */
+    public function getUserId(): ?string {
+        return $this->getBackingStore()->get('userId');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -120,6 +129,7 @@ class JobResponseBase extends Entity implements Parsable
         $writer->writeStringValue('status', $this->getStatus());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeStringValue('type', $this->getType());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
@@ -176,6 +186,14 @@ class JobResponseBase extends Entity implements Parsable
     */
     public function setType(?string $value): void {
         $this->getBackingStore()->set('type', $value);
+    }
+
+    /**
+     * Sets the userId property value. The userId property
+     * @param string|null $value Value to set for the userId property.
+    */
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

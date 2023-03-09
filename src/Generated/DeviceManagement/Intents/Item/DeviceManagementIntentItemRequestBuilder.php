@@ -17,6 +17,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceSettingSt
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceStates\DeviceStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceStates\Item\DeviceManagementIntentDeviceStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceStateSummary\DeviceStateSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\GetCustomizedSettings\GetCustomizedSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\MigrateToTemplate\MigrateToTemplateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Settings\Item\DeviceManagementSettingInstanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Settings\SettingsRequestBuilder;
@@ -85,6 +86,13 @@ class DeviceManagementIntentItemRequestBuilder
     */
     public function deviceStateSummary(): DeviceStateSummaryRequestBuilder {
         return new DeviceStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getCustomizedSettings method.
+    */
+    public function getCustomizedSettings(): GetCustomizedSettingsRequestBuilder {
+        return new GetCustomizedSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

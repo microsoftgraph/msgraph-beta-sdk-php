@@ -40,6 +40,9 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceInstallStat
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentPerSettingContributingProfiles\GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentSettingsReport\GetDeviceManagementIntentSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceNonComplianceReport\GetDeviceNonComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicePoliciesComplianceReport\GetDevicePoliciesComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicePolicySettingsComplianceReport\GetDevicePolicySettingsComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesStatusBySettingReport\GetDevicesStatusBySettingReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesWithoutCompliancePolicyReport\GetDevicesWithoutCompliancePolicyReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEncryptionReportForDevices\GetEncryptionReportForDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEnrollmentConfigurationPoliciesByDevice\GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder;
@@ -312,6 +315,27 @@ class ReportsRequestBuilder
     */
     public function getDeviceNonComplianceReport(): GetDeviceNonComplianceReportRequestBuilder {
         return new GetDeviceNonComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDevicePoliciesComplianceReport method.
+    */
+    public function getDevicePoliciesComplianceReport(): GetDevicePoliciesComplianceReportRequestBuilder {
+        return new GetDevicePoliciesComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDevicePolicySettingsComplianceReport method.
+    */
+    public function getDevicePolicySettingsComplianceReport(): GetDevicePolicySettingsComplianceReportRequestBuilder {
+        return new GetDevicePolicySettingsComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDevicesStatusBySettingReport method.
+    */
+    public function getDevicesStatusBySettingReport(): GetDevicesStatusBySettingReportRequestBuilder {
+        return new GetDevicesStatusBySettingReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -51,6 +51,14 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
+     * Gets the authenticationStrengthResult property value. The authenticationStrengthResult property
+     * @return AuthenticationStrengthResult|null
+    */
+    public function getAuthenticationStrengthResult(): ?AuthenticationStrengthResult {
+        return $this->getBackingStore()->get('authenticationStrengthResult');
+    }
+
+    /**
      * Gets the backingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -74,6 +82,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
         $o = $this;
         return  [
             'authenticationStrengthId' => fn(ParseNode $n) => $o->setAuthenticationStrengthId($n->getStringValue()),
+            'authenticationStrengthResult' => fn(ParseNode $n) => $o->setAuthenticationStrengthResult($n->getEnumValue(AuthenticationStrengthResult::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -93,6 +102,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('authenticationStrengthId', $this->getAuthenticationStrengthId());
+        $writer->writeEnumValue('authenticationStrengthResult', $this->getAuthenticationStrengthResult());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -112,6 +122,14 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function setAuthenticationStrengthId(?string $value): void {
         $this->getBackingStore()->set('authenticationStrengthId', $value);
+    }
+
+    /**
+     * Sets the authenticationStrengthResult property value. The authenticationStrengthResult property
+     * @param AuthenticationStrengthResult|null $value Value to set for the authenticationStrengthResult property.
+    */
+    public function setAuthenticationStrengthResult(?AuthenticationStrengthResult $value): void {
+        $this->getBackingStore()->set('authenticationStrengthResult', $value);
     }
 
     /**

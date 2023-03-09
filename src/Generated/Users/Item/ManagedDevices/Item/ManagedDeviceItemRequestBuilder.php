@@ -60,6 +60,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RetrieveRemote
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RevokeAppleVppLicenses\RevokeAppleVppLicensesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateBitLockerKeys\RotateBitLockerKeysRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateFileVaultKey\RotateFileVaultKeyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateLocalAdminPassword\RotateLocalAdminPasswordRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SecurityBaselineStateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\SecurityBaselineStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SendCustomNotificationToCompanyPortal\SendCustomNotificationToCompanyPortalRequestBuilder;
@@ -416,6 +417,13 @@ class ManagedDeviceItemRequestBuilder
     */
     public function rotateFileVaultKey(): RotateFileVaultKeyRequestBuilder {
         return new RotateFileVaultKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the rotateLocalAdminPassword method.
+    */
+    public function rotateLocalAdminPassword(): RotateLocalAdminPasswordRequestBuilder {
+        return new RotateLocalAdminPasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
