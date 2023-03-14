@@ -75,10 +75,10 @@ class RiskyUsersRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a **riskyUser** object.
+     * Retrieve the properties and relationships of a collection of **riskyUser** objects.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/riskyusers-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/riskyusers-list?view=graph-rest-1.0 Find more info here
     */
     public function get(?RiskyUsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -113,7 +113,7 @@ class RiskyUsersRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a **riskyUser** object.
+     * Retrieve the properties and relationships of a collection of **riskyUser** objects.
      * @param RiskyUsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

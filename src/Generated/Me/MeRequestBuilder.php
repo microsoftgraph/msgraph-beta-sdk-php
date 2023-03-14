@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Me;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Beta\Generated\Me\ActivateServicePlan\ActivateServicePlanRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Activities\Item\UserActivityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AgreementAcceptances\AgreementAcceptancesRequestBuilder;
@@ -153,13 +152,6 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class MeRequestBuilder 
 {
-    /**
-     * Provides operations to call the activateServicePlan method.
-    */
-    public function activateServicePlan(): ActivateServicePlanRequestBuilder {
-        return new ActivateServicePlanRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the activities property of the microsoft.graph.user entity.
     */
@@ -1117,10 +1109,10 @@ class MeRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
+     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param MeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0 Find more info here
     */
     public function get(?MeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -1375,7 +1367,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
+     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param MeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

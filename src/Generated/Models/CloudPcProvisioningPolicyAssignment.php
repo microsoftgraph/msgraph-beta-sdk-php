@@ -25,12 +25,21 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     }
 
     /**
+     * Gets the assignedUsers property value. The assignedUsers property
+     * @return array<User>|null
+    */
+    public function getAssignedUsers(): ?array {
+        return $this->getBackingStore()->get('assignedUsers');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'assignedUsers' => fn(ParseNode $n) => $o->setAssignedUsers($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
             'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([CloudPcManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -49,7 +58,16 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('assignedUsers', $this->getAssignedUsers());
         $writer->writeObjectValue('target', $this->getTarget());
+    }
+
+    /**
+     * Sets the assignedUsers property value. The assignedUsers property
+     * @param array<User>|null $value Value to set for the assignedUsers property.
+    */
+    public function setAssignedUsers(?array $value): void {
+        $this->getBackingStore()->set('assignedUsers', $value);
     }
 
     /**

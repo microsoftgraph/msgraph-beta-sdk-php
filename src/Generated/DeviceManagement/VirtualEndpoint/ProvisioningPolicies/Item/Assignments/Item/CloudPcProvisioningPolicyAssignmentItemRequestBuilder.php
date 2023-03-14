@@ -5,6 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Provis
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\AssignedUsers\AssignedUsersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\AssignedUsers\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicyAssignment;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -20,6 +22,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CloudPcProvisioningPolicyAssignmentItemRequestBuilder 
 {
     /**
+     * Provides operations to manage the assignedUsers property of the microsoft.graph.cloudPcProvisioningPolicyAssignment entity.
+    */
+    public function assignedUsers(): AssignedUsersRequestBuilder {
+        return new AssignedUsersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */
     private array $pathParameters;
@@ -34,6 +43,17 @@ class CloudPcProvisioningPolicyAssignmentItemRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the assignedUsers property of the microsoft.graph.cloudPcProvisioningPolicyAssignment entity.
+     * @param string $id Unique identifier of the item
+     * @return UserItemRequestBuilder
+    */
+    public function assignedUsersById(string $id): UserItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['user%2Did'] = $id;
+        return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new CloudPcProvisioningPolicyAssignmentItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

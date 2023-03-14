@@ -29,7 +29,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowPartnerToCollectIOSApplicationMetadata property value. When TRUE, indicates the data sync partner may collect metadata about installed applications from Intune for IOS devices. When FALSE, indicates the data sync partner may not collect metadata about installed applications from Intune for IOS devices. Default value is FALSE.
+     * Gets the allowPartnerToCollectIOSApplicationMetadata property value. When TRUE, indicates the Mobile Threat Defense partner may collect metadata about installed applications from Intune for IOS devices. When FALSE, indicates the Mobile Threat Defense partner may not collect metadata about installed applications from Intune for IOS devices. Default value is FALSE.
      * @return bool|null
     */
     public function getAllowPartnerToCollectIOSApplicationMetadata(): ?bool {
@@ -37,7 +37,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowPartnerToCollectIOSPersonalApplicationMetadata property value. When TRUE, indicates the data sync partner may collect metadata about personally installed applications from Intune for IOS devices. When FALSE, indicates the data sync partner may not collect metadata about personally installed applications from Intune for IOS devices. Default value is FALSE.
+     * Gets the allowPartnerToCollectIOSPersonalApplicationMetadata property value. When TRUE, indicates the Mobile Threat Defense partner may collect metadata about personally installed applications from Intune for IOS devices. When FALSE, indicates the Mobile Threat Defense partner may not collect metadata about personally installed applications from Intune for IOS devices. Default value is FALSE.
      * @return bool|null
     */
     public function getAllowPartnerToCollectIOSPersonalApplicationMetadata(): ?bool {
@@ -45,7 +45,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the androidDeviceBlockedOnMissingPartnerData property value. For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     * Gets the androidDeviceBlockedOnMissingPartnerData property value. For Android, set whether Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant
      * @return bool|null
     */
     public function getAndroidDeviceBlockedOnMissingPartnerData(): ?bool {
@@ -53,7 +53,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the androidEnabled property value. For Android, set whether data from the data sync partner should be used during compliance evaluations
+     * Gets the androidEnabled property value. For Android, set whether data from the Mobile Threat Defense partner should be used during compliance evaluations
      * @return bool|null
     */
     public function getAndroidEnabled(): ?bool {
@@ -61,7 +61,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the androidMobileApplicationManagementEnabled property value. When TRUE, inidicates that data from the data sync partner can be used during Mobile Application Management (MAM) evaluations for Android devices. When FALSE, inidicates that data from the data sync partner should not be used during Mobile Application Management (MAM) evaluations for Android devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
+     * Gets the androidMobileApplicationManagementEnabled property value. When TRUE, inidicates that data from the Mobile Threat Defense partner can be used during Mobile Application Management (MAM) evaluations for Android devices. When FALSE, inidicates that data from the Mobile Threat Defense partner should not be used during Mobile Application Management (MAM) evaluations for Android devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
      * @return bool|null
     */
     public function getAndroidMobileApplicationManagementEnabled(): ?bool {
@@ -97,7 +97,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the iosDeviceBlockedOnMissingPartnerData property value. For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     * Gets the iosDeviceBlockedOnMissingPartnerData property value. For IOS, set whether Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant
      * @return bool|null
     */
     public function getIosDeviceBlockedOnMissingPartnerData(): ?bool {
@@ -105,7 +105,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the iosEnabled property value. For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
+     * Gets the iosEnabled property value. For IOS, get or set whether data from the Mobile Threat Defense partner should be used during compliance evaluations
      * @return bool|null
     */
     public function getIosEnabled(): ?bool {
@@ -113,7 +113,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the iosMobileApplicationManagementEnabled property value. When TRUE, inidicates that data from the data sync partner can be used during Mobile Application Management (MAM) evaluations for IOS devices. When FALSE, inidicates that data from the data sync partner should not be used during Mobile Application Management (MAM) evaluations for IOS devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
+     * Gets the iosMobileApplicationManagementEnabled property value. When TRUE, inidicates that data from the Mobile Threat Defense partner can be used during Mobile Application Management (MAM) evaluations for IOS devices. When FALSE, inidicates that data from the Mobile Threat Defense partner should not be used during Mobile Application Management (MAM) evaluations for IOS devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
      * @return bool|null
     */
     public function getIosMobileApplicationManagementEnabled(): ?bool {
@@ -121,7 +121,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastHeartbeatDateTime property value. DateTime of last Heartbeat recieved from the Data Sync Partner
+     * Gets the lastHeartbeatDateTime property value. DateTime of last Heartbeat recieved from the Mobile Threat Defense partner
      * @return DateTime|null
     */
     public function getLastHeartbeatDateTime(): ?DateTime {
@@ -129,7 +129,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the macDeviceBlockedOnMissingPartnerData property value. For Mac, get or set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     * Gets the macDeviceBlockedOnMissingPartnerData property value. For Mac, get or set whether Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant
      * @return bool|null
     */
     public function getMacDeviceBlockedOnMissingPartnerData(): ?bool {
@@ -137,7 +137,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the macEnabled property value. For Mac, get or set whether data from the data sync partner should be used during compliance evaluations
+     * Gets the macEnabled property value. For Mac, get or set whether data from the Mobile Threat Defense partner should be used during compliance evaluations
      * @return bool|null
     */
     public function getMacEnabled(): ?bool {
@@ -169,7 +169,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the partnerUnsupportedOsVersionBlocked property value. Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
+     * Gets the partnerUnsupportedOsVersionBlocked property value. Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Mobile Threat Defense partner
      * @return bool|null
     */
     public function getPartnerUnsupportedOsVersionBlocked(): ?bool {
@@ -177,7 +177,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the windowsDeviceBlockedOnMissingPartnerData property value. When TRUE, inidicates that Intune must receive data from the data sync partner prior to marking a device compliant for Windows. When FALSE, inidicates that Intune may make a device compliant without receiving data from the data sync partner for Windows. Default value is FALSE.
+     * Gets the windowsDeviceBlockedOnMissingPartnerData property value. When TRUE, inidicates that Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant for Windows. When FALSE, inidicates that Intune may make a device compliant without receiving data from the Mobile Threat Defense partner for Windows. Default value is FALSE.
      * @return bool|null
     */
     public function getWindowsDeviceBlockedOnMissingPartnerData(): ?bool {
@@ -185,7 +185,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the windowsEnabled property value. When TRUE, inidicates that data from the data sync partner can be used during compliance evaluations for Windows. When FALSE, inidicates that data from the data sync partner should not be used during compliance evaluations for Windows. Default value is FALSE.
+     * Gets the windowsEnabled property value. When TRUE, inidicates that data from the Mobile Threat Defense partner can be used during compliance evaluations for Windows. When FALSE, inidicates that data from the Mobile Threat Defense partner should not be used during compliance evaluations for Windows. Default value is FALSE.
      * @return bool|null
     */
     public function getWindowsEnabled(): ?bool {
@@ -227,7 +227,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowPartnerToCollectIOSApplicationMetadata property value. When TRUE, indicates the data sync partner may collect metadata about installed applications from Intune for IOS devices. When FALSE, indicates the data sync partner may not collect metadata about installed applications from Intune for IOS devices. Default value is FALSE.
+     * Sets the allowPartnerToCollectIOSApplicationMetadata property value. When TRUE, indicates the Mobile Threat Defense partner may collect metadata about installed applications from Intune for IOS devices. When FALSE, indicates the Mobile Threat Defense partner may not collect metadata about installed applications from Intune for IOS devices. Default value is FALSE.
      * @param bool|null $value Value to set for the allowPartnerToCollectIOSApplicationMetadata property.
     */
     public function setAllowPartnerToCollectIOSApplicationMetadata(?bool $value): void {
@@ -235,7 +235,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowPartnerToCollectIOSPersonalApplicationMetadata property value. When TRUE, indicates the data sync partner may collect metadata about personally installed applications from Intune for IOS devices. When FALSE, indicates the data sync partner may not collect metadata about personally installed applications from Intune for IOS devices. Default value is FALSE.
+     * Sets the allowPartnerToCollectIOSPersonalApplicationMetadata property value. When TRUE, indicates the Mobile Threat Defense partner may collect metadata about personally installed applications from Intune for IOS devices. When FALSE, indicates the Mobile Threat Defense partner may not collect metadata about personally installed applications from Intune for IOS devices. Default value is FALSE.
      * @param bool|null $value Value to set for the allowPartnerToCollectIOSPersonalApplicationMetadata property.
     */
     public function setAllowPartnerToCollectIOSPersonalApplicationMetadata(?bool $value): void {
@@ -243,7 +243,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the androidDeviceBlockedOnMissingPartnerData property value. For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     * Sets the androidDeviceBlockedOnMissingPartnerData property value. For Android, set whether Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant
      * @param bool|null $value Value to set for the androidDeviceBlockedOnMissingPartnerData property.
     */
     public function setAndroidDeviceBlockedOnMissingPartnerData(?bool $value): void {
@@ -251,7 +251,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the androidEnabled property value. For Android, set whether data from the data sync partner should be used during compliance evaluations
+     * Sets the androidEnabled property value. For Android, set whether data from the Mobile Threat Defense partner should be used during compliance evaluations
      * @param bool|null $value Value to set for the androidEnabled property.
     */
     public function setAndroidEnabled(?bool $value): void {
@@ -259,7 +259,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the androidMobileApplicationManagementEnabled property value. When TRUE, inidicates that data from the data sync partner can be used during Mobile Application Management (MAM) evaluations for Android devices. When FALSE, inidicates that data from the data sync partner should not be used during Mobile Application Management (MAM) evaluations for Android devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
+     * Sets the androidMobileApplicationManagementEnabled property value. When TRUE, inidicates that data from the Mobile Threat Defense partner can be used during Mobile Application Management (MAM) evaluations for Android devices. When FALSE, inidicates that data from the Mobile Threat Defense partner should not be used during Mobile Application Management (MAM) evaluations for Android devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
      * @param bool|null $value Value to set for the androidMobileApplicationManagementEnabled property.
     */
     public function setAndroidMobileApplicationManagementEnabled(?bool $value): void {
@@ -267,7 +267,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the iosDeviceBlockedOnMissingPartnerData property value. For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     * Sets the iosDeviceBlockedOnMissingPartnerData property value. For IOS, set whether Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant
      * @param bool|null $value Value to set for the iosDeviceBlockedOnMissingPartnerData property.
     */
     public function setIosDeviceBlockedOnMissingPartnerData(?bool $value): void {
@@ -275,7 +275,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the iosEnabled property value. For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
+     * Sets the iosEnabled property value. For IOS, get or set whether data from the Mobile Threat Defense partner should be used during compliance evaluations
      * @param bool|null $value Value to set for the iosEnabled property.
     */
     public function setIosEnabled(?bool $value): void {
@@ -283,7 +283,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the iosMobileApplicationManagementEnabled property value. When TRUE, inidicates that data from the data sync partner can be used during Mobile Application Management (MAM) evaluations for IOS devices. When FALSE, inidicates that data from the data sync partner should not be used during Mobile Application Management (MAM) evaluations for IOS devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
+     * Sets the iosMobileApplicationManagementEnabled property value. When TRUE, inidicates that data from the Mobile Threat Defense partner can be used during Mobile Application Management (MAM) evaluations for IOS devices. When FALSE, inidicates that data from the Mobile Threat Defense partner should not be used during Mobile Application Management (MAM) evaluations for IOS devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
      * @param bool|null $value Value to set for the iosMobileApplicationManagementEnabled property.
     */
     public function setIosMobileApplicationManagementEnabled(?bool $value): void {
@@ -291,7 +291,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastHeartbeatDateTime property value. DateTime of last Heartbeat recieved from the Data Sync Partner
+     * Sets the lastHeartbeatDateTime property value. DateTime of last Heartbeat recieved from the Mobile Threat Defense partner
      * @param DateTime|null $value Value to set for the lastHeartbeatDateTime property.
     */
     public function setLastHeartbeatDateTime(?DateTime $value): void {
@@ -299,7 +299,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the macDeviceBlockedOnMissingPartnerData property value. For Mac, get or set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     * Sets the macDeviceBlockedOnMissingPartnerData property value. For Mac, get or set whether Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant
      * @param bool|null $value Value to set for the macDeviceBlockedOnMissingPartnerData property.
     */
     public function setMacDeviceBlockedOnMissingPartnerData(?bool $value): void {
@@ -307,7 +307,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the macEnabled property value. For Mac, get or set whether data from the data sync partner should be used during compliance evaluations
+     * Sets the macEnabled property value. For Mac, get or set whether data from the Mobile Threat Defense partner should be used during compliance evaluations
      * @param bool|null $value Value to set for the macEnabled property.
     */
     public function setMacEnabled(?bool $value): void {
@@ -339,7 +339,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the partnerUnsupportedOsVersionBlocked property value. Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
+     * Sets the partnerUnsupportedOsVersionBlocked property value. Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Mobile Threat Defense partner
      * @param bool|null $value Value to set for the partnerUnsupportedOsVersionBlocked property.
     */
     public function setPartnerUnsupportedOsVersionBlocked(?bool $value): void {
@@ -347,7 +347,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the windowsDeviceBlockedOnMissingPartnerData property value. When TRUE, inidicates that Intune must receive data from the data sync partner prior to marking a device compliant for Windows. When FALSE, inidicates that Intune may make a device compliant without receiving data from the data sync partner for Windows. Default value is FALSE.
+     * Sets the windowsDeviceBlockedOnMissingPartnerData property value. When TRUE, inidicates that Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant for Windows. When FALSE, inidicates that Intune may make a device compliant without receiving data from the Mobile Threat Defense partner for Windows. Default value is FALSE.
      * @param bool|null $value Value to set for the windowsDeviceBlockedOnMissingPartnerData property.
     */
     public function setWindowsDeviceBlockedOnMissingPartnerData(?bool $value): void {
@@ -355,7 +355,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the windowsEnabled property value. When TRUE, inidicates that data from the data sync partner can be used during compliance evaluations for Windows. When FALSE, inidicates that data from the data sync partner should not be used during compliance evaluations for Windows. Default value is FALSE.
+     * Sets the windowsEnabled property value. When TRUE, inidicates that data from the Mobile Threat Defense partner can be used during compliance evaluations for Windows. When FALSE, inidicates that data from the Mobile Threat Defense partner should not be used during compliance evaluations for Windows. Default value is FALSE.
      * @param bool|null $value Value to set for the windowsEnabled property.
     */
     public function setWindowsEnabled(?bool $value): void {

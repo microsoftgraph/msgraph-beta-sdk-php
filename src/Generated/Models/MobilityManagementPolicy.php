@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobilityManagementPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MobilityManagementPolicy and sets the default values.
+     * Instantiates a new mobilityManagementPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

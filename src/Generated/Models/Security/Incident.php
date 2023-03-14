@@ -75,6 +75,14 @@ class Incident extends Entity implements Parsable
     }
 
     /**
+     * Gets the description property value. The description property
+     * @return string|null
+    */
+    public function getDescription(): ?string {
+        return $this->getBackingStore()->get('description');
+    }
+
+    /**
      * Gets the determination property value. Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @return AlertDetermination|null
     */
@@ -103,13 +111,17 @@ class Incident extends Entity implements Parsable
             'comments' => fn(ParseNode $n) => $o->setComments($n->getCollectionOfObjectValues([AlertComment::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'customTags' => fn(ParseNode $n) => $o->setCustomTags($n->getCollectionOfPrimitiveValues()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'determination' => fn(ParseNode $n) => $o->setDetermination($n->getEnumValue(AlertDetermination::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'incidentWebUrl' => fn(ParseNode $n) => $o->setIncidentWebUrl($n->getStringValue()),
             'lastUpdateDateTime' => fn(ParseNode $n) => $o->setLastUpdateDateTime($n->getDateTimeValue()),
+            'recommendedActions' => fn(ParseNode $n) => $o->setRecommendedActions($n->getStringValue()),
+            'recommendedHuntingQueries' => fn(ParseNode $n) => $o->setRecommendedHuntingQueries($n->getCollectionOfObjectValues([RecommendedHuntingQuery::class, 'createFromDiscriminatorValue'])),
             'redirectIncidentId' => fn(ParseNode $n) => $o->setRedirectIncidentId($n->getStringValue()),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(IncidentStatus::class)),
+            'systemTags' => fn(ParseNode $n) => $o->setSystemTags($n->getCollectionOfPrimitiveValues()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
@@ -128,6 +140,22 @@ class Incident extends Entity implements Parsable
     */
     public function getLastUpdateDateTime(): ?DateTime {
         return $this->getBackingStore()->get('lastUpdateDateTime');
+    }
+
+    /**
+     * Gets the recommendedActions property value. The recommendedActions property
+     * @return string|null
+    */
+    public function getRecommendedActions(): ?string {
+        return $this->getBackingStore()->get('recommendedActions');
+    }
+
+    /**
+     * Gets the recommendedHuntingQueries property value. The recommendedHuntingQueries property
+     * @return array<RecommendedHuntingQuery>|null
+    */
+    public function getRecommendedHuntingQueries(): ?array {
+        return $this->getBackingStore()->get('recommendedHuntingQueries');
     }
 
     /**
@@ -155,6 +183,14 @@ class Incident extends Entity implements Parsable
     }
 
     /**
+     * Gets the systemTags property value. The systemTags property
+     * @return array<string>|null
+    */
+    public function getSystemTags(): ?array {
+        return $this->getBackingStore()->get('systemTags');
+    }
+
+    /**
      * Gets the tenantId property value. The Azure Active Directory tenant in which the alert was created.
      * @return string|null
     */
@@ -174,13 +210,17 @@ class Incident extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('comments', $this->getComments());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeCollectionOfPrimitiveValues('customTags', $this->getCustomTags());
+        $writer->writeStringValue('description', $this->getDescription());
         $writer->writeEnumValue('determination', $this->getDetermination());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('incidentWebUrl', $this->getIncidentWebUrl());
         $writer->writeDateTimeValue('lastUpdateDateTime', $this->getLastUpdateDateTime());
+        $writer->writeStringValue('recommendedActions', $this->getRecommendedActions());
+        $writer->writeCollectionOfObjectValues('recommendedHuntingQueries', $this->getRecommendedHuntingQueries());
         $writer->writeStringValue('redirectIncidentId', $this->getRedirectIncidentId());
         $writer->writeEnumValue('severity', $this->getSeverity());
         $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeCollectionOfPrimitiveValues('systemTags', $this->getSystemTags());
         $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
@@ -233,6 +273,14 @@ class Incident extends Entity implements Parsable
     }
 
     /**
+     * Sets the description property value. The description property
+     * @param string|null $value Value to set for the description property.
+    */
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
      * Sets the determination property value. Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @param AlertDetermination|null $value Value to set for the determination property.
     */
@@ -265,6 +313,22 @@ class Incident extends Entity implements Parsable
     }
 
     /**
+     * Sets the recommendedActions property value. The recommendedActions property
+     * @param string|null $value Value to set for the recommendedActions property.
+    */
+    public function setRecommendedActions(?string $value): void {
+        $this->getBackingStore()->set('recommendedActions', $value);
+    }
+
+    /**
+     * Sets the recommendedHuntingQueries property value. The recommendedHuntingQueries property
+     * @param array<RecommendedHuntingQuery>|null $value Value to set for the recommendedHuntingQueries property.
+    */
+    public function setRecommendedHuntingQueries(?array $value): void {
+        $this->getBackingStore()->set('recommendedHuntingQueries', $value);
+    }
+
+    /**
      * Sets the redirectIncidentId property value. Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
      * @param string|null $value Value to set for the redirectIncidentId property.
     */
@@ -286,6 +350,14 @@ class Incident extends Entity implements Parsable
     */
     public function setStatus(?IncidentStatus $value): void {
         $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the systemTags property value. The systemTags property
+     * @param array<string>|null $value Value to set for the systemTags property.
+    */
+    public function setSystemTags(?array $value): void {
+        $this->getBackingStore()->set('systemTags', $value);
     }
 
     /**

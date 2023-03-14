@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcConnection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcConnection and sets the default values.
+     * Instantiates a new cloudPcConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -380,7 +380,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the synchronization property value. The synchronization property
+     * Gets the synchronization property value. Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
      * @return Synchronization|null
     */
     public function getSynchronization(): ?Synchronization {
@@ -802,7 +802,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the synchronization property value. The synchronization property
+     * Sets the synchronization property value. Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
      * @param Synchronization|null $value Value to set for the synchronization property.
     */
     public function setSynchronization(?Synchronization $value): void {

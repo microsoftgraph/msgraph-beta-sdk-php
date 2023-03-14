@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\User;
-use Microsoft\Graph\Beta\Generated\Users\Item\ActivateServicePlan\ActivateServicePlanRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Activities\Item\UserActivityItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AgreementAcceptances\AgreementAcceptancesRequestBuilder;
@@ -153,13 +152,6 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class UserItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the activateServicePlan method.
-    */
-    public function activateServicePlan(): ActivateServicePlanRequestBuilder {
-        return new ActivateServicePlanRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the activities property of the microsoft.graph.user entity.
     */

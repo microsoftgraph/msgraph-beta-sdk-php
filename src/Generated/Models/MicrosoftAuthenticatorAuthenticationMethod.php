@@ -27,6 +27,14 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod im
     }
 
     /**
+     * Gets the clientAppName property value. The app that the user has registered to use to approve push notifications. The possible values are: microsoftAuthenticator, outlookMobile, unknownFutureValue.
+     * @return MicrosoftAuthenticatorAuthenticationMethodClientAppName|null
+    */
+    public function getClientAppName(): ?MicrosoftAuthenticatorAuthenticationMethodClientAppName {
+        return $this->getBackingStore()->get('clientAppName');
+    }
+
+    /**
      * Gets the createdDateTime property value. The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
      * @return DateTime|null
     */
@@ -65,6 +73,7 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod im
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'clientAppName' => fn(ParseNode $n) => $o->setClientAppName($n->getEnumValue(MicrosoftAuthenticatorAuthenticationMethodClientAppName::class)),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'device' => fn(ParseNode $n) => $o->setDevice($n->getObjectValue([Device::class, 'createFromDiscriminatorValue'])),
             'deviceTag' => fn(ParseNode $n) => $o->setDeviceTag($n->getStringValue()),
@@ -87,11 +96,20 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('clientAppName', $this->getClientAppName());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('device', $this->getDevice());
         $writer->writeStringValue('deviceTag', $this->getDeviceTag());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('phoneAppVersion', $this->getPhoneAppVersion());
+    }
+
+    /**
+     * Sets the clientAppName property value. The app that the user has registered to use to approve push notifications. The possible values are: microsoftAuthenticator, outlookMobile, unknownFutureValue.
+     * @param MicrosoftAuthenticatorAuthenticationMethodClientAppName|null $value Value to set for the clientAppName property.
+    */
+    public function setClientAppName(?MicrosoftAuthenticatorAuthenticationMethodClientAppName $value): void {
+        $this->getBackingStore()->set('clientAppName', $value);
     }
 
     /**

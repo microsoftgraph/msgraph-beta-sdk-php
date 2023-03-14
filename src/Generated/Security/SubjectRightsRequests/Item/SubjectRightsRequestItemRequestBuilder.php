@@ -7,6 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SubjectRightsRequest;
+use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Approvers\ApproversRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Collaborators\CollaboratorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\GetFinalAttachment\GetFinalAttachmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\GetFinalReport\GetFinalReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Notes\Item\AuthoredNoteItemRequestBuilder;
@@ -24,6 +26,20 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class SubjectRightsRequestItemRequestBuilder 
 {
+    /**
+     * Provides operations to manage the approvers property of the microsoft.graph.subjectRightsRequest entity.
+    */
+    public function approvers(): ApproversRequestBuilder {
+        return new ApproversRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the collaborators property of the microsoft.graph.subjectRightsRequest entity.
+    */
+    public function collaborators(): CollaboratorsRequestBuilder {
+        return new CollaboratorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the getFinalAttachment method.
     */
@@ -67,6 +83,28 @@ class SubjectRightsRequestItemRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to manage the approvers property of the microsoft.graph.subjectRightsRequest entity.
+     * @param string $id Unique identifier of the item
+     * @return \Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Approvers\Item\UserItemRequestBuilder
+    */
+    public function approversById(string $id): \Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Approvers\Item\UserItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['user%2Did'] = $id;
+        return new \Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Approvers\Item\UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the collaborators property of the microsoft.graph.subjectRightsRequest entity.
+     * @param string $id Unique identifier of the item
+     * @return \Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Collaborators\Item\UserItemRequestBuilder
+    */
+    public function collaboratorsById(string $id): \Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Collaborators\Item\UserItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['user%2Did'] = $id;
+        return new \Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Collaborators\Item\UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new SubjectRightsRequestItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
