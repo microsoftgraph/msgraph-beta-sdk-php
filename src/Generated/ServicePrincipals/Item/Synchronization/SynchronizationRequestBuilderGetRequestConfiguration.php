@@ -25,16 +25,6 @@ class SynchronizationRequestBuilderGetRequestConfiguration
     public ?SynchronizationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new synchronizationRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return SynchronizationRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): SynchronizationRequestBuilderGetQueryParameters {
-        return new SynchronizationRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new synchronizationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class SynchronizationRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new synchronizationRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return SynchronizationRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): SynchronizationRequestBuilderGetQueryParameters {
+        return new SynchronizationRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

@@ -25,6 +25,18 @@ class UserExperienceAnalyticsScoreHistoryRequestBuilderGetRequestConfiguration
     public ?UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new userExperienceAnalyticsScoreHistoryRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new userExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
@@ -36,20 +48,8 @@ class UserExperienceAnalyticsScoreHistoryRequestBuilderGetRequestConfiguration
      * @param int|null $top Show only the first n items
      * @return UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters {
         return new UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new userExperienceAnalyticsScoreHistoryRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?UserExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

@@ -25,6 +25,18 @@ class GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfigur
     public ?GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new getOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new getOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
@@ -35,20 +47,8 @@ class GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfigur
      * @param int|null $top Show only the first n items
      * @return GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters {
         return new GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new getOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

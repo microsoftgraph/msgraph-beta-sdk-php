@@ -25,16 +25,6 @@ class AccessPackageResourceRoleItemRequestBuilderGetRequestConfiguration
     public ?AccessPackageResourceRoleItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new AccessPackageResourceRoleItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return AccessPackageResourceRoleItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): AccessPackageResourceRoleItemRequestBuilderGetQueryParameters {
-        return new AccessPackageResourceRoleItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new AccessPackageResourceRoleItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class AccessPackageResourceRoleItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new AccessPackageResourceRoleItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AccessPackageResourceRoleItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): AccessPackageResourceRoleItemRequestBuilderGetQueryParameters {
+        return new AccessPackageResourceRoleItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

@@ -25,16 +25,6 @@ class ProgramRequestBuilderGetRequestConfiguration
     public ?ProgramRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new programRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return ProgramRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): ProgramRequestBuilderGetQueryParameters {
-        return new ProgramRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new programRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class ProgramRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new programRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ProgramRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ProgramRequestBuilderGetQueryParameters {
+        return new ProgramRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

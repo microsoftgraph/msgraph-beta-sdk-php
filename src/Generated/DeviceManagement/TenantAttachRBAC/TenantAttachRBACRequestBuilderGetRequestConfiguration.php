@@ -25,16 +25,6 @@ class TenantAttachRBACRequestBuilderGetRequestConfiguration
     public ?TenantAttachRBACRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new tenantAttachRBACRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return TenantAttachRBACRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): TenantAttachRBACRequestBuilderGetQueryParameters {
-        return new TenantAttachRBACRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new tenantAttachRBACRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class TenantAttachRBACRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new tenantAttachRBACRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return TenantAttachRBACRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): TenantAttachRBACRequestBuilderGetQueryParameters {
+        return new TenantAttachRBACRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

@@ -25,6 +25,18 @@ class GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration
     public ?GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new getCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new getCredentialUserRegistrationCountRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
@@ -35,20 +47,8 @@ class GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration
      * @param int|null $top Show only the first n items
      * @return GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters {
         return new GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new getCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Workspace extends Place implements Parsable 
 {
     /**
-     * Instantiates a new workspace and sets the default values.
+     * Instantiates a new Workspace and sets the default values.
     */
     public function __construct() {
         parent::__construct();

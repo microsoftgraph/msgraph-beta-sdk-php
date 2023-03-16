@@ -25,16 +25,6 @@ class RetentionEventTypeItemRequestBuilderGetRequestConfiguration
     public ?RetentionEventTypeItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new RetentionEventTypeItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return RetentionEventTypeItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): RetentionEventTypeItemRequestBuilderGetQueryParameters {
-        return new RetentionEventTypeItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new RetentionEventTypeItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class RetentionEventTypeItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new RetentionEventTypeItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return RetentionEventTypeItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): RetentionEventTypeItemRequestBuilderGetQueryParameters {
+        return new RetentionEventTypeItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

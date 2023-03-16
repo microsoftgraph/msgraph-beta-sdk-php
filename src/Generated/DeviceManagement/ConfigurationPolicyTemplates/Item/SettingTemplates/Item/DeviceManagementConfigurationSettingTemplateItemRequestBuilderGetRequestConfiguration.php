@@ -25,16 +25,6 @@ class DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetRequestCo
     public ?DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetQueryParameters {
-        return new DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetRequestCo
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetQueryParameters {
+        return new DeviceManagementConfigurationSettingTemplateItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

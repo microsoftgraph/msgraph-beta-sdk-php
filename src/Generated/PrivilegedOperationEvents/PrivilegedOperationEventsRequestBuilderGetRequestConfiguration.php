@@ -25,6 +25,18 @@ class PrivilegedOperationEventsRequestBuilderGetRequestConfiguration
     public ?PrivilegedOperationEventsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new privilegedOperationEventsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param PrivilegedOperationEventsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PrivilegedOperationEventsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new privilegedOperationEventsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
@@ -36,20 +48,8 @@ class PrivilegedOperationEventsRequestBuilderGetRequestConfiguration
      * @param int|null $top Show only the first n items
      * @return PrivilegedOperationEventsRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): PrivilegedOperationEventsRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): PrivilegedOperationEventsRequestBuilderGetQueryParameters {
         return new PrivilegedOperationEventsRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new privilegedOperationEventsRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param PrivilegedOperationEventsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?PrivilegedOperationEventsRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

@@ -25,6 +25,18 @@ class GetRoleScopeTagsByResourceWithResourceRequestBuilderGetRequestConfiguratio
     public ?GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new getRoleScopeTagsByResourceWithResourceRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new getRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $filter Filter items by property values
@@ -35,20 +47,8 @@ class GetRoleScopeTagsByResourceWithResourceRequestBuilderGetRequestConfiguratio
      * @param int|null $top Show only the first n items
      * @return GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters {
         return new GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters($count, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new getRoleScopeTagsByResourceWithResourceRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

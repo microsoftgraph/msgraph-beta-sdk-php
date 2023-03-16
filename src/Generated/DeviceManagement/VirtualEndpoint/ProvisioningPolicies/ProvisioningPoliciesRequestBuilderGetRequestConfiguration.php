@@ -25,6 +25,18 @@ class ProvisioningPoliciesRequestBuilderGetRequestConfiguration
     public ?ProvisioningPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new provisioningPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param ProvisioningPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ProvisioningPoliciesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new provisioningPoliciesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
@@ -36,20 +48,8 @@ class ProvisioningPoliciesRequestBuilderGetRequestConfiguration
      * @param int|null $top Show only the first n items
      * @return ProvisioningPoliciesRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): ProvisioningPoliciesRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): ProvisioningPoliciesRequestBuilderGetQueryParameters {
         return new ProvisioningPoliciesRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new provisioningPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param ProvisioningPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?ProvisioningPoliciesRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

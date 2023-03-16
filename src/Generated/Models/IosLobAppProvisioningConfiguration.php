@@ -8,13 +8,10 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-/**
- * This topic provides descriptions of the declared methods, properties and relationships exposed by the iOS Lob App Provisioning Configuration resource.
-*/
 class IosLobAppProvisioningConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new iosLobAppProvisioningConfiguration and sets the default values.
+     * Instantiates a new IosLobAppProvisioningConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

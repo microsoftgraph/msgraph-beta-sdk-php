@@ -25,16 +25,6 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfigur
     public ?ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters {
-        return new ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfigur
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters {
+        return new ManagementActionTenantDeploymentStatusItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

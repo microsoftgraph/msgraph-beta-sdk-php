@@ -25,16 +25,6 @@ class CertificateConnectorDetailsItemRequestBuilderGetRequestConfiguration
     public ?CertificateConnectorDetailsItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new CertificateConnectorDetailsItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return CertificateConnectorDetailsItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): CertificateConnectorDetailsItemRequestBuilderGetQueryParameters {
-        return new CertificateConnectorDetailsItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new CertificateConnectorDetailsItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class CertificateConnectorDetailsItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new CertificateConnectorDetailsItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return CertificateConnectorDetailsItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): CertificateConnectorDetailsItemRequestBuilderGetQueryParameters {
+        return new CertificateConnectorDetailsItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

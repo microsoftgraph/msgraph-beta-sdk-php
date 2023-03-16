@@ -25,6 +25,18 @@ class UserExperienceAnalyticsRemoteConnectionRequestBuilderGetRequestConfigurati
     public ?UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new userExperienceAnalyticsRemoteConnectionRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new userExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
@@ -36,20 +48,8 @@ class UserExperienceAnalyticsRemoteConnectionRequestBuilderGetRequestConfigurati
      * @param int|null $top Show only the first n items
      * @return UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters {
         return new UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new userExperienceAnalyticsRemoteConnectionRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?UserExperienceAnalyticsRemoteConnectionRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

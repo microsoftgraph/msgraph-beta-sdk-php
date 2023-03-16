@@ -25,16 +25,6 @@ class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConf
     public ?MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters {
-        return new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConf
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters {
+        return new MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

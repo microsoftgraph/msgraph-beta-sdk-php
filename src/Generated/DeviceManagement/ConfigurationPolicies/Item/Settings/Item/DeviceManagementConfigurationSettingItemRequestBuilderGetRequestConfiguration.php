@@ -25,16 +25,6 @@ class DeviceManagementConfigurationSettingItemRequestBuilderGetRequestConfigurat
     public ?DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters {
-        return new DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new DeviceManagementConfigurationSettingItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class DeviceManagementConfigurationSettingItemRequestBuilderGetRequestConfigurat
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters {
+        return new DeviceManagementConfigurationSettingItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

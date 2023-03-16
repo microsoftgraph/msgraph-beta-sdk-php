@@ -25,16 +25,6 @@ class AlertRecordItemRequestBuilderGetRequestConfiguration
     public ?AlertRecordItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new AlertRecordItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return AlertRecordItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): AlertRecordItemRequestBuilderGetQueryParameters {
-        return new AlertRecordItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new AlertRecordItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class AlertRecordItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new AlertRecordItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AlertRecordItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): AlertRecordItemRequestBuilderGetQueryParameters {
+        return new AlertRecordItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

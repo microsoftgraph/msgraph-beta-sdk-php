@@ -25,16 +25,6 @@ class TrustFrameworkRequestBuilderGetRequestConfiguration
     public ?TrustFrameworkRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new trustFrameworkRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return TrustFrameworkRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): TrustFrameworkRequestBuilderGetQueryParameters {
-        return new TrustFrameworkRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new trustFrameworkRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class TrustFrameworkRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new trustFrameworkRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return TrustFrameworkRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): TrustFrameworkRequestBuilderGetQueryParameters {
+        return new TrustFrameworkRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

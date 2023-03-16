@@ -25,16 +25,6 @@ class EnterpriseCodeSigningCertificateItemRequestBuilderGetRequestConfiguration
     public ?EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters {
-        return new EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new EnterpriseCodeSigningCertificateItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class EnterpriseCodeSigningCertificateItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters {
+        return new EnterpriseCodeSigningCertificateItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

@@ -25,16 +25,6 @@ class PrivilegedApprovalItemRequestBuilderGetRequestConfiguration
     public ?PrivilegedApprovalItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new PrivilegedApprovalItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return PrivilegedApprovalItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): PrivilegedApprovalItemRequestBuilderGetQueryParameters {
-        return new PrivilegedApprovalItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new PrivilegedApprovalItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class PrivilegedApprovalItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new PrivilegedApprovalItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PrivilegedApprovalItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): PrivilegedApprovalItemRequestBuilderGetQueryParameters {
+        return new PrivilegedApprovalItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

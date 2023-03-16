@@ -25,16 +25,6 @@ class TaskDefinitionRequestBuilderGetRequestConfiguration
     public ?TaskDefinitionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new taskDefinitionRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return TaskDefinitionRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): TaskDefinitionRequestBuilderGetQueryParameters {
-        return new TaskDefinitionRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new taskDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class TaskDefinitionRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new taskDefinitionRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return TaskDefinitionRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): TaskDefinitionRequestBuilderGetQueryParameters {
+        return new TaskDefinitionRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

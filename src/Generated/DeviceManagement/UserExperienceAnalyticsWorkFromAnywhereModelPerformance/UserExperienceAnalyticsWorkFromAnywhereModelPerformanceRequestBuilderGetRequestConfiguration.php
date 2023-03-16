@@ -25,6 +25,18 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRe
     public ?UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
@@ -36,20 +48,8 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRe
      * @param int|null $top Show only the first n items
      * @return UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters {
         return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

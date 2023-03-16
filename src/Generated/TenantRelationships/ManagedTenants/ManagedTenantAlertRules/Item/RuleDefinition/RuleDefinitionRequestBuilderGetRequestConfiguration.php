@@ -25,16 +25,6 @@ class RuleDefinitionRequestBuilderGetRequestConfiguration
     public ?RuleDefinitionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new ruleDefinitionRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return RuleDefinitionRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): RuleDefinitionRequestBuilderGetQueryParameters {
-        return new RuleDefinitionRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new ruleDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class RuleDefinitionRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new ruleDefinitionRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return RuleDefinitionRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): RuleDefinitionRequestBuilderGetQueryParameters {
+        return new RuleDefinitionRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

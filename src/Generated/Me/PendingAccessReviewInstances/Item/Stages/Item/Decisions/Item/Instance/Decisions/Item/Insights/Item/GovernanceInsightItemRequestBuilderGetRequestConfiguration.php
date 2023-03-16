@@ -25,16 +25,6 @@ class GovernanceInsightItemRequestBuilderGetRequestConfiguration
     public ?GovernanceInsightItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new GovernanceInsightItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return GovernanceInsightItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): GovernanceInsightItemRequestBuilderGetQueryParameters {
-        return new GovernanceInsightItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new GovernanceInsightItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class GovernanceInsightItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new GovernanceInsightItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return GovernanceInsightItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): GovernanceInsightItemRequestBuilderGetQueryParameters {
+        return new GovernanceInsightItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

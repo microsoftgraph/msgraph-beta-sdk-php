@@ -25,16 +25,6 @@ class CustomerRequestBuilderGetRequestConfiguration
     public ?CustomerRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new customerRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return CustomerRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): CustomerRequestBuilderGetQueryParameters {
-        return new CustomerRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new customerRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class CustomerRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new customerRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return CustomerRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): CustomerRequestBuilderGetQueryParameters {
+        return new CustomerRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

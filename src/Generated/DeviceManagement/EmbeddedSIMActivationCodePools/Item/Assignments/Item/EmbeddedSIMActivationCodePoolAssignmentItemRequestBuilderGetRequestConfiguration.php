@@ -25,16 +25,6 @@ class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetRequestConfigu
     public ?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetQueryParameters {
-        return new EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetRequestConfigu
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetQueryParameters {
+        return new EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

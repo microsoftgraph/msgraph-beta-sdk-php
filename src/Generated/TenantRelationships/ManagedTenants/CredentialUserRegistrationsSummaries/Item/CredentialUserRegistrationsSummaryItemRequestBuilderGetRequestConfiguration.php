@@ -25,16 +25,6 @@ class CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguratio
     public ?CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters {
-        return new CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguratio
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters {
+        return new CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

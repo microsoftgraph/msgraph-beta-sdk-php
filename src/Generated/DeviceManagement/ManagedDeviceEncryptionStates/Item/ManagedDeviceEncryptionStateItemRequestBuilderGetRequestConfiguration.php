@@ -25,16 +25,6 @@ class ManagedDeviceEncryptionStateItemRequestBuilderGetRequestConfiguration
     public ?ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters {
-        return new ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new ManagedDeviceEncryptionStateItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class ManagedDeviceEncryptionStateItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters {
+        return new ManagedDeviceEncryptionStateItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

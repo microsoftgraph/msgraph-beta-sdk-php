@@ -25,16 +25,6 @@ class PersonInterestItemRequestBuilderGetRequestConfiguration
     public ?PersonInterestItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new PersonInterestItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return PersonInterestItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): PersonInterestItemRequestBuilderGetQueryParameters {
-        return new PersonInterestItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new PersonInterestItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class PersonInterestItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new PersonInterestItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PersonInterestItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): PersonInterestItemRequestBuilderGetQueryParameters {
+        return new PersonInterestItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

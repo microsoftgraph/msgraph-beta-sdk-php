@@ -25,16 +25,6 @@ class DeviceHealthScriptAssignmentItemRequestBuilderGetRequestConfiguration
     public ?DeviceHealthScriptAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new DeviceHealthScriptAssignmentItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return DeviceHealthScriptAssignmentItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceHealthScriptAssignmentItemRequestBuilderGetQueryParameters {
-        return new DeviceHealthScriptAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new DeviceHealthScriptAssignmentItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class DeviceHealthScriptAssignmentItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new DeviceHealthScriptAssignmentItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceHealthScriptAssignmentItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DeviceHealthScriptAssignmentItemRequestBuilderGetQueryParameters {
+        return new DeviceHealthScriptAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

@@ -25,16 +25,6 @@ class CompanyItemRequestBuilderGetRequestConfiguration
     public ?CompanyItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new CompanyItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return CompanyItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): CompanyItemRequestBuilderGetQueryParameters {
-        return new CompanyItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new CompanyItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class CompanyItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new CompanyItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return CompanyItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): CompanyItemRequestBuilderGetQueryParameters {
+        return new CompanyItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

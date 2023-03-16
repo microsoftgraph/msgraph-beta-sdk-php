@@ -25,6 +25,18 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetReq
     public ?UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new userExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new userExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
@@ -36,20 +48,8 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetReq
      * @param int|null $top Show only the first n items
      * @return UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters {
         return new UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new userExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

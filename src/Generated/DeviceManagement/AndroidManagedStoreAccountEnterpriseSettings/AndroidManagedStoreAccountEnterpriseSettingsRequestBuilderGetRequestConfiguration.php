@@ -25,16 +25,6 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetRequestConfig
     public ?AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new androidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters {
-        return new AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new androidManagedStoreAccountEnterpriseSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetRequestConfig
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new androidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters {
+        return new AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

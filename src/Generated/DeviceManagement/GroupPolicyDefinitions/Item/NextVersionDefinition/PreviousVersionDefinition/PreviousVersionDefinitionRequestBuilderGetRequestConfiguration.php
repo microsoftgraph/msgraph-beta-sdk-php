@@ -25,16 +25,6 @@ class PreviousVersionDefinitionRequestBuilderGetRequestConfiguration
     public ?PreviousVersionDefinitionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new previousVersionDefinitionRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return PreviousVersionDefinitionRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): PreviousVersionDefinitionRequestBuilderGetQueryParameters {
-        return new PreviousVersionDefinitionRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new previousVersionDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class PreviousVersionDefinitionRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new previousVersionDefinitionRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PreviousVersionDefinitionRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): PreviousVersionDefinitionRequestBuilderGetQueryParameters {
+        return new PreviousVersionDefinitionRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

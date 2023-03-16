@@ -25,16 +25,6 @@ class ManagedAllDeviceCertificateStateItemRequestBuilderGetRequestConfiguration
     public ?ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters {
-        return new ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new ManagedAllDeviceCertificateStateItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class ManagedAllDeviceCertificateStateItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters {
+        return new ManagedAllDeviceCertificateStateItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

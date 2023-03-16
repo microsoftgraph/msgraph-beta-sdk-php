@@ -25,16 +25,6 @@ class GovernancePolicyTemplateItemRequestBuilderGetRequestConfiguration
     public ?GovernancePolicyTemplateItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new GovernancePolicyTemplateItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return GovernancePolicyTemplateItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): GovernancePolicyTemplateItemRequestBuilderGetQueryParameters {
-        return new GovernancePolicyTemplateItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new GovernancePolicyTemplateItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class GovernancePolicyTemplateItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new GovernancePolicyTemplateItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return GovernancePolicyTemplateItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): GovernancePolicyTemplateItemRequestBuilderGetQueryParameters {
+        return new GovernancePolicyTemplateItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

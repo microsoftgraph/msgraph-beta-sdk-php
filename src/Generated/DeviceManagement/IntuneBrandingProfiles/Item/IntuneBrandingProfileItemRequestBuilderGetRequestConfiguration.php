@@ -25,16 +25,6 @@ class IntuneBrandingProfileItemRequestBuilderGetRequestConfiguration
     public ?IntuneBrandingProfileItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new IntuneBrandingProfileItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return IntuneBrandingProfileItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): IntuneBrandingProfileItemRequestBuilderGetQueryParameters {
-        return new IntuneBrandingProfileItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new IntuneBrandingProfileItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class IntuneBrandingProfileItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new IntuneBrandingProfileItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return IntuneBrandingProfileItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): IntuneBrandingProfileItemRequestBuilderGetQueryParameters {
+        return new IntuneBrandingProfileItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

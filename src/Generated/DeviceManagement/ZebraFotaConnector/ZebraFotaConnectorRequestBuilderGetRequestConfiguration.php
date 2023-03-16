@@ -25,16 +25,6 @@ class ZebraFotaConnectorRequestBuilderGetRequestConfiguration
     public ?ZebraFotaConnectorRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new zebraFotaConnectorRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return ZebraFotaConnectorRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): ZebraFotaConnectorRequestBuilderGetQueryParameters {
-        return new ZebraFotaConnectorRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new zebraFotaConnectorRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class ZebraFotaConnectorRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new zebraFotaConnectorRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ZebraFotaConnectorRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ZebraFotaConnectorRequestBuilderGetQueryParameters {
+        return new ZebraFotaConnectorRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

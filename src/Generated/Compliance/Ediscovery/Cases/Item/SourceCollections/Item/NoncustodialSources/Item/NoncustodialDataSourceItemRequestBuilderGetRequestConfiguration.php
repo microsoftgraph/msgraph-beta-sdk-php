@@ -25,16 +25,6 @@ class NoncustodialDataSourceItemRequestBuilderGetRequestConfiguration
     public ?NoncustodialDataSourceItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new NoncustodialDataSourceItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return NoncustodialDataSourceItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): NoncustodialDataSourceItemRequestBuilderGetQueryParameters {
-        return new NoncustodialDataSourceItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new NoncustodialDataSourceItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class NoncustodialDataSourceItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new NoncustodialDataSourceItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return NoncustodialDataSourceItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): NoncustodialDataSourceItemRequestBuilderGetQueryParameters {
+        return new NoncustodialDataSourceItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }
