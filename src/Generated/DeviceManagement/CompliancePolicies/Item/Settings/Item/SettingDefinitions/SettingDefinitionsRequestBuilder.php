@@ -58,7 +58,7 @@ class SettingDefinitionsRequestBuilder
     }
 
     /**
-     * List of related Setting Definitions. This property is read-only.
+     * List of related Setting Definitions
      * @param SettingDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -76,7 +76,7 @@ class SettingDefinitionsRequestBuilder
     }
 
     /**
-     * List of related Setting Definitions. This property is read-only.
+     * List of related Setting Definitions
      * @param SettingDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

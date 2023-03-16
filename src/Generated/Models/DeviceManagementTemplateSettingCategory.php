@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Entity representing a template setting category
+*/
 class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCategory implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementTemplateSettingCategory and sets the default values.
+     * Instantiates a new deviceManagementTemplateSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

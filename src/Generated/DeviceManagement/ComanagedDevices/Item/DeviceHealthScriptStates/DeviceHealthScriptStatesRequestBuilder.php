@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\DeviceHealthScriptStates\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\DeviceHealthScriptStates\WithIdWithPolicyIdWithDeviceId\WithIdWithPolicyIdWithDeviceIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptPolicyState;
 use Microsoft\Graph\Beta\Generated\Models\DeviceHealthScriptPolicyStateCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -77,6 +78,25 @@ class DeviceHealthScriptStatesRequestBuilder
     }
 
     /**
+     * Create new navigation property to deviceHealthScriptStates for deviceManagement
+     * @param DeviceHealthScriptPolicyState $body Contains properties for policy run state of the device health script.
+     * @param DeviceHealthScriptStatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise
+    */
+    public function post(DeviceHealthScriptPolicyState $body, ?DeviceHealthScriptStatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [DeviceHealthScriptPolicyState::class, 'createFromDiscriminatorValue'], $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
      * Results of device health scripts that ran for this device. Default is empty list. This property is read-only.
      * @param DeviceHealthScriptStatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -98,6 +118,30 @@ class DeviceHealthScriptStatesRequestBuilder
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
             }
         }
+        return $requestInfo;
+    }
+
+    /**
+     * Create new navigation property to deviceHealthScriptStates for deviceManagement
+     * @param DeviceHealthScriptPolicyState $body Contains properties for policy run state of the device health script.
+     * @param DeviceHealthScriptStatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPostRequestInformation(DeviceHealthScriptPolicyState $body, ?DeviceHealthScriptStatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::POST;
+        $requestInfo->addHeader('Accept', "application/json");
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->addHeaders($requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
+        }
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

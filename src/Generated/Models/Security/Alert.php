@@ -153,6 +153,7 @@ class Alert extends Entity implements Parsable
             'serviceSource' => fn(ParseNode $n) => $o->setServiceSource($n->getEnumValue(ServiceSource::class)),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AlertStatus::class)),
+            'systemTags' => fn(ParseNode $n) => $o->setSystemTags($n->getCollectionOfPrimitiveValues()),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'threatDisplayName' => fn(ParseNode $n) => $o->setThreatDisplayName($n->getStringValue()),
             'threatFamilyName' => fn(ParseNode $n) => $o->setThreatFamilyName($n->getStringValue()),
@@ -257,6 +258,14 @@ class Alert extends Entity implements Parsable
     }
 
     /**
+     * Gets the systemTags property value. The systemTags property
+     * @return array<string>|null
+    */
+    public function getSystemTags(): ?array {
+        return $this->getBackingStore()->get('systemTags');
+    }
+
+    /**
      * Gets the tenantId property value. The Azure Active Directory tenant the alert was created in.
      * @return string|null
     */
@@ -318,6 +327,7 @@ class Alert extends Entity implements Parsable
         $writer->writeEnumValue('serviceSource', $this->getServiceSource());
         $writer->writeEnumValue('severity', $this->getSeverity());
         $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeCollectionOfPrimitiveValues('systemTags', $this->getSystemTags());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeStringValue('threatDisplayName', $this->getThreatDisplayName());
         $writer->writeStringValue('threatFamilyName', $this->getThreatFamilyName());
@@ -514,6 +524,14 @@ class Alert extends Entity implements Parsable
     */
     public function setStatus(?AlertStatus $value): void {
         $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the systemTags property value. The systemTags property
+     * @param array<string>|null $value Value to set for the systemTags property.
+    */
+    public function setSystemTags(?array $value): void {
+        $this->getBackingStore()->set('systemTags', $value);
     }
 
     /**

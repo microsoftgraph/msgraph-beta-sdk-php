@@ -12,7 +12,7 @@ use Psr\Http\Message\StreamInterface;
 class CompanyInformation extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CompanyInformation and sets the default values.
+     * Instantiates a new companyInformation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

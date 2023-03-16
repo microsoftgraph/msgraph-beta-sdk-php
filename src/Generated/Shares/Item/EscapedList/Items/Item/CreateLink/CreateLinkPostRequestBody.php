@@ -72,6 +72,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
             'recipients' => fn(ParseNode $n) => $o->setRecipients($n->getCollectionOfObjectValues([DriveRecipient::class, 'createFromDiscriminatorValue'])),
             'retainInheritedPermissions' => fn(ParseNode $n) => $o->setRetainInheritedPermissions($n->getBooleanValue()),
             'scope' => fn(ParseNode $n) => $o->setScope($n->getStringValue()),
+            'sendNotification' => fn(ParseNode $n) => $o->setSendNotification($n->getBooleanValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ];
     }
@@ -109,6 +110,14 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Gets the sendNotification property value. The sendNotification property
+     * @return bool|null
+    */
+    public function getSendNotification(): ?bool {
+        return $this->getBackingStore()->get('sendNotification');
+    }
+
+    /**
      * Gets the type property value. The type property
      * @return string|null
     */
@@ -126,6 +135,7 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
         $writer->writeCollectionOfObjectValues('recipients', $this->getRecipients());
         $writer->writeBooleanValue('retainInheritedPermissions', $this->getRetainInheritedPermissions());
         $writer->writeStringValue('scope', $this->getScope());
+        $writer->writeBooleanValue('sendNotification', $this->getSendNotification());
         $writer->writeStringValue('type', $this->getType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -184,6 +194,14 @@ class CreateLinkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     */
     public function setScope(?string $value): void {
         $this->getBackingStore()->set('scope', $value);
+    }
+
+    /**
+     * Sets the sendNotification property value. The sendNotification property
+     * @param bool|null $value Value to set for the sendNotification property.
+    */
+    public function setSendNotification(?bool $value): void {
+        $this->getBackingStore()->set('sendNotification', $value);
     }
 
     /**

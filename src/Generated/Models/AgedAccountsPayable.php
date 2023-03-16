@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class AgedAccountsPayable extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AgedAccountsPayable and sets the default values.
+     * Instantiates a new agedAccountsPayable and sets the default values.
     */
     public function __construct() {
         parent::__construct();

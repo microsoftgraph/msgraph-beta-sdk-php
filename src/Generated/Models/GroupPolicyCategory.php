@@ -7,9 +7,6 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The category entity stores the category of a group policy definition
-*/
 class GroupPolicyCategory extends Entity implements Parsable 
 {
     /**

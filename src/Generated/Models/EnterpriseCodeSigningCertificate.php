@@ -27,7 +27,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the content property value. The Windows Enterprise Code-Signing Certificate in the raw data format.
+     * Gets the content property value. The Windows Enterprise Code-Signing Certificate in the raw data format. Set to null once certificate has been uploaded and other properties have been populated.
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -35,7 +35,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The Cert Expiration Date.
+     * Gets the expirationDateTime property value. The cert expiration date and time (using ISO 8601 format, in UTC time). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -61,7 +61,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the issuer property value. The Issuer value for the cert.
+     * Gets the issuer property value. The issuer value for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @return string|null
     */
     public function getIssuer(): ?string {
@@ -69,7 +69,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the issuerName property value. The Issuer Name for the cert.
+     * Gets the issuerName property value. The issuer name for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @return string|null
     */
     public function getIssuerName(): ?string {
@@ -85,7 +85,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the subject property value. The Subject Value for the cert.
+     * Gets the subject property value. The subject value for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @return string|null
     */
     public function getSubject(): ?string {
@@ -93,7 +93,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the subjectName property value. The Subject Name for the cert.
+     * Gets the subjectName property value. The subject name for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @return string|null
     */
     public function getSubjectName(): ?string {
@@ -101,7 +101,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the uploadDateTime property value. The date time of CodeSigning Cert when it is uploaded.
+     * Gets the uploadDateTime property value. The date time of CodeSigning Cert when it is uploaded (using ISO 8601 format, in UTC time). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @return DateTime|null
     */
     public function getUploadDateTime(): ?DateTime {
@@ -125,7 +125,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the content property value. The Windows Enterprise Code-Signing Certificate in the raw data format.
+     * Sets the content property value. The Windows Enterprise Code-Signing Certificate in the raw data format. Set to null once certificate has been uploaded and other properties have been populated.
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
@@ -133,7 +133,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The Cert Expiration Date.
+     * Sets the expirationDateTime property value. The cert expiration date and time (using ISO 8601 format, in UTC time). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -141,7 +141,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the issuer property value. The Issuer value for the cert.
+     * Sets the issuer property value. The issuer value for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @param string|null $value Value to set for the issuer property.
     */
     public function setIssuer(?string $value): void {
@@ -149,7 +149,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the issuerName property value. The Issuer Name for the cert.
+     * Sets the issuerName property value. The issuer name for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @param string|null $value Value to set for the issuerName property.
     */
     public function setIssuerName(?string $value): void {
@@ -165,7 +165,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the subject property value. The Subject Value for the cert.
+     * Sets the subject property value. The subject value for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
@@ -173,7 +173,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the subjectName property value. The Subject Name for the cert.
+     * Sets the subjectName property value. The subject name for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @param string|null $value Value to set for the subjectName property.
     */
     public function setSubjectName(?string $value): void {
@@ -181,7 +181,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the uploadDateTime property value. The date time of CodeSigning Cert when it is uploaded.
+     * Sets the uploadDateTime property value. The date time of CodeSigning Cert when it is uploaded (using ISO 8601 format, in UTC time). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
      * @param DateTime|null $value Value to set for the uploadDateTime property.
     */
     public function setUploadDateTime(?DateTime $value): void {

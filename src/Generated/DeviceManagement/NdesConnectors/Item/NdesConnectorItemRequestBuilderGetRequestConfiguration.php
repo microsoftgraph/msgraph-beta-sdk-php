@@ -36,8 +36,8 @@ class NdesConnectorItemRequestBuilderGetRequestConfiguration
 
     /**
      * Instantiates a new NdesConnectorItemRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<array>|null $headers Request headers
-     * @param array<array>|null $options Request options
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
      * @param NdesConnectorItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public function __construct(?array $headers = null, ?array $options = null, ?NdesConnectorItemRequestBuilderGetQueryParameters $queryParameters = null) {

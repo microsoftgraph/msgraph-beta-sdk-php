@@ -51,7 +51,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the companionAppAllowedState property value. The companionAppAllowedState property
+     * Gets the companionAppAllowedState property value. Determines whether users will be able to approve push notifications on other Microsoft applications such as Outlook Mobile.
      * @return AuthenticationMethodFeatureConfiguration|null
     */
     public function getCompanionAppAllowedState(): ?AuthenticationMethodFeatureConfiguration {
@@ -135,7 +135,7 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the companionAppAllowedState property value. The companionAppAllowedState property
+     * Sets the companionAppAllowedState property value. Determines whether users will be able to approve push notifications on other Microsoft applications such as Outlook Mobile.
      * @param AuthenticationMethodFeatureConfiguration|null $value Value to set for the companionAppAllowedState property.
     */
     public function setCompanionAppAllowedState(?AuthenticationMethodFeatureConfiguration $value): void {

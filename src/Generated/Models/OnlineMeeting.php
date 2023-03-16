@@ -51,7 +51,15 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowParticipantsToChangeName property value. The allowParticipantsToChangeName property
+     * Gets the allowMeetingChat property value. Specifies the mode of meeting chat.
+     * @return MeetingChatMode|null
+    */
+    public function getAllowMeetingChat(): ?MeetingChatMode {
+        return $this->getBackingStore()->get('allowMeetingChat');
+    }
+
+    /**
+     * Gets the allowParticipantsToChangeName property value. Specifies if participants are allowed to rename themselves in an instance of the meeting.
      * @return bool|null
     */
     public function getAllowParticipantsToChangeName(): ?bool {
@@ -164,6 +172,7 @@ class OnlineMeeting extends Entity implements Parsable
             'allowAttendeeToEnableCamera' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableCamera($n->getBooleanValue()),
             'allowAttendeeToEnableMic' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableMic($n->getBooleanValue()),
             'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
+            'allowMeetingChat' => fn(ParseNode $n) => $o->setAllowMeetingChat($n->getEnumValue(MeetingChatMode::class)),
             'allowParticipantsToChangeName' => fn(ParseNode $n) => $o->setAllowParticipantsToChangeName($n->getBooleanValue()),
             'allowTeamworkReactions' => fn(ParseNode $n) => $o->setAllowTeamworkReactions($n->getBooleanValue()),
             'alternativeRecording' => fn(ParseNode $n) => $o->setAlternativeRecording($n->getBinaryContent()),
@@ -360,6 +369,7 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeBooleanValue('allowAttendeeToEnableCamera', $this->getAllowAttendeeToEnableCamera());
         $writer->writeBooleanValue('allowAttendeeToEnableMic', $this->getAllowAttendeeToEnableMic());
         $writer->writeEnumValue('allowedPresenters', $this->getAllowedPresenters());
+        $writer->writeEnumValue('allowMeetingChat', $this->getAllowMeetingChat());
         $writer->writeBooleanValue('allowParticipantsToChangeName', $this->getAllowParticipantsToChangeName());
         $writer->writeBooleanValue('allowTeamworkReactions', $this->getAllowTeamworkReactions());
         $writer->writeBinaryContent('alternativeRecording', $this->getAlternativeRecording());
@@ -419,7 +429,15 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowParticipantsToChangeName property value. The allowParticipantsToChangeName property
+     * Sets the allowMeetingChat property value. Specifies the mode of meeting chat.
+     * @param MeetingChatMode|null $value Value to set for the allowMeetingChat property.
+    */
+    public function setAllowMeetingChat(?MeetingChatMode $value): void {
+        $this->getBackingStore()->set('allowMeetingChat', $value);
+    }
+
+    /**
+     * Sets the allowParticipantsToChangeName property value. Specifies if participants are allowed to rename themselves in an instance of the meeting.
      * @param bool|null $value Value to set for the allowParticipantsToChangeName property.
     */
     public function setAllowParticipantsToChangeName(?bool $value): void {

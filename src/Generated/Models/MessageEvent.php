@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MessageEvent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new MessageEvent and sets the default values.
+     * Instantiates a new messageEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

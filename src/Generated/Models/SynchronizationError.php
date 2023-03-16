@@ -51,7 +51,7 @@ class SynchronizationError implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the code property value. The code property
+     * Gets the code property value. The error code.
      * @return string|null
     */
     public function getCode(): ?string {
@@ -73,7 +73,7 @@ class SynchronizationError implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the message property value. The message property
+     * Gets the message property value. The error message.
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -89,7 +89,7 @@ class SynchronizationError implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the tenantActionable property value. The tenantActionable property
+     * Gets the tenantActionable property value. The action to take to resolve the error.
      * @return bool|null
     */
     public function getTenantActionable(): ?bool {
@@ -125,7 +125,7 @@ class SynchronizationError implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the code property value. The code property
+     * Sets the code property value. The error code.
      * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
@@ -133,7 +133,7 @@ class SynchronizationError implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the message property value. The message property
+     * Sets the message property value. The error message.
      * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
@@ -149,7 +149,7 @@ class SynchronizationError implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the tenantActionable property value. The tenantActionable property
+     * Sets the tenantActionable property value. The action to take to resolve the error.
      * @param bool|null $value Value to set for the tenantActionable property.
     */
     public function setTenantActionable(?bool $value): void {

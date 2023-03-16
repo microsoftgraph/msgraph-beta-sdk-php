@@ -74,7 +74,7 @@ class DirectoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the readOnly property value. The readOnly property
+     * Gets the readOnly property value. Whether this object is read-only.
      * @return bool|null
     */
     public function getReadOnly(): ?bool {
@@ -136,7 +136,7 @@ class DirectoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the readOnly property value. The readOnly property
+     * Sets the readOnly property value. Whether this object is read-only.
      * @param bool|null $value Value to set for the readOnly property.
     */
     public function setReadOnly(?bool $value): void {

@@ -26,6 +26,14 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
+     * Gets the approvers property value. The approvers property
+     * @return array<User>|null
+    */
+    public function getApprovers(): ?array {
+        return $this->getBackingStore()->get('approvers');
+    }
+
+    /**
      * Gets the assignedTo property value. Identity that the request is assigned to.
      * @return Identity|null
     */
@@ -39,6 +47,14 @@ class SubjectRightsRequest extends Entity implements Parsable
     */
     public function getClosedDateTime(): ?DateTime {
         return $this->getBackingStore()->get('closedDateTime');
+    }
+
+    /**
+     * Gets the collaborators property value. The collaborators property
+     * @return array<User>|null
+    */
+    public function getCollaborators(): ?array {
+        return $this->getBackingStore()->get('collaborators');
     }
 
     /**
@@ -112,8 +128,10 @@ class SubjectRightsRequest extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'approvers' => fn(ParseNode $n) => $o->setApprovers($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
             'assignedTo' => fn(ParseNode $n) => $o->setAssignedTo($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'closedDateTime' => fn(ParseNode $n) => $o->setClosedDateTime($n->getDateTimeValue()),
+            'collaborators' => fn(ParseNode $n) => $o->setCollaborators($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
             'contentQuery' => fn(ParseNode $n) => $o->setContentQuery($n->getStringValue()),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -275,8 +293,10 @@ class SubjectRightsRequest extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('approvers', $this->getApprovers());
         $writer->writeObjectValue('assignedTo', $this->getAssignedTo());
         $writer->writeDateTimeValue('closedDateTime', $this->getClosedDateTime());
+        $writer->writeCollectionOfObjectValues('collaborators', $this->getCollaborators());
         $writer->writeStringValue('contentQuery', $this->getContentQuery());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
@@ -304,6 +324,14 @@ class SubjectRightsRequest extends Entity implements Parsable
     }
 
     /**
+     * Sets the approvers property value. The approvers property
+     * @param array<User>|null $value Value to set for the approvers property.
+    */
+    public function setApprovers(?array $value): void {
+        $this->getBackingStore()->set('approvers', $value);
+    }
+
+    /**
      * Sets the assignedTo property value. Identity that the request is assigned to.
      * @param Identity|null $value Value to set for the assignedTo property.
     */
@@ -317,6 +345,14 @@ class SubjectRightsRequest extends Entity implements Parsable
     */
     public function setClosedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('closedDateTime', $value);
+    }
+
+    /**
+     * Sets the collaborators property value. The collaborators property
+     * @param array<User>|null $value Value to set for the collaborators property.
+    */
+    public function setCollaborators(?array $value): void {
+        $this->getBackingStore()->set('collaborators', $value);
     }
 
     /**

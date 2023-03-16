@@ -110,7 +110,7 @@ class SynchronizationRequestBuilder
     }
 
     /**
-     * Get synchronization from applications
+     * Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
      * @param SynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -190,7 +190,7 @@ class SynchronizationRequestBuilder
     }
 
     /**
-     * Get synchronization from applications
+     * Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
      * @param SynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

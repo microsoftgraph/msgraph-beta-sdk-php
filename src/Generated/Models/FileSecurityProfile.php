@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new FileSecurityProfile and sets the default values.
+     * Instantiates a new fileSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

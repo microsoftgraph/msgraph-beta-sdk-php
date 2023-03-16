@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerRoster extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PlannerRoster and sets the default values.
+     * Instantiates a new plannerRoster and sets the default values.
     */
     public function __construct() {
         parent::__construct();

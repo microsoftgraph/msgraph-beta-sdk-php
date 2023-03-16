@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class OfficeClientConfiguration extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new OfficeClientConfiguration and sets the default values.
+     * Instantiates a new officeClientConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

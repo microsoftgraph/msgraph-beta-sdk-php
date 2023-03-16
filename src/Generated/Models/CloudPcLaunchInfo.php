@@ -76,6 +76,8 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
             'cloudPcId' => fn(ParseNode $n) => $o->setCloudPcId($n->getStringValue()),
             'cloudPcLaunchUrl' => fn(ParseNode $n) => $o->setCloudPcLaunchUrl($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'windows365SwitchCompatible' => fn(ParseNode $n) => $o->setWindows365SwitchCompatible($n->getBooleanValue()),
+            'windows365SwitchNotCompatibleReason' => fn(ParseNode $n) => $o->setWindows365SwitchNotCompatibleReason($n->getStringValue()),
         ];
     }
 
@@ -88,6 +90,22 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the windows365SwitchCompatible property value. Indicates whether the Cloud PC supports switch functionality. If the value is true, it supports switch functionality; otherwise,  false.
+     * @return bool|null
+    */
+    public function getWindows365SwitchCompatible(): ?bool {
+        return $this->getBackingStore()->get('windows365SwitchCompatible');
+    }
+
+    /**
+     * Gets the windows365SwitchNotCompatibleReason property value. Indicates the reason the Cloud PC doesn't support switch. CPCOsVersionNotMeetRequirement indicates that the user needs to update their Cloud PC operation system version. CPCHardwareNotMeetRequirement indicates that the Cloud PC needs more CPU or RAM to support the functionality.
+     * @return string|null
+    */
+    public function getWindows365SwitchNotCompatibleReason(): ?string {
+        return $this->getBackingStore()->get('windows365SwitchNotCompatibleReason');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -95,6 +113,8 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('cloudPcId', $this->getCloudPcId());
         $writer->writeStringValue('cloudPcLaunchUrl', $this->getCloudPcLaunchUrl());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeBooleanValue('windows365SwitchCompatible', $this->getWindows365SwitchCompatible());
+        $writer->writeStringValue('windows365SwitchNotCompatibleReason', $this->getWindows365SwitchNotCompatibleReason());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -136,6 +156,22 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the windows365SwitchCompatible property value. Indicates whether the Cloud PC supports switch functionality. If the value is true, it supports switch functionality; otherwise,  false.
+     * @param bool|null $value Value to set for the windows365SwitchCompatible property.
+    */
+    public function setWindows365SwitchCompatible(?bool $value): void {
+        $this->getBackingStore()->set('windows365SwitchCompatible', $value);
+    }
+
+    /**
+     * Sets the windows365SwitchNotCompatibleReason property value. Indicates the reason the Cloud PC doesn't support switch. CPCOsVersionNotMeetRequirement indicates that the user needs to update their Cloud PC operation system version. CPCHardwareNotMeetRequirement indicates that the Cloud PC needs more CPU or RAM to support the functionality.
+     * @param string|null $value Value to set for the windows365SwitchNotCompatibleReason property.
+    */
+    public function setWindows365SwitchNotCompatibleReason(?string $value): void {
+        $this->getBackingStore()->set('windows365SwitchNotCompatibleReason', $value);
     }
 
 }

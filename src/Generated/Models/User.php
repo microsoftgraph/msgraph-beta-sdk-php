@@ -16,7 +16,7 @@ class User extends DirectoryObject implements Parsable
     public ?UserPrint $escapedPrint = null;
     
     /**
-     * Instantiates a new User and sets the default values.
+     * Instantiates a new user and sets the default values.
     */
     public function __construct() {
         parent::__construct();

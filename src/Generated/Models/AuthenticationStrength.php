@@ -51,7 +51,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the authenticationStrengthResult property value. The authenticationStrengthResult property
+     * Gets the authenticationStrengthResult property value. The result of the authentication strength. The possible values are: notSet, skippedForProofUp, satisfied, singleChallengeRequired, multipleChallengesRequired, singleRegistrationRequired, multipleRegistrationsRequired, cannotSatisfyDueToCombinationConfiguration, cannotSatisfy, unknownFutureValue.
      * @return AuthenticationStrengthResult|null
     */
     public function getAuthenticationStrengthResult(): ?AuthenticationStrengthResult {
@@ -125,7 +125,7 @@ class AuthenticationStrength implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the authenticationStrengthResult property value. The authenticationStrengthResult property
+     * Sets the authenticationStrengthResult property value. The result of the authentication strength. The possible values are: notSet, skippedForProofUp, satisfied, singleChallengeRequired, multipleChallengesRequired, singleRegistrationRequired, multipleRegistrationsRequired, cannotSatisfyDueToCombinationConfiguration, cannotSatisfy, unknownFutureValue.
      * @param AuthenticationStrengthResult|null $value Value to set for the authenticationStrengthResult property.
     */
     public function setAuthenticationStrengthResult(?AuthenticationStrengthResult $value): void {

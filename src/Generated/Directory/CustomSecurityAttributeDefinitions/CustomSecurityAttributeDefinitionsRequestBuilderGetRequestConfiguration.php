@@ -42,8 +42,8 @@ class CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration
 
     /**
      * Instantiates a new customSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<array>|null $headers Request headers
-     * @param array<array>|null $options Request options
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
      * @param CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public function __construct(?array $headers = null, ?array $options = null, ?CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters $queryParameters = null) {

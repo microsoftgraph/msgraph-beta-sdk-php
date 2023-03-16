@@ -29,7 +29,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device
+     * Gets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device.
      * @return string|null
     */
     public function getEnrolledByUser(): ?string {
@@ -45,7 +45,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTimeUTC property value. The DateTime of the expiration of the logs
+     * Gets the expirationDateTimeUTC property value. The DateTime of the expiration of the logs.
      * @return DateTime|null
     */
     public function getExpirationDateTimeUTC(): ?DateTime {
@@ -73,7 +73,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the initiatedByUserPrincipalName property value. The UPN for who initiated the request
+     * Gets the initiatedByUserPrincipalName property value. The UPN for who initiated the request.
      * @return string|null
     */
     public function getInitiatedByUserPrincipalName(): ?string {
@@ -81,7 +81,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedDeviceId property value. The device Id
+     * Gets the managedDeviceId property value. Indicates Intune device unique identifier.
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
@@ -89,7 +89,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the receivedDateTimeUTC property value. The DateTime the request was received
+     * Gets the receivedDateTimeUTC property value. The DateTime the request was received.
      * @return DateTime|null
     */
     public function getReceivedDateTimeUTC(): ?DateTime {
@@ -97,7 +97,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestedDateTimeUTC property value. The DateTime of the request
+     * Gets the requestedDateTimeUTC property value. The DateTime of the request.
      * @return DateTime|null
     */
     public function getRequestedDateTimeUTC(): ?DateTime {
@@ -147,7 +147,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device
+     * Sets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device.
      * @param string|null $value Value to set for the enrolledByUser property.
     */
     public function setEnrolledByUser(?string $value): void {
@@ -163,7 +163,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTimeUTC property value. The DateTime of the expiration of the logs
+     * Sets the expirationDateTimeUTC property value. The DateTime of the expiration of the logs.
      * @param DateTime|null $value Value to set for the expirationDateTimeUTC property.
     */
     public function setExpirationDateTimeUTC(?DateTime $value): void {
@@ -171,7 +171,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Sets the initiatedByUserPrincipalName property value. The UPN for who initiated the request
+     * Sets the initiatedByUserPrincipalName property value. The UPN for who initiated the request.
      * @param string|null $value Value to set for the initiatedByUserPrincipalName property.
     */
     public function setInitiatedByUserPrincipalName(?string $value): void {
@@ -179,7 +179,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedDeviceId property value. The device Id
+     * Sets the managedDeviceId property value. Indicates Intune device unique identifier.
      * @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value): void {
@@ -187,7 +187,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Sets the receivedDateTimeUTC property value. The DateTime the request was received
+     * Sets the receivedDateTimeUTC property value. The DateTime the request was received.
      * @param DateTime|null $value Value to set for the receivedDateTimeUTC property.
     */
     public function setReceivedDateTimeUTC(?DateTime $value): void {
@@ -195,7 +195,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestedDateTimeUTC property value. The DateTime of the request
+     * Sets the requestedDateTimeUTC property value. The DateTime of the request.
      * @param DateTime|null $value Value to set for the requestedDateTimeUTC property.
     */
     public function setRequestedDateTimeUTC(?DateTime $value): void {

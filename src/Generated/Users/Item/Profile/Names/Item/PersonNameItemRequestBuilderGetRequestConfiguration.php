@@ -36,8 +36,8 @@ class PersonNameItemRequestBuilderGetRequestConfiguration
 
     /**
      * Instantiates a new PersonNameItemRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<array>|null $headers Request headers
-     * @param array<array>|null $options Request options
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
      * @param PersonNameItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
     */
     public function __construct(?array $headers = null, ?array $options = null, ?PersonNameItemRequestBuilderGetQueryParameters $queryParameters = null) {

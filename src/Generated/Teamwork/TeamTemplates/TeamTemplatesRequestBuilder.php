@@ -59,10 +59,10 @@ class TeamTemplatesRequestBuilder
     }
 
     /**
-     * List the teamTemplateDefinition objects associated with a teamTemplate. 
+     * Get the list of teamTemplate objects that are available for a tenant. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/teamtemplate-list-definitions?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/teamwork-list-teamtemplates?view=graph-rest-1.0 Find more info here
     */
     public function get(?TeamTemplatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -97,7 +97,7 @@ class TeamTemplatesRequestBuilder
     }
 
     /**
-     * List the teamTemplateDefinition objects associated with a teamTemplate. 
+     * Get the list of teamTemplate objects that are available for a tenant. 
      * @param TeamTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
