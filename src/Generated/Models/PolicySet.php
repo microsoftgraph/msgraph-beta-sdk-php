@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * A class containing the properties used for PolicySet.
+*/
 class PolicySet extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PolicySet and sets the default values.
+     * Instantiates a new policySet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -18,6 +18,8 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Rename\RenameRequest
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Start\StartRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Stop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Troubleshoot\TroubleshootRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -116,6 +118,20 @@ class CloudPCItemRequestBuilder
     */
     public function retryPartnerAgentInstallation(): RetryPartnerAgentInstallationRequestBuilder {
         return new RetryPartnerAgentInstallationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the start method.
+    */
+    public function start(): StartRequestBuilder {
+        return new StartRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the stop method.
+    */
+    public function stop(): StopRequestBuilder {
+        return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

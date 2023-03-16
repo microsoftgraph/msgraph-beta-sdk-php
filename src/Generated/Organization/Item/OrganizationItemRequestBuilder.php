@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Organization;
-use Microsoft\Graph\Beta\Generated\Organization\Item\ActivateService\ActivateServiceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\BrandingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\CertificateBasedAuthConfiguration\CertificateBasedAuthConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\CertificateBasedAuthConfiguration\Item\CertificateBasedAuthConfigurationItemRequestBuilder;
@@ -32,13 +31,6 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class OrganizationItemRequestBuilder 
 {
-    /**
-     * Provides operations to call the activateService method.
-    */
-    public function activateService(): ActivateServiceRequestBuilder {
-        return new ActivateServiceRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the branding property of the microsoft.graph.organization entity.
     */

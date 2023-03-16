@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LearningProvider extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new LearningProvider and sets the default values.
+     * Instantiates a new learningProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -66,7 +66,7 @@ class LearningProvider extends Entity implements Parsable
     }
 
     /**
-     * Gets the longLogoWebUrlForDarkTheme property value. The long logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+     * Gets the longLogoWebUrlForDarkTheme property value. The long logo URL for the dark mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
      * @return string|null
     */
     public function getLongLogoWebUrlForDarkTheme(): ?string {
@@ -74,7 +74,7 @@ class LearningProvider extends Entity implements Parsable
     }
 
     /**
-     * Gets the longLogoWebUrlForLightTheme property value. The long logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering  within the Viva Learning app. Required.
+     * Gets the longLogoWebUrlForLightTheme property value. The long logo URL for the light mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering  within the Viva Learning app. Required.
      * @return string|null
     */
     public function getLongLogoWebUrlForLightTheme(): ?string {
@@ -82,7 +82,7 @@ class LearningProvider extends Entity implements Parsable
     }
 
     /**
-     * Gets the squareLogoWebUrlForDarkTheme property value. The square logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+     * Gets the squareLogoWebUrlForDarkTheme property value. The square logo URL for the dark mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
      * @return string|null
     */
     public function getSquareLogoWebUrlForDarkTheme(): ?string {
@@ -90,7 +90,7 @@ class LearningProvider extends Entity implements Parsable
     }
 
     /**
-     * Gets the squareLogoWebUrlForLightTheme property value. The square logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+     * Gets the squareLogoWebUrlForLightTheme property value. The square logo URL for the light mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
      * @return string|null
     */
     public function getSquareLogoWebUrlForLightTheme(): ?string {
@@ -137,7 +137,7 @@ class LearningProvider extends Entity implements Parsable
     }
 
     /**
-     * Sets the longLogoWebUrlForDarkTheme property value. The long logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+     * Sets the longLogoWebUrlForDarkTheme property value. The long logo URL for the dark mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
      * @param string|null $value Value to set for the longLogoWebUrlForDarkTheme property.
     */
     public function setLongLogoWebUrlForDarkTheme(?string $value): void {
@@ -145,7 +145,7 @@ class LearningProvider extends Entity implements Parsable
     }
 
     /**
-     * Sets the longLogoWebUrlForLightTheme property value. The long logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering  within the Viva Learning app. Required.
+     * Sets the longLogoWebUrlForLightTheme property value. The long logo URL for the light mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering  within the Viva Learning app. Required.
      * @param string|null $value Value to set for the longLogoWebUrlForLightTheme property.
     */
     public function setLongLogoWebUrlForLightTheme(?string $value): void {
@@ -153,7 +153,7 @@ class LearningProvider extends Entity implements Parsable
     }
 
     /**
-     * Sets the squareLogoWebUrlForDarkTheme property value. The square logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+     * Sets the squareLogoWebUrlForDarkTheme property value. The square logo URL for the dark mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
      * @param string|null $value Value to set for the squareLogoWebUrlForDarkTheme property.
     */
     public function setSquareLogoWebUrlForDarkTheme(?string $value): void {
@@ -161,7 +161,7 @@ class LearningProvider extends Entity implements Parsable
     }
 
     /**
-     * Sets the squareLogoWebUrlForLightTheme property value. The square logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+     * Sets the squareLogoWebUrlForLightTheme property value. The square logo URL for the light mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
      * @param string|null $value Value to set for the squareLogoWebUrlForLightTheme property.
     */
     public function setSquareLogoWebUrlForLightTheme(?string $value): void {

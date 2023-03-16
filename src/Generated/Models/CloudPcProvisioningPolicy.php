@@ -49,6 +49,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the cloudPcNamingTemplate property value. The cloudPcNamingTemplate property
+     * @return string|null
+    */
+    public function getCloudPcNamingTemplate(): ?string {
+        return $this->getBackingStore()->get('cloudPcNamingTemplate');
+    }
+
+    /**
      * Gets the description property value. The provisioning policy description.
      * @return string|null
     */
@@ -98,6 +106,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'alternateResourceUrl' => fn(ParseNode $n) => $o->setAlternateResourceUrl($n->getStringValue()),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([CloudPcProvisioningPolicyAssignment::class, 'createFromDiscriminatorValue'])),
             'cloudPcGroupDisplayName' => fn(ParseNode $n) => $o->setCloudPcGroupDisplayName($n->getStringValue()),
+            'cloudPcNamingTemplate' => fn(ParseNode $n) => $o->setCloudPcNamingTemplate($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'domainJoinConfiguration' => fn(ParseNode $n) => $o->setDomainJoinConfiguration($n->getObjectValue([CloudPcDomainJoinConfiguration::class, 'createFromDiscriminatorValue'])),
@@ -205,6 +214,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeStringValue('alternateResourceUrl', $this->getAlternateResourceUrl());
         $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
         $writer->writeStringValue('cloudPcGroupDisplayName', $this->getCloudPcGroupDisplayName());
+        $writer->writeStringValue('cloudPcNamingTemplate', $this->getCloudPcNamingTemplate());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('domainJoinConfiguration', $this->getDomainJoinConfiguration());
@@ -244,6 +254,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setCloudPcGroupDisplayName(?string $value): void {
         $this->getBackingStore()->set('cloudPcGroupDisplayName', $value);
+    }
+
+    /**
+     * Sets the cloudPcNamingTemplate property value. The cloudPcNamingTemplate property
+     * @param string|null $value Value to set for the cloudPcNamingTemplate property.
+    */
+    public function setCloudPcNamingTemplate(?string $value): void {
+        $this->getBackingStore()->set('cloudPcNamingTemplate', $value);
     }
 
     /**

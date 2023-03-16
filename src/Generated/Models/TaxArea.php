@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TaxArea extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TaxArea and sets the default values.
+     * Instantiates a new taxArea and sets the default values.
     */
     public function __construct() {
         parent::__construct();

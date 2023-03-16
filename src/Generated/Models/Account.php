@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Account extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new Account and sets the default values.
+     * Instantiates a new account and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Provis
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Apply\ApplyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\CloudPcProvisioningPolicyAssignmentItemRequestBuilder;
@@ -22,6 +23,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class CloudPcProvisioningPolicyItemRequestBuilder 
 {
+    /**
+     * Provides operations to call the apply method.
+    */
+    public function apply(): ApplyRequestBuilder {
+        return new ApplyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the assign method.
     */

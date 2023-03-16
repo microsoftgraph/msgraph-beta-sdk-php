@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Provis
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\ApplyConfig\ApplyConfigRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicy;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicyCollectionResponse;
@@ -21,6 +22,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class ProvisioningPoliciesRequestBuilder 
 {
+    /**
+     * Provides operations to call the applyConfig method.
+    */
+    public function applyConfig(): ApplyConfigRequestBuilder {
+        return new ApplyConfigRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to count the resources in the collection.
     */

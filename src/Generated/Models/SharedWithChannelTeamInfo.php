@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SharedWithChannelTeamInfo extends TeamInfo implements Parsable 
 {
     /**
-     * Instantiates a new SharedWithChannelTeamInfo and sets the default values.
+     * Instantiates a new sharedWithChannelTeamInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();

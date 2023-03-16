@@ -16,6 +16,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Ite
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Start\StartRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Stop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Troubleshoot\TroubleshootRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPC;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -116,6 +118,20 @@ class CloudPCItemRequestBuilder
     */
     public function retryPartnerAgentInstallation(): RetryPartnerAgentInstallationRequestBuilder {
         return new RetryPartnerAgentInstallationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the start method.
+    */
+    public function start(): StartRequestBuilder {
+        return new StartRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the stop method.
+    */
+    public function stop(): StopRequestBuilder {
+        return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
