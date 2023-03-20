@@ -25,6 +25,18 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration
     public ?CustomAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new customAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?CustomAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new customAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
@@ -36,20 +48,8 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration
      * @param int|null $top Show only the first n items
      * @return CustomAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): CustomAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?int $top = null): CustomAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters {
         return new CustomAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $search, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new customAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?CustomAccessPackageWorkflowExtensionsRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

@@ -25,16 +25,6 @@ class WindowsManagedAppProtectionItemRequestBuilderGetRequestConfiguration
     public ?WindowsManagedAppProtectionItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new WindowsManagedAppProtectionItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return WindowsManagedAppProtectionItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): WindowsManagedAppProtectionItemRequestBuilderGetQueryParameters {
-        return new WindowsManagedAppProtectionItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new WindowsManagedAppProtectionItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class WindowsManagedAppProtectionItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new WindowsManagedAppProtectionItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return WindowsManagedAppProtectionItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): WindowsManagedAppProtectionItemRequestBuilderGetQueryParameters {
+        return new WindowsManagedAppProtectionItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

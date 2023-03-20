@@ -25,16 +25,6 @@ class UserAppInstallStatusItemRequestBuilderGetRequestConfiguration
     public ?UserAppInstallStatusItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new UserAppInstallStatusItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return UserAppInstallStatusItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): UserAppInstallStatusItemRequestBuilderGetQueryParameters {
-        return new UserAppInstallStatusItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new UserAppInstallStatusItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class UserAppInstallStatusItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new UserAppInstallStatusItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return UserAppInstallStatusItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): UserAppInstallStatusItemRequestBuilderGetQueryParameters {
+        return new UserAppInstallStatusItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

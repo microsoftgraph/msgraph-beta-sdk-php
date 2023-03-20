@@ -25,16 +25,6 @@ class PictureItemRequestBuilderGetRequestConfiguration
     public ?PictureItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new PictureItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return PictureItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): PictureItemRequestBuilderGetQueryParameters {
-        return new PictureItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new PictureItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class PictureItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new PictureItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PictureItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): PictureItemRequestBuilderGetQueryParameters {
+        return new PictureItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

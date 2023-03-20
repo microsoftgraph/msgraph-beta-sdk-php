@@ -25,16 +25,6 @@ class ChromeOSOnboardingSettingsItemRequestBuilderGetRequestConfiguration
     public ?ChromeOSOnboardingSettingsItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new ChromeOSOnboardingSettingsItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return ChromeOSOnboardingSettingsItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): ChromeOSOnboardingSettingsItemRequestBuilderGetQueryParameters {
-        return new ChromeOSOnboardingSettingsItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new ChromeOSOnboardingSettingsItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class ChromeOSOnboardingSettingsItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new ChromeOSOnboardingSettingsItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ChromeOSOnboardingSettingsItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ChromeOSOnboardingSettingsItemRequestBuilderGetQueryParameters {
+        return new ChromeOSOnboardingSettingsItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

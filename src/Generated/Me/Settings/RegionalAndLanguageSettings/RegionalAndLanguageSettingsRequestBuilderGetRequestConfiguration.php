@@ -25,16 +25,6 @@ class RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration
     public ?RegionalAndLanguageSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new regionalAndLanguageSettingsRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return RegionalAndLanguageSettingsRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): RegionalAndLanguageSettingsRequestBuilderGetQueryParameters {
-        return new RegionalAndLanguageSettingsRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new regionalAndLanguageSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class RegionalAndLanguageSettingsRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new regionalAndLanguageSettingsRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return RegionalAndLanguageSettingsRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): RegionalAndLanguageSettingsRequestBuilderGetQueryParameters {
+        return new RegionalAndLanguageSettingsRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

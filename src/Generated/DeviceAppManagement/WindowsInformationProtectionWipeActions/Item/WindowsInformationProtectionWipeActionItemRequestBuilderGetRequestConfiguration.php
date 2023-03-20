@@ -25,16 +25,6 @@ class WindowsInformationProtectionWipeActionItemRequestBuilderGetRequestConfigur
     public ?WindowsInformationProtectionWipeActionItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new WindowsInformationProtectionWipeActionItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return WindowsInformationProtectionWipeActionItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): WindowsInformationProtectionWipeActionItemRequestBuilderGetQueryParameters {
-        return new WindowsInformationProtectionWipeActionItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new WindowsInformationProtectionWipeActionItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class WindowsInformationProtectionWipeActionItemRequestBuilderGetRequestConfigur
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new WindowsInformationProtectionWipeActionItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return WindowsInformationProtectionWipeActionItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): WindowsInformationProtectionWipeActionItemRequestBuilderGetQueryParameters {
+        return new WindowsInformationProtectionWipeActionItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

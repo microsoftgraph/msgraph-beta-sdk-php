@@ -25,16 +25,6 @@ class UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetR
     public ?UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters {
-        return new UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetR
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters {
+        return new UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

@@ -25,16 +25,6 @@ class CloudPcSnapshotItemRequestBuilderGetRequestConfiguration
     public ?CloudPcSnapshotItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new CloudPcSnapshotItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return CloudPcSnapshotItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): CloudPcSnapshotItemRequestBuilderGetQueryParameters {
-        return new CloudPcSnapshotItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new CloudPcSnapshotItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class CloudPcSnapshotItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new CloudPcSnapshotItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return CloudPcSnapshotItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): CloudPcSnapshotItemRequestBuilderGetQueryParameters {
+        return new CloudPcSnapshotItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

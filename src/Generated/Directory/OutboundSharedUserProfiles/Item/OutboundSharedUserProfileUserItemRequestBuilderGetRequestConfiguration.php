@@ -25,16 +25,6 @@ class OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration
     public ?OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters {
-        return new OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters {
+        return new OutboundSharedUserProfileUserItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

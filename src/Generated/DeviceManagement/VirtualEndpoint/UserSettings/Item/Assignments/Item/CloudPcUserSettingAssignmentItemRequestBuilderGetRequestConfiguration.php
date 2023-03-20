@@ -25,16 +25,6 @@ class CloudPcUserSettingAssignmentItemRequestBuilderGetRequestConfiguration
     public ?CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters {
-        return new CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new CloudPcUserSettingAssignmentItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class CloudPcUserSettingAssignmentItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters {
+        return new CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

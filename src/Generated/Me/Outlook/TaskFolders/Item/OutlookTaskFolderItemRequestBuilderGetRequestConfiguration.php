@@ -25,15 +25,6 @@ class OutlookTaskFolderItemRequestBuilderGetRequestConfiguration
     public ?OutlookTaskFolderItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new OutlookTaskFolderItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $select Select properties to be returned
-     * @return OutlookTaskFolderItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $select = null): OutlookTaskFolderItemRequestBuilderGetQueryParameters {
-        return new OutlookTaskFolderItemRequestBuilderGetQueryParameters($select);
-    }
-
-    /**
      * Instantiates a new OutlookTaskFolderItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -43,6 +34,15 @@ class OutlookTaskFolderItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new OutlookTaskFolderItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $select Select properties to be returned
+     * @return OutlookTaskFolderItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $select = null): OutlookTaskFolderItemRequestBuilderGetQueryParameters {
+        return new OutlookTaskFolderItemRequestBuilderGetQueryParameters($select);
     }
 
 }

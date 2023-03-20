@@ -25,16 +25,6 @@ class MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfigu
     public ?MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new microsoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters {
-        return new MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new microsoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfigu
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new microsoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters {
+        return new MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

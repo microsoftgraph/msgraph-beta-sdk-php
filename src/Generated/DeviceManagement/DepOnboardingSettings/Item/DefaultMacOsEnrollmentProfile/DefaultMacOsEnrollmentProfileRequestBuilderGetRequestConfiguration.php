@@ -25,16 +25,6 @@ class DefaultMacOsEnrollmentProfileRequestBuilderGetRequestConfiguration
     public ?DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new defaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters {
-        return new DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new defaultMacOsEnrollmentProfileRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class DefaultMacOsEnrollmentProfileRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new defaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters {
+        return new DefaultMacOsEnrollmentProfileRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

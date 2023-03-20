@@ -25,16 +25,6 @@ class TaxAreaItemRequestBuilderGetRequestConfiguration
     public ?TaxAreaItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new TaxAreaItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return TaxAreaItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): TaxAreaItemRequestBuilderGetQueryParameters {
-        return new TaxAreaItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new TaxAreaItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class TaxAreaItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new TaxAreaItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return TaxAreaItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): TaxAreaItemRequestBuilderGetQueryParameters {
+        return new TaxAreaItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

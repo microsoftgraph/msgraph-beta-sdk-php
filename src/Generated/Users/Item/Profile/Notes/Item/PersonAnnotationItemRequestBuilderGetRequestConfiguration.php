@@ -25,16 +25,6 @@ class PersonAnnotationItemRequestBuilderGetRequestConfiguration
     public ?PersonAnnotationItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new PersonAnnotationItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return PersonAnnotationItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): PersonAnnotationItemRequestBuilderGetQueryParameters {
-        return new PersonAnnotationItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new PersonAnnotationItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class PersonAnnotationItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new PersonAnnotationItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PersonAnnotationItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): PersonAnnotationItemRequestBuilderGetQueryParameters {
+        return new PersonAnnotationItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

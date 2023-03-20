@@ -25,16 +25,6 @@ class AcceptedVersionRequestBuilderGetRequestConfiguration
     public ?AcceptedVersionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new acceptedVersionRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return AcceptedVersionRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): AcceptedVersionRequestBuilderGetQueryParameters {
-        return new AcceptedVersionRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new acceptedVersionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class AcceptedVersionRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new acceptedVersionRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AcceptedVersionRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): AcceptedVersionRequestBuilderGetQueryParameters {
+        return new AcceptedVersionRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

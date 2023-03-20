@@ -25,16 +25,6 @@ class TemplateDefinitionRequestBuilderGetRequestConfiguration
     public ?TemplateDefinitionRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new templateDefinitionRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return TemplateDefinitionRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): TemplateDefinitionRequestBuilderGetQueryParameters {
-        return new TemplateDefinitionRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new templateDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class TemplateDefinitionRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new templateDefinitionRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return TemplateDefinitionRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): TemplateDefinitionRequestBuilderGetQueryParameters {
+        return new TemplateDefinitionRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

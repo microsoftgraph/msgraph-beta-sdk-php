@@ -25,16 +25,6 @@ class CustomerPaymentItemRequestBuilderGetRequestConfiguration
     public ?CustomerPaymentItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new CustomerPaymentItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return CustomerPaymentItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): CustomerPaymentItemRequestBuilderGetQueryParameters {
-        return new CustomerPaymentItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new CustomerPaymentItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class CustomerPaymentItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new CustomerPaymentItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return CustomerPaymentItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): CustomerPaymentItemRequestBuilderGetQueryParameters {
+        return new CustomerPaymentItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

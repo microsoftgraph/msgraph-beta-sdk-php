@@ -25,16 +25,6 @@ class MicrosoftTunnelSiteItemRequestBuilderGetRequestConfiguration
     public ?MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters {
-        return new MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new MicrosoftTunnelSiteItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class MicrosoftTunnelSiteItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters {
+        return new MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

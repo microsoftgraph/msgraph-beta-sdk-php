@@ -25,16 +25,6 @@ class UserCredentialUsageDetailsItemRequestBuilderGetRequestConfiguration
     public ?UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters {
-        return new UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new UserCredentialUsageDetailsItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class UserCredentialUsageDetailsItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters {
+        return new UserCredentialUsageDetailsItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

@@ -25,16 +25,6 @@ class AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration
     public ?AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters {
-        return new AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters {
+        return new AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

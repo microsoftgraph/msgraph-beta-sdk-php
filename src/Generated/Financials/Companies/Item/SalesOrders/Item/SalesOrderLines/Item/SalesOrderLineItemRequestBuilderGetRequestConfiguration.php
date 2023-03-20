@@ -25,16 +25,6 @@ class SalesOrderLineItemRequestBuilderGetRequestConfiguration
     public ?SalesOrderLineItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new SalesOrderLineItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return SalesOrderLineItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): SalesOrderLineItemRequestBuilderGetQueryParameters {
-        return new SalesOrderLineItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new SalesOrderLineItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class SalesOrderLineItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new SalesOrderLineItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return SalesOrderLineItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): SalesOrderLineItemRequestBuilderGetQueryParameters {
+        return new SalesOrderLineItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

@@ -25,16 +25,6 @@ class UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetRequestC
     public ?UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParameters {
-        return new UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetRequestC
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParameters {
+        return new UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

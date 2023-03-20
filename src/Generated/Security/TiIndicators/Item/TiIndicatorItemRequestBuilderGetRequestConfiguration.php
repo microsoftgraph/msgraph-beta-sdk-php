@@ -25,16 +25,6 @@ class TiIndicatorItemRequestBuilderGetRequestConfiguration
     public ?TiIndicatorItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new TiIndicatorItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return TiIndicatorItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): TiIndicatorItemRequestBuilderGetQueryParameters {
-        return new TiIndicatorItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new TiIndicatorItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class TiIndicatorItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new TiIndicatorItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return TiIndicatorItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): TiIndicatorItemRequestBuilderGetQueryParameters {
+        return new TiIndicatorItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

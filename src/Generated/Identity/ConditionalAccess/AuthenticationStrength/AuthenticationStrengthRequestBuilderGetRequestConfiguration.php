@@ -25,16 +25,6 @@ class AuthenticationStrengthRequestBuilderGetRequestConfiguration
     public ?AuthenticationStrengthRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new authenticationStrengthRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return AuthenticationStrengthRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): AuthenticationStrengthRequestBuilderGetQueryParameters {
-        return new AuthenticationStrengthRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new authenticationStrengthRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class AuthenticationStrengthRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new authenticationStrengthRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AuthenticationStrengthRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): AuthenticationStrengthRequestBuilderGetQueryParameters {
+        return new AuthenticationStrengthRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

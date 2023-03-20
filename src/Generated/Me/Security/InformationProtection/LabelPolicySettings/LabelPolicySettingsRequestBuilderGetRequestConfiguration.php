@@ -25,16 +25,6 @@ class LabelPolicySettingsRequestBuilderGetRequestConfiguration
     public ?LabelPolicySettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new labelPolicySettingsRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return LabelPolicySettingsRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): LabelPolicySettingsRequestBuilderGetQueryParameters {
-        return new LabelPolicySettingsRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new labelPolicySettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class LabelPolicySettingsRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new labelPolicySettingsRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return LabelPolicySettingsRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): LabelPolicySettingsRequestBuilderGetQueryParameters {
+        return new LabelPolicySettingsRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

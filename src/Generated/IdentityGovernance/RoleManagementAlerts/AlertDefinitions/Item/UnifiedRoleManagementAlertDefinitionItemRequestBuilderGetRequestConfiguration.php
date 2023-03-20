@@ -25,16 +25,6 @@ class UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetRequestConfigurat
     public ?UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetQueryParameters {
-        return new UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetRequestConfigurat
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetQueryParameters {
+        return new UnifiedRoleManagementAlertDefinitionItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

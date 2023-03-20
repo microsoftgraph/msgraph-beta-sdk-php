@@ -25,16 +25,6 @@ class PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetReques
     public ?PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters {
-        return new PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetReques
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters {
+        return new PrivilegedAccessGroupAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

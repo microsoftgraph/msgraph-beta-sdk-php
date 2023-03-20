@@ -25,16 +25,6 @@ class UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetRequestConfigurati
     public ?UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters {
-        return new UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetRequestConfigurati
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters {
+        return new UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

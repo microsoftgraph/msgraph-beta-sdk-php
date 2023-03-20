@@ -25,16 +25,6 @@ class UpdatePolicyItemRequestBuilderGetRequestConfiguration
     public ?UpdatePolicyItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new UpdatePolicyItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return UpdatePolicyItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): UpdatePolicyItemRequestBuilderGetQueryParameters {
-        return new UpdatePolicyItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new UpdatePolicyItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class UpdatePolicyItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new UpdatePolicyItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return UpdatePolicyItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): UpdatePolicyItemRequestBuilderGetQueryParameters {
+        return new UpdatePolicyItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

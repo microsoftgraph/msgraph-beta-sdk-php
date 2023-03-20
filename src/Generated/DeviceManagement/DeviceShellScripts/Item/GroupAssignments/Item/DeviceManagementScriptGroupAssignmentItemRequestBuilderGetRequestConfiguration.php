@@ -25,16 +25,6 @@ class DeviceManagementScriptGroupAssignmentItemRequestBuilderGetRequestConfigura
     public ?DeviceManagementScriptGroupAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new DeviceManagementScriptGroupAssignmentItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return DeviceManagementScriptGroupAssignmentItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceManagementScriptGroupAssignmentItemRequestBuilderGetQueryParameters {
-        return new DeviceManagementScriptGroupAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new DeviceManagementScriptGroupAssignmentItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class DeviceManagementScriptGroupAssignmentItemRequestBuilderGetRequestConfigura
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new DeviceManagementScriptGroupAssignmentItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceManagementScriptGroupAssignmentItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DeviceManagementScriptGroupAssignmentItemRequestBuilderGetQueryParameters {
+        return new DeviceManagementScriptGroupAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

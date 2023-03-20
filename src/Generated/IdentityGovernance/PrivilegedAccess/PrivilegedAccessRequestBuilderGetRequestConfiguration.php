@@ -25,16 +25,6 @@ class PrivilegedAccessRequestBuilderGetRequestConfiguration
     public ?PrivilegedAccessRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new privilegedAccessRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return PrivilegedAccessRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): PrivilegedAccessRequestBuilderGetQueryParameters {
-        return new PrivilegedAccessRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new privilegedAccessRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class PrivilegedAccessRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new privilegedAccessRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PrivilegedAccessRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): PrivilegedAccessRequestBuilderGetQueryParameters {
+        return new PrivilegedAccessRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

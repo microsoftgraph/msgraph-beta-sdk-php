@@ -25,16 +25,6 @@ class ManagedDeviceRequestBuilderGetRequestConfiguration
     public ?ManagedDeviceRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new managedDeviceRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return ManagedDeviceRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): ManagedDeviceRequestBuilderGetQueryParameters {
-        return new ManagedDeviceRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new managedDeviceRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class ManagedDeviceRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new managedDeviceRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ManagedDeviceRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ManagedDeviceRequestBuilderGetQueryParameters {
+        return new ManagedDeviceRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

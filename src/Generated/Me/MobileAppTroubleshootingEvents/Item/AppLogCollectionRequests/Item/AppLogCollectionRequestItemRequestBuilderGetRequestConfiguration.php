@@ -25,16 +25,6 @@ class AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration
     public ?AppLogCollectionRequestItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new AppLogCollectionRequestItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return AppLogCollectionRequestItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): AppLogCollectionRequestItemRequestBuilderGetQueryParameters {
-        return new AppLogCollectionRequestItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new AppLogCollectionRequestItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AppLogCollectionRequestItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): AppLogCollectionRequestItemRequestBuilderGetQueryParameters {
+        return new AppLogCollectionRequestItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

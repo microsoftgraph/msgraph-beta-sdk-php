@@ -25,6 +25,18 @@ class CalendarViewRequestBuilderGetRequestConfiguration
     public ?CalendarViewRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new calendarViewRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param CalendarViewRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?CalendarViewRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new calendarViewRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param string|null $end The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00
@@ -38,20 +50,8 @@ class CalendarViewRequestBuilderGetRequestConfiguration
      * @param int|null $top Show only the first n items
      * @return CalendarViewRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?string $end = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?string $start = null, ?int $top = null): CalendarViewRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?string $end = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?string $search = null, ?array $select = null, ?int $skip = null, ?string $start = null, ?int $top = null): CalendarViewRequestBuilderGetQueryParameters {
         return new CalendarViewRequestBuilderGetQueryParameters($count, $end, $expand, $filter, $orderby, $search, $select, $skip, $start, $top);
-    }
-
-    /**
-     * Instantiates a new calendarViewRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param CalendarViewRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?CalendarViewRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

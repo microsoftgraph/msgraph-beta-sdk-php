@@ -25,16 +25,6 @@ class CloudAppSecurityProfileItemRequestBuilderGetRequestConfiguration
     public ?CloudAppSecurityProfileItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new CloudAppSecurityProfileItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return CloudAppSecurityProfileItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): CloudAppSecurityProfileItemRequestBuilderGetQueryParameters {
-        return new CloudAppSecurityProfileItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new CloudAppSecurityProfileItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class CloudAppSecurityProfileItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new CloudAppSecurityProfileItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return CloudAppSecurityProfileItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): CloudAppSecurityProfileItemRequestBuilderGetQueryParameters {
+        return new CloudAppSecurityProfileItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

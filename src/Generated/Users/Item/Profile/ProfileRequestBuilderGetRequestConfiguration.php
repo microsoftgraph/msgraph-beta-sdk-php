@@ -25,16 +25,6 @@ class ProfileRequestBuilderGetRequestConfiguration
     public ?ProfileRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new profileRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return ProfileRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): ProfileRequestBuilderGetQueryParameters {
-        return new ProfileRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new profileRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class ProfileRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new profileRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ProfileRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): ProfileRequestBuilderGetQueryParameters {
+        return new ProfileRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

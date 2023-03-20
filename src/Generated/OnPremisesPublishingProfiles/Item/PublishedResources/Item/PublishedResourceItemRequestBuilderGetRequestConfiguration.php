@@ -25,16 +25,6 @@ class PublishedResourceItemRequestBuilderGetRequestConfiguration
     public ?PublishedResourceItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new PublishedResourceItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return PublishedResourceItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): PublishedResourceItemRequestBuilderGetQueryParameters {
-        return new PublishedResourceItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new PublishedResourceItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class PublishedResourceItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new PublishedResourceItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PublishedResourceItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): PublishedResourceItemRequestBuilderGetQueryParameters {
+        return new PublishedResourceItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

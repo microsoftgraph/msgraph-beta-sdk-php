@@ -25,16 +25,6 @@ class DimensionItemRequestBuilderGetRequestConfiguration
     public ?DimensionItemRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new DimensionItemRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return DimensionItemRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): DimensionItemRequestBuilderGetQueryParameters {
-        return new DimensionItemRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new DimensionItemRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class DimensionItemRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new DimensionItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DimensionItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DimensionItemRequestBuilderGetQueryParameters {
+        return new DimensionItemRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

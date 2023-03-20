@@ -25,16 +25,6 @@ class SymantecCodeSigningCertificateRequestBuilderGetRequestConfiguration
     public ?SymantecCodeSigningCertificateRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new symantecCodeSigningCertificateRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return SymantecCodeSigningCertificateRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): SymantecCodeSigningCertificateRequestBuilderGetQueryParameters {
-        return new SymantecCodeSigningCertificateRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new symantecCodeSigningCertificateRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class SymantecCodeSigningCertificateRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new symantecCodeSigningCertificateRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return SymantecCodeSigningCertificateRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): SymantecCodeSigningCertificateRequestBuilderGetQueryParameters {
+        return new SymantecCodeSigningCertificateRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

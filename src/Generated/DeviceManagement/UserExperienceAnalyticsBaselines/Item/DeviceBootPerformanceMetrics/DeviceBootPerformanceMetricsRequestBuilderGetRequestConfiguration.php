@@ -25,16 +25,6 @@ class DeviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration
     public ?DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new deviceBootPerformanceMetricsRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters {
-        return new DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new deviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class DeviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new deviceBootPerformanceMetricsRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters {
+        return new DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }

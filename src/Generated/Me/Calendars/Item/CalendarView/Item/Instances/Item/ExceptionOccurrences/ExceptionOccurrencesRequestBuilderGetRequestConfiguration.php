@@ -25,6 +25,18 @@ class ExceptionOccurrencesRequestBuilderGetRequestConfiguration
     public ?ExceptionOccurrencesRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
+     * Instantiates a new exceptionOccurrencesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param ExceptionOccurrencesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ExceptionOccurrencesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
      * Instantiates a new exceptionOccurrencesRequestBuilderGetQueryParameters.
      * @param bool|null $count Include count of items
      * @param array<string>|null $expand Expand related entities
@@ -35,20 +47,8 @@ class ExceptionOccurrencesRequestBuilderGetRequestConfiguration
      * @param int|null $top Show only the first n items
      * @return ExceptionOccurrencesRequestBuilderGetQueryParameters
     */
-    public static function addQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?array $select = null, ?int $skip = null, ?int $top = null): ExceptionOccurrencesRequestBuilderGetQueryParameters {
+    public static function createQueryParameters(?bool $count = null, ?array $expand = null, ?string $filter = null, ?array $orderby = null, ?array $select = null, ?int $skip = null, ?int $top = null): ExceptionOccurrencesRequestBuilderGetQueryParameters {
         return new ExceptionOccurrencesRequestBuilderGetQueryParameters($count, $expand, $filter, $orderby, $select, $skip, $top);
-    }
-
-    /**
-     * Instantiates a new exceptionOccurrencesRequestBuilderGetRequestConfiguration and sets the default values.
-     * @param array<string, array<string>|string>|null $headers Request headers
-     * @param array<RequestOption>|null $options Request options
-     * @param ExceptionOccurrencesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
-    */
-    public function __construct(?array $headers = null, ?array $options = null, ?ExceptionOccurrencesRequestBuilderGetQueryParameters $queryParameters = null) {
-        $this->headers = $headers;
-        $this->options = $options;
-        $this->queryParameters = $queryParameters;
     }
 
 }

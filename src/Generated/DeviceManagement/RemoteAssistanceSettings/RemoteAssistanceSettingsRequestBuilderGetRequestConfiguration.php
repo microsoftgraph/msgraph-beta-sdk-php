@@ -25,16 +25,6 @@ class RemoteAssistanceSettingsRequestBuilderGetRequestConfiguration
     public ?RemoteAssistanceSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
     /**
-     * Instantiates a new remoteAssistanceSettingsRequestBuilderGetQueryParameters.
-     * @param array<string>|null $expand Expand related entities
-     * @param array<string>|null $select Select properties to be returned
-     * @return RemoteAssistanceSettingsRequestBuilderGetQueryParameters
-    */
-    public static function addQueryParameters(?array $expand = null, ?array $select = null): RemoteAssistanceSettingsRequestBuilderGetQueryParameters {
-        return new RemoteAssistanceSettingsRequestBuilderGetQueryParameters($expand, $select);
-    }
-
-    /**
      * Instantiates a new remoteAssistanceSettingsRequestBuilderGetRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
@@ -44,6 +34,16 @@ class RemoteAssistanceSettingsRequestBuilderGetRequestConfiguration
         $this->headers = $headers;
         $this->options = $options;
         $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new remoteAssistanceSettingsRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return RemoteAssistanceSettingsRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): RemoteAssistanceSettingsRequestBuilderGetQueryParameters {
+        return new RemoteAssistanceSettingsRequestBuilderGetQueryParameters($expand, $select);
     }
 
 }
