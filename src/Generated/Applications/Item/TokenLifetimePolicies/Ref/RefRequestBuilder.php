@@ -70,11 +70,10 @@ class RefRequestBuilder
     }
 
     /**
-     * Assign a tokenLifetimePolicy to an application or servicePrincipal.
+     * Create new navigation property ref to tokenLifetimePolicies for applications
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/application-post-tokenlifetimepolicies?view=graph-rest-1.0 Find more info here
     */
     public function post(ReferenceCreate $body, ?RefRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -115,7 +114,7 @@ class RefRequestBuilder
     }
 
     /**
-     * Assign a tokenLifetimePolicy to an application or servicePrincipal.
+     * Create new navigation property ref to tokenLifetimePolicies for applications
      * @param ReferenceCreate $body The request body
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

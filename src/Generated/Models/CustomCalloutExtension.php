@@ -26,6 +26,8 @@ class CustomCalloutExtension extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.accessPackageAssignmentRequestWorkflowExtension': return new AccessPackageAssignmentRequestWorkflowExtension();
+                case '#microsoft.graph.accessPackageAssignmentWorkflowExtension': return new AccessPackageAssignmentWorkflowExtension();
                 case '#microsoft.graph.customAccessPackageWorkflowExtension': return new CustomAccessPackageWorkflowExtension();
                 case '#microsoft.graph.customAuthenticationExtension': return new CustomAuthenticationExtension();
                 case '#microsoft.graph.identityGovernance.customTaskExtension': return new CustomTaskExtension();

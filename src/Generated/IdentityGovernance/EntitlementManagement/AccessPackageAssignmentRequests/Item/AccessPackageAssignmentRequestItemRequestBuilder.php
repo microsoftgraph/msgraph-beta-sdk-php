@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentRequests\Item\Cancel\CancelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentRequests\Item\Reprocess\ReprocessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentRequests\Item\Requestor\RequestorRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentRequests\Item\Resume\ResumeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageAssignmentRequest;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -67,6 +68,13 @@ class AccessPackageAssignmentRequestItemRequestBuilder
     */
     public function requestor(): RequestorRequestBuilder {
         return new RequestorRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the resume method.
+    */
+    public function resume(): ResumeRequestBuilder {
+        return new ResumeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -90,6 +90,14 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the customExtensionStageSettings property value. The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
+     * @return array<CustomExtensionStageSetting>|null
+    */
+    public function getCustomExtensionStageSettings(): ?array {
+        return $this->getBackingStore()->get('customExtensionStageSettings');
+    }
+
+    /**
      * Gets the description property value. The description of the policy.
      * @return string|null
     */
@@ -136,6 +144,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'customExtensionHandlers' => fn(ParseNode $n) => $o->setCustomExtensionHandlers($n->getCollectionOfObjectValues([CustomExtensionHandler::class, 'createFromDiscriminatorValue'])),
+            'customExtensionStageSettings' => fn(ParseNode $n) => $o->setCustomExtensionStageSettings($n->getCollectionOfObjectValues([CustomExtensionStageSetting::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'durationInDays' => fn(ParseNode $n) => $o->setDurationInDays($n->getIntegerValue()),
@@ -202,6 +211,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
         $writer->writeStringValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeCollectionOfObjectValues('customExtensionHandlers', $this->getCustomExtensionHandlers());
+        $writer->writeCollectionOfObjectValues('customExtensionStageSettings', $this->getCustomExtensionStageSettings());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeIntegerValue('durationInDays', $this->getDurationInDays());
@@ -275,6 +285,14 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     */
     public function setCustomExtensionHandlers(?array $value): void {
         $this->getBackingStore()->set('customExtensionHandlers', $value);
+    }
+
+    /**
+     * Sets the customExtensionStageSettings property value. The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
+     * @param array<CustomExtensionStageSetting>|null $value Value to set for the customExtensionStageSettings property.
+    */
+    public function setCustomExtensionStageSettings(?array $value): void {
+        $this->getBackingStore()->set('customExtensionStageSettings', $value);
     }
 
     /**
