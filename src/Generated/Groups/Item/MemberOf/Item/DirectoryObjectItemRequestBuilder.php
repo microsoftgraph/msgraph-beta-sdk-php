@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\MemberOf\Item;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Groups\Item\MemberOf\Item\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\MemberOf\Item\GraphGroup\GraphGroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -20,6 +21,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class DirectoryObjectItemRequestBuilder 
 {
+    /**
+     * Casts the previous resource to administrativeUnit.
+    */
+    public function graphAdministrativeUnit(): GraphAdministrativeUnitRequestBuilder {
+        return new GraphAdministrativeUnitRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Casts the previous resource to group.
     */

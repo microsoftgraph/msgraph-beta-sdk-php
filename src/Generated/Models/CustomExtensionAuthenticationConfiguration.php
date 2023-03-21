@@ -35,6 +35,7 @@ class CustomExtensionAuthenticationConfiguration implements AdditionalDataHolder
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.azureAdPopTokenAuthentication': return new AzureAdPopTokenAuthentication();
                 case '#microsoft.graph.azureAdTokenAuthentication': return new AzureAdTokenAuthentication();
             }
         }

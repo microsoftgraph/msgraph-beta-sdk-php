@@ -66,6 +66,14 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     }
 
     /**
+     * Gets the customExtensionCalloutInstances property value. Information about all the custom extension calls that were made during the access package assignment request workflow.
+     * @return array<CustomExtensionCalloutInstance>|null
+    */
+    public function getCustomExtensionCalloutInstances(): ?array {
+        return $this->getBackingStore()->get('customExtensionCalloutInstances');
+    }
+
+    /**
      * Gets the customExtensionHandlerInstances property value. A collection of custom workflow extension instances being run on an assignment request. Read-only.
      * @return array<CustomExtensionHandlerInstance>|null
     */
@@ -93,6 +101,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
             'answers' => fn(ParseNode $n) => $o->setAnswers($n->getCollectionOfObjectValues([AccessPackageAnswer::class, 'createFromDiscriminatorValue'])),
             'completedDate' => fn(ParseNode $n) => $o->setCompletedDate($n->getDateTimeValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'customExtensionCalloutInstances' => fn(ParseNode $n) => $o->setCustomExtensionCalloutInstances($n->getCollectionOfObjectValues([CustomExtensionCalloutInstance::class, 'createFromDiscriminatorValue'])),
             'customExtensionHandlerInstances' => fn(ParseNode $n) => $o->setCustomExtensionHandlerInstances($n->getCollectionOfObjectValues([CustomExtensionHandlerInstance::class, 'createFromDiscriminatorValue'])),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'isValidationOnly' => fn(ParseNode $n) => $o->setIsValidationOnly($n->getBooleanValue()),
@@ -172,6 +181,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('answers', $this->getAnswers());
         $writer->writeDateTimeValue('completedDate', $this->getCompletedDate());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeCollectionOfObjectValues('customExtensionCalloutInstances', $this->getCustomExtensionCalloutInstances());
         $writer->writeCollectionOfObjectValues('customExtensionHandlerInstances', $this->getCustomExtensionHandlerInstances());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeBooleanValue('isValidationOnly', $this->getIsValidationOnly());
@@ -221,6 +231,14 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the customExtensionCalloutInstances property value. Information about all the custom extension calls that were made during the access package assignment request workflow.
+     * @param array<CustomExtensionCalloutInstance>|null $value Value to set for the customExtensionCalloutInstances property.
+    */
+    public function setCustomExtensionCalloutInstances(?array $value): void {
+        $this->getBackingStore()->set('customExtensionCalloutInstances', $value);
     }
 
     /**

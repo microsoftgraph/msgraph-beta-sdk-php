@@ -98,6 +98,14 @@ class AccessPackageAssignment extends Entity implements Parsable
     }
 
     /**
+     * Gets the customExtensionCalloutInstances property value. Information about all the custom extension calls that were made during the access package assignment workflow.
+     * @return array<CustomExtensionCalloutInstance>|null
+    */
+    public function getCustomExtensionCalloutInstances(): ?array {
+        return $this->getBackingStore()->get('customExtensionCalloutInstances');
+    }
+
+    /**
      * Gets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
@@ -121,6 +129,7 @@ class AccessPackageAssignment extends Entity implements Parsable
             'assignmentState' => fn(ParseNode $n) => $o->setAssignmentState($n->getStringValue()),
             'assignmentStatus' => fn(ParseNode $n) => $o->setAssignmentStatus($n->getStringValue()),
             'catalogId' => fn(ParseNode $n) => $o->setCatalogId($n->getStringValue()),
+            'customExtensionCalloutInstances' => fn(ParseNode $n) => $o->setCustomExtensionCalloutInstances($n->getCollectionOfObjectValues([CustomExtensionCalloutInstance::class, 'createFromDiscriminatorValue'])),
             'expiredDateTime' => fn(ParseNode $n) => $o->setExpiredDateTime($n->getDateTimeValue()),
             'isExtended' => fn(ParseNode $n) => $o->setIsExtended($n->getBooleanValue()),
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RequestSchedule::class, 'createFromDiscriminatorValue'])),
@@ -176,6 +185,7 @@ class AccessPackageAssignment extends Entity implements Parsable
         $writer->writeStringValue('assignmentState', $this->getAssignmentState());
         $writer->writeStringValue('assignmentStatus', $this->getAssignmentStatus());
         $writer->writeStringValue('catalogId', $this->getCatalogId());
+        $writer->writeCollectionOfObjectValues('customExtensionCalloutInstances', $this->getCustomExtensionCalloutInstances());
         $writer->writeDateTimeValue('expiredDateTime', $this->getExpiredDateTime());
         $writer->writeBooleanValue('isExtended', $this->getIsExtended());
         $writer->writeObjectValue('schedule', $this->getSchedule());
@@ -253,6 +263,14 @@ class AccessPackageAssignment extends Entity implements Parsable
     */
     public function setCatalogId(?string $value): void {
         $this->getBackingStore()->set('catalogId', $value);
+    }
+
+    /**
+     * Sets the customExtensionCalloutInstances property value. Information about all the custom extension calls that were made during the access package assignment workflow.
+     * @param array<CustomExtensionCalloutInstance>|null $value Value to set for the customExtensionCalloutInstances property.
+    */
+    public function setCustomExtensionCalloutInstances(?array $value): void {
+        $this->getBackingStore()->set('customExtensionCalloutInstances', $value);
     }
 
     /**

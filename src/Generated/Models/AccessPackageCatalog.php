@@ -26,6 +26,14 @@ class AccessPackageCatalog extends Entity implements Parsable
     }
 
     /**
+     * Gets the accessPackageCustomWorkflowExtensions property value. The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+     * @return array<CustomCalloutExtension>|null
+    */
+    public function getAccessPackageCustomWorkflowExtensions(): ?array {
+        return $this->getBackingStore()->get('accessPackageCustomWorkflowExtensions');
+    }
+
+    /**
      * Gets the accessPackageResourceRoles property value. The roles in each resource in a catalog. Read-only.
      * @return array<AccessPackageResourceRole>|null
     */
@@ -120,6 +128,7 @@ class AccessPackageCatalog extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'accessPackageCustomWorkflowExtensions' => fn(ParseNode $n) => $o->setAccessPackageCustomWorkflowExtensions($n->getCollectionOfObjectValues([CustomCalloutExtension::class, 'createFromDiscriminatorValue'])),
             'accessPackageResourceRoles' => fn(ParseNode $n) => $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues([AccessPackageResourceRole::class, 'createFromDiscriminatorValue'])),
             'accessPackageResources' => fn(ParseNode $n) => $o->setAccessPackageResources($n->getCollectionOfObjectValues([AccessPackageResource::class, 'createFromDiscriminatorValue'])),
             'accessPackageResourceScopes' => fn(ParseNode $n) => $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues([AccessPackageResourceScope::class, 'createFromDiscriminatorValue'])),
@@ -167,6 +176,7 @@ class AccessPackageCatalog extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('accessPackageCustomWorkflowExtensions', $this->getAccessPackageCustomWorkflowExtensions());
         $writer->writeCollectionOfObjectValues('accessPackageResourceRoles', $this->getAccessPackageResourceRoles());
         $writer->writeCollectionOfObjectValues('accessPackageResources', $this->getAccessPackageResources());
         $writer->writeCollectionOfObjectValues('accessPackageResourceScopes', $this->getAccessPackageResourceScopes());
@@ -181,6 +191,14 @@ class AccessPackageCatalog extends Entity implements Parsable
         $writer->writeBooleanValue('isExternallyVisible', $this->getIsExternallyVisible());
         $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+    }
+
+    /**
+     * Sets the accessPackageCustomWorkflowExtensions property value. The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+     * @param array<CustomCalloutExtension>|null $value Value to set for the accessPackageCustomWorkflowExtensions property.
+    */
+    public function setAccessPackageCustomWorkflowExtensions(?array $value): void {
+        $this->getBackingStore()->set('accessPackageCustomWorkflowExtensions', $value);
     }
 
     /**

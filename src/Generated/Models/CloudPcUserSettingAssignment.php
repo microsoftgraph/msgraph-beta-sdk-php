@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcUserSettingAssignment extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcUserSettingAssignment and sets the default values.
+     * Instantiates a new cloudPcUserSettingAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

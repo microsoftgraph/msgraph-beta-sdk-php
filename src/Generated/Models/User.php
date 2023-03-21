@@ -16,7 +16,7 @@ class User extends DirectoryObject implements Parsable
     public ?UserPrint $escapedPrint = null;
     
     /**
-     * Instantiates a new user and sets the default values.
+     * Instantiates a new User and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -1219,7 +1219,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but, not with any other filterable properties. Note: Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.Note: There's a known issue with retrieving this property.This property is not returned for a user who has never signed in or last signed in before April 2020.
+     * Gets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.There's a known issue with retrieving this property.This property is not returned for a user who has never signed in or last signed in before April 2020.
      * @return SignInActivity|null
     */
     public function getSignInActivity(): ?SignInActivity {
@@ -2523,7 +2523,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but, not with any other filterable properties. Note: Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.Note: There's a known issue with retrieving this property.This property is not returned for a user who has never signed in or last signed in before April 2020.
+     * Sets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.There's a known issue with retrieving this property.This property is not returned for a user who has never signed in or last signed in before April 2020.
      * @param SignInActivity|null $value Value to set for the signInActivity property.
     */
     public function setSignInActivity(?SignInActivity $value): void {

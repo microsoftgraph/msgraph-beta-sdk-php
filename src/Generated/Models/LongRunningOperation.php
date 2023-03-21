@@ -3,6 +3,8 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\FileValidateOperation;
+use Microsoft\Graph\Beta\Generated\Models\IndustryData\ValidateOperation;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -27,6 +29,8 @@ class LongRunningOperation extends Entity implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.attackSimulationOperation': return new AttackSimulationOperation();
+                case '#microsoft.graph.industryData.fileValidateOperation': return new FileValidateOperation();
+                case '#microsoft.graph.industryData.validateOperation': return new ValidateOperation();
                 case '#microsoft.graph.richLongRunningOperation': return new RichLongRunningOperation();
             }
         }

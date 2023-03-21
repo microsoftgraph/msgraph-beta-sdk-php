@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Singleton entity which represents the Exchange OnPremises policy configured for a tenant.
+*/
 class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementExchangeOnPremisesPolicy and sets the default values.
+     * Instantiates a new deviceManagementExchangeOnPremisesPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

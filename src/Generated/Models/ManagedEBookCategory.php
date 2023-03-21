@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Contains properties for a single Intune eBook category.
+*/
 class ManagedEBookCategory extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ManagedEBookCategory and sets the default values.
+     * Instantiates a new managedEBookCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

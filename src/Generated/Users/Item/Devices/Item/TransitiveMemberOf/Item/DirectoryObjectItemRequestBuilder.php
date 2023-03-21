@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\TransitiveMemberOf\Item\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\TransitiveMemberOf\Item\GraphGroup\GraphGroupRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -20,6 +21,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class DirectoryObjectItemRequestBuilder 
 {
+    /**
+     * Casts the previous resource to administrativeUnit.
+    */
+    public function graphAdministrativeUnit(): GraphAdministrativeUnitRequestBuilder {
+        return new GraphAdministrativeUnitRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Casts the previous resource to group.
     */

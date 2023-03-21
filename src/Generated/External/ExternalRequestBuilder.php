@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\External\Connections\ConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\Connections\Item\ExternalConnectionItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\External\IndustryData\IndustryDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\External;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -26,6 +27,13 @@ class ExternalRequestBuilder
     */
     public function connections(): ConnectionsRequestBuilder {
         return new ConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the industryData property of the microsoft.graph.externalConnectors.external entity.
+    */
+    public function industryData(): IndustryDataRequestBuilder {
+        return new IndustryDataRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

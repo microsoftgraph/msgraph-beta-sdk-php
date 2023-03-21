@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApprovalWorkflowProvider extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new ApprovalWorkflowProvider and sets the default values.
+     * Instantiates a new approvalWorkflowProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();

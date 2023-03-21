@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigurationPolicies\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * List of related Setting Definitions. This property is read-only.
+ * List of related Setting Definitions
 */
 class SettingDefinitionsRequestBuilderGetQueryParameters 
 {
