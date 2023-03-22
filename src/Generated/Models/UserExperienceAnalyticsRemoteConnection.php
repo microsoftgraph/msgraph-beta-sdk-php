@@ -6,13 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analyte remote connection entity.
-*/
 class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsRemoteConnection and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsRemoteConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

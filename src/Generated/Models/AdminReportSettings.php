@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdminReportSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new AdminReportSettings and sets the default values.
+     * Instantiates a new adminReportSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

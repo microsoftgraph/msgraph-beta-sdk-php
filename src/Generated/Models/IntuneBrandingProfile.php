@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * This entity contains data which is used in customizing the tenant level appearance of the Company Portal applications as well as the end user web portal.
-*/
 class IntuneBrandingProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new intuneBrandingProfile and sets the default values.
+     * Instantiates a new IntuneBrandingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

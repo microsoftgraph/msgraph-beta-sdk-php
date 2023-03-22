@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcProvisioningPolicy extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcProvisioningPolicy and sets the default values.
+     * Instantiates a new CloudPcProvisioningPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
