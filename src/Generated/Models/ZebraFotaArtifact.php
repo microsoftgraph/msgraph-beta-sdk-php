@@ -6,13 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Describes a single artifact for a specific device model.
-*/
 class ZebraFotaArtifact extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new zebraFotaArtifact and sets the default values.
+     * Instantiates a new ZebraFotaArtifact and sets the default values.
     */
     public function __construct() {
         parent::__construct();

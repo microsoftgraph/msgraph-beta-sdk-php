@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Journal extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new journal and sets the default values.
+     * Instantiates a new Journal and sets the default values.
     */
     public function __construct() {
         parent::__construct();

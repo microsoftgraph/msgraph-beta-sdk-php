@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PaymentTerm extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new paymentTerm and sets the default values.
+     * Instantiates a new PaymentTerm and sets the default values.
     */
     public function __construct() {
         parent::__construct();

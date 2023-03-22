@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * ServiceNow properties including the ServiceNow instanceUrl, connection credentials and other metadata.
-*/
 class ServiceNowConnection extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new serviceNowConnection and sets the default values.
+     * Instantiates a new ServiceNowConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
