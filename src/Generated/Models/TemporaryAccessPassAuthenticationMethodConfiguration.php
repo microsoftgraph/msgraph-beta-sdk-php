@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TemporaryAccessPassAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable 
 {
     /**
-     * Instantiates a new TemporaryAccessPassAuthenticationMethodConfiguration and sets the default values.
+     * Instantiates a new temporaryAccessPassAuthenticationMethodConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

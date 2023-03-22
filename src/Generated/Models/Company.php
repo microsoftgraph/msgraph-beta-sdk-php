@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Company extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new company and sets the default values.
+     * Instantiates a new Company and sets the default values.
     */
     public function __construct() {
         parent::__construct();

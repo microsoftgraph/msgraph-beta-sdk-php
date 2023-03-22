@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedApproval extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new PrivilegedApproval and sets the default values.
+     * Instantiates a new privilegedApproval and sets the default values.
     */
     public function __construct() {
         parent::__construct();
