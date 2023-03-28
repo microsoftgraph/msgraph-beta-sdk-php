@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 
+use Microsoft\Graph\Beta\Generated\Models\EmailSettings;
 use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -26,12 +27,21 @@ class LifecycleManagementSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the emailSettings property value. The emailSettings property
+     * @return EmailSettings|null
+    */
+    public function getEmailSettings(): ?EmailSettings {
+        return $this->getBackingStore()->get('emailSettings');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'emailSettings' => fn(ParseNode $n) => $o->setEmailSettings($n->getObjectValue([EmailSettings::class, 'createFromDiscriminatorValue'])),
             'workflowScheduleIntervalInHours' => fn(ParseNode $n) => $o->setWorkflowScheduleIntervalInHours($n->getIntegerValue()),
         ]);
     }
@@ -50,7 +60,16 @@ class LifecycleManagementSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('emailSettings', $this->getEmailSettings());
         $writer->writeIntegerValue('workflowScheduleIntervalInHours', $this->getWorkflowScheduleIntervalInHours());
+    }
+
+    /**
+     * Sets the emailSettings property value. The emailSettings property
+     * @param EmailSettings|null $value Value to set for the emailSettings property.
+    */
+    public function setEmailSettings(?EmailSettings $value): void {
+        $this->getBackingStore()->set('emailSettings', $value);
     }
 
     /**

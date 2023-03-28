@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Represents a custom attribute script for macOS.
+*/
 class DeviceCustomAttributeShellScript extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceCustomAttributeShellScript and sets the default values.
+     * Instantiates a new deviceCustomAttributeShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -42,7 +42,7 @@ class CloudPcSnapshot extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The date and time when the snapshot expires. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as'2014-01-01T00:00:00Z'.
+     * Gets the expirationDateTime property value. The date and time when the snapshot expires. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -74,7 +74,7 @@ class CloudPcSnapshot extends Entity implements Parsable
     }
 
     /**
-     * Gets the snapshotType property value. The type of snapshot. indicates how the snapshot is to be created. Possible values are automatic, manual. Default value is automatic.
+     * Gets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
      * @return CloudPcSnapshotType|null
     */
     public function getSnapshotType(): ?CloudPcSnapshotType {
@@ -120,7 +120,7 @@ class CloudPcSnapshot extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The date and time when the snapshot expires. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as'2014-01-01T00:00:00Z'.
+     * Sets the expirationDateTime property value. The date and time when the snapshot expires. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {
@@ -136,7 +136,7 @@ class CloudPcSnapshot extends Entity implements Parsable
     }
 
     /**
-     * Sets the snapshotType property value. The type of snapshot. indicates how the snapshot is to be created. Possible values are automatic, manual. Default value is automatic.
+     * Sets the snapshotType property value. The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
      * @param CloudPcSnapshotType|null $value Value to set for the snapshotType property.
     */
     public function setSnapshotType(?CloudPcSnapshotType $value): void {

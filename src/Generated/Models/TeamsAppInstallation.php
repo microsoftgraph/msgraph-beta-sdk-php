@@ -32,12 +32,21 @@ class TeamsAppInstallation extends Entity implements Parsable
     }
 
     /**
+     * Gets the consentedPermissionSet property value. The consentedPermissionSet property
+     * @return TeamsAppPermissionSet|null
+    */
+    public function getConsentedPermissionSet(): ?TeamsAppPermissionSet {
+        return $this->getBackingStore()->get('consentedPermissionSet');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'consentedPermissionSet' => fn(ParseNode $n) => $o->setConsentedPermissionSet($n->getObjectValue([TeamsAppPermissionSet::class, 'createFromDiscriminatorValue'])),
             'teamsApp' => fn(ParseNode $n) => $o->setTeamsApp($n->getObjectValue([TeamsApp::class, 'createFromDiscriminatorValue'])),
             'teamsAppDefinition' => fn(ParseNode $n) => $o->setTeamsAppDefinition($n->getObjectValue([TeamsAppDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -65,8 +74,17 @@ class TeamsAppInstallation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('consentedPermissionSet', $this->getConsentedPermissionSet());
         $writer->writeObjectValue('teamsApp', $this->getTeamsApp());
         $writer->writeObjectValue('teamsAppDefinition', $this->getTeamsAppDefinition());
+    }
+
+    /**
+     * Sets the consentedPermissionSet property value. The consentedPermissionSet property
+     * @param TeamsAppPermissionSet|null $value Value to set for the consentedPermissionSet property.
+    */
+    public function setConsentedPermissionSet(?TeamsAppPermissionSet $value): void {
+        $this->getBackingStore()->set('consentedPermissionSet', $value);
     }
 
     /**

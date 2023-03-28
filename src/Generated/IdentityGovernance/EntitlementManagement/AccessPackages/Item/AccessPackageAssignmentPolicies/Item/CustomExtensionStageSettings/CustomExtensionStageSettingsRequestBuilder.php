@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackages\Item\AccessPackageAssignmentPolicies\Item\CustomExtensionStageSettings\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\CustomExtensionStageSetting;
 use Microsoft\Graph\Beta\Generated\Models\CustomExtensionStageSettingCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -76,6 +77,25 @@ class CustomExtensionStageSettingsRequestBuilder
     }
 
     /**
+     * Create new navigation property to customExtensionStageSettings for identityGovernance
+     * @param CustomExtensionStageSetting $body The request body
+     * @param CustomExtensionStageSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise
+    */
+    public function post(CustomExtensionStageSetting $body, ?CustomExtensionStageSettingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        try {
+            $errorMappings = [
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, [CustomExtensionStageSetting::class, 'createFromDiscriminatorValue'], $errorMappings);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
+    }
+
+    /**
      * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
      * @param CustomExtensionStageSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -97,6 +117,30 @@ class CustomExtensionStageSettingsRequestBuilder
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
             }
         }
+        return $requestInfo;
+    }
+
+    /**
+     * Create new navigation property to customExtensionStageSettings for identityGovernance
+     * @param CustomExtensionStageSetting $body The request body
+     * @param CustomExtensionStageSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPostRequestInformation(CustomExtensionStageSetting $body, ?CustomExtensionStageSettingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::POST;
+        $requestInfo->addHeader('Accept', "application/json");
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->addHeaders($requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
+        }
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

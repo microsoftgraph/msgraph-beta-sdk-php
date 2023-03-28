@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\Count
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\GraphEndpoint\GraphEndpointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\GraphUser\GraphUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -55,6 +56,13 @@ class RegisteredUsersRequestBuilder
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */
     private array $pathParameters;
+    
+    /**
+     * Provides operations to manage the collection of user entities.
+    */
+    public function ref(): RefRequestBuilder {
+        return new RefRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.

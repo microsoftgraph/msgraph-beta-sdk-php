@@ -96,6 +96,7 @@ use Microsoft\Graph\Beta\Generated\Models\NdesConnector;
 use Microsoft\Graph\Beta\Generated\Models\NotificationMessageTemplate;
 use Microsoft\Graph\Beta\Generated\Models\OemWarrantyInformationOnboarding;
 use Microsoft\Graph\Beta\Generated\Models\OnPremisesConditionalAccessSettings;
+use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevation;
 use Microsoft\Graph\Beta\Generated\Models\RemoteActionAudit;
 use Microsoft\Graph\Beta\Generated\Models\RemoteAssistancePartner;
 use Microsoft\Graph\Beta\Generated\Models\RemoteAssistanceSettings;
@@ -776,6 +777,7 @@ class DeviceManagement extends Entity implements Parsable
             'ndesConnectors' => fn(ParseNode $n) => $o->setNdesConnectors($n->getCollectionOfObjectValues([NdesConnector::class, 'createFromDiscriminatorValue'])),
             'notificationMessageTemplates' => fn(ParseNode $n) => $o->setNotificationMessageTemplates($n->getCollectionOfObjectValues([NotificationMessageTemplate::class, 'createFromDiscriminatorValue'])),
             'oemWarrantyInformationOnboarding' => fn(ParseNode $n) => $o->setOemWarrantyInformationOnboarding($n->getCollectionOfObjectValues([OemWarrantyInformationOnboarding::class, 'createFromDiscriminatorValue'])),
+            'privilegeManagementElevations' => fn(ParseNode $n) => $o->setPrivilegeManagementElevations($n->getCollectionOfObjectValues([PrivilegeManagementElevation::class, 'createFromDiscriminatorValue'])),
             'remoteActionAudits' => fn(ParseNode $n) => $o->setRemoteActionAudits($n->getCollectionOfObjectValues([RemoteActionAudit::class, 'createFromDiscriminatorValue'])),
             'remoteAssistancePartners' => fn(ParseNode $n) => $o->setRemoteAssistancePartners($n->getCollectionOfObjectValues([RemoteAssistancePartner::class, 'createFromDiscriminatorValue'])),
             'remoteAssistanceSettings' => fn(ParseNode $n) => $o->setRemoteAssistanceSettings($n->getObjectValue([RemoteAssistanceSettings::class, 'createFromDiscriminatorValue'])),
@@ -1118,6 +1120,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function getOemWarrantyInformationOnboarding(): ?array {
         return $this->getBackingStore()->get('oemWarrantyInformationOnboarding');
+    }
+
+    /**
+     * Gets the privilegeManagementElevations property value. The endpoint privilege management elevation event entity contains elevation details.
+     * @return array<PrivilegeManagementElevation>|null
+    */
+    public function getPrivilegeManagementElevations(): ?array {
+        return $this->getBackingStore()->get('privilegeManagementElevations');
     }
 
     /**
@@ -1896,6 +1906,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('ndesConnectors', $this->getNdesConnectors());
         $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->getNotificationMessageTemplates());
         $writer->writeCollectionOfObjectValues('oemWarrantyInformationOnboarding', $this->getOemWarrantyInformationOnboarding());
+        $writer->writeCollectionOfObjectValues('privilegeManagementElevations', $this->getPrivilegeManagementElevations());
         $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->getRemoteActionAudits());
         $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->getRemoteAssistancePartners());
         $writer->writeObjectValue('remoteAssistanceSettings', $this->getRemoteAssistanceSettings());
@@ -2724,6 +2735,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setOemWarrantyInformationOnboarding(?array $value): void {
         $this->getBackingStore()->set('oemWarrantyInformationOnboarding', $value);
+    }
+
+    /**
+     * Sets the privilegeManagementElevations property value. The endpoint privilege management elevation event entity contains elevation details.
+     * @param array<PrivilegeManagementElevation>|null $value Value to set for the privilegeManagementElevations property.
+    */
+    public function setPrivilegeManagementElevations(?array $value): void {
+        $this->getBackingStore()->set('privilegeManagementElevations', $value);
     }
 
     /**

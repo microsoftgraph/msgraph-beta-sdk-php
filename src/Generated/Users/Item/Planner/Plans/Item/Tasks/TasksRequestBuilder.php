@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerTask;
 use Microsoft\Graph\Beta\Generated\Models\PlannerTaskCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\Plans\Item\Tasks\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Planner\Plans\Item\Tasks\Delta\DeltaRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -26,6 +27,13 @@ class TasksRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delta method.
+    */
+    public function delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

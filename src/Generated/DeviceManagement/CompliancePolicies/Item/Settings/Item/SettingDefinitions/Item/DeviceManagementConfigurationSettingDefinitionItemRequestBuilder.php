@@ -50,7 +50,7 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     }
 
     /**
-     * List of related Setting Definitions
+     * List of related Setting Definitions. This property is read-only.
      * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -68,7 +68,7 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     }
 
     /**
-     * List of related Setting Definitions
+     * List of related Setting Definitions. This property is read-only.
      * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

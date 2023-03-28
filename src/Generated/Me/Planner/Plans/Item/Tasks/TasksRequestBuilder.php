@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Planner\Plans\Item\Tasks\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Planner\Plans\Item\Tasks\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerTask;
 use Microsoft\Graph\Beta\Generated\Models\PlannerTaskCollectionResponse;
@@ -26,6 +27,13 @@ class TasksRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delta method.
+    */
+    public function delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

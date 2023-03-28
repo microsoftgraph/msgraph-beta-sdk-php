@@ -42,7 +42,7 @@ class AndroidLobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the identityName property value. The Identity Name. This property is deprecated starting  in February 2023 (Release 2302).
+     * Gets the identityName property value. The Identity Name. This property is being deprecated in 2302(February 2023).
      * @return string|null
     */
     public function getIdentityName(): ?string {
@@ -50,7 +50,7 @@ class AndroidLobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the identityVersion property value. The identity version. This property is deprecated starting  in February 2023 (Release 2302).
+     * Gets the identityVersion property value. The identity version. This property is being deprecated in 2302(February 2023).
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
@@ -104,7 +104,7 @@ class AndroidLobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the identityName property value. The Identity Name. This property is deprecated starting  in February 2023 (Release 2302).
+     * Sets the identityName property value. The Identity Name. This property is being deprecated in 2302(February 2023).
      * @param string|null $value Value to set for the identityName property.
     */
     public function setIdentityName(?string $value): void {
@@ -112,7 +112,7 @@ class AndroidLobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the identityVersion property value. The identity version. This property is deprecated starting  in February 2023 (Release 2302).
+     * Sets the identityVersion property value. The identity version. This property is being deprecated in 2302(February 2023).
      * @param string|null $value Value to set for the identityVersion property.
     */
     public function setIdentityVersion(?string $value): void {

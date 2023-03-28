@@ -34,7 +34,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectivityResult property value. The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC is able to be connected or not.
+     * Gets the connectivityResult property value. The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC can be connected.
      * @return CloudPcConnectivityResult|null
     */
     public function getConnectivityResult(): ?CloudPcConnectivityResult {
@@ -292,7 +292,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the connectivityResult property value. The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC is able to be connected or not.
+     * Sets the connectivityResult property value. The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC can be connected.
      * @param CloudPcConnectivityResult|null $value Value to set for the connectivityResult property.
     */
     public function setConnectivityResult(?CloudPcConnectivityResult $value): void {
