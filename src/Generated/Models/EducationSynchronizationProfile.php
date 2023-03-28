@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class EducationSynchronizationProfile extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new EducationSynchronizationProfile and sets the default values.
+     * Instantiates a new educationSynchronizationProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -34,7 +34,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only.
+     * Gets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC continues to provide short-term support. Read-only.
      * @return Date|null
     */
     public function getEndDate(): ?Date {
@@ -72,7 +72,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the offer property value. The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+     * Gets the offer property value. The offer name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @return string|null
     */
     public function getOffer(): ?string {
@@ -88,7 +88,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the publisher property value. The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+     * Gets the publisher property value. The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @return string|null
     */
     public function getPublisher(): ?string {
@@ -112,7 +112,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the sku property value. The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+     * Gets the sku property value. The SKU name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @return string|null
     */
     public function getSku(): ?string {
@@ -172,7 +172,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only.
+     * Sets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC continues to provide short-term support. Read-only.
      * @param Date|null $value Value to set for the endDate property.
     */
     public function setEndDate(?Date $value): void {
@@ -188,7 +188,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the offer property value. The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+     * Sets the offer property value. The offer name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @param string|null $value Value to set for the offer property.
     */
     public function setOffer(?string $value): void {
@@ -204,7 +204,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the publisher property value. The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+     * Sets the publisher property value. The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
@@ -228,7 +228,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the sku property value. The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+     * Sets the sku property value. The SKU name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
      * @param string|null $value Value to set for the sku property.
     */
     public function setSku(?string $value): void {

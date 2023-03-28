@@ -50,12 +50,13 @@ class UpgradeRequestBuilder
 
     /**
      * Upgrade an app installation within a chat.
+     * @param UpgradePostRequestBody $body The request body
      * @param UpgradeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/chat-teamsappinstallation-upgrade?view=graph-rest-1.0 Find more info here
     */
-    public function post(?UpgradeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
-        $requestInfo = $this->toPostRequestInformation($requestConfiguration);
+    public function post(UpgradePostRequestBody $body, ?UpgradeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,10 +70,11 @@ class UpgradeRequestBuilder
 
     /**
      * Upgrade an app installation within a chat.
+     * @param UpgradePostRequestBody $body The request body
      * @param UpgradeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?UpgradeRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UpgradePostRequestBody $body, ?UpgradeRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -85,6 +87,7 @@ class UpgradeRequestBuilder
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
             }
         }
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

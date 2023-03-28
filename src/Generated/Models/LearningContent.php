@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LearningContent extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new LearningContent and sets the default values.
+     * Instantiates a new learningContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

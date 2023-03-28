@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementReports extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementReports and sets the default values.
+     * Instantiates a new deviceManagementReports and sets the default values.
     */
     public function __construct() {
         parent::__construct();

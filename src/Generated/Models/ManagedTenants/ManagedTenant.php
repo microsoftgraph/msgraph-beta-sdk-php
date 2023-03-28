@@ -34,6 +34,14 @@ class ManagedTenant extends Entity implements Parsable
     }
 
     /**
+     * Gets the appPerformances property value. The appPerformances property
+     * @return array<AppPerformance>|null
+    */
+    public function getAppPerformances(): ?array {
+        return $this->getBackingStore()->get('appPerformances');
+    }
+
+    /**
      * Gets the auditEvents property value. The collection of audit events across managed tenants.
      * @return array<AuditEvent>|null
     */
@@ -82,11 +90,27 @@ class ManagedTenant extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceAppPerformances property value. The deviceAppPerformances property
+     * @return array<DeviceAppPerformance>|null
+    */
+    public function getDeviceAppPerformances(): ?array {
+        return $this->getBackingStore()->get('deviceAppPerformances');
+    }
+
+    /**
      * Gets the deviceCompliancePolicySettingStateSummaries property value. Summary information for device compliance policy setting states across managed tenants.
      * @return array<DeviceCompliancePolicySettingStateSummary>|null
     */
     public function getDeviceCompliancePolicySettingStateSummaries(): ?array {
         return $this->getBackingStore()->get('deviceCompliancePolicySettingStateSummaries');
+    }
+
+    /**
+     * Gets the deviceHealthStatuses property value. The deviceHealthStatuses property
+     * @return array<DeviceHealthStatus>|null
+    */
+    public function getDeviceHealthStatuses(): ?array {
+        return $this->getBackingStore()->get('deviceHealthStatuses');
     }
 
     /**
@@ -97,13 +121,16 @@ class ManagedTenant extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'aggregatedPolicyCompliances' => fn(ParseNode $n) => $o->setAggregatedPolicyCompliances($n->getCollectionOfObjectValues([AggregatedPolicyCompliance::class, 'createFromDiscriminatorValue'])),
+            'appPerformances' => fn(ParseNode $n) => $o->setAppPerformances($n->getCollectionOfObjectValues([AppPerformance::class, 'createFromDiscriminatorValue'])),
             'auditEvents' => fn(ParseNode $n) => $o->setAuditEvents($n->getCollectionOfObjectValues([AuditEvent::class, 'createFromDiscriminatorValue'])),
             'cloudPcConnections' => fn(ParseNode $n) => $o->setCloudPcConnections($n->getCollectionOfObjectValues([CloudPcConnection::class, 'createFromDiscriminatorValue'])),
             'cloudPcDevices' => fn(ParseNode $n) => $o->setCloudPcDevices($n->getCollectionOfObjectValues([CloudPcDevice::class, 'createFromDiscriminatorValue'])),
             'cloudPcsOverview' => fn(ParseNode $n) => $o->setCloudPcsOverview($n->getCollectionOfObjectValues([CloudPcOverview::class, 'createFromDiscriminatorValue'])),
             'conditionalAccessPolicyCoverages' => fn(ParseNode $n) => $o->setConditionalAccessPolicyCoverages($n->getCollectionOfObjectValues([ConditionalAccessPolicyCoverage::class, 'createFromDiscriminatorValue'])),
             'credentialUserRegistrationsSummaries' => fn(ParseNode $n) => $o->setCredentialUserRegistrationsSummaries($n->getCollectionOfObjectValues([CredentialUserRegistrationsSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceAppPerformances' => fn(ParseNode $n) => $o->setDeviceAppPerformances($n->getCollectionOfObjectValues([DeviceAppPerformance::class, 'createFromDiscriminatorValue'])),
             'deviceCompliancePolicySettingStateSummaries' => fn(ParseNode $n) => $o->setDeviceCompliancePolicySettingStateSummaries($n->getCollectionOfObjectValues([DeviceCompliancePolicySettingStateSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceHealthStatuses' => fn(ParseNode $n) => $o->setDeviceHealthStatuses($n->getCollectionOfObjectValues([DeviceHealthStatus::class, 'createFromDiscriminatorValue'])),
             'managedDeviceCompliances' => fn(ParseNode $n) => $o->setManagedDeviceCompliances($n->getCollectionOfObjectValues([ManagedDeviceCompliance::class, 'createFromDiscriminatorValue'])),
             'managedDeviceComplianceTrends' => fn(ParseNode $n) => $o->setManagedDeviceComplianceTrends($n->getCollectionOfObjectValues([ManagedDeviceComplianceTrend::class, 'createFromDiscriminatorValue'])),
             'managedTenantAlertLogs' => fn(ParseNode $n) => $o->setManagedTenantAlertLogs($n->getCollectionOfObjectValues([ManagedTenantAlertLog::class, 'createFromDiscriminatorValue'])),
@@ -348,13 +375,16 @@ class ManagedTenant extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('aggregatedPolicyCompliances', $this->getAggregatedPolicyCompliances());
+        $writer->writeCollectionOfObjectValues('appPerformances', $this->getAppPerformances());
         $writer->writeCollectionOfObjectValues('auditEvents', $this->getAuditEvents());
         $writer->writeCollectionOfObjectValues('cloudPcConnections', $this->getCloudPcConnections());
         $writer->writeCollectionOfObjectValues('cloudPcDevices', $this->getCloudPcDevices());
         $writer->writeCollectionOfObjectValues('cloudPcsOverview', $this->getCloudPcsOverview());
         $writer->writeCollectionOfObjectValues('conditionalAccessPolicyCoverages', $this->getConditionalAccessPolicyCoverages());
         $writer->writeCollectionOfObjectValues('credentialUserRegistrationsSummaries', $this->getCredentialUserRegistrationsSummaries());
+        $writer->writeCollectionOfObjectValues('deviceAppPerformances', $this->getDeviceAppPerformances());
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicySettingStateSummaries', $this->getDeviceCompliancePolicySettingStateSummaries());
+        $writer->writeCollectionOfObjectValues('deviceHealthStatuses', $this->getDeviceHealthStatuses());
         $writer->writeCollectionOfObjectValues('managedDeviceCompliances', $this->getManagedDeviceCompliances());
         $writer->writeCollectionOfObjectValues('managedDeviceComplianceTrends', $this->getManagedDeviceComplianceTrends());
         $writer->writeCollectionOfObjectValues('managedTenantAlertLogs', $this->getManagedTenantAlertLogs());
@@ -389,6 +419,14 @@ class ManagedTenant extends Entity implements Parsable
     */
     public function setAggregatedPolicyCompliances(?array $value): void {
         $this->getBackingStore()->set('aggregatedPolicyCompliances', $value);
+    }
+
+    /**
+     * Sets the appPerformances property value. The appPerformances property
+     * @param array<AppPerformance>|null $value Value to set for the appPerformances property.
+    */
+    public function setAppPerformances(?array $value): void {
+        $this->getBackingStore()->set('appPerformances', $value);
     }
 
     /**
@@ -440,11 +478,27 @@ class ManagedTenant extends Entity implements Parsable
     }
 
     /**
+     * Sets the deviceAppPerformances property value. The deviceAppPerformances property
+     * @param array<DeviceAppPerformance>|null $value Value to set for the deviceAppPerformances property.
+    */
+    public function setDeviceAppPerformances(?array $value): void {
+        $this->getBackingStore()->set('deviceAppPerformances', $value);
+    }
+
+    /**
      * Sets the deviceCompliancePolicySettingStateSummaries property value. Summary information for device compliance policy setting states across managed tenants.
      * @param array<DeviceCompliancePolicySettingStateSummary>|null $value Value to set for the deviceCompliancePolicySettingStateSummaries property.
     */
     public function setDeviceCompliancePolicySettingStateSummaries(?array $value): void {
         $this->getBackingStore()->set('deviceCompliancePolicySettingStateSummaries', $value);
+    }
+
+    /**
+     * Sets the deviceHealthStatuses property value. The deviceHealthStatuses property
+     * @param array<DeviceHealthStatus>|null $value Value to set for the deviceHealthStatuses property.
+    */
+    public function setDeviceHealthStatuses(?array $value): void {
+        $this->getBackingStore()->set('deviceHealthStatuses', $value);
     }
 
     /**

@@ -7,10 +7,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Base Profile Type for Resource Access
+*/
 class DeviceManagementResourceAccessProfileBase extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementResourceAccessProfileBase and sets the default values.
+     * Instantiates a new deviceManagementResourceAccessProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

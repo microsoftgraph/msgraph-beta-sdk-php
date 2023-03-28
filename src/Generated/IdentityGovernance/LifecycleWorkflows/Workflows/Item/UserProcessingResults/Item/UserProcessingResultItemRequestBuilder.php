@@ -67,7 +67,7 @@ class UserProcessingResultItemRequestBuilder
     }
 
     /**
-     * Get userProcessingResults from identityGovernance
+     * Per-user workflow execution results.
      * @param UserProcessingResultItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -96,7 +96,7 @@ class UserProcessingResultItemRequestBuilder
     }
 
     /**
-     * Get userProcessingResults from identityGovernance
+     * Per-user workflow execution results.
      * @param UserProcessingResultItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

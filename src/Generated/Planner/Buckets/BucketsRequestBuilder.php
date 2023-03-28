@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerBucket;
 use Microsoft\Graph\Beta\Generated\Models\PlannerBucketCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Planner\Buckets\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Planner\Buckets\Delta\DeltaRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -26,6 +27,13 @@ class BucketsRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delta method.
+    */
+    public function delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

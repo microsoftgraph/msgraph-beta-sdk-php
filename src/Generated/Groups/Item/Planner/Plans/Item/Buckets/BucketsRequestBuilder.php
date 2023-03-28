@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerBucket;
 use Microsoft\Graph\Beta\Generated\Models\PlannerBucketCollectionResponse;
@@ -26,6 +27,13 @@ class BucketsRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the delta method.
+    */
+    public function delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

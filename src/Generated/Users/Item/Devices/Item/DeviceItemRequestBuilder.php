@@ -248,7 +248,7 @@ class DeviceItemRequestBuilder
     }
 
     /**
-     * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
+     * Gets an item from the Microsoft/Graph/Beta/Generated.users.item.devices.item.registeredUsers.item collection
      * @param string $id Unique identifier of the item
      * @return \Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\RegisteredUsers\Item\DirectoryObjectItemRequestBuilder
     */

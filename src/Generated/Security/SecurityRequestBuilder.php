@@ -36,6 +36,7 @@ use Microsoft\Graph\Beta\Generated\Security\SecurityActions\SecurityActionsReque
 use Microsoft\Graph\Beta\Generated\Security\SecurityRunHuntingQuery\SecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\SubjectRightsRequestItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\SubjectRightsRequestsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\ThreatIntelligenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\ThreatSubmissionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\Item\TiIndicatorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\TiIndicatorsRequestBuilder;
@@ -189,6 +190,13 @@ class SecurityRequestBuilder
     */
     public function subjectRightsRequests(): SubjectRightsRequestsRequestBuilder {
         return new SubjectRightsRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the threatIntelligence property of the microsoft.graph.security entity.
+    */
+    public function threatIntelligence(): ThreatIntelligenceRequestBuilder {
+        return new ThreatIntelligenceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

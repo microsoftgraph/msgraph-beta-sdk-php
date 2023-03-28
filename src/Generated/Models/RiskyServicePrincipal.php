@@ -67,6 +67,7 @@ class RiskyServicePrincipal extends Entity implements Parsable
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'history' => fn(ParseNode $n) => $o->setHistory($n->getCollectionOfObjectValues([RiskyServicePrincipalHistoryItem::class, 'createFromDiscriminatorValue'])),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'isProcessing' => fn(ParseNode $n) => $o->setIsProcessing($n->getBooleanValue()),
             'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
             'riskLastUpdatedDateTime' => fn(ParseNode $n) => $o->setRiskLastUpdatedDateTime($n->getDateTimeValue()),
@@ -82,6 +83,14 @@ class RiskyServicePrincipal extends Entity implements Parsable
     */
     public function getHistory(): ?array {
         return $this->getBackingStore()->get('history');
+    }
+
+    /**
+     * Gets the isEnabled property value. The isEnabled property
+     * @return bool|null
+    */
+    public function getIsEnabled(): ?bool {
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -142,6 +151,7 @@ class RiskyServicePrincipal extends Entity implements Parsable
         $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('history', $this->getHistory());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('isProcessing', $this->getIsProcessing());
         $writer->writeEnumValue('riskDetail', $this->getRiskDetail());
         $writer->writeDateTimeValue('riskLastUpdatedDateTime', $this->getRiskLastUpdatedDateTime());
@@ -180,6 +190,14 @@ class RiskyServicePrincipal extends Entity implements Parsable
     */
     public function setHistory(?array $value): void {
         $this->getBackingStore()->set('history', $value);
+    }
+
+    /**
+     * Sets the isEnabled property value. The isEnabled property
+     * @param bool|null $value Value to set for the isEnabled property.
+    */
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**

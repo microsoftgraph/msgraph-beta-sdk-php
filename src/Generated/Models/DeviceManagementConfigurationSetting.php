@@ -40,7 +40,7 @@ class DeviceManagementConfigurationSetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the settingDefinitions property value. List of related Setting Definitions
+     * Gets the settingDefinitions property value. List of related Setting Definitions. This property is read-only.
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getSettingDefinitions(): ?array {
@@ -66,7 +66,7 @@ class DeviceManagementConfigurationSetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the settingDefinitions property value. List of related Setting Definitions
+     * Sets the settingDefinitions property value. List of related Setting Definitions. This property is read-only.
      * @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the settingDefinitions property.
     */
     public function setSettingDefinitions(?array $value): void {

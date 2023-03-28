@@ -27,7 +27,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The image's display name.
+     * Gets the displayName property value. The display name of the image.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -63,7 +63,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
+     * Gets the lastModifiedDateTime property value. The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -71,7 +71,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the operatingSystem property value. The image's operating system. For example: Windows 10 Enterprise.
+     * Gets the operatingSystem property value. The operating system of the image. For example, Windows 10 Enterprise.
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
@@ -79,7 +79,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the osBuildNumber property value. The image's OS build version. For example: 1909.
+     * Gets the osBuildNumber property value. The OS build version of the image. For example, 1909.
      * @return string|null
     */
     public function getOsBuildNumber(): ?string {
@@ -95,7 +95,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceImageResourceId property value. The ID of the source image resource on Azure. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'.
+     * Gets the sourceImageResourceId property value. The ID of the source image resource on Azure. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}.
      * @return string|null
     */
     public function getSourceImageResourceId(): ?string {
@@ -111,7 +111,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the statusDetails property value. The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
+     * Gets the statusDetails property value. The details of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
      * @return CloudPcDeviceImageStatusDetails|null
     */
     public function getStatusDetails(): ?CloudPcDeviceImageStatusDetails {
@@ -119,7 +119,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The image version. For example: 0.0.1, 1.5.13.
+     * Gets the version property value. The image version. For example, 0.0.1 and 1.5.13.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -145,7 +145,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The image's display name.
+     * Sets the displayName property value. The display name of the image.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -161,7 +161,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
+     * Sets the lastModifiedDateTime property value. The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -169,7 +169,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the operatingSystem property value. The image's operating system. For example: Windows 10 Enterprise.
+     * Sets the operatingSystem property value. The operating system of the image. For example, Windows 10 Enterprise.
      * @param string|null $value Value to set for the operatingSystem property.
     */
     public function setOperatingSystem(?string $value): void {
@@ -177,7 +177,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the osBuildNumber property value. The image's OS build version. For example: 1909.
+     * Sets the osBuildNumber property value. The OS build version of the image. For example, 1909.
      * @param string|null $value Value to set for the osBuildNumber property.
     */
     public function setOsBuildNumber(?string $value): void {
@@ -193,7 +193,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourceImageResourceId property value. The ID of the source image resource on Azure. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'.
+     * Sets the sourceImageResourceId property value. The ID of the source image resource on Azure. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}.
      * @param string|null $value Value to set for the sourceImageResourceId property.
     */
     public function setSourceImageResourceId(?string $value): void {
@@ -209,7 +209,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the statusDetails property value. The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
+     * Sets the statusDetails property value. The details of the status of the image that indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
      * @param CloudPcDeviceImageStatusDetails|null $value Value to set for the statusDetails property.
     */
     public function setStatusDetails(?CloudPcDeviceImageStatusDetails $value): void {
@@ -217,7 +217,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The image version. For example: 0.0.1, 1.5.13.
+     * Sets the version property value. The image version. For example, 0.0.1 and 1.5.13.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

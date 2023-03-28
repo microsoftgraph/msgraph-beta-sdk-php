@@ -9,6 +9,8 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\ManagedTenant;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AggregatedPolicyCompliances\AggregatedPolicyCompliancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AggregatedPolicyCompliances\Item\AggregatedPolicyComplianceItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AppPerformances\AppPerformancesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AppPerformances\Item\AppPerformanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AuditEvents\AuditEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\AuditEvents\Item\AuditEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcConnections\CloudPcConnectionsRequestBuilder;
@@ -21,8 +23,12 @@ use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Conditiona
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages\Item\ConditionalAccessPolicyCoverageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CredentialUserRegistrationsSummaries\CredentialUserRegistrationsSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CredentialUserRegistrationsSummaries\Item\CredentialUserRegistrationsSummaryItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceAppPerformances\DeviceAppPerformancesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceAppPerformances\Item\DeviceAppPerformanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceCompliancePolicySettingStateSummaries\DeviceCompliancePolicySettingStateSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceCompliancePolicySettingStateSummaries\Item\DeviceCompliancePolicySettingStateSummaryItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceHealthStatuses\DeviceHealthStatusesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\DeviceHealthStatuses\Item\DeviceHealthStatusItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedDeviceCompliances\Item\ManagedDeviceComplianceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedDeviceCompliances\ManagedDeviceCompliancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedDeviceComplianceTrends\Item\ManagedDeviceComplianceTrendItemRequestBuilder;
@@ -95,6 +101,13 @@ class ManagedTenantsRequestBuilder
     }
     
     /**
+     * Provides operations to manage the appPerformances property of the microsoft.graph.managedTenants.managedTenant entity.
+    */
+    public function appPerformances(): AppPerformancesRequestBuilder {
+        return new AppPerformancesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the auditEvents property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function auditEvents(): AuditEventsRequestBuilder {
@@ -137,10 +150,24 @@ class ManagedTenantsRequestBuilder
     }
     
     /**
+     * Provides operations to manage the deviceAppPerformances property of the microsoft.graph.managedTenants.managedTenant entity.
+    */
+    public function deviceAppPerformances(): DeviceAppPerformancesRequestBuilder {
+        return new DeviceAppPerformancesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function deviceCompliancePolicySettingStateSummaries(): DeviceCompliancePolicySettingStateSummariesRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the deviceHealthStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
+    */
+    public function deviceHealthStatuses(): DeviceHealthStatusesRequestBuilder {
+        return new DeviceHealthStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -352,6 +379,17 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
+     * Provides operations to manage the appPerformances property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $id Unique identifier of the item
+     * @return AppPerformanceItemRequestBuilder
+    */
+    public function appPerformancesById(string $id): AppPerformanceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['appPerformance%2Did'] = $id;
+        return new AppPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Provides operations to manage the auditEvents property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return AuditEventItemRequestBuilder
@@ -451,6 +489,17 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
+     * Provides operations to manage the deviceAppPerformances property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $id Unique identifier of the item
+     * @return DeviceAppPerformanceItemRequestBuilder
+    */
+    public function deviceAppPerformancesById(string $id): DeviceAppPerformanceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceAppPerformance%2Did'] = $id;
+        return new DeviceAppPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return DeviceCompliancePolicySettingStateSummaryItemRequestBuilder
@@ -459,6 +508,17 @@ class ManagedTenantsRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceCompliancePolicySettingStateSummary%2Did'] = $id;
         return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the deviceHealthStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $id Unique identifier of the item
+     * @return DeviceHealthStatusItemRequestBuilder
+    */
+    public function deviceHealthStatusesById(string $id): DeviceHealthStatusItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['deviceHealthStatus%2Did'] = $id;
+        return new DeviceHealthStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

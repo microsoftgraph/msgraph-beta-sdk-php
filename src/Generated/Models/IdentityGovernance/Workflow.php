@@ -79,7 +79,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the runs property value. The runs property
+     * Gets the runs property value. Workflow runs.
      * @return array<Run>|null
     */
     public function getRuns(): ?array {
@@ -95,7 +95,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the userProcessingResults property value. The userProcessingResults property
+     * Gets the userProcessingResults property value. Per-user workflow execution results.
      * @return array<UserProcessingResult>|null
     */
     public function getUserProcessingResults(): ?array {
@@ -168,7 +168,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the runs property value. The runs property
+     * Sets the runs property value. Workflow runs.
      * @param array<Run>|null $value Value to set for the runs property.
     */
     public function setRuns(?array $value): void {
@@ -184,7 +184,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the userProcessingResults property value. The userProcessingResults property
+     * Sets the userProcessingResults property value. Per-user workflow execution results.
      * @param array<UserProcessingResult>|null $value Value to set for the userProcessingResults property.
     */
     public function setUserProcessingResults(?array $value): void {

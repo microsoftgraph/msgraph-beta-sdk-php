@@ -163,6 +163,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\NotificationMessageTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformationOnboarding\Item\OemWarrantyInformationOnboardingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformationOnboarding\OemWarrantyInformationOnboardingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\PrivilegeManagementElevations\Item\PrivilegeManagementElevationItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\PrivilegeManagementElevations\PrivilegeManagementElevationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\Item\RemoteActionAuditItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\RemoteActionAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistancePartners\Item\RemoteAssistancePartnerItemRequestBuilder;
@@ -956,6 +958,13 @@ class DeviceManagementRequestBuilder
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */
     private array $pathParameters;
+    
+    /**
+     * Provides operations to manage the privilegeManagementElevations property of the microsoft.graph.deviceManagement entity.
+    */
+    public function privilegeManagementElevations(): PrivilegeManagementElevationsRequestBuilder {
+        return new PrivilegeManagementElevationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * Provides operations to manage the remoteActionAudits property of the microsoft.graph.deviceManagement entity.
@@ -2390,6 +2399,17 @@ class DeviceManagementRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
+    }
+
+    /**
+     * Provides operations to manage the privilegeManagementElevations property of the microsoft.graph.deviceManagement entity.
+     * @param string $id Unique identifier of the item
+     * @return PrivilegeManagementElevationItemRequestBuilder
+    */
+    public function privilegeManagementElevationsById(string $id): PrivilegeManagementElevationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['privilegeManagementElevation%2Did'] = $id;
+        return new PrivilegeManagementElevationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

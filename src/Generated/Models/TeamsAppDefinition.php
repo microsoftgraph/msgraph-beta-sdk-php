@@ -34,6 +34,14 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
+     * Gets the authorization property value. The authorization property
+     * @return TeamsAppAuthorization|null
+    */
+    public function getAuthorization(): ?TeamsAppAuthorization {
+        return $this->getBackingStore()->get('authorization');
+    }
+
+    /**
      * Gets the azureADAppId property value. The WebApplicationInfo.Id from the Teams app manifest.
      * @return string|null
     */
@@ -89,6 +97,7 @@ class TeamsAppDefinition extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowedInstallationScopes' => fn(ParseNode $n) => $o->setAllowedInstallationScopes($n->getEnumValue(TeamsAppInstallationScopes::class)),
+            'authorization' => fn(ParseNode $n) => $o->setAuthorization($n->getObjectValue([TeamsAppAuthorization::class, 'createFromDiscriminatorValue'])),
             'azureADAppId' => fn(ParseNode $n) => $o->setAzureADAppId($n->getStringValue()),
             'bot' => fn(ParseNode $n) => $o->setBot($n->getObjectValue([TeamworkBot::class, 'createFromDiscriminatorValue'])),
             'colorIcon' => fn(ParseNode $n) => $o->setColorIcon($n->getObjectValue([TeamsAppIcon::class, 'createFromDiscriminatorValue'])),
@@ -159,6 +168,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('allowedInstallationScopes', $this->getAllowedInstallationScopes());
+        $writer->writeObjectValue('authorization', $this->getAuthorization());
         $writer->writeStringValue('azureADAppId', $this->getAzureADAppId());
         $writer->writeObjectValue('bot', $this->getBot());
         $writer->writeObjectValue('colorIcon', $this->getColorIcon());
@@ -179,6 +189,14 @@ class TeamsAppDefinition extends Entity implements Parsable
     */
     public function setAllowedInstallationScopes(?TeamsAppInstallationScopes $value): void {
         $this->getBackingStore()->set('allowedInstallationScopes', $value);
+    }
+
+    /**
+     * Sets the authorization property value. The authorization property
+     * @param TeamsAppAuthorization|null $value Value to set for the authorization property.
+    */
+    public function setAuthorization(?TeamsAppAuthorization $value): void {
+        $this->getBackingStore()->set('authorization', $value);
     }
 
     /**

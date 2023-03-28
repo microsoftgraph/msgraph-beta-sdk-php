@@ -108,7 +108,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalTasks property value. The totalTasks property
+     * Gets the totalTasks property value. The total number of tasks processed by a workflow.
      * @return int|null
     */
     public function getTotalTasks(): ?int {
@@ -116,7 +116,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalUsers property value. The totalUsers property
+     * Gets the totalUsers property value. The total number of users processed by a workflow.
      * @return int|null
     */
     public function getTotalUsers(): ?int {
@@ -195,7 +195,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the totalTasks property value. The totalTasks property
+     * Sets the totalTasks property value. The total number of tasks processed by a workflow.
      * @param int|null $value Value to set for the totalTasks property.
     */
     public function setTotalTasks(?int $value): void {
@@ -203,7 +203,7 @@ class RunSummary implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the totalUsers property value. The totalUsers property
+     * Sets the totalUsers property value. The total number of users processed by a workflow.
      * @param int|null $value Value to set for the totalUsers property.
     */
     public function setTotalUsers(?int $value): void {

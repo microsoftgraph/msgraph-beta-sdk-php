@@ -25,6 +25,14 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
+     * Gets the allowedPrincipalTypes property value. The allowedPrincipalTypes property
+     * @return AllowedRolePrincipalTypes|null
+    */
+    public function getAllowedPrincipalTypes(): ?AllowedRolePrincipalTypes {
+        return $this->getBackingStore()->get('allowedPrincipalTypes');
+    }
+
+    /**
      * Gets the description property value. The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.
      * @return string|null
     */
@@ -47,6 +55,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allowedPrincipalTypes' => fn(ParseNode $n) => $o->setAllowedPrincipalTypes($n->getEnumValue(AllowedRolePrincipalTypes::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'inheritsPermissionsFrom' => fn(ParseNode $n) => $o->setInheritsPermissionsFrom($n->getCollectionOfObjectValues([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
@@ -121,6 +130,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('allowedPrincipalTypes', $this->getAllowedPrincipalTypes());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('inheritsPermissionsFrom', $this->getInheritsPermissionsFrom());
@@ -130,6 +140,14 @@ class UnifiedRoleDefinition extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('rolePermissions', $this->getRolePermissions());
         $writer->writeStringValue('templateId', $this->getTemplateId());
         $writer->writeStringValue('version', $this->getVersion());
+    }
+
+    /**
+     * Sets the allowedPrincipalTypes property value. The allowedPrincipalTypes property
+     * @param AllowedRolePrincipalTypes|null $value Value to set for the allowedPrincipalTypes property.
+    */
+    public function setAllowedPrincipalTypes(?AllowedRolePrincipalTypes $value): void {
+        $this->getBackingStore()->set('allowedPrincipalTypes', $value);
     }
 
     /**
