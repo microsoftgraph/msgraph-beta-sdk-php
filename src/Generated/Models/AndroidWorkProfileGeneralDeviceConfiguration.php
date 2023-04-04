@@ -26,12 +26,21 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
+     * Gets the allowedGoogleAccountDomains property value. Determine domains allow-list for accounts that can be added to work profile.
+     * @return array<string>|null
+    */
+    public function getAllowedGoogleAccountDomains(): ?array {
+        return $this->getBackingStore()->get('allowedGoogleAccountDomains');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allowedGoogleAccountDomains' => fn(ParseNode $n) => $o->setAllowedGoogleAccountDomains($n->getCollectionOfPrimitiveValues()),
             'passwordBlockFaceUnlock' => fn(ParseNode $n) => $o->setPasswordBlockFaceUnlock($n->getBooleanValue()),
             'passwordBlockFingerprintUnlock' => fn(ParseNode $n) => $o->setPasswordBlockFingerprintUnlock($n->getBooleanValue()),
             'passwordBlockIrisUnlock' => fn(ParseNode $n) => $o->setPasswordBlockIrisUnlock($n->getBooleanValue()),
@@ -46,6 +55,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
             'securityRequireVerifyApps' => fn(ParseNode $n) => $o->setSecurityRequireVerifyApps($n->getBooleanValue()),
             'vpnAlwaysOnPackageIdentifier' => fn(ParseNode $n) => $o->setVpnAlwaysOnPackageIdentifier($n->getStringValue()),
             'vpnEnableAlwaysOnLockdownMode' => fn(ParseNode $n) => $o->setVpnEnableAlwaysOnLockdownMode($n->getBooleanValue()),
+            'workProfileAccountUse' => fn(ParseNode $n) => $o->setWorkProfileAccountUse($n->getEnumValue(AndroidWorkProfileAccountUse::class)),
             'workProfileAllowAppInstallsFromUnknownSources' => fn(ParseNode $n) => $o->setWorkProfileAllowAppInstallsFromUnknownSources($n->getBooleanValue()),
             'workProfileAllowWidgets' => fn(ParseNode $n) => $o->setWorkProfileAllowWidgets($n->getBooleanValue()),
             'workProfileBlockAddingAccounts' => fn(ParseNode $n) => $o->setWorkProfileBlockAddingAccounts($n->getBooleanValue()),
@@ -190,6 +200,14 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function getVpnEnableAlwaysOnLockdownMode(): ?bool {
         return $this->getBackingStore()->get('vpnEnableAlwaysOnLockdownMode');
+    }
+
+    /**
+     * Gets the workProfileAccountUse property value. An enum representing possible values for account use in work profile.
+     * @return AndroidWorkProfileAccountUse|null
+    */
+    public function getWorkProfileAccountUse(): ?AndroidWorkProfileAccountUse {
+        return $this->getBackingStore()->get('workProfileAccountUse');
     }
 
     /**
@@ -446,6 +464,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfPrimitiveValues('allowedGoogleAccountDomains', $this->getAllowedGoogleAccountDomains());
         $writer->writeBooleanValue('passwordBlockFaceUnlock', $this->getPasswordBlockFaceUnlock());
         $writer->writeBooleanValue('passwordBlockFingerprintUnlock', $this->getPasswordBlockFingerprintUnlock());
         $writer->writeBooleanValue('passwordBlockIrisUnlock', $this->getPasswordBlockIrisUnlock());
@@ -460,6 +479,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeBooleanValue('securityRequireVerifyApps', $this->getSecurityRequireVerifyApps());
         $writer->writeStringValue('vpnAlwaysOnPackageIdentifier', $this->getVpnAlwaysOnPackageIdentifier());
         $writer->writeBooleanValue('vpnEnableAlwaysOnLockdownMode', $this->getVpnEnableAlwaysOnLockdownMode());
+        $writer->writeEnumValue('workProfileAccountUse', $this->getWorkProfileAccountUse());
         $writer->writeBooleanValue('workProfileAllowAppInstallsFromUnknownSources', $this->getWorkProfileAllowAppInstallsFromUnknownSources());
         $writer->writeBooleanValue('workProfileAllowWidgets', $this->getWorkProfileAllowWidgets());
         $writer->writeBooleanValue('workProfileBlockAddingAccounts', $this->getWorkProfileBlockAddingAccounts());
@@ -491,6 +511,14 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeIntegerValue('workProfilePasswordSignInFailureCountBeforeFactoryReset', $this->getWorkProfilePasswordSignInFailureCountBeforeFactoryReset());
         $writer->writeEnumValue('workProfileRequiredPasswordComplexity', $this->getWorkProfileRequiredPasswordComplexity());
         $writer->writeBooleanValue('workProfileRequirePassword', $this->getWorkProfileRequirePassword());
+    }
+
+    /**
+     * Sets the allowedGoogleAccountDomains property value. Determine domains allow-list for accounts that can be added to work profile.
+     * @param array<string>|null $value Value to set for the allowedGoogleAccountDomains property.
+    */
+    public function setAllowedGoogleAccountDomains(?array $value): void {
+        $this->getBackingStore()->set('allowedGoogleAccountDomains', $value);
     }
 
     /**
@@ -603,6 +631,14 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function setVpnEnableAlwaysOnLockdownMode(?bool $value): void {
         $this->getBackingStore()->set('vpnEnableAlwaysOnLockdownMode', $value);
+    }
+
+    /**
+     * Sets the workProfileAccountUse property value. An enum representing possible values for account use in work profile.
+     * @param AndroidWorkProfileAccountUse|null $value Value to set for the workProfileAccountUse property.
+    */
+    public function setWorkProfileAccountUse(?AndroidWorkProfileAccountUse $value): void {
+        $this->getBackingStore()->set('workProfileAccountUse', $value);
     }
 
     /**

@@ -15,6 +15,7 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 use Microsoft\Kiota\Abstractions\ResponseHandler;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
+use Psr\Http\Message\StreamInterface;
 
 /**
  * Provides operations to manage the inboundSharedUserProfiles property of the microsoft.graph.directory entity.
@@ -77,14 +78,14 @@ class InboundSharedUserProfileUserItemRequestBuilder
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+            return $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
     }
 
     /**
-     * Get inboundSharedUserProfiles from directory
+     * A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
      * @param InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -142,7 +143,7 @@ class InboundSharedUserProfileUserItemRequestBuilder
     }
 
     /**
-     * Get inboundSharedUserProfiles from directory
+     * A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
      * @param InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

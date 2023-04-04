@@ -34,7 +34,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the authorization property value. The authorization property
+     * Gets the authorization property value. Authorization requirements specified in the Teams app manifest.
      * @return TeamsAppAuthorization|null
     */
     public function getAuthorization(): ?TeamsAppAuthorization {
@@ -192,7 +192,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the authorization property value. The authorization property
+     * Sets the authorization property value. Authorization requirements specified in the Teams app manifest.
      * @param TeamsAppAuthorization|null $value Value to set for the authorization property.
     */
     public function setAuthorization(?TeamsAppAuthorization $value): void {

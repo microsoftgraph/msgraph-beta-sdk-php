@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get tenants from directory
+ * List the tenant references of an outboundSharedUserProfile.
 */
 class TenantsRequestBuilderGetQueryParameters 
 {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerTask extends PlannerDelta implements Parsable 
 {
     /**
-     * Instantiates a new plannerTask and sets the default values.
+     * Instantiates a new PlannerTask and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -254,7 +254,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the recurrence property value. The recurrence property
+     * Gets the recurrence property value. Defines active or inactive recurrence for the task. null when the recurrence has never been defined for the task.
      * @return PlannerTaskRecurrence|null
     */
     public function getRecurrence(): ?PlannerTaskRecurrence {
@@ -505,7 +505,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the recurrence property value. The recurrence property
+     * Sets the recurrence property value. Defines active or inactive recurrence for the task. null when the recurrence has never been defined for the task.
      * @param PlannerTaskRecurrence|null $value Value to set for the recurrence property.
     */
     public function setRecurrence(?PlannerTaskRecurrence $value): void {

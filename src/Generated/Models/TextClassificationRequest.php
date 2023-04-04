@@ -25,12 +25,21 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
+     * Gets the contentMetaData property value. The contentMetaData property
+     * @return ClassificationRequestContentMetaData|null
+    */
+    public function getContentMetaData(): ?ClassificationRequestContentMetaData {
+        return $this->getBackingStore()->get('contentMetaData');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'contentMetaData' => fn(ParseNode $n) => $o->setContentMetaData($n->getObjectValue([ClassificationRequestContentMetaData::class, 'createFromDiscriminatorValue'])),
             'fileExtension' => fn(ParseNode $n) => $o->setFileExtension($n->getStringValue()),
             'matchTolerancesToInclude' => fn(ParseNode $n) => $o->setMatchTolerancesToInclude($n->getEnumValue(MlClassificationMatchTolerance::class)),
             'scopesToRun' => fn(ParseNode $n) => $o->setScopesToRun($n->getEnumValue(SensitiveTypeScope::class)),
@@ -85,11 +94,20 @@ class TextClassificationRequest extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('contentMetaData', $this->getContentMetaData());
         $writer->writeStringValue('fileExtension', $this->getFileExtension());
         $writer->writeEnumValue('matchTolerancesToInclude', $this->getMatchTolerancesToInclude());
         $writer->writeEnumValue('scopesToRun', $this->getScopesToRun());
         $writer->writeCollectionOfPrimitiveValues('sensitiveTypeIds', $this->getSensitiveTypeIds());
         $writer->writeStringValue('text', $this->getText());
+    }
+
+    /**
+     * Sets the contentMetaData property value. The contentMetaData property
+     * @param ClassificationRequestContentMetaData|null $value Value to set for the contentMetaData property.
+    */
+    public function setContentMetaData(?ClassificationRequestContentMetaData $value): void {
+        $this->getBackingStore()->set('contentMetaData', $value);
     }
 
     /**

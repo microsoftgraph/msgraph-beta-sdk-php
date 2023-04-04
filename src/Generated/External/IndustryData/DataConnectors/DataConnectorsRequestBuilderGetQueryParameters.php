@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the azureDataLakeConnector objects and their properties.
+ * Get the industryDataConnector resources from the **dataConnector** navigation property.
 */
 class DataConnectorsRequestBuilderGetQueryParameters 
 {

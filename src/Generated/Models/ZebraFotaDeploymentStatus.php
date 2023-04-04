@@ -71,6 +71,14 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Gets the errorCode property value. An error code indicating the failure reason, when the deployment state is createFailed. Possible values: See zebraFotaErrorCode enum.
+     * @return ZebraFotaErrorCode|null
+    */
+    public function getErrorCode(): ?ZebraFotaErrorCode {
+        return $this->getBackingStore()->get('errorCode');
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -79,6 +87,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
         return  [
             'cancelRequested' => fn(ParseNode $n) => $o->setCancelRequested($n->getBooleanValue()),
             'completeOrCanceledDateTime' => fn(ParseNode $n) => $o->setCompleteOrCanceledDateTime($n->getDateTimeValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getEnumValue(ZebraFotaErrorCode::class)),
             'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ZebraFotaDeploymentState::class)),
@@ -206,6 +215,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('cancelRequested', $this->getCancelRequested());
         $writer->writeDateTimeValue('completeOrCanceledDateTime', $this->getCompleteOrCanceledDateTime());
+        $writer->writeEnumValue('errorCode', $this->getErrorCode());
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('state', $this->getState());
@@ -252,6 +262,14 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     */
     public function setCompleteOrCanceledDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completeOrCanceledDateTime', $value);
+    }
+
+    /**
+     * Sets the errorCode property value. An error code indicating the failure reason, when the deployment state is createFailed. Possible values: See zebraFotaErrorCode enum.
+     * @param ZebraFotaErrorCode|null $value Value to set for the errorCode property.
+    */
+    public function setErrorCode(?ZebraFotaErrorCode $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**

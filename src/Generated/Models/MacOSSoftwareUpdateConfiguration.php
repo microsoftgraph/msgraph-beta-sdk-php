@@ -69,6 +69,8 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
             'criticalUpdateBehavior' => fn(ParseNode $n) => $o->setCriticalUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)),
             'customUpdateTimeWindows' => fn(ParseNode $n) => $o->setCustomUpdateTimeWindows($n->getCollectionOfObjectValues([CustomUpdateTimeWindow::class, 'createFromDiscriminatorValue'])),
             'firmwareUpdateBehavior' => fn(ParseNode $n) => $o->setFirmwareUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)),
+            'maxUserDeferralsCount' => fn(ParseNode $n) => $o->setMaxUserDeferralsCount($n->getIntegerValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(MacOSPriority::class)),
             'updateScheduleType' => fn(ParseNode $n) => $o->setUpdateScheduleType($n->getEnumValue(MacOSSoftwareUpdateScheduleType::class)),
             'updateTimeWindowUtcOffsetInMinutes' => fn(ParseNode $n) => $o->setUpdateTimeWindowUtcOffsetInMinutes($n->getIntegerValue()),
         ]);
@@ -80,6 +82,22 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     */
     public function getFirmwareUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
         return $this->getBackingStore()->get('firmwareUpdateBehavior');
+    }
+
+    /**
+     * Gets the maxUserDeferralsCount property value. The maximum number of times the system allows the user to postpone an update before it’s installed. Supported values: 0 - 366. Valid values 0 to 365
+     * @return int|null
+    */
+    public function getMaxUserDeferralsCount(): ?int {
+        return $this->getBackingStore()->get('maxUserDeferralsCount');
+    }
+
+    /**
+     * Gets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
+     * @return MacOSPriority|null
+    */
+    public function getPriority(): ?MacOSPriority {
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -109,6 +127,8 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
         $writer->writeEnumValue('criticalUpdateBehavior', $this->getCriticalUpdateBehavior());
         $writer->writeCollectionOfObjectValues('customUpdateTimeWindows', $this->getCustomUpdateTimeWindows());
         $writer->writeEnumValue('firmwareUpdateBehavior', $this->getFirmwareUpdateBehavior());
+        $writer->writeIntegerValue('maxUserDeferralsCount', $this->getMaxUserDeferralsCount());
+        $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeEnumValue('updateScheduleType', $this->getUpdateScheduleType());
         $writer->writeIntegerValue('updateTimeWindowUtcOffsetInMinutes', $this->getUpdateTimeWindowUtcOffsetInMinutes());
     }
@@ -151,6 +171,22 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     */
     public function setFirmwareUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
         $this->getBackingStore()->set('firmwareUpdateBehavior', $value);
+    }
+
+    /**
+     * Sets the maxUserDeferralsCount property value. The maximum number of times the system allows the user to postpone an update before it’s installed. Supported values: 0 - 366. Valid values 0 to 365
+     * @param int|null $value Value to set for the maxUserDeferralsCount property.
+    */
+    public function setMaxUserDeferralsCount(?int $value): void {
+        $this->getBackingStore()->set('maxUserDeferralsCount', $value);
+    }
+
+    /**
+     * Sets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
+     * @param MacOSPriority|null $value Value to set for the priority property.
+    */
+    public function setPriority(?MacOSPriority $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
     /**

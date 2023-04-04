@@ -59,7 +59,6 @@ class MacOSLobApp extends MobileLobApp implements Parsable
             'buildNumber' => fn(ParseNode $n) => $o->setBuildNumber($n->getStringValue()),
             'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
             'childApps' => fn(ParseNode $n) => $o->setChildApps($n->getCollectionOfObjectValues([MacOSLobChildApp::class, 'createFromDiscriminatorValue'])),
-            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
             'ignoreVersionDetection' => fn(ParseNode $n) => $o->setIgnoreVersionDetection($n->getBooleanValue()),
             'installAsManaged' => fn(ParseNode $n) => $o->setInstallAsManaged($n->getBooleanValue()),
             'md5Hash' => fn(ParseNode $n) => $o->setMd5Hash($n->getCollectionOfPrimitiveValues()),
@@ -67,14 +66,6 @@ class MacOSLobApp extends MobileLobApp implements Parsable
             'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([MacOSMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
             'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getStringValue()),
         ]);
-    }
-
-    /**
-     * Gets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022).
-     * @return string|null
-    */
-    public function getIdentityVersion(): ?string {
-        return $this->getBackingStore()->get('identityVersion');
     }
 
     /**
@@ -134,7 +125,6 @@ class MacOSLobApp extends MobileLobApp implements Parsable
         $writer->writeStringValue('buildNumber', $this->getBuildNumber());
         $writer->writeStringValue('bundleId', $this->getBundleId());
         $writer->writeCollectionOfObjectValues('childApps', $this->getChildApps());
-        $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
         $writer->writeBooleanValue('ignoreVersionDetection', $this->getIgnoreVersionDetection());
         $writer->writeBooleanValue('installAsManaged', $this->getInstallAsManaged());
         $writer->writeCollectionOfPrimitiveValues('md5Hash', $this->getMd5Hash());
@@ -165,14 +155,6 @@ class MacOSLobApp extends MobileLobApp implements Parsable
     */
     public function setChildApps(?array $value): void {
         $this->getBackingStore()->set('childApps', $value);
-    }
-
-    /**
-     * Sets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022).
-     * @param string|null $value Value to set for the identityVersion property.
-    */
-    public function setIdentityVersion(?string $value): void {
-        $this->getBackingStore()->set('identityVersion', $value);
     }
 
     /**

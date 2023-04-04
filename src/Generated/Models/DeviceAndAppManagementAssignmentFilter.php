@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * A class containing the properties used for Assignment Filter.
-*/
 class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceAndAppManagementAssignmentFilter and sets the default values.
+     * Instantiates a new DeviceAndAppManagementAssignmentFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -26,6 +26,14 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     }
 
     /**
+     * Gets the activationLockWhenSupervisedAllowed property value. When TRUE, activation lock is allowed when the devices is in the supervised mode. When FALSE, activation lock is not allowed. Default is false.
+     * @return bool|null
+    */
+    public function getActivationLockWhenSupervisedAllowed(): ?bool {
+        return $this->getBackingStore()->get('activationLockWhenSupervisedAllowed');
+    }
+
+    /**
      * Gets the addingGameCenterFriendsBlocked property value. Yes prevents users from adding friends to Game Center. Available for devices running macOS versions 10.13 and later.
      * @return bool|null
     */
@@ -152,6 +160,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'activationLockWhenSupervisedAllowed' => fn(ParseNode $n) => $o->setActivationLockWhenSupervisedAllowed($n->getBooleanValue()),
             'addingGameCenterFriendsBlocked' => fn(ParseNode $n) => $o->setAddingGameCenterFriendsBlocked($n->getBooleanValue()),
             'airDropBlocked' => fn(ParseNode $n) => $o->setAirDropBlocked($n->getBooleanValue()),
             'appleWatchBlockAutoUnlock' => fn(ParseNode $n) => $o->setAppleWatchBlockAutoUnlock($n->getBooleanValue()),
@@ -572,6 +581,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeBooleanValue('activationLockWhenSupervisedAllowed', $this->getActivationLockWhenSupervisedAllowed());
         $writer->writeBooleanValue('addingGameCenterFriendsBlocked', $this->getAddingGameCenterFriendsBlocked());
         $writer->writeBooleanValue('airDropBlocked', $this->getAirDropBlocked());
         $writer->writeBooleanValue('appleWatchBlockAutoUnlock', $this->getAppleWatchBlockAutoUnlock());
@@ -631,6 +641,14 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
         $writer->writeIntegerValue('touchIdTimeoutInHours', $this->getTouchIdTimeoutInHours());
         $writer->writeEnumValue('updateDelayPolicy', $this->getUpdateDelayPolicy());
         $writer->writeBooleanValue('wallpaperModificationBlocked', $this->getWallpaperModificationBlocked());
+    }
+
+    /**
+     * Sets the activationLockWhenSupervisedAllowed property value. When TRUE, activation lock is allowed when the devices is in the supervised mode. When FALSE, activation lock is not allowed. Default is false.
+     * @param bool|null $value Value to set for the activationLockWhenSupervisedAllowed property.
+    */
+    public function setActivationLockWhenSupervisedAllowed(?bool $value): void {
+        $this->getBackingStore()->set('activationLockWhenSupervisedAllowed', $value);
     }
 
     /**

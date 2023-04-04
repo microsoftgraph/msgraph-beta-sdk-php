@@ -72,7 +72,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the tenants property value. The tenants property
+     * Gets the tenants property value. The collection of external Azure AD tenants that the user has shared profile data with. Read-only.
      * @return array<TenantReference>|null
     */
     public function getTenants(): ?array {
@@ -80,7 +80,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The object id of the external user. Read-only.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -123,7 +123,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the tenants property value. The tenants property
+     * Sets the tenants property value. The collection of external Azure AD tenants that the user has shared profile data with. Read-only.
      * @param array<TenantReference>|null $value Value to set for the tenants property.
     */
     public function setTenants(?array $value): void {
@@ -131,7 +131,7 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The object id of the external user. Read-only.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

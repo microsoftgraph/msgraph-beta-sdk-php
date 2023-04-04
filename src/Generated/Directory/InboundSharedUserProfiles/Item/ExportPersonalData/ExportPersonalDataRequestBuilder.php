@@ -49,10 +49,11 @@ class ExportPersonalDataRequestBuilder
     }
 
     /**
-     * Invoke action exportPersonalData
+     * Create a request to export the personal data for an inboundSharedUserProfile.
      * @param ExportPersonalDataPostRequestBody $body The request body
      * @param ExportPersonalDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/inboundshareduserprofile-exportpersonaldata?view=graph-rest-1.0 Find more info here
     */
     public function post(ExportPersonalDataPostRequestBody $body, ?ExportPersonalDataRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -68,7 +69,7 @@ class ExportPersonalDataRequestBuilder
     }
 
     /**
-     * Invoke action exportPersonalData
+     * Create a request to export the personal data for an inboundSharedUserProfile.
      * @param ExportPersonalDataPostRequestBody $body The request body
      * @param ExportPersonalDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
