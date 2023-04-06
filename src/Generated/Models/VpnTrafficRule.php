@@ -95,6 +95,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
             'remoteAddressRanges' => fn(ParseNode $n) => $o->setRemoteAddressRanges($n->getCollectionOfObjectValues([IPv4Range::class, 'createFromDiscriminatorValue'])),
             'remotePortRanges' => fn(ParseNode $n) => $o->setRemotePortRanges($n->getCollectionOfObjectValues([NumberRange::class, 'createFromDiscriminatorValue'])),
             'routingPolicyType' => fn(ParseNode $n) => $o->setRoutingPolicyType($n->getEnumValue(VpnTrafficRuleRoutingPolicyType::class)),
+            'vpnTrafficDirection' => fn(ParseNode $n) => $o->setVpnTrafficDirection($n->getEnumValue(VpnTrafficDirection::class)),
         ];
     }
 
@@ -163,6 +164,14 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the vpnTrafficDirection property value. Specify whether the rule applies to inbound traffic or outbound traffic.
+     * @return VpnTrafficDirection|null
+    */
+    public function getVpnTrafficDirection(): ?VpnTrafficDirection {
+        return $this->getBackingStore()->get('vpnTrafficDirection');
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -178,6 +187,7 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('remoteAddressRanges', $this->getRemoteAddressRanges());
         $writer->writeCollectionOfObjectValues('remotePortRanges', $this->getRemotePortRanges());
         $writer->writeEnumValue('routingPolicyType', $this->getRoutingPolicyType());
+        $writer->writeEnumValue('vpnTrafficDirection', $this->getVpnTrafficDirection());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -283,6 +293,14 @@ class VpnTrafficRule implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setRoutingPolicyType(?VpnTrafficRuleRoutingPolicyType $value): void {
         $this->getBackingStore()->set('routingPolicyType', $value);
+    }
+
+    /**
+     * Sets the vpnTrafficDirection property value. Specify whether the rule applies to inbound traffic or outbound traffic.
+     * @param VpnTrafficDirection|null $value Value to set for the vpnTrafficDirection property.
+    */
+    public function setVpnTrafficDirection(?VpnTrafficDirection $value): void {
+        $this->getBackingStore()->set('vpnTrafficDirection', $value);
     }
 
 }

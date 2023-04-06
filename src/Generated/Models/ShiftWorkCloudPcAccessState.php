@@ -12,4 +12,5 @@ class ShiftWorkCloudPcAccessState extends Enum {
     public const ACTIVATING = 'activating';
     public const WAITLISTED = 'waitlisted';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const STANDBY_MODE = 'standbyMode';
 }

@@ -1,15 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\GetProvisionedCloudPCsWithGroupIdWithServicePlanId;
 
+use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\Graph\Beta\Generated\Models\CloudPC;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsUpdateStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
+class GetProvisionedCloudPCsWithGroupIdWithServicePlanIdResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * Instantiates a new WindowsUpdateStateCollectionResponse and sets the default values.
+     * Instantiates a new getProvisionedCloudPCsWithGroupIdWithServicePlanIdResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -18,10 +20,10 @@ class WindowsUpdateStateCollectionResponse extends BaseCollectionPaginationCount
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return WindowsUpdateStateCollectionResponse
+     * @return GetProvisionedCloudPCsWithGroupIdWithServicePlanIdResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsUpdateStateCollectionResponse {
-        return new WindowsUpdateStateCollectionResponse();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetProvisionedCloudPCsWithGroupIdWithServicePlanIdResponse {
+        return new GetProvisionedCloudPCsWithGroupIdWithServicePlanIdResponse();
     }
 
     /**
@@ -31,13 +33,13 @@ class WindowsUpdateStateCollectionResponse extends BaseCollectionPaginationCount
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([WindowsUpdateState::class, 'createFromDiscriminatorValue'])),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the value property value. The value property
-     * @return array<WindowsUpdateState>|null
+     * @return array<CloudPC>|null
     */
     public function getValue(): ?array {
         return $this->getBackingStore()->get('value');
@@ -54,7 +56,7 @@ class WindowsUpdateStateCollectionResponse extends BaseCollectionPaginationCount
 
     /**
      * Sets the value property value. The value property
-     * @param array<WindowsUpdateState>|null $value Value to set for the value property.
+     * @param array<CloudPC>|null $value Value to set for the value property.
     */
     public function setValue(?array $value): void {
         $this->getBackingStore()->set('value', $value);

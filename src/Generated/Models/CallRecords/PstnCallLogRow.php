@@ -180,6 +180,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
             'licenseCapability' => fn(ParseNode $n) => $o->setLicenseCapability($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'operator' => fn(ParseNode $n) => $o->setOperator($n->getStringValue()),
+            'otherPartyCountryCode' => fn(ParseNode $n) => $o->setOtherPartyCountryCode($n->getStringValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'tenantCountryCode' => fn(ParseNode $n) => $o->setTenantCountryCode($n->getStringValue()),
             'usageCountryCode' => fn(ParseNode $n) => $o->setUsageCountryCode($n->getStringValue()),
@@ -227,6 +228,14 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function getOperator(): ?string {
         return $this->getBackingStore()->get('operator');
+    }
+
+    /**
+     * Gets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * @return string|null
+    */
+    public function getOtherPartyCountryCode(): ?string {
+        return $this->getBackingStore()->get('otherPartyCountryCode');
     }
 
     /**
@@ -300,6 +309,7 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('licenseCapability', $this->getLicenseCapability());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('operator', $this->getOperator());
+        $writer->writeStringValue('otherPartyCountryCode', $this->getOtherPartyCountryCode());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
         $writer->writeStringValue('tenantCountryCode', $this->getTenantCountryCode());
         $writer->writeStringValue('usageCountryCode', $this->getUsageCountryCode());
@@ -467,6 +477,14 @@ class PstnCallLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOperator(?string $value): void {
         $this->getBackingStore()->set('operator', $value);
+    }
+
+    /**
+     * Sets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * @param string|null $value Value to set for the otherPartyCountryCode property.
+    */
+    public function setOtherPartyCountryCode(?string $value): void {
+        $this->getBackingStore()->set('otherPartyCountryCode', $value);
     }
 
     /**

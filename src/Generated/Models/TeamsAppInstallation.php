@@ -32,7 +32,7 @@ class TeamsAppInstallation extends Entity implements Parsable
     }
 
     /**
-     * Gets the consentedPermissionSet property value. The consentedPermissionSet property
+     * Gets the consentedPermissionSet property value. The set of resource-specific permissions consented to while installing or upgrading the teamsApp.
      * @return TeamsAppPermissionSet|null
     */
     public function getConsentedPermissionSet(): ?TeamsAppPermissionSet {
@@ -80,7 +80,7 @@ class TeamsAppInstallation extends Entity implements Parsable
     }
 
     /**
-     * Sets the consentedPermissionSet property value. The consentedPermissionSet property
+     * Sets the consentedPermissionSet property value. The set of resource-specific permissions consented to while installing or upgrading the teamsApp.
      * @param TeamsAppPermissionSet|null $value Value to set for the consentedPermissionSet property.
     */
     public function setConsentedPermissionSet(?TeamsAppPermissionSet $value): void {

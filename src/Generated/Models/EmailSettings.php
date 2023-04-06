@@ -72,7 +72,7 @@ class EmailSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the senderDomain property value. Specifies the domain that should be used when sending email notifications. This domain must be verified in order to be used.
+     * Gets the senderDomain property value. Specifies the domain that should be used when sending email notifications. This domain must be verified in order to be used. We recommend that you use a domain that has the appropriate DNS records to facilitate email validation, like SPF, DKIM, DMARC, and MX, because this then complies with the RFC compliance for sending and receiving email. For details, see Learn more about Exchange Online Email Routing.
      * @return string|null
     */
     public function getSenderDomain(): ?string {
@@ -123,7 +123,7 @@ class EmailSettings implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the senderDomain property value. Specifies the domain that should be used when sending email notifications. This domain must be verified in order to be used.
+     * Sets the senderDomain property value. Specifies the domain that should be used when sending email notifications. This domain must be verified in order to be used. We recommend that you use a domain that has the appropriate DNS records to facilitate email validation, like SPF, DKIM, DMARC, and MX, because this then complies with the RFC compliance for sending and receiving email. For details, see Learn more about Exchange Online Email Routing.
      * @param string|null $value Value to set for the senderDomain property.
     */
     public function setSenderDomain(?string $value): void {

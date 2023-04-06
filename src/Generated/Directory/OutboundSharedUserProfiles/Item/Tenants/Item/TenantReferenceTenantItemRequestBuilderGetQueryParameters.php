@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get tenants from directory
+ * The collection of external Azure AD tenants that the user has shared profile data with. Read-only.
 */
 class TenantReferenceTenantItemRequestBuilderGetQueryParameters 
 {

@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Messages
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Messages\Item\HostedContents\Item\Value\ContentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ChatMessageHostedContent;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class ChatMessageHostedContentItemRequestBuilder 
 {
+    /**
+     * Provides operations to manage the media for the group entity.
+    */
+    public function content(): ContentRequestBuilder {
+        return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */

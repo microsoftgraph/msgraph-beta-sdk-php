@@ -51,7 +51,16 @@ class CallTranscript extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'metadataContent' => fn(ParseNode $n) => $o->setMetadataContent($n->getBinaryContent()),
         ]);
+    }
+
+    /**
+     * Gets the metadataContent property value. A field that represents the time-aligned metadata of the utterances in the transcript. Read-only.
+     * @return StreamInterface|null
+    */
+    public function getMetadataContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('metadataContent');
     }
 
     /**
@@ -62,6 +71,7 @@ class CallTranscript extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBinaryContent('content', $this->getContent());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeBinaryContent('metadataContent', $this->getMetadataContent());
     }
 
     /**
@@ -78,6 +88,14 @@ class CallTranscript extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the metadataContent property value. A field that represents the time-aligned metadata of the utterances in the transcript. Read-only.
+     * @param StreamInterface|null $value Value to set for the metadataContent property.
+    */
+    public function setMetadataContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('metadataContent', $value);
     }
 
 }

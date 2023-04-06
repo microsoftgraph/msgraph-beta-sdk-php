@@ -58,7 +58,7 @@ class PassiveDnsRequestBuilder
     }
 
     /**
-     * Get a list of passiveDnsRecord resources.
+     * Get a list of passiveDnsRecord resources associated to a host.
      * @param PassiveDnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/security-host-list-passivedns?view=graph-rest-1.0 Find more info here
@@ -77,7 +77,7 @@ class PassiveDnsRequestBuilder
     }
 
     /**
-     * Get a list of passiveDnsRecord resources.
+     * Get a list of passiveDnsRecord resources associated to a host.
      * @param PassiveDnsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

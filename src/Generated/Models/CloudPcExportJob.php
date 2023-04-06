@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcExportJob extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcExportJob and sets the default values.
+     * Instantiates a new CloudPcExportJob and sets the default values.
     */
     public function __construct() {
         parent::__construct();

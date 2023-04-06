@@ -89,10 +89,10 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting.
+     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
-     * @link https://docs.microsoft.com/graph/api/externalmeetingregistration-get?view=graph-rest-1.0 Find more info here
+     * @link https://docs.microsoft.com/graph/api/meetingregistration-get?view=graph-rest-1.0 Find more info here
     */
     public function get(?RegistrationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -149,7 +149,7 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Get the externalMeetingRegistration details associated with an onlineMeeting.
+     * Get the meetingRegistration details associated with an onlineMeeting on behalf of the organizer.
      * @param RegistrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

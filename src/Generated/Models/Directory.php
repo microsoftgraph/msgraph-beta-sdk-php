@@ -103,7 +103,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the inboundSharedUserProfiles property value. The inboundSharedUserProfiles property
+     * Gets the inboundSharedUserProfiles property value. A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
      * @return array<InboundSharedUserProfile>|null
     */
     public function getInboundSharedUserProfiles(): ?array {
@@ -219,7 +219,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the inboundSharedUserProfiles property value. The inboundSharedUserProfiles property
+     * Sets the inboundSharedUserProfiles property value. A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
      * @param array<InboundSharedUserProfile>|null $value Value to set for the inboundSharedUserProfiles property.
     */
     public function setInboundSharedUserProfiles(?array $value): void {

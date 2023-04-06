@@ -84,7 +84,7 @@ class InboundSharedUserProfileUserItemRequestBuilder
     }
 
     /**
-     * Get inboundSharedUserProfiles from directory
+     * A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
      * @param InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -142,7 +142,7 @@ class InboundSharedUserProfileUserItemRequestBuilder
     }
 
     /**
-     * Get inboundSharedUserProfiles from directory
+     * A collection of external Azure AD users whose profile data has been shared with the Azure AD tenant. Nullable.
      * @param InboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

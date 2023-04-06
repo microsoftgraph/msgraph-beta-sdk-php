@@ -42,7 +42,12 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementI
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceNonComplianceReport\GetDeviceNonComplianceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicePoliciesComplianceReport\GetDevicePoliciesComplianceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicePolicySettingsComplianceReport\GetDevicePolicySettingsComplianceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesStatusByPolicyPlatformComplianceReport\GetDevicesStatusByPolicyPlatformComplianceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesStatusBySettingReport\GetDevicesStatusBySettingReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusByCompliacePolicyReport\GetDeviceStatusByCompliacePolicyReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusByCompliancePolicySettingReport\GetDeviceStatusByCompliancePolicySettingReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusSummaryByCompliacePolicyReport\GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusSummaryByCompliancePolicySettingsReport\GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesWithoutCompliancePolicyReport\GetDevicesWithoutCompliancePolicyReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEncryptionReportForDevices\GetEncryptionReportForDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEnrollmentConfigurationPoliciesByDevice\GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder;
@@ -332,10 +337,45 @@ class ReportsRequestBuilder
     }
     
     /**
+     * Provides operations to call the getDevicesStatusByPolicyPlatformComplianceReport method.
+    */
+    public function getDevicesStatusByPolicyPlatformComplianceReport(): GetDevicesStatusByPolicyPlatformComplianceReportRequestBuilder {
+        return new GetDevicesStatusByPolicyPlatformComplianceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the getDevicesStatusBySettingReport method.
     */
     public function getDevicesStatusBySettingReport(): GetDevicesStatusBySettingReportRequestBuilder {
         return new GetDevicesStatusBySettingReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDeviceStatusByCompliacePolicyReport method.
+    */
+    public function getDeviceStatusByCompliacePolicyReport(): GetDeviceStatusByCompliacePolicyReportRequestBuilder {
+        return new GetDeviceStatusByCompliacePolicyReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDeviceStatusByCompliancePolicySettingReport method.
+    */
+    public function getDeviceStatusByCompliancePolicySettingReport(): GetDeviceStatusByCompliancePolicySettingReportRequestBuilder {
+        return new GetDeviceStatusByCompliancePolicySettingReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDeviceStatusSummaryByCompliacePolicyReport method.
+    */
+    public function getDeviceStatusSummaryByCompliacePolicyReport(): GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder {
+        return new GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getDeviceStatusSummaryByCompliancePolicySettingsReport method.
+    */
+    public function getDeviceStatusSummaryByCompliancePolicySettingsReport(): GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder {
+        return new GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

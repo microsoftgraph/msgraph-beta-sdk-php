@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Transcripts\Item\Content\ContentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Transcripts\Item\MetadataContent\MetadataContentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CallTranscript;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -25,6 +26,13 @@ class CallTranscriptItemRequestBuilder
     */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the commsApplication entity.
+    */
+    public function metadataContent(): MetadataContentRequestBuilder {
+        return new MetadataContentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

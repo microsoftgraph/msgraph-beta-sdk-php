@@ -16,4 +16,6 @@ class CloudPcStatus extends Enum {
     public const RESTORING = 'restoring';
     public const PENDING_PROVISION = 'pendingProvision';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const MOVING_REGION = 'movingRegion';
+    public const RESIZE_PENDING_LICENSE = 'resizePendingLicense';
 }

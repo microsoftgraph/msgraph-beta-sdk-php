@@ -99,6 +99,7 @@ class DeviceManagementIntent extends Entity implements Parsable
             'deviceStateSummary' => fn(ParseNode $n) => $o->setDeviceStateSummary($n->getObjectValue([DeviceManagementIntentDeviceStateSummary::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'isAssigned' => fn(ParseNode $n) => $o->setIsAssigned($n->getBooleanValue()),
+            'isMigratingToConfigurationPolicy' => fn(ParseNode $n) => $o->setIsMigratingToConfigurationPolicy($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getCollectionOfObjectValues([DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'])),
@@ -114,6 +115,14 @@ class DeviceManagementIntent extends Entity implements Parsable
     */
     public function getIsAssigned(): ?bool {
         return $this->getBackingStore()->get('isAssigned');
+    }
+
+    /**
+     * Gets the isMigratingToConfigurationPolicy property value. Signifies whether or not the intent is being migrated to the configurationPolicies endpoint
+     * @return bool|null
+    */
+    public function getIsMigratingToConfigurationPolicy(): ?bool {
+        return $this->getBackingStore()->get('isMigratingToConfigurationPolicy');
     }
 
     /**
@@ -178,6 +187,7 @@ class DeviceManagementIntent extends Entity implements Parsable
         $writer->writeObjectValue('deviceStateSummary', $this->getDeviceStateSummary());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('isAssigned', $this->getIsAssigned());
+        $writer->writeBooleanValue('isMigratingToConfigurationPolicy', $this->getIsMigratingToConfigurationPolicy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
@@ -248,6 +258,14 @@ class DeviceManagementIntent extends Entity implements Parsable
     */
     public function setIsAssigned(?bool $value): void {
         $this->getBackingStore()->set('isAssigned', $value);
+    }
+
+    /**
+     * Sets the isMigratingToConfigurationPolicy property value. Signifies whether or not the intent is being migrated to the configurationPolicies endpoint
+     * @param bool|null $value Value to set for the isMigratingToConfigurationPolicy property.
+    */
+    public function setIsMigratingToConfigurationPolicy(?bool $value): void {
+        $this->getBackingStore()->set('isMigratingToConfigurationPolicy', $value);
     }
 
     /**

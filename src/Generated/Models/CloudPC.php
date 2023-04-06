@@ -78,6 +78,7 @@ class CloudPC extends Entity implements Parsable
             'onPremisesConnectionName' => fn(ParseNode $n) => $o->setOnPremisesConnectionName($n->getStringValue()),
             'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)),
             'partnerAgentInstallResults' => fn(ParseNode $n) => $o->setPartnerAgentInstallResults($n->getCollectionOfObjectValues([CloudPcPartnerAgentInstallResult::class, 'createFromDiscriminatorValue'])),
+            'powerState' => fn(ParseNode $n) => $o->setPowerState($n->getEnumValue(CloudPcPowerState::class)),
             'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
             'provisioningPolicyName' => fn(ParseNode $n) => $o->setProvisioningPolicyName($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
@@ -169,6 +170,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function getPartnerAgentInstallResults(): ?array {
         return $this->getBackingStore()->get('partnerAgentInstallResults');
+    }
+
+    /**
+     * Gets the powerState property value. The powerState property
+     * @return CloudPcPowerState|null
+    */
+    public function getPowerState(): ?CloudPcPowerState {
+        return $this->getBackingStore()->get('powerState');
     }
 
     /**
@@ -271,6 +280,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeStringValue('onPremisesConnectionName', $this->getOnPremisesConnectionName());
         $writer->writeEnumValue('osVersion', $this->getOsVersion());
         $writer->writeCollectionOfObjectValues('partnerAgentInstallResults', $this->getPartnerAgentInstallResults());
+        $writer->writeEnumValue('powerState', $this->getPowerState());
         $writer->writeStringValue('provisioningPolicyId', $this->getProvisioningPolicyId());
         $writer->writeStringValue('provisioningPolicyName', $this->getProvisioningPolicyName());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
@@ -393,6 +403,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setPartnerAgentInstallResults(?array $value): void {
         $this->getBackingStore()->set('partnerAgentInstallResults', $value);
+    }
+
+    /**
+     * Sets the powerState property value. The powerState property
+     * @param CloudPcPowerState|null $value Value to set for the powerState property.
+    */
+    public function setPowerState(?CloudPcPowerState $value): void {
+        $this->getBackingStore()->set('powerState', $value);
     }
 
     /**
