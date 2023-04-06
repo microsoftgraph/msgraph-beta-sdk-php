@@ -92,14 +92,6 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the deviceUpdateStates property value. Windows update for business configuration device states. This collection can contain a maximum of 500 elements.
-     * @return array<WindowsUpdateState>|null
-    */
-    public function getDeviceUpdateStates(): ?array {
-        return $this->getBackingStore()->get('deviceUpdateStates');
-    }
-
-    /**
      * Gets the driversExcluded property value. When TRUE, excludes Windows update Drivers. When FALSE, does not exclude Windows update Drivers. Returned by default. Query parameters are not supported.
      * @return bool|null
     */
@@ -202,7 +194,6 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
             'deadlineForQualityUpdatesInDays' => fn(ParseNode $n) => $o->setDeadlineForQualityUpdatesInDays($n->getIntegerValue()),
             'deadlineGracePeriodInDays' => fn(ParseNode $n) => $o->setDeadlineGracePeriodInDays($n->getIntegerValue()),
             'deliveryOptimizationMode' => fn(ParseNode $n) => $o->setDeliveryOptimizationMode($n->getEnumValue(WindowsDeliveryOptimizationMode::class)),
-            'deviceUpdateStates' => fn(ParseNode $n) => $o->setDeviceUpdateStates($n->getCollectionOfObjectValues([WindowsUpdateState::class, 'createFromDiscriminatorValue'])),
             'driversExcluded' => fn(ParseNode $n) => $o->setDriversExcluded($n->getBooleanValue()),
             'engagedRestartDeadlineInDays' => fn(ParseNode $n) => $o->setEngagedRestartDeadlineInDays($n->getIntegerValue()),
             'engagedRestartSnoozeScheduleInDays' => fn(ParseNode $n) => $o->setEngagedRestartSnoozeScheduleInDays($n->getIntegerValue()),
@@ -384,7 +375,6 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
         $writer->writeIntegerValue('deadlineForQualityUpdatesInDays', $this->getDeadlineForQualityUpdatesInDays());
         $writer->writeIntegerValue('deadlineGracePeriodInDays', $this->getDeadlineGracePeriodInDays());
         $writer->writeEnumValue('deliveryOptimizationMode', $this->getDeliveryOptimizationMode());
-        $writer->writeCollectionOfObjectValues('deviceUpdateStates', $this->getDeviceUpdateStates());
         $writer->writeBooleanValue('driversExcluded', $this->getDriversExcluded());
         $writer->writeIntegerValue('engagedRestartDeadlineInDays', $this->getEngagedRestartDeadlineInDays());
         $writer->writeIntegerValue('engagedRestartSnoozeScheduleInDays', $this->getEngagedRestartSnoozeScheduleInDays());
@@ -475,14 +465,6 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     */
     public function setDeliveryOptimizationMode(?WindowsDeliveryOptimizationMode $value): void {
         $this->getBackingStore()->set('deliveryOptimizationMode', $value);
-    }
-
-    /**
-     * Sets the deviceUpdateStates property value. Windows update for business configuration device states. This collection can contain a maximum of 500 elements.
-     * @param array<WindowsUpdateState>|null $value Value to set for the deviceUpdateStates property.
-    */
-    public function setDeviceUpdateStates(?array $value): void {
-        $this->getBackingStore()->set('deviceUpdateStates', $value);
     }
 
     /**

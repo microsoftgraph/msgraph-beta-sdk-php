@@ -539,6 +539,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.delegatedPermissionClassification': return new DelegatedPermissionClassification();
                 case '#microsoft.graph.deletedItemContainer': return new DeletedItemContainer();
                 case '#microsoft.graph.deletedTeam': return new DeletedTeam();
+                case '#microsoft.graph.deltaParticipants': return new DeltaParticipants();
                 case '#microsoft.graph.depEnrollmentBaseProfile': return new DepEnrollmentBaseProfile();
                 case '#microsoft.graph.depEnrollmentProfile': return new DepEnrollmentProfile();
                 case '#microsoft.graph.depIOSEnrollmentProfile': return new DepIOSEnrollmentProfile();

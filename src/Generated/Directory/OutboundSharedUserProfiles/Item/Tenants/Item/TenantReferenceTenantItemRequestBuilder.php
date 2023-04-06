@@ -76,7 +76,7 @@ class TenantReferenceTenantItemRequestBuilder
     }
 
     /**
-     * Get tenants from directory
+     * The collection of external Azure AD tenants that the user has shared profile data with. Read-only.
      * @param TenantReferenceTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
@@ -134,7 +134,7 @@ class TenantReferenceTenantItemRequestBuilder
     }
 
     /**
-     * Get tenants from directory
+     * The collection of external Azure AD tenants that the user has shared profile data with. Read-only.
      * @param TenantReferenceTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

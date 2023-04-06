@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\Connections\Item\Items\Item;
+namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\BulkResize;
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
 */
-class ExternalItemItemRequestBuilderPatchRequestConfiguration 
+class BulkResizeRequestBuilderPostRequestConfiguration 
 {
     /**
      * @var array<string, array<string>|string>|null $headers Request headers
@@ -20,7 +20,7 @@ class ExternalItemItemRequestBuilderPatchRequestConfiguration
     public ?array $options = null;
     
     /**
-     * Instantiates a new ExternalItemItemRequestBuilderPatchRequestConfiguration and sets the default values.
+     * Instantiates a new bulkResizeRequestBuilderPostRequestConfiguration and sets the default values.
      * @param array<string, array<string>|string>|null $headers Request headers
      * @param array<RequestOption>|null $options Request options
     */

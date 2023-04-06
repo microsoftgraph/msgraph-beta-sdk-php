@@ -49,7 +49,7 @@ class IdentityGovernanceResumeRequestBuilder
     }
 
     /**
-     * Resume a task processing result that's `inProgress`. An Azure Logic Apps system-assigned managed identity calls this API.
+     * Resume a task processing result that's `inProgress`. In the default case an Azure Logic Apps system-assigned managed identity calls this API. For more information read about Lifecycle Workflows extensibility approach.
      * @param ResumePostRequestBody $body The request body
      * @param IdentityGovernanceResumeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
@@ -69,7 +69,7 @@ class IdentityGovernanceResumeRequestBuilder
     }
 
     /**
-     * Resume a task processing result that's `inProgress`. An Azure Logic Apps system-assigned managed identity calls this API.
+     * Resume a task processing result that's `inProgress`. In the default case an Azure Logic Apps system-assigned managed identity calls this API. For more information read about Lifecycle Workflows extensibility approach.
      * @param ResumePostRequestBody $body The request body
      * @param IdentityGovernanceResumeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

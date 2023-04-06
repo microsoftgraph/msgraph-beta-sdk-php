@@ -40,6 +40,7 @@ class CloudPcServicePlan extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
             'ramInGB' => fn(ParseNode $n) => $o->setRamInGB($n->getIntegerValue()),
             'storageInGB' => fn(ParseNode $n) => $o->setStorageInGB($n->getIntegerValue()),
             'supportedSolution' => fn(ParseNode $n) => $o->setSupportedSolution($n->getEnumValue(CloudPcManagementService::class)),
@@ -47,6 +48,14 @@ class CloudPcServicePlan extends Entity implements Parsable
             'userProfileInGB' => fn(ParseNode $n) => $o->setUserProfileInGB($n->getIntegerValue()),
             'vCpuCount' => fn(ParseNode $n) => $o->setVCpuCount($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs. By default, the license type is dedicated. Possible values are: dedicated, shared, unknownFutureValue.
+     * @return CloudPcProvisioningType|null
+    */
+    public function getProvisioningType(): ?CloudPcProvisioningType {
+        return $this->getBackingStore()->get('provisioningType');
     }
 
     /**
@@ -104,6 +113,7 @@ class CloudPcServicePlan extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
         $writer->writeIntegerValue('ramInGB', $this->getRamInGB());
         $writer->writeIntegerValue('storageInGB', $this->getStorageInGB());
         $writer->writeEnumValue('supportedSolution', $this->getSupportedSolution());
@@ -118,6 +128,14 @@ class CloudPcServicePlan extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs. By default, the license type is dedicated. Possible values are: dedicated, shared, unknownFutureValue.
+     * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
+    */
+    public function setProvisioningType(?CloudPcProvisioningType $value): void {
+        $this->getBackingStore()->set('provisioningType', $value);
     }
 
     /**

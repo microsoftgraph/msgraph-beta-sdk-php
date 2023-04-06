@@ -59,7 +59,7 @@ class InstalledAppsRequestBuilder
     }
 
     /**
-     * List all app installations within a chat.
+     * List all app installations within a chat. If the chat is associated with an onlineMeeting instance, then, effectively, the **teamsApp**s installed in the meeting will be listed.
      * @param InstalledAppsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/chat-list-installedapps?view=graph-rest-1.0 Find more info here
@@ -98,7 +98,7 @@ class InstalledAppsRequestBuilder
     }
 
     /**
-     * List all app installations within a chat.
+     * List all app installations within a chat. If the chat is associated with an onlineMeeting instance, then, effectively, the **teamsApp**s installed in the meeting will be listed.
      * @param InstalledAppsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

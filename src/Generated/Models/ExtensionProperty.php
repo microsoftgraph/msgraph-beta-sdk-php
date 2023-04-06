@@ -50,10 +50,19 @@ class ExtensionProperty extends DirectoryObject implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
             'dataType' => fn(ParseNode $n) => $o->setDataType($n->getStringValue()),
+            'isMultiValued' => fn(ParseNode $n) => $o->setIsMultiValued($n->getBooleanValue()),
             'isSyncedFromOnPremises' => fn(ParseNode $n) => $o->setIsSyncedFromOnPremises($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'targetObjects' => fn(ParseNode $n) => $o->setTargetObjects($n->getCollectionOfPrimitiveValues()),
         ]);
+    }
+
+    /**
+     * Gets the isMultiValued property value. The isMultiValued property
+     * @return bool|null
+    */
+    public function getIsMultiValued(): ?bool {
+        return $this->getBackingStore()->get('isMultiValued');
     }
 
     /**
@@ -88,6 +97,7 @@ class ExtensionProperty extends DirectoryObject implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
         $writer->writeStringValue('dataType', $this->getDataType());
+        $writer->writeBooleanValue('isMultiValued', $this->getIsMultiValued());
         $writer->writeBooleanValue('isSyncedFromOnPremises', $this->getIsSyncedFromOnPremises());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeCollectionOfPrimitiveValues('targetObjects', $this->getTargetObjects());
@@ -107,6 +117,14 @@ class ExtensionProperty extends DirectoryObject implements Parsable
     */
     public function setDataType(?string $value): void {
         $this->getBackingStore()->set('dataType', $value);
+    }
+
+    /**
+     * Sets the isMultiValued property value. The isMultiValued property
+     * @param bool|null $value Value to set for the isMultiValued property.
+    */
+    public function setIsMultiValued(?bool $value): void {
+        $this->getBackingStore()->set('isMultiValued', $value);
     }
 
     /**

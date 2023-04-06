@@ -8,7 +8,10 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\CloudPC;
 use Microsoft\Graph\Beta\Generated\Models\CloudPCCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\BulkResize\BulkResizeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\GetProvisionedCloudPCsWithGroupIdWithServicePlanId\GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\ValidateBulkResize\ValidateBulkResizeRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -21,6 +24,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 */
 class CloudPCsRequestBuilder 
 {
+    /**
+     * Provides operations to call the bulkResize method.
+    */
+    public function bulkResize(): BulkResizeRequestBuilder {
+        return new BulkResizeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to count the resources in the collection.
     */
@@ -42,6 +52,13 @@ class CloudPCsRequestBuilder
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
+    
+    /**
+     * Provides operations to call the validateBulkResize method.
+    */
+    public function validateBulkResize(): ValidateBulkResizeRequestBuilder {
+        return new ValidateBulkResizeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * Instantiates a new CloudPCsRequestBuilder and sets the default values.
@@ -75,6 +92,16 @@ class CloudPCsRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
+    }
+
+    /**
+     * Provides operations to call the getProvisionedCloudPCs method.
+     * @param string $groupId Usage: groupId='{groupId}'
+     * @param string $servicePlanId Usage: servicePlanId='{servicePlanId}'
+     * @return GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder
+    */
+    public function getProvisionedCloudPCsWithGroupIdWithServicePlanId(string $groupId, string $servicePlanId): GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder {
+        return new GetProvisionedCloudPCsWithGroupIdWithServicePlanIdRequestBuilder($this->pathParameters, $this->requestAdapter, $groupId, $servicePlanId);
     }
 
     /**

@@ -69,7 +69,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the nextInSeriesTaskId property value. The nextInSeriesTaskId property
+     * Gets the nextInSeriesTaskId property value. The taskId of the next task in this series. This value is assigned at the time the next task in the series is created, and is null prior to that time.
      * @return string|null
     */
     public function getNextInSeriesTaskId(): ?string {
@@ -77,7 +77,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the occurrenceId property value. The occurrenceId property
+     * Gets the occurrenceId property value. The 1-based index of this task within the recurrence series. The first task in a series has the value 1, the next task in the series has the value 2, and so on.
      * @return int|null
     */
     public function getOccurrenceId(): ?int {
@@ -93,7 +93,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the previousInSeriesTaskId property value. The previousInSeriesTaskId property
+     * Gets the previousInSeriesTaskId property value. The taskId of the previous task in this series. null for the first task in a series since it has no predecessor. All subsequent tasks in the series have a value that corresponds to their predecessors.
      * @return string|null
     */
     public function getPreviousInSeriesTaskId(): ?string {
@@ -101,7 +101,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the recurrenceStartDateTime property value. The recurrenceStartDateTime property
+     * Gets the recurrenceStartDateTime property value. The date and time when this recurrence series begin. For the first task in a series (occurrenceId = 1) this value is copied from schedule.patternStartDateTime. For subsequent tasks in the series (occurrenceId >= 2) this value is copied from the previous task and never changes; it preserves the start date of the recurring series. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getRecurrenceStartDateTime(): ?DateTime {
@@ -109,7 +109,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the schedule property value. The schedule property
+     * Gets the schedule property value. The schedule for recurrence. Clients define and edit recurrence by specifying the schedule. If nextInSeriesTaskId isn't assigned, clients may terminate the series by assigning null to this property.
      * @return PlannerRecurrenceSchedule|null
     */
     public function getSchedule(): ?PlannerRecurrenceSchedule {
@@ -117,7 +117,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the seriesId property value. The seriesId property
+     * Gets the seriesId property value. The recurrence series this task belongs to. A GUID-based value that serves as the unique identifier for a series.
      * @return string|null
     */
     public function getSeriesId(): ?string {
@@ -156,7 +156,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the nextInSeriesTaskId property value. The nextInSeriesTaskId property
+     * Sets the nextInSeriesTaskId property value. The taskId of the next task in this series. This value is assigned at the time the next task in the series is created, and is null prior to that time.
      * @param string|null $value Value to set for the nextInSeriesTaskId property.
     */
     public function setNextInSeriesTaskId(?string $value): void {
@@ -164,7 +164,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the occurrenceId property value. The occurrenceId property
+     * Sets the occurrenceId property value. The 1-based index of this task within the recurrence series. The first task in a series has the value 1, the next task in the series has the value 2, and so on.
      * @param int|null $value Value to set for the occurrenceId property.
     */
     public function setOccurrenceId(?int $value): void {
@@ -180,7 +180,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the previousInSeriesTaskId property value. The previousInSeriesTaskId property
+     * Sets the previousInSeriesTaskId property value. The taskId of the previous task in this series. null for the first task in a series since it has no predecessor. All subsequent tasks in the series have a value that corresponds to their predecessors.
      * @param string|null $value Value to set for the previousInSeriesTaskId property.
     */
     public function setPreviousInSeriesTaskId(?string $value): void {
@@ -188,7 +188,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the recurrenceStartDateTime property value. The recurrenceStartDateTime property
+     * Sets the recurrenceStartDateTime property value. The date and time when this recurrence series begin. For the first task in a series (occurrenceId = 1) this value is copied from schedule.patternStartDateTime. For subsequent tasks in the series (occurrenceId >= 2) this value is copied from the previous task and never changes; it preserves the start date of the recurring series. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the recurrenceStartDateTime property.
     */
     public function setRecurrenceStartDateTime(?DateTime $value): void {
@@ -196,7 +196,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the schedule property value. The schedule property
+     * Sets the schedule property value. The schedule for recurrence. Clients define and edit recurrence by specifying the schedule. If nextInSeriesTaskId isn't assigned, clients may terminate the series by assigning null to this property.
      * @param PlannerRecurrenceSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?PlannerRecurrenceSchedule $value): void {
@@ -204,7 +204,7 @@ class PlannerTaskRecurrence implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the seriesId property value. The seriesId property
+     * Sets the seriesId property value. The recurrence series this task belongs to. A GUID-based value that serves as the unique identifier for a series.
      * @param string|null $value Value to set for the seriesId property.
     */
     public function setSeriesId(?string $value): void {

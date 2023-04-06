@@ -49,9 +49,10 @@ class RemovePersonalDataRequestBuilder
     }
 
     /**
-     * Invoke action removePersonalData
+     * Create a request to remove the personal data for an inboundSharedUserProfile. 
      * @param RemovePersonalDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
+     * @link https://docs.microsoft.com/graph/api/inboundshareduserprofile-removepersonaldata?view=graph-rest-1.0 Find more info here
     */
     public function post(?RemovePersonalDataRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -67,7 +68,7 @@ class RemovePersonalDataRequestBuilder
     }
 
     /**
-     * Invoke action removePersonalData
+     * Create a request to remove the personal data for an inboundSharedUserProfile. 
      * @param RemovePersonalDataRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

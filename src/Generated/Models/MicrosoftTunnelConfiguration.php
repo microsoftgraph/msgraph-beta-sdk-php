@@ -7,9 +7,6 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Entity that represents a collection of Microsoft Tunnel settings
-*/
 class MicrosoftTunnelConfiguration extends Entity implements Parsable 
 {
     /**

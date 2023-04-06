@@ -137,10 +137,12 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
             'mediaBypassEnabled' => fn(ParseNode $n) => $o->setMediaBypassEnabled($n->getBooleanValue()),
             'mediaPathLocation' => fn(ParseNode $n) => $o->setMediaPathLocation($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'otherPartyCountryCode' => fn(ParseNode $n) => $o->setOtherPartyCountryCode($n->getStringValue()),
             'signalingLocation' => fn(ParseNode $n) => $o->setSignalingLocation($n->getStringValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'successfulCall' => fn(ParseNode $n) => $o->setSuccessfulCall($n->getBooleanValue()),
             'trunkFullyQualifiedDomainName' => fn(ParseNode $n) => $o->setTrunkFullyQualifiedDomainName($n->getStringValue()),
+            'userCountryCode' => fn(ParseNode $n) => $o->setUserCountryCode($n->getStringValue()),
             'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
@@ -204,6 +206,14 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * @return string|null
+    */
+    public function getOtherPartyCountryCode(): ?string {
+        return $this->getBackingStore()->get('otherPartyCountryCode');
+    }
+
+    /**
      * Gets the signalingLocation property value. The datacenter used for signaling for both bypass and non-bypass calls.
      * @return string|null
     */
@@ -233,6 +243,14 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function getTrunkFullyQualifiedDomainName(): ?string {
         return $this->getBackingStore()->get('trunkFullyQualifiedDomainName');
+    }
+
+    /**
+     * Gets the userCountryCode property value. The userCountryCode property
+     * @return string|null
+    */
+    public function getUserCountryCode(): ?string {
+        return $this->getBackingStore()->get('userCountryCode');
     }
 
     /**
@@ -279,10 +297,12 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeBooleanValue('mediaBypassEnabled', $this->getMediaBypassEnabled());
         $writer->writeStringValue('mediaPathLocation', $this->getMediaPathLocation());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('otherPartyCountryCode', $this->getOtherPartyCountryCode());
         $writer->writeStringValue('signalingLocation', $this->getSignalingLocation());
         $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
         $writer->writeBooleanValue('successfulCall', $this->getSuccessfulCall());
         $writer->writeStringValue('trunkFullyQualifiedDomainName', $this->getTrunkFullyQualifiedDomainName());
+        $writer->writeStringValue('userCountryCode', $this->getUserCountryCode());
         $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
@@ -426,6 +446,14 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the otherPartyCountryCode property value. The otherPartyCountryCode property
+     * @param string|null $value Value to set for the otherPartyCountryCode property.
+    */
+    public function setOtherPartyCountryCode(?string $value): void {
+        $this->getBackingStore()->set('otherPartyCountryCode', $value);
+    }
+
+    /**
      * Sets the signalingLocation property value. The datacenter used for signaling for both bypass and non-bypass calls.
      * @param string|null $value Value to set for the signalingLocation property.
     */
@@ -455,6 +483,14 @@ class DirectRoutingLogRow implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setTrunkFullyQualifiedDomainName(?string $value): void {
         $this->getBackingStore()->set('trunkFullyQualifiedDomainName', $value);
+    }
+
+    /**
+     * Sets the userCountryCode property value. The userCountryCode property
+     * @param string|null $value Value to set for the userCountryCode property.
+    */
+    public function setUserCountryCode(?string $value): void {
+        $this->getBackingStore()->set('userCountryCode', $value);
     }
 
     /**

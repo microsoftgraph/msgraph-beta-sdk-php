@@ -6,10 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Value of the GroupSetting
+*/
 class DeviceManagementConfigurationGroupSettingValue extends DeviceManagementConfigurationSettingValue implements Parsable 
 {
     /**
-     * Instantiates a new DeviceManagementConfigurationGroupSettingValue and sets the default values.
+     * Instantiates a new deviceManagementConfigurationGroupSettingValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();

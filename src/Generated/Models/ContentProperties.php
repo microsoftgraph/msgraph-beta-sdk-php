@@ -37,6 +37,7 @@ class ContentProperties implements AdditionalDataHolder, BackedModel, Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.attachmentContentProperties': return new AttachmentContentProperties();
+                case '#microsoft.graph.fileContentProperties': return new FileContentProperties();
             }
         }
         return new ContentProperties();

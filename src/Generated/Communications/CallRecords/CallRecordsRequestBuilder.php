@@ -7,7 +7,10 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime\CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime\CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetPstnCallsWithFromDateTimeWithToDateTime\CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime\CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsGetSmsLogWithFromDateTimeWithToDateTime\CallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\CallRecords\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\CallRecord;
 use Microsoft\Graph\Beta\Generated\Models\CallRecords\CallRecordCollectionResponse;
@@ -57,6 +60,16 @@ class CallRecordsRequestBuilder
     }
 
     /**
+     * Provides operations to call the getPstnBlockedUsersLog method.
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
+     * @return CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder
+    */
+    public function callRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder {
+        return new CallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
+    }
+
+    /**
      * Provides operations to call the getPstnCalls method.
      * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
      * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
@@ -64,6 +77,26 @@ class CallRecordsRequestBuilder
     */
     public function callRecordsGetPstnCallsWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
         return new CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
+    }
+
+    /**
+     * Provides operations to call the getPstnOnlineMeetingDialoutReport method.
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
+     * @return CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder
+    */
+    public function callRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder {
+        return new CallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
+    }
+
+    /**
+     * Provides operations to call the getSmsLog method.
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
+     * @return CallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder
+    */
+    public function callRecordsGetSmsLogWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): CallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder {
+        return new CallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $fromDateTime, $toDateTime);
     }
 
     /**

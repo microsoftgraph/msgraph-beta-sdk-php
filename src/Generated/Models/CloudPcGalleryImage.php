@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class CloudPcGalleryImage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new CloudPcGalleryImage and sets the default values.
+     * Instantiates a new cloudPcGalleryImage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
