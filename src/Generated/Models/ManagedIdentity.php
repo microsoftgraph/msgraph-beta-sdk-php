@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class StringKeyLongValuePair implements AdditionalDataHolder, BackedModel, Parsable 
+class ManagedIdentity implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
      * @var BackingStore $backingStore Stores model information.
@@ -18,7 +18,7 @@ class StringKeyLongValuePair implements AdditionalDataHolder, BackedModel, Parsa
     private BackingStore $backingStore;
     
     /**
-     * Instantiates a new stringKeyLongValuePair and sets the default values.
+     * Instantiates a new managedIdentity and sets the default values.
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
@@ -28,10 +28,10 @@ class StringKeyLongValuePair implements AdditionalDataHolder, BackedModel, Parsa
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return StringKeyLongValuePair
+     * @return ManagedIdentity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): StringKeyLongValuePair {
-        return new StringKeyLongValuePair();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedIdentity {
+        return new ManagedIdentity();
     }
 
     /**
@@ -40,6 +40,14 @@ class StringKeyLongValuePair implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function getAdditionalData(): ?array {
         return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the associatedResourceId property value. The ARM resource ID of the Azure resource associated with the managed identity used for sign in.
+     * @return string|null
+    */
+    public function getAssociatedResourceId(): ?string {
+        return $this->getBackingStore()->get('associatedResourceId');
     }
 
     /**
@@ -57,18 +65,18 @@ class StringKeyLongValuePair implements AdditionalDataHolder, BackedModel, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'key' => fn(ParseNode $n) => $o->setKey($n->getStringValue()),
+            'associatedResourceId' => fn(ParseNode $n) => $o->setAssociatedResourceId($n->getStringValue()),
+            'msiType' => fn(ParseNode $n) => $o->setMsiType($n->getEnumValue(MsiType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'value' => fn(ParseNode $n) => $o->setValue($n->getIntegerValue()),
         ];
     }
 
     /**
-     * Gets the key property value. The mapping of the user type from the source system to the target system. For example:User to User - For Azure AD to Azure AD synchronization worker to user - For Workday to Azure AD synchronization.
-     * @return string|null
+     * Gets the msiType property value. The possible values are: none, userAssigned, systemAssigned, unknownFutureValue.
+     * @return MsiType|null
     */
-    public function getKey(): ?string {
-        return $this->getBackingStore()->get('key');
+    public function getMsiType(): ?MsiType {
+        return $this->getBackingStore()->get('msiType');
     }
 
     /**
@@ -80,21 +88,13 @@ class StringKeyLongValuePair implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the value property value. Total number of synchronized objects.
-     * @return int|null
-    */
-    public function getValue(): ?int {
-        return $this->getBackingStore()->get('value');
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('key', $this->getKey());
+        $writer->writeStringValue('associatedResourceId', $this->getAssociatedResourceId());
+        $writer->writeEnumValue('msiType', $this->getMsiType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeIntegerValue('value', $this->getValue());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -107,6 +107,14 @@ class StringKeyLongValuePair implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
+     * Sets the associatedResourceId property value. The ARM resource ID of the Azure resource associated with the managed identity used for sign in.
+     * @param string|null $value Value to set for the associatedResourceId property.
+    */
+    public function setAssociatedResourceId(?string $value): void {
+        $this->getBackingStore()->set('associatedResourceId', $value);
+    }
+
+    /**
      * Sets the backingStore property value. Stores model information.
      * @param BackingStore $value Value to set for the BackingStore property.
     */
@@ -115,11 +123,11 @@ class StringKeyLongValuePair implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the key property value. The mapping of the user type from the source system to the target system. For example:User to User - For Azure AD to Azure AD synchronization worker to user - For Workday to Azure AD synchronization.
-     * @param string|null $value Value to set for the key property.
+     * Sets the msiType property value. The possible values are: none, userAssigned, systemAssigned, unknownFutureValue.
+     * @param MsiType|null $value Value to set for the msiType property.
     */
-    public function setKey(?string $value): void {
-        $this->getBackingStore()->set('key', $value);
+    public function setMsiType(?MsiType $value): void {
+        $this->getBackingStore()->set('msiType', $value);
     }
 
     /**
@@ -128,14 +136,6 @@ class StringKeyLongValuePair implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
-    }
-
-    /**
-     * Sets the value property value. Total number of synchronized objects.
-     * @param int|null $value Value to set for the value property.
-    */
-    public function setValue(?int $value): void {
-        $this->getBackingStore()->set('value', $value);
     }
 
 }

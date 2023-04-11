@@ -1,8 +1,7 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\TenantAdmin;
+namespace Microsoft\Graph\Beta\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -10,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Sharepoint extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new sharepoint and sets the default values.
+     * Instantiates a new Sharepoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -32,15 +31,15 @@ class Sharepoint extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([SharepointSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the settings property value. Represents the tenant-level settings for SharePoint and OneDrive.
-     * @return Settings|null
+     * Gets the settings property value. The settings property
+     * @return SharepointSettings|null
     */
-    public function getSettings(): ?Settings {
+    public function getSettings(): ?SharepointSettings {
         return $this->getBackingStore()->get('settings');
     }
 
@@ -54,10 +53,10 @@ class Sharepoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the settings property value. Represents the tenant-level settings for SharePoint and OneDrive.
-     * @param Settings|null $value Value to set for the settings property.
+     * Sets the settings property value. The settings property
+     * @param SharepointSettings|null $value Value to set for the settings property.
     */
-    public function setSettings(?Settings $value): void {
+    public function setSettings(?SharepointSettings $value): void {
         $this->getBackingStore()->set('settings', $value);
     }
 

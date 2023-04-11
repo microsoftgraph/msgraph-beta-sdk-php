@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Admin\Sharepoint\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantAdmin\Sharepoint;
+use Microsoft\Graph\Beta\Generated\Models\Sharepoint;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -31,7 +31,7 @@ class SharepointRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * Provides operations to manage the settings property of the microsoft.graph.tenantAdmin.sharepoint entity.
+     * Provides operations to manage the settings property of the microsoft.graph.sharepoint entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);

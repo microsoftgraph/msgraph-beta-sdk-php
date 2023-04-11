@@ -6,13 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Warranty status entity for a given OEM
-*/
 class OemWarrantyInformationOnboarding extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new oemWarrantyInformationOnboarding and sets the default values.
+     * Instantiates a new OemWarrantyInformationOnboarding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

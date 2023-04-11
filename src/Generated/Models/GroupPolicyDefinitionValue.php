@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The definition value entity stores the value for a single group policy definition.
+*/
 class GroupPolicyDefinitionValue extends Entity implements Parsable 
 {
     /**

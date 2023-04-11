@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class JournalLine extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new journalLine and sets the default values.
+     * Instantiates a new JournalLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkDeviceActivity extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new teamworkDeviceActivity and sets the default values.
+     * Instantiates a new TeamworkDeviceActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -6,13 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analytics device model performance entity contains device model performance details.
-*/
 class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsAppHealthDeviceModelPerformance and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAppHealthDeviceModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

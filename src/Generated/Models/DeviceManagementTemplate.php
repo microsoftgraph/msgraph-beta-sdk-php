@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * Entity that represents a defined collection of device settings
-*/
 class DeviceManagementTemplate extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new deviceManagementTemplate and sets the default values.
+     * Instantiates a new DeviceManagementTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

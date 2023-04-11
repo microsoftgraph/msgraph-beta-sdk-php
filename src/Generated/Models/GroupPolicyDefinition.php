@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The entity describes all of the information about a single group policy.
+*/
 class GroupPolicyDefinition extends Entity implements Parsable 
 {
     /**

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class CloudPcDeviceImage extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new cloudPcDeviceImage and sets the default values.
+     * Instantiates a new CloudPcDeviceImage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

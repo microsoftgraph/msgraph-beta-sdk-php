@@ -7,13 +7,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-/**
- * The user experience analytics device scope entity contains device scope configuration values use to apply filtering on the endpoint analytics reports.
-*/
 class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceScope and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();

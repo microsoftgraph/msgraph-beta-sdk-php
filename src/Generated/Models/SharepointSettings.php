@@ -1,16 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\TenantAdmin;
+namespace Microsoft\Graph\Beta\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Settings extends Entity implements Parsable 
+class SharepointSettings extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new settings and sets the default values.
+     * Instantiates a new sharepointSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -19,14 +18,14 @@ class Settings extends Entity implements Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return Settings
+     * @return SharepointSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Settings {
-        return new Settings();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SharepointSettings {
+        return new SharepointSettings();
     }
 
     /**
-     * Gets the allowedDomainGuidsForSyncApp property value. Collection of trusted domain GUIDs for the OneDrive sync app.
+     * Gets the allowedDomainGuidsForSyncApp property value. The allowedDomainGuidsForSyncApp property
      * @return array<string>|null
     */
     public function getAllowedDomainGuidsForSyncApp(): ?array {
@@ -34,7 +33,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the availableManagedPathsForSiteCreation property value. Collection of managed paths available for site creation. Read-only.
+     * Gets the availableManagedPathsForSiteCreation property value. The availableManagedPathsForSiteCreation property
      * @return array<string>|null
     */
     public function getAvailableManagedPathsForSiteCreation(): ?array {
@@ -42,7 +41,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedUserPersonalSiteRetentionPeriodInDays property value. The number of days for preserving a deleted user's OneDrive.
+     * Gets the deletedUserPersonalSiteRetentionPeriodInDays property value. The deletedUserPersonalSiteRetentionPeriodInDays property
      * @return int|null
     */
     public function getDeletedUserPersonalSiteRetentionPeriodInDays(): ?int {
@@ -50,7 +49,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the excludedFileExtensionsForSyncApp property value. Collection of file extensions not uploaded by the OneDrive sync app.
+     * Gets the excludedFileExtensionsForSyncApp property value. The excludedFileExtensionsForSyncApp property
      * @return array<string>|null
     */
     public function getExcludedFileExtensionsForSyncApp(): ?array {
@@ -97,7 +96,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the idleSessionSignOut property value. Specifies the idle session sign-out policies for the tenant.
+     * Gets the idleSessionSignOut property value. The idleSessionSignOut property
      * @return IdleSessionSignOut|null
     */
     public function getIdleSessionSignOut(): ?IdleSessionSignOut {
@@ -105,7 +104,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the imageTaggingOption property value. Specifies the image tagging option for the tenant. Possible values are: disabled, basic, enhanced.
+     * Gets the imageTaggingOption property value. The imageTaggingOption property
      * @return ImageTaggingChoice|null
     */
     public function getImageTaggingOption(): ?ImageTaggingChoice {
@@ -113,7 +112,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isCommentingOnSitePagesEnabled property value. Indicates whether comments are allowed on modern site pages in SharePoint.
+     * Gets the isCommentingOnSitePagesEnabled property value. The isCommentingOnSitePagesEnabled property
      * @return bool|null
     */
     public function getIsCommentingOnSitePagesEnabled(): ?bool {
@@ -121,7 +120,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isFileActivityNotificationEnabled property value. Indicates whether push notifications are enabled for OneDrive events.
+     * Gets the isFileActivityNotificationEnabled property value. The isFileActivityNotificationEnabled property
      * @return bool|null
     */
     public function getIsFileActivityNotificationEnabled(): ?bool {
@@ -129,7 +128,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isLegacyAuthProtocolsEnabled property value. Indicates whether legacy authentication protocols are enabled for the tenant.
+     * Gets the isLegacyAuthProtocolsEnabled property value. The isLegacyAuthProtocolsEnabled property
      * @return bool|null
     */
     public function getIsLegacyAuthProtocolsEnabled(): ?bool {
@@ -137,7 +136,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isLoopEnabled property value. Indicates whetherif Fluid Framework is allowed on SharePoint sites.
+     * Gets the isLoopEnabled property value. The isLoopEnabled property
      * @return bool|null
     */
     public function getIsLoopEnabled(): ?bool {
@@ -145,7 +144,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isMacSyncAppEnabled property value. Indicates whether files can be synced using the OneDrive sync app for Mac.
+     * Gets the isMacSyncAppEnabled property value. The isMacSyncAppEnabled property
      * @return bool|null
     */
     public function getIsMacSyncAppEnabled(): ?bool {
@@ -153,7 +152,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isRequireAcceptingUserToMatchInvitedUserEnabled property value. Indicates whether guests must sign in using the same account to which sharing invitations are sent.
+     * Gets the isRequireAcceptingUserToMatchInvitedUserEnabled property value. The isRequireAcceptingUserToMatchInvitedUserEnabled property
      * @return bool|null
     */
     public function getIsRequireAcceptingUserToMatchInvitedUserEnabled(): ?bool {
@@ -161,7 +160,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isResharingByExternalUsersEnabled property value. Indicates whether guests are allowed to reshare files, folders, and sites they don't own.
+     * Gets the isResharingByExternalUsersEnabled property value. The isResharingByExternalUsersEnabled property
      * @return bool|null
     */
     public function getIsResharingByExternalUsersEnabled(): ?bool {
@@ -169,7 +168,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSharePointMobileNotificationEnabled property value. Indicates whether mobile push notifications are enabled for SharePoint.
+     * Gets the isSharePointMobileNotificationEnabled property value. The isSharePointMobileNotificationEnabled property
      * @return bool|null
     */
     public function getIsSharePointMobileNotificationEnabled(): ?bool {
@@ -177,7 +176,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSharePointNewsfeedEnabled property value. Indicates whether the newsfeed is allowed on the modern site pages in SharePoint.
+     * Gets the isSharePointNewsfeedEnabled property value. The isSharePointNewsfeedEnabled property
      * @return bool|null
     */
     public function getIsSharePointNewsfeedEnabled(): ?bool {
@@ -185,7 +184,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSiteCreationEnabled property value. Indicates whether users are allowed to create sites.
+     * Gets the isSiteCreationEnabled property value. The isSiteCreationEnabled property
      * @return bool|null
     */
     public function getIsSiteCreationEnabled(): ?bool {
@@ -193,7 +192,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSiteCreationUIEnabled property value. Indicates whether the UI commands for creating sites are shown.
+     * Gets the isSiteCreationUIEnabled property value. The isSiteCreationUIEnabled property
      * @return bool|null
     */
     public function getIsSiteCreationUIEnabled(): ?bool {
@@ -201,7 +200,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSitePagesCreationEnabled property value. Indicates whether creating new modern pages is allowed on SharePoint sites.
+     * Gets the isSitePagesCreationEnabled property value. The isSitePagesCreationEnabled property
      * @return bool|null
     */
     public function getIsSitePagesCreationEnabled(): ?bool {
@@ -209,7 +208,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSitesStorageLimitAutomatic property value. Indicates whether site storage space is automatically managed or if specific storage limits are set per site.
+     * Gets the isSitesStorageLimitAutomatic property value. The isSitesStorageLimitAutomatic property
      * @return bool|null
     */
     public function getIsSitesStorageLimitAutomatic(): ?bool {
@@ -217,7 +216,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isSyncButtonHiddenOnPersonalSite property value. Indicates whether the sync button in OneDrive is hidden.
+     * Gets the isSyncButtonHiddenOnPersonalSite property value. The isSyncButtonHiddenOnPersonalSite property
      * @return bool|null
     */
     public function getIsSyncButtonHiddenOnPersonalSite(): ?bool {
@@ -225,7 +224,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isUnmanagedSyncAppForTenantRestricted property value. Indicates whether users are allowed to sync files only on PCs joined to specific domains.
+     * Gets the isUnmanagedSyncAppForTenantRestricted property value. The isUnmanagedSyncAppForTenantRestricted property
      * @return bool|null
     */
     public function getIsUnmanagedSyncAppForTenantRestricted(): ?bool {
@@ -233,7 +232,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the personalSiteDefaultStorageLimitInMB property value. The default OneDrive storage limit for all new and existing users who are assigned a qualifying license. Measured in megabytes (MB).
+     * Gets the personalSiteDefaultStorageLimitInMB property value. The personalSiteDefaultStorageLimitInMB property
      * @return int|null
     */
     public function getPersonalSiteDefaultStorageLimitInMB(): ?int {
@@ -241,7 +240,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharingAllowedDomainList property value. Collection of email domains that are allowed for sharing outside the organization.
+     * Gets the sharingAllowedDomainList property value. The sharingAllowedDomainList property
      * @return array<string>|null
     */
     public function getSharingAllowedDomainList(): ?array {
@@ -249,7 +248,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharingBlockedDomainList property value. Collection of email domains that are blocked for sharing outside the organization.
+     * Gets the sharingBlockedDomainList property value. The sharingBlockedDomainList property
      * @return array<string>|null
     */
     public function getSharingBlockedDomainList(): ?array {
@@ -257,7 +256,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharingCapability property value. Sharing capability for the tenant. Possible values are: disabled, externalUserSharingOnly, externalUserAndGuestSharing, existingExternalUserSharingOnly.
+     * Gets the sharingCapability property value. The sharingCapability property
      * @return SharingCapabilities|null
     */
     public function getSharingCapability(): ?SharingCapabilities {
@@ -265,7 +264,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharingDomainRestrictionMode property value. Specifies the external sharing mode for domains. Possible values are: none, allowList, blockList.
+     * Gets the sharingDomainRestrictionMode property value. The sharingDomainRestrictionMode property
      * @return SharingDomainRestrictionMode|null
     */
     public function getSharingDomainRestrictionMode(): ?SharingDomainRestrictionMode {
@@ -273,7 +272,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the siteCreationDefaultManagedPath property value. The value of the team site managed path. This is the path under which new team sites will be created.
+     * Gets the siteCreationDefaultManagedPath property value. The siteCreationDefaultManagedPath property
      * @return string|null
     */
     public function getSiteCreationDefaultManagedPath(): ?string {
@@ -281,7 +280,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the siteCreationDefaultStorageLimitInMB property value. The default storage quota for a new site upon creation. Measured in megabytes (MB).
+     * Gets the siteCreationDefaultStorageLimitInMB property value. The siteCreationDefaultStorageLimitInMB property
      * @return int|null
     */
     public function getSiteCreationDefaultStorageLimitInMB(): ?int {
@@ -289,7 +288,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantDefaultTimezone property value. The default timezone of a tenant for newly created sites. For a list of possible values, see SPRegionalSettings.TimeZones property.
+     * Gets the tenantDefaultTimezone property value. The tenantDefaultTimezone property
      * @return string|null
     */
     public function getTenantDefaultTimezone(): ?string {
@@ -334,7 +333,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowedDomainGuidsForSyncApp property value. Collection of trusted domain GUIDs for the OneDrive sync app.
+     * Sets the allowedDomainGuidsForSyncApp property value. The allowedDomainGuidsForSyncApp property
      * @param array<string>|null $value Value to set for the allowedDomainGuidsForSyncApp property.
     */
     public function setAllowedDomainGuidsForSyncApp(?array $value): void {
@@ -342,7 +341,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the availableManagedPathsForSiteCreation property value. Collection of managed paths available for site creation. Read-only.
+     * Sets the availableManagedPathsForSiteCreation property value. The availableManagedPathsForSiteCreation property
      * @param array<string>|null $value Value to set for the availableManagedPathsForSiteCreation property.
     */
     public function setAvailableManagedPathsForSiteCreation(?array $value): void {
@@ -350,7 +349,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedUserPersonalSiteRetentionPeriodInDays property value. The number of days for preserving a deleted user's OneDrive.
+     * Sets the deletedUserPersonalSiteRetentionPeriodInDays property value. The deletedUserPersonalSiteRetentionPeriodInDays property
      * @param int|null $value Value to set for the deletedUserPersonalSiteRetentionPeriodInDays property.
     */
     public function setDeletedUserPersonalSiteRetentionPeriodInDays(?int $value): void {
@@ -358,7 +357,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the excludedFileExtensionsForSyncApp property value. Collection of file extensions not uploaded by the OneDrive sync app.
+     * Sets the excludedFileExtensionsForSyncApp property value. The excludedFileExtensionsForSyncApp property
      * @param array<string>|null $value Value to set for the excludedFileExtensionsForSyncApp property.
     */
     public function setExcludedFileExtensionsForSyncApp(?array $value): void {
@@ -366,7 +365,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the idleSessionSignOut property value. Specifies the idle session sign-out policies for the tenant.
+     * Sets the idleSessionSignOut property value. The idleSessionSignOut property
      * @param IdleSessionSignOut|null $value Value to set for the idleSessionSignOut property.
     */
     public function setIdleSessionSignOut(?IdleSessionSignOut $value): void {
@@ -374,7 +373,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the imageTaggingOption property value. Specifies the image tagging option for the tenant. Possible values are: disabled, basic, enhanced.
+     * Sets the imageTaggingOption property value. The imageTaggingOption property
      * @param ImageTaggingChoice|null $value Value to set for the imageTaggingOption property.
     */
     public function setImageTaggingOption(?ImageTaggingChoice $value): void {
@@ -382,7 +381,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isCommentingOnSitePagesEnabled property value. Indicates whether comments are allowed on modern site pages in SharePoint.
+     * Sets the isCommentingOnSitePagesEnabled property value. The isCommentingOnSitePagesEnabled property
      * @param bool|null $value Value to set for the isCommentingOnSitePagesEnabled property.
     */
     public function setIsCommentingOnSitePagesEnabled(?bool $value): void {
@@ -390,7 +389,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isFileActivityNotificationEnabled property value. Indicates whether push notifications are enabled for OneDrive events.
+     * Sets the isFileActivityNotificationEnabled property value. The isFileActivityNotificationEnabled property
      * @param bool|null $value Value to set for the isFileActivityNotificationEnabled property.
     */
     public function setIsFileActivityNotificationEnabled(?bool $value): void {
@@ -398,7 +397,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isLegacyAuthProtocolsEnabled property value. Indicates whether legacy authentication protocols are enabled for the tenant.
+     * Sets the isLegacyAuthProtocolsEnabled property value. The isLegacyAuthProtocolsEnabled property
      * @param bool|null $value Value to set for the isLegacyAuthProtocolsEnabled property.
     */
     public function setIsLegacyAuthProtocolsEnabled(?bool $value): void {
@@ -406,7 +405,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isLoopEnabled property value. Indicates whetherif Fluid Framework is allowed on SharePoint sites.
+     * Sets the isLoopEnabled property value. The isLoopEnabled property
      * @param bool|null $value Value to set for the isLoopEnabled property.
     */
     public function setIsLoopEnabled(?bool $value): void {
@@ -414,7 +413,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isMacSyncAppEnabled property value. Indicates whether files can be synced using the OneDrive sync app for Mac.
+     * Sets the isMacSyncAppEnabled property value. The isMacSyncAppEnabled property
      * @param bool|null $value Value to set for the isMacSyncAppEnabled property.
     */
     public function setIsMacSyncAppEnabled(?bool $value): void {
@@ -422,7 +421,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isRequireAcceptingUserToMatchInvitedUserEnabled property value. Indicates whether guests must sign in using the same account to which sharing invitations are sent.
+     * Sets the isRequireAcceptingUserToMatchInvitedUserEnabled property value. The isRequireAcceptingUserToMatchInvitedUserEnabled property
      * @param bool|null $value Value to set for the isRequireAcceptingUserToMatchInvitedUserEnabled property.
     */
     public function setIsRequireAcceptingUserToMatchInvitedUserEnabled(?bool $value): void {
@@ -430,7 +429,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isResharingByExternalUsersEnabled property value. Indicates whether guests are allowed to reshare files, folders, and sites they don't own.
+     * Sets the isResharingByExternalUsersEnabled property value. The isResharingByExternalUsersEnabled property
      * @param bool|null $value Value to set for the isResharingByExternalUsersEnabled property.
     */
     public function setIsResharingByExternalUsersEnabled(?bool $value): void {
@@ -438,7 +437,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSharePointMobileNotificationEnabled property value. Indicates whether mobile push notifications are enabled for SharePoint.
+     * Sets the isSharePointMobileNotificationEnabled property value. The isSharePointMobileNotificationEnabled property
      * @param bool|null $value Value to set for the isSharePointMobileNotificationEnabled property.
     */
     public function setIsSharePointMobileNotificationEnabled(?bool $value): void {
@@ -446,7 +445,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSharePointNewsfeedEnabled property value. Indicates whether the newsfeed is allowed on the modern site pages in SharePoint.
+     * Sets the isSharePointNewsfeedEnabled property value. The isSharePointNewsfeedEnabled property
      * @param bool|null $value Value to set for the isSharePointNewsfeedEnabled property.
     */
     public function setIsSharePointNewsfeedEnabled(?bool $value): void {
@@ -454,7 +453,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSiteCreationEnabled property value. Indicates whether users are allowed to create sites.
+     * Sets the isSiteCreationEnabled property value. The isSiteCreationEnabled property
      * @param bool|null $value Value to set for the isSiteCreationEnabled property.
     */
     public function setIsSiteCreationEnabled(?bool $value): void {
@@ -462,7 +461,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSiteCreationUIEnabled property value. Indicates whether the UI commands for creating sites are shown.
+     * Sets the isSiteCreationUIEnabled property value. The isSiteCreationUIEnabled property
      * @param bool|null $value Value to set for the isSiteCreationUIEnabled property.
     */
     public function setIsSiteCreationUIEnabled(?bool $value): void {
@@ -470,7 +469,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSitePagesCreationEnabled property value. Indicates whether creating new modern pages is allowed on SharePoint sites.
+     * Sets the isSitePagesCreationEnabled property value. The isSitePagesCreationEnabled property
      * @param bool|null $value Value to set for the isSitePagesCreationEnabled property.
     */
     public function setIsSitePagesCreationEnabled(?bool $value): void {
@@ -478,7 +477,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSitesStorageLimitAutomatic property value. Indicates whether site storage space is automatically managed or if specific storage limits are set per site.
+     * Sets the isSitesStorageLimitAutomatic property value. The isSitesStorageLimitAutomatic property
      * @param bool|null $value Value to set for the isSitesStorageLimitAutomatic property.
     */
     public function setIsSitesStorageLimitAutomatic(?bool $value): void {
@@ -486,7 +485,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSyncButtonHiddenOnPersonalSite property value. Indicates whether the sync button in OneDrive is hidden.
+     * Sets the isSyncButtonHiddenOnPersonalSite property value. The isSyncButtonHiddenOnPersonalSite property
      * @param bool|null $value Value to set for the isSyncButtonHiddenOnPersonalSite property.
     */
     public function setIsSyncButtonHiddenOnPersonalSite(?bool $value): void {
@@ -494,7 +493,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isUnmanagedSyncAppForTenantRestricted property value. Indicates whether users are allowed to sync files only on PCs joined to specific domains.
+     * Sets the isUnmanagedSyncAppForTenantRestricted property value. The isUnmanagedSyncAppForTenantRestricted property
      * @param bool|null $value Value to set for the isUnmanagedSyncAppForTenantRestricted property.
     */
     public function setIsUnmanagedSyncAppForTenantRestricted(?bool $value): void {
@@ -502,7 +501,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the personalSiteDefaultStorageLimitInMB property value. The default OneDrive storage limit for all new and existing users who are assigned a qualifying license. Measured in megabytes (MB).
+     * Sets the personalSiteDefaultStorageLimitInMB property value. The personalSiteDefaultStorageLimitInMB property
      * @param int|null $value Value to set for the personalSiteDefaultStorageLimitInMB property.
     */
     public function setPersonalSiteDefaultStorageLimitInMB(?int $value): void {
@@ -510,7 +509,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharingAllowedDomainList property value. Collection of email domains that are allowed for sharing outside the organization.
+     * Sets the sharingAllowedDomainList property value. The sharingAllowedDomainList property
      * @param array<string>|null $value Value to set for the sharingAllowedDomainList property.
     */
     public function setSharingAllowedDomainList(?array $value): void {
@@ -518,7 +517,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharingBlockedDomainList property value. Collection of email domains that are blocked for sharing outside the organization.
+     * Sets the sharingBlockedDomainList property value. The sharingBlockedDomainList property
      * @param array<string>|null $value Value to set for the sharingBlockedDomainList property.
     */
     public function setSharingBlockedDomainList(?array $value): void {
@@ -526,7 +525,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharingCapability property value. Sharing capability for the tenant. Possible values are: disabled, externalUserSharingOnly, externalUserAndGuestSharing, existingExternalUserSharingOnly.
+     * Sets the sharingCapability property value. The sharingCapability property
      * @param SharingCapabilities|null $value Value to set for the sharingCapability property.
     */
     public function setSharingCapability(?SharingCapabilities $value): void {
@@ -534,7 +533,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharingDomainRestrictionMode property value. Specifies the external sharing mode for domains. Possible values are: none, allowList, blockList.
+     * Sets the sharingDomainRestrictionMode property value. The sharingDomainRestrictionMode property
      * @param SharingDomainRestrictionMode|null $value Value to set for the sharingDomainRestrictionMode property.
     */
     public function setSharingDomainRestrictionMode(?SharingDomainRestrictionMode $value): void {
@@ -542,7 +541,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the siteCreationDefaultManagedPath property value. The value of the team site managed path. This is the path under which new team sites will be created.
+     * Sets the siteCreationDefaultManagedPath property value. The siteCreationDefaultManagedPath property
      * @param string|null $value Value to set for the siteCreationDefaultManagedPath property.
     */
     public function setSiteCreationDefaultManagedPath(?string $value): void {
@@ -550,7 +549,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the siteCreationDefaultStorageLimitInMB property value. The default storage quota for a new site upon creation. Measured in megabytes (MB).
+     * Sets the siteCreationDefaultStorageLimitInMB property value. The siteCreationDefaultStorageLimitInMB property
      * @param int|null $value Value to set for the siteCreationDefaultStorageLimitInMB property.
     */
     public function setSiteCreationDefaultStorageLimitInMB(?int $value): void {
@@ -558,7 +557,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantDefaultTimezone property value. The default timezone of a tenant for newly created sites. For a list of possible values, see SPRegionalSettings.TimeZones property.
+     * Sets the tenantDefaultTimezone property value. The tenantDefaultTimezone property
      * @param string|null $value Value to set for the tenantDefaultTimezone property.
     */
     public function setTenantDefaultTimezone(?string $value): void {

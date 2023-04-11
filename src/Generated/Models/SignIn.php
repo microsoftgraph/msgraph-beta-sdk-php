@@ -248,6 +248,7 @@ class SignIn extends Entity implements Parsable
             'isInteractive' => fn(ParseNode $n) => $o->setIsInteractive($n->getBooleanValue()),
             'isTenantRestricted' => fn(ParseNode $n) => $o->setIsTenantRestricted($n->getBooleanValue()),
             'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([SignInLocation::class, 'createFromDiscriminatorValue'])),
+            'managedServiceIdentity' => fn(ParseNode $n) => $o->setManagedServiceIdentity($n->getObjectValue([ManagedIdentity::class, 'createFromDiscriminatorValue'])),
             'mfaDetail' => fn(ParseNode $n) => $o->setMfaDetail($n->getObjectValue([MfaDetail::class, 'createFromDiscriminatorValue'])),
             'networkLocationDetails' => fn(ParseNode $n) => $o->setNetworkLocationDetails($n->getCollectionOfObjectValues([NetworkLocationDetail::class, 'createFromDiscriminatorValue'])),
             'originalRequestId' => fn(ParseNode $n) => $o->setOriginalRequestId($n->getStringValue()),
@@ -352,6 +353,14 @@ class SignIn extends Entity implements Parsable
     */
     public function getLocation(): ?SignInLocation {
         return $this->getBackingStore()->get('location');
+    }
+
+    /**
+     * Gets the managedServiceIdentity property value. Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+     * @return ManagedIdentity|null
+    */
+    public function getManagedServiceIdentity(): ?ManagedIdentity {
+        return $this->getBackingStore()->get('managedServiceIdentity');
     }
 
     /**
@@ -640,6 +649,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeBooleanValue('isInteractive', $this->getIsInteractive());
         $writer->writeBooleanValue('isTenantRestricted', $this->getIsTenantRestricted());
         $writer->writeObjectValue('location', $this->getLocation());
+        $writer->writeObjectValue('managedServiceIdentity', $this->getManagedServiceIdentity());
         $writer->writeObjectValue('mfaDetail', $this->getMfaDetail());
         $writer->writeCollectionOfObjectValues('networkLocationDetails', $this->getNetworkLocationDetails());
         $writer->writeStringValue('originalRequestId', $this->getOriginalRequestId());
@@ -927,6 +937,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setLocation(?SignInLocation $value): void {
         $this->getBackingStore()->set('location', $value);
+    }
+
+    /**
+     * Sets the managedServiceIdentity property value. Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+     * @param ManagedIdentity|null $value Value to set for the managedServiceIdentity property.
+    */
+    public function setManagedServiceIdentity(?ManagedIdentity $value): void {
+        $this->getBackingStore()->set('managedServiceIdentity', $value);
     }
 
     /**
