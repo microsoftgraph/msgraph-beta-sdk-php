@@ -8,10 +8,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * The entity represents an ADMX (Administrative Template) XML file uploaded by Administrator. The ADMX file contains a collection of group policy definitions and their locations by category path. The group policy definition file also contains the languages supported as determined by the language dependent ADML (Administrative Template) language files.
+*/
 class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implements Parsable 
 {
     /**
-     * Instantiates a new GroupPolicyUploadedDefinitionFile and sets the default values.
+     * Instantiates a new groupPolicyUploadedDefinitionFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

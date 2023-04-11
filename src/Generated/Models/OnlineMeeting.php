@@ -353,7 +353,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the watermarkProtection property value. Specifies whether a watermark applies for different entities.
+     * Gets the watermarkProtection property value. Specifies whether a watermark should be applied to a content type by the client application.
      * @return WatermarkProtectionValues|null
     */
     public function getWatermarkProtection(): ?WatermarkProtectionValues {
@@ -685,7 +685,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the watermarkProtection property value. Specifies whether a watermark applies for different entities.
+     * Sets the watermarkProtection property value. Specifies whether a watermark should be applied to a content type by the client application.
      * @param WatermarkProtectionValues|null $value Value to set for the watermarkProtection property.
     */
     public function setWatermarkProtection(?WatermarkProtectionValues $value): void {

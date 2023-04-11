@@ -165,8 +165,6 @@ use Microsoft\Graph\Beta\Generated\Models\Security\UnclassifiedArtifact;
 use Microsoft\Graph\Beta\Generated\Models\Security\UrlThreatSubmission;
 use Microsoft\Graph\Beta\Generated\Models\Security\Vulnerability;
 use Microsoft\Graph\Beta\Generated\Models\Security\VulnerabilityComponent;
-use Microsoft\Graph\Beta\Generated\Models\TenantAdmin\Settings;
-use Microsoft\Graph\Beta\Generated\Models\TenantAdmin\Sharepoint;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Group;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Relation;
 use Microsoft\Graph\Beta\Generated\Models\TermStore\Set;
@@ -459,7 +457,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.claimsMappingPolicy': return new ClaimsMappingPolicy();
                 case '#microsoft.graph.classificationJobResponse': return new ClassificationJobResponse();
                 case '#microsoft.graph.cloudAppSecurityProfile': return new CloudAppSecurityProfile();
-                case '#microsoft.graph.cloudCommunications': return new CloudCommunications();
                 case '#microsoft.graph.cloudPC': return new CloudPC();
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
@@ -1439,6 +1436,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.sharedInsight': return new SharedInsight();
                 case '#microsoft.graph.sharedPCConfiguration': return new SharedPCConfiguration();
                 case '#microsoft.graph.sharedWithChannelTeamInfo': return new SharedWithChannelTeamInfo();
+                case '#microsoft.graph.sharepoint': return new Sharepoint();
+                case '#microsoft.graph.sharepointSettings': return new SharepointSettings();
                 case '#microsoft.graph.shift': return new Shift();
                 case '#microsoft.graph.shiftPreferences': return new ShiftPreferences();
                 case '#microsoft.graph.shipmentMethod': return new ShipmentMethod();
@@ -1509,8 +1508,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.telecomExpenseManagementPartner': return new TelecomExpenseManagementPartner();
                 case '#microsoft.graph.temporaryAccessPassAuthenticationMethod': return new TemporaryAccessPassAuthenticationMethod();
                 case '#microsoft.graph.temporaryAccessPassAuthenticationMethodConfiguration': return new TemporaryAccessPassAuthenticationMethodConfiguration();
-                case '#microsoft.graph.tenantAdmin.settings': return new Settings();
-                case '#microsoft.graph.tenantAdmin.sharepoint': return new Sharepoint();
                 case '#microsoft.graph.tenantAppManagementPolicy': return new TenantAppManagementPolicy();
                 case '#microsoft.graph.tenantAttachRBAC': return new TenantAttachRBAC();
                 case '#microsoft.graph.tenantRelationshipAccessPolicyBase': return new TenantRelationshipAccessPolicyBase();

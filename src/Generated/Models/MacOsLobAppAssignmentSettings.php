@@ -37,7 +37,7 @@ class MacOsLobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     }
 
     /**
-     * Gets the uninstallOnDeviceRemoval property value. When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune.
+     * Gets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
      * @return bool|null
     */
     public function getUninstallOnDeviceRemoval(): ?bool {
@@ -54,7 +54,7 @@ class MacOsLobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     }
 
     /**
-     * Sets the uninstallOnDeviceRemoval property value. When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune.
+     * Sets the uninstallOnDeviceRemoval property value. Whether or not to uninstall the app when device is removed from Intune.
      * @param bool|null $value Value to set for the uninstallOnDeviceRemoval property.
     */
     public function setUninstallOnDeviceRemoval(?bool $value): void {

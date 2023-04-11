@@ -1,11 +1,7 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\TenantAdmin;
+namespace Microsoft\Graph\Beta\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\AdminReportSettings;
-use Microsoft\Graph\Beta\Generated\Models\AdminWindows;
-use Microsoft\Graph\Beta\Generated\Models\Edge;
-use Microsoft\Graph\Beta\Generated\Models\ServiceAnnouncement;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
